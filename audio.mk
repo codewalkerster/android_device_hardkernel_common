@@ -16,7 +16,6 @@
 
 PRODUCT_PACKAGES += \
     audio_policy.default \
-    audio.primary.amlogic \
     audio.hdmi.amlogic \
     acoustics.default \
     audio_firmware
