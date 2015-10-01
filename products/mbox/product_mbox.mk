@@ -62,10 +62,6 @@ custom_keylayouts := $(wildcard $(LOCAL_PATH)/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):system/usr/keylayout/$(notdir $(file)))
 
-# bootanimation
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bootanimation.zip:system/media/bootanimation.zip
-
 # bootvideo
 BUILD_WITH_BOOT_PLAYER:= true
 PRODUCT_PACKAGES += \
@@ -75,9 +71,6 @@ PRODUCT_PACKAGES += \
     alsalib-alsaconf \
     alsalib-pcmdefaultconf \
     alsalib-cardsaliasesconf
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mbox.mp4:system/etc/bootvideo
 
 # default wallpaper for mbox to fix bug 106225
 PRODUCT_COPY_FILES += \
