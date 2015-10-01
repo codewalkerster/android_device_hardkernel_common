@@ -81,9 +81,6 @@ PRODUCT_PACKAGES += \
     alsalib-pcmdefaultconf \
     alsalib-cardsaliasesconf
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mbox.mp4:system/etc/bootvideo
-
 # default wallpaper for mbox to fix bug 106225
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/default_wallpaper.png:system/etc/default_wallpaper.png
