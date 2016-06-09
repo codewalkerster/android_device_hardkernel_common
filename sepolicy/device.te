@@ -1,0 +1,5 @@
+type secmem_device, dev_type;
+type ir_device, dev_type;
+type env_device, dev_type;
+type bootloader_device, dev_type;
+type defendkey_device, dev_type;

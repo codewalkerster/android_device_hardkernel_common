@@ -1,0 +1,3 @@
+type subtitle_service,          service_manager_type;
+type imageserver_service,       service_manager_type;
+type dig_service,               service_manager_type;

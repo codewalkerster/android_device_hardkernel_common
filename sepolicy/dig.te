@@ -1,0 +1,20 @@
+# dig daemon
+type dig, domain;
+type dig_exec, exec_type, file_type;
+init_daemon_domain(dig)
+
+allow dig cache_file:file { open write create };
+allow dig cache_file:dir { add_name write };
+allow dig system_file:file rx_file_perms;
+allow dig shell_exec:file rx_file_perms;
+allow dig zygote_exec:file rx_file_perms;
+allow dig system_server_service:service_manager add;
+binder_use(dig);
+binder_call(dig, binderservicedomain)
+binder_call(dig, system_server)
+binder_service(dig)
+allow dig device:dir { add_name remove_name write };
+allow dig self:capability { dac_override mknod sys_boot };
+allow dig dalvikcache_data_file:file {write execute};
+allow dig device:chr_file { open write create unlink };
+allow dig proc_sysrq:file rw_file_perms;
