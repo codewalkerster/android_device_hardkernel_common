@@ -702,8 +702,8 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB  := lib_driver_cmd_mtk
 
 LIB_WIFI_HAL := libwifi-hal-rtl
 
-PRODUCT_COPY_FILES += device/amlogic/$(TARGET_PRODUCT)/MT7601EEPROM.bin:system/bin/MT7601EEPROM.bin
-PRODUCT_COPY_FILES += device/amlogic/$(TARGET_PRODUCT)/RT2870STA.dat:system/etc/Wireless/RT2870STA/RT2870STA.dat
+PRODUCT_COPY_FILES += device/hardkernel/$(TARGET_PRODUCT)/MT7601EEPROM.bin:system/bin/MT7601EEPROM.bin
+PRODUCT_COPY_FILES += device/hardkernel/$(TARGET_PRODUCT)/RT2870STA.dat:system/etc/Wireless/RT2870STA/RT2870STA.dat
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0

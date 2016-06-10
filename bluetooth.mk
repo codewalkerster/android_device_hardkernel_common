@@ -59,7 +59,7 @@ ifeq ($(BLUETOOTH_MODULE),bcm40183)
 
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-PRODUCT_COPY_FILES += device/amlogic/common/tools/BCM40183B2_26M.hcd:system/etc/bluetooth/BCM4330.hcd
+PRODUCT_COPY_FILES += device/hardkernel/common/tools/BCM40183B2_26M.hcd:system/etc/bluetooth/BCM4330.hcd
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
@@ -69,9 +69,9 @@ PRODUCT_PACKAGES += libbt-vendor
 
 ifeq ($(BLUETOOTH_USE_BPLUS), true)
 ifeq ($(BCM_BLUETOOTH_LPM_ENABLE), true)
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor_lpm.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor_lpm.conf:system/etc/bluetooth/bt_vendor.conf
 else
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 endif
 endif
 endif
@@ -90,9 +90,9 @@ PRODUCT_PACKAGES += libbt-vendor
 
 ifeq ($(BLUETOOTH_USE_BPLUS), true)
 ifeq ($(BCM_BLUETOOTH_LPM_ENABLE), true)
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor_AP6210_lpm.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor_AP6210_lpm.conf:system/etc/bluetooth/bt_vendor.conf
 else
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor_AP6210.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor_AP6210.conf:system/etc/bluetooth/bt_vendor.conf
 endif
 endif
 endif
@@ -111,12 +111,12 @@ PRODUCT_PACKAGES += libbt-vendor
 
 ifeq ($(BLUETOOTH_USE_BPLUS), true)
 ifeq ($(BCM_BLUETOOTH_LPM_ENABLE), true)
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor_AP6476_lpm.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor_AP6476_lpm.conf:system/etc/bluetooth/bt_vendor.conf
 else
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor_AP6476.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor_AP6476.conf:system/etc/bluetooth/bt_vendor.conf
 endif
 endif
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_stack.conf:system/etc/bluetooth/bt_stack.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_stack.conf:system/etc/bluetooth/bt_stack.conf
 endif
 ################################################################################## AP6330
 ifeq ($(BLUETOOTH_MODULE),AP6330)
@@ -133,9 +133,9 @@ PRODUCT_PACKAGES += libbt-vendor
 
 ifeq ($(BLUETOOTH_USE_BPLUS), true)
 ifeq ($(BCM_BLUETOOTH_LPM_ENABLE), true)
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor_lpm.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor_lpm.conf:system/etc/bluetooth/bt_vendor.conf
 else
-    PRODUCT_COPY_FILES += device/amlogic/common/bplus/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    PRODUCT_COPY_FILES += device/hardkernel/common/bplus/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 endif
 endif
 endif
@@ -143,11 +143,11 @@ endif
 ifeq ($(BLUETOOTH_USE_BPLUS), true)
 # BPlus
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/bplus/bplus.default.so:system/lib/hw/bplus.default.so
+    device/hardkernel/common/bplus/bplus.default.so:system/lib/hw/bplus.default.so
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/bplus/iop_bt.db:system/etc/bluetooth/iop_bt.db \
-    device/amlogic/common/bplus/bt_did.conf:system/etc/bluetooth/bt_did.conf
+    device/hardkernel/common/bplus/iop_bt.db:system/etc/bluetooth/iop_bt.db \
+    device/hardkernel/common/bplus/bt_did.conf:system/etc/bluetooth/bt_did.conf
 
 PRODUCT_PACKAGES += libbt_cust \
     leexplorer

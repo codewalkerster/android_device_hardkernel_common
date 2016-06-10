@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ifeq (device/amlogic/common, $(call my-dir))
+ifeq (device/hardkernel/common, $(call my-dir))
 include $(all-subdir-makefiles)
 else
-$(warning "link to device/amlogic/common from "$(call my-dir)" , don't include Android.mk again")
+$(warning "link to device/hardkernel/common from "$(call my-dir)" , don't include Android.mk again")
 endif

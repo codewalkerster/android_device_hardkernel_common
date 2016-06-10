@@ -1,5 +1,5 @@
 BOARD_SEPOLICY_DIRS := \
-    device/amlogic/common/sepolicy
+    device/hardkernel/common/sepolicy
 
 BOARD_SEPOLICY_REPLACE := \
     domain.te

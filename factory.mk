@@ -1,5 +1,5 @@
 IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
-TARGET_PRODUCT_DIR := device/amlogic/$(TARGET_PRODUCT)
+TARGET_PRODUCT_DIR := device/hardkernel/$(TARGET_PRODUCT)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
 
 BUILT_IMAGES := boot.img recovery.img system.img userdata.img cache.img

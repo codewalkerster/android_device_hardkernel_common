@@ -33,7 +33,7 @@ PRODUCT_COPY_FILES += $(foreach file, $(soft_adec_libs), \
         vendor/amlogic/frameworks/av/LibPlayer/amadec/acodec_lib_50/$(file):system/lib/$(file))
         
 #audio data ko 
-PRODUCT_COPY_FILES += device/amlogic/common/audio/audio_data.ko:system/lib/audio_data.ko        
+PRODUCT_COPY_FILES += device/hardkernel/common/audio/audio_data.ko:system/lib/audio_data.ko
 
 ################################################################################## alsa
 

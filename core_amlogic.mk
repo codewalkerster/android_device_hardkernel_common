@@ -208,7 +208,7 @@ PRODUCT_SUPPORTS_VERITY := true
 # The dev key is used to sign boot and recovery images, and the verity
 # metadata table. Actual product deliverables will be re-signed by hand.
 # We expect this file to exist with the suffixes ".x509.pem" and ".pk8".
-PRODUCT_VERITY_SIGNING_KEY := device/amlogic/common/security/verity
+PRODUCT_VERITY_SIGNING_KEY := device/hardkernel/common/security/verity
 PRODUCT_PACKAGES += \
         verity_key.amlogic
 endif
@@ -221,8 +221,8 @@ endif
 #ifeq ($(BUILD_WITH_APP_OPTIMIZATION),true)
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/optimization/liboptimization.so:system/lib/liboptimization.so \
-    device/amlogic/common/optimization/config:system/package_config/config
+    device/hardkernel/common/optimization/liboptimization.so:system/lib/liboptimization.so \
+    device/hardkernel/common/optimization/config:system/package_config/config
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.app.optimization=true
@@ -235,8 +235,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/alarm/alarm_blacklist.txt:/system/etc/alarm_blacklist.txt \
-    device/amlogic/common/alarm/alarm_whitelist.txt:/system/etc/alarm_whitelist.txt
+    device/hardkernel/common/alarm/alarm_blacklist.txt:/system/etc/alarm_blacklist.txt \
+    device/hardkernel/common/alarm/alarm_whitelist.txt:/system/etc/alarm_whitelist.txt
 
 #########################################################################
 #
