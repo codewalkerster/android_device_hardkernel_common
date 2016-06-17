@@ -168,11 +168,11 @@ PRODUCT_PACKAGES += \
     ntfs-3g \
     ntfsfix \
     mkntfs \
-    gralloc.amlogic \
-    power.amlogic \
-    hwcomposer.amlogic \
-    memtrack.amlogic \
-    screen_source.amlogic
+    gralloc.$(TARGET_PRODUCT) \
+    power.$(TARGET_PRODUCT) \
+    hwcomposer.$(TARGET_PRODUCT) \
+    memtrack.$(TARGET_PRODUCT) \
+    screen_source.$(TARGET_PRODUCT)
 
 #glscaler and 3d format api
 PRODUCT_PACKAGES += \

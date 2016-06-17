@@ -25,11 +25,11 @@ PRODUCT_PACKAGES += \
 
 # Camera Hal
 PRODUCT_PACKAGES += \
-    camera.amlogic
+    camera.$(TARGET_PRODUCT)
 
 # HDMITX CEC HAL
 PRODUCT_PACKAGES += \
-    hdmi_cec.amlogic
+    hdmi_cec.$(TARGET_PRODUCT)
 
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 
