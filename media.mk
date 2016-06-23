@@ -68,9 +68,9 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_amh265dec\
     libstagefright_soft_amsoftdec\
     libstagefright_soft_amsoftadec \
-    libamffmpegadapter\
+    libamffmpegadapter
 
-#PRODUCT_PACKAGES += com.google.widevine.software.drm.xml \
+PRODUCT_PACKAGES += com.google.widevine.software.drm.xml \
     com.google.widevine.software.drm \
     libWVStreamControlAPI_L1 \
     libdrmwvmplugin_L1 \
