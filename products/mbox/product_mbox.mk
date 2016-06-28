@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
     TvSettings
 
 #MboxLauncher
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     MboxLauncher
 
 PRODUCT_COPY_FILES += \
