@@ -32,7 +32,7 @@ else
 endif
 
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
-PRODUCT_PACKAGES += Bluetooth \
+PRODUCT_PACKAGES += \
     bt_vendor.conf \
     bt_stack.conf \
     bt_did.conf \
