@@ -17,7 +17,7 @@
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     config.disable_bluetooth=false
-PRODUCT_PACKAGES += Bluetooth \
+PRODUCT_PACKAGES += \
     libbt-hci \
     bluetooth.default \
     audio.a2dp.default \
