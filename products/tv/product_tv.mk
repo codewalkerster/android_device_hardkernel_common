@@ -1,1 +1,1 @@
-$(call inherit-product, device/hardkernel/common/core_amlogic.mk)
+$(call inherit-product, device/hardkernel/common/core_odroid.mk)
