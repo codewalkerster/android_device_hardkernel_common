@@ -88,8 +88,4 @@ PRODUCT_COPY_FILES += \
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.config.wallpaper=/system/etc/default_wallpaper.png
 
-# Include BUILD_NUMBER if defined
-VERSION_ID=$(shell find device/*/$(TARGET_PRODUCT) -name version_id.mk)
-$(call inherit-product, $(VERSION_ID))
-
 DISPLAY_BUILD_NUMBER := true
