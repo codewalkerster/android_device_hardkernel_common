@@ -21,7 +21,8 @@ PRODUCT_PACKAGES += \
     libbt-hci \
     bluetooth.default \
     audio.a2dp.default \
-    libbt-client-api
+    libbt-client-api \
+    javax.btobex
 
 ifneq ($(wildcard device/hardkernel/$(TARGET_PRODUCT)/bluetooth),)
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/$(TARGET_PRODUCT)/bluetooth
