@@ -83,9 +83,6 @@ PRODUCT_PACKAGES += libomx_av_core_alt \
     libsecmem \
     secmem
 
-PRODUCT_COPY_FILES += \
-    device/hardkernel/$(TARGET_PRODUCT)/u-boot.bin:u-boot.bin
-
 # Dm-verity
 ifeq ($(BUILD_WITH_DM_VERITY), true)
 PRODUCT_SYSTEM_VERITY_PARTITION = /dev/block/system
