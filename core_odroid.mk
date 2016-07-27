@@ -20,14 +20,10 @@ PRODUCT_BOOT_JARS += \
     droidlogic.frameworks.pppoe
 
 PRODUCT_PACKAGES += \
-    RemoteIME \
     droidlogic \
     droidlogic-res \
     systemcontrol \
     systemcontrol_static \
-    libsystemcontrolservice \
-    VideoPlayer \
-    SubTitle \
     dig \
     PromptUser
 

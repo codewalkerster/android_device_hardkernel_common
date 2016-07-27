@@ -34,14 +34,11 @@ BOARD_SEPOLICY_UNION := \
     rild.te \
     modem_dongle_d.te \
     wlan_fwloader.te \
-    zygote.te \
     surfaceflinger.te \
     dig.te \
-    zygote_proxy.te \
     bootanim.te \
     bootvideo.te \
     platform_app.te \
-    instaboot.te \
     tvserver.te \
     tvcp.te \
     param.te \

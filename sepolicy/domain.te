@@ -174,7 +174,7 @@ neverallow { domain -unconfineddomain -recovery } unlabeled:dir_file_class_set c
 neverallow { domain -debuggerd -vold -dumpstate -system_server } self:capability sys_ptrace;
 
 # Limit device node creation to these whitelisted domains.
-neverallow { domain -kernel -init -recovery -ueventd -watchdogd -healthd -vold -uncrypt -dig -zygote_proxy } self:capability mknod;
+neverallow { domain -kernel -init -recovery -ueventd -watchdogd -healthd -vold -uncrypt -dig } self:capability mknod;
 
 # Limit raw I/O to these whitelisted domains.
 neverallow { domain -kernel -init -recovery -ueventd -watchdogd -healthd -vold -vold_ext -uncrypt -tee } self:capability sys_rawio;
@@ -250,17 +250,17 @@ neverallow domain init:binder call;
 
 # Don't allow raw read/write/open access to block_device
 # Rather force a relabel to a more specific type
-neverallow { domain -kernel -init -recovery -vold -vold_ext -uncrypt -install_recovery -instaboot -tvserver -dig } block_device:blk_file { open read write };
+neverallow { domain -kernel -init -recovery -vold -vold_ext -uncrypt -install_recovery -tvserver -dig } block_device:blk_file { open read write };
 
 # Don't allow raw read/write/open access to generic devices.
 # Rather force a relabel to a more specific type.
 # ueventd is exempt from this, as its managing these devices.
-neverallow { domain -unconfineddomain -ueventd -dig -zygote_proxy } device:chr_file { open read write };
+neverallow { domain -unconfineddomain -ueventd -dig } device:chr_file { open read write };
 
 # Limit what domains can mount filesystems or change their mount flags.
 # sdcard_type / vfat is exempt as a larger set of domains need
 # this capability, including device-specific domains.
-neverallow { domain -kernel -init -recovery -vold -vold_ext -zygote -instaboot -dig } { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
+neverallow { domain -kernel -init -recovery -vold -vold_ext -zygote -dig } { fs_type -sdcard_type }:filesystem { mount remount relabelfrom relabelto };
 
 #
 # Assert that, to the extent possible, we're not loading executable content from
@@ -276,7 +276,6 @@ neverallow {
     -mediaserver
     -zygote
     -dig
-    -zygote_proxy
 } { file_type -system_file -exec_type }:file execute;
 neverallow {
     domain

@@ -33,14 +33,12 @@
 
 /data/media_rw/sdcard1  u:object_r:media_rw_data_file:s0
 
-/system/bin/instabootserver u:object_r:instaboot_exec:s0
 /system/bin/systemcontrol   u:object_r:system_control_exec:s0
 /system/bin/remotecfg       u:object_r:remotecfg_exec:s0
 /system/bin/imageserver     u:object_r:imageserver_exec:s0
 /system/bin/pppoe_wrapper   u:object_r:pppoe_wrapper_exec:s0
 /system/bin/wlan_fwloader   u:object_r:wlan_fwloader_exec:s0
 /system/bin/dig             u:object_r:dig_exec:s0
-/system/bin/zygote_proxy    u:object_r:zygote_proxy_exec:s0
 /system/bin/init-pppd.sh    u:object_r:ppp_exec:s0
 /system/bin/chat            u:object_r:ppp_device:s0
 /system/etc/ppp(/.*)?       u:object_r:ppp_system_file:s0

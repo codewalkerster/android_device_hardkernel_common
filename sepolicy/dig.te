@@ -7,7 +7,6 @@ allow dig cache_file:file { open write create };
 allow dig cache_file:dir { add_name write };
 allow dig system_file:file rx_file_perms;
 allow dig shell_exec:file rx_file_perms;
-allow dig zygote_exec:file rx_file_perms;
 allow dig system_server_service:service_manager add;
 binder_use(dig);
 binder_call(dig, binderservicedomain)

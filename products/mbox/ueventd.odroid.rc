@@ -19,7 +19,6 @@
 /dev/amaudio_utils        0660   media     system
 /dev/amaudio_ctl          0660   media     system
 /dev/amvenc_avc           0660   media     system
-/dev/amsubtitle           0660   media     system
 /dev/jpegenc		  0660   media     system
 
 #audio data

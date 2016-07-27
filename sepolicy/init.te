@@ -13,14 +13,6 @@ allow init fuse:dir search;
 domain_trans(init, dig_exec, dig)
 domain_auto_trans(init, dig_exec, dig)
 
-#allow zygote_proxy service
-domain_trans(init, zygote_proxy_exec, zygote_proxy)
-domain_auto_trans(init, zygote_proxy_exec, zygote_proxy)
-
-#allow instaboot service
-domain_trans(init, instaboot_exec, instaboot)
-domain_auto_trans(init, instaboot_exec, instaboot)
-
 #allow tvserver service
 domain_trans(init, tvserver_exec, tvserver)
 domain_auto_trans(init, tvserver_exec, tvserver)
