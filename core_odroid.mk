@@ -35,6 +35,9 @@ PRODUCT_PACKAGES += \
     Miracast
 
 PRODUCT_PACKAGES += \
+	SpeechRecorder
+
+PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf \
