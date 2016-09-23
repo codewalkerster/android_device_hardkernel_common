@@ -24,8 +24,10 @@ PRODUCT_PACKAGES += \
     droidlogic-res \
     systemcontrol \
     systemcontrol_static \
-    dig \
     PromptUser
+
+PRODUCT_PACKAGES += \
+	SpeechRecorder
 
 PRODUCT_PACKAGES += \
     hostapd \
