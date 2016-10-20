@@ -69,6 +69,7 @@ endif
 #                                                Widevine drm
 #
 #########################################################################
+BUILD_WITH_WIDEVINE_DRM := true
 ifeq ($(BUILD_WITH_WIDEVINE_DRM),true)
 
 PRODUCT_PROPERTY_OVERRIDES += drm.service.enable=true
