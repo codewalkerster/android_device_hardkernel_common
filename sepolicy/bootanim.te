@@ -1,2 +1,0 @@
-#Bootanim start bootvideo
-allow bootanim system_control:binder call;

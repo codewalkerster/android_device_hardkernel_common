@@ -1,3 +1,0 @@
-type imageserver_service,       service_manager_type;
-type dig_service,               service_manager_type;
-type tvserver_service,          service_manager_type;

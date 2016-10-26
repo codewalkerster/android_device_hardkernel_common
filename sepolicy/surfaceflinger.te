@@ -1,2 +1,0 @@
-allow surfaceflinger sysfs:file write;
-allow surfaceflinger sysfs_xbmc:file {open read write};

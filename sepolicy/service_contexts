@@ -1,5 +1,0 @@
-system_control                              u:object_r:system_server_service:s0
-image.player                                u:object_r:imageserver_service:s0
-pppoe                                       u:object_r:system_server_service:s0
-dig                                         u:object_r:dig_service:s0
-aml.tvserver                                u:object_r:tvserver_service:s0
