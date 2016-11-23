@@ -70,7 +70,7 @@ PRODUCT_PACKAGES += \
     tinyplay \
     tinycap \
     tinymix \
-    audio.usb.amlogic
+    audio.usb.odroidc2
 endif
 
 ##################################################################################
