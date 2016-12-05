@@ -17,7 +17,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
 
 # USB camera default face
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     rw.camera.usb.faceback=true
 
 SKIP_BOOT_JARS_CHECK = true
