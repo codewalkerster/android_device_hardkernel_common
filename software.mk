@@ -1,27 +1,3 @@
-ifeq ($(BOARD_SUPPORT_INSTABOOT), true)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    config.disable_instaboot=false
-
-instaboot_config_file := $(wildcard $(LOCAL_PATH)/instaboot_config.xml)
-
-PRODUCT_COPY_FILES += \
-    $(instaboot_config_file):system/etc/instaboot_config.xml
-
-instaboot_rc := $(wildcard $(LOCAL_PATH)/instaboot.rc)
-ifeq ($(instaboot_rc),)
-instaboot_rc := device/hardkernel/common/instaboot.rc
-endif
-
-PRODUCT_COPY_FILES += \
-    $(instaboot_rc):root/instaboot.rc
-
-#WITH_DEXPREOPT := true
-#WITH_DEXPREOPT_PIC := true
-
-PRODUCT_PACKAGES += instabootserver
-endif
-
 #PRODUCT_PROPERTY_OVERRIDES += \
     ro.adb.secure=1
 
