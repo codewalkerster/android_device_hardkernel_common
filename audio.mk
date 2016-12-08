@@ -69,8 +69,7 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     tinyplay \
     tinycap \
-    tinymix \
-    audio.usb.odroidc2
+    tinymix
 endif
 
 ##################################################################################
