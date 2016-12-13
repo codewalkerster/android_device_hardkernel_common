@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
     QuickSearchBox
 else
 PRODUCT_PACKAGES += \
-    Dig \
     libfwdlockengine
 
 endif

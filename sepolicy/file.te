@@ -12,6 +12,3 @@ type sysfs_xbmc, fs_type, sysfs_type;
 
 #optee
 type drm_device, fs_type,sysfs_type;
-
-#dig_socket
-type dig_socket, file_type;
