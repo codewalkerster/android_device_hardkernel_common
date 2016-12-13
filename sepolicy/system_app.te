@@ -20,7 +20,6 @@ allow system_app video_device:chr_file { rw_file_perms };
 allow system_app system_app:netlink_kobject_uevent_socket {create bind read};
 allow system_app vold:unix_stream_socket connectto;
 allow system_app pppoe_service:service_manager add;
-allow system_app dig_socket:sock_file write;
 
 allow system_app iso9660:dir { search read open };
 allow system_app unlabeled:dir { search read write getattr };
