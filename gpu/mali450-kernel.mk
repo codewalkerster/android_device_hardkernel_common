@@ -13,4 +13,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include hardware/arm/gpu/gpu.mk
+
+MALI=hardware/arm/gpu/mali
+MALI_OUT=hardware/arm/gpu/mali
+KERNEL_ARCH ?= arm
+
+define gpu-modules
+
+$(MALI_KO):
+	@echo "make mali module KERNEL_ARCH is $(KERNEL_ARCH)"
+	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/$(MALI)		\
+	ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) CONFIG_MALI400=m  CONFIG_MALI450=m 	\
+	CONFIG_GPU_THERMAL=y CONFIG_AM_VDEC_H264_4K2K=y modules
+
+	mkdir -p $(PRODUCT_OUT)/root/boot
+	cp $(MALI_OUT)/mali.ko $(PRODUCT_OUT)/root/boot
+endef
+
+define ump-modules
+$(UMP_KO):
+	@echo "make ump module"
+	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/$(UMP)     	\
+	ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) CONFIG_MALI400=m CONFIG_MALI450=m	\
+	CONFIG_GPU_THERMAL=y CONFIG_AM_VDEC_H264_4K2K=y modules
+
+	mkdir -p $(PRODUCT_OUT)/root/boot
+	cp $(UMP_OUT)/ump.ko $(PRODUCT_OUT)/root/boot
+endef
