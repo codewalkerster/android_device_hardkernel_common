@@ -34,9 +34,6 @@ AP6212:
 AP62x2:
 	@echo "wifi module is AP62x2"
 	$(bcmwifi-modules)
-AP6255:
-	@echo "wifi module is AP6255"
-	$(bcmwifi-modules)
 bcm43341:
 	@echo "wifi module is bcm43341"
 	$(bcmwifi-modules)
@@ -58,18 +55,6 @@ bcm4356:
 bcm43458:
 	@echo "wifi module is bcm43458"
 	$(bcmwifi-modules)
-define bcmd-usb-wifi-modules
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/ap6xxx/bcmdhd-usb.1.201.88.27.x ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/vendor/broadcom/btusb/btusb_1_6_29_1/ ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
-	cp $(shell pwd)/hardware/wifi/broadcom/drivers/ap6xxx/bcmdhd-usb.1.201.88.27.x/bcmdhd.ko $(TARGET_OUT)/lib/
-	cp $(shell pwd)/vendor/broadcom/btusb/btusb_1_6_29_1/btusb.ko $(TARGET_OUT)/lib/
-endef
-AP6269:
-	@echo "wifi module is AP6269"
-	$(bcmd-usb-wifi-modules)
-AP6242:
-	@echo "wifi module is AP6242"
-	$(bcmd-usb-wifi-modules)
 
 rtl8189es:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8189es/rtl8189ES ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
@@ -87,10 +72,6 @@ rtl8723bs:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8723bs/rtl8723BS ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
 	cp $(shell pwd)/hardware/wifi/realtek/drivers/8723bs/rtl8723BS/8723bs.ko $(TARGET_OUT)/lib/
 
-rtl8723bu:
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8723bu/rtl8723BU ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
-	cp $(shell pwd)/hardware/wifi/realtek/drivers/8723bu/rtl8723BU/8723bu.ko $(TARGET_OUT)/lib/
-
 rtl8188eu:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8188eu/rtl8xxx_EU ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
 	cp $(shell pwd)/hardware/wifi/realtek/drivers/8188eu/rtl8xxx_EU/8188eu.ko $(TARGET_OUT)/lib/
@@ -98,10 +79,6 @@ rtl8188eu:
 rtl8812au:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8812au/rtl8812AU ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
 	cp $(shell pwd)/hardware/wifi/realtek/drivers/8812au/rtl8812AU/8812au.ko $(TARGET_OUT)/lib/
-
-rtl8822bu:
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8822bu/rtl8822BU ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
-	cp $(shell pwd)/hardware/wifi/realtek/drivers/8822bu/rtl8822BU/8822bu.ko $(TARGET_OUT)/lib/
 
 mt7601u:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/mtk/drivers/mt7601 ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
@@ -112,11 +89,7 @@ mt7603u:
 	$(MAKE) CROSS_COMPILE=$(CROSS_COMPILE) LINUX_SRC=$(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ RT28xx_DIR=$(shell pwd)/hardware/wifi/mtk/drivers/mt7603 -f $(shell pwd)/hardware/wifi/mtk/drivers/mt7603/Makefile
 	cp $(shell pwd)/hardware/wifi/mtk/drivers/mt7603/os/linux/mt7603usta.ko $(TARGET_OUT)/lib/
 	cp $(shell pwd)/hardware/wifi/mtk/drivers/mt7603/os/linux/mtprealloc.ko $(TARGET_OUT)/lib/
-qca9377:
-	$(MAKE) -C $(shell pwd)/hardware/wifi/qualcomm/drivers/qca9377/AIO/build drivers BOARD_TYPE=x86-android IF_TYPE=SDIO KERNELPATH=$(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ
-	cp $(shell pwd)/hardware/wifi/qualcomm/drivers/qca9377/AIO/rootfs-x86-android.build/lib/modules/wlan.ko $(TARGET_OUT)/lib/
-	cp $(shell pwd)/hardware/wifi/qualcomm/drivers/qca9377/AIO/rootfs-x86-android.build/lib/modules/cfg80211.ko $(TARGET_OUT)/lib/
-	cp $(shell pwd)/hardware/wifi/qualcomm/drivers/qca9377/AIO/rootfs-x86-android.build/lib/modules/compat.ko $(TARGET_OUT)/lib/
+
 multiwifi:
 	@echo "make wifi module KERNEL_ARCH is $(KERNEL_ARCH)"
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8189es/rtl8189ES ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules

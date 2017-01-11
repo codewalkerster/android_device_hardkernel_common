@@ -106,33 +106,6 @@ else
 INSTALLED_MANIFEST_XML :=
 endif
 
-INSTALLED_AML_USER_IMAGES :=
-ifeq ($(TARGET_BUILD_USER_PARTS),true)
-define aml-mk-user-img-template
-INSTALLED_AML_USER_IMAGES += $(2)
-$(eval tempUserSrcDir := $$($(strip $(1))_PART_DIR))
-$(2): $(TARGET_ROOT_OUT)/file_contexts contexts_add $(MAKE_EXT4FS) $(shell find $(tempUserSrcDir) -type f)
-	@echo $(MAKE_EXT4FS) -s -S $$< -l $$($(strip $(1))_PART_SIZE) -a $(1) $$@  $(tempUserSrcDir) && \
-	$(MAKE_EXT4FS) -s -S $$< -l $$($(strip $(1))_PART_SIZE) -a $(1) $$@  $(tempUserSrcDir)
-endef
-.PHONY:contexts_add
-contexts_add:$(TARGET_ROOT_OUT)/file_contexts
-	$(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
-		$(shell sed -i "/\/$(strip $(userPartName))/d" $< && \
-		echo -e "/$(strip $(userPartName))(/.*)?      u:object_r:system_file:s0" >> $<))
-$(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
-	$(eval $(call aml-mk-user-img-template, $(userPartName),$(PRODUCT_OUT)/$(userPartName).img)))
-
-define aml-user-img-update-pkg
-	ln -sf $(ANDROID_BUILD_TOP)/$(PRODUCT_OUT)/$(1).img $(PRODUCT_UPGRADE_OUT)/$(1).img && \
-	sed -i "/file=\"$(1)\.img\"/d" $(2) && \
-	echo -e "file=\"$(1).img\"\t\tmain_type=\"PARTITION\"\t\tsub_type=\"$(1)\"" >> $(2) ;
-endef
-
-.PHONY: aml_usrimg
-aml_usrimg :$(INSTALLED_AML_USER_IMAGES)
-endif # ifeq ($(TARGET_BUILD_USER_PARTS),true)
-
 ifeq ($(TARGET_SUPPORT_USB_BURNING_V2),true)
 INSTALLED_AML_UPGRADE_PACKAGE_TARGET := $(PRODUCT_OUT)/aml_upgrade_package.img
 
@@ -143,15 +116,15 @@ else
 endif
 
 ifeq ($(TARGET_USE_SECURITY_DM_VERITY_MODE_WITH_TOOL),true)
-  SYSTEMIMG_INTERMEDIATES := $(PRODUCT_OUT)/obj/PACKAGING/systemimage_intermediates/system.img.
-  SYSTEMIMG_INTERMEDIATES := $(SYSTEMIMG_INTERMEDIATES)verity_table.bin $(SYSTEMIMG_INTERMEDIATES)verity.img
+  SYSTEMIMG_INTERMEDIATES := $(PRODUCT_OUT)/obj/PACKAGING/systemimage_intermediates
+  SYSTEMIMG_INTERMEDIATES := $(SYSTEMIMG_INTERMEDIATES)/verity_table.bin $(SYSTEMIMG_INTERMEDIATES)/verity.img
   define security_dm_verity_conf
 	  @echo "copy verity.img and verity_table.bin"
 	  @sed -i "/verity_table.bin/d" $(PACKAGE_CONFIG_FILE)
 	  @sed -i "/verity.img/d" $(PACKAGE_CONFIG_FILE)
 	  $(hide) \
-		sed -i "/aml_sdc_burn\.ini/ s/.*/&\nfile=\"system.img.verity.img\"\t\tmain_type=\"img\"\t\tsub_type=\"verity\"/" $(PACKAGE_CONFIG_FILE); \
-		sed -i "/aml_sdc_burn\.ini/ s/.*/&\nfile=\"system.img.verity_table.bin\"\t\tmain_type=\"bin\"\t\tsub_type=\"verity_table\"/" $(PACKAGE_CONFIG_FILE);
+		sed -i "/aml_sdc_burn\.ini/ s/.*/&\nfile=\"verity.img\"\t\tmain_type=\"img\"\t\tsub_type=\"verity\"/" $(PACKAGE_CONFIG_FILE); \
+		sed -i "/aml_sdc_burn\.ini/ s/.*/&\nfile=\"verity_table.bin\"\t\tmain_type=\"bin\"\t\tsub_type=\"verity_table\"/" $(PACKAGE_CONFIG_FILE);
 	  cp $(SYSTEMIMG_INTERMEDIATES) $(PRODUCT_UPGRADE_OUT)/
   endef #define security_dm_verity_conf
 endif # ifeq ($(TARGET_USE_SECURITY_DM_VERITY_MODE_WITH_TOOL),true)
@@ -175,7 +148,6 @@ aml_upgrade:$(INSTALLED_AML_UPGRADE_PACKAGE_TARGET)
 $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET): \
 	$(addprefix $(PRODUCT_OUT)/,$(BUILT_IMAGES)) \
 	$(UPGRADE_FILES) \
-	$(INSTALLED_AML_USER_IMAGES) \
 	$(INSTALLED_AML_LOGO) \
 	$(INSTALLED_BOARDDTB_TARGET) \
 	$(INSTALLED_MANIFEST_XML) \
@@ -209,10 +181,8 @@ ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 	$(hide) $(ACP) $(PRODUCT_OUT)/u-boot.bin.encrypt.* $(PRODUCT_UPGRADE_OUT)/
 	$(hide) $(ACP) $(TARGET_DEVICE_DIR)/upgrade/aml_upgrade_package_enc.conf $(PACKAGE_CONFIG_FILE)
 endif#ifneq ($(TARGET_USE_SECURITY_MODE),true)
-	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
-	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
-		$(call aml-user-img-update-pkg,$(userPartName),$(PACKAGE_CONFIG_FILE)))
+	$(security_dm_verity_conf)
 	@echo "Package: $@"
 	@echo ./vendor/amlogic/tools/aml_upgrade/aml_image_v2_packer -r \
 		$(PACKAGE_CONFIG_FILE) \

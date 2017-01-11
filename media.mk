@@ -64,8 +64,7 @@ PRODUCT_COPY_FILES += \
     vendor/playready/playreadyplugin/keycert/zgpriv.dat:system/etc/drm/playready/zgpriv.dat \
     vendor/playready/playreadyplugin/keycert/bgroupcert.dat:system/etc/drm/playready/bgroupcert.dat \
     vendor/playready/playreadyplugin/keycert/devcerttemplate.dat:system/etc/drm/playready/devcerttemplate.dat \
-    vendor/playready/playreadyplugin/keycert/priv.dat:system/etc/drm/playready/priv.dat \
-    vendor/playready/playreadyplugin/keycert/zgpriv_protected.dat:system/etc/drm/playready/zgpriv_protected.dat
+    vendor/playready/playreadyplugin/keycert/priv.dat:system/etc/drm/playready/priv.dat
 
 endif
 

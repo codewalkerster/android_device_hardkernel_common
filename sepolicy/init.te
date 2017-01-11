@@ -6,7 +6,6 @@ domain_auto_trans(init, system_control_exec, system_server)
 #allow init imageserver_service:service_manager add;
 domain_trans(init, imageserver_exec, imageserver)
 
-domain_trans(init, tee_supplicant_exec, tee_supplicant)
 allow init fuse:file { open read write };
 allow init fuse:dir search;
 
@@ -18,7 +17,7 @@ domain_trans(init, make_ext4fs_exec, make_ext4fs)
 
 domain_trans(init, hdcp_tx22_exec, hdcp_tx22)
 
-domain_trans(init, bcmdl_exec, bcmdl);
+
 #allow usbpm service
 domain_trans(init, usbpm_exec, usbpm)
 domain_auto_trans(init, usbpm_exec, usbpm)
@@ -45,7 +44,6 @@ allow init env_device:chr_file { getattr read write open };
 allow init functionfs:file mounton;
 allow init functionfs:dir mounton;
 allow init drm_device:chr_file {setattr read write open ioctl};
-allow shell drm_device:chr_file rw_file_perms;
 allow init system_data_file:file {link};
 allow init debugfs:dir mounton;
 allow init userdata_block_device:blk_file rw_file_perms;
@@ -64,5 +62,3 @@ allow init property_socket:sock_file write;
 allow init self:netlink_kobject_uevent_socket { create read write };
 
 allow init param_block_device:blk_file { getattr read write open };
-
-allow init drm_block_device:blk_file rw_file_perms;

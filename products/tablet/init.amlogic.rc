@@ -150,10 +150,6 @@ on boot
     chown system system /sys/class/amhdmitx/amhdmitx0/cec_config
     chown system system /sys/class/amhdmitx/amhdmitx0/cec_lang_config
     chown system system /sys/class/amhdmitx/amhdmitx0/config
-    chown media system /sys/class/switch/hdmi/state
-    chmod 0660 /sys/class/switch/hdmi/state
-    chown media system /sys/devices/virtual/switch/hdmi/state
-    chmod 0660 /sys/devices/virtual/switch/hdmi/state
 
     chown media  system /sys/class/vfm/map
 
@@ -233,12 +229,6 @@ on boot
     chmod 664 /sys/class/mpgpu/scale_mode
     chown system system /sys/class/mpgpu/mpgpucmd
     chmod 664 /sys/class/mpgpu/mpgpucmd
-
-    #di detect 3D
-    chmod 664 /sys/module/di/parameters/det3d_en
-    chmod 664 /sys/module/di/parameters/prog_proc_config
-    chown root system /sys/module/di/parameters/det3d_en
-    chown root system /sys/module/di/parameters/prog_proc_config
 
     start sdcard
 

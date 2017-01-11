@@ -6,6 +6,7 @@ type defendkey_device, dev_type;
 type dtb_device, dev_type;
 type dvb_device, dev_type;
 type cec_device, dev_type;
+type physical_block_device, dev_type;
 
 type param_tv_device, dev_type;
 type param_block_device, dev_type;

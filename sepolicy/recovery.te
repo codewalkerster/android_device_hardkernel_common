@@ -21,6 +21,4 @@ recovery_only(`
   allow recovery dtb_device:chr_file { open read write };
   allow recovery aml_display_prop:property_service set;
   allow recovery kmsg_device:chr_file rw_file_perms;
-  allow recovery recovery:capability { net_admin };
-  allow recovery recovery:netlink_kobject_uevent_socket { create bind setopt read };
 ')

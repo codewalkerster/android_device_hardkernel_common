@@ -14,4 +14,22 @@
 # limitations under the License.
 #
 
-include hardware/arm/gpu/gpu.mk
+MALI=hardware/arm/gpu/t83x/kernel/drivers/gpu/arm/midgard
+MALI_OUT=hardware/arm/gpu/t83x/kernel/drivers/gpu/arm/midgard
+KERNEL_ARCH ?= arm
+
+define gpu-modules
+
+$(MALI_KO):
+	@echo "make mali module KERNEL_ARCH is $(KERNEL_ARCH) current dir is $(shell pwd)"
+	@echo "MALI is $(MALI), MALI_OUT is $(MALI_OUT)"
+	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/$(MALI)	  \
+	ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) \
+	EXTRA_CFLAGS="-DCONFIG_MALI_PLATFORM_DEVICETREE -DCONFIG_MALI_MIDGARD_DVFS -DCONFIG_MALI_BACKEND=gpu" \
+	CONFIG_MALI_MIDGARD=m CONFIG_MALI_PLATFORM_DEVICETREE=y CONFIG_MALI_MIDGARD_DVFS=y CONFIG_MALI_BACKEND=gpu modules
+
+	mkdir -p $(PRODUCT_OUT)/root/boot
+	cp $(MALI_OUT)/mali_kbase.ko $(PRODUCT_OUT)/root/boot/
+	$(cd -)
+	@echo "make mali module finished current dir is $(shell pwd)"
+endef

@@ -32,13 +32,9 @@ on init
     chmod 666 /sys/class/video/blackout_policy
     chmod 666 /sys/class/tsync/vpause_flag
     chmod 0666 /dev/amstream_sub_read
-    chmod 0666 /sys/class/gpio/export
-    chmod 0666 /sys/class/gpio/unexport
 
     # for zram
     mkdir /swap_zram0 0700 root root
-
-    chown media system /sys/class/graphics/fb0/osd_afbcd
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -94,7 +90,6 @@ on boot
     chown media system /sys/class/tsync/av_threshold_min
     chown media system /sys/class/tsync/av_threshold_max
     chown system system /sys/class/graphics/fb0/blank
-    chown media system /sys/class/graphics/fb0/free_scale_switch
     chown media system /sys/class/graphics/fb1/blank
     chown media system /sys/class/graphics/fb0/order
     chown media system /sys/class/graphics/fb1/order
@@ -102,10 +97,10 @@ on boot
     chown media system /sys/class/graphics/fb0/enable_key_onhold
     chown media system /sys/module/amlvideodri/parameters/freerun_mode
     chown media system /sys/module/ionvideo/parameters/freerun_mode
+    chown media system /sys/class/graphics/fb0/osd_afbcd
 
     chmod 0664 /sys/class/graphics/fb0/blank
     chmod 0664 /sys/class/graphics/fb1/blank
-    chmod 0664 /sys/class/graphics/fb0/free_scale_switch
 
     chown media system /sys/class/video/blackout_policy
     chown media system /sys/class/video/screen_mode
@@ -237,11 +232,6 @@ on boot
     chown system system /sys/class/amhdmitx/amhdmitx0/config
     chown system system /sys/class/amhdmitx/amhdmitx0/avmute
     chmod 644 /sys/class/amhdmitx/amhdmitx0/avmute
-    chown media system /sys/class/amhdmitx/amhdmitx0/aud_output_chs
-    chown media system /sys/class/switch/hdmi/state
-    chmod 0660 /sys/class/switch/hdmi/state
-    chown media system /sys/devices/virtual/switch/hdmi/state
-    chmod 0660 /sys/devices/virtual/switch/hdmi/state
 
     chown media  system /sys/class/vfm/map
 
@@ -317,12 +307,6 @@ on boot
     chown system system /sys/class/mpgpu/mpgpucmd
     chmod 664 /sys/class/mpgpu/mpgpucmd
 
-    #di detect 3D
-    chmod 664 /sys/module/di/parameters/det3d_en
-    chmod 664 /sys/module/di/parameters/prog_proc_config
-    chown root system /sys/module/di/parameters/det3d_en
-    chown root system /sys/module/di/parameters/prog_proc_config
-
 #   start sdcard
 
     write /sys/class/vfm/map "rm default"
@@ -341,7 +325,7 @@ on aml-firstboot-init
 
 
 service system_control /system/bin/systemcontrol
-    class core
+    class main
     user root
     group system
     seclabel u:r:system_control:s0

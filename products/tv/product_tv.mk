@@ -3,7 +3,6 @@ $(call inherit-product, device/amlogic/common/core_amlogic.mk)
 # TV
 PRODUCT_PACKAGES += \
     libtv \
-    libtv_linker \
     libtvbinder \
     libtv_jni \
     tvserver \
@@ -24,8 +23,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libam_adp \
 	libam_mw \
-	libam_ver \
-	libam_sysfs
+	libam_ver
 
 PRODUCT_PACKAGES += \
     imageserver \
@@ -43,7 +41,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     hdmi_cec.amlogic
 
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
 
 # NativeImagePlayer
 PRODUCT_PACKAGES += \
@@ -70,9 +68,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml \
     frameworks/native/data/etc/android.software.backup.xml:system/etc/permissions/android.software.backup.xml \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml \
-    frameworks/native/data/etc/android.hardware.audio.output.xml:system/etc/permissions/android.hardware.audio.output.xml \
-    frameworks/native/data/etc/android.software.print.xml:system/etc/permissions/android.software.print.xml \
-    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml
+    frameworks/native/data/etc/android.software.device_admin.xml:system/etc/permissions/android.software.device_admin.xml
 
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
@@ -90,16 +86,6 @@ PRODUCT_COPY_FILES += \
 custom_keylayouts := $(wildcard $(LOCAL_PATH)/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):system/usr/keylayout/$(notdir $(file)))
-
-# hdcp_rx key tools and firmware
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/hdcp_rx22/hdcp_rx22:system/bin/hdcp_rx22 \
-    device/amlogic/common/hdcp_rx22/arm_tools/aictool:system/bin/aictool \
-    device/amlogic/common/hdcp_rx22/arm_tools/esm_swap:system/bin/esm_swap \
-    device/amlogic/common/hdcp_rx22/arm_tools/hdcprxkeys:system/bin/hdcprxkeys \
-    device/amlogic/common/hdcp_rx22/firmware/esm_config.i:system/etc/firmware/hdcp_rx22/esm_config.i \
-    device/amlogic/common/hdcp_rx22/firmware/firmware.rom:system/etc/firmware/hdcp_rx22/firmware.rom \
-    device/amlogic/common/hdcp_rx22/firmware/firmware.aic:system/etc/firmware/hdcp_rx22/firmware.aic
 
 # bootanimation
 PRODUCT_COPY_FILES += \

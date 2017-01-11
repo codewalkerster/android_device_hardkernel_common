@@ -1,5 +1,5 @@
 type pppoe_wrapper, domain;
-type pppoe_wrapper_exec, exec_type;
+type pppoe_wrapper_exec, exec_type, file_type;
 
 init_daemon_domain(pppoe_wrapper)
 
@@ -13,10 +13,9 @@ allow pppoe_wrapper pppoe_wrapper:capability { net_raw dac_override net_admin se
 allow pppoe_wrapper pppoe_wrapper:netlink_route_socket { bind create read write };
 allow pppoe_wrapper property_socket:sock_file write;
 allow pppoe_wrapper system_app:unix_dgram_socket sendto;
-allow pppoe_wrapper ppp_data_file:sock_file { create write setattr unlink };
-allow pppoe_wrapper ppp_data_file:dir { write search setattr create add_name mounton remove_name };
-allow pppoe_wrapper ppp_data_file:file { create write open lock getattr read unlink };
-allow pppoe_wrapper ppp_system_file:dir search;
+allow pppoe_wrapper ppp_system_file:sock_file { create write setattr };
+allow pppoe_wrapper ppp_system_file:dir { write search setattr create add_name mounton remove_name };
+allow pppoe_wrapper ppp_system_file:file { create write open lock getattr read unlink };
 allow pppoe_wrapper ppp_device:chr_file { read write open ioctl };
 allow pppoe_wrapper devpts:chr_file { read write setattr open ioctl };
 allow pppoe_wrapper socket_device:dir { add_name write };

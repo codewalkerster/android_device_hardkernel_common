@@ -45,7 +45,6 @@
 /dev/ptya1                0660   system     system
 /dev/ttyHS2               0666   bluetooth  bluetooth
 /dev/ttyS20               0664   system     system
-/dev/btusb0               0660   bluetooth     net_bt_stack
 
 #For invensense`s sensors
 /dev/mpu                  0666   system     system

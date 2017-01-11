@@ -69,7 +69,8 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     tinyplay \
     tinycap \
-    tinymix
+    tinymix \
+    audio.usb.$(TARGET_PRODUCT)
 endif
 
 ##################################################################################

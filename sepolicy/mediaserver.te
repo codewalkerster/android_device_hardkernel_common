@@ -18,6 +18,3 @@ allow mediaserver screenmediasource_service:service_manager add;
 allow mediaserver system_control_service:service_manager find;
 allow mediaserver media_data_file:lnk_file  {create open read write};
 allow mediaserver drm_device:chr_file  {open read write ioctl};
-allow mediaserver tvserver:fd use;
-allow mediaserver storage_file:dir search;
-

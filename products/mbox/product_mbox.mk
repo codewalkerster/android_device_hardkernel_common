@@ -13,7 +13,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     remotecfg
 
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
 
 # NativeImagePlayer
 PRODUCT_PACKAGES += \
@@ -49,10 +49,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml \
     frameworks/native/data/etc/android.software.backup.xml:system/etc/permissions/android.software.backup.xml \
-    frameworks/native/data/etc/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml \
-    frameworks/native/data/etc/android.hardware.audio.output.xml:system/etc/permissions/android.hardware.audio.output.xml \
-    frameworks/native/data/etc/android.software.print.xml:system/etc/permissions/android.software.print.xml \
-    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml
+    frameworks/native/data/etc/android.software.device_admin.xml:system/etc/permissions/android.software.device_admin.xml \
+    frameworks/native/data/etc/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml
 
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
@@ -61,10 +59,6 @@ PRODUCT_COPY_FILES += \
 	device/hardkernel/common/config/lowmemorykiller.txt:system/etc/lowmemorykiller.txt \
 	device/hardkernel/common/config/lowmemorykiller_512M.txt:system/etc/lowmemorykiller_512M.txt
 endif
-
-#DDR LOG
-PRODUCT_COPY_FILES += \
-    device/hardkernel/common/ddrtest.sh:system/bin/ddrtest.sh
 
 # USB
 PRODUCT_COPY_FILES += \

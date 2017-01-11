@@ -6,5 +6,3 @@ type hdcptx_device, dev_type;
 allow hdcp_tx22 hdcptx_device:chr_file { open read write getattr ioctl };
 
 allow hdcp_tx22 system_file:file execute_no_trans;
-
-allow hdcp_tx22 sysfs:file rw_file_perms;

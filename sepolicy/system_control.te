@@ -58,14 +58,3 @@ r_dir_file(system_control, platform_app)
 
 allow system_control appdomain:dir { getattr search };
 allow system_control appdomain:file { r_file_perms };
-allow system_control platform_app:dir { search };
-
-# for 3D set
-allow system_control video_device:chr_file { open read write ioctl };
-
-allow system_control param_tv_device:dir  { search read write open add_name remove_name rmdir };
-allow system_control param_tv_device:file { create open read write setattr getattr lock unlink };
-allow system_control param_block_device:blk_file { getattr read write open };
-
-allow system_control shell_exec:file { execute_no_trans execute open read };
-allow system_control system_file:file execute_no_trans;

@@ -15,12 +15,8 @@
 """Emit extra commands needed for Group during OTA installation
 (installing the bootloader)."""
 
-import os
-import tempfile
 import struct
 import common
-import sparse_img
-import add_img_to_target_files
 
 def SetBootloaderEnv(script, name, val):
   """Set bootloader env name with val."""
@@ -39,81 +35,6 @@ def HasTargetImage(target_files_zip, image_path):
     return True
   except KeyError:
     return False
-
-def BuildExt4(name, input_dir, info_dict, block_list=None):
-  """Build the (sparse) vendor image and return the name of a temp
-  file containing it."""
-  return add_img_to_target_files.CreateImage(input_dir, info_dict, name, block_list=block_list)
-
-def GetImage(which, tmpdir, info_dict):
-  # Return an image object (suitable for passing to BlockImageDiff)
-  # for the 'which' partition (most be "system" or "vendor").  If a
-  # prebuilt image and file map are found in tmpdir they are used,
-  # otherwise they are reconstructed from the individual files.
-
-  path = os.path.join(tmpdir, "IMAGES", which + ".img")
-  mappath = os.path.join(tmpdir, "IMAGES", which + ".map")
-  if os.path.exists(path) and os.path.exists(mappath):
-    print "using %s.img from target-files" % (which,)
-    # This is a 'new' target-files, which already has the image in it.
-  else:
-    print "building %s.img from target-files" % (which,)
-    # This is an 'old' target-files, which does not contain images
-    # already built.  Build them.
-    mappath = tempfile.mkstemp()[1]
-    common.OPTIONS.tempfiles.append(mappath)
-    path = BuildExt4(which, tmpdir, info_dict, block_list = mappath)
-
-  return sparse_img.SparseImage(path, mappath)
-
-def BuildCustomerImage(info):
-  print "amlogic extensions:BuildCustomerImage"
-  if info.info_dict.get("update_user_parts") == "true" :
-    partsList = info.info_dict.get("user_parts_list");
-    for list_i in partsList.split(' '):
-      tmp_tgt = GetImage(list_i, info.input_tmp, info.info_dict)
-      tmp_tgt.ResetFileMap()
-      tmp_diff = common.BlockDifference(list_i, tmp_tgt, src = None)
-      tmp_diff.WriteScript(info.script,info.output_zip)
-
-def BuildCustomerIncrementalImage(info, *par, **dictarg):
-  print "amlogic extensions:BuildCustomerIncrementalImage"
-  fun = []
-  for pp in par:
-    fun.append(pp)
-  if info.info_dict.get("update_user_parts") == "true" :
-    partsList = info.info_dict.get("user_parts_list");
-    for list_i in partsList.split(' '):
-      if HasTargetImage(info.source_zip, list_i.upper() + "/"):
-        tmp_diff = fun[0](list_i, info.source_zip, info.target_zip, info.output_zip)
-        recovery_mount_options = common.OPTIONS.info_dict.get("recovery_mount_options")
-        info.script.Mount("/"+list_i, recovery_mount_options)
-        so_far = tmp_diff.EmitVerification(info.script)
-        size = []
-        if tmp_diff.patch_list:
-          size.append(tmp_diff.largest_source_size)
-        tmp_diff.RemoveUnneededFiles(info.script)
-        total_patch_size = 1.0 + tmp_diff.TotalPatchSize()
-        total_patch_size += tmp_diff.TotalPatchSize()
-        tmp_diff.EmitPatches(info.script, total_patch_size, 0)
-        tmp_items = fun[1](list_i, "META/" + list_i + "_filesystem_config.txt")
-
-        fun[2](tmp_items, info.target_zip, None)
-        temp_script = info.script.MakeTemporary()
-        tmp_items.GetMetadata(info.target_zip)
-        tmp_items.Get(list_i).SetPermissions(temp_script)
-        fun[2](tmp_items, info.source_zip, None)
-        if tmp_diff and tmp_diff.verbatim_targets:
-          info.script.Print("Unpacking new files...")
-          info.script.UnpackPackageDir(list_i, "/" + list_i)
-
-        tmp_diff.EmitRenames(info.script)
-        if common.OPTIONS.verify and tmp_diff:
-          info.script.Print("Remounting and verifying partition files...")
-          info.script.Unmount("/" + list_i)
-          info.script.Mount("/" + list_i)
-          tmp_diff.EmitExplicitTargetVerification(info.script)
-
 
 def FullOTA_Assertions(info):
   print "amlogic extensions:FullOTA_Assertions"
