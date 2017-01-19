@@ -29,18 +29,11 @@ PRODUCT_BOOT_JARS += \
     droidlogic.frameworks.pppoe
 
 PRODUCT_PACKAGES += \
-    OTAUpgrade \
-    RemoteIME \
     droidlogic \
     droidlogic-res \
     systemcontrol \
     systemcontrol_static \
-    libsystemcontrolservice \
-    VideoPlayer \
-    SubTitle \
-    AppInstaller \
-    FileBrowser \
-    Miracast
+    libsystemcontrolservice
 
 PRODUCT_PACKAGES += \
     hostapd \
