@@ -20,7 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
-    rw.camera.usb.faceback=true
+    rw.camera.usb.faceback=false
 
 SKIP_BOOT_JARS_CHECK = true
 
