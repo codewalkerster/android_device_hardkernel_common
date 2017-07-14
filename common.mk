@@ -1,5 +1,5 @@
-include device/odroidn1/common/BoardConfig.mk
-$(call inherit-product, device/odroidn1/common/device.mk)
+include device/hardkernel/common/BoardConfig.mk
+$(call inherit-product, device/hardkernel/common/device.mk)
 
 PRODUCT_BRAND := ODROID
 PRODUCT_DEVICE := odroidn1

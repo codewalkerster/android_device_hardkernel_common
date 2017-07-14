@@ -1,4 +1,4 @@
-CUR_PATH := device/odroidn1/common/samba
+CUR_PATH := device/hardkernel/common/samba
 PRODUCT_COPY_FILES += \
     $(CUR_PATH)/bin/rksmbd:/system/bin/rksmbd \
     $(CUR_PATH)/bin/rksmbpasswd:/system/bin/rksmbpasswd \

@@ -24,11 +24,11 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/odroidn1/bluetooth
 
 ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px5car)
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/odroidn1/px5/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/px5/bluetooth
 endif
 
 ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px3car)
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/odroidn1/px3/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/px3/bluetooth
 endif
 
 ifeq ($(strip $(BOARD_CONNECTIVITY_MODULE)), ap6xxx_gps)
