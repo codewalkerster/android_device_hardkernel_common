@@ -55,41 +55,8 @@ PRODUCT_PACKAGES += \
     fsck_f2fs
 
 # PCBA tools
-ifeq ($(strip $(TARGET_ROCKCHIP_PCBATEST)), true)
 PRODUCT_PACKAGES += \
-    pcba_core \
-    bdt
-endif
-
-ifeq ($(strip $(BOARD_USE_LCDC_COMPOSER)), true)
-# setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=72 \
-    ro.hwui.layer_cache_size=48 \
-    ro.hwui.r_buffer_cache_size=8 \
-    ro.hwui.path_cache_size=32 \
-    ro.hwui.gradient_cache_size=1 \
-    ro.hwui.drop_shadow_cache_size=6 \
-    ro.hwui.texture_cache_flushrate=0.4 \
-    ro.hwui.text_small_cache_width=1024 \
-    ro.hwui.text_small_cache_height=1024 \
-    ro.hwui.text_large_cache_width=2048 \
-    ro.hwui.text_large_cache_height=1024 \
-    ro.hwui.disable_scissor_opt=true \
-    ro.rk.screenshot_enable=true   \
-    ro.rk.hdmi_enable=true   \
-    sys.status.hidebar_enable=false   \
-    persist.sys.ui.hw=true
-
-else
-ifeq ($(strip $(BOARD_USE_LOW_MEM)), true)
-include frameworks/native/build/tablet-dalvik-heap.mk
-else
-include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
-endif
-endif
+    pcba_core
 
 PRODUCT_COPY_FILES += \
 	device/hardkernel/common/init.rockchip.rc:root/init.rockchip.rc \
@@ -105,14 +72,6 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/ff680030_pwm.kl:system/usr/keylayout/ff680030_pwm.kl \
      device/hardkernel/common/alarm_filter.xml:system/etc/alarm_filter.xml \
 	device/hardkernel/common/ff420030_pwm.kl:system/usr/keylayout/ff420030_pwm.kl
-
-PRODUCT_COPY_FILES += \
-    hardware/broadcom/wlan/bcmdhd/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    hardware/broadcom/wlan/bcmdhd/config/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-#for ssv6051
-PRODUCT_COPY_FILES += \
-    vendor/rockchip/common/wifi/ssv6xxx/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
 
 PRODUCT_PACKAGES += \
     libiconv \
@@ -169,47 +128,10 @@ $(call inherit-product-if-exists, hardware/rockchip/camera/Config/user.mk)
 #audio
 $(call inherit-product-if-exists, hardware/rockchip/audio/tinyalsa_hal/codec_config/rk_audio.mk)
 
-ifeq ($(BOARD_NFC_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml
-endif
-
-ifeq ($(BOARD_HAS_GPS),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
-endif
-
-ifeq ($(BOARD_COMPASS_SENSOR_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
-endif
-
-ifeq ($(BOARD_GYROSCOPE_SENSOR_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml
-endif
-
-ifeq ($(BOARD_PROXIMITY_SENSOR_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
-endif
-
-ifeq ($(BOARD_LIGHT_SENSOR_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml
-endif
-
 # opengl aep feature
 ifeq ($(BOARD_OPENGL_AEP),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml
-endif
-
-# CAMERA
-ifeq ($(BOARD_CAMERA_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml
 endif
 
 # USB HOST
@@ -218,21 +140,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 endif
 
-# USB ACCESSORY
-ifeq ($(BOARD_USB_ACCESSORY_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
-endif
-
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
     PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/box_core_hardware.xml:system/etc/permissions/box_core_hardware.xml 
-else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), vr)
-    PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/vr_core_hardware.xml:system/etc/permissions/vr_core_hardware.xml 
-else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), laptop)
-    PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/laptop_core_hardware.xml:system/etc/permissions/laptop_core_hardware.xml
 else # tablet
     PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml 
@@ -326,31 +236,6 @@ $(call inherit-product-if-exists, external/alsa-utils/copy.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.strictmode.visual=false 
 
-ifeq ($(strip $(BOARD_HAVE_BLUETOOTH)),true)
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.bt_enable=true
-else
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.bt_enable=false
-endif
-
-ifeq ($(strip $(MT6622_BT_SUPPORT)),true)
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.btchip=mt6622
-endif
-
-ifeq ($(strip $(BLUETOOTH_USE_BPLUS)),true)
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.btchip=broadcom.bplus
-endif
-
-ifeq ($(strip $(BOARD_HAVE_FLASH)), true)
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.flash_enable=true
-else
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.flash_enable=false
-endif
-
-ifeq ($(strip $(MT7601U_WIFI_SUPPORT)),true)
-    PRODUCT_PROPERTY_OVERRIDES += ro.rk.wifichip=mt7601u
-endif
-
-
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 
@@ -397,16 +282,6 @@ ifeq ($(strip $(BUILD_WITH_DRMSERVICE)),true)
 PRODUCT_PACKAGES += drmservice
 endif
 
-########################################################
-# this product has GPS or not
-########################################################
-ifeq ($(strip $(BOARD_HAS_GPS)),true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.factory.hasGPS=true
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.factory.hasGPS=false
-endif
 ########################################################
 # this product has Ethernet or not
 ########################################################
@@ -481,50 +356,6 @@ endif
 #    $(LOCAL_PATH)/init.usbstorage.rc:root/init.usbstorage.rc
 #endif
 
-ifeq ($(strip $(BOARD_CONNECTIVITY_MODULE)), ap6xxx_nfc)
-#NFC packages
-PRODUCT_PACKAGES += \
-    nfc_nci.$(TARGET_BOARD_HARDWARE) \
-    NfcNci \
-    Tag \
-    com.android.nfc_extras
-
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access.xml
-else
-NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access_debug.xml
-endif
-
-copyNfcFirmware = $(subst XXXX,$(strip $(1)),hardware/broadcom/nfc/firmware/XXXX:/system/vendor/firmware/XXXX)
-# NFC access control + feature files + configuration
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
-    $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/nfc/libnfc-brcm-20791b03.conf:system/etc/libnfc-brcm-20791b03.conf \
-    $(LOCAL_PATH)/nfc/libnfc-brcm-20791b04.conf:system/etc/libnfc-brcm-20791b04.conf \
-    $(LOCAL_PATH)/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
-    $(LOCAL_PATH)/nfc/libnfc-brcm-43341b00.conf:system/etc/libnfc-brcm-43341b00.conf \
-    $(call copyNfcFirmware, BCM20791B3_002.004.010.0161.0000_Generic_I2CLite_NCD_Signed_configdata.ncd) \
-    $(call copyNfcFirmware, BCM20791B3_002.004.010.0161.0000_Generic_PreI2C_NCD_Signed_configdata.ncd) \
-    $(call copyNfcFirmware, BCM20791B5_002.006.013.0011.0000_Generic_I2C_NCD_Unsigned_configdata.ncd) \
-    $(call copyNfcFirmware, BCM43341NFCB0_002.001.009.0021.0000_Generic_I2C_NCD_Signed_configdata.ncd) \
-    $(call copyNfcFirmware, BCM43341NFCB0_002.001.009.0021.0000_Generic_PreI2C_NCD_Signed_configdata.ncd)
-endif
-
-# for realtek bluetooth
-PRODUCT_PACKAGES += \
-    bluetooth_rtk.default \
-    libbt-vendor.so \
-    libbt-vendor_uart.so \
-    libbt-vendor_usb.so \
-    bt_vendor.conf
-#include hardware/realtek/rtkbt/rtkbt.mk
-$(call inherit-product, hardware/realtek/rtkbt/rtkbt.mk)
-
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 include device/hardkernel/common/samba/rk31_samba.mk
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -538,23 +369,6 @@ endif
 # uncomment the two lines if use verity
 #PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/ff0f0000.rksdmmc/by-name/system
 #$(call inherit-product, build/target/product/verity.mk)
-
-ifeq ($(strip $(BUILD_BOX_WITH_GOOGLE_MARKET)), true)
-$(call inherit-product-if-exists, vendor/partner_gms/products/gms-mini-box.mk)
-$(call inherit-product-if-exists, vendor/widevine/widevine.mk)
-endif
-
-ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
-ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET_ALL)), true)
-$(call inherit-product-if-exists, vendor/partner_gms/products/gms.mk)
-else
-$(call inherit-product-if-exists, vendor/partner_gms/products/gms-mandatory.mk)
-endif
-ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/platform/fe330000.sdhci/by-name/frp
-endif
-endif
 
 #ro.product.first_api_level indicates the first api level, device has been commercially launced on.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -649,15 +463,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 ifeq ($(strip $(BOARD_ENABLE_3G_DONGLE)),true)
-ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px3car)
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.enable.3g.dongle=true \
-    rild.libpath=/system/lib/libril-rk29-dataonly.so
-else
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.enable.3g.dongle=true \
     rild.libpath=/system/lib64/libril-rk29-dataonly.so
-endif
 endif
 
 #boot and shutdown animation, ringing
@@ -675,22 +483,3 @@ ifeq ($(strip $(BOARD_ENABLE_PMS_MULTI_THREAD_SCAN)), true)
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.pms.multithreadscan=true		
 endif
-
-#add for hwui property
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=72 \
-    ro.hwui.layer_cache_size=48 \
-    ro.hwui.r_buffer_cache_size=8 \
-    ro.hwui.path_cache_size=32 \
-    ro.hwui.gradient_cache_size=1 \
-    ro.hwui.drop_shadow_cache_size=6 \
-    ro.hwui.texture_cache_flushrate=0.4 \
-    ro.hwui.text_small_cache_width=1024 \
-    ro.hwui.text_small_cache_height=1024 \
-    ro.hwui.text_large_cache_width=2048 \
-    ro.hwui.text_large_cache_height=1024 \
-    ro.hwui.disable_scissor_opt=true \
-    ro.rk.screenshot_enable=true   \
-    ro.rk.hdmi_enable=true   \
-    sys.status.hidebar_enable=false   \
-    persist.sys.ui.hw=true

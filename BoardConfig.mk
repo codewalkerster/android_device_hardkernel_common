@@ -29,11 +29,7 @@ TARGET_BOARD_HARDWARE ?= odroidn1
 ifneq ($(filter %box, $(TARGET_PRODUCT)), )
 TARGET_BOARD_PLATFORM_PRODUCT ?= box
 else
-ifneq ($(filter %vr, $(TARGET_PRODUCT)), )
-TARGET_BOARD_PLATFORM_PRODUCT ?= vr
-else
 TARGET_BOARD_PLATFORM_PRODUCT ?= tablet
-endif
 endif
 
 # CPU feature configration
@@ -77,29 +73,8 @@ ROTATE_SCREEN ?= rotate_0
 #NO: Screen to single
 DOUBLE_SCREEN ?= NO
 
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali400)
-BOARD_EGL_CFG := vendor/rockchip/common/gpu/Mali400/lib/arm/egl.cfg
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali450)
-BOARD_EGL_CFG := vendor/rockchip/common/gpu/Mali450/lib/x86/egl.cfg
-endif
-
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali-t860)
 BOARD_EGL_CFG := vendor/rockchip/common/gpu/MaliT860/etc/egl.cfg
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali-t760)
-BOARD_EGL_CFG := vendor/rockchip/common/gpu/MaliT760/etc/egl.cfg
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali-t720)
-BOARD_EGL_CFG := vendor/rockchip/common/gpu/MaliT720/etc/egl.cfg
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), PVR540)
-BOARD_EGL_CFG ?= vendor/rockchip/common/gpu/PVR540/egl.cfg
 endif
 
 TARGET_BOOTLOADER_BOARD_NAME ?= rk30sdk
@@ -181,40 +156,13 @@ BUILD_WITH_CRYPTO := false
 
 # Audio
 BOARD_USES_GENERIC_AUDIO ?= true
-
-# Wifi&Bluetooth
-BOARD_HAVE_BLUETOOTH ?= true
-BLUETOOTH_USE_BPLUS ?= false
-BOARD_HAVE_BLUETOOTH_BCM ?= false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/hardkernel/odroidn1/bluetooth
-include device/hardkernel/common/wifi_bt_common.mk
-
-#Camera flash
-BOARD_HAVE_FLASH ?= true
-
-# google apps
-BUILD_BOX_WITH_GOOGLE_MARKET ?= false
-BUILD_WITH_GOOGLE_MARKET ?= false
-BUILD_WITH_GOOGLE_MARKET_ALL ?= false
-BUILD_WITH_GOOGLE_FRP ?= false
 
 # face lock
 BUILD_WITH_FACELOCK ?= false
 
 # ebook
 BUILD_WITH_RK_EBOOK ?= false
-
-# Sensors
-BOARD_SENSOR_ST ?= true
-# if use akm8963
-#BOARD_SENSOR_COMPASS_AK8963 ?= true
-# if need calculation angle between two gsensors
-#BOARD_SENSOR_ANGLE ?= true
-# if need calibration
-#BOARD_SENSOR_CALIBRATION ?= true
-# if use mpu
-#BOARD_SENSOR_MPU ?= true
-#BOARD_USES_GENERIC_INVENSENSE ?= false
 
 # readahead files to improve boot time
 # BOARD_BOOT_READAHEAD ?= true
@@ -285,19 +233,6 @@ BOARD_ENABLE_PMS_MULTI_THREAD_SCAN ?= false
 
 #for optee support
 PRODUCT_HAVE_OPTEE ?= true
-
-# product has follow sensors or not,if had override it in product's BoardConfig
-BOARD_HAS_GPS ?= false   
-BOARD_NFC_SUPPORT ?= false
-BOARD_GRAVITY_SENSOR_SUPPORT ?= false
-BOARD_COMPASS_SENSOR_SUPPORT ?= false
-BOARD_GYROSCOPE_SENSOR_SUPPORT ?= false
-BOARD_PROXIMITY_SENSOR_SUPPORT ?= false
-BOARD_LIGHT_SENSOR_SUPPORT ?= false
-BOARD_OPENGL_AEP ?= false
-BOARD_PRESSURE_SENSOR_SUPPORT ?= false
-BOARD_TEMPERATURE_SENSOR_SUPPORT ?= false
-BOARD_USB_HOST_SUPPORT ?= false
 BOARD_USB_ACCESSORY_SUPPORT ?= true
 BOARD_CAMERA_SUPPORT ?= false
 
