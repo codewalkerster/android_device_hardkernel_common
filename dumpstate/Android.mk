@@ -21,8 +21,8 @@ LOCAL_C_INCLUDES := frameworks/native/cmds/dumpstate
 LOCAL_SRC_FILES := dumpstate.cpp
 
 LOCAL_MODULE := libdumpstate.$(TARGET_PRODUCT)
-ifeq ($(strip $(TARGET_PRODUCT)),odroidn1)
-LOCAL_CFLAGS += -DTARGET_PRODUCT_ODROIDN1
+ifeq ($(strip $(TARGET_BOARD_PLATFORM)),rk3399)
+LOCAL_CFLAGS += -DTARGET_BOARD_PLATFORM_RK3399
 endif
 LOCAL_MODULE_TAGS := optional
 
