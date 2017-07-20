@@ -309,3 +309,7 @@
 /dev/i2c-1 0660 system system
 #for ovr
 /dev/ovr0		  0664   system          system
+
+# GPS
+/dev/ttyACM*   0666    gps             gps
+/dev/ttyUSB*   0666    gps             gps
