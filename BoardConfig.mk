@@ -157,6 +157,7 @@ BUILD_WITH_CRYPTO := false
 # Audio
 BOARD_USES_GENERIC_AUDIO ?= true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/hardkernel/odroidn1/bluetooth
+include device/hardkernel/common/wifi_bt_common.mk
 
 # face lock
 BUILD_WITH_FACELOCK ?= false

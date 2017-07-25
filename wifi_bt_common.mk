@@ -1,42 +1,16 @@
+BOARD_WIFI_VENDOR                   := realtek
+BOARD_WLAN_DEVICE                   := rtl8192cu
+BOARD_WPA_SUPPLICANT_DRIVER         := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB    := lib_driver_cmd_nl80211
+WPA_SUPPLICANT_VERSION              := VER_0_8_X
 
-ifneq ($(strip $(TARGET_BOARD_PLATFORM)), sofia3gr)
-BOARD_CONNECTIVITY_VENDOR := Broadcom
-BOARD_CONNECTIVITY_MODULE := ap6xxx
-endif
+WIFI_DRIVER                         := rtl8192cu
+WIFI_DRIVER_MODULE_NAME             := rtl8192cu
+WIFI_DRIVER_MODULE_PATH             := /system/lib/modules/rtl8192cu.ko
 
-ifeq ($(strip $(BOARD_CONNECTIVITY_VENDOR)), Broadcom)
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION      := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE           := bcmdhd
-WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/firmware/fw_bcm4329_p2p.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
-endif
-
-# bluetooth support
-ifeq ($(strip $(BOARD_CONNECTIVITY_VENDOR)), Broadcom)
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/odroidn1/bluetooth
-
-ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px5car)
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/px5/bluetooth
-endif
-
-ifeq ($(strip $(PRODUCT_BUILD_MODULE)), px3car)
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/px3/bluetooth
-endif
-
-ifeq ($(strip $(BOARD_CONNECTIVITY_MODULE)), ap6xxx_gps)
-BLUETOOTH_USE_BPLUS := true
-BLUETOOTH_ENABLE_FM := false
-endif
-endif
-
-BOARD_HAVE_BLUETOOTH_RTK := true
-BOARD_HAVE_BLUETOOTH_RTK_COEX := true
-
+WIFI_DRIVER_MODULE_ARG      := ""
+WIFI_FIRMWARE_LOADER        := ""
+WIFI_DRIVER_FW_PATH_STA     := ""
+WIFI_DRIVER_FW_PATH_AP      := ""
+WIFI_DRIVER_FW_PATH_P2P     := ""
+WIFI_DRIVER_FW_PATH_PARAM   := ""
