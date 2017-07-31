@@ -196,9 +196,6 @@ BOARD_PPPOE_PASS_CTS ?= false
 # ethernet
 BOARD_HS_ETHERNET ?= true
 
-# manifest
-SYSTEM_WITH_MANIFEST ?= true
-
 # no battery
 BUILD_WITHOUT_BATTERY ?= false
 

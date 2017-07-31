@@ -344,12 +344,6 @@ PRODUCT_COPY_FILES += \
     
 $(call inherit-product-if-exists, external/wlan_loader/wifi-firmware.mk)
 
-# Copy manifest to system/
-ifeq ($(strip $(SYSTEM_WITH_MANIFEST)),true)
-PRODUCT_COPY_FILES += \
-    manifest.xml:system/manifest.xml
-endif
-
 # Copy init.usbstorage.rc to root
 #ifeq ($(strip $(BUILD_WITH_MULTI_USB_PARTITIONS)),true)
 #PRODUCT_COPY_FILES += \
