@@ -108,11 +108,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio_policy_$(TARGET_BOARD_HARDWARE).conf:system/etc/audio_policy.conf
 endif
 
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/fstab.odroidn1.bootmode.unknown:root/fstab.odroidn1.bootmode.unknown \
-    $(LOCAL_PATH)/fstab.odroidn1.bootmode.emmc:root/fstab.odroidn1.bootmode.emmc
-
 # For audio-recoard 
 PRODUCT_PACKAGES += \
     libsrec_jni
