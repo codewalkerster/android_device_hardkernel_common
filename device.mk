@@ -123,10 +123,19 @@ $(call inherit-product-if-exists, hardware/rockchip/camera/Config/user.mk)
 #audio
 $(call inherit-product-if-exists, hardware/rockchip/audio/tinyalsa_hal/codec_config/rk_audio.mk)
 
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
+
 # opengl aep feature
 ifeq ($(BOARD_OPENGL_AEP),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml
+endif
+
+# CAMERA
+ifeq ($(BOARD_CAMERA_SUPPORT),true)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml
 endif
 
 # USB HOST
@@ -135,9 +144,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 endif
 
+# USB ACCESSORY
+ifeq ($(BOARD_USB_ACCESSORY_SUPPORT),true)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+endif
+
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
     PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/box_core_hardware.xml:system/etc/permissions/box_core_hardware.xml 
+    PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/laptop_core_hardware.xml:system/etc/permissions/laptop_core_hardware.xml
 else # tablet
     PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml 
@@ -358,6 +375,7 @@ endif
 # uncomment the two lines if use verity
 #PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/ff0f0000.rksdmmc/by-name/system
 #$(call inherit-product, build/target/product/verity.mk)
+$(call inherit-product-if-exists, vendor/widevine/widevine.mk)
 
 #ro.product.first_api_level indicates the first api level, device has been commercially launced on.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -472,3 +490,22 @@ ifeq ($(strip $(BOARD_ENABLE_PMS_MULTI_THREAD_SCAN)), true)
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.pms.multithreadscan=true		
 endif
+
+#add for hwui property
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.texture_cache_size=72 \
+    ro.hwui.layer_cache_size=48 \
+    ro.hwui.r_buffer_cache_size=8 \
+    ro.hwui.path_cache_size=32 \
+    ro.hwui.gradient_cache_size=1 \
+    ro.hwui.drop_shadow_cache_size=6 \
+    ro.hwui.texture_cache_flushrate=0.4 \
+    ro.hwui.text_small_cache_width=1024 \
+    ro.hwui.text_small_cache_height=1024 \
+    ro.hwui.text_large_cache_width=2048 \
+    ro.hwui.text_large_cache_height=1024 \
+    ro.hwui.disable_scissor_opt=true \
+    ro.rk.screenshot_enable=true   \
+    ro.rk.hdmi_enable=true   \
+    sys.status.hidebar_enable=false   \
+    persist.sys.ui.hw=true
