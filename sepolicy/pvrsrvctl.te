@@ -1,6 +1,0 @@
-allow pvrsrvctl pvrsrvctl:capability { sys_module sys_admin };
-allow pvrsrvctl gpu_device:chr_file rw_file_perms;
-allow pvrsrvctl rootfs:lnk_file { getattr };
-allow pvrsrvctl pvrsrvctl:system { module_load };
-allow pvrsrvctl proc:file { read open getattr };
-

@@ -4,7 +4,6 @@
 #  domain_trans(init, rootfs, busybox)
 #')
 
-domain_trans(init, pvrsrvctl_exec, pvrsrvctl)
 domain_trans(init, drmservice_exec, drmservice)
 domain_trans(init, tinyplaywav_exec, tinyplaywav)
 domain_trans(init, displayd_exec, displayd)

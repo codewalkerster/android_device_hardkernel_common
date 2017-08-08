@@ -231,13 +231,6 @@ on property:persist.rk.abc_switch=1
 on property:persist.rk.abc_switch=0
     stop klogd
 
-#Rogue
-service pvrsrvctl /system/vendor/bin/pvrsrvctl --start
-    oneshot
-    class core
-    user root
-    group root
-
 service drmservice /system/bin/drmservice
         class main
         oneshot
