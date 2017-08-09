@@ -9,10 +9,6 @@ on boot
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite    
 
-#   insmod /system/lib/modules/rtk_btusb.ko
-    chmod 0660 /dev/rtk_btusb
-    chown bluetooth net_bt_stack /dev/rtk_btusb
-
     # bluetooth MAC address programming
     chown bluetooth net_bt_stack ro.bt.bdaddr_path
     chown bluetooth net_bt_stack /system/etc/bluetooth

@@ -65,7 +65,7 @@ PRODUCT_COPY_FILES += \
     $(call add-to-product-copy-files-if-exists,device/hardkernel/common/init.$(TARGET_BOARD_HARDWARE).bootmode.emmc.rc:root/init.$(TARGET_BOARD_HARDWARE).bootmode.emmc.rc) \
     $(call add-to-product-copy-files-if-exists,device/hardkernel/common/init.$(TARGET_BOARD_HARDWARE).bootmode.unknown.rc:root/init.$(TARGET_BOARD_HARDWARE).bootmode.unknown.rc) \
     $(call add-to-product-copy-files-if-exists,device/hardkernel/common/init.$(TARGET_BOARD_HARDWARE).bootmode.nvme.rc:root/init.$(TARGET_BOARD_HARDWARE).bootmode.nvme.rc) \
-    device/hardkernel/common/ueventd.rockchip.rc:root/ueventd.$(TARGET_BOARD_HARDWARE).rc \
+    device/hardkernel/common/ueventd.odroidn1.rc:root/ueventd.$(TARGET_BOARD_HARDWARE).rc \
     device/hardkernel/common/media_profiles_default.xml:system/etc/media_profiles_default.xml \
     device/hardkernel/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
     device/hardkernel/common/20050030_pwm.kl:system/usr/keylayout/20050030_pwm.kl \
@@ -214,7 +214,7 @@ PRODUCT_PACKAGES += \
     audio_policy.$(TARGET_BOARD_HARDWARE) \
     audio.primary.$(TARGET_BOARD_HARDWARE) \
     audio.alsa_usb.$(TARGET_BOARD_HARDWARE) \
-    audio.a2dp.default\
+	audio.a2dp.default\
     audio.r_submix.default\
     libaudioroute\
     audio.usb.default
