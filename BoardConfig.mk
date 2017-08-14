@@ -30,27 +30,7 @@ else
 TARGET_BOARD_PLATFORM_PRODUCT ?= tablet
 endif
 
-# CPU feature configration
-ifeq ($(strip $(TARGET_BOARD_HARDWARE)), odroidn1)
-
-TARGET_ARCH ?= arm
-TARGET_ARCH_VARIANT ?= armv7-a-neon
-ARCH_ARM_HAVE_TLS_REGISTER ?= true
-TARGET_CPU_ABI ?= armeabi-v7a
-TARGET_CPU_ABI2 ?= armeabi
-TARGET_CPU_VARIANT ?= cortex-a9
-TARGET_CPU_SMP ?= true
-else
-TARGET_ARCH ?= x86
-TARGET_ARCH_VARIANT ?= silvermont
-TARGET_CPU_ABI ?= x86
-TARGET_CPU_ABI2 ?= 
-TARGET_CPU_SMP ?= true
-endif
-
-
 # GPU configration
-TARGET_BOARD_PLATFORM_GPU ?= mali-t760
 BOARD_USE_LCDC_COMPOSER ?= false
 GRAPHIC_MEMORY_PROVIDER ?= ump
 USE_OPENGL_RENDERER ?= true
@@ -196,7 +176,7 @@ BOARD_PPPOE_PASS_CTS ?= false
 BOARD_HS_ETHERNET ?= true
 
 # no battery
-BUILD_WITHOUT_BATTERY ?= false
+BUILD_WITHOUT_BATTERY ?= true
 
 BOARD_CHARGER_ENABLE_SUSPEND ?= true
 CHARGER_ENABLE_SUSPEND ?= true

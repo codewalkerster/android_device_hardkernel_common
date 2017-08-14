@@ -62,10 +62,7 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/ueventd.odroidn1.rc:root/ueventd.$(TARGET_BOARD_HARDWARE).rc \
     device/hardkernel/common/media_profiles_default.xml:system/etc/media_profiles_default.xml \
     device/hardkernel/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
-    device/hardkernel/common/20050030_pwm.kl:system/usr/keylayout/20050030_pwm.kl \
-    device/hardkernel/common/ff680030_pwm.kl:system/usr/keylayout/ff680030_pwm.kl \
-     device/hardkernel/common/alarm_filter.xml:system/etc/alarm_filter.xml \
-	device/hardkernel/common/ff420030_pwm.kl:system/usr/keylayout/ff420030_pwm.kl
+	device/hardkernel/common/alarm_filter.xml:system/etc/alarm_filter.xml
 
 PRODUCT_PACKAGES += \
     libiconv \
@@ -297,12 +294,6 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
     librecovery_ui_$(TARGET_PRODUCT)
 
-# for bugreport
-ifneq ($(TARGET_BUILD_VARIANT), user)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bugreport.sh:system/bin/bugreport.sh
-endif
-
 ifeq ($(strip $(BOARD_BOOT_READAHEAD)), true)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/readahead/readahead:root/sbin/readahead \
@@ -313,10 +304,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/whtest.sh:system/bin/whtest.sh
 
-# for preinstall
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/preinstall_cleanup.sh:system/bin/preinstall_cleanup.sh
-    
 $(call inherit-product-if-exists, external/wlan_loader/wifi-firmware.mk)
 
 # Copy init.usbstorage.rc to root
