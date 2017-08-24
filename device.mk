@@ -244,37 +244,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-
-########################################################
-# build with UMS? CDROM?
-########################################################
-ifeq ($(strip $(BUILD_WITH_UMS)),true)
-PRODUCT_PROPERTY_OVERRIDES +=               \
-    ro.factory.hasUMS=true                  \
-    persist.sys.usb.config=mass_storage,adb
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rockchip.hasUMS.true.rc:root/init.$(TARGET_BOARD_HARDWARE).environment.rc
-else
-ifeq ($(strip $(BUILD_WITH_CDROM)),true)
-PRODUCT_PROPERTY_OVERRIDES +=                 \
-    ro.factory.hasUMS=cdrom                   \
-    ro.factory.cdrom=$(BUILD_WITH_CDROM_PATH) \
-    persist.sys.usb.config=mass_storage,adb 
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rockchip.hasCDROM.true.rc:root/init.$(TARGET_BOARD_HARDWARE).environment.rc
-else
-PRODUCT_PROPERTY_OVERRIDES +=       \
-    ro.factory.hasUMS=false         \
-    persist.sys.usb.config=mtp,adb  \
-    testing.mediascanner.skiplist = /mnt/shell/emulated/Android/
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rockchip.hasUMS.false.rc:root/init.$(TARGET_BOARD_HARDWARE).environment.rc
-endif
-endif
-
 #$_rbox_$_modify_$_zhengyang: add displayd
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 PRODUCT_PACKAGES += \
