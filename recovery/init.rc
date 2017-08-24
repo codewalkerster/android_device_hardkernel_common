@@ -1,34 +1,23 @@
-import /init.bootmode.${ro.bootmode}.rc
 import /init.recovery.${ro.hardware}.rc
 
 on early-init
-    # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
-    #write /sys/fs/selinux/checkreqprot 0
 
     # Set the security context for the init process.
     # This should occur before anything else (e.g. ueventd) is started.
     setcon u:r:init:s0
 
     start ueventd
-    #start healthd
 
 on init
-    export PATH /sbin:/system/bin
-    export LD_LIBRARY_PATH /lib
+    export PATH /sbin:/system/bin:/bin
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
 
     symlink /system/etc /etc
-#    symlink /sbin/busybox /system/bin/sh
 
-    mkdir /mnt
-    mkdir /mnt/internal_sd
-    mkdir /mnt/external_sd
-    mkdir /mnt/usb_storage
+    mkdir /sdcard
     mkdir /system
-    mkdir /metadata
-    mkdir /radical_update
     mkdir /data
     mkdir /cache
     mkdir /sideload
@@ -40,23 +29,24 @@ on init
     write /proc/sys/kernel/panic_on_oops 1
 
 on fs
+    mkdir /sys/kernel/config/usb_gadget/ffs 0770 shell shell
+    mkdir /sys/kernel/config/usb_gadget/ffs/functions/ffs.adb 0770 shell shell
+
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     write /sys/class/android_usb/android0/f_ffs/aliases adb
 
     write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 2207
-    write /sys/class/android_usb/android0/idProduct 0006
+    write /sys/class/android_usb/android0/idVendor 18D1
+    write /sys/class/android_usb/android0/idProduct D001
+    write /sys/class/android_usb/android0/f_ffs/aliases adb
     write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
-    
+
 on boot
-    setprop UserVolumeLabel "RockChip"
-    setprop InternalSD_ROOT "/mnt/internal_sd"
-    setprop ExternalSD_ROOT	"/mnt/external_sd"
     ifup lo
     hostname localhost
     domainname localdomain
@@ -108,15 +98,7 @@ service adbd /sbin/adbd --root_seclabel=u:r:su:s0 --device_banner=recovery
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 2207
-    write /sys/class/android_usb/android0/idProduct 0006
-    write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/enable 1
-    write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
-    write /sys/class/android_usb/android0/iProduct $ro.product.model
-    write /sys/class/android_usb/android0/iSerial $ro.serialno
-    start console
     start adbd
 
 # Restart adbd so it can run as root

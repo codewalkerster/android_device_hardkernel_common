@@ -1,5 +1,4 @@
 import init.${ro.hardware}.usb.rc
-import init.${ro.hardware}.environment.rc
 import /init.debug.rc
 
 on init

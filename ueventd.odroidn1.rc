@@ -301,9 +301,6 @@
 /sys/devices/platform/mpu6500_hid/iio:device* sync    0660 system system
 /sys/devices/platform/mpu6500_hid/iio:device* trigger/current_trigger    0660 system system
 
-#for frp function
-/dev/block/platform/fe330000.sdhci/by-name/frp 0660 system system
-
 /dev/cpu_state 0666 system system
 /dev/chip_state 0666 system system
 /dev/i2c-1 0660 system system
