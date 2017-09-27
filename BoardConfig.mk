@@ -139,9 +139,6 @@ BUILD_WITH_FACELOCK ?= false
 # ebook
 BUILD_WITH_RK_EBOOK ?= false
 
-# readahead files to improve boot time
-# BOARD_BOOT_READAHEAD ?= true
-
 BOARD_BP_AUTO ?= true
 
 # phone pad codec list
@@ -159,16 +156,9 @@ BUILD_WITH_UMS ?= false
 # if set to true BUILD_WITH_UMS must be false.
 BUILD_WITH_CDROM ?= false
 BUILD_WITH_CDROM_PATH ?= /system/etc/cd.iso
-# multi usb partitions
-BUILD_WITH_MULTI_USB_PARTITIONS ?= false
-# define tablet support NTFS
-BOARD_IS_SUPPORT_NTFS ?= true
 
 # pppoe for cts, you should set this true during pass CTS and which will disable  pppoe function.
 BOARD_PPPOE_PASS_CTS ?= false
-
-# ethernet
-BOARD_HS_ETHERNET ?= true
 
 # no battery
 BUILD_WITHOUT_BATTERY ?= true
@@ -178,18 +168,8 @@ CHARGER_ENABLE_SUSPEND ?= true
 CHARGER_DISABLE_INIT_BLANK ?= true
 BOARD_CHARGER_DISABLE_INIT_BLANK ?= true
 
-#stress test
-BOARD_HAS_STRESSTEST_APP ?= true
-
-#boot optimization
-BOARD_WITH_BOOT_BOOST ?= false
-
 #optimise mem
 BOARD_WITH_MEM_OPTIMISE ?= false
-
-#force app can see udisk
-BOARD_FORCE_UDISK_VISIBLE ?= true
-
 
 # disable safe mode to speed up boot time
 BOARD_DISABLE_SAFE_MODE ?= true
@@ -206,11 +186,5 @@ BOARD_ENABLE_PMS_MULTI_THREAD_SCAN ?= false
 #for optee support
 PRODUCT_HAVE_OPTEE ?= true
 BOARD_USB_ACCESSORY_SUPPORT ?= true
-BOARD_CAMERA_SUPPORT ?= false
 
 USE_CLANG_PLATFORM_BUILD ?= true
-
-# Zoom out recovery ui of box by two percent.
-ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
-    TARGET_RECOVERY_OVERSCAN_PERCENT := 2
-endif

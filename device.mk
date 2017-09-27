@@ -30,10 +30,7 @@ endif
 #add for Nougat Bring Up
 #$(call inherit-product, device/hardkernel/common/copy.mk)
 
-# Box product use device/hardkernel/common/tv/tv_base.mk instead
-ifneq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-endif
 
 PRODUCT_AAPT_CONFIG ?= normal large xlarge hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
@@ -71,7 +68,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     dhcpcd.conf
 
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 PRODUCT_PACKAGES += \
     libpppoe-jni \
     pppoe-service \
@@ -79,12 +75,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SYSTEM_SERVER_JARS += \
     pppoe-service
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.box.samba.rc:root/init.box.samba.rc
-endif
 
 ifeq ($(filter MediaTek_mt7601 MediaTek RealTek Espressif, $(strip $(BOARD_CONNECTIVITY_VENDOR))), )
 PRODUCT_COPY_FILES += \
@@ -124,10 +114,8 @@ PRODUCT_COPY_FILES += \
 endif
 
 # CAMERA
-ifeq ($(BOARD_CAMERA_SUPPORT),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml
-endif
 
 # USB HOST
 ifeq ($(BOARD_USB_HOST_SUPPORT),true)
@@ -141,15 +129,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 endif
 
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-    PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/box_core_hardware.xml:system/etc/permissions/box_core_hardware.xml 
-    PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/laptop_core_hardware.xml:system/etc/permissions/laptop_core_hardware.xml
-else # tablet
-    PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml 
-endif
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -160,10 +141,9 @@ PRODUCT_PACKAGES += \
     libjni_pinyinime
 
 # HAL
-ifneq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), vr)
 PRODUCT_PACKAGES += \
     power.$(TARGET_BOARD_PLATFORM) 
-endif
+
 PRODUCT_PACKAGES += \
     sensors.$(TARGET_BOARD_HARDWARE) \
     gralloc.$(TARGET_BOARD_HARDWARE) \
@@ -241,35 +221,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-#$_rbox_$_modify_$_zhengyang: add displayd
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-PRODUCT_PACKAGES += \
-    displayd
-endif
-
 ########################################################
 # build with drmservice
 ########################################################
 ifeq ($(strip $(BUILD_WITH_DRMSERVICE)),true)
 PRODUCT_PACKAGES += drmservice
-endif
-
-########################################################
-# this product has Ethernet or not
-########################################################
-ifneq ($(strip $(BOARD_HS_ETHERNET)),true)
-PRODUCT_PROPERTY_OVERRIDES += ro.rk.ethernet_enable=false
-endif
-
-#######################################################
-#build system support ntfs?
-########################################################
-ifeq ($(strip $(BOARD_IS_SUPPORT_NTFS)),true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.factory.storage_suppntfs=true
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.factory.storage_suppntfs=false
 endif
 
 ########################################################
@@ -290,36 +246,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-#device recovery ui
-#PRODUCT_PACKAGES += \
-    librecovery_ui_$(TARGET_PRODUCT)
-
-ifeq ($(strip $(BOARD_BOOT_READAHEAD)), true)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/readahead/readahead:root/sbin/readahead \
-    $(LOCAL_PATH)/proprietary/readahead/readahead_list.txt:root/readahead_list.txt
-endif
-
-#whtest for bin
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/whtest.sh:system/bin/whtest.sh
-
 $(call inherit-product-if-exists, external/wlan_loader/wifi-firmware.mk)
 
-# Copy init.usbstorage.rc to root
-#ifeq ($(strip $(BUILD_WITH_MULTI_USB_PARTITIONS)),true)
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/init.usbstorage.rc:root/init.usbstorage.rc
-#endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-include device/hardkernel/common/samba/rk31_samba.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.rk.screenoff_time=2147483647
-else 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rk.screenoff_time=60000
-endif
 
 # setup dm-verity configs.
 # uncomment the two lines if use verity
@@ -355,24 +285,17 @@ PRODUCT_COPY_FILES += \
 endif
 
 # hdmi cec
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 PRODUCT_PACKAGES += \
 	hdmi_cec.$(TARGET_BOARD_HARDWARE)
-endif
+
 PRODUCT_PACKAGES += \
 	abc
 # boot optimization
 PRODUCT_COPY_FILES += \
         device/hardkernel/common/boot_boost/libboot_optimization.so:system/lib/libboot_optimization.so
-ifeq ($(strip $(BOARD_WITH_BOOT_BOOST)),true)
-PRODUCT_COPY_FILES += \
-        device/hardkernel/common/boot_boost/prescan_packages.xml:system/etc/prescan_packages.xml
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.boot_boost.enable=true
-endif
 
 # mem optimization
 ifeq ($(strip $(BOARD_WITH_MEM_OPTIMISE)),true)
@@ -391,27 +314,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.low_ram=true
 endif
 
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), vr)
-PRODUCT_COPY_FILES += \
-       device/hardkernel/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml 
-endif
-
 # neon transform library by djw
 PRODUCT_COPY_FILES += \
 	device/hardkernel/common/neon_transform/lib/librockchipxxx.so:system/lib/librockchipxxx.so \
 	device/hardkernel/common/neon_transform/lib64/librockchipxxx.so:system/lib64/librockchipxxx.so
-
-#if force app can see udisk
-ifeq ($(strip $(BOARD_FORCE_UDISK_VISIBLE)),true)
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.udisk.visible=true
-endif
-
-#if box platform force app can see udisk
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.udisk.visible=true
-endif
 
 #if disable safe mode to speed up booting time
 ifeq ($(strip $(BOARD_DISABLE_SAFE_MODE)),true)
