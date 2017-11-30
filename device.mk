@@ -144,7 +144,6 @@ PRODUCT_PACKAGES += \
     sensors.$(TARGET_BOARD_HARDWARE) \
     gralloc.$(TARGET_BOARD_HARDWARE) \
     hwcomposer.$(TARGET_BOARD_HARDWARE) \
-    lights.$(TARGET_BOARD_PLATFORM) \
     camera.$(TARGET_BOARD_HARDWARE) \
     Camera \
     libvpu \
