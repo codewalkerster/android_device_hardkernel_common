@@ -135,4 +135,11 @@
     <!-- Flag indicating which package name can access the persistent data partition -->
     <string name="config_persistentDataPackageName" translatable="false">Google Play Services</string>
 
+	<!-- If supported and enabled, are dreams activated when docked? (by default) -->
+	<bool name="config_dreamsActivatedOnDockByDefault">true</bool>
+	<!-- If supported and enabled, are dreams activated when asleep and charging? (by default) -->
+	<bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
+
+	<!-- ComponentName of the default dream (Settings.Secure.DEFAULT_SCREENSAVER_COMPONENT) -->
+	<string name="config_dreamsDefaultComponent" translatable="false">com.android.deskclock/com.android.deskclock.Screensaver</string>
 </resources>
