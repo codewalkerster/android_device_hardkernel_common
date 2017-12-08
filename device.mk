@@ -356,6 +356,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_height=1024 \
     ro.hwui.disable_scissor_opt=true \
     ro.rk.screenshot_enable=true   \
-    ro.rk.hdmi_enable=true   \
     sys.status.hidebar_enable=false   \
     persist.sys.ui.hw=true
