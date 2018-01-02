@@ -19,7 +19,7 @@
 
 TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
 
-TARGET_BOARD_PLATFORM ?= odroidn1
+TARGET_BOARD_PLATFORM ?= rk3399
 TARGET_BOARD_HARDWARE ?= odroidn1
 # value: tablet,box,phone
 # It indicates whether to be tablet platform or not
@@ -55,7 +55,7 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali-t860)
 BOARD_EGL_CFG := vendor/rockchip/common/gpu/MaliT860/etc/egl.cfg
 endif
 
-TARGET_BOOTLOADER_BOARD_NAME ?= rk30sdk
+TARGET_BOOTLOADER_BOARD_NAME ?= odroidn1
 TARGET_NO_BOOTLOADER ?= true
 BOARD_USE_LOW_MEM ?= false
 DEVICE_PACKAGE_OVERLAYS += device/hardkernel/common/overlay
