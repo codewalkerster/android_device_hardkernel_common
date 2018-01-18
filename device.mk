@@ -237,6 +237,12 @@ endif
 PRODUCT_PACKAGES += \
     ntfs-3g
 
+# exfat support
+PRODUCT_PACKAGES += \
+    fsck.exfat \
+    mkfs.exfat \
+    mount.exfat
+
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
