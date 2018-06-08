@@ -3,9 +3,9 @@ AML_EMMC_BIN_GENERATOR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/amlogic_emm
 PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 
 ifeq ($(TARGET_NO_RECOVERY),true)
-BUILT_IMAGES := boot.img bootloader.img dt.img
+BUILT_IMAGES := boot.img bootloader.img
 else
-BUILT_IMAGES := boot.img recovery.img bootloader.img dt.img
+BUILT_IMAGES := boot.img recovery.img bootloader.img
 endif
 ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 	BUILT_IMAGES := $(addsuffix .encrypt, $(BUILT_IMAGES))
