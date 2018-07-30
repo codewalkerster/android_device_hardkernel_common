@@ -251,9 +251,13 @@ ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 	INSTALLED_AMLOGIC_BOOTLOADER_TARGET := $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET).encrypt
 endif# ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
-$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(TARGET_DEVICE_DIR)/bootloader.img
-	$(hide) cp $< $(PRODUCT_OUT)/bootloader.img
-	$(hide) $(call aml-secureboot-sign-bootloader, $@)
+bootloader/uboot/sd_fuse/u-boot.bin:
+	make -C bootloader/uboot distclean
+	make -C bootloader/uboot odroidc3_config
+	make -C bootloader/uboot bootimage
+
+$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : bootloader/uboot/sd_fuse/u-boot.bin
+	$(hide) cp -a $< $@
 	@echo "make $@: bootloader installed end"
 
 $(call dist-for-goals, droidcore, $(PRODUCT_OUT)/bootloader.img)
