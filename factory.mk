@@ -200,6 +200,8 @@ ifeq ($(BUILD_WITH_AVB),true)
 	FASTBOOT_IMAGES += vbmeta.img
 endif
 
+FASTBOOT_IMAGES += u-boot.bin odm.img
+
 .PHONY:aml_fastboot_zip
 aml_fastboot_zip:$(INSTALLED_AML_FASTBOOT_ZIP)
 $(INSTALLED_AML_FASTBOOT_ZIP): $(addprefix $(PRODUCT_OUT)/,$(FASTBOOT_IMAGES)) $(BUILT_ODMIMAGE_TARGET)
