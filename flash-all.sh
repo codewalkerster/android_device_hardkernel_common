@@ -30,7 +30,6 @@ fastboot -w
 fastboot erase param
 fastboot flash vbmeta vbmeta.img
 fastboot flash odm odm.img
-fastboot flash logo logo.img
 fastboot flash boot boot.img
 fastboot flash system system.img
 fastboot flash vendor vendor.img

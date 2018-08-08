@@ -309,6 +309,5 @@ def IncrementalOTA_ImageCheck(info, name):
 
 def IncrementalOTA_InstallEnd(info):
   print "amlogic extensions:IncrementalOTA_InstallEnd"
-  IncrementalOTA_ImageCheck(info, "logo");
   IncrementalOTA_ImageCheck(info, "dtb");
   IncrementalOTA_ImageCheck(info, "bootloader");

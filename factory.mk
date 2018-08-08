@@ -1,4 +1,3 @@
-IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
 AML_EMMC_BIN_GENERATOR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/amlogic_emmc_bin_maker.sh
 PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
@@ -182,26 +181,6 @@ ifeq ($(wildcard $(PACKAGE_CONFIG_FILE)),)
 endif ## ifeq ($(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(PACKAGE_CONFIG_FILE)))
 UPGRADE_FILES += $(PACKAGE_CONFIG_FILE)
 
-ifneq ($(TARGET_AMLOGIC_RES_PACKAGE),)
-INSTALLED_AML_LOGO := $(PRODUCT_UPGRADE_OUT)/logo.img
-$(INSTALLED_AML_LOGO): $(IMGPACK) $(wildcard $(TARGET_AMLOGIC_RES_PACKAGE)/*)
-	@echo "generate $(INSTALLED_AML_LOGO)"
-	$(hide) mkdir -p $(PRODUCT_UPGRADE_OUT)/logo
-	$(hide) rm -rf $(PRODUCT_UPGRADE_OUT)/logo/*
-	@cp -rf $(TARGET_AMLOGIC_RES_PACKAGE)/* $(PRODUCT_UPGRADE_OUT)/logo
-	$(hide) $(IMGPACK) -r $(PRODUCT_UPGRADE_OUT)/logo $@
-	@echo "Installed $@"
-# Adds to <product name>-img-<build number>.zip so can be flashed.  b/110831381
-INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_UPGRADE_OUT)/logo.img
-BOARD_PACK_RADIOIMAGES += logo.img
-
-else
-INSTALLED_AML_LOGO :=
-endif
-
-.PHONY: logoimg
-logoimg: $(INSTALLED_AML_LOGO)
-
 BOARD_AUTO_COLLECT_MANIFEST := false
 ifneq ($(BOARD_AUTO_COLLECT_MANIFEST),false)
 BUILD_TIME := $(shell date +%Y-%m-%d--%H-%M)
@@ -327,7 +306,6 @@ else
 	cp $(PRODUCT_OUT)/dt.img $(PRODUCT_OUT)/fastboot_auto/
 endif
 	cp $(PRODUCT_OUT)/odm.img $(PRODUCT_OUT)/fastboot_auto/
-	cp $(PRODUCT_OUT)/upgrade/logo.img $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)
 	cp device/hardkernel/common/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
 	cp device/hardkernel/common/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
