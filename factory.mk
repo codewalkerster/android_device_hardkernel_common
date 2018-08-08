@@ -81,71 +81,6 @@ $(call dist-for-goals, odm_image, $(INSTALLED_ODMIMAGE_TARGET))
 
 endif
 
-ifdef KERNEL_DEVICETREE
-DTBTOOL := $(BOARD_AML_VENDOR_PATH)/tools/dtbTool
-
-ifdef KERNEL_DEVICETREE_CUSTOMER_DIR
-KERNEL_DEVICETREE_DIR := $(KERNEL_DEVICETREE_CUSTOMER_DIR)
-else
-KERNEL_DEVICETREE_DIR := arch/$(KERNEL_ARCH)/boot/dts/amlogic/
-endif
-
-KERNEL_DEVICETREE_SRC := $(addprefix $(KERNEL_ROOTDIR)/$(KERNEL_DEVICETREE_DIR), $(KERNEL_DEVICETREE) )
-KERNEL_DEVICETREE_SRC := $(wildcard $(addsuffix .dtd, $(KERNEL_DEVICETREE_SRC)) $(addsuffix .dts, $(KERNEL_DEVICETREE_SRC)))
-
-KERNEL_DEVICETREE_BIN := $(addprefix $(KERNEL_OUT)/$(KERNEL_DEVICETREE_DIR), $(KERNEL_DEVICETREE))
-KERNEL_DEVICETREE_BIN := $(addsuffix .dtb, $(KERNEL_DEVICETREE_BIN))
-
-INSTALLED_BOARDDTB_TARGET := $(PRODUCT_OUT)/dt.img
-
-ifeq ($(BUILD_WITH_AVB),true)
-INSTALLED_AVB_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb-avb.img
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += \
-    --include_descriptors_from_image $(INSTALLED_AVB_DTBIMAGE_TARGET)
-
-# Add a dependency of AVBTOOL to INSTALLED_BOARDDTB_TARGET
-$(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL)
-
-# Add a dependency of dtb.img to vbmeta.img
-$(INSTALLED_VBMETAIMAGE_TARGET): $(INSTALLED_BOARDDTB_TARGET)
-vbmetaimage: $(INSTALLED_BOARDDTB_TARGET)
-endif
-
-ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
-	INSTALLED_BOARDDTB_TARGET := $(INSTALLED_BOARDDTB_TARGET).encrypt
-endif# ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
-
-$(INSTALLED_BOARDDTB_TARGET) : $(KERNEL_DEVICETREE_SRC) $(INSTALLED_KERNEL_TARGET)
-	$(foreach aDts, $(KERNEL_DEVICETREE), \
-		if [ -f "$(KERNEL_ROOTDIR)/$(KERNEL_DEVICETREE_DIR)/$(aDts).dtd" ]; then \
-			$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) $(strip $(aDts)).dtd; \
-		fi;\
-		$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) \
-	)
-ifneq ($(strip $(word 2, $(KERNEL_DEVICETREE)) ),)
-	$(hide) $(DTBTOOL) -o $@ -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/$(KERNEL_DEVICETREE_DIR)
-else# elif dts num == 1
-	cp -f $(KERNEL_DEVICETREE_BIN) $@
-endif
-	$(hide) $(call aml-secureboot-sign-bin, $@)
-	@echo "Instaled $@"
-ifeq ($(BOARD_AVB_ENABLE),true)
-	cp $@ $(INSTALLED_AVB_DTBIMAGE_TARGET)
-	$(AVBTOOL) add_hash_footer \
-	  --image $(INSTALLED_AVB_DTBIMAGE_TARGET) \
-	  --partition_size $(BOARD_DTBIMAGE_PARTITION_SIZE) \
-	  --partition_name dtb
-endif
-
-.PHONY: dtbimage
-dtbimage: $(INSTALLED_BOARDDTB_TARGET)
-
-endif # ifdef KERNEL_DEVICETREE
-
-# Adds to <product name>-img-<build number>.zip so can be flashed.  b/110831381
-INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/dt.img
-BOARD_PACK_RADIOIMAGES += dt.img
-
 UPGRADE_FILES := \
         aml_sdc_burn.ini \
         ddr_init.bin \
@@ -300,10 +235,8 @@ endif
 	cd $(PRODUCT_OUT); cp $(FASTBOOT_IMAGES) fastboot_auto/
 ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 	cp $(PRODUCT_OUT)/bootloader.img.encrypt $(PRODUCT_OUT)/fastboot_auto/
-	cp $(PRODUCT_OUT)/dt.img.encrypt $(PRODUCT_OUT)/fastboot_auto/
 else
 	cp $(PRODUCT_OUT)/bootloader.img $(PRODUCT_OUT)/fastboot_auto/
-	cp $(PRODUCT_OUT)/dt.img $(PRODUCT_OUT)/fastboot_auto/
 endif
 	cp $(PRODUCT_OUT)/odm.img $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)

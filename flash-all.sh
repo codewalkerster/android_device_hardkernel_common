@@ -25,7 +25,6 @@ fastboot reboot-bootloader
 sleep 5
 fastboot flashing unlock_critical
 fastboot flashing unlock
-fastboot flash dts dt.img
 fastboot -w
 fastboot erase param
 fastboot flash vbmeta vbmeta.img

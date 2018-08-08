@@ -295,10 +295,7 @@ def IncrementalOTA_ImageCheck(info, name):
     message_process = "install " + name + " image..."
     info.script.Print(message_process);
     common.ZipWriteStr(info.output_zip, image_name, target_image.data)
-    if name == "dtb":
-      info.script.WriteDtbImage(image_name)
-    else:
-      info.script.WriteRawImage("/" + name, image_name)
+    info.script.WriteRawImage("/" + name, image_name)
 
   if name == "bootloader":
     if updating_image:
@@ -309,5 +306,4 @@ def IncrementalOTA_ImageCheck(info, name):
 
 def IncrementalOTA_InstallEnd(info):
   print "amlogic extensions:IncrementalOTA_InstallEnd"
-  IncrementalOTA_ImageCheck(info, "dtb");
   IncrementalOTA_ImageCheck(info, "bootloader");

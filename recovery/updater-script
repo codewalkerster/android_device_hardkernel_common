@@ -1,6 +1,3 @@
-ui_print("update dtb.img...");
-backup_data_cache(dtb, /cache/recovery/);
-write_dtb_image(package_extract_file("dt.img"));
 ui_print("update recovery.img...");
 backup_data_cache(recovery, /cache/recovery/);
 package_extract_file("recovery.img", "/dev/block/recovery");
