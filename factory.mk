@@ -165,17 +165,6 @@ ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 	INSTALLED_AMLOGIC_BOOTLOADER_TARGET := $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET).encrypt
 endif# ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
-bootloader/uboot/sd_fuse/u-boot.bin:
-	make -C bootloader/uboot distclean
-	make -C bootloader/uboot $(TARGET_PRODUCT)_config
-	make -C bootloader/uboot bootimage
-
-$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : bootloader/uboot/sd_fuse/u-boot.bin
-	$(hide) cp -a $< $@
-	@echo "make $@: bootloader installed end"
-
-$(call dist-for-goals, droidcore, $(PRODUCT_OUT)/bootloader.img)
-
 INSTALLED_AML_FASTBOOT_ZIP := $(PRODUCT_OUT)/$(TARGET_PRODUCT)-fastboot-flashall-$(BUILD_NUMBER).zip
 $(warning will keep $(INSTALLED_AML_FASTBOOT_ZIP))
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_FASTBOOT_ZIP))
