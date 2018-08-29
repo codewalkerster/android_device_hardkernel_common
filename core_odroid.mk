@@ -158,7 +158,6 @@ PRODUCT_PACKAGES += \
     DocumentsUI \
     DeskClock \
     MusicFX \
-    Browser2 \
     LatinIME \
     Camera2 \
     Music

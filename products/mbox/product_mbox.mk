@@ -4,12 +4,6 @@ $(call inherit-product, device/hardkernel/common/core_odroid.mk)
 PRODUCT_PACKAGES += \
     imageserver
 
-# DLNA
-ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-PRODUCT_PACKAGES += \
-    DLNA
-endif
-
 PRODUCT_PACKAGES += \
     remotecfg
 

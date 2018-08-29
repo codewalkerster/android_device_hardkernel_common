@@ -22,7 +22,6 @@ PRODUCT_PACKAGES += \
     com.android.media.tv.remoteprovider.xml \
     com.android.media.tv.remoteprovider
 $(call add-clean-step, rm -rf $(OUT_DIR)/vendor/etc/permissions/android.hardware.camera.front.xml)
-$(call add-clean-step, rm -rf $(OUT_DIR)/vendor/priv-app/DLNA)
 
 else
 #PRODUCT_PACKAGE_OVERLAYS += device/hardkernel/common/aosp_gms_overlay
