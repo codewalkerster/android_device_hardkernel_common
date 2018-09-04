@@ -155,9 +155,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
-    AppInstaller \
     DocumentsUI \
-    RemoteIME \
     DeskClock \
     MusicFX \
     Browser2 \
@@ -185,11 +183,7 @@ PRODUCT_PACKAGES += \
     vendor.amlogic.hardware.systemcontrol@1.0_vendor
 
 PRODUCT_PACKAGES += \
-    OTAUpgrade \
-    VideoPlayer \
-    SubTitle    \
     libdig \
-    ReadLog \
     BluetoothRemote
 
 PRODUCT_PACKAGES += \
