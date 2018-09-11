@@ -68,4 +68,7 @@ PRODUCT_COPY_FILES += \
 
 endif
 
+# Odroid-Settings
+PRODUCT_PACKAGES += OdroidSettings
+
 $(call inherit-product-if-exists, external/hyphenation-patterns/patterns.mk)
