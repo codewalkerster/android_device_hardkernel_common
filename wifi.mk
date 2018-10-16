@@ -34,7 +34,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/realtek/config/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
 
-PRODUCT_COPY_FILES += device/hardkernel/common/init.odroidc3.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroidc3.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.$(TARGET_PRODUCT).wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_PRODUCT).wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
