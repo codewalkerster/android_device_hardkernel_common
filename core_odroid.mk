@@ -90,9 +90,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
         frameworks/av/media/libeffects/data/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
 
-PRODUCT_COPY_FILES += \
-        device/hardkernel/common/ddr/ddr_window_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/ddr_window_64.ko
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown \
     debug.sf.disable_backpressure=1 \
