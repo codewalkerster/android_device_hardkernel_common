@@ -324,6 +324,7 @@ PRODUCT_PACKAGES += \
     android.hardware.tv.cec@1.0-impl \
     android.hardware.tv.cec@1.0-service \
     hdmicecd \
+    rc_server \
     libhdmicec \
     libhdmicec_jni \
     vendor.amlogic.hardware.hdmicec@1.0_vendor \
