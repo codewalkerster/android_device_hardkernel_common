@@ -267,10 +267,10 @@ PRODUCT_PACKAGES += \
     tee_preload_fw \
     526fc4fc-7ee6-4a12-96e3-83da9565bce8
 endif
-#BOARD_SECCOMP_POLICY := device/amlogic/common/seccomp
+#BOARD_SECCOMP_POLICY := device/hardkernel/common/seccomp
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
-    device/amlogic/common/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+    device/hardkernel/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
+    device/hardkernel/common/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 
 BOARD_AML_MEDIAHAL_PATH := hardware/amlogic/media/
@@ -281,5 +281,5 @@ BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 
 # for media modules
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+	device/hardkernel/common/init.odroidn2.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroidn2.media.rc
 

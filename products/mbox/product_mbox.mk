@@ -1,4 +1,4 @@
-$(call inherit-product, device/amlogic/common/core_amlogic.mk)
+$(call inherit-product, device/hardkernel/common/core_odroid.mk)
 
 
 PRODUCT_PACKAGES += \
@@ -53,21 +53,21 @@ PRODUCT_COPY_FILES += \
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
-	device/amlogic/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
-	device/amlogic/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
+	device/hardkernel/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
+	device/hardkernel/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
+	device/hardkernel/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
 endif
 
 #DDR LOG
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/ddrtest.sh:$(TARGET_COPY_OUT_VENDOR)/bin/ddrtest.sh
+    device/hardkernel/common/ddrtest.sh:$(TARGET_COPY_OUT_VENDOR)/bin/ddrtest.sh
 
 # USB
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml
 
-custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
+custom_keylayouts := $(wildcard device/hardkernel/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
 

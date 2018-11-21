@@ -1,4 +1,4 @@
 BOARD_SEPOLICY_DIRS := \
-    device/amlogic/common/sepolicy \
-    device/amlogic/common/sepolicy/aml_core
+    device/hardkernel/common/sepolicy \
+    device/hardkernel/common/sepolicy/aml_core
 

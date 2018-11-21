@@ -1,7 +1,7 @@
 IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
 AML_EMMC_BIN_GENERATOR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/amlogic_emmc_bin_maker.sh
-PRODUCT_COMMON_DIR := device/amlogic/common/products/$(PRODUCT_TYPE)
+PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 
 ifeq ($(TARGET_NO_RECOVERY),true)
 BUILT_IMAGES := boot.img bootloader.img dt.img
@@ -408,11 +408,11 @@ endif
 	cp $(PRODUCT_OUT)/odm.img $(PRODUCT_OUT)/fastboot_auto/
 	cp $(PRODUCT_OUT)/upgrade/logo.img $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)
-	cp device/amlogic/common/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
-	cp device/amlogic/common/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
+	cp device/hardkernel/common/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
+	cp device/hardkernel/common/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
 else
-	cp device/amlogic/common/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
-	cp device/amlogic/common/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
+	cp device/hardkernel/common/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
+	cp device/hardkernel/common/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
 endif
 	sed -i 's/fastboot update fastboot.zip/fastboot update $(TARGET_PRODUCT)-fastboot-image-$(BUILD_NUMBER).zip/' $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
 	sed -i 's/fastboot update fastboot.zip/fastboot update $(TARGET_PRODUCT)-fastboot-image-$(BUILD_NUMBER).zip/' $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
@@ -435,7 +435,7 @@ else
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(BRO)
 endif
 
-EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/amlogic/common/recovery/updater-script
+EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/hardkernel/common/recovery/updater-script
 
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(AML_TARGET).zip $(BUILT_ODMIMAGE_TARGET)
 	@echo "Package OTA2: $@"
@@ -477,7 +477,7 @@ else
 	-cp $(PRODUCT_OUT)/recovery.img $(AML_TARGET)/IMAGES/recovery.img
 endif
 	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
-	   ./device/amlogic/common/ota_amlogic.py -v \
+	   ./device/hardkernel/common/ota_amlogic.py -v \
 	   --block \
 	   --extracted_input_target_files $(patsubst %.zip,%,$(BUILT_TARGET_FILES_PACKAGE)) \
 	   -p $(HOST_OUT) \

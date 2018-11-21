@@ -125,7 +125,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -167,12 +167,12 @@ PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP6398/Wi-Fi/fw_bcm
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP6398/Wi-Fi/fw_bcm4359c0_ag_apsta.bin:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/AP6398/fw_bcm4359c0_ag_apsta.bin
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP6398/Wi-Fi/fw_bcm4359c0_ag_p2p.bin:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/AP6398/fw_bcm4359c0_ag_p2p.bin
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP6398/Wi-Fi/nvram_ap6398s.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/AP6398/nvram.txt
-PRODUCT_COPY_FILES += device/amlogic/common/wifi/config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/AP6398/config.txt
+PRODUCT_COPY_FILES += device/hardkernel/common/wifi/config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/AP6398/config.txt
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
 
 
@@ -215,9 +215,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
@@ -261,9 +261,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
-PRODUCT_COPY_FILES += device/amlogic/common/wifi/config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/4358/config.txt
+PRODUCT_COPY_FILES += device/hardkernel/common/wifi/config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/4358/config.txt
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/4358/config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/4358/config.txt
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
@@ -306,7 +306,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -351,7 +351,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
@@ -390,7 +390,7 @@ PRODUCT_PACKAGES += \
         bcmdl
 
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin_ap62x8.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin_ap62x8.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
 
 ifeq ($(BCM_USB_COMPOSITE),true)
@@ -408,7 +408,7 @@ endif
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
         wifi.interface=wlan0 \
@@ -447,7 +447,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
@@ -479,7 +479,7 @@ PRODUCT_PACKAGES += \
        p2p_supplicant_overlay.conf
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/8189es.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/8189es.ko:$(PRODUCT_OUT)/obj/lib_vendor/8189es.ko
@@ -521,7 +521,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
@@ -555,7 +555,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/8189fs.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/8189fs.ko:$(PRODUCT_OUT)/obj/lib_vendor/8189fs.ko
@@ -592,7 +592,7 @@ PRODUCT_PACKAGES += \
        p2p_supplicant_overlay.conf
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/8723bs.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/8723bs.ko:$(PRODUCT_OUT)/obj/lib_vendor/8723bs.ko
@@ -629,7 +629,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
@@ -662,7 +662,7 @@ WIFI_DRIVER_FW_PATH_P2P   := ""
 WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
@@ -695,7 +695,7 @@ WIFI_DRIVER_FW_PATH_P2P   := ""
 WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
@@ -733,7 +733,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -777,7 +777,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -818,7 +818,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -868,9 +868,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -911,7 +911,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -952,7 +952,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -997,9 +997,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -1046,9 +1046,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/dhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/dhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko
@@ -1088,7 +1088,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/bcmdhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/bcmdhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/bcmdhd.ko
@@ -1126,7 +1126,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/bcmdhd.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/bcmdhd.ko:$(PRODUCT_OUT)/obj/lib_vendor/bcmdhd.ko
@@ -1159,7 +1159,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1198,10 +1198,10 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/$(TARGET_PRODUCT)/init.amlogic.wifi_buildin_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/$(TARGET_PRODUCT)/init.amlogic.wifi_buildin_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1239,7 +1239,7 @@ WIFI_FIRMWARE_LOADER      := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
@@ -1272,7 +1272,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1305,7 +1305,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1338,7 +1338,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1371,7 +1371,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
@@ -1400,7 +1400,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1433,7 +1433,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
 	p2p_supplicant_overlay.conf
@@ -1467,7 +1467,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
@@ -1507,10 +1507,10 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_buildin_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 endif
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PACKAGES += \
         wpa_supplicant_overlay.conf \
@@ -1542,7 +1542,7 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 endif
 
 ################################################################################## mt7601u
@@ -1571,7 +1571,7 @@ PRODUCT_COPY_FILES += hardware/amlogic/wifi/mediatek/dhcpcd.conf:$(TARGET_COPY_O
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 endif
 
 ################################################################################## mt7603u
@@ -1597,7 +1597,7 @@ PRODUCT_COPY_FILES += hardware/amlogic/wifi/mediatek/mtprealloc.ko:$(PRODUCT_OUT
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/mediatek/dhcpcd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dhcpcd/dhcpcd.conf
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
@@ -1626,7 +1626,7 @@ PRODUCT_COPY_FILES += hardware/amlogic/wifi/mt5931/WIFI_RAM_CODE:$(TARGET_COPY_O
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0
@@ -1662,7 +1662,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 
 PRODUCT_COPY_FILES += \
@@ -1701,7 +1701,7 @@ BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_qcom
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/qcom/config/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/qcom/config/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 
 PRODUCT_COPY_FILES += \
     hardware/amlogic/wifi/qcom/config/qca6174/wifi/bdwlan30.bin:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/qca6174/bdwlan30.bin \
@@ -1834,7 +1834,7 @@ PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP62x8/fw_bcm4358u_
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP62x8/fw_bcm4358u_ag.bin:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/43569/fw_bcm4358u_ag_apsta.bin
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP62x8/nvram_ap62x8.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/43569/nvram_ap62x8.txt
 endif
-PRODUCT_COPY_FILES += device/amlogic/common/init.amlogic.wifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/bcm_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcm_supplicant.conf
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/bcm_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcm_supplicant_overlay.conf
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
