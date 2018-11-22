@@ -29,7 +29,7 @@ PRODUCT_PACKAGES += \
 
 # Camera Hal
 PRODUCT_PACKAGES += \
-    camera.amlogic
+    camera.$(TARGET_PRODUCT)
 
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 

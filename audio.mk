@@ -16,8 +16,8 @@
 
 PRODUCT_PACKAGES += \
     audio_policy.default \
-    audio.primary.amlogic \
-    audio.hdmi.amlogic \
+    audio.primary.$(TARGET_PRODUCT) \
+    audio.hdmi.$(TARGET_PRODUCT) \
     audio.r_submix.default \
     acoustics.default \
     audio_firmware \
@@ -98,7 +98,7 @@ PRODUCT_PACKAGES += \
     tinyplay \
     tinycap \
     tinymix \
-    audio.usb.amlogic
+    audio.usb.$(TARGET_PRODUCT)
 endif
 
 ##################################################################################

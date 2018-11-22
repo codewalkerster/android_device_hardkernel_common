@@ -215,12 +215,12 @@ PRODUCT_PACKAGES += \
     mkntfs \
     libxml2 \
     libamgralloc_ext \
-    gralloc.amlogic \
-    power.amlogic \
-    hwcomposer.amlogic \
-    memtrack.amlogic \
-    screen_source.amlogic \
-    thermal.amlogic
+    gralloc.$(TARGET_PRODUCT) \
+    power.$(TARGET_PRODUCT) \
+    hwcomposer.$(TARGET_PRODUCT) \
+    memtrack.$(TARGET_PRODUCT) \
+    screen_source.$(TARGET_PRODUCT) \
+    thermal.$(TARGET_PRODUCT)
 
 #glscaler and 3d format api
 PRODUCT_PACKAGES += \
@@ -335,7 +335,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)
 PRODUCT_PACKAGES += \
-        keystore.amlogic
+        keystore.$(TARGET_PRODUCT)
 endif
 endif
 
@@ -409,7 +409,7 @@ PRODUCT_PACKAGES += \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    gatekeeper.amlogic \
+    gatekeeper.$(TARGET_PRODUCT) \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
@@ -429,7 +429,7 @@ PRODUCT_PACKAGES += \
     libhdmicec \
     libhdmicec_jni \
     vendor.amlogic.hardware.hdmicec@1.0_vendor \
-    hdmi_cec.amlogic
+    hdmi_cec.$(TARGET_PRODUCT)
 
 #light hal
 PRODUCT_PACKAGES += \
