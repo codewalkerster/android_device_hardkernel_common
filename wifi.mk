@@ -170,7 +170,7 @@ PRODUCT_COPY_FILES += hardware/amlogic/wifi/bcm_ampak/config/AP6398/Wi-Fi/nvram_
 PRODUCT_COPY_FILES += device/hardkernel/common/wifi/config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/AP6398/config.txt
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 ifeq ($(WIFI_BUILD_IN), true)
-PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.odroidn2.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroidn2.wifi_buildin.rc
 endif
 PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_bcm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
 PRODUCT_COPY_FILES += hardware/amlogic/wifi/multi_wifi/config/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
