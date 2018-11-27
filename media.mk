@@ -281,5 +281,5 @@ BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 
 # for media modules
 PRODUCT_COPY_FILES += \
-	device/hardkernel/common/init.odroidn2.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroidn2.media.rc
+	device/hardkernel/common/init.$(TARGET_PRODUCT).media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_PRODUCT).media.rc
 

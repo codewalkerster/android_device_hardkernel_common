@@ -232,7 +232,7 @@ endif# ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
 bootloader/uboot/sd_fuse/u-boot.bin:
 	make -C bootloader/uboot distclean
-	make -C bootloader/uboot odroidc3_config
+	make -C bootloader/uboot $(TARGET_PRODUCT)_config
 	make -C bootloader/uboot bootimage
 
 $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : bootloader/uboot/sd_fuse/u-boot.bin

@@ -36,7 +36,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.$(TARGET_PRODUCT).wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_PRODUCT).wifi.rc
 
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf
@@ -71,7 +71,7 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
-PRODUCT_COPY_FILES += device/hardkernel/common/init.amlogic.wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi.rc
+PRODUCT_COPY_FILES += device/hardkernel/common/init.$(TARGET_PRODUCT).wifi_rtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_PRODUCT).wifi.rc
 PRODUCT_PACKAGES += \
 	wpa_supplicant_overlay.conf \
 
