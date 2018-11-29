@@ -52,4 +52,4 @@ PRODUCT_COPY_FILES += \
 	device/hardkernel/common/wifi/wifi_id_list.txt:vendor/etc/wifi_id_list.txt \
 	device/hardkernel/common/wifi/8192cu:vendor/etc/modprobe.d/8192cu \
 	device/hardkernel/common/wifi/8812au:vendor/etc/modprobe.d/8812au \
-	device/hardkernel/common/wifi/rt2800usb:vendor/etc/modprobe.d/rt2800usb
+	#device/hardkernel/common/wifi/rt2800usb:vendor/etc/modprobe.d/rt2800usb
