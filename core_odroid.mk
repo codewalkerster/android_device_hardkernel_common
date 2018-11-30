@@ -153,6 +153,7 @@ ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
     DocumentsUI \
     DeskClock \
+	Launcher3 \
     MusicFX \
     LatinIME \
     Camera2 \
