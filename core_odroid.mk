@@ -39,13 +39,13 @@ PRODUCT_PACKAGES += \
     libwnndict \
     WAPPushManager
 
-#PRODUCT_PACKAGES += \
-#    Galaxy4 \
-#    HoloSpiralWallpaper \
-#    MagicSmokeWallpapers \
-#    NoiseField \
-#    PhaseBeam \
-#    VisualizationWallpapers
+PRODUCT_PACKAGES += \
+    Galaxy4 \
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    PhaseBeam \
+    VisualizationWallpapers
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
@@ -153,9 +153,10 @@ ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
     DocumentsUI \
     DeskClock \
-	Launcher3 \
+    Launcher3 \
     MusicFX \
     LatinIME \
+    Settings \
     Camera2 \
     Music
 endif
