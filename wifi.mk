@@ -14,10 +14,10 @@
 # limitations under the License.
 #
 
-WIFI_DRIVER             := rtl8192cu
+WIFI_DRIVER             := rtl8812au
 BOARD_WIFI_VENDOR       := realtek
-WIFI_DRIVER_MODULE_PATH := /vendor/lib/modules/8192cu.ko
-WIFI_DRIVER_MODULE_NAME := 8192cu
+WIFI_DRIVER_MODULE_PATH := /vendor/lib/modules/8812au.ko
+WIFI_DRIVER_MODULE_NAME := 8812au
 WIFI_DRIVER_MODULE_ARG  := "ifname=wlan0"
 
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
@@ -26,7 +26,7 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_rtl
 
-BOARD_WLAN_DEVICE := rtl8192cu
+BOARD_WLAN_DEVICE := rtl8812au
 LIB_WIFI_HAL := libwifi-hal-rtl
 
 WIFI_FIRMWARE_LOADER      := ""
@@ -52,4 +52,4 @@ PRODUCT_COPY_FILES += \
 	device/hardkernel/common/wifi/wifi_id_list.txt:vendor/etc/wifi_id_list.txt \
 	device/hardkernel/common/wifi/8192cu:vendor/etc/modprobe.d/8192cu \
 	device/hardkernel/common/wifi/8812au:vendor/etc/modprobe.d/8812au \
-	#device/hardkernel/common/wifi/rt2800usb:vendor/etc/modprobe.d/rt2800usb
+	device/hardkernel/common/wifi/rt2800usb:vendor/etc/modprobe.d/rt2800usb
