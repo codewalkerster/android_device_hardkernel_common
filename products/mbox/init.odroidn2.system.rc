@@ -1,9 +1,8 @@
 import /vendor/etc/init/hw/init.odroidn2.usb.rc
 import /vendor/etc/init/hw/init.odroidn2.board.rc
-import /vendor/etc/init/hw/init.odroidn2.wifi.rc
+import /vendor/etc/init/hw/init.odroid.wifi.rc
 import /vendor/etc/init/hw/init.odroidn2.media.rc
 import /vendor/etc/init/hw/init.mtk.rc
-import /vendor/etc/init/hw/init.odroidn2.wifi_buildin.rc
 import /vendor/etc/init/android.hardware.bluetooth@1.0-service.btlinux.rc
 
 on early-init
