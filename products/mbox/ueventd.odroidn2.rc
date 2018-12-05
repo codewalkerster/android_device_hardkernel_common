@@ -109,3 +109,7 @@
 /dev/dvb0.frontend0                 0666   root       system
 
 /dev/vndbinder						0666   root       root
+
+# GPS
+/dev/ttyACM*   0666    gps             gps
+/dev/ttyUSB*   0666    gps             gps

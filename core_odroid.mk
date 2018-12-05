@@ -485,3 +485,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #fix android.permission2.cts.ProtectedBroadcastsTest
 #PRODUCT_PACKAGES += \
 #    TeleService
+
+#GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0 \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
+
+PRODUCT_COPY_FILES += \
+    hardware/interfaces/gnss/1.0/default/android.hardware.gnss@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss@1.0-service.rc
