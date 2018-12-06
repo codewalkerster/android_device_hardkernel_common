@@ -59,6 +59,7 @@ endif
 PRODUCT_PACKAGES += \
     Gallery2 \
     OneTimeInitializer \
+    Provision \
     SystemUI \
     WallpaperCropper
 
