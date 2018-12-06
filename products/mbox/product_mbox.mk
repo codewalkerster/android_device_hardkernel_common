@@ -13,6 +13,8 @@ PRODUCT_PACKAGES += \
     PrintSpooler \
     PrintRecommendationService \
     QuickSearchBox \
+    Telecom \
+    TeleService \
     DownloadProviderUi \
     MtpDocumentsProvider \
     ManagedProvisioning \

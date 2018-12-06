@@ -22,6 +22,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
 PRODUCT_PACKAGES += Bluetooth \
+    bt_vendor.conf \
     bt_stack.conf \
     bt_did.conf \
     libbt-hci \
