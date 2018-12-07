@@ -32,6 +32,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.$(TARGET_PRODUCT)
 
+# Input Hal
+PRODUCT_PACKAGES += \
+    input.evdev.default \
+    libinput_evdev.so
+
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 
 #Tvsettings
