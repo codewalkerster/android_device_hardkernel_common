@@ -6,7 +6,7 @@ $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 
 # Get a list of languages.
-#$(call inherit-product, build/target/product/locales_full.mk)
+$(call inherit-product, build/target/product/languages_full.mk)
 
 # Define the host tools and libs that are parts of the SDK.
 ifneq ($(filter sdk win_sdk sdk_addon,$(MAKECMDGOALS)),)
