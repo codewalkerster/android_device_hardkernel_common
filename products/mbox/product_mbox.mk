@@ -41,10 +41,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 
+ifeq ($(TARGET_BUILD_GOOGLE_ATV), true)
 #Tvsettings
 PRODUCT_PACKAGES += \
     TvSettings
-
+endif
 
 #USB PM
 PRODUCT_PACKAGES += \
