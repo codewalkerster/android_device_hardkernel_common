@@ -154,7 +154,7 @@ ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
     DocumentsUI \
     DeskClock \
-    Launcher3 \
+    Launcher3QuickStep \
     MusicFX \
     LatinIME \
     Settings \
