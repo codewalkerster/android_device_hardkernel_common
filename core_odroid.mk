@@ -1,12 +1,4 @@
 # Inherit from those products. Most specific first.
-# Get some sounds
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
-
-# Get the TTS language packs
-$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
-
-# Get a list of languages.
-$(call inherit-product, build/target/product/languages_full.mk)
 
 # Define the host tools and libs that are parts of the SDK.
 ifneq ($(filter sdk win_sdk sdk_addon,$(MAKECMDGOALS)),)
@@ -19,12 +11,7 @@ endif
 
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.android.dateformat=MM-dd-yyyy \
-    ro.config.ringtone=Ring_Synth_04.ogg \
-    ro.config.notification_sound=pixiedust.ogg
-
-# Put en_US first in the list, so make it default.
-PRODUCT_LOCALES := en_US
+    ro.com.android.dateformat=MM-dd-yyyy
 
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -34,54 +21,14 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_PACKAGES += \
     libWnnEngDic \
     libWnnJpnDic \
-    libwnndict \
-    WAPPushManager
+    libwnndict
 
 PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
     VisualizationWallpapers
 
-ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
-    PhotoTable
-
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker
-endif
-
-PRODUCT_PACKAGES += \
-    Gallery2 \
-    OneTimeInitializer \
-    Provision \
-    SystemUI \
-    WallpaperCropper
-
-PRODUCT_PACKAGES += \
-    clatd \
-    clatd.conf \
-    pppd \
-    screenrecord
-
-PRODUCT_PACKAGES += \
-    librs_jni \
-    libvideoeditor_jni \
-    libvideoeditor_core \
-    libvideoeditor_osal \
-    libvideoeditor_videofilters \
-    libvideoeditorplayer \
-
-PRODUCT_PACKAGES += \
-    audio.primary.default \
     audio_policy.default \
-    audio.dia_remote.default \
-    local_time.default \
-    vibrator.default \
-    power.default
+    audio.dia_remote.default
 
 PRODUCT_PACKAGES += \
     local_time.default
@@ -90,39 +37,13 @@ PRODUCT_COPY_FILES += \
         frameworks/av/media/libeffects/data/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.carrier=unknown \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
     net.tethering.noprovisioning=true
 
-PRODUCT_PACKAGES += \
-    BasicDreams \
-    CalendarProvider \
-    CaptivePortalLogin \
-    CertInstaller \
-    ExternalStorageProvider \
-    FusedLocation \
-    InputDevices \
-    KeyChain \
-    Keyguard \
-    PacProcessor \
-    libpac \
-    ProxyHandler \
-    SharedStorageBackup \
-    VpnDialogs
-
-$(call inherit-product-if-exists, frameworks/base/data/fonts/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/dancing-script/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/carrois-gothic-sc/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/coming-soon/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/cutive-mono/fonts.mk)
-$(call inherit-product-if-exists, external/noto-fonts/fonts.mk)
 $(call inherit-product-if-exists, external/naver-fonts/fonts.mk)
-$(call inherit-product-if-exists, external/roboto-fonts/fonts.mk)
-$(call inherit-product-if-exists, frameworks/base/data/keyboards/keyboards.mk)
-$(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-  $(call inherit-product, build/target/product/core_base.mk)
+  $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 else
   $(call inherit-product, device/google/atv/products/atv_base.mk)
 endif
@@ -147,18 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
     rw.camera.usb.faceback=true
-
-ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-PRODUCT_PACKAGES += \
-    DocumentsUI \
-    DeskClock \
-    Launcher3QuickStep \
-    MusicFX \
-    LatinIME \
-    Settings \
-    Camera2 \
-    Music
-endif
 
 ifeq ($(TARGET_BUILD_LIVETV), true)
 PRODUCT_PACKAGES += \
@@ -453,14 +362,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # ro.product.first_api_level indicates the first api level the device has commercially launched on.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.first_api_level=26
+    ro.product.first_api_level=28
 
 PRODUCT_PACKAGES += \
     vndk-sp
 
 # VNDK version is specified
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=26.1.0
+    ro.vendor.vndk.version=28.0.0
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.treble.enabled=true

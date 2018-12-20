@@ -5,19 +5,7 @@ PRODUCT_PACKAGES += \
     imageserver
 
 PRODUCT_PACKAGES += \
-    Calculator \
-    ExactCalculator \
-    Calendar \
-    Email \
     PicoTts \
-    PrintSpooler \
-    PrintRecommendationService \
-    QuickSearchBox \
-    Telecom \
-    TeleService \
-    DownloadProviderUi \
-    MtpDocumentsProvider \
-    ManagedProvisioning \
     remotecfg
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)

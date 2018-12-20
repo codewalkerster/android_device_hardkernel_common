@@ -27,7 +27,6 @@ PRODUCT_PACKAGES += Bluetooth \
     bt_did.conf \
     libbt-hci \
     bluetooth.default \
-    audio.a2dp.default \
     libbt-client-api \
     com.broadcom.bt \
     com.broadcom.bt.xml \
