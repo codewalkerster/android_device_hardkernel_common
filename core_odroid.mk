@@ -26,8 +26,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Put en_US first in the list, so make it default.
 PRODUCT_LOCALES := en_US
 
-AMLOGIC_PRODUCT := true
-
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Include drawables for all densities
