@@ -24,6 +24,11 @@ PRODUCT_PACKAGES += \
     libwnndict
 
 PRODUCT_PACKAGES += \
+    libfdt \
+    libufdt \
+    dtc
+
+PRODUCT_PACKAGES += \
     VisualizationWallpapers
 
 PRODUCT_PACKAGES += \
@@ -60,10 +65,7 @@ endif
 WITH_SOFT_AM_EXTRACTOR_DECODER := true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.render_dirty_regions=false \
-    ro.hwui.texture_cache_size=64.0f \
-    camera.disable_zsl_mode=1 \
-    debug.hwui.use_buffer_age=false
+    camera.disable_zsl_mode=1
 
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -74,8 +76,6 @@ PRODUCT_PACKAGES += \
     libjnidtvepgscanner \
     LiveTv \
     libtunertvinput_jni
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.picture_in_picture.xml:vendor/etc/permissions/android.software.picture_in_picture.xml
 endif
 
 PRODUCT_PACKAGES += \
@@ -145,6 +145,7 @@ PRODUCT_PACKAGES += libomx_av_core_alt \
     libOmxVideo \
     libOmxAudio \
     libHwAudio_dcvdec \
+    libHwAudio_dtshd  \
     libthreadworker_alt \
     libdatachunkqueue_alt \
     libOmxBase \
@@ -203,7 +204,7 @@ endif
 #
 #########################################################################
 ifeq ($(TARGET_USE_OPTEEOS),true)
-ifeq ($(TARGET_KERNEL_BUILT_FROM_SOURCE), true)
+ifneq ($(TARGET_KERNEL_BUILT_FROM_SOURCE), false)
 PRODUCT_PACKAGES += \
 	optee_armtz \
 	optee
@@ -229,7 +230,12 @@ PRODUCT_PACKAGES += \
 	tee_sha_perf_ta \
 	tee_sdp_basic_ta \
 	tee_concurrent_ta \
-	tee_concurrent_large_ta
+	tee_concurrent_large_ta \
+	tee_provision \
+	libprovision \
+	tee_provision_ta \
+	tee_hdcp \
+	tee_hdcp_ta
 
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)
 PRODUCT_PACKAGES += \
@@ -264,8 +270,9 @@ PRODUCT_COPY_FILES += \
 
 #Audio HAL
 PRODUCT_PACKAGES += \
-     android.hardware.audio@2.0-impl \
-     android.hardware.audio.effect@2.0-impl \
+     android.hardware.audio@4.0-impl:32 \
+     android.hardware.audio.effect@4.0-impl:32 \
+     android.hardware.soundtrigger@2.1-impl:32 \
      android.hardware.audio@2.0-service
 #Camera HAL
 #ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
@@ -399,6 +406,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #fix android.permission2.cts.ProtectedBroadcastsTest
 #PRODUCT_PACKAGES += \
 #    TeleService
+
+#add copy alarm file to product
+#PRODUCT_COPY_FILES += \
+#        frameworks\base\data\sounds\Alarm_Beep_01.ogg:product/media/audio/alarms/Alarm_Beep_01.ogg
 
 #GPS
 PRODUCT_PACKAGES += \

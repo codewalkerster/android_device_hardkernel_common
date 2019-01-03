@@ -46,6 +46,8 @@ PRODUCT_PACKAGES += \
     PrintSpooler
 
 else
+PRODUCT_PACKAGES += \
+    libfwdlockengine
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.app.rotation=middle_port

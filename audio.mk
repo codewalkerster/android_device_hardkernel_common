@@ -25,17 +25,14 @@ PRODUCT_PACKAGES += \
     libparameter \
     libamadec_omx_api \
     libfaad    \
-    libape     \
     libmad     \
-    libflac    \
-    libcook    \
-    libraac    \
-    libamr     \
-    libpcm     \
-    libadpcm   \
-    libpcm_wfd \
-    libaac_helix \
-    libamadec_wfd_out
+    libamadec_wfd_out \
+    libavl \
+    libbalance \
+    libhpeqwrapper \
+    libsrswrapper \
+    libtreblebasswrapper \
+    libvirtualsurround \
 
 #PRODUCT_COPY_FILES += \
 #    $(TARGET_PRODUCT_DIR)/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \

@@ -47,7 +47,13 @@ ifeq ($(TARGET_WITH_MEDIA_EXT_LEVEL), 3)
     TARGET_WITH_MEDIA_EXT :=true
     TARGET_WITH_SWCODEC_EXT := true
     TARGET_WITH_CODEC_EXT := true
-#    TARGET_WITH_PLAYERS_EXT :=true
+else
+ifeq ($(TARGET_WITH_MEDIA_EXT_LEVEL), 4)
+    TARGET_WITH_MEDIA_EXT :=true
+    TARGET_WITH_SWCODEC_EXT := true
+    TARGET_WITH_CODEC_EXT := true
+    TARGET_WITH_PLAYERS_EXT :=true
+endif
 endif
 endif
 endif
@@ -77,8 +83,14 @@ endif
 ifeq ($(TARGET_WITH_CODEC_EXT), true)
 PRODUCT_PACKAGES += \
    libavenhancements
+
+ifeq (,$(wildcard $(BOARD_AML_VENDOR_PATH)/frameworks/av/AmFFmpegAdapter))
+ifeq (,$(wildcard $(BOARD_AML_VENDOR_PATH)/AmFFmpegAdapter))
 PRODUCT_COPY_FILES += \
-   vendor/amlogic/common/prebuilt/libmedia/libavenhancements/vendor/lib/libavenhancements.so:$(TARGET_COPY_OUT_VENDOR)/lib/libavenhancements.so \
+   $(BOARD_AML_VENDOR_PATH)/prebuilt/libmedia/libavenhancements/vendor/lib/libavenhancements.so:$(TARGET_COPY_OUT_VENDOR)/lib/libavenhancements.so \
+
+endif
+endif
 
 endif
 
@@ -216,16 +228,7 @@ PRODUCT_PACKAGES += libmedia_amlogic \
 #audio
 PRODUCT_PACKAGES += libamadec_omx_api \
     libfaad    \
-    libape     \
     libmad     \
-    libflac    \
-    libcook    \
-    libraac    \
-    libamr     \
-    libpcm     \
-    libadpcm   \
-    libpcm_wfd \
-    libaac_helix \
     libamadec_wfd_out
 else
 #no libplayer but have amnuplayer

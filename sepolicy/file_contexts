@@ -283,6 +283,7 @@
 /vendor/lib(64)?/libjnidtvepgscanner\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjniuevent\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsubjni\.so        u:object_r:vendor_app_file:s0
+/vendor/odroid-usbgps\.xml         u:object_r:vendor_configs_file:s0
 
 /dev/hidraw[0-9]*	u:object_r:hidraw_audio_device:s0
 #The final space is necessary. Please don't delete it.
@@ -291,4 +292,3 @@
 /system/bin/ntfs-3g             u:object_r:fsck_exec:s0
 /system/bin/ntfsfix             u:object_r:fsck_exec:s0
 /system/bin/fsck.exfat          u:object_r:fsck_exec:s0
-
