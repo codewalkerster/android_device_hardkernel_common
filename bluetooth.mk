@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-include hardware/amlogic/wifi/configs/bluetooth.mk
+include hardware/hardkernel/wifi/config/bluetooth.mk

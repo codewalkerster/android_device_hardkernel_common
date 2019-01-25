@@ -263,7 +263,7 @@ PRODUCT_PACKAGES += \
 
 #workround because android.hardware.wifi@1.0-service has not permission to insmod ko
 PRODUCT_COPY_FILES += \
-        hardware/amlogic/wifi/multi_wifi/android.hardware.wifi@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.wifi@1.0-service.rc
+        hardware/hardkernel/wifi/android.hardware.wifi@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.wifi@1.0-service.rc
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml

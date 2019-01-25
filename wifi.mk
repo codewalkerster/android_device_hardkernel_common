@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-include hardware/amlogic/wifi/configs/wifi.mk
+include hardware/hardkernel/wifi/config/wifi.mk
