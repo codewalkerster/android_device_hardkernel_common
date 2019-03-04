@@ -69,7 +69,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
-    rw.camera.usb.faceback=true
+    ro.media.usb_faceback=true
 
 ifeq ($(TARGET_BUILD_LIVETV), true)
 PRODUCT_PACKAGES += \
