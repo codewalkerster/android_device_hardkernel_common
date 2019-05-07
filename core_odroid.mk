@@ -67,6 +67,9 @@ WITH_SOFT_AM_EXTRACTOR_DECODER := true
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.statsd.enable=false
+
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.usb_faceback=true
@@ -85,7 +88,8 @@ PRODUCT_PACKAGES += \
     systemcontrol \
     systemcontrol_static \
     libsystemcontrolservice \
-    vendor.amlogic.hardware.systemcontrol@1.0_vendor
+    vendor.amlogic.hardware.systemcontrol@1.0_vendor \
+    vendor.amlogic.hardware.systemcontrol@1.1_vendor
 
 PRODUCT_PACKAGES += \
     libdig \
@@ -146,6 +150,7 @@ PRODUCT_PACKAGES += libomx_av_core_alt \
     libOmxAudio \
     libHwAudio_dcvdec \
     libHwAudio_dtshd  \
+    libdra \
     libthreadworker_alt \
     libdatachunkqueue_alt \
     libOmxBase \
@@ -243,14 +248,6 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-#########################################################################
-#
-#                                     OTA PROPERTY
-#
-#########################################################################
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.firmware=00502001 \
-    ro.product.otaupdateurl=http://10.28.11.53:8080/otaupdate/update
 #########################################################################
 #
 #                                     hardware interfaces
@@ -379,13 +376,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.vndk.version=28.0.0
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.treble.enabled=true
-
-#for cts test disable quota
-PRODUCT_PROPERTY_OVERRIDES += \
-    fw.disable_quota=true
-
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
@@ -393,10 +383,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.fake_battery=42
-
-#Set PQ enable
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.PQ.enable=true
 
 #set audioflinger heapsize,for lowramdevice
 #the default af heap size is 1M,it is not enough

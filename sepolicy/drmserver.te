@@ -9,3 +9,5 @@ allow drmserver kernel:system module_request;
 
 allow drmserver unlabeled:file { read };
 
+allow drmserver system_data_file:file { read };
+

@@ -23,6 +23,9 @@
 /dev/amstream_sub   			u:object_r:subtitle_device:s0
 /dev/amstream_sub_read			u:object_r:subtitle_device:s0
 /dev/avin_detect    			u:object_r:avin_device:s0
+/dev/videosync    			u:object_r:video_device:s0
+/dev/ac_sbuf0    			u:object_r:video_device:s0
+/dev/ac_isp4uf    			u:object_r:video_device:s0
 
 /dev/unifykeys                  u:object_r:unify_device:s0
 
@@ -68,7 +71,6 @@
 /dev/display        			u:object_r:display_device:s0
 /dev/dtb            			u:object_r:dtb_device:s0
 /dev/dvb0.*         			u:object_r:dvb_device:s0
-/dev/dvb.*          			u:object_r:video_device:s0
 /dev/v4l2_frontend			  u:object_r:frontend_device:s0
 /dev/esm            			u:object_r:hdcptx_device:s0
 /dev/esm_rx         			u:object_r:hdcprx_device:s0
@@ -77,7 +79,6 @@
 /dev/mali           			u:object_r:gpu_device:s0
 /dev/mali0          			u:object_r:gpu_device:s0
 /dev/nand_env       			u:object_r:env_device:s0
-/dev/opteearmtz00       		u:object_r:drm_device:s0
 /dev/otz_client     			u:object_r:tee_device:s0
 /dev/picdec         			u:object_r:picture_device:s0
 /dev/rtk_btusb      			u:object_r:hci_attach_dev:s0
@@ -112,13 +113,16 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth@1\.0-service\.btlinux        u:object_r:hal_bluetooth_btlinux_exec:s0
 
 /sys/class/video/disable_video					u:object_r:sysfs_video:s0
+/sys/class/video/disable_videopip				u:object_r:sysfs_video:s0
 /sys/class/vfm/map						u:object_r:sysfs_video:s0
 /sys/class/video/axis						u:object_r:sysfs_video:s0
+/sys/class/video/axis_pip					u:object_r:sysfs_video:s0
 /sys/class/tsync/enable						u:object_r:sysfs_video:s0
 /sys/class/audiodsp/digital_raw					u:object_r:sysfs_audio:s0
 /sys/class/amaudio/debug                                        u:object_r:sysfs_audio:s0
 /sys/class/tsync/firstapts                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_audio                                      u:object_r:sysfs_xbmc:s0
+/sys/class/tsync/pts_video                                     u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/event                                          u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_pcrscr                                     u:object_r:sysfs_xbmc:s0
 
@@ -129,6 +133,7 @@
 /sys/devices/virtual/amhdmitx/amhdmitx0/aud_cap                 u:object_r:sysfs_audio_cap:s0
 /sys/devices/virtual/amhdmitx/amhdmitx0/aud_output_chs          u:object_r:sysfs_aud_output_chs:s0
 /sys/devices/platform/meson-fb/graphics/fb0/osd_afbcd           u:object_r:sysfs_fb0_afbcd:s0
+/sys/devices/platform/fb/graphics/fb0/osd_afbcd                 u:object_r:sysfs_fb0_afbcd:s0
 /sys/class/mpgpu/mpgpucmd                                       u:object_r:sysfs_mpgpu_cmd:s0
 /sys/power/early_suspend_trigger                                u:object_r:sysfs_power_trigger:s0
 
@@ -149,6 +154,7 @@
 /sys/class/display(/.*)                                         u:object_r:sysfs_display:s0
 /sys/devices/meson-fb/graphics/fb[0-3](/.*)                     u:object_r:sysfs_display:s0
 /sys/devices/platform/meson-fb/graphics/fb[0-3](/.*)            u:object_r:sysfs_display:s0
+/sys/devices/platform/fb/graphics/fb[0-3](/.*)                  u:object_r:sysfs_display:s0
 /sys/class/lcd/enable                                           u:object_r:sysfs_lcd:s0
 /sys/class/video/video_scaler_path_sel                          u:object_r:sysfs_video:s0
 
@@ -193,6 +199,7 @@
 /sys/devices/platform/vout/extcon/setmode/cable.0/state         u:object_r:sysfs_display:s0
 /sys/devices/platform/vout/extcon/setmode/state                 u:object_r:sysfs_display:s0
 /sys/devices/platform/meson-fb/graphics(/.*)?                   u:object_r:sysfs_display:s0
+/sys/devices/platform/fb/graphics(/.*)?                         u:object_r:sysfs_display:s0
 /dev/graphics/fb0                                               u:object_r:sysfs_display:s0
 /dev/graphics/fb1                                               u:object_r:sysfs_display:s0
 

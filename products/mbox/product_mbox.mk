@@ -123,3 +123,9 @@ $(call inherit-product, $(VERSION_ID))
 endif
 
 DISPLAY_BUILD_NUMBER := true
+
+#Box project,set omx to video layer
+PRODUCT_PROPERTY_OVERRIDES += \
+        media.omx.display_mode=1
+
+BOARD_HAVE_CEC_HIDL_SERVICE := true
