@@ -2,6 +2,7 @@
 148f 5370 rt2800usb /vendor/etc/modprobe.d/rt2800usb
 0bda 8812 8812au /vendor/etc/modprobe.d/8812au
 0bda a811 8812au /vendor/etc/modprobe.d/8812au
+0bda 0811 8812au /vendor/etc/modprobe.d/8812au
 0bda 8176 8192cu /vendor/etc/modprobe.d/8192cu /* 8188cu 1*1 dongole */
 0bda 8170 8192cu /vendor/etc/modprobe.d/8192cu /* 8188CE-VAU USB minCard */
 0bda 817e 8192cu /vendor/etc/modprobe.d/8192cu /* 8188CE-VAU USB minCard */
