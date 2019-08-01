@@ -97,6 +97,13 @@
 
 /sys/class/video/device_resolution    0666   system     system
 
+#gpio
+/sys/class/gpio    export    0666    system    system
+/sys/class/gpio    unexport    0666    system    system
+/sys/class/gpio/gpio*    value    0666    system    system
+/sys/class/gpio/gpio*    direction   0666    system    system
+/sys/class/gpio/gpio*    edge   0666    system    system
+
 #
 /dev/graphics/*           0660   root       graphics
 /dev/display              0660   root       graphics

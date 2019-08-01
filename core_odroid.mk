@@ -404,9 +404,16 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-service
 
 PRODUCT_PACKAGES += \
+    Things \
+    odroidThings \
+    com.google.android.things.xml
+# vednor/hk/
+# hardware/hk/odroidThings, HAL
+
+PRODUCT_PACKAGES += \
     libwiringPi \
     libwiringPiDev \
-    gpiod
+    gpio
 
 PRODUCT_COPY_FILES += \
     hardware/interfaces/gnss/1.0/default/android.hardware.gnss@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss@1.0-service.rc
