@@ -6,7 +6,7 @@
 /data/droidota(/.*)?			u:object_r:update_data_file:s0
 /data/vendor/btmic(/.*)?		        u:object_r:btmic_data_file:s0
 /data/misc/wifi/sockets     u:object_r:wifi_socket:s0
-/data/misc/hdcp             u:object_r:hdcp_file:s0
+/data/vendor/hdcp(/.*)?         u:object_r:hdcp_file:s0
 
 /dev/amaudio_.*     			u:object_r:audio_device:s0
 /dev/amaudio2_out       		u:object_r:audio_device:s0
@@ -16,16 +16,16 @@
 /dev/amvecm            			u:object_r:amvecm_device:s0
 /dev/di0                                u:object_r:di0_device:s0
 /dev/HevcEnc				u:object_r:video_device:s0
-/dev/amvideo				u:object_r:video_device:s0
+/dev/amvideo				u:object_r:vendor_video_device:s0
 /dev/amvideo_poll   			u:object_r:video_device:s0
 /dev/ionvideo   			u:object_r:video_device:s0
 /dev/amstream_.*    			u:object_r:codec_device:s0
 /dev/amstream_sub   			u:object_r:subtitle_device:s0
 /dev/amstream_sub_read			u:object_r:subtitle_device:s0
 /dev/avin_detect    			u:object_r:avin_device:s0
-/dev/videosync    			u:object_r:video_device:s0
-/dev/ac_sbuf0    			u:object_r:video_device:s0
-/dev/ac_isp4uf    			u:object_r:video_device:s0
+/dev/videosync   			    u:object_r:video_device:s0
+/dev/ac_sbuf0                           u:object_r:video_device:s0
+/dev/ac_isp4uf                          u:object_r:video_device:s0
 
 /dev/unifykeys                  u:object_r:unify_device:s0
 
@@ -69,6 +69,7 @@
 /dev/cec            			u:object_r:cec_device:s0
 /dev/defendkey      			u:object_r:defendkey_device:s0
 /dev/display        			u:object_r:display_device:s0
+/dev/display2        			u:object_r:display_device:s0
 /dev/dtb            			u:object_r:dtb_device:s0
 /dev/dvb0.*         			u:object_r:dvb_device:s0
 /dev/v4l2_frontend			  u:object_r:frontend_device:s0
@@ -91,11 +92,13 @@
 /dev/ttyUSB.*				u:object_r:radio_device:s0
 /dev/tvafe0             		u:object_r:video_device:s0
 /dev/vdin0              		u:object_r:video_device:s0
+/dev/vdin1                              u:object_r:video_device:s0
 /dev/wifi_power     			u:object_r:radio_device:s0
 /dev/hidraw[0-3]			u:object_r:hidraw_device:s0
 /dev/ttyACM[0-4]*             u:object_r:vndbinder_device:s0
 /dev/ttyUSB[0-4]*             u:object_r:vndbinder_device:s0
 /dev/ttyGPS[0-4]*             u:object_r:vndbinder_device:s0
+/dev/galcore				u:object_r:galcore_device:s0
 
 #############################
 # boot files
@@ -117,15 +120,26 @@
 /sys/class/vfm/map						u:object_r:sysfs_video:s0
 /sys/class/video/axis						u:object_r:sysfs_video:s0
 /sys/class/video/axis_pip					u:object_r:sysfs_video:s0
+/sys/class/video/crop						u:object_r:sysfs_video:s0
+/sys/class/video/crop_pip					u:object_r:sysfs_video:s0
 /sys/class/tsync/enable						u:object_r:sysfs_video:s0
 /sys/class/audiodsp/digital_raw					u:object_r:sysfs_audio:s0
 /sys/class/amaudio/debug                                        u:object_r:sysfs_audio:s0
+/sys/class/amaudio/mute_unmute                                  u:object_r:sysfs_audio:s0
+/sys/class/astream/addr_offset                                  u:object_r:sysfs_audio:s0
+/sys/class/astream/format                                       u:object_r:sysfs_audio:s0
+/sys/class/astream/astream-dev/uio0/maps/map0(/.*)?             u:object_r:sysfs_audio:s0
+/sys/devices/virtual/astream/astream-dev/uio0/maps/map0(/.*)?   u:object_r:sysfs_audio:s0
+/sys/class/dmx/demux0_scramble                                  u:object_r:sysfs_audio:s0
 /sys/class/tsync/firstapts                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_audio                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_video                                     u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/event                                          u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_pcrscr                                     u:object_r:sysfs_xbmc:s0
-
+/sys/class/tsync/firstvpts                                      u:object_r:sysfs_xbmc:s0
+/sys/class/tsync/mode                                           u:object_r:sysfs_xbmc:s0
+/sys/class/tsync/checkin_firstapts                              u:object_r:sysfs_xbmc:s0
+/sys/class/tsync/checkin_firstvpts                              u:object_r:sysfs_xbmc:s0
 /sys/devices/virtual/amhdmitx/amhdmitx0(/.*)?                   u:object_r:sysfs_amhdmitx:s0
 
 /sys/class/audiodsp/digital_codec       		        u:object_r:sysfs_digital_codec:s0
@@ -157,6 +171,7 @@
 /sys/devices/platform/fb/graphics/fb[0-3](/.*)                  u:object_r:sysfs_display:s0
 /sys/class/lcd/enable                                           u:object_r:sysfs_lcd:s0
 /sys/class/video/video_scaler_path_sel                          u:object_r:sysfs_video:s0
+/sys/module/amdolby_vision/parameters(/.*)?                     u:object_r:sysfs_video:s0
 
 /sys/class/unifykeys(/.*)?                                      u:object_r:sysfs_unifykey:s0
 /sys/devices/platform/ffd26000.hdmirx/hdmirx/hdmirx0/key        u:object_r:sysfs_unifykey:s0
@@ -179,9 +194,11 @@
 /sys/module/amvdec_h265/parameters/double_write_mode            u:object_r:sysfs_amvdec:s0
 
 /sys/devices/virtual/remote/amremote(/.*)?                      u:object_r:sysfs_remote:s0
-
+/sys/class/stb(/.*)?                                            u:object_r:sysfs_stb:s0
+/sys/module/decoder_common/parameters/force_nosecure_even_drm   u:object_r:sysfs_vdec:s0
 /sys/devices/virtual/amhdmitx/amhdmitx0/hdmi_audio/state        u:object_r:sysfs_hdmi:s0
 /sys/devices/virtual/thermal/thermal_zone0/mode                 u:object_r:sysfs_display:s0
+/sys/devices/platform/aml_pm/suspend_reason                     u:object_r:sysfs_pm:s0
 
 /acct/uid/cgroup.procs                                          u:object_r:reco_file:s0
 /acct/cgroup.procs                                              u:object_r:reco_file:s0
@@ -211,6 +228,7 @@
 
 /sys/class/amvecm(/.*)?                                         u:object_r:sysfs_video:s0
 /sys/class/video(/.*)?                                          u:object_r:sysfs_video:s0
+/dev/vbi                                                        u:object_r:vbi_device:s0
 /dev/vbi[0-3]                                                   u:object_r:vbi_device:s0
 
 /sys/class/mpgpu/scale_mode                                     u:object_r:sysfs_mpgpu_scale:s0
@@ -220,6 +238,8 @@
 /tee(/.*)?                    u:object_r:tee_data_file:s0
 /mnt/vendor/tee(/.*)?         u:object_r:tee_data_file:s0
 /mnt/vendor/param(/.*)?       u:object_r:param_tv_file:s0
+/mnt/vendor/factory(/.*)?     u:object_r:factory_data_file:s0
+/mnt/vendor/swap_zram0(/.*)?  u:object_r:swap_data_file:s0
 /mnt/vendor                   u:object_r:param_tv_file:s0
 
 #/vendor/bin/bootplayer       u:object_r:bootvideo_exec:s0
@@ -243,11 +263,13 @@
 /vendor/bin/tee_preload_fw    u:object_r:firmload_exec:s0
 
 /vendor/bin/tvserver          u:object_r:tvserver_exec:s0
+/vendor/bin/dtvkitserver      u:object_r:dtvkitserver_exec:s0
 #/vendor/bin/wlan_fwloader    u:object_r:wlan_fwloader_exec:s0
 /vendor/xbin/bcmdl   	      u:object_r:bcmdl_exec:s0
 
 ## keylayout is vendor config file! must update!
 /(vendor|system/vendor)/usr/keylayout(/.*)?               u:object_r:vendor_configs_file:s0
+/(vendor|system/vendor)/usr/idc(/.*)?                     u:object_r:vendor_configs_file:s0
 
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.droidlogic      u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service.widevine              u:object_r:hal_drm_default_exec:s0
@@ -278,6 +300,7 @@
 /vendor/lib(64)?/libvendorfont\.so         u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libtvbinder\.so           u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libtv_jni\.so             u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libsystemcontrol_jni\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libamadec_omx_api\.so     u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/liboptimization\.so       u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsystemcontrolservice\.so  u:object_r:vendor_app_file:s0
@@ -289,9 +312,13 @@
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.remotecontrol@1\.0\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.hdmicec@1\.0\.so    u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.droidvold@1\.0\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.1\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.0\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.amlogic\.hardware\.tvserver@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjnidtvepgscanner\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjniuevent\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsubjni\.so        u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libsystemcontrolclient\.so        u:object_r:vendor_app_file:s0
 /vendor/odroid-usbgps\.xml         u:object_r:vendor_configs_file:s0
 /vendor/lib(64)?/libodroidThings_jni.so    u:object_r:vendor_app_file:s0
 
