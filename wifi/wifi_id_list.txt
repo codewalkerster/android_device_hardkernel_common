@@ -1,5 +1,6 @@
 148f 5572 rt2800usb /vendor/etc/modprobe.d/rt2800usb
 148f 5370 rt2800usb /vendor/etc/modprobe.d/rt2800usb
+0bda c811 8821cu /vendor/etc/modprobe.d/8821cu
 0bda 8812 8812au /vendor/etc/modprobe.d/8812au
 0bda a811 8812au /vendor/etc/modprobe.d/8812au
 0bda 0811 8812au /vendor/etc/modprobe.d/8812au
