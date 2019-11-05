@@ -1,0 +1,10 @@
+type odroid_thing, domain;
+type odroid_thing_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(odroid_thing)
+
+allow odroid_thing vndbinder_device:chr_file { read write open ioctl };
+allow odroid_thing vndservicemanager:binder { call transfer };
+allow odroid_thing { odroidthing_hwservice  hidl_base_hwservice }:hwservice_manager { add };
+allow odroid_thing odroidthing_hwservice:hwservice_manager { find };
+

@@ -404,8 +404,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     Things \
+    odroidThings \
     com.google.android.things.xml \
-#    odroidThings \
+    vendor.hardkernel.hardware.odroidthings@1.0-service
+
 # vednor/hk/
 # hardware/hk/odroidThings, HAL
 

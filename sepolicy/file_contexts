@@ -274,6 +274,7 @@
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.droidlogic      u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service.widevine              u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey             u:object_r:hal_drm_clearkey_exec:s0
+/vendor/bin/hw/vendor\.hardkernel\.hardware\.odroidthings@1\.0-service  u:object_r:odroid_thing_exec:s0
 /vendor/bin/makebootini  u:object_r:makebootini_exec:s0
 /vendor/bin/makedefaultprop u:object_r:makedefaultprop_exec:s0
 
@@ -317,6 +318,7 @@
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.1\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.tvserver@1\.0\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.hardkernel\.hardware\.odroidthings@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjnidtvepgscanner\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjniuevent\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsubjni\.so        u:object_r:vendor_app_file:s0

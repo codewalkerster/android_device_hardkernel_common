@@ -284,4 +284,13 @@
     <sepolicy>
         <version>27.0</version>
     </sepolicy>
+    <hal format="hidl">
+        <name>vendor.hardkernel.hardware.odroidthings</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOdroidThings</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </manifest>
