@@ -84,6 +84,7 @@
 /dev/otz_client     			u:object_r:tee_device:s0
 /dev/picdec         			u:object_r:picture_device:s0
 /dev/rtk_btusb      			u:object_r:hci_attach_dev:s0
+/dev/rtkbt_dev      			u:object_r:hci_attach_dev:s0
 /dev/socket/dig	        		u:object_r:dig_socket:s0
 /dev/socket/pppoe_wrapper		u:object_r:pppoe_wrapper_socket:s0
 /dev/sw_sync           			u:object_r:sw_sync_device:s0
@@ -101,14 +102,6 @@
 /dev/ttyGPS[0-4]*             u:object_r:vndbinder_device:s0
 /dev/galcore				u:object_r:galcore_device:s0
 
-#############################
-# boot files
-#
-/boot(/.*)?                    u:object_r:boot_data_file:s0
-/factory(/.*)?                 u:object_r:factory_data_file:s0
-/swap_zram0(/.*)?              u:object_r:swap_data_file:s0
-/misc(/.*)?                    u:object_r:misc_data_file:s0
-
 /sys/devices/platform/bt-dev/rfkill/rfkill0/state	        u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/platform/bt-dev/rfkill/rfkill0/type	        u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bt-dev.*/rfkill/rfkill0/state		        u:object_r:sysfs_bluetooth_writable:s0
@@ -123,6 +116,7 @@
 /sys/class/video/axis_pip					u:object_r:sysfs_video:s0
 /sys/class/video/crop						u:object_r:sysfs_video:s0
 /sys/class/video/crop_pip					u:object_r:sysfs_video:s0
+/sys/class/ppmgr/angle						u:object_r:sysfs_video:s0
 /sys/class/tsync/enable						u:object_r:sysfs_video:s0
 /sys/class/audiodsp/digital_raw					u:object_r:sysfs_audio:s0
 /sys/class/amaudio/debug                                        u:object_r:sysfs_audio:s0
@@ -235,8 +229,13 @@
 /sys/class/mpgpu/scale_mode                                     u:object_r:sysfs_mpgpu_scale:s0
 /sys/module/di/parameters/bypass_all                            u:object_r:sysfs_mpgpu_scale:s0
 
-/param(/.*)?                  u:object_r:param_tv_file:s0
+/boot(/.*)?                   u:object_r:boot_data_file:s0
+/misc(/.*)?                   u:object_r:misc_data_file:s0
 /tee(/.*)?                    u:object_r:tee_data_file:s0
+/param(/.*)?                  u:object_r:param_tv_file:s0
+/factory(/.*)?                u:object_r:factory_data_file:s0
+/swap_zram0(/.*)?             u:object_r:swap_data_file:s0
+
 /mnt/vendor/tee(/.*)?         u:object_r:tee_data_file:s0
 /mnt/vendor/param(/.*)?       u:object_r:param_tv_file:s0
 /mnt/vendor/factory(/.*)?     u:object_r:factory_data_file:s0
@@ -266,7 +265,7 @@
 /vendor/bin/tvserver          u:object_r:tvserver_exec:s0
 /vendor/bin/dtvkitserver      u:object_r:dtvkitserver_exec:s0
 #/vendor/bin/wlan_fwloader    u:object_r:wlan_fwloader_exec:s0
-/vendor/xbin/bcmdl   	      u:object_r:bcmdl_exec:s0
+/vendor/xbin/bcmdl            u:object_r:bcmdl_exec:s0
 
 ## keylayout is vendor config file! must update!
 /(vendor|system/vendor)/usr/keylayout(/.*)?               u:object_r:vendor_configs_file:s0
@@ -301,6 +300,7 @@
 /vendor/lib(64)?/libvendorfont\.so         u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libtvbinder\.so           u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libtv_jni\.so             u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libscreencontrol_jni\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsystemcontrol_jni\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libamadec_omx_api\.so     u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/liboptimization\.so       u:object_r:vendor_app_file:s0
@@ -313,12 +313,16 @@
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.remotecontrol@1\.0\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.hdmicec@1\.0\.so    u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.droidvold@1\.0\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.amlogic\.hardware\.screencontrol@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.1\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.tvserver@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjnidtvepgscanner\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjniuevent\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsubjni\.so        u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libtvsubtitle_tv\.so        u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libjnifont_tv\.so        u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libscreencontrolclient\.so        u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsystemcontrolclient\.so        u:object_r:vendor_app_file:s0
 /vendor/odroid-usbgps\.xml         u:object_r:vendor_configs_file:s0
 /vendor/lib(64)?/libodroidThings_jni.so    u:object_r:vendor_app_file:s0

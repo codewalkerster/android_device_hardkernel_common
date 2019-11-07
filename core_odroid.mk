@@ -43,6 +43,7 @@ PRODUCT_COPY_FILES += \
         frameworks/av/media/libeffects/data/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.carrier=unknown \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
     net.tethering.noprovisioning=true
@@ -67,9 +68,6 @@ WITH_SOFT_AM_EXTRACTOR_DECODER := true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.statsd.enable=false
 
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -406,8 +404,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     Things \
-    odroidThings \
-    com.google.android.things.xml
+    com.google.android.things.xml \
+#    odroidThings \
 # vednor/hk/
 # hardware/hk/odroidThings, HAL
 
