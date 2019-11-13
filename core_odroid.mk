@@ -32,6 +32,7 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers
 
 PRODUCT_PACKAGES += \
+    audio.primary.default \
     audio_policy.default \
     audio.dia_remote.default
 
@@ -72,7 +73,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB camera default face
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.usb_faceback=true
+    ro.media.camera_usb.faceback=false
 
 ifeq ($(TARGET_BUILD_LIVETV), true)
 PRODUCT_PACKAGES += \
@@ -88,8 +89,8 @@ PRODUCT_PACKAGES += \
     systemcontrol \
     systemcontrol_static \
     libsystemcontrolservice \
-    vendor.amlogic.hardware.systemcontrol@1.0_vendor \
-    vendor.amlogic.hardware.systemcontrol@1.1_vendor
+    libsystemcontrol_jni  \
+    vendor.amlogic.hardware.systemcontrol@1.0_vendor
 
 PRODUCT_PACKAGES += \
     libdig \
@@ -417,3 +418,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     hardware/interfaces/gnss/1.0/default/android.hardware.gnss@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss@1.0-service.rc
+
+#public library txt
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt

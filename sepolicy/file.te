@@ -48,6 +48,8 @@ type tee_droid_data_file, file_type, data_file_type, core_data_file_type;
 type optee_file, file_type, data_file_type, core_data_file_type;
 type sysfs_cec, fs_type, sysfs_type;
 type sysfs_display, fs_type, sysfs_type;
+type sysfs_stb, fs_type, sysfs_type;
+type sysfs_vdec, fs_type, sysfs_type;
 type sysfs_lcd, fs_type, sysfs_type;
 type sysfs_rdma, fs_type, sysfs_type;
 type sysfs_am_vecm, fs_type, sysfs_type;
@@ -75,10 +77,15 @@ type sysfs_unifykey, fs_type, sysfs_type;
 type sysfs_block_ahead, fs_type, sysfs_type;
 
 type wifi_socket, file_type, data_file_type, core_data_file_type;
-type hdcp_file, file_type, data_file_type, core_data_file_type;
+type hdcp_file, file_type, data_file_type;
 
 #for app jni lib
 type app_jni_lib_file, vendor_file_type, file_type;
 
 # /data/btmic/
 type btmic_data_file, file_type, data_file_type;
+
+type debugfs_demod, fs_type, sysfs_type, debugfs_type;
+type debugfs_mali, fs_type, sysfs_type, debugfs_type;
+
+type proc_vm_writable, fs_type, proc_type;

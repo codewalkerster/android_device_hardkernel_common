@@ -48,7 +48,6 @@ get_prop(system_control, vendor_default_prop)
 
 set_prop(system_control, media_prop)
 get_prop(system_control, media_prop)
-get_prop(system_control, aml_display_prop)
 set_prop(system_control, uboot_prop)
 get_prop(system_control, uboot_prop)
 set_prop(system_control, tv_prop)
@@ -122,6 +121,7 @@ allow system_control droidvold:binder { call };
 
 
 allow system_control { video_device amvecm_device }:chr_file  { read write open ioctl getattr };
+allow system_control { vendor_video_device }:chr_file  { read write open ioctl getattr };
 allow system_control di0_device:chr_file { read write open ioctl };
 allow system_control param_tv_file:dir { write search add_name create };
 allow system_control param_tv_file:file { create read write open getattr ioctl};
@@ -148,3 +148,21 @@ allow system_control sysfs_leds:dir search;
 
 allow system_control hal_keymaster_hwservice:hwservice_manager { find };
 allow system_control hal_keymaster_default:binder { call };
+
+allow system_control sysfs_clock:file { read open };
+allow system_control debugfs_demod:dir { search };
+allow system_control debugfs_demod:file { read write open };
+
+allow system_control uhid_device:chr_file { ioctl open read write };
+
+allow system_control sysfs_stb:file { read open write getattr};
+allow system_control sysfs_stb:dir {search};
+allow system_control sysfs_xbmc:file { read write };
+allow system_control priv_app:binder { call transfer };
+allow system_control hdmicecd:binder { call transfer };
+allow system_control aml_core_app:binder { call transfer };
+allow system_control hal_graphics_composer_default:binder { call transfer };
+allow system_control platform_app:binder { call transfer };
+allow system_control untrusted_app:binder { call transfer };
+
+allow system_control display_device:chr_file { open read write };
