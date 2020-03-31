@@ -1,6 +1,6 @@
 $(call inherit-product, device/hardkernel/common/core_odroid.mk)
 
-
+ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
 PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl \
@@ -13,7 +13,8 @@ PRODUCT_PACKAGES += \
     libtv \
     libtv_linker \
     libtvbinder \
-    libtv_jni \
+    tvtest \
+    libscreencontrol_jni \
     tvserver \
     libtvplay \
     libvendorfont \
@@ -21,8 +22,6 @@ PRODUCT_PACKAGES += \
     libntsc_decode \
     libtinyxml \
     libzvbi \
-    droidlogic-tv \
-    droidlogic.tv.software.core.xml \
     TvProvider \
     DroidLogicTvInput \
     DroidLogicFactoryMenu \
@@ -35,18 +34,37 @@ PRODUCT_PACKAGES += \
     libam_ver \
     libam_sysfs
 
-PRODUCT_PACKAGES += \
-    imageserver \
-    busybox \
-    utility_busybox
-
 # LiveTv
 PRODUCT_PACKAGES += \
     DroidLiveTv
 
+# DTVKit
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+PRODUCT_PACKAGES += \
+    inputsource \
+    libdtvkit_jni \
+    libdtvkitserver \
+    droidlogic-dtvkit \
+    droidlogic.dtvkit.software.core.xml
+
+# libswdemux
+ifeq ($(PRODUCT_SUPPORT_SWDEMUX), true)
+PRODUCT_PACKAGES += \
+    libswdemux
+endif
+
+endif
+
+endif
+
+PRODUCT_PACKAGES += \
+    busybox \
+    utility_busybox
+
 # DLNA
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_PACKAGES += \
+    imageserver \
     DLNA
 endif
 

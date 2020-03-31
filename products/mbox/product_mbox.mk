@@ -23,7 +23,8 @@ PRODUCT_PACKAGES += \
     TvProvider \
     DroidLogicTvInput \
     DroidLogicFactoryMenu \
-    libjnidtvsubtitle
+    libjnidtvsubtitle \
+    libfbc
 
 # DTV
 PRODUCT_PACKAGES += \
@@ -39,10 +40,11 @@ PRODUCT_PACKAGES += \
 # DTVKit
 ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
 PRODUCT_PACKAGES += \
-    libdtvkit_midware   \
-    libdtvkit_platform \
     inputsource \
-    libdtvkit_jni
+    libdtvkit_jni \
+    libdtvkitserver \
+    droidlogic-dtvkit \
+    droidlogic.dtvkit.software.core.xml
 endif
 
 PRODUCT_COPY_FILES += \
@@ -79,12 +81,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.$(TARGET_PRODUCT)
 
-# Input Hal
-PRODUCT_PACKAGES += \
-    input.evdev.default \
-    libinput_evdev.so
-
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
+
+
 
 
 
@@ -143,5 +142,9 @@ $(call inherit-product, $(VERSION_ID))
 endif
 
 DISPLAY_BUILD_NUMBER := true
+
+#BOX project,set omx to video layer
+PRODUCT_PROPERTY_OVERRIDES += \
+        media.omx.display_mode=1
 
 BOARD_HAVE_CEC_HIDL_SERVICE := true
