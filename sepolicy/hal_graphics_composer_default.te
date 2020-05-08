@@ -42,3 +42,4 @@ allow hal_graphics_composer_default kernel:process setsched;
 allow hal_graphics_composer_default sysfs_am_vecm:dir search;
 allow hal_graphics_composer_default sysfs_am_vecm:file { open read write };
 allow hal_graphics_composer_default galcore_device:chr_file { open read write getattr ioctl };
+hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator)
