@@ -1,0 +1,58 @@
+# config file for AmLogic kernel ~4.9.76 used in Android 8 and 9
+
+# The global on/off switch
+enable=1
+
+# the path to log file
+log.file=/data/local/afrd.log
+# enable logging to file
+log.enable=0
+
+# the sysfs directory with HDMI driver attributes
+hdmi.sysfs=/sys/class/amhdmitx/amhdmitx0
+# the flag to check if HDMI is enabled
+hdmi.state=/sys/class/switch/hdmi/cable.0/state
+
+# current video mode
+mode.path=/sys/class/display/mode
+# prefer exact framerate match if 1 (avoids using double frame rates)
+mode.prefer.exact=0
+# fractional rate usage; 0 - auto; 1 - prefer fractional; 2 - prefer integer rates
+mode.use.fract=0
+# blacklist some refresh rates, if needed; closest match will be used
+#mode.blacklist.rates=23.976
+# extra video modes not listed in EDID info of your TV/display
+#mode.extra=1080p25hz 1080p50hz
+
+# choose which color space is used depending on video mode
+# mode regex = (rgb|444|422|420),(8bit,10bit,12bit,16bit),(full|limit)
+cs.select=2160p[4-9].*=420 .*=444
+# the sysfs attribute containing list of supported color spaces
+cs.list.path=/sys/class/amhdmitx/amhdmitx0/dc_cap
+# the sysfs attribute containing current color space
+cs.path=/sys/class/amhdmitx/amhdmitx0/attr
+
+# delay display mode switch by this amount of milliseconds
+switch.delay.on=300
+switch.delay.off=10000
+# if we can't determine movie frame rate, delay this much and retry
+switch.delay.retry=200
+# if we can't determine framerate for this long, stop trying
+switch.timeout=3000
+# disable screen at start of movie playback to minimize flicker
+switch.blackout=150
+# ignore event if delay between off/on is less than this
+switch.ignore=200
+# delay HDMI plug in/out events by this time (set to 0 to disable)
+switch.hdmi=2000
+
+# video decoder status
+vdec.sysfs=/sys/class/vdec
+# filter keywords for FRAMERATE_HINT uevents
+uevent.filter.frhint=ACTION=change SUBSYSTEM=amhdmitx DEVNAME=amhdmitx0
+# filter keywords for vdec uevents
+uevent.filter.vdec=ACTION=(add|remove) DEVPATH=/devices/platform/vdec/.* SUBSYSTEM=platform
+# filter keywords for HDMI on/off
+uevent.filter.hdmi=ACTION=change DEVPATH=/devices/virtual/amhdmitx/amhdmitx0/hdmi DEVTYPE=hdmi
+# filter for HDCP HDMI off event
+uevent.filter.hdcp=ACTION=change DEVTYPE=hdcp STATE=HDMI=0

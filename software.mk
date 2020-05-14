@@ -85,4 +85,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml
 
+PRODUCT_COPY_FILES += \
+	device/hardkernel/common/afrd.ini.template:$(TARGET_COPY_OUT_VENDOR)/etc/afrd.ini.template
+
 $(call inherit-product-if-exists, external/hyphenation-patterns/patterns.mk)
