@@ -91,6 +91,7 @@ PRODUCT_PACKAGES += \
     vendor.amlogic.hardware.systemcontrol@1.0_vendor
 
 PRODUCT_PACKAGES += \
+    VideoPlayer \
     libdig \
     BluetoothRemote
 
