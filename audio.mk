@@ -34,6 +34,9 @@ PRODUCT_PACKAGES += \
     libtreblebasswrapper \
     libvirtualsurround \
 
+PRODUCT_PACKAGES += \
+    audio.a2dp.default
+
 #PRODUCT_COPY_FILES += \
 #    $(TARGET_PRODUCT_DIR)/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
 #    $(TARGET_PRODUCT_DIR)/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
