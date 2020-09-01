@@ -14,4 +14,8 @@
 # limitations under the License.
 #
 
+ifeq ($(TARGET_SUPPORT_COMBO), true)
+include hardware/amlogic/wifi/configs/wifi.mk
+else
 include hardware/hardkernel/wifi/config/wifi.mk
+endif
