@@ -278,6 +278,7 @@
 /vendor/bin/makebootini  u:object_r:makebootini_exec:s0
 /vendor/bin/makedefaultprop u:object_r:makedefaultprop_exec:s0
 /vendor/bin/afrd  u:object_r:afrd_exec:s0
+/vendor/bin/makepanic  u:object_r:makepanic_exec:s0
 
 /data/vendor/mediadrm(/.*)?         u:object_r:hal_drm_data:s0
 
