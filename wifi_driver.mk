@@ -17,6 +17,8 @@ multiwifi:
 	cp $(shell pwd)/hardware/wifi/realtek/drivers/rtl8821CU/8821cu.ko $(TARGET_OUT)/
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8192cu ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
 	cp $(shell pwd)/hardware/wifi/realtek/drivers/8192cu/8192cu.ko $(TARGET_OUT)/
+	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/esp8089 ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
+	cp $(shell pwd)/hardware/wifi/broadcom/drivers/esp8089/esp8089.ko $(TARGET_OUT)/
 	$(bcm-sdio-wifi)
 
 AP6256:
