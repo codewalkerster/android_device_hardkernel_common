@@ -338,3 +338,4 @@
 /system/bin/ntfs-3g             u:object_r:fsck_exec:s0
 /system/bin/ntfsfix             u:object_r:fsck_exec:s0
 /system/bin/fsck.exfat          u:object_r:fsck_exec:s0
+/vendor/bin/usb_modeswitch      u:object_r:usb_modeswitch_exec:s0
