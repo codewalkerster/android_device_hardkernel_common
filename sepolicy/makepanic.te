@@ -1,4 +1,0 @@
-type makepanic, domain;
-type makepanic_exec, exec_type, vendor_file_type, file_type;
-
-init_daemon_domain(makepanic)
