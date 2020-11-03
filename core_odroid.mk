@@ -103,6 +103,7 @@ PRODUCT_PACKAGES += \
     libds_jni \
     libsrec_jni \
     system_key_server \
+    usb_modeswitch \
     libwifi-hal \
     libwpa_client \
     libGLES_mali \
