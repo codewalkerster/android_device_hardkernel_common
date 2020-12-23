@@ -23,6 +23,10 @@ multiwifi:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/esp8089 ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/esp8089 ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
 	cp $(shell pwd)/hardware/wifi/broadcom/drivers/esp8089/esp8089.ko $(TARGET_OUT)/
+	$(MAKE) -C $(shell pwd)/hardware/wifi/mediatek/mt7610u ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
+	$(MAKE) -C $(shell pwd)/hardware/wifi/mediatek/mt7610u ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE)
+	cp $(shell pwd)/hardware/wifi/mediatek/mt7610u/os/linux/mt7610u_sta.ko $(TARGET_OUT)/
+
 	$(bcm-sdio-wifi)
 
 AP6256:

@@ -1,3 +1,4 @@
+0e8d 7610 mt7610 /vendor/etc/modprobe.d/mt7610
 148f 5572 rt2800usb /vendor/etc/modprobe.d/rt2800usb
 148f 5370 rt2800usb /vendor/etc/modprobe.d/rt2800usb
 0bda c811 8821cu /vendor/etc/modprobe.d/8821cu
