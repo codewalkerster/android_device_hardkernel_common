@@ -783,3 +783,5 @@ PRODUCT_PACKAGES += \
 endif
 
 #########################################################################
+PRODUCT_PACKAGES += \
+    MtpService
