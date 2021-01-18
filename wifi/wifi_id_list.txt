@@ -1,8 +1,8 @@
 0e8d 7610 mt7610 /vendor/etc/modprobe.d/mt7610
 148f 5572 rt2800usb /vendor/etc/modprobe.d/rt2800usb
 148f 5370 rt2800usb /vendor/etc/modprobe.d/rt2800usb
-0bda c811 8821cu /vendor/etc/modprobe.d/8821cu
 0bda c820 8821cu /vendor/etc/modprobe.d/8821cu
+0bda c811 8812cu /vendor/etc/modprobe.d/8812cu
 0411 0242 8812au /vendor/etc/modprobe.d/8812au /* Buffalo WI-U2-433DM (RTL8811AU) */
 0bda 8812 8812au /vendor/etc/modprobe.d/8812au
 0bda a811 8812au /vendor/etc/modprobe.d/8812au
