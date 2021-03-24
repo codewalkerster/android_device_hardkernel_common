@@ -21,6 +21,6 @@ DEFAULT_MEDIA_KERNEL_MODULES := \
 	$(PRODUCT_OUT)/obj/lib_vendor/amvdec_real.ko \
 	$(PRODUCT_OUT)/obj/lib_vendor/encoder.ko \
 	$(PRODUCT_OUT)/obj/lib_vendor/vpu.ko \
-	$(PRODUCT_OUT)/obj/lib_vendor/aml_hardware_dmx.ko
+	$(PRODUCT_OUT)/obj/lib_vendor/amvdec_mavs.ko
 
 include hardware/amlogic/media_modules/Media.mk

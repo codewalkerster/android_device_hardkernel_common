@@ -381,7 +381,7 @@ PRODUCT_PACKAGES += \
 
 # VNDK version is specified
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=28.0.0
+    ro.vendor.vndk.version=26.1.0
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
