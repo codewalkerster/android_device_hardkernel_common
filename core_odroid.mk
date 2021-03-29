@@ -90,6 +90,12 @@ PRODUCT_PACKAGES += \
     libsystemcontrol_jni  \
     vendor.amlogic.hardware.systemcontrol@1.0_vendor
 
+#add tv library
+PRODUCT_PACKAGES += \
+    droidlogic-tv \
+    droidlogic.tv.software.core.xml \
+    libtv_jni
+
 PRODUCT_PACKAGES += \
     VideoPlayer \
     libdig \
