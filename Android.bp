@@ -14,3 +14,18 @@ soong_config_module_type {
     properties: ["cflags", "srcs"],
 }
 */
+
+package {
+    default_applicable_licenses: ["device_amlogic_common_license"],
+}
+
+// Added automatically by a large-scale-change
+// See: http://go/android-license-faq
+license {
+    name: "device_amlogic_common_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+    ],
+    // large-scale-change unable to identify any license_text files
+}
