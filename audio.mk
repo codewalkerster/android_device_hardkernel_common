@@ -33,6 +33,10 @@ PRODUCT_PACKAGES += \
     libsrswrapper \
     libtreblebasswrapper \
     libvirtualsurround \
+    libms12dapwrapper \
+    libgeq \
+    libvirtualx \
+    libdbx \
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default
