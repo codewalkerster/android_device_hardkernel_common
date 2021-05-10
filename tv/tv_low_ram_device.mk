@@ -16,7 +16,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=128m \
     dalvik.vm.heapsize=256m
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml
+    device/hardkernel/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true

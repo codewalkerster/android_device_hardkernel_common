@@ -52,7 +52,7 @@ fi
 FSTYPE=ext4
 echo system filesysystem is $FSTYPE
 
-BOARD_CONFIG=device/rockchip/common/device.mk
+BOARD_CONFIG=device/hardkernel/common/device.mk
 
 PARAMETER=${TARGET_DEVICE_DIR}/parameter_ab.txt
 FLASH_CONFIG_FILE=${TARGET_DEVICE_DIR}/config.cfg_ab
@@ -127,7 +127,7 @@ if [ "$BOARD_AVB_ENABLE" = "true" ]; then
 cp -a $OUT/vbmeta.img $IMAGE_PATH/vbmeta.img
 else
 echo -n "BOARD_AVB_ENABLE is false,use default vbmeta.img"
-cp -a device/rockchip/common/vbmeta.img $IMAGE_PATH/vbmeta.img
+cp -a device/hardkernel/common/vbmeta.img $IMAGE_PATH/vbmeta.img
 fi
 echo -n "done."
 
@@ -185,10 +185,6 @@ else
 		echo -n "create loader..."
 		cp -a $UBOOT_PATH/*loader*.bin $IMAGE_PATH/MiniLoaderAll.bin
 		echo "done."
-	elif [ "$TARGET_PRODUCT" == "px3" -a -f $UBOOT_PATH/RKPX3Loader_miniall.bin ]; then
-        echo -n "create loader..."
-        cp -a $UBOOT_PATH/RKPX3Loader_miniall.bin $IMAGE_PATH/MiniLoaderAll.bin
-        echo "done."
 	else
         echo "$UBOOT_PATH/*MiniLoaderAll_*.bin not fount! Please make it from $UBOOT_PATH first!"
 	fi

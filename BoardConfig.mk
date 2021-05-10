@@ -15,8 +15,8 @@
 #
 #binder protocol(8)
 TARGET_USES_64_BIT_BINDER := true
-TARGET_BOARD_PLATFORM ?= rk3288
-TARGET_BOARD_HARDWARE ?= rk30board
+TARGET_BOARD_PLATFORM ?= rk3568
+TARGET_BOARD_HARDWARE ?= odroid
 # value: tablet,box,phone
 # It indicates whether to be tablet platform or not
 
@@ -34,7 +34,7 @@ endif
 endif
 
 # CPU feature configration
-ifeq ($(strip $(TARGET_BOARD_HARDWARE)), rk30board)
+ifeq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 
 TARGET_ARCH ?= arm
 TARGET_ARCH_VARIANT ?= armv7-a-neon
@@ -65,17 +65,17 @@ BOARD_SELINUX_ENFORCING ?= true
 TARGET_PREBUILT_KERNEL ?= kernel/arch/arm/boot/zImage
 TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
 BOARD_PREBUILT_DTBIMAGE_DIR ?= kernel/arch/arm/boot/dts
-PRODUCT_PARAMETER_TEMPLATE ?= device/rockchip/common/scripts/parameter_tools/parameter.in
+PRODUCT_PARAMETER_TEMPLATE ?= device/hardkernel/common/scripts/parameter_tools/parameter.in
 TARGET_BOARD_HARDWARE_EGL ?= mali
 
 #Android GO configuration
 BUILD_WITH_GO_OPT ?= false
 
 ifeq ($(BUILD_WITH_GO_OPT), true)
-PRODUCT_FSTAB_TEMPLATE ?= device/rockchip/common/scripts/fstab_tools/fstab_go.in
+PRODUCT_FSTAB_TEMPLATE ?= device/hardkernel/common/scripts/fstab_tools/fstab_go.in
 PRODUCT_KERNEL_CONFIG += android-11-go.config
 else
-PRODUCT_FSTAB_TEMPLATE ?= device/rockchip/common/scripts/fstab_tools/fstab.in
+PRODUCT_FSTAB_TEMPLATE ?= device/hardkernel/common/scripts/fstab_tools/fstab.in
 PRODUCT_KERNEL_CONFIG += android-11.config
 endif
 
@@ -84,13 +84,13 @@ PRODUCT_KERNEL_CONFIG += non_debuggable.config
 endif
 
 ifeq ($(BOARD_AVB_ENABLE), true)
-BOARD_KERNEL_CMDLINE := androidboot.wificountrycode=CN androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init rootwait ro init=/init
+BOARD_KERNEL_CMDLINE := androidboot.wificountrycode=CN androidboot.hardware=odroid androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init rootwait ro init=/init
 else # BOARD_AVB_ENABLE is false
-BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.baseband=N/A androidboot.wificountrycode=CN androidboot.veritymode=enforcing androidboot.hardware=rk30board androidboot.console=ttyFIQ0 androidboot.verifiedbootstate=orange firmware_class.path=/vendor/etc/firmware init=/init rootwait ro
+BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.baseband=N/A androidboot.wificountrycode=CN androidboot.veritymode=enforcing androidboot.hardware=odroid androidboot.console=ttyFIQ0 androidboot.verifiedbootstate=orange firmware_class.path=/vendor/etc/firmware init=/init rootwait ro
 endif # BOARD_AVB_ENABLE
 
 BOARD_KERNEL_CMDLINE += loop.max_part=7
-ROCKCHIP_RECOVERYIMAGE_CMDLINE_ARGS ?= console=ttyFIQ0 androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=CN androidboot.veritymode=enforcing androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init root=PARTUUID=af01642c-9b84-11e8-9b2a-234eb5e198a0
+ROCKCHIP_RECOVERYIMAGE_CMDLINE_ARGS ?= console=ttyFIQ0 androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=CN androidboot.veritymode=enforcing androidboot.hardware=odroid androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init root=PARTUUID=af01642c-9b84-11e8-9b2a-234eb5e198a0
 
 ifneq ($(BOARD_SELINUX_ENFORCING), true)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -135,27 +135,27 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE ?= ext4
 # default.prop & build.prop split
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED ?= true
 
-DEVICE_MANIFEST_FILE ?= device/rockchip/common/manifest.xml
-DEVICE_MATRIX_FILE   ?= device/rockchip/common/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE ?= device/hardkernel/common/manifest.xml
+DEVICE_MATRIX_FILE   ?= device/hardkernel/common/compatibility_matrix.xml
 
 #Calculate partition size from parameter.txt
 USE_DEFAULT_PARAMETER := $(shell test -f $(TARGET_DEVICE_DIR)/parameter.txt && echo true)
 ifeq ($(strip $(USE_DEFAULT_PARAMETER)), true)
   ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
-    BOARD_SUPER_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt super)
+    BOARD_SUPER_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt super)
     BOARD_ROCKCHIP_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
   else
-    BOARD_SYSTEMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt system)
-    BOARD_VENDORIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor)
-    BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt odm)
+    BOARD_SYSTEMIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt system)
+    BOARD_VENDORIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor)
+    BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt odm)
   endif
-  BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt cache)
-  BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt boot)
-  BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtbo)
-  BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt recovery)
+  BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt cache)
+  BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt boot)
+  BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtbo)
+  BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt recovery)
   # Header V3, add vendor_boot
   ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 3)))
-    BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor_boot)
+    BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt vendor_boot)
   endif
   #$(info Calculated BOARD_SYSTEMIMAGE_PARTITION_SIZE=$(BOARD_SYSTEMIMAGE_PARTITION_SIZE) use $(TARGET_DEVICE_DIR)/parameter.txt)
 else
@@ -238,10 +238,10 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 TARGET_BOOTLOADER_BOARD_NAME ?= rk30sdk
 TARGET_NO_BOOTLOADER ?= true
 ifeq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/hardkernel/common/overlay
 endif
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/rockchip/common
+TARGET_RELEASETOOLS_EXTENSIONS := device/hardkernel/common
 
 //MAX-SIZE=512M, for generate out/.../system.img
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -249,20 +249,20 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Sepolicy
 PRODUCT_SEPOLICY_SPLIT := true
 BOARD_SEPOLICY_DIRS ?= \
-    device/rockchip/common/sepolicy/vendor
-# BOARD_PLAT_PUBLIC_SEPOLICY_DIR ?= device/rockchip/common/sepolicy/public
+    device/hardkernel/common/sepolicy/vendor
+# BOARD_PLAT_PUBLIC_SEPOLICY_DIR ?= device/hardkernel/common/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR ?= \
-    device/rockchip/common/sepolicy/private \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/sepolicy
+    device/hardkernel/common/sepolicy/private \
+    device/hardkernel/$(TARGET_BOARD_PLATFORM)/sepolicy
 
 ifneq ($(BUILD_WITH_RK_EBOOK),true)
     BOARD_SEPOLICY_DIRS += \
-        device/rockchip/common/sepolicy/split
+        device/hardkernel/common/sepolicy/split
 endif
 
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
     BOARD_SEPOLICY_DIRS += \
-        device/rockchip/common/box/sepolicy/vendor
+        device/hardkernel/common/box/sepolicy/vendor
 endif
 
 # Enable VNDK Check for Android P (MUST after P)
@@ -305,8 +305,8 @@ BOARD_USES_GENERIC_AUDIO ?= true
 BOARD_HAVE_BLUETOOTH ?= true
 BLUETOOTH_USE_BPLUS ?= false
 BOARD_HAVE_BLUETOOTH_BCM ?= false
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/rockchip/$(TARGET_BOARD_PLATFORM)/bluetooth
-include device/rockchip/common/wifi_bt_common.mk
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/hardkernel/$(TARGET_BOARD_PLATFORM)/bluetooth
+include device/hardkernel/common/wifi_bt_common.mk
 
 #Camera flash
 BOARD_HAVE_FLASH ?= true
@@ -315,7 +315,7 @@ BOARD_HAVE_FLASH ?= true
 BOARD_SUPPORT_HDMI ?= true
 
 # gralloc 4.0
-include device/rockchip/common/gralloc.device.mk
+include device/hardkernel/common/gralloc.device.mk
 
 
 # google apps
@@ -436,7 +436,7 @@ BOARD_WIFI_SUPPORT ?= true
 BOARD_HAS_RK_4G_MODEM ?= false
 
 ifeq ($(strip $(BOARD_HAS_RK_4G_MODEM)),true)
-DEVICE_MANIFEST_FILE += device/rockchip/common/4g_modem/manifest.xml
+DEVICE_MANIFEST_FILE += device/hardkernel/common/4g_modem/manifest.xml
 endif
 
 #USE_CLANG_PLATFORM_BUILD ?= true
@@ -445,12 +445,12 @@ endif
 # Zoom out recovery ui of box by two percent.
 #ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 #    TARGET_RECOVERY_OVERSCAN_PERCENT := 2
-#    TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/baseparameter_fb720.img
+#    TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/baseparameter_fb720.img
     # savBaseParameter tool
 #    ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 #        PRODUCT_PACKAGES += saveBaseParameter
 #    endif
-#    DEVICE_FRAMEWORK_MANIFEST_FILE := device/rockchip/common/manifest_framework_override.xml
+#    DEVICE_FRAMEWORK_MANIFEST_FILE := device/hardkernel/common/manifest_framework_override.xml
 #endif
 
 #enable cpusets sched policy
@@ -504,9 +504,9 @@ endif
 BOARD_BASEPARAMETER_SUPPORT ?= true
 ifeq ($(strip $(BOARD_BASEPARAMETER_SUPPORT)), true)
 ifeq ($(strip $(TARGET_BOARD_PLATFORM)), rk356x)
-    TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/v2.0/baseparameter.img
+    TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/v2.0/baseparameter.img
 else
-    TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/v1.0/baseparameter.img
+    TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/v1.0/baseparameter.img
 endif
     BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M
 endif

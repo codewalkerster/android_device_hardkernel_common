@@ -25,10 +25,10 @@ PRODUCT_PACKAGES += Traceur
 endif
 
 PRODUCT_COPY_FILES := \
-    device/rockchip/common/tv/permissions/tv_core_hardware.xml:system/etc/permissions/tv_core_hardware.xml
+    device/hardkernel/common/tv/permissions/tv_core_hardware.xml:system/etc/permissions/tv_core_hardware.xml
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/rockchip/common/tv/overlay
+    device/hardkernel/common/tv/overlay
 
 # From build/target/product/core_base.mk
 PRODUCT_PACKAGES += \

@@ -49,7 +49,7 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), atv)
                       ATVContentProvider \
 
 else ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-  $(call inherit-product, device/rockchip/common/tv/tv_base.mk)
+  $(call inherit-product, device/hardkernel/common/tv/tv_base.mk)
 else ifeq ($(strip $(BUILD_WITH_GO_OPT))|$(strip $(TARGET_ARCH)) ,true|arm)
   # For arm Go tablet.
   $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
@@ -141,18 +141,18 @@ endif
 ifeq ($(strip $(BUILD_WITH_GO_OPT)),true)
 ifeq ($(strip $(TARGET_ARCH)), arm64)
 $(call inherit-product, build/target/product/go_defaults_512.mk)
-$(call inherit-product, device/rockchip/common/build/rockchip/AndroidGo512.mk)
+$(call inherit-product, device/hardkernel/common/build/rockchip/AndroidGo512.mk)
 else
 $(call inherit-product, build/target/product/go_defaults.mk)
 endif
-$(call inherit-product, device/rockchip/common/build/rockchip/AndroidGoCommon.mk)
+$(call inherit-product, device/hardkernel/common/build/rockchip/AndroidGoCommon.mk)
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/android.hardware.ram.low.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ram.low.xml \
+    device/hardkernel/common/android.hardware.ram.low.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ram.low.xml \
     frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml
 PRODUCT_PROPERTY_OVERRIDES += \
     config.disable_rtt=true \
     config.disable_consumerir=true
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay_go
+DEVICE_PACKAGE_OVERLAYS += device/hardkernel/common/overlay_go
 # Enable DM file pre-opting to reduce first boot time
 PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
@@ -206,18 +206,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/init.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rockchip.rc \
-    device/rockchip/common/init.mount_all_early.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mount_all.rc \
-    device/rockchip/common/init.tune_io.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.tune_io.rc \
+    device/hardkernel/common/init.hardkernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.hardkernel.rc \
+    device/hardkernel/common/init.mount_all_early.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mount_all.rc \
+    device/hardkernel/common/init.tune_io.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.tune_io.rc \
     $(LOCAL_PATH)/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg \
     $(LOCAL_PATH)/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
-    device/rockchip/common/init.$(TARGET_BOARD_HARDWARE).rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).rc \
-    device/rockchip/common/init.$(TARGET_BOARD_HARDWARE).usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).usb.rc \
-    device/rockchip/common/ueventd.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
-    device/rockchip/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
-    device/rockchip/common/ff680030_pwm.kl:system/usr/keylayout/ff680030_pwm.kl \
-     device/rockchip/common/alarm_filter.xml:system/etc/alarm_filter.xml \
-	device/rockchip/common/ff420030_pwm.kl:system/usr/keylayout/ff420030_pwm.kl
+    device/hardkernel/common/init.$(TARGET_BOARD_HARDWARE).rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).rc \
+    device/hardkernel/common/init.$(TARGET_BOARD_HARDWARE).usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).usb.rc \
+    device/hardkernel/common/ueventd.hardkernel.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    device/hardkernel/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
+    device/hardkernel/common/ff680030_pwm.kl:system/usr/keylayout/ff680030_pwm.kl \
+     device/hardkernel/common/alarm_filter.xml:system/etc/alarm_filter.xml \
+	device/hardkernel/common/ff420030_pwm.kl:system/usr/keylayout/ff420030_pwm.kl
 
 PRODUCT_COPY_FILES += \
     hardware/rockchip/libgraphicpolicy/graphic_profiles.conf:$(TARGET_COPY_OUT_VENDOR)/etc/graphic/graphic_profiles.conf
@@ -313,15 +313,15 @@ PRODUCT_COPY_FILES += \
 ifndef PRODUCT_FSTAB_TEMPLATE
 $(warning Please add fstab.in with PRODUCT_FSTAB_TEMPLATE in your product.mk)
 # To use fstab auto generator, define fstab.in in your product.mk,
-# Then include the device/rockchip/common/build/rockchip/RebuildFstab.mk in your AndroidBoard.mk
+# Then include the device/hardkernel/common/build/rockchip/RebuildFstab.mk in your AndroidBoard.mk
 PRODUCT_COPY_FILES += \
-    $(TARGET_DEVICE_DIR)/fstab.rk30board:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rk30board \
-    $(TARGET_DEVICE_DIR)/fstab.rk30board:$(TARGET_COPY_OUT_RAMDISK)/fstab.rk30board
+    $(TARGET_DEVICE_DIR)/fstab.odroid:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroid \
+    $(TARGET_DEVICE_DIR)/fstab.odroid:$(TARGET_COPY_OUT_RAMDISK)/fstab.odroid
 
 # Header V3, add vendor_boot
 ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 3)))
 PRODUCT_COPY_FILES += \
-    $(TARGET_DEVICE_DIR)/fstab.rk30board:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.rk30board
+    $(TARGET_DEVICE_DIR)/fstab.odroid:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.odroid
 endif
 endif # Use PRODUCT_FSTAB_TEMPLATE
 
@@ -412,13 +412,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+    device/hardkernel/common/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-external-service
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.camera.provider@2.4-provider.external.xml
+DEVICE_MANIFEST_FILE += device/hardkernel/common/manifests/android.hardware.camera.provider@2.4-provider.external.xml
 else
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.camera.provider@2.4-provider.legacy.xml
+DEVICE_MANIFEST_FILE += device/hardkernel/common/manifests/android.hardware.camera.provider@2.4-provider.legacy.xml
 endif
 PRODUCT_PACKAGES += \
     librkisp_aec \
@@ -559,8 +559,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0-service
 
 DEVICE_MANIFEST_FILE += \
-    device/rockchip/common/manifests/android.hardware.graphics.mapper@4.0.xml \
-    device/rockchip/common/manifests/android.hardware.graphics.allocator@4.0.xml
+    device/hardkernel/common/manifests/android.hardware.graphics.mapper@4.0.xml \
+    device/hardkernel/common/manifests/android.hardware.graphics.allocator@4.0.xml
 else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.mpp_buf_type=1
@@ -571,8 +571,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service
 
 DEVICE_MANIFEST_FILE += \
-    device/rockchip/common/manifests/android.hardware.graphics.mapper@2.1.xml \
-    device/rockchip/common/manifests/android.hardware.graphics.allocator@2.0.xml
+    device/hardkernel/common/manifests/android.hardware.graphics.mapper@2.1.xml \
+    device/hardkernel/common/manifests/android.hardware.graphics.allocator@2.0.xml
 endif
 
 PRODUCT_PACKAGES += \
@@ -589,7 +589,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service
 
 # iep
-ifneq ($(filter rk3188 rk3190 rk3026 rk3288 rk312x rk3126c rk3128 px3se rk3368 rk3326 rk356x rk3328 rk3366 rk3399, $(strip $(TARGET_BOARD_PLATFORM))), )
+ifneq ($(filter rk3190 rk3026 rk3288 rk312x rk3126c rk3128 rk3368 rk3326 rk356x rk3328 rk3366 rk3399, $(strip $(TARGET_BOARD_PLATFORM))), )
 BUILD_IEP := true
 PRODUCT_PACKAGES += \
     libiep
@@ -749,7 +749,7 @@ PRODUCT_PROPERTY_OVERRIDES +=               \
     persist.sys.usb.config=mass_storage,adb
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rockchip.hasUMS.true.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).environment.rc
+    $(LOCAL_PATH)/init.hardkernel.hasUMS.true.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).environment.rc
 else
 ifeq ($(strip $(BUILD_WITH_CDROM)),true)
 PRODUCT_PROPERTY_OVERRIDES +=                 \
@@ -758,14 +758,14 @@ PRODUCT_PROPERTY_OVERRIDES +=                 \
     persist.sys.usb.config=mass_storage,adb 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rockchip.hasCDROM.true.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).environment.rc
+    $(LOCAL_PATH)/init.hardkernel.hasCDROM.true.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).environment.rc
 else
 PRODUCT_PROPERTY_OVERRIDES +=       \
     ro.factory.hasUMS=false         \
     testing.mediascanner.skiplist = /mnt/shell/emulated/Android/
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rockchip.hasUMS.false.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).environment.rc
+    $(LOCAL_PATH)/init.hardkernel.hasUMS.false.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).environment.rc
 endif
 endif
 
@@ -892,10 +892,10 @@ include hardware/realtek/rtkbt/rtkbt.mk
 endif
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-    include device/rockchip/common/samba/rk31_samba.mk
+    include device/hardkernel/common/samba/rk31_samba.mk
     PRODUCT_COPY_FILES += \
       $(LOCAL_PATH)/init.box.samba.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.box.samba.rc \
-      device/rockchip/common/cifsmanager.sh:system/bin/cifsmanager.sh
+      device/hardkernel/common/cifsmanager.sh:system/bin/cifsmanager.sh
 
     PRODUCT_PROPERTY_OVERRIDES += \
       ro.rk.screenoff_time=2147483647
@@ -1056,18 +1056,18 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), vr)
 PRODUCT_COPY_FILES += \
-       device/rockchip/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml 
+       device/hardkernel/common/lowmem_package_filter.xml:system/etc/lowmem_package_filter.xml 
 endif
 
 # neon transform library by djw
 PRODUCT_COPY_FILES += \
-	device/rockchip/common/neon_transform/lib/librockchipxxx.so:system/lib/librockchipxxx.so \
-	device/rockchip/common/neon_transform/lib64/librockchipxxx.so:system/lib64/librockchipxxx.so
+	device/hardkernel/common/neon_transform/lib/librockchipxxx.so:system/lib/librockchipxxx.so \
+	device/hardkernel/common/neon_transform/lib64/librockchipxxx.so:system/lib64/librockchipxxx.so
 
 # support eecolor hdr api
 PRODUCT_COPY_FILES += \
-        device/rockchip/common/eecolorapi/lib/libeecolorapi.so:system/lib/libeecolorapi.so \
-        device/rockchip/common/eecolorapi/lib64/libeecolorapi.so:system/lib64/libeecolorapi.so
+        device/hardkernel/common/eecolorapi/lib/libeecolorapi.so:system/lib/libeecolorapi.so \
+        device/hardkernel/common/eecolorapi/lib64/libeecolorapi.so:system/lib64/libeecolorapi.so
 
 #if force app can see udisk
 ifeq ($(strip $(BOARD_FORCE_UDISK_VISIBLE)),true)
@@ -1083,7 +1083,7 @@ endif
 
 #boot and shutdown animation, ringing
 ifeq ($(strip $(BOOT_SHUTDOWN_ANIMATION_RINGING)),true)
-include device/rockchip/common/bootshutdown/bootshutdown.mk
+include device/hardkernel/common/bootshutdown/bootshutdown.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.shutdown_anim.orien=0
 endif
@@ -1091,7 +1091,7 @@ endif
 
 #boot video enable 
 ifeq ($(strip $(BOOT_VIDEO_ENABLE)),true)
-include device/rockchip/common/bootvideo/bootvideo.mk
+include device/hardkernel/common/bootvideo/bootvideo.mk
 endif
 
 ifeq ($(strip $(BOARD_ENABLE_PMS_MULTI_THREAD_SCAN)), true)
@@ -1143,7 +1143,7 @@ PRODUCT_PACKAGES += \
 
 #######for target product ########
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
-  DEVICE_PACKAGE_OVERLAYS += device/rockchip/common/overlay_screenoff
+  DEVICE_PACKAGE_OVERLAYS += device/hardkernel/common/overlay_screenoff
   PRODUCT_PROPERTY_OVERRIDES += \
        ro.target.product=box \
 
@@ -1189,9 +1189,9 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.logd.kernel=1
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/zmodem/rz:$(TARGET_COPY_OUT_VENDOR)/bin/rz \
-    device/rockchip/common/zmodem/sz:$(TARGET_COPY_OUT_VENDOR)/bin/sz \
-    device/rockchip/common/picocom/bin/picocom:$(TARGET_COPY_OUT_VENDOR)/bin/picocom
+    device/hardkernel/common/zmodem/rz:$(TARGET_COPY_OUT_VENDOR)/bin/rz \
+    device/hardkernel/common/zmodem/sz:$(TARGET_COPY_OUT_VENDOR)/bin/sz \
+    device/hardkernel/common/picocom/bin/picocom:$(TARGET_COPY_OUT_VENDOR)/bin/picocom
 PRODUCT_PACKAGES += io
 endif
 
@@ -1267,8 +1267,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota_retrofit.mk)
 endif
 
 PRODUCT_PACKAGES += \
-  bootctrl.rk30board \
-  bootctrl.rk30board.recovery
+  bootctrl.odroid \
+  bootctrl.odroid.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
@@ -1302,17 +1302,17 @@ BOARD_TWRP_ENABLE ?= false
 
 #Build with UiMode Config
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/uimode/package_uimode_config.xml:vendor/etc/package_uimode_config.xml
+    device/hardkernel/common/uimode/package_uimode_config.xml:vendor/etc/package_uimode_config.xml
 
 # Zoom out recovery ui of box by two percent.
 ifneq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
     TARGET_RECOVERY_OVERSCAN_PERCENT := 2
-    TARGET_BASE_PARAMETER_IMAGE ?= device/rockchip/common/baseparameter/baseparameter.img
+    TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/baseparameter.img
     # savBaseParameter tool
     ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
         PRODUCT_PACKAGES += saveBaseParameter
     endif
-    DEVICE_FRAMEWORK_MANIFEST_FILE := device/rockchip/common/manifest_framework_override.xml
+    DEVICE_FRAMEWORK_MANIFEST_FILE := device/hardkernel/common/manifest_framework_override.xml
 endif
 
 # add AudioSetting
@@ -1341,12 +1341,12 @@ else
         ro.flash_img.enable = false
 endif
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/flash_img/flash_img.sh:vendor/bin/flash_img.sh
+    device/hardkernel/common/flash_img/flash_img.sh:vendor/bin/flash_img.sh
 
 #read pcie info for Devicetest APK
 PRODUCT_COPY_FILES += \
-    device/rockchip/common/pcie/read_pcie_info.sh:vendor/bin/read_pcie_info.sh \
-    device/rockchip/common/pcie/lspcie:/vendor/bin/lspcie
+    device/hardkernel/common/pcie/read_pcie_info.sh:vendor/bin/read_pcie_info.sh \
+    device/hardkernel/common/pcie/lspcie:/vendor/bin/lspcie
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
@@ -1355,7 +1355,7 @@ PRODUCT_COPY_FILES += \
 BOARD_TV_LOW_MEMOPT ?= false
 
 ifeq ($(strip $(BOARD_TV_LOW_MEMOPT)), true)
-    include device/rockchip/common/tv/tv_low_ram_device.mk
+    include device/hardkernel/common/tv/tv_low_ram_device.mk
 endif
 
 #bt config for ap bt
@@ -1363,7 +1363,7 @@ PRODUCT_COPY_FILES += \
     $(TARGET_DEVICE_DIR)/bt_vendor.conf:/vendor/etc/bluetooth/bt_vendor.conf
 
 # Rockchip HALs
-$(call inherit-product, device/rockchip/common/manifests/frameworks/vintf.mk)
+$(call inherit-product, device/hardkernel/common/manifests/frameworks/vintf.mk)
 #for enable optee support
 ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
 
@@ -1402,12 +1402,12 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service \
     android.hardware.gatekeeper@1.0-service.software
 
-DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.keymaster@4.0-service.xml
+DEVICE_MANIFEST_FILE += device/hardkernel/common/manifests/android.hardware.keymaster@4.0-service.xml
 
 endif
 
 ifeq ($(BOARD_MEMTRACK_SUPPORT),true)
-    DEVICE_MANIFEST_FILE += device/rockchip/common/manifests/android.hardware.memtrack@1.0-service.xml
+    DEVICE_MANIFEST_FILE += device/hardkernel/common/manifests/android.hardware.memtrack@1.0-service.xml
     PRODUCT_PACKAGES += \
         android.hardware.memtrack@1.0-service \
         android.hardware.memtrack@1.0-impl \

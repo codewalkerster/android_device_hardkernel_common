@@ -1,4 +1,4 @@
-CUR_PATH := device/rockchip/common/bootvideo
+CUR_PATH := device/hardkernel/common/bootvideo
 
 HAVE_BOOT_VIDEO := $(shell test -f $(CUR_PATH)/bootanimation.ts && echo yes)
 

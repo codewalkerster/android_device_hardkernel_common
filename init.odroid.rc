@@ -1,4 +1,4 @@
-import /vendor/etc/init/hw/init.rockchip.rc
+import /vendor/etc/init/hw/init.hardkernel.rc
 import /vendor/etc/init/hw/init.connectivity.rc
 import /vendor/etc/init/hw/init.box.samba.rc
 import /vendor/etc/init/hw/init.${ro.board.platform}.rc
