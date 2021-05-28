@@ -38,9 +38,11 @@ allow mediaserver sysfs_video:dir search;
 allow mediaserver miracast_hdcp2_hwservice:hwservice_manager find;
 allow mediaserver miracast_hdcp2:binder { call transfer };
 allow mediaserver vendor_miracast_prop:file { read open getattr map };
+allow mediaserver mediasync_device:chr_file { rw_file_perms };
 
 allow mediaserver systemcontrol_hwservice:hwservice_manager {find};
 allow mediaserver system_control:binder { call transfer };
 allow mediaserver dvb_device:chr_file rw_file_perms;
 allow mediaserver vendor_video_device:chr_file rw_file_perms;
+allow mediaserver media_device:chr_file rw_file_perms;
 
