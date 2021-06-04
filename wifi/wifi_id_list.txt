@@ -1,13 +1,13 @@
 0e8d 7610 mt7610 /vendor/etc/modprobe.d/mt7610
-148f 5572 rt2800usb /vendor/etc/modprobe.d/rt2800usb
-148f 5370 rt2800usb /vendor/etc/modprobe.d/rt2800usb
+148f 5572 rt2800usb /vendor/etc/modprobe.d/rt2800usb /* ODROID WiFi Module #4 */
+148f 5370 rt2800usb /vendor/etc/modprobe.d/rt2800usb /* ODROID WiFi Module #1 */
 0bda c811 8821cu /vendor/etc/modprobe.d/8821cu
-0bda c820 8821cu /vendor/etc/modprobe.d/8821cu
+0bda c820 8821cu /vendor/etc/modprobe.d/8821cu /* ODROID WiFi Module #5B */
 0411 0242 8812au /vendor/etc/modprobe.d/8812au /* Buffalo WI-U2-433DM (RTL8811AU) */
-0bda 8812 8812au /vendor/etc/modprobe.d/8812au
-0bda a811 8812au /vendor/etc/modprobe.d/8812au
+0bda 8812 8812au /vendor/etc/modprobe.d/8812au /* ODROID WiFi Module #5 */
+0bda a811 8812au /vendor/etc/modprobe.d/8812au /* ODROID WiFi Module #5A */
 0bda 0811 8812au /vendor/etc/modprobe.d/8812au
-0bda 8176 8192cu /vendor/etc/modprobe.d/8192cu /* 8188cu 1*1 dongole */
+0bda 8176 8192cu /vendor/etc/modprobe.d/8192cu /* 8188cu 1*1 ODROID WiFi Module #3 */
 0bda 8170 8192cu /vendor/etc/modprobe.d/8192cu /* 8188CE-VAU USB minCard */
 0bda 817e 8192cu /vendor/etc/modprobe.d/8192cu /* 8188CE-VAU USB minCard */
 0bda 817a 8192cu /vendor/etc/modprobe.d/8192cu /* 8188cu Slim Solo */
