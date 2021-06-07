@@ -304,6 +304,7 @@ BOARD_USES_GENERIC_AUDIO ?= true
 # Wifi&Bluetooth
 BOARD_HAVE_BLUETOOTH ?= true
 BLUETOOTH_USE_BPLUS ?= false
+BOARD_HAVE_ON_BOARD_BLUETOOTH ?= true
 BOARD_HAVE_BLUETOOTH_BCM ?= false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/hardkernel/$(TARGET_BOARD_PLATFORM)/bluetooth
 include device/hardkernel/common/wifi_bt_common.mk

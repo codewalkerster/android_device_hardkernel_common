@@ -881,11 +881,22 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Bluetooth HAL
+# if use on chip Bluetooth
+ifeq ($(strip $(BOARD_HAVE_ON_BOARD_BLUETOOTH)), true)
 PRODUCT_PACKAGES += \
     libbt-vendor \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service \
     android.hardware.bluetooth@1.0-service.rc
+DEVICE_MANIFEST_FILE += device/hardkernel/common/manifests/android.hardware.bluetooth@1.0-service.xml
+else # BOARD_HAVE_ON_BOARD_BLUETOOTH false
+PRODUCT_PACKAGES += \
+    libbt-hci\
+    android.hardware.bluetooth@1.1-impl \
+    android.hardware.bluetooth@1.1-service.btlinux \
+    android.hardware.bluetooth@1.1-service.btlinux.rc
+DEVICE_MANIFEST_FILE += device/hardkernel/common/manifests/android.hardware.bluetooth@1.1-service.xml
+endif
 
 ifeq ($(strip $(BOARD_HAVE_BLUETOOTH_RTK)), true)
 include hardware/realtek/rtkbt/rtkbt.mk
