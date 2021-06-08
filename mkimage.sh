@@ -26,7 +26,7 @@ if [ "$1"x != ""x  ]; then
          TARGET=$1
 fi
 
-IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
+IMAGE_PATH=odroidev/Image-$TARGET_PRODUCT
 UBOOT_PATH=u-boot
 KERNEL_PATH=kernel
 KERNEL_CONFIG=$KERNEL_PATH/.config

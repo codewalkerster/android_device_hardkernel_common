@@ -117,7 +117,7 @@ KERNEL_DTS=`get_build_var PRODUCT_KERNEL_DTS`
 fi
 echo "-------------------KERNEL_DTS:$KERNEL_DTS"
 PACK_TOOL_DIR=RKTools/linux/Linux_Pack_Firmware
-IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
+IMAGE_PATH=odroidev/Image-$TARGET_PRODUCT
 export PROJECT_TOP=`gettop`
 
 lunch $TARGET_PRODUCT-$BUILD_VARIANT
