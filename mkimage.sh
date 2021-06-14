@@ -135,28 +135,11 @@ else
 	echo "$UBOOT_PATH/uboot.img not fount! Please make it from $UBOOT_PATH first!"
 fi
 
-if [ -f $UBOOT_PATH/trust_nand.img ]
-then
-        echo "create trust.img..."
-        cp -a $UBOOT_PATH/trust_nand.img $IMAGE_PATH/trust.img
-elif [ -f $UBOOT_PATH/trust_with_ta.img ]
-then
-        echo "create trust.img..."
-        cp -a $UBOOT_PATH/trust_with_ta.img $IMAGE_PATH/trust.img
-elif [ -f $UBOOT_PATH/trust.img ]
-then
-        echo "create trust.img..."
-        cp -a $UBOOT_PATH/trust.img $IMAGE_PATH/trust.img
-else    
-        echo "$UBOOT_PATH/trust.img not fount! Please make it from $UBOOT_PATH first!"
-fi
-
 if [ "$HIGH_RELIABLE_RECOVERY_OTA" = "true" ]; then
 	if [ -f $UBOOT_PATH/uboot_ro.img ]
 	then
 		echo -n "HIGH_RELIABLE_RECOVERY_OTA is true. create uboot_ro.img..."
 		cp -a $UBOOT_PATH/uboot_ro.img $IMAGE_PATH/uboot_ro.img
-		cp -a $IMAGE_PATH/trust.img $IMAGE_PATH/trust_ro.img
 		echo "done."
 	else
 		echo "$UBOOT_PATH/uboot_ro.img not fount! Please make it from $UBOOT_PATH first!"

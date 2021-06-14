@@ -75,11 +75,6 @@ def InstallUboot(loader_bin, input_zip, info):
   info.script.Print("Writing uboot loader img...")
   info.script.WriteRawImage("/uboot", "uboot.img")
 
-def InstallTrust(trust_bin, input_zip, info):
-  common.ZipWriteStr(info.output_zip, "trust.img", trust_bin)
-  info.script.Print("Writing trust img...")
-  info.script.WriteRawImage("/trust", "trust.img")
-
 def InstallVbmeta(vbmeta_bin, input_zip, info):
   common.ZipWriteStr(info.output_zip, "vbmeta.img",vbmeta_bin)
   info.script.Print("Writing vbmeta img...")
@@ -107,13 +102,6 @@ def InstallVendorBoot(vendor_boot_bin, input_zip, info):
 
 def FullOTA_InstallEnd(info):
   try:
-    trust = info.input_zip.read("trust.img")
-    print "write trust now..."
-    InstallTrust(trust, info.input_zip, info)
-  except KeyError:
-    print "warning: no trust.img in input target_files; not flashing trust"
-
-  try:
     uboot = info.input_zip.read("uboot.img")
     print "write uboot now..."
     InstallUboot(uboot, info.input_zip, info)
@@ -122,7 +110,7 @@ def FullOTA_InstallEnd(info):
 
   try:
     vbmeta = info.input_zip.read("IMAGES/vbmeta.img")
-    print "wirte vbmeta now..."
+    print "write vbmeta now..."
     InstallVbmeta(vbmeta, info.input_zip, info)
   except KeyError:
     print "warning: no vbmeta.img in input target_files; not flashing vbmeta"
@@ -176,22 +164,6 @@ def FullOTA_InstallEnd(info):
     print "info: no vendor_boot.img in input target_files; ignore it"
 
 def IncrementalOTA_InstallEnd(info):
-  try:
-    trust_target = info.target_zip.read("trust.img")
-  except KeyError:
-    trust_target = None
-
-  try:
-    trust_source = info.source_zip.read("trust.img")
-  except KeyError:
-    trust_source = None
-
-  if (trust_target != None) and (trust_target != trust_source):
-    print "write trust now..."
-    InstallTrust(trust_target, info.target_zip, info)
-  else:
-    print "trust unchanged; skipping"
-
   try:
     vbmeta_target = info.target_zip.read("IMAGES/vbmeta.img")
   except KeyError:

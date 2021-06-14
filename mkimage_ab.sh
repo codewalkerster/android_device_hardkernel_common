@@ -155,26 +155,6 @@ else
 	echo "$UBOOT_PATH/uboot.img not fount! Please make it from $UBOOT_PATH first!"
 fi
 
-if [ -f $UBOOT_PATH/trust_nand.img ]
-then
-        echo -n "create trust.img..."
-        cp -a $UBOOT_PATH/trust_nand.img $IMAGE_PATH/trust.img
-        echo "done."
-elif [ -f $UBOOT_PATH/trust_with_ta.img ]
-then
-        echo -n "create trust.img..."
-        cp -a $UBOOT_PATH/trust_with_ta.img $IMAGE_PATH/trust.img
-        echo "done."
-elif [ -f $UBOOT_PATH/trust.img ]
-then
-        echo -n "create trust.img..."
-        cp -a $UBOOT_PATH/trust.img $IMAGE_PATH/trust.img
-        echo "done."
-
-else
-        echo "$UBOOT_PATH/trust.img not fount! Please make it from $UBOOT_PATH first!"
-fi
-
 if [ -f $UBOOT_PATH/*_loader_*.bin ]
 then
         echo -n "create loader..."
