@@ -14,6 +14,8 @@ usage()
     echo "       -d = huild kernel dts name    "
     echo "       -V = build version    "
     echo "       -J = build jobs    "
+    echo "       -S = build self install image    "
+    echo "       -r = package resource.img    "
     exit 1
 }
 
@@ -30,9 +32,11 @@ BUILD_VARIANT=`get_build_var TARGET_BUILD_VARIANT`
 KERNEL_DTS=""
 BUILD_VERSION=""
 BUILD_JOBS=16
+BUILD_SELF=false
+PACK_RES=false
 
 # check pass argument
-while getopts "UCKABpouv:d:V:J:" arg
+while getopts "UCKABSrpouv:d:V:J:" arg
 do
     case $arg in
         U)
@@ -55,6 +59,14 @@ do
         B)
             echo "will build AB Image"
             BUILD_AB_IMAGE=true
+            ;;
+        S)
+            echo "will build selfinstall image"
+            BUILD_SELF=true
+            ;;
+        r)
+            echo "will pack resource.img"
+            PACK_RES=true
             ;;
         p)
             echo "will build packaging in IMAGE"
@@ -150,8 +162,10 @@ fi
 cp -rf $KERNEL_DEBUG $OUT/kernel
 fi
 
+if [ "$PACK_RES" = true ] ; then
 echo "package resoure.img with charger images"
 cd u-boot && ./scripts/pack_resource.sh ../kernel/resource.img && cp resource.img ../kernel/resource.img && cd -
+fi
 
 # build android
 if [ "$BUILD_ANDROID" = true ] ; then
@@ -258,4 +272,8 @@ echo "kernel:  make ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG && make ARCH=$KERNEL_ARC
 echo "android: lunch $TARGET_PRODUCT-$BUILD_VARIANT && make installclean && make"                    >> $STUB_PATH/build_cmd_info.txt
 echo "version: $SDK_VERSION"                                                                         >> $STUB_PATH/build_cmd_info.txt
 echo "finger:  $BUILD_ID/$BUILD_NUMBER/$BUILD_VARIANT"                                               >> $STUB_PATH/build_cmd_info.txt
+fi
+if [ "$BUILD_SELF" = ture ] ; then
+echo "Start make self install image"
+$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH
 fi
