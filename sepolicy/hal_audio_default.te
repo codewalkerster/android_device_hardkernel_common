@@ -23,7 +23,7 @@ allow hal_audio_default sysfs_cec:file { read open getattr};
 #  product_shipping_api_level=28
 #--------------------------------------------------------------------#
 get_prop(hal_audio_default, vendor_platform_prop)
-allow hal_audio_default self:capability sys_nice;
+allow hal_audio_default self:capability { sys_nice ipc_lock };
 allow hal_audio_default sysfs_aud_output_chs:file { open read write };
 allow hal_audio_default sysfs_aud_output_chs:file { read write open };
 allow hal_audio_default sysfs:file { open read write };
