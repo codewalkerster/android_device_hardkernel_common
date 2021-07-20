@@ -40,6 +40,7 @@
 /dev/amaudio_utils        0660   media        system
 /dev/amaudio_ctl          0660   media        system
 /dev/amvenc_avc           0660   mediacodec   system
+/dev/amvecm               0660   system       system
 /dev/HevcEnc              0660   mediacodec   system
 /dev/amsubtitle           0660   media        system
 /dev/jpegenc              0660   media        system
