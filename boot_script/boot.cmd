@@ -14,13 +14,28 @@ setenv kernel_addr_r 0x00280000
 setenv ramdisk_addr_r 0x0a200000
 setenv loadaddr 0x10000000
 
-setenv partnum 6
+if bcb load $devnum misc; then
+	# valid BCB found
+	if bcb test command = bootonce-bootloader; then
+		# Bootloader boot
+		bcb clear command; bcb store;
+		fastboot usb 0
+	elif bcb test command = boot-recovery; then
+		# Recovery boot
+		setenv partnum 7
+	else
+		# Normal boot
+		setenv partnum 6
+	fi
 
-setbootdev $devtype $devnum
+	setbootdev $devtype $devnum
 
-part start $devtype $devnum $partnum boot_start
-part size $devtype $devnum $partnum boot_size
+	part start $devtype $devnum $partnum boot_start
+	part size $devtype $devnum $partnum boot_size
 
-mmc read $loadaddr $boot_start $boot_size
+	mmc read $loadaddr $boot_start $boot_size
 
-bootm $loadaddr
+	bootm $loadaddr
+else
+	echo Media corrupted.
+fi
