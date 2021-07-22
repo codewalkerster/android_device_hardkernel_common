@@ -60,6 +60,13 @@ PRODUCT_PACKAGES += \
 SUPPORT_CAS = true
 endif
 
+ifeq ($(SUPPORT_CAS), true)
+PRODUCT_PACKAGES += \
+    cas_hal_test \
+    libdmx_client \
+    b472711b-3ada-4c37-8c2a-7c64d8af0223
+endif
+
 PRODUCT_PACKAGES += \
     remotecfg
 
