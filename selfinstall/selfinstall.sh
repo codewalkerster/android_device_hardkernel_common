@@ -32,4 +32,4 @@ dd if=$TARGET_PATH/recovery.img of=$TARGET_IMAGE bs=512 seek=120832
 dd if=$TARGET_PATH/baseparameter.img of=$TARGET_IMAGE bs=512 seek=1136640
 dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=1138688
 
-zip $TARGET_PATH/selfinstall.img.zip $TARGET_IMAGE
+pigz -k  $TARGET_PATH/selfinstall.img
