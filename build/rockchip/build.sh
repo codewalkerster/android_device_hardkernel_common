@@ -273,7 +273,7 @@ echo "android: lunch $TARGET_PRODUCT-$BUILD_VARIANT && make installclean && make
 echo "version: $SDK_VERSION"                                                                         >> $STUB_PATH/build_cmd_info.txt
 echo "finger:  $BUILD_ID/$BUILD_NUMBER/$BUILD_VARIANT"                                               >> $STUB_PATH/build_cmd_info.txt
 fi
-if [ "$BUILD_SELF" = ture ] ; then
+if [ "$BUILD_SELF" = true ] ; then
 echo "Start make self install image"
 $PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH
 fi
