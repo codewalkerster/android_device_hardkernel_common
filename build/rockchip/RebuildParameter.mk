@@ -3,9 +3,9 @@ ifdef PRODUCT_PARAMETER_TEMPLATE
 $(info build parameter.txt with $(PRODUCT_PARAMETER_TEMPLATE)....)
 
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
-partition_list := fat_a:2M,security:4M,misc:4M
+partition_list := security:4M,uboot_a:4M,misc:4M
 else
-partition_list := fat:2M,security:4M,misc:4M
+partition_list := security:4M,uboot:4M,misc:4M
 endif # BOARD_USES_AB_IMAGE
 
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
