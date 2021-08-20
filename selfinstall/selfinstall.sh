@@ -5,7 +5,7 @@ TARGET_PATH=$1
 TARGET_IMAGE=$TARGET_PATH/selfinstall.img
 GPT_PATH=$PROJECT_TOP/device/hardkernel/common/selfinstall/gpt.img
 
-BOOTSCR_SUPPORT=false
+BOOTSCR_SUPPORT=true
 
 if [ "$BOOTSCR_SUPPORT" = true ] ; then
 BOOT_SCRIPT_PATH=$PROJECT_TOP/device/hardkernel/common/boot_script
@@ -28,11 +28,12 @@ fi
 
 dd if=$GPT_PATH of=$TARGET_IMAGE bs=512
 
-if [ "$BOOTSCR_SUPPORT" = true ] ; then
-dd if=$FAT_IMAGE of=$TARGET_IMAGE bs=512 seek=8192 #start=4MB
-else
 dd if=$TARGET_PATH/uboot.img of=$TARGET_IMAGE bs=512 seek=16384
+
+if [ "$BOOTSCR_SUPPORT" = true ] ; then
+dd if=$FAT_IMAGE of=$TARGET_IMAGE bs=512 seek=20480
 fi
+
 dd if=$TARGET_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=24576
 dd if=$TARGET_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=32768
 dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=40960
