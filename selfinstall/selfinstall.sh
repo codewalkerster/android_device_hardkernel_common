@@ -39,7 +39,7 @@ dd if=$TARGET_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=32768
 dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=40960
 dd if=$TARGET_PATH/boot.img of=$TARGET_IMAGE bs=512 seek=43008
 dd if=$TARGET_PATH/recovery.img of=$TARGET_IMAGE bs=512 seek=124928
-dd if=$TARGET_PATH/baseparameter.img of=$TARGET_IMAGE bs=512 seek=1140736
-dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=1142784
+dd if=$TARGET_PATH/baseparameter.img of=$TARGET_IMAGE bs=512 seek=2451456
+dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=2453504
 
 pigz -k  $TARGET_PATH/selfinstall.img
