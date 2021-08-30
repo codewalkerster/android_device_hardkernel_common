@@ -71,7 +71,8 @@ PRODUCT_AAPT_CONFIG ?= normal large xlarge hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
 
 PRODUCT_PACKAGES += \
-    ExactCalculator
+    ExactCalculator \
+	Updater
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Camera2 \
@@ -81,7 +82,8 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     ExactCalculator \
     Gallery2 \
     Settings \
-    SoundRecorder
+    SoundRecorder \
+    Updater
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=4 \
