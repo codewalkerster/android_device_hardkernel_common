@@ -18,6 +18,20 @@
 -->
 
 <resources>
+    <!-- The default tiles to display in QuickSettings -->
+    <string name="quick_settings_tiles_default" translatable="false">
+        wifi,bt,dnd,rotation,cast,screenrecord
+    </string>
+
+    <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
+    <string name="quick_settings_tiles_stock" translatable="false">
+        wifi,dnd,rotation,bt,airplane,location,hotspot,inversion,dark,work,night,screenrecord,reverse
+    </string>
+
+    <!-- Defines the blacklist for system icons.  That is to say, the icons in the status bar that
+         are part of the blacklist are never displayed. Each item in the blacklist must be a string
+         defined in core/res/res/configs.xml to properly blacklist the icon.
+    -->
     <string-array name="config_statusBarIconBlackList" translatable="false">
         <item>@*android:string/status_bar_rotate</item>
         <item>battery</item>
