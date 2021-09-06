@@ -1436,3 +1436,9 @@ PRODUCT_COPY_FILES += \
 # build libmpimmz for rknn
 PRODUCT_PACKAGES += \
 	libmpimmz
+
+# GPS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy \
+    gps.$(TARGET_BOOTLOADER_BOARD_NAME)

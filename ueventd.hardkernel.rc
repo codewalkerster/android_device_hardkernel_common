@@ -192,3 +192,8 @@
 
 # for sensors
 /dev/input/event*    0666   input system
+
+
+# GPS
+/dev/ttyACM*   0666    gps             gps
+/dev/ttyUSB*   0666    gps             gps
