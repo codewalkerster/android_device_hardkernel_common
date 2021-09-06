@@ -1,0 +1,16 @@
+python_binary_host {
+    name: "bootscript_tools",
+    version: {
+        py2: {
+            enabled: true,
+        },
+        py3: {
+            enabled: false,
+        },
+    },
+
+    main: "bootscript_generator.py",
+    srcs: [
+        "bootscript_generator.py",
+    ],
+}

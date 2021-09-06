@@ -2,6 +2,7 @@
 
 echo selfinstall image
 TARGET_PATH=$1
+PRODUCT_OUT=$2
 TARGET_IMAGE=$TARGET_PATH/selfinstall.img
 GPT_PATH=$PROJECT_TOP/device/hardkernel/common/selfinstall/gpt.img
 
@@ -11,12 +12,8 @@ if [ "$BOOTSCR_SUPPORT" = true ] ; then
 BOOT_SCRIPT_PATH=$PROJECT_TOP/device/hardkernel/common/boot_script
 SIMG2IMG=$PROJECT_TOP/mkcombinedroot/bin/simg2img
 
-if  [ -e "$BOOT_SCRIPT_PATH/boot.scr" ] ; then
-    break
-else
-    $BOOT_SCRIPT_PATH/mkbootscript.sh $BOOT_SCRIPT_PATH/boot.cmd $BOOT_SCRIPT_PATH/boot.scr
-fi
-cp $BOOT_SCRIPT_PATH/boot.scr $TARGET_PATH/boot.scr
+$BOOT_SCRIPT_PATH/mkbootscript.sh $PRODUCT_OUT/boot.cmd $PRODUCT_OUT/boot.scr
+cp $PRODUCT_OUT/boot.scr $TARGET_PATH/boot.scr
 
 
 FAT_IMAGE=$TARGET_PATH/fat.img

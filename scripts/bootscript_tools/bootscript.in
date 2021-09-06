@@ -1,0 +1,47 @@
+echo Start boot.scr booting.
+
+if test "$${devnum}" = 0 ; then
+	setenv media emmc
+	setenv boot_device fe310000.sdhci,fe330000.nandc
+else
+	setenv media sd
+	setenv boot_device fe2b0000.dwmmc,fe330000.nandc
+fi
+
+setenv fdt_addr_r 0x0a100000
+setenv kernel_addr_c 0x4080000
+setenv kernel_addr_r 0x00280000
+setenv ramdisk_addr_r 0x0a200000
+setenv loadaddr 0x10000000
+
+if bcb load $$devnum misc; then
+	# valid BCB found
+	if bcb test command = bootonce-bootloader; then
+		# Bootloader boot
+		bcb clear command; bcb store;
+		fastboot usb 0
+	elif bcb test command = boot-recovery; then
+		# Recovery boot
+		setenv partnum ${_recovery_part}
+		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init"
+	else
+		# Normal boot
+		setenv partnum ${_boot_part}
+		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init rootwait ro"
+	fi
+
+	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.serialno=$${serial\#} androidboot.boot_devices=$$boot_device androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.hardware=odroid androidboot.verifiedbootstate=orange androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0 loop.max_part=7 buildvariant=${_variant} $${init_args}"
+
+	setbootdev $$devtype $$devnum
+
+	part start $$devtype $$devnum $$partnum boot_start
+	part size $$devtype $$devnum $$partnum boot_size
+
+	mmc dev $$devnum
+
+	mmc read $$loadaddr $$boot_start $$boot_size
+
+	bootm $$loadaddr
+else
+	echo Media corrupted.
+fi

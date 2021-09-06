@@ -66,6 +66,7 @@ TARGET_PREBUILT_KERNEL ?= kernel/arch/arm/boot/zImage
 TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
 BOARD_PREBUILT_DTBIMAGE_DIR ?= kernel/arch/arm/boot/dts
 PRODUCT_PARAMETER_TEMPLATE ?= device/hardkernel/common/scripts/parameter_tools/parameter.in
+PRODUCT_BOOTSCRIPT_TEMPLATE ?= device/hardkernel/common/scripts/bootscript_tools/bootscript.in
 TARGET_BOARD_HARDWARE_EGL ?= mali
 
 #Android GO configuration
@@ -83,6 +84,8 @@ ifeq ($(TARGET_BUILD_VARIANT), user)
 PRODUCT_KERNEL_CONFIG += non_debuggable.config
 endif
 
+# odroid doens't use cmdline from boot.img and recovery.img. It is cared from boot.scr
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 ifeq ($(BOARD_AVB_ENABLE), true)
 BOARD_KERNEL_CMDLINE := androidboot.wificountrycode=CN androidboot.hardware=odroid androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init rootwait ro init=/init
 else # BOARD_AVB_ENABLE is false
@@ -94,6 +97,7 @@ ROCKCHIP_RECOVERYIMAGE_CMDLINE_ARGS ?= console=ttyFIQ0 androidboot.baseband=N/A 
 
 ifneq ($(BOARD_SELINUX_ENFORCING), true)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+endif
 endif
 
 # For Header V2, set resource.img as second.
