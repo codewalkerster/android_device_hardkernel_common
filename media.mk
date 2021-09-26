@@ -152,6 +152,8 @@ ifneq ($(PRODUCT_IS_ATV_MAINLINE), true)
 PRODUCT_PACKAGES += libmediahal_resman.system
 endif
 
+PRODUCT_PACKAGES += libdsm
+
 #########################################################################
 #
 #                                                PlayReady DRM
@@ -206,12 +208,6 @@ ifeq ($(BUILD_WITH_VIEWRIGHT_WEB),true)
        libdec_ca_vmx_web \
        libOTTlogger\
        libvmxca_webclient_sys
-endif
-
-ifeq ($(BUILD_WITH_WIDEVINECAS),true)
- #for widevine cas
- PRODUCT_PACKAGES += \
-       libdec_ca_wvcas.system
 endif
 
  PRODUCT_PACKAGES += libamgralloc_ext
