@@ -318,6 +318,9 @@ include device/hardkernel/common/wifi_bt_common.mk
 #Camera flash
 BOARD_HAVE_FLASH ?= true
 
+# Wifi Dongle
+BOARD_HAVE_DONGLE ?= true
+
 #HDMI support
 BOARD_SUPPORT_HDMI ?= true
 
