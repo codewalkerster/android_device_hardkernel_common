@@ -1,0 +1,13 @@
+#ro.service.bt.a2dp_sink=false
+#qemu.hw.mainkeys=0
+#hide.volume_buttons=false
+#hide.screenshot_button=false
+#hide.poweroff_button=false
+#ro.chip=rk3568
+#ro.url.official=dn.odroid.com/RK3568/ODROID-M1/Android/11/
+#ro.url.mirror=www.odroid.in/mirror/dn.odroid.com/RK3568/ODROID-M1/Android/11/
+#kiosk_mode=false
+#mouse_acceleration=true
+ro.kernel.android.gps=ttyACM
+ro.gps.id.vendor=1546
+feature.disable_bt=false
