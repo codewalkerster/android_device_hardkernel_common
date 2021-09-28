@@ -72,7 +72,8 @@ PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
 
 PRODUCT_PACKAGES += \
     ExactCalculator \
-	Updater
+    Updater \
+    OdroidSettings
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Camera2 \
@@ -83,7 +84,8 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Gallery2 \
     Settings \
     SoundRecorder \
-    Updater
+    Updater \
+    OdroidSettings
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=4 \
