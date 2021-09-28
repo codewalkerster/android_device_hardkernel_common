@@ -1,4 +1,28 @@
 
+ifeq ($(strip $(TARGET_BOARD_PLATFORM)), rk356x)
+
+WIFI_DRIVER             := rtl8821cu
+BOARD_WIFI_VENDOR       := realtek
+WIFI_DRIVER_MODULE_PATH := /vendor/lib/modules/8821cu.ko
+WIFI_DRIVER_MODULE_NAME := 8821cu
+WIFI_DRIVER_MODULE_ARG  := "ifname=wlan0"
+
+
+BOARD_WIFI_VENDOR := realtek
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_nl80211
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_nl80211
+
+BOARD_WLAN_DEVICE := rtl8812au
+LIB_WIFI_HAL := libwifi-hal-rtl
+
+WIFI_FIRMWARE_LOADER      := ""
+WIFI_DRIVER_FW_PATH_PARAM := ""
+
+else
+
 ifneq ($(strip $(TARGET_BOARD_PLATFORM)), sofia3gr)
 BOARD_CONNECTIVITY_VENDOR := Broadcom
 BOARD_CONNECTIVITY_MODULE := ap6xxx
@@ -26,6 +50,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/hardkernel/$(TARGET_BOARD_
 ifeq ($(strip $(BOARD_CONNECTIVITY_MODULE)), ap6xxx_gps)
 BLUETOOTH_USE_BPLUS := true
 BLUETOOTH_ENABLE_FM := false
+endif
 endif
 endif
 
