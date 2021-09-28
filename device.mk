@@ -1434,6 +1434,15 @@ endif
 PRODUCT_PACKAGES += \
 	libbaseparameter
 
+# base parameter adjust package
+BOARD_BASEPARAMETER_ADJUST ?= false
+
+ifeq ($(BOARD_BASEPARAMETER_ADJUST),true)
+PRODUCT_PACKAGES += \
+    libsave_baseparameter_util \
+    DisplayAdjust
+endif
+
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
 
