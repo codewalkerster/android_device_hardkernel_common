@@ -21,6 +21,10 @@ LIB_WIFI_HAL := libwifi-hal-rtl
 WIFI_FIRMWARE_LOADER      := ""
 WIFI_DRIVER_FW_PATH_PARAM := ""
 
+PRODUCT_COPY_FILES += \
+	device/hardkernel/common/wifi/wifi_id_list.txt:vendor/etc/wifi_id_list.txt \
+	device/hardkernel/common/wifi/8821cu:vendor/etc/modprobe.d/8821cu
+
 else
 
 ifneq ($(strip $(TARGET_BOARD_PLATFORM)), sofia3gr)
