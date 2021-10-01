@@ -112,6 +112,7 @@ SDK_VERSION=`get_build_var CURRENT_SDK_VERSION`
 UBOOT_DEFCONFIG=`get_build_var PRODUCT_UBOOT_CONFIG`
 KERNEL_ARCH=`get_build_var PRODUCT_KERNEL_ARCH`
 KERNEL_DEFCONFIG=`get_build_var PRODUCT_KERNEL_CONFIG`
+PRODUCT_OUT=`get_build_var PRODUCT_OUT`
 if [ "$KERNEL_DTS" = "" ] ; then
 KERNEL_DTS=`get_build_var PRODUCT_KERNEL_DTS`
 fi
@@ -147,6 +148,12 @@ fi
 if [ "$BUILD_KERNEL" = true ] ; then
 echo "Start build kernel"
 cd kernel && make clean && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS && cd -
+
+pushd kernel
+make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8821CU
+cp ../hardware/wifi/realtek/drivers/rtl8821CU/8821cu.ko ../$PRODUCT_OUT/vendor/lib/modules/
+popd
+
 if [ $? -eq 0 ]; then
     echo "Build kernel ok!"
 else
