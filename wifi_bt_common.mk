@@ -3,7 +3,7 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM)), rk356x)
 
 WIFI_DRIVER             := rtl8821cu
 BOARD_WIFI_VENDOR       := realtek
-WIFI_DRIVER_MODULE_PATH := /vendor/lib/modules/8821cu.ko
+#WIFI_DRIVER_MODULE_PATH := /vendor/lib/modules/8821cu.ko
 WIFI_DRIVER_MODULE_NAME := 8821cu
 WIFI_DRIVER_MODULE_ARG  := "ifname=wlan0"
 
@@ -15,7 +15,7 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_nl80211
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_nl80211
 
-BOARD_WLAN_DEVICE := rtl8812au
+BOARD_WLAN_DEVICE := realtek
 LIB_WIFI_HAL := libwifi-hal-rtl
 
 WIFI_FIRMWARE_LOADER      := ""
