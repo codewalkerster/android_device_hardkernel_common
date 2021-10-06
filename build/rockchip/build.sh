@@ -151,7 +151,6 @@ cd kernel && make clean && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG 
 
 pushd kernel
 make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8821CU
-cp ../hardware/wifi/realtek/drivers/rtl8821CU/8821cu.ko ../$PRODUCT_OUT/vendor/lib/modules/
 popd
 
 if [ $? -eq 0 ]; then
