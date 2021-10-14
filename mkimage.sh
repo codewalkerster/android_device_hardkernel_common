@@ -4,6 +4,7 @@ set -e
 . build/envsetup.sh >/dev/null && setpaths
 
 export PATH=$ANDROID_BUILD_PATHS:$PATH
+TARGET_BOARD_HARDWARE=`get_build_var TARGET_BOARD_HARDWARE`
 TARGET_PRODUCT=`get_build_var TARGET_PRODUCT`
 TARGET_DEVICE_DIR=`get_build_var TARGET_DEVICE_DIR`
 PLATFORM_VERSION=`get_build_var PLATFORM_VERSION`
@@ -83,6 +84,12 @@ else
 fi
 }
 
+if [ "$TARGET_BOARD_HARDWARE" == "odroid" ]; then
+echo "create dtb.img..."
+BOARD_DTB_IMG=$OUT/dtb.img
+cp -a $BOARD_DTB_IMG $IMAGE_PATH/dtb.img
+echo "done."
+else
 echo "create dtbo.img..."
 if [ ! -f "$OUT/dtbo.img" ]; then
 BOARD_DTBO_IMG=$OUT/rebuild-dtbo.img
@@ -91,6 +98,7 @@ BOARD_DTBO_IMG=$OUT/dtbo.img
 fi
 cp -a $BOARD_DTBO_IMG $IMAGE_PATH/dtbo.img
 echo "done."
+fi
 
 echo "create resource.img..."
 if [ -f "kernel/resource.img" ]; then

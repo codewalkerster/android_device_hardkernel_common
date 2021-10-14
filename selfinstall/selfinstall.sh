@@ -32,7 +32,7 @@ dd if=$FAT_IMAGE of=$TARGET_IMAGE bs=512 seek=20480
 fi
 
 dd if=$TARGET_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=24576
-dd if=$TARGET_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=32768
+dd if=$TARGET_PATH/dtb.img of=$TARGET_IMAGE bs=512 seek=32768
 dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=40960
 dd if=$TARGET_PATH/boot.img of=$TARGET_IMAGE bs=512 seek=43008
 dd if=$TARGET_PATH/recovery.img of=$TARGET_IMAGE bs=512 seek=124928

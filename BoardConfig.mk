@@ -55,16 +55,24 @@ BOARD_PLATFORM_VERSION := 11.0
 
 # Enable android verified boot 2.0
 BOARD_AVB_ENABLE ?= false
+ifeq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
+BOARD_BOOT_HEADER_VERSION ?= 1
+else
 BOARD_BOOT_HEADER_VERSION ?= 2
+endif
 BOARD_MKBOOTIMG_ARGS :=
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_PREBUILT_DTBOIMAGE ?= $(TARGET_DEVICE_DIR)/dtbo.img
+endif
 BOARD_ROCKCHIP_VIRTUAL_AB_ENABLE ?= false
 BOARD_SELINUX_ENFORCING ?= true
 
 # Use the non-open-source parts, if they're present
 TARGET_PREBUILT_KERNEL ?= kernel/arch/arm/boot/zImage
 TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_PREBUILT_DTBIMAGE_DIR ?= kernel/arch/arm/boot/dts
+endif
 PRODUCT_PARAMETER_TEMPLATE ?= device/hardkernel/common/scripts/parameter_tools/parameter.in
 PRODUCT_BOOTSCRIPT_TEMPLATE ?= device/hardkernel/common/scripts/bootscript_tools/bootscript.in
 TARGET_BOARD_HARDWARE_EGL ?= mali
@@ -102,8 +110,11 @@ endif
 
 # For Header V2, set resource.img as second.
 # For Header V3, add vendor_boot and resource.
+# odroid board doesn't use resource.img
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \<= 2)))
 BOARD_MKBOOTIMG_ARGS += --second $(TARGET_PREBUILT_RESOURCE)
+endif
 endif
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
@@ -112,7 +123,12 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # - header v2 do not have recovery;
 ifneq ($(BOARD_ROCKCHIP_VIRTUAL_AB_ENABLE), true)
 ifneq ($(BOARD_USES_AB_IMAGE), true)
+
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_RECOVERY_MKBOOTIMG_ARGS ?= --second $(TARGET_PREBUILT_RESOURCE) --header_version 2
+else
+BOARD_RECOVERY_MKBOOTIMG_ARGS ?= --header_version 1
+endif
 ifeq ($(BOARD_AVB_ENABLE), true)
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 BOARD_AVB_RECOVERY_KEY_PATH ?= external/avb/test/data/testkey_rsa4096.pem
@@ -122,8 +138,12 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION ?= 2
 endif
 endif
 endif
+
+# odroid board doesn't use recover dtbo & dtbo.img
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_INCLUDE_RECOVERY_DTBO ?= true
 BOARD_INCLUDE_DTB_IN_BOOTIMG ?= true
+endif
 
 # Add standalone metadata partition
 BOARD_USES_METADATA_PARTITION ?= true
@@ -155,7 +175,11 @@ ifeq ($(strip $(USE_DEFAULT_PARAMETER)), true)
   endif
   BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt cache)
   BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt boot)
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
   BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtbo)
+else
+  BOARD_DTBIMG_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtb)
+endif
   BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt recovery)
   # Header V3, add vendor_boot
   ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 3)))
@@ -178,7 +202,11 @@ else
   BOARD_CACHEIMAGE_PARTITION_SIZE ?= 1073741824
   BOARD_BOOTIMAGE_PARTITION_SIZE ?= 41943040
   BOARD_RECOVERYIMAGE_PARTITION_SIZE ?= 100663296
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
   BOARD_DTBOIMG_PARTITION_SIZE ?= 4194304
+else
+  BOARD_DTBIMG_PARTITION_SIZE ?= 4194304
+endif
   # Header V3, add vendor_boot
   ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 3)))
     BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE ?= 41943040

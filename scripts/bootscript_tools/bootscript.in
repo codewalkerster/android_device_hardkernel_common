@@ -41,6 +41,8 @@ if bcb load $$devnum misc; then
 
 	mmc read $$loadaddr $$boot_start $$boot_size
 
+	load mmc $$devnum:5 $$fdt_addr_r rk3568-odroid-m1.dtb
+
 	bootm $$loadaddr
 else
 	echo Media corrupted.
