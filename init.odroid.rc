@@ -237,9 +237,6 @@ on boot
     chmod 0444 /proc/pagetypeinfo
 
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 0
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 0
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
     write /sys/class/devfreq/dmc/governor dmc_ondemand
     setprop persist.sys.first_booting false
     trigger sys-boot-completed-set
