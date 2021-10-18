@@ -1,5 +1,10 @@
 echo Start boot.scr booting.
 
+echo "  Init default values"
+
+setenv heartbeat 1
+
+echo "  Boot sequence"
 if test "$${devnum}" = 0 ; then
 	setenv media emmc
 	setenv boot_device fe310000.sdhci,fe330000.nandc
@@ -30,7 +35,10 @@ if bcb load $$devnum misc; then
 		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init rootwait ro"
 	fi
 
-	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.serialno=$${serial\#} androidboot.boot_devices=$$boot_device androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.hardware=odroid androidboot.verifiedbootstate=orange androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0 loop.max_part=7 buildvariant=${_variant} $${init_args}"
+	setenv secure_args "androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.verifiedbootstate=orange"
+	setenv io_args "androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0"
+
+	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.serialno=$${serial\#} androidboot.boot_devices=$$boot_device androidboot.hardware=odroid loop.max_part=7 buildvariant=${_variant} $${secure_args} $${io_args} $${init_args}"
 
 	setbootdev $$devtype $$devnum
 
@@ -41,7 +49,17 @@ if bcb load $$devnum misc; then
 
 	mmc read $$loadaddr $$boot_start $$boot_size
 
-	load mmc $$devnum:5 $$fdt_addr_r rk3568-odroid-m1.dtb
+	load $$devtype $$devnum:5 $$fdt_addr_r rk3568-odroid-m1.dtb
+
+	setenv ini_addr_r 0x4001000
+	load $$devtype $$devnum:3 $$ini_addr_r env.ini
+	ini generic $$ini_addr_r
+
+	fdt addr $$fdt_addr_r
+
+	if test $$heartbeat = "0"; then
+		fdt set /leds/work linux,default-trigger "none";
+	fi
 
 	bootm $$loadaddr
 else
