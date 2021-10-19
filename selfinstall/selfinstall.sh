@@ -5,6 +5,7 @@ TARGET_PATH=$1
 PRODUCT_OUT=$2
 TARGET_IMAGE=$TARGET_PATH/selfinstall.img
 GPT_PATH=$PROJECT_TOP/device/hardkernel/common/selfinstall/gpt.img
+MKFS_FAT=$PROJECT_TOP/device/hardkernel/proprietary/bin/mkfs.fat
 
 BOOTSCR_SUPPORT=true
 
@@ -17,8 +18,8 @@ cp $PRODUCT_OUT/boot.scr $TARGET_PATH/boot.scr
 
 
 FAT_IMAGE=$TARGET_PATH/fat.img
-dd if=/dev/zero of=$FAT_IMAGE bs=512 count=4096
-mkfs.fat -F16 -n VFAT $FAT_IMAGE
+dd if=/dev/zero of=$FAT_IMAGE bs=1024 count=16384
+$MKFS_FAT -F16 -n VFAT $FAT_IMAGE
 build/make/tools/fat16copy.py $FAT_IMAGE \
 	$TARGET_PATH/boot.scr
 fi
@@ -31,12 +32,12 @@ if [ "$BOOTSCR_SUPPORT" = true ] ; then
 dd if=$FAT_IMAGE of=$TARGET_IMAGE bs=512 seek=20480
 fi
 
-dd if=$TARGET_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=24576
-dd if=$TARGET_PATH/dtb.img of=$TARGET_IMAGE bs=512 seek=32768
-dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=40960
-dd if=$TARGET_PATH/boot.img of=$TARGET_IMAGE bs=512 seek=43008
-dd if=$TARGET_PATH/recovery.img of=$TARGET_IMAGE bs=512 seek=124928
-dd if=$TARGET_PATH/baseparameter.img of=$TARGET_IMAGE bs=512 seek=2451456
-dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=2453504
+dd if=$TARGET_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=53248
+dd if=$TARGET_PATH/dtb.img of=$TARGET_IMAGE bs=512 seek=61440
+dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=69632
+dd if=$TARGET_PATH/boot.img of=$TARGET_IMAGE bs=512 seek=71680
+dd if=$TARGET_PATH/recovery.img of=$TARGET_IMAGE bs=512 seek=153600
+dd if=$TARGET_PATH/baseparameter.img of=$TARGET_IMAGE bs=512 seek=2480128
+dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=2482176
 
 pigz -k  $TARGET_PATH/selfinstall.img

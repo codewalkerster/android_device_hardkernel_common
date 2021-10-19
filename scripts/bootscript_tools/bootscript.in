@@ -35,6 +35,7 @@ if bcb load $$devnum misc; then
 		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init rootwait ro"
 	fi
 
+	echo "  Set booting arguments"
 	setenv secure_args "androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.verifiedbootstate=orange"
 	setenv io_args "androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0"
 
