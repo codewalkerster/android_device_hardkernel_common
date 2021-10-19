@@ -225,6 +225,9 @@
 #fat
 /fat(/.*)?    u:object_r:oemfs:s0
 
+#dtb
+/dtb(/.*)?    u:object_r:oemfs:s0
+
 #gps
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@1\.0-service\.legacy     u:object_r:hal_gnss_default_exec:s0
 

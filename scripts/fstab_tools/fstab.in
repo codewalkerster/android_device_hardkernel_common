@@ -11,6 +11,8 @@ ${_block_prefix}system_ext /system_ext  ext4 ro,barrier=1 ${_flags},first_stage_
 /dev/block/by-name/misc         /misc               emmc      defaults     defaults
 /dev/block/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
 /dev/block/by-name/fat            /fat                vfat      defaults     defaults
+/dev/block/by-name/dtb            /dtb                ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
+
 
 /devices/platform/*usb*   auto vfat defaults      voldmanaged=usb:auto
 
