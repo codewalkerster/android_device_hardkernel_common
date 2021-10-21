@@ -921,11 +921,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.rk.screenoff_time=60000
 endif
 
+ifeq (,$(filter eng,$(TARGET_BUILD_VARIANT)))
 # Flash Lock Status reporting,
 # GTS: com.google.android.gts.persistentdata.
 # PersistentDataHostTest#testTestGetFlashLockState
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
+endif
 
 # Add for function frp
 ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
