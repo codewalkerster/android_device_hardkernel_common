@@ -10,7 +10,7 @@ target_partition_size := 4194304
 AOSP_MK2FS_TOOL := $(SOONG_HOST_OUT_EXECUTABLES)/mke2fs
 AOSP_E2FSDROID_TOOL := $(SOONG_HOST_OUT_EXECUTABLES)/e2fsdroid
 
-$(build_dtb_img) : $(PRODUCT_DTB_TARGET)
+$(build_dtb_img) : $(PRODUCT_DTB_TARGET) $(AOSP_MK2FS_TOOL) $(AOSP_E2FSDROID_TOOL)
 	@echo "Build dtb image file $@."
 	$(AOSP_MK2FS_TOOL) -M /dtb -t ext4 -b 4096 $(build_dtb_img) 1024
 	mkdir $(source_dir)
