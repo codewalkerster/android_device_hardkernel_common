@@ -147,10 +147,14 @@ fi
 # build kernel
 if [ "$BUILD_KERNEL" = true ] ; then
 echo "Start build kernel"
-cd kernel && make clean && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS && cd -
-
 pushd kernel
-make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8821CU
+make $ADDON_ARGS ARCH=$KERNEL_ARCH distclean
+make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG
+cp ../device/hardkernel/rk356x/odroidm1/.rk3568-odroid-m1.dtb.dts.tmp.domain ./arch/arm64/boot/dts/rockchip/
+make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS
+echo "compile rtl8821cu wifi driver"
+make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8821CU clean
+make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8821CU -j$BUILD_JOBS
 popd
 
 if [ $? -eq 0 ]; then
