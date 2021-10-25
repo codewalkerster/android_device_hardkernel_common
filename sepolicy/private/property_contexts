@@ -52,6 +52,7 @@ ro.wifi.sleep.power.down              u:object_r:debug_prop:s0
 persist.wifi.sleep.                   u:object_r:debug_prop:s0
 persist.bt.sleep.flag                 u:object_r:debug_prop:s0
 persist.bt.power.down                 u:object_r:debug_prop:s0
+persist.bt.service.down                 u:object_r:debug_prop:s0
 sys.status.hidebar_enable              u:object_r:debug_prop:s0
 ro.rk.screenshot_enable              u:object_r:debug_prop:s0
 ro.config.enable.remotecontrol              u:object_r:debug_prop:s0
