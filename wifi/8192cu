@@ -1,1 +1,4 @@
-/vendor/lib/modules/8192cu.ko
+/vendor/lib/modules/rtlwifi.ko
+/vendor/lib/modules/rtl_usb.ko
+/vendor/lib/modules/rtl8192c-common.ko
+/vendor/lib/modules/rtl8192cu.ko

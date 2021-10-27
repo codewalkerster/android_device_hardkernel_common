@@ -24,7 +24,8 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 PRODUCT_COPY_FILES += \
 	device/hardkernel/common/wifi/wifi_id_list.txt:vendor/etc/wifi_id_list.txt \
 	device/hardkernel/common/wifi/8821cu:vendor/etc/modprobe.d/8821cu \
-	device/hardkernel/common/wifi/8812au:vendor/etc/modprobe.d/8812au
+	device/hardkernel/common/wifi/8812au:vendor/etc/modprobe.d/8812au \
+	device/hardkernel/common/wifi/8192cu:vendor/etc/modprobe.d/8192cu
 
 else
 
