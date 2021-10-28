@@ -42,3 +42,4 @@ persist.vendor.miracast.hdcp2         u:object_r:vendor_miracast_prop:s0
 persist.vendor.sys.memc             u:object_r:vendor_memc_prop:s0
 
 persist.vendor.tvconfig.path             u:object_r:vendor_platform_prop:s0
+vendor.vmx.indiv.server.ip               u:object_r:vendor_platform_prop:s0
