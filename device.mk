@@ -361,6 +361,8 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/bluetooth/rtl8821c_fw.bin:root/lib/firmware/rtl_bt/rtl8821c_fw.bin \
     device/hardkernel/common/bluetooth/rtl8821c_config.bin:root/lib/firmware/rtl_bt/rtl8821c_config.bin \
     device/hardkernel/common/wifi/rtl8192cufw_TMSC.bin:root/lib/firmware/rtlwifi/rtl8192cufw_TMSC.bin \
+    device/hardkernel/common/wifi/RT2870STA.dat:system/etc/Wireless/RT2870STA/RT2870STA.dat \
+    device/hardkernel/common/wifi/rt2870.bin:root/lib/firmware/rt2870.bin \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml
 ifeq ($(BOARD_BLUETOOTH_LE_SUPPORT),true)
 PRODUCT_COPY_FILES += \
