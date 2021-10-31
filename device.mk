@@ -521,7 +521,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # Include thermal HAL module
-$(call inherit-product, device/rockchip/common/modules/thermal.mk)
+$(call inherit-product, device/hardkernel/common/modules/thermal.mk)
 
 # Power AIDL
 PRODUCT_PACKAGES += \
