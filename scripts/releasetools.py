@@ -90,7 +90,7 @@ def GetBuildProp(prop, info_dict):
       prop_val = build_props.GetProp(prop)
       if prop_val is not None:
         return prop_val
-    print "couldn't find {} in {}".format(prop, key)
+    print("couldn't find {} in {}".format(prop, key))
 
   raise common.ExternalError("couldn't find {} in {}".format(
       prop, ','.join(key_list)))
@@ -153,13 +153,13 @@ def AddCustomerImage(info, tmpdir):
           tmp_diff.WriteScript(info.script, info.output_zip)
 
 def FullOTA_Assertions(info):
-  print "amlogic extensions:FullOTA_Assertions"
+  print("amlogic extensions:FullOTA_Assertions")
   OPTIONS.skip_compatibility_check = True
   try:
     bootloader_img = info.input_zip.read("RADIO/bootloader.img")
   except KeyError:
     OPTIONS.ota_partition_change = False
-    print "no bootloader.img in target_files; skipping install"
+    print("no bootloader.img in target_files; skipping install")
   else:
     OPTIONS.ota_partition_change = True
     common.ZipWriteStr(info.output_zip, "bootloader.img", bootloader_img)
@@ -167,7 +167,7 @@ def FullOTA_Assertions(info):
     attestation_file = info.input_zip.read("RADIO/id_attestation.xml")
   except KeyError:
     OPTIONS.ota_update_id_attestation = False
-    print "no id_attestation.xml in target_files; skipping install"
+    print("no id_attestation.xml in target_files; skipping install")
   else:
     OPTIONS.ota_update_id_attestation = True
     common.ZipWriteStr(info.output_zip, "id_attestation.xml", attestation_file)
@@ -194,7 +194,7 @@ def FullOTA_Assertions(info):
     info.script.AppendExtra('ui_print("else case, ota_zip_check() != 1");')
 
 def FullOTA_InstallBegin(info):
-  print "amlogic extensions:FullOTA_InstallBegin"
+  print("amlogic extensions:FullOTA_InstallBegin")
   OPTIONS.skip_compatibility_check = True
   LoadInfoDict_amlogic(info.info_dict, info.input_zip);
   SetBootloaderEnv(info.script, "upgrade_step", "3")
@@ -209,7 +209,7 @@ def FullOTA_InstallBegin(info):
   info.script.AppendExtra('delete_file("/cache/recovery/dynamic_partition_metadata.UPDATED");')
 
 def FullOTA_InstallEnd(info):
-  print "amlogic extensions:FullOTA_InstallEnd"
+  print("amlogic extensions:FullOTA_InstallEnd")
 
   AddCustomerImage(info, OPTIONS.input_tmp)
 
@@ -262,10 +262,10 @@ package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
 
 
 def IncrementalOTA_VerifyBegin(info):
-  print "amlogic extensions:IncrementalOTA_VerifyBegin"
+  print("amlogic extensions:IncrementalOTA_VerifyBegin")
 
 def IncrementalOTA_VerifyEnd(info):
-  print "amlogic extensions:IncrementalOTA_VerifyEnd"
+  print("amlogic extensions:IncrementalOTA_VerifyEnd")
 
 def IncrementalOTA_InstallBegin(info):
   LoadInfoDict_amlogic(info.info_dict, info.target_zip);
@@ -275,7 +275,7 @@ def IncrementalOTA_InstallBegin(info):
     info.script.AppendExtra('endif;')
 
   SetBootloaderEnv(info.script, "upgrade_step", "3")
-  print "amlogic extensions:IncrementalOTA_InstallBegin"
+  print("amlogic extensions:IncrementalOTA_InstallBegin")
 
 def IncrementalOTA_ImageCheck(info, name):
   source_image = False; target_image = False; updating_image = False;
@@ -315,7 +315,7 @@ def IncrementalOTA_ImageCheck(info, name):
 
 
 def IncrementalOTA_InstallEnd(info):
-  print "amlogic extensions:IncrementalOTA_InstallEnd"
+  print("amlogic extensions:IncrementalOTA_InstallEnd")
   IncrementalOTA_ImageCheck(info, "logo");
   IncrementalOTA_ImageCheck(info, "dt");
   IncrementalOTA_ImageCheck(info, "recovery");
