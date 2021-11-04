@@ -69,7 +69,7 @@ def LoadInfoDict_amlogic(info_dict, input_file, input_dir=None):
   """Read and parse the META/misc_info.txt key/value pairs from the
   input target files and return a dict."""
 
-  data = input_file.read("VENDOR/build.prop")
+  data = input_file.read("VENDOR/build.prop").decode()
 
   vendor_prop = common.LoadDictionaryFromLines(data.split("\n"))
   info_dict["vendor.prop"] = common.PartitionBuildProps.FromDictionary(
