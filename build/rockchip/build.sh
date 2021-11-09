@@ -289,5 +289,5 @@ echo "finger:  $BUILD_ID/$BUILD_NUMBER/$BUILD_VARIANT"                          
 fi
 if [ "$BUILD_SELF" = true ] ; then
 echo "Start make self install image"
-$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH $OUT
+$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH
 fi
