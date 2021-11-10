@@ -8,8 +8,6 @@ on fs
 
     restorecon_recursive /mnt/vendor/param
 
-    verity_update_state
-
 on late-fs
     # Wait for keymaster
     exec_start wait_for_keymaster

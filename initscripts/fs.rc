@@ -8,8 +8,6 @@ on fs
 
     restorecon_recursive /mnt/vendor/param
 
-    verity_update_state
-
 on post-fs-data
     mkdir /data/vendor/wifi 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
