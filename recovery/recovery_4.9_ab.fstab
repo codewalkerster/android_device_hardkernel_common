@@ -10,7 +10,7 @@
 /dev/block/by-name/oem          /oem    ext4    defaults    defaults
 /dev/block/by-name/metadata     /metadata    ext4    defaults    defaults
 /dev/block/by-name/tee          /tee    ext4    defaults    defaults
-/dev/block/by-name/userdata     /data   ext4    defaults    encryptable=footer
+/dev/block/by-name/userdata     /data   ext4    defaults    defaults
 /dev/block/mmcblk1p1    /sdcard vfat    defaults    defaults
 /dev/block/mmcblk1p2    /sdcard vfat    defaults    defaults
 /dev/block/mmcblk1p3    /sdcard vfat    defaults    defaults
