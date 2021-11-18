@@ -38,8 +38,9 @@ if bcb load $$devnum misc; then
 	echo "  Set booting arguments"
 	setenv secure_args "androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.verifiedbootstate=orange"
 	setenv io_args "androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0"
+	setenv mtd_args "mtdparts=sfc_nor:1M(reserved),2M(uboot),1M(splash),12M(Firmware)"
 
-	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.serialno=$${serial\#} androidboot.boot_devices=$$boot_device androidboot.hardware=odroid loop.max_part=7 buildvariant=${_variant} $${secure_args} $${io_args} $${init_args}"
+	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.serialno=$${serial\#} androidboot.boot_devices=$$boot_device androidboot.hardware=odroid loop.max_part=7 buildvariant=${_variant} $${secure_args} $${io_args} $${init_args} $${mtd_args}"
 
 	setbootdev $$devtype $$devnum
 
