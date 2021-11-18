@@ -97,3 +97,7 @@ persist.vendor.flash_of_path        u:object_r:debug_prop:s0
 persist.vendor.fake_data_role           u:object_r:debug_prop:s0
 #rk vulkan support
 persist.vendor.rk_vulkan                u:object_r:debug_prop:s0
+
+# update server
+persist.update.server.custom            u:object_r:debug_prop:s0
+persist.update.server.current           u:object_r:debug_prop:s0
