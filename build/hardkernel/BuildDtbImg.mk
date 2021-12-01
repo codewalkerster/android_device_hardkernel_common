@@ -15,6 +15,8 @@ $(build_dtb_img) : $(PRODUCT_DTB_TARGET) $(AOSP_MK2FS_TOOL) $(AOSP_E2FSDROID_TOO
 	$(AOSP_MK2FS_TOOL) -M /dtb -t ext4 -b 4096 $(build_dtb_img) 1024
 	mkdir $(source_dir)
 	cp  $(PRODUCT_DTB_TARGET) $(source_dir)
+	mkdir -p $(source_dir)/overlays/$(PRODUCT_MODEL)
+	cp $(PRODUCT_DTBO_TARGET) $(source_dir)/overlays/$(PRODUCT_MODEL)
 	$(AOSP_E2FSDROID_TOOL) -e -f $(source_dir) -a /dtb $(build_dtb_img)
 
 INSTALLED_HK_DTB_IMAGE := $(PRODUCT_OUT)/$(notdir $(build_dtb_img))

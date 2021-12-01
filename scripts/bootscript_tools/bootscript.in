@@ -3,6 +3,8 @@ echo Start boot.scr booting.
 echo "  Init default values"
 
 setenv heartbeat 1
+setenv overlays "uart0"
+setenv overlays_resize 16384
 
 echo "  Boot sequence"
 if test "$${devnum}" = 0 ; then
@@ -53,11 +55,18 @@ if bcb load $$devnum misc; then
 
 	load $$devtype $$devnum:5 $$fdt_addr_r rk3568-odroid-m1.dtb
 
-	setenv ini_addr_r 0x4001000
+	setenv ini_addr_r 0x40010000
 	load $$devtype $$devnum:3 $$ini_addr_r env.ini
 	ini generic $$ini_addr_r
 
 	fdt addr $$fdt_addr_r
+	fdt resize $$overlays_resize
+
+	setenv dtbo_addr_r 0x40200000
+	for overlay in $$overlays; do
+		load $$devtype $$devnum:5 $$dtbo_addr_r overlays/odroidm1/$$overlay.dtbo
+		fdt apply $$dtbo_addr_r
+	done
 
 	if test $$heartbeat = "0"; then
 		fdt set /leds/work linux,default-trigger "none";
