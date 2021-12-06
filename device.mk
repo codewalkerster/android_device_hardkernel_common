@@ -1460,3 +1460,12 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl.legacy \
     android.hardware.gnss@1.0-service.legacy \
     gps.$(TARGET_BOOTLOADER_BOARD_NAME)
+
+# U-Boot Env Tools
+PRODUCT_PACKAGES += \
+    libubootenv \
+    fw_printenv \
+    fw_setenv
+
+PRODUCT_COPY_FILES += \
+    device/hardkernel/common/fw_env/fw_env.config:system/etc/fw_env.config
