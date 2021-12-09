@@ -1,0 +1,6 @@
+
+# some common configuration for memory
+
+on init
+   # disable cma shrinker whith minus value
+   write /sys/class/cma_shrinker/enable "0"

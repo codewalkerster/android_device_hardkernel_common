@@ -652,6 +652,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     external_storage.casefold.enabled=true
 endif
 
+# Android R and later, use lmkd new strategy, no need cma_shrinker workaround. which may introduce may CTS failure.
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/initscripts/memory_common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/memory_common.rc
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.lmk.use_new_strategy=true
+
 #########################################################################
 #
 #                    AB UPDATE
