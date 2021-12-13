@@ -189,3 +189,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=fdd00000.dwc2_a
 
+ifeq ($(CONFIG_DEVICE_LOW_RAM),true)
+ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.c2.prealloc_small_segment=true
+endif
+endif
+
