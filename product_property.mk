@@ -22,6 +22,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 endif
 
+#config vsync offset
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=4000000 \
+    debug.sf.early_gl_phase_offset_ns=1000000 \
+    debug.sf.early_gl_app_phase_offset_ns=1000000
+
 PRODUCT_PRODUCT_PROPERTIES += \
     camera.disable_zsl_mode=1
 
