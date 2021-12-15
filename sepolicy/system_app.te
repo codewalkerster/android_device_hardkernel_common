@@ -31,6 +31,7 @@ allow system_app sysfs_di:dir search;
 
 allow system_app sysfs_video:dir search;
 allow system_app sysfs_video:file { getattr open read };
+allow system_app proc_net:file { getattr open read };
 
 allow system_app sysfs_clock:file { getattr open read };
 
