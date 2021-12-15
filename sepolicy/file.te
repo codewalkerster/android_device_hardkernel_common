@@ -105,3 +105,6 @@ type sysfs_tee, fs_type, sysfs_type;
 
 # /dev/aml_dsm
 type aml_dsm_device, fs_type,sysfs_type;
+
+# ntfs3
+type ntfs3, sdcard_type, fs_type, mlstrustedobject;
