@@ -213,7 +213,7 @@ endif
  PRODUCT_PACKAGES += arm.graphics-V1-ndk_platform.so
  PRODUCT_PACKAGES += libteec_sys
  PRODUCT_PACKAGES += libamavutils_sys
-
+ PRODUCT_PACKAGES += libdsm.system
 endif
 
 #########################################################################
