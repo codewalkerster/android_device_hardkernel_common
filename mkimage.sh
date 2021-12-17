@@ -85,9 +85,9 @@ fi
 }
 
 if [ "$TARGET_BOARD_HARDWARE" == "odroid" ]; then
-echo "create dtb.img..."
-BOARD_DTB_IMG=$OUT/dtb.img
-cp -a $BOARD_DTB_IMG $IMAGE_PATH/dtb.img
+echo "create fat.img..."
+BOARD_FAT_IMG=$OUT/fat.img
+cp -a $BOARD_FAT_IMG $IMAGE_PATH/fat.img
 echo "done."
 else
 echo "create dtbo.img..."

@@ -2,8 +2,8 @@ ifdef PRODUCT_BOOTSCRIPT_TEMPLATE
 
 $(info build boot.cmd with $(PRODUCT_BOOTSCRIPT_TEMPLATE)...)
 
-boot_part := 7
-recovery_part := 8
+boot_part := 6
+recovery_part := 7
 wifi_country := US
 
 intermediates := $(call intermediates-dir-for,FAKE,hardkernel_bootscript)

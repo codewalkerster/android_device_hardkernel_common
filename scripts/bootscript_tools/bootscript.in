@@ -53,7 +53,7 @@ if bcb load $$devnum misc; then
 
 	mmc read $$loadaddr $$boot_start $$boot_size
 
-	load $$devtype $$devnum:5 $$fdt_addr_r rk3568-odroid-m1.dtb
+	load $$devtype $$devnum:3 $$fdt_addr_r rk3568-odroid-m1.dtb
 
 	setenv ini_addr_r 0x40010000
 	load $$devtype $$devnum:3 $$ini_addr_r env.ini
@@ -64,7 +64,7 @@ if bcb load $$devnum misc; then
 
 	setenv dtbo_addr_r 0x40200000
 	for overlay in $$overlays; do
-		load $$devtype $$devnum:5 $$dtbo_addr_r overlays/odroidm1/$$overlay.dtbo
+		load $$devtype $$devnum:3 $$dtbo_addr_r overlays/odroidm1/$$overlay.dtbo
 		fdt apply $$dtbo_addr_r
 	done
 
