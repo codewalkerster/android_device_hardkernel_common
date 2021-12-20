@@ -1,83 +1,271 @@
-#! /bin/bash
 
-# usage() : quick compile help guide
-#
-# Project Config : add/remove new config
-#
-# get_project_path() : some project need get relative path that store uboot, like anning is ampere/anning
-#
-# read_platform_type() : select platform type, li
-#
-#
+###########################################################################################
+# 1. project[x]          project name, as title only
+# 2. soc[x]              soc name, as title only
+# 3. hardware[x]         hardare platform name, as title only
+# 4. module[x]           lunch name
+# 5. uboot_path[x]       bootloader store path
+# 6. uboot_exec_aosp[x]  build uboot aosp command
+# 7. uboot_exec_drm[x]   build uboot drm command
+# 8. kernel_exec[x]      build kernel command(do not include -t user)
+# 9. android_exec[x]="TARGET_BUILD_KERNEL_4_9=true"  only if build 4.9 kernel need it.
+# 10. kernel_addr[x]="export KERNEL_A32_SUPPORT=true"  only if build 32bit kernel need it.
+###########################################################################################
 
+###########################################################################################
+# Ohm
+project[1]="Ohm-GTV"
+soc[1]="S905X4"
+hardware[1]="AH212"
+module[1]="ohm"
+uboot_path[1]="device/amlogic/ohm"
+uboot_exec_aosp[1]="./mk sc2_ah212  --vab --avb2"
+uboot_exec_drm[1]="./mk sc2_ah212  --vab --avb2"
+kernel_exec[1]="./mk ohm -v 5.4"
+###########################################################################################
 
-# Usage
-########################################################################################################################################################################
-# the scripts only receive one option or none.
+###########################################################################################
+# Ohm atv
+project[2]="Ohm-ATV"
+soc[2]="S905X4"
+hardware[2]="AH212"
+module[2]="ohm_atv"
+uboot_path[2]="device/amlogic/ohm"
+uboot_exec_aosp[2]="./mk sc2_ah212  --vab --avb2"
+uboot_exec_drm[2]="./mk sc2_ah212  --vab --avb2"
+kernel_exec[2]="./mk ohm -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# OHM MXL258C
+project[3]="Ohm-mxl258c"
+soc[3]="S905X4"
+hardware[3]="AH212"
+module[3]="ohm_mxl258c"
+uboot_path[3]="device/amlogic/ohm"
+uboot_exec_aosp[3]="./mk sc2_ah212  --vab --avb2"
+uboot_exec_drm[3]="./mk sc2_ah212  --vab --avb2"
+kernel_exec[3]="./mk ohm -v 5.4 --fccpip"
+###########################################################################################
+
+###########################################################################################
+# OHMCAS
+project[4]="Ohmcas"
+soc[4]="S905C2"
+hardware[4]="AH232"
+module[4]="ohmcas"
+uboot_path[4]="device/amlogic/ohmcas"
+uboot_exec_aosp[4]="./mk sc2_ah232  --vab --avb2"
+uboot_exec_drm[4]="./mk sc2_ah232  --vab --avb2"
+kernel_exec[4]="./mk ohmcas -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# OPPEN
+project[5]="Oppen-GTV"
+soc[5]="S905Y4"
+hardware[5]="AP222"
+module[5]="oppen"
+uboot_path[5]="device/amlogic/oppen"
+uboot_exec_aosp[5]="./mk s4_ap222  --vab --avb2"
+uboot_exec_drm[5]="./mk s4_ap222  --vab --avb2"
+kernel_exec[5]="./mk oppen -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# OPPEN
+project[6]="Oppen-ATV"
+soc[6]="S905Y4"
+hardware[6]="AP222"
+module[6]="oppen_atv"
+uboot_path[6]="device/amlogic/oppen"
+uboot_exec_aosp[6]="./mk s4_ap222  --vab --avb2"
+uboot_exec_drm[6]="./mk s4_ap222  --vab --avb2"
+kernel_exec[6]="./mk oppen -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# AP223
+project[7]="Oppen-GTV"
+soc[7]="S905Y4"
+hardware[7]="AP223"
+module[7]="oppen"
+uboot_path[7]="device/amlogic/oppen"
+uboot_path[7]="device/amlogic/oppen"
+uboot_exec_aosp[7]="./mk s4_ap223  --vab --avb2"
+uboot_exec_drm[7]="./mk s4_ap223  --vab --avb2"
+kernel_exec[7]="./mk oppen -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# OPPENCAS
+project[8]="Oppencas"
+soc[8]="S905C3"
+hardware[8]="AP232"
+module[8]="oppencas"
+uboot_path[8]="device/amlogic/oppencas"
+uboot_exec_aosp[8]="./mk s4_ap232  --vab --avb2"
+uboot_exec_drm[8]="./mk s4_ap232  --vab --avb2"
+kernel_exec[8]="./mk oppencas -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# OPPENCAS MXL258C
+project[9]="Oppencas_mxl258c"
+soc[9]="S905C3"
+hardware[9]="AP232"
+module[9]="oppencas_mxl258c"
+uboot_path[9]="device/amlogic/oppencas"
+uboot_exec_aosp[9]="./mk s4_ap232  --vab --avb2"
+uboot_exec_drm[9]="./mk s4_ap232  --vab --avb2"
+kernel_exec[9]="./mk oppencas -v 5.4 --fccpip"
+###########################################################################################
+
+###########################################################################################
+# PLANCK
+project[10]="Planck-GTV"
+soc[10]="S805X2"
+hardware[10]="AQ222"
+module[10]="planck"
+uboot_path[10]="device/amlogic/planck"
+uboot_exec_aosp[10]="./mk s4_aq222  --vab --avb2"
+uboot_exec_drm[10]="./mk s4_aq222  --vab --avb2"
+kernel_exec[10]="./mk planck -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# PLANCK
+project[11]="Planck-ATV"
+soc[11]="S805X2"
+hardware[11]="AQ222"
+module[11]="planck_atv"
+uboot_path[11]="device/amlogic/planck"
+uboot_exec_aosp[11]="./mk s4_aq222  --vab --avb2"
+uboot_exec_drm[11]="./mk s4_aq222  --vab --avb2"
+kernel_exec[11]="./mk planck -v 5.4"
+kernel_addr[11]="export KERNEL_A32_SUPPORT=true"
+###########################################################################################
+
+###########################################################################################
+# REDI
+project[12]="Redi"
+soc[12]="T950D4/T950X4"
+hardware[12]="AM301/AM311"
+module[12]="redi"
+uboot_path[12]="device/amlogic/redi"
+uboot_exec_aosp[12]="./mk t5d_am301_v1 --vab "
+uboot_exec_drm[12]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2"
+kernel_exec[12]="./mk redi -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# Smith
+project[13]="T965D4"
+soc[13]="S905X4"
+hardware[13]="AR321"
+module[13]="smith"
+uboot_path[13]="device/amlogic/smith"
+uboot_exec_aosp[13]="./mk t3_t965d4  --vab"
+uboot_exec_drm[13]="./mk t3_t965d4  --vab --avb2"
+kernel_exec[13]="./mk smith -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# Soddy
+project[14]="Soddy"
+soc[14]="T962D4"
+hardware[14]="AT301"
+module[14]="soddy"
+uboot_path[14]="device/amlogic/soddy"
+uboot_exec_aosp[14]="./mk t5w_at301_v1  --vab"
+uboot_exec_drm[14]="./mk t5w_at301_v1  --vab --avb2"
+kernel_exec[14]="./mk soddy -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# Marconi
+project[15]="Marconi"
+soc[15]="T962X2"
+hardware[15]="X301"
+module[15]="marconi"
+uboot_path[15]="device/amlogic/marconi"
+uboot_exec_aosp[15]="./mk tl1_x301_v1  --vab"
+uboot_exec_drm[15]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tl1/bl32.img --vab --avb2"
+kernel_exec[15]="./mk marconi -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# Dalton
+project[16]="Dalton"
+soc[16]="T962E2"
+hardware[16]="AB311"
+module[16]="dalton"
+uboot_path[16]="device/amlogic/marconi"
+uboot_exec_aosp[16]="./mk tm2_t962e2_ab311_v1  --vab"
+uboot_exec_drm[16]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tm2/bl32.img --vab --avb2"
+kernel_exec[16]="./mk dalton -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# Franklin
+project[17]="Franklin"
+soc[17]="S905X2"
+hardware[17]="U212"
+module[17]="franklin"
+uboot_path[17]="device/amlogic/franklin"
+uboot_exec_aosp[17]="./mk g12a_u212_v1  --vab --avb2"
+uboot_exec_drm[17]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
+kernel_exec[17]="./mk franklin -v 4.9"
+android_exec[17]="TARGET_BUILD_KERNEL_4_9=true"
+###########################################################################################
+
+###########################################################################################
+# Newton
+project[18]="Newton"
+soc[18]="S905X3"
+hardware[18]="AC215"
+module[18]="newton"
+uboot_path[18]="device/amlogic/newton"
+uboot_exec_aosp[18]="./mk sm1_ac215_v1  --vab --avb2"
+uboot_exec_drm[18]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
+kernel_exec[18]="./mk newton -v 4.9"
+android_exec[18]="TARGET_BUILD_KERNEL_4_9=true"
+###########################################################################################
+
+###########################################################################################
+# Franklin_Hybrid
+project[19]="Franklin_Hybrid"
+soc[19]="S905X2"
+hardware[19]="U215"
+module[19]="franklin_hybrid"
+uboot_path[19]="device/amlogic/franklin/franklin_hybrid"
+uboot_exec_aosp[19]="./mk g12a_u215_v1  --vab --avb2"
+uboot_exec_drm[19]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
+kernel_exec[19]="./mk franklin -v 4.9"
+android_exec[19]="TARGET_BUILD_KERNEL_4_9=true"
+###########################################################################################
+
 usage() {
-    printf "Usage: ./device/amlogic/common/quick_compile.sh [OPTION]\n"
-    printf "If no OPTION, build otapackage\n"
-    printf "[OPTION]\n"
-    printf "    uboot         : build someone uboot\n"
-    printf "    all-uboot     : build all chips uboot\n"
-    printf "    bootimage     : build boot image\n"
-    printf "    logoimg       : build logo image\n"
-#    printf "    recoveryimage : build recovery image\n"
-    printf "    systemimage   : build system image\n"
-    printf "    vendorimage   : build vendor image\n"
-    printf "    odm_image     : build odm image\n"
-    printf "    dtbimage      : build dts image\n"
-#    printf "    build-modules-quick   : build media modules library\n"
-    exit
+    echo -e \
+    "Usage: Build Android image or sub-modules.\n" \
+    "       1. No Params: build android image(through select platform and android).\n" \
+    "       1. 1  Params: build android sub-image(through select platform and android).\n" \
+    "             params: uboot\n" \
+    "                     all-uboot\n" \
+    "                     bootimage\n" \
+    "                     vendorimage\n" \
+    "                     vendorbootimage\n" \
+    "                     logoimage\n" \
+    "                     odmimage\n" \
+    "                     odmextimage\n" \
+    "                     systemimage\n" \
+    "                     systemextimage\n" \
+    "       2. 3  Params: [project-name][android-type][user/userdebug].\n" \
+    "                  ./xxxx.sh ohm GTVS userdebug.\n" \
+
 }
 
 ########################################################################################################################################################################
-
-# Project Config
-########################################################################################################################################################################
-#Project Name                  SOC Name              Hardware Name             lunch project name           uboot compile params               tdk path
-project[1]="Franklin"       ;soc[1]="S905X2"         ;hardware[1]="U212"       ; module[1]="franklin"      ;uboot[1]="g12a_u212_v1"         ;tdk[1]="g12a/bl32.img"
-project[2]="Newton"         ;soc[2]="S905X3"         ;hardware[2]="AC215"      ; module[2]="newton"        ;uboot[2]="sm1_ac215_v1"         ;tdk[2]="g12a/bl32.img"
-project[3]="Marconi"        ;soc[3]="T962X2"         ;hardware[3]="X301"       ; module[3]="marconi"       ;uboot[3]="tl1_x301_v1"          ;tdk[3]="tl1/bl32.img"
-project[4]="Dalton"         ;soc[4]="T962E2"         ;hardware[4]="AB311"      ; module[4]="dalton"        ;uboot[4]="tm2_t962e2_ab311_v1"  ;tdk[4]="tm2/bl32.img"
-project[5]="OHM"            ;soc[5]="S905X4"         ;hardware[5]="AH212"      ; module[5]="ohm"           ;uboot[5]="sc2_ah212"            ;tdk[5]="g12a/bl32.img"
-project[6]="REDI"           ;soc[6]="T950D4/T950X4"  ;hardware[6]="AM301/AM311"; module[6]="redi"          ;uboot[6]="t5d_am301_v1"         ;tdk[6]="t5d/bl32.img"
-project[7]="OPPEN"          ;soc[7]="S905Y4"         ;hardware[7]="AP222"      ; module[7]="oppen"         ;uboot[7]="s4_ap222"             ;tdk[7]="v3_s4/s905y4"
-project[8]="PLANCK"         ;soc[8]="S805X2"         ;hardware[8]="AQ222"      ; module[8]="planck"        ;uboot[8]="s4_aq222"             ;tdk[8]="v3_s4/s805x2"
-project[9]="OHMCAS"         ;soc[9]="S905C2"         ;hardware[9]="905C2AH232" ; module[9]="ohmcas"        ;uboot[9]="sc2_ah232"            ;tdk[9]="buildIn"
-project[10]="AP201"         ;soc[10]="S905Y4"        ;hardware[10]="AP201"     ; module[10]="ap201"        ;uboot[10]="s4_ap201"            ;tdk[10]="buildIn"
-project[11]="Ohm_mxl258c"   ;soc[11]="S905X4"        ;hardware[11]="AH212"     ; module[11]="ohm_mxl258c"  ;uboot[11]="sc2_ah212"           ;tdk[11]="buildIn"
-project[12]="Smith"         ;soc[12]="T965D4"        ;hardware[12]="AR321"     ; module[12]="smith"        ;uboot[12]="t3_t965d4"           ;tdk[12]="buildIn"
-project[13]="T982_AR301"    ;soc[13]="T982"          ;hardware[13]="AR301"     ; module[13]="t982_ar301"   ;uboot[13]="t3_t982"             ;tdk[13]="buildIn"
-project[14]="OPPENCAS"      ;soc[14]="S905C3"        ;hardware[14]="AP232"     ; module[14]="oppencas"     ;uboot[14]="s4_ap232"            ;tdk[14]="v3_s4/s905c3"
-project[15]="Oppen_mxl258c" ;soc[15]="S905Y4"        ;hardware[15]="AP222"     ; module[15]="oppen_mxl258c";uboot[15]="s4_ap222"            ;tdk[15]="v3_s4/s905y4"
-project[16]="Oppencas_mxl258c" ;soc[16]="S905C3"     ;hardware[16]="AP232"     ; module[16]="oppencas_mxl258c";uboot[16]="s4_ap232"         ;tdk[16]="v3_s4/s905y4"
-
-########################################################################################################################################################################
-
-
-# initial get_project_path to get uboot store path.
-########################################################################################################################################################################
-get_project_path() {
-    # if exists sub-project (like anning relative to ampere), need add the new config in this segment.
-    if [[ ${module[platform_type]} == "franklin_hybrid" ]]; then
-        project_path="franklin/${module[platform_type]}"
-    elif [[ ${module[platform_type]} == "newton_hybrid" || ${module[platform_type]} == "ac214" || ${module[platform_type]} == "ac212" ]]; then
-        project_path="newton/${module[platform_type]}"
-    elif [[ ${module[platform_type]} == "anning" || ${module[platform_type]} == "curie" ]]; then
-        project_path="ampere/${module[platform_type]}"
-    elif [[ ${module[platform_type]} == "ohm_mxl258c" ]]; then
-        project_path="ohm"
-    elif [[ ${module[platform_type]} == "oppen_mxl258c" ]]; then
-        project_path="oppen"
-	elif [[ ${module[platform_type]} == "oppencas_mxl258c" ]]; then
-        project_path="oppencas"
-    else
-        project_path=${module[platform_type]}
-    fi
-}
-########################################################################################################################################################################
-
 # Read Platform config
 # Through the input number, to get project-name/project-path/uboot-params
 # uboot-params : how to build uboot.
@@ -115,8 +303,8 @@ read_platform_type() {
     done
     echo "Input NUM is [${platform_type}], [${module[platform_type]}]"
 }
-########################################################################################################################################################################
 
+########################################################################################################################################################################
 # Get Android Type: AOSP/DRM/GTVS
 ########################################################################################################################################################################
 read_android_type() {
@@ -149,202 +337,215 @@ read_android_type() {
         fi
     done
 }
-########################################################################################################################################################################
 
+########################################################################################################################################################################
+#
 # Compile Uboot throuth params
+# if no params compile userdebug
 ########################################################################################################################################################################
 compile_uboot() {
-    uboot_name=${uboot[platform_type]}
-    tdk_name=${tdk[platform_type]}
     cd bootloader/uboot-repo
-    # For SC2
-    if [[ ${module[platform_type]} == "ohm" || ${module[platform_type]} == "ohmcas" \
-        || ${module[platform_type]} == "ap201" || ${module[platform_type]} == "ohm_mxl258c" ]]; then
-        echo -e "[./mk $uboot_name --avb2 --vab]\n"
-        ./mk $uboot_name --avb2 --vab;
-        if [ $? != 0 ]; then echo " Error : Build Uboot error, exit!!!"; exit; fi
-        if [ -e build/u-boot.bin.signed ]; then
-            cp build/u-boot.bin.signed ../../device/amlogic/${module[platform_type]}/bootloader.img
-        fi
-        if [ -e build/u-boot.bin.sd.bin.signed ]; then
-            cp build/u-boot.bin.sd.bin.signed ../../device/amlogic/${module[platform_type]}/upgrade/
-        fi
-        if [ -e build/u-boot.bin.usb.signed ]; then
-            cp build/u-boot.bin.usb.signed ../../device/amlogic/${module[platform_type]}/upgrade/
-        fi
-    elif [ ${module[platform_type]} == "planck" ]; then
-        echo -e "[./mk $uboot_name --avb2 --vab]\n"
 
-        if [ $uboot_drm_type -eq 1 ]; then
-            ./mk $uboot_name --bl32 bl32_3.8/bin/s4/s805x2/blob-bl32.8m.bin.signed --vab --avb2;
-        else
-            ./mk $uboot_name --avb2 --vab;
-        fi
-
-        if [ $? != 0 ]; then echo " Error : Build Uboot error, exit!!!"; exit; fi
-        if [ -e build/u-boot.bin.signed ]; then
-            cp build/u-boot.bin.signed ../../device/amlogic/${module[platform_type]}/bootloader.img
-        fi
-        if [ -e build/u-boot.bin.sd.bin.signed ]; then
-            cp build/u-boot.bin.sd.bin.signed ../../device/amlogic/${module[platform_type]}/upgrade/
-        fi
-        if [ -e build/u-boot.bin.usb.signed ]; then
-            cp build/u-boot.bin.usb.signed ../../device/amlogic/${module[platform_type]}/upgrade/
-        fi
-    elif [ ${module[platform_type]} == "oppen" ]; then
-        echo -e "[./mk $uboot_name --avb2 --vab]\n"
-
-        if [ $uboot_drm_type -eq 1 ]; then
-            ./mk $uboot_name --bl32 bl32_3.8/bin/s4/s905y4/blob-bl32.8m.bin.signed --vab --avb2;
-        else
-            ./mk $uboot_name --avb2 --vab;
-        fi
-
-        if [ $? != 0 ]; then echo " Error : Build Uboot error, exit!!!"; exit; fi
-        if [ -e build/u-boot.bin.signed ]; then
-            cp build/u-boot.bin.signed ../../device/amlogic/${module[platform_type]}/bootloader.img
-        fi
-        if [ -e build/u-boot.bin.sd.bin.signed ]; then
-            cp build/u-boot.bin.sd.bin.signed ../../device/amlogic/${module[platform_type]}/upgrade/
-        fi
-        if [ -e build/u-boot.bin.usb.signed ]; then
-            cp build/u-boot.bin.usb.signed ../../device/amlogic/${module[platform_type]}/upgrade/
-        fi
+    if [ $uboot_drm_type -eq 1 ]; then
+        echo "${uboot_exec_aosp[platform_type]}"
+        ${uboot_exec_aosp[platform_type]}
     else
-        # For GXL/G12A/G12B/SM1/TV
-        if [ $uboot_drm_type -gt 1 ]; then
-            echo -e "[./mk $uboot_name --bl32 ../../vendor/amlogic/common/tdk/secureos/$tdk_name --vab]\n"
-            ./mk $uboot_name --bl32 ../../vendor/amlogic/common/tdk/secureos/$tdk_name --vab;
-        else
-            echo -e "[./mk $uboot_name --vab]"
-            ./mk $uboot_name --vab;
-        fi
-        if [ $? != 0 ]; then echo " Error : Build Uboot error, exit!!!"; exit; fi
+        echo "${uboot_exec_drm[platform_type]}"
+        ${uboot_exec_drm[platform_type]}
+    fi
+    if [ $? != 0 ]; then echo " Error : Build Uboot error, exit!!!"; exit; fi
 
-        cp build/u-boot.bin ../../device/amlogic/$project_path/bootloader.img;
-        cp build/u-boot.bin.usb.bl2 ../../device/amlogic/$project_path/upgrade/u-boot.bin.usb.bl2;
-        cp build/u-boot.bin.usb.tpl ../../device/amlogic/$project_path/upgrade/u-boot.bin.usb.tpl;
-        cp build/u-boot.bin.sd.bin ../../device/amlogic/$project_path/upgrade/u-boot.bin.sd.bin;
+    if [ -f "build/u-boot.bin.signed" ];then
+        cp build/u-boot.bin.signed ../../${uboot_path[platform_type]}/bootloader.img
+        cp build/u-boot.bin.usb.signed ../../${uboot_path[platform_type]}/upgrade/
+        cp build/u-boot.bin.sd.bin.signed ../../${uboot_path[platform_type]}/upgrade/
+    else
+        cp build/u-boot.bin ../../${uboot_path[platform_type]}/bootloader.img;
+        cp build/u-boot.bin.usb.bl2 ../../${uboot_path[platform_type]}/upgrade/u-boot.bin.usb.bl2;
+        cp build/u-boot.bin.usb.tpl ../../${uboot_path[platform_type]}/upgrade/u-boot.bin.usb.tpl;
+        cp build/u-boot.bin.sd.bin ../../${uboot_path[platform_type]}/upgrade/u-boot.bin.sd.bin;
     fi
     cd ../../
-    #bash device/amlogic/common/get_bootloader_version.sh bootloader/uboot-repo/ device/amlogic/$project_path
 }
-########################################################################################################################################################################
-
 print_uboot_info() {
     echo -e "\n\ndevice: update uboot [1/1]\n"
     echo -e "PD#SWPL-19355\n"
     echo -e "Problem:"
     echo -e "source code update, need update bootloader\n"
     echo "Solution:"
+    cd bootloader/uboot-repo/bl2/bin/
+    echo "bl2       : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl30/bin/
+    echo "bl30      : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl30/src_ao/
+    echo "bl30 src  : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl31/bin/
+    echo "bl31      : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl31_1.3/bin/
+    echo "bl31_1.3  : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl32_3.8/bin/
+    echo "bl32_3.8  : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl33/v2015
+    echo "bl33      : "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/bl33/v2019
+    echo "bl33_v2019: "$(git log --pretty=format:"%H" -1); cd ../../../../
+    cd bootloader/uboot-repo/fip/
+    echo "fip       : "$(git log --pretty=format:"%H" -1); cd ../../../
+    cd vendor/amlogic/common/tdk/
+    echo "tdk       : "$(git log --pretty=format:"%H" -1); cd ../../../../
     cd vendor/amlogic/common/tdk_v3/
     echo "tdk_v3    : "$(git log --pretty=format:"%H" -1); cd ../../../../
     echo -e;
     echo "Verify:"; echo "no need verify"
 }
 
-
-# Main Function
-########################################################################################################################################################################
-
-if [ $# -gt 1 ] || [[ $# -eq 1 && $1 == "help" ]]; then
-    usage
-fi
-
-if [ $# -eq 1 ]; then
-    params=$1
-    if [[ $params != "uboot" \
-        && $params != "all-uboot" \
-        && $params != "bootimage" \
-        && $params != "kernel" \
-        && $params != "logoimg" \
-        && $params != "recoveryimage" \
-        && $params != "systemimage" \
-        && $params != "vendorimage" \
-        && $params != "odm_image" \
-        && $params != "dtbimage" \
-        && $params != "build-modules-quick" ]]; then
-        usage
+lunch_env() {
+    usermode="userdebug"
+    if [ $# -eq 1 ]; then usermode="$1"; fi
+    source build/envsetup.sh
+    # DRM
+    if [ $uboot_drm_type -eq 2 ]; then
+        export  BOARD_COMPILE_ATV=false
+        export  BOARD_COMPILE_CTS=true
+    # GTVS
+    elif [ $uboot_drm_type -eq 3 ]; then
+        if [ ! -d "vendor/google_gtvs" ];then
+            echo "==========================================="
+            echo "There is not Google GMS in vendor directory"
+            echo "==========================================="
+            exit
+        fi
+        export  BOARD_COMPILE_ATV=true
+    # AOSP
+    else
+        export  BOARD_COMPILE_ATV=false
     fi
-fi
 
-read_platform_type
-read_android_type
-get_project_path
+    ${kernel_addr[platform_type]}
+    lunch "${module[platform_type]}-${usermode}"
+}
 
-if [ $# -eq 1 ]; then
+compile_kernel() {
+    usermode="userdebug"
+    ${kernel_addr[platform_type]}
+    if [ $# -eq 1 ]; then usermode="$1"; fi
+    echo "${kernel_exec[platform_type]} -t ${usermode}"
+    ${kernel_exec[platform_type]} -t ${usermode}
+    if [ $? != 0 ]; then echo " Error : Build Kernel error, exit!!!"; exit; fi
+}
+
+compile_sub_uboot() {
+    params=$1
     if [[ $params == "uboot" ]]; then
         compile_uboot
         print_uboot_info
         exit
     elif [[ $params == "all-uboot" ]]; then
         for platform_type in `seq ${#project[@]}`;do
-            get_project_path
             compile_uboot
         done
         print_uboot_info
         exit
     fi
-fi
+    exit
+}
 
-source build/envsetup.sh
-
-# DRM
-if [ $uboot_drm_type -eq 2 ]; then
-    export  BOARD_COMPILE_ATV=false
-    export  BOARD_COMPILE_CTS=true
-# GTVS
-elif [ $uboot_drm_type -eq 3 ]; then
-    if [ ! -d "vendor/google_gtvs" ];then
-        echo "==========================================="
-        echo "There is not Google GMS in vendor directory"
-        echo "==========================================="
-        exit
-    fi
-    export  BOARD_COMPILE_ATV=true
-# AOSP
-else
-    export  BOARD_COMPILE_ATV=false
-fi
-
-kernel_project=${module[platform_type]}
-project_name=${module[platform_type]}
-if [[ ${module[platform_type]} == "ohm_mxl258c" ]]; then
-    kernel_extra_tag="--fccpip"
-    kernel_project="ohm"
-elif [[ ${module[platform_type]} == "oppen_mxl258c" ]]; then
-    kernel_extra_tag="--fccpip"
-    kernel_project="oppen"
-elif [[ ${module[platform_type]} == "oppencas_mxl258c" ]]; then
-    kernel_extra_tag="--fccpip"
-    kernel_project="oppencas"
-fi
-lunch "${project_name}-userdebug"
-if [ $# -eq 1 ]; then
-    if [ $1 == "bootimage" ]; then
-        echo "make $1"
-        ./mk ${kernel_project} -v 5.4 -t userdebug ${kernel_extra_tag}
-        make bootimage
+compile_sub_system() {
+    echo $1
+    lunch_env
+    if [[ $1 == "bootimage" || $1 == "vendorbootimage" ]]; then
+        compile_kernel
+        make bootimage -j8
         make vendorbootimage
-        exit
-    elif [ $1 == "logoimg" ] \
-    || [ $1 == "recoveryimage" ] \
-    || [ $1 == "systemimage" ] \
-    || [ $1 == "vendorimage" ] \
-    || [ $1 == "odm_image" ] ; then
-        echo "make $1"
-        make $1 -j8
-        exit
-    elif  [ $1 == "kernel" ]; then
-        ./mk ${kernel_project} -v 5.4 ${kernel_extra_tag}
-        exit
-    else
-        usage
+    elif [ $1 == "logoimage" ]; then
+        make logoimg -j8
+    elif [ $1 == "odmimage" ]; then
+        make odmimage -j8
+    elif [ $1 == "odmextimage" ]; then
+        make odm_ext_image -j8
+    elif [ $1 == "productimage" ]; then
+        make productimage -j8
+    elif [ $1 == "vendorimage" ]; then
+        make vendorimage -j8
+    elif [ $1 == "systemimage" ]; then
+        make systemimage -j8
+    elif [ $1 == "systemextimage" ]; then
+        make systemextimage -j8
+    elif [ $1 == "vendordlkmimage" ]; then
+        make vendor_dlkmimage -j8
+    elif [ $1 == "odmdlkmimage" ]; then
+        make odm_dlkmimage -j8
     fi
-fi
-compile_uboot
-./mk ${kernel_project} -v 5.4 ${kernel_extra_tag}
-if [ $? != 0 ]; then echo " Error : Build Kernel error, exit!!!"; exit; fi
-make otapackage -j8
+    exit
+}
 ########################################################################################################################################################################
+# Main Function
+########################################################################################################################################################################
+if [[ $# -eq 1 && $1 == *"help"* ]] || [ $# -eq 2 ] || [ $# -gt 3 ]; then
+    usage
+    exit
+fi
+# Select and build all image.
+if [ $# -eq 0 ]; then
+    read_platform_type
+    read_android_type
+    compile_uboot
+    compile_kernel
+    lunch_env
+    make otapackage ${android_exec[platform_type]} -j8
+fi
 
+if [ $# -eq 1 ]; then
+    read_platform_type
+    read_android_type
+    if [[ $1 == *"uboot"* ]]; then
+        compile_sub_uboot $1
+    fi
+    compile_sub_system $1
+fi
+
+if [ $# -eq 3 ]; then
+    if [ -d "vendor/google_gtvs" ];then
+        default=3
+    else
+        default=2
+    fi
+    uboot_drm_type=$default
+    platform_type=0
+    usermode="userdebug"
+    shopt -s nocasematch
+    if [[ $@ == *"userdebug"* ]]; then
+        usermode="userdebug"
+    elif [[ $@ == *"user"* ]]; then
+        usermode="user"
+    else
+        echo -e "please add params:user/userdebug\n"
+        exit
+    fi
+    if [[ $@ == *"GTVS"* ]]; then
+        uboot_drm_type=3
+    elif [[ $@ == *"DRM"* ]]; then
+        uboot_drm_type=2
+    elif [[ $@ == *"AOSP"* ]]; then
+        uboot_drm_type=1
+    else
+        echo -e "please add params:AOSP/DRM/GTVS\n"
+        exit
+    fi
+    for i in "${!module[@]}"
+    do
+        if [[ $1 == "${module[i]}" || $2 == "${module[i]}" || $3 == "${module[i]}" ]]; then
+            platform_type=$i
+            break
+        fi
+    done
+    if [[ $platform_type == 0 ]]; then
+        echo -e "please add params:platform like ohm/oppen/redi\n"
+    fi
+    echo $platform_type $uboot_drm_type $usermode
+    compile_uboot
+    compile_kernel $usermode
+    lunch_env $usermode
+    make otapackage ${android_exec[platform_type]} -j8
+fi
+########################################################################################################################################################################
