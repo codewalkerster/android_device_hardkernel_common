@@ -1437,7 +1437,8 @@ ifeq ($(BOARD_MEMTRACK_SUPPORT),true)
 endif
 
 PRODUCT_PACKAGES += \
-	libbaseparameter
+	libbaseparameter \
+	saveBaseParameter
 
 # base parameter adjust package
 BOARD_BASEPARAMETER_ADJUST ?= false
