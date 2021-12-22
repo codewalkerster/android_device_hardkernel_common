@@ -21,14 +21,13 @@ $(build_fat_img) : $(build_boot_scr) $(PRODUCT_DTB_TARGET)
 	@echo "Build dtb image file $@."
 	dd if=/dev/zero of=$(build_fat_img) bs=1024 count=$(target_partition_size)
 	$(MKFS_FAT) -F16 -n VFAT $(build_fat_img)
-	mkdir $(source_dir)
-	cp  $(PRODUCT_DTB_TARGET) $(source_dir)
-	mkdir -p $(source_dir)/overlays/$(PRODUCT_MODEL)
-	cp $(PRODUCT_DTBO_TARGET) $(source_dir)/overlays/$(PRODUCT_MODEL)
+	mkdir -p $(source_dir)/rockchip
+	cp  $(PRODUCT_DTB_TARGET) $(source_dir)/rockchip
+	mkdir -p $(source_dir)/rockchip/overlays/$(PRODUCT_MODEL)
+	cp $(PRODUCT_DTBO_TARGET) $(source_dir)/rockchip/overlays/$(PRODUCT_MODEL)
 	$(AOSP_FAT16COPY) $(build_fat_img) \
 		$(build_boot_scr) \
-		$(source_dir)/*.dtb \
-		$(source_dir)/overlays
+		$(source_dir)/rockchip
 
 INSTALLED_HK_FAT_IMAGE := $(PRODUCT_OUT)/$(notdir $(build_fat_img))
 $(INSTALLED_HK_FAT_IMAGE) : $(build_fat_img)
