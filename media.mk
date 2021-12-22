@@ -14,7 +14,6 @@
 ifeq ($(BOARD_COMPILE_CTS),true)
   BOARD_WIDEVINE_OEMCRYPTO_LEVEL ?= 1
   BOARD_PLAYREADY_LEVEL ?= 1
-  BUILD_WITH_WIDEVINECAS := true
 endif
 
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),)
@@ -280,7 +279,6 @@ PRODUCT_PROPERTY_OVERRIDES += vendor.media.omx.out_buffer2_osd=8
 
 #for Widevine CAS
 ifeq ($(BUILD_WITH_WIDEVINECAS),true)
-  BUILD_WITH_WIDEVINECAS_IPTV := true
   PRODUCT_PACKAGES += libwvmediacas \
                       libcasoemcrypto \
                       libdec_ca_wvcas
