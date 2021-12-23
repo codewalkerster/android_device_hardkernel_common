@@ -24,6 +24,7 @@ type hdmirx0_device, dev_type;
 type amvideo_device, dev_type;
 type codec_device, dev_type;
 type mediasync_device, dev_type;
+type ptsserver_device, dev_type;
 
 type product_block_device, dev_type;
 type dtbo_block_device, dev_type;

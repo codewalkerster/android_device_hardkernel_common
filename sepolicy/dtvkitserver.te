@@ -41,6 +41,8 @@ set_prop(dtvkitserver, vendor_platform_prop)
 get_prop(dtvkitserver, vendor_platform_prop)
 get_prop(dtvkitserver, mediasync_device)
 set_prop(dtvkitserver, mediasync_device)
+get_prop(dtvkitserver, ptsserver_device)
+set_prop(dtvkitserver, ptsserver_device)
 allow dtvkitserver vendor_tv_prop:file { read open getattr };
 allow dtvkitserver video_device:chr_file { read write open ioctl getattr };
 allow dtvkitserver codec_device:chr_file { read write open ioctl };
@@ -88,3 +90,4 @@ allow dtvkitserver file_contexts_file:file { getattr open read };
 allow dtvkitserver port:tcp_socket name_connect;
 allow dtvkitserver meson_display_ipc_hwservice:hwservice_manager find;
 allow dtvkitserver hal_graphics_composer_default:binder call;
+allow dtvkitserver ptsserver_device:chr_file rw_file_perms;

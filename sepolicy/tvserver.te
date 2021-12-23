@@ -85,3 +85,4 @@ allow tvserver gpu_device:chr_file { read write open ioctl };
 allow tvserver mediasync_device:chr_file { read write open ioctl };
 allow tvserver meson_display_ipc_hwservice:hwservice_manager find;
 allow tvserver hal_graphics_composer_default:binder call;
+allow tvserver ptsserver_device:chr_file { read write open ioctl };

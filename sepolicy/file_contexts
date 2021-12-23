@@ -39,6 +39,7 @@
 /dev/video37				u:object_r:video_device:s0
 /dev/video38				u:object_r:video_device:s0
 /dev/unifykeys                          u:object_r:unify_device:s0
+/dev/ptsserver   			u:object_r:ptsserver_device:s0
 
 /dev/block/env      			u:object_r:env_device:s0
 /dev/block/logo                         u:object_r:logo_device:s0
