@@ -160,7 +160,7 @@ kernel_exec[12]="./mk redi -v 5.4"
 
 ###########################################################################################
 # Smith
-project[13]="T965D4"
+project[13]="Smith"
 soc[13]="S905X4"
 hardware[13]="AR321"
 module[13]="smith"
@@ -456,7 +456,7 @@ compile_sub_system() {
     if [[ $1 == "bootimage" || $1 == "vendorbootimage" ]]; then
         compile_kernel
         make bootimage -j8
-        make vendorbootimage
+        make vendorbootimage -j8
     elif [ $1 == "logoimage" ]; then
         make logoimg -j8
     elif [ $1 == "odmimage" ]; then
@@ -541,6 +541,7 @@ if [ $# -eq 3 ]; then
     done
     if [[ $platform_type == 0 ]]; then
         echo -e "please add params:platform like ohm/oppen/redi\n"
+        exit
     fi
     echo $platform_type $uboot_drm_type $usermode
     compile_uboot
