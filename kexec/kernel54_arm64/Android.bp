@@ -1,0 +1,6 @@
+cc_prebuilt_binary {
+    name: "kexec",
+
+    srcs: ["kexec"],
+    check_elf_files: false,
+}

@@ -1,0 +1,12 @@
+allow ueventd drm_device:chr_file { create getattr setattr relabelfrom relabelto } ;
+
+allow ueventd tmpfs:blk_file { getattr setattr };
+allow ueventd sysfs_display:chr_file { create setattr };
+
+allow { ueventd drm_device } tmpfs:filesystem { associate } ;
+
+allow ueventd proc_iomem:file rw_file_perms;
+allow ueventd self:capability {sys_rawio sys_boot sys_admin};
+# allow ueventd proc_kallsyms:file { read };
+allow { ueventd drm_device aml_dsm_device } tmpfs:filesystem { associate } ;
+allow ueventd aml_dsm_device:chr_file { create getattr setattr relabelfrom relabelto } ;

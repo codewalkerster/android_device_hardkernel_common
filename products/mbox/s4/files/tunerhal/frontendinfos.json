@@ -1,0 +1,84 @@
+{
+    "hwfe":[
+        // statusCap: 0-none, 0x1-demo_lock, 0x2-snr, 0x4-ber, 0x8-per, 0x10-pre_per
+        //            0x20-quality, 0x40-strength, 0x80-symbol, 0x100-fec
+        //            0x200-modulation, 0x400-spectral, 0x800-lnb_voltage
+        //            0x1000-plp_id, 0x2000-ewbs, 0x4000-agc, 0x8000-lna,
+        //            0x10000-layer_error, 0x20000-mer, 0x40000-feq_offset,
+        //            0x80000-hierarchy, 0x100000-rf_lock, 0x200000-atsc3_plp
+        {
+            "id":1, "minFreq": 42000000, "maxFreq":1002000000, "minSymbol":0, "maxSymbol":0,
+            "acquireRange":0, "statusCap":1957414
+        }
+    ],
+
+    "frontends":[
+        // type: 0-undefined, 1-analog, 2-atsc, 3-atsc3, 4-dvbc, 5-dvbs, 6-dvbt
+        //       7-isdbs, 8-isdbs3, 9-isdbt
+
+        //analog
+        // analogTypeCap: 0-undefined, 0x1-auto, 0x2-pal, 0x4-pal_m, 0x8-pal_n, 0x10-pal_60
+        //                0x20-ntsc, 0x40-ntsc_443, 0x80-secam
+        // sifCap: 0-undefined, 0x1-auto, 0x2-bg, 0x4-bg_a2, 0x8-bg_nicam, 0x10-I,
+        //         0x20-dk, 0x40-dk1_a2, 0x80-dk2_a2, 0x100-dk3_a2, 0x200-dk_nicam,
+        //         0x400-l, 0x800-m, 0x1000-m_btsc, 0x2000-m_a2, 0x4000-m_eiaj,
+        //         0x8000-i_nicam, 0x10000-l_nicam, 0x20000-l_prime
+
+        //{"hwid":0, "type":1, "analogTypeCap":255, "sifCap":114687},
+
+        // dvbc
+        // modulationCap: 0-undefined, 0x1-auto, 0x2-16qam, 0x4-32qam, 0x8-64qam,
+        //                     0x10-128qam, 0x20-256qam
+        // fecCap: 0-undefined, 0x1-auto, BIT2...BIT35
+        // annexCap: 0-undefine, 0x1-a, 0x2-b, 0x4-c
+
+        {"hwid":0, "type":4, "modulationCap":63, "fecCap":1, "annexCap":7, "minSymbol":3700, "maxSymbol":10000},
+
+        // dvbs
+        // modulationCap: 0-undefined, 0x1-auto, 0x2-qpsk, 0x4-8psk, 0x8-16qam,
+        //                     0x10-16qpsk, 0x20-32qpsk, 0x40-acm, 0x80-8apsk,
+        //                     0x100-16apsk, 0x200-32apsk, 0x400-64apsk,
+        //                     0x800-128apsk, 0x1000-256apsk, 0x2000-reserved
+        // feccap: 0-undefined, 0x1-auto, BIT2...BIT35
+        // stdCap: 1-auto, 2-s, 4-s4, 8-s2x
+
+        {"hwid":0, "type":5, "modulationCap":15, "fecCap":1, "stdCap":7, "minFreq":950000000, "maxFreq":2147000000, "minSymbol":1000, "maxSymbol":45000},
+
+        // dvbt
+        // transmissionCap: 0-undefined, 0x1-auto, 0x2-2k, 0x4-8k, 0x8-4k, 0x10-1k
+        //                  0x20-16k, 0x40-32k
+        // bandwidthCap: 0-undefined, 0x1-auto, 0x2-8m, 0x4-7m, 0x8-6m, 0x10-5m,
+        //               0x20-1_7m, 0x40-10m
+        // constellationCap: 0-undefined, 0x1-auto, 0x2-qpsk, 0x4-16qam, 0x8-64qam, 0x10-256qam
+        // coderateCap: 0-undefined, 0x1-auto, 0x2-1/2, 0x4-2/3, 0x8-3/4, 0x10-5/6,
+        //              0x20-7/8, 0x40-3/5, 0x80-4/5, 0x100-6/7, 0x200-8/9
+        // hierarchyCap: 0-undefined, 0x1-auto, 0x2-non_n, 0x4-1_n, 0x8-2_n, 0x10-4_n
+        //               0x20-non_i, 0x40-1_i, 0x80-2_i, 0x100-4_i
+        // guardIntervalCap: 0-undefined, 0x1-auto, 0x2-2/32, 0x4-1/16, 0x8-1/3, 0x10-1/4,
+        //                   0x20-1/128, 0x40-19/128, 0x80-19/256
+
+        {
+            "hwid":0, "type":6, "transmissionCap":127,
+            "bandwidthCap":31, "constellationCap":31, "coderateCap":1,
+            "hierarchyCap":1, "guardIntervalCap":1, "supportT2":true, "supportMiso":false
+        },
+
+        // isdbt
+        // modeCap: 0-undefined, 0x1-auto, 0x2-mode_1, 0x4-mode_2, 0x8-mode_3
+        // bandwidthCap: 0-undefined, 0x1-auto, 0x2-8m, 0x4-7m, 0x8-6m
+        // modulationCap: 0-undefined, 0x1-auto, 0x2-dqpsk, 0x4-qpsk, 0x8-16qam, 0x10-64qam
+        // coderateCap: 0-undefined, 0x1-auto, 0x2-1/2, 0x4-2/3, 0x8-3/4, 0x10-5/6,
+        //              0x20-7/8, 0x40-3/5, 0x80-4/5, 0x100-6/7, 0x200-8/9
+        // guardIntervalCap: 0-undefined, 0x1-auto, 0x2-2/32, 0x4-1/16, 0x8-1/3, 0x10-1/4,
+        //                   0x20-1/128, 0x40-19/128, 0x80-19/256
+        {"hwid":0, "type":9, "modeCap":1, "bandwidthCap":15, "modulationCap":29, "coderateCap":1, "guardIntervalCap":1}
+
+        // atsc
+        // modulationCap: 0-undefined, 0x1-auto, 0x2-8vsb, 0x4-16vsb
+        // not support
+
+        //{"hwid":0, "type":2, "modulationCap":7},
+    ],
+
+    "dmxsetting":{"ts_input":34}
+}

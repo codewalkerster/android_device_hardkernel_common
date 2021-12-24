@@ -1,0 +1,6 @@
+
+allow hal_oemlock_default system_control:binder { call transfer };
+allow hal_oemlock_default systemcontrol_hwservice:hwservice_manager { find };
+allow hal_oemlock_default shell:binder { call transfer };
+allow hal_oemlock_default shell:fd { use };
+allow hal_oemlock_default shell:fifo_file { write };

@@ -1,0 +1,12 @@
+service kexec /system/bin/kexec -p --command-line="console=ttyS0,921600 loglevel=9" /system/etc/Image2
+    class core
+    disabled
+    oneshot
+    seclabel u:r:ueventd:s0
+
+on property:ro.boot.kdump=1 && property:sys.boot_completed=1
+    start kexec
+
+on property:sys.kexec.var1=*
+    exec - root -- /system/bin/kexec -p --command-line="console=ttyS0,921600 loglevel=9" /system/etc/Image2
+    setprop sys.kexec.var2 ${sys.kexec.var1}
