@@ -249,8 +249,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PACKAGES += \
-    droidlogic \
-    droidlogic.software.core.xml \
+    droidlogic.software.core \
     systemcontrol \
     systemcontrol_static \
     libsystemcontrolservice \
