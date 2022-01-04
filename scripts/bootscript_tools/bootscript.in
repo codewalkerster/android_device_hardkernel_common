@@ -50,7 +50,7 @@ if bcb load $$devnum misc; then
 
 	mmc read $$loadaddr $$boot_start $$boot_size
 
-	load $$devtype $$devnum:3 $$ini_addr_r env.ini
+	load $$devtype $$devnum:3 $$ini_addr_r config.ini
 	ini generic $$ini_addr_r
 
 	echo "  Load Device Tree"
