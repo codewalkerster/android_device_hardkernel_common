@@ -478,9 +478,7 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-arm \
     android.hardware.graphics.allocator@4.0-impl-arm \
-    android.hardware.graphics.allocator@4.0-service \
-    arm.graphics-V1-ndk_platform
-
+    android.hardware.graphics.allocator@4.0-service
 
 # HW Composer
 PRODUCT_PACKAGES += \
