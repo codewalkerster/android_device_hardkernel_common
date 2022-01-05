@@ -135,6 +135,7 @@ cp -a rkst/Image/pcba_small_misc.img $IMAGE_PATH/pcba_small_misc.img
 cp -a rkst/Image/pcba_whole_misc.img $IMAGE_PATH/pcba_whole_misc.img
 echo "done."
 
+if [ "$TARGET_BOARD_HARDWARE" != "odroid" ]; then
 if [ -f $UBOOT_PATH/uboot.img ]
 then
 	echo "create uboot.img..."
@@ -165,6 +166,7 @@ else
 	else
         echo "$UBOOT_PATH/*MiniLoaderAll_*.bin not fount! Please make it from $UBOOT_PATH first!"
 	fi
+fi
 fi
 
 if [ -f $FLASH_CONFIG_FILE ]
@@ -199,6 +201,7 @@ else
     fi
 fi
 
+if [ "$TARGET_BOARD_HARDWARE" != "odroid" ]; then
 SHARED_LIBRARIES_DIR=out/host/linux-x86/lib64
 JAVA_LIBRARIES_DIR=out/host/linux-x86/framework
 OTA_KEY_DIR=build/target/product/security
@@ -209,6 +212,7 @@ if [ $TARGET == $BOOT_OTA ]; then
     java -Djava.library.path=$SHARED_LIBRARIES_DIR -jar $JAVA_LIBRARIES_DIR/signapk.jar -w $OTA_KEY_DIR/testkey.x509.pem $OTA_KEY_DIR/testkey.pk8 $IMAGE_PATH/update_loader_unsigned.zip $IMAGE_PATH/update_loader.zip
     rm $IMAGE_PATH/update_loader_unsigned.zip
     echo "done."
+fi
 fi
 
 if [ "$TARGET_BASE_PARAMETER_IMAGE"x != ""x ]

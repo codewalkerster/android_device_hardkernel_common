@@ -93,6 +93,12 @@ else
 fi
 }
 
+if [ "$TARGET_HARDWARE" == "odroid" ]; then
+echo "create fat.img..."
+BOARD_FAT_IMG=$OUT/fat.img
+cp -a $BOARD_FAT_IMG $IMAGE_PATH/fat.img
+echo "done."
+else
 echo "create dtbo.img.... "
 if [ ! -f "$OUT/dtbo.img" ]; then
 BOARD_DTBO_IMG=$OUT/rebuild-dtbo.img
@@ -101,6 +107,7 @@ BOARD_DTBO_IMG=$OUT/dtbo.img
 fi
 cp -a $BOARD_DTBO_IMG $IMAGE_PATH/dtbo.img
 echo "done."
+fi
 
 echo "create resource.img..."
 if [ -f "kernel/resource.img" ]; then
@@ -146,6 +153,7 @@ cp -a rkst/Image/pcba_small_misc.img $IMAGE_PATH/pcba_small_misc.img
 cp -a rkst/Image/pcba_whole_misc.img $IMAGE_PATH/pcba_whole_misc.img
 echo "done."
 
+if [ "$TARGET_HARDWARE" != "odroid" ]; then
 if [ -f $UBOOT_PATH/uboot.img ]
 then
 	echo -n "create uboot.img..."
@@ -169,7 +177,7 @@ else
         echo "$UBOOT_PATH/*MiniLoaderAll_*.bin not fount! Please make it from $UBOOT_PATH first!"
 	fi
 fi
-
+fi
 
 if [ -f $FLASH_CONFIG_FILE ]
 then
