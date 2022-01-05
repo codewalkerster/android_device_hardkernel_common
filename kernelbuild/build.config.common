@@ -1,2 +1,2 @@
 KERNEL_DIR=common
-CLANG_PREBUILT_BIN=prebuilts/clang/host/linux-x86/clang-r383902/bin
+CLANG_PREBUILT_BIN=prebuilts/clang/host/linux-x86/clang-r437112/bin
