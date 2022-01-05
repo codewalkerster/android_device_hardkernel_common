@@ -73,7 +73,7 @@ if bcb load $$devnum misc; then
 	echo "  Set booting arguments"
 	setenv secure_args "androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.verifiedbootstate=orange"
 	setenv io_args "androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0"
-	setenv mtd_args "mtdparts=sfc_nor:1M(reserved),2M(uboot),1M(splash),12M(Firmware)"
+	setenv mtd_args "mtdparts=${_mtd}"
 
 	setenv android_args "androidboot.lcd_density=$$lcd_density"
 

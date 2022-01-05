@@ -4,16 +4,17 @@ import getopt
 import os
 from string import Template
 
-usage = 'Invalid arguments. Example:\nbootscript_generator --variant userdebug --boot-part 7 --recovery-part 8 --wifi-country US --output boot.scr'
+usage = 'Invalid arguments. Example:\nbootscript_generator --variant userdebug --boot-part 6 --recovery-part 7 --wifi-country US --mtd flash.0:flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware) --output boot.scr'
 
 def main(argv):
     infile = 'bootscript.in'
-    boot_part = '7'
-    recovery_part = '8'
+    boot_part = '6'
+    recovery_part = '7'
     wifi_country = 'US'
     outfile = 'boot.cmd'
+    mtd = "flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware)"
     try:
-        opts, args = getopt.getopt(argv, "h", ["input=","variant=","boot-part=","recovery-part=","wifi-country=","output="])
+        opts, args = getopt.getopt(argv, "h", ["input=","variant=","boot-part=","recovery-part=","wifi-country=","output=","mtd="])
     except getopt.GetoptError:
         print(usage)
         sys.exit(2)
@@ -33,6 +34,8 @@ def main(argv):
             wifi_country = arg
         elif opt == "--output":
             outfile = arg
+        elif opt == "--mtd":
+            mtd = arg
         else:
             print (usage)
             sys.exit(2)
@@ -49,7 +52,7 @@ def main(argv):
     template_bootscript_in = file_bootscript_in.read()
     template_in_t = Template(template_bootscript_in)
 
-    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country)
+    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _mtd=mtd)
 
     if outfile != '':
         with open (outfile,"w") as f:
