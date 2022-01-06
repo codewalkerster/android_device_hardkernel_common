@@ -748,7 +748,10 @@ PRODUCT_PACKAGES += \
     update_engine_client \
     update_verifier
 
-ifeq ($(LAUNCH_ON_S),true)
+ifneq ($(TARGET_GPT_PART),true)
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-bootloader.rc
+endif
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2 \
     android.hardware.boot@1.2-impl.droidlogic \
@@ -757,16 +760,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl.droidlogic.recovery \
     android.hardware.boot@1.2-impl.droidlogic
-else
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1 \
-    android.hardware.boot@1.1-impl.droidlogic \
-    android.hardware.boot@1.1-service.droidlogic
-
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl.droidlogic.recovery \
-    android.hardware.boot@1.1-impl.droidlogic
-endif
 
 PRODUCT_PACKAGES += \
     update_engine_sideload \
