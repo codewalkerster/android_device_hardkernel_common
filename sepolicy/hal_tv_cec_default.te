@@ -1,3 +1,3 @@
-#get_prop(hal_tv_cec_default, vendor_platform_prop)
-#allow hal_tv_cec_default cec_device:chr_file { open read write ioctl };
-#allow hal_tv_cec_default hal_tv_cec_default:netlink_kobject_uevent_socket { create setopt getopt bind read shutdown };
+get_prop(hal_tv_cec_default, vendor_platform_prop)
+allow hal_tv_cec_default cec_device:chr_file { open read write ioctl };
+allow hal_tv_cec_default hal_tv_cec_default:netlink_kobject_uevent_socket { create setopt getopt bind read shutdown };
