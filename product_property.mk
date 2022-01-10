@@ -5,7 +5,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
-    debug.sf.vsync_reactor=0
+    debug.sf.vsync_reactor_ignore_present_fences=1
 
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
 PRODUCT_PRODUCT_PROPERTIES += \
