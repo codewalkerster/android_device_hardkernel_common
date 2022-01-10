@@ -9,6 +9,7 @@ type udf,sdcard_type, fs_type;
 type pppoe_wrapper_socket, file_type;
 
 # XBMC
+type sysfs_xbmc, fs_type, sysfs_type;
 #type fs_type, sysfs_type, debugfs_type;
 # Update
 type update_data_file, file_type, data_file_type, core_data_file_type;

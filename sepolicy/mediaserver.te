@@ -46,5 +46,10 @@ allow mediaserver dvb_device:chr_file rw_file_perms;
 allow mediaserver vendor_video_device:chr_file rw_file_perms;
 allow mediaserver media_device:chr_file rw_file_perms;
 
+allow mediaserver proc_version:file r_file_perms;
+allow mediaserver sysfs_xbmc:file rw_file_perms;
+allow mediaserver sysfs_stb:file rw_file_perms;
+allow mediaserver sysfs_stb:dir { search};
+
 hal_client_domain(mediaserver, hal_tv_tuner)
 allow mediaserver hal_tv_tuner_default:binder { call };
