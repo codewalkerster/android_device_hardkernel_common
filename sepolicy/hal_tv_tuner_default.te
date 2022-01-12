@@ -8,3 +8,5 @@ allow hal_tv_tuner_default dvb_device:chr_file rw_file_perms;
 allow hal_tv_tuner_default video_device:chr_file rw_file_perms;
 allow hal_tv_tuner_default drm_device:chr_file rw_file_perms;
 allow hal_tv_tuner_default aml_dsm_device:chr_file rw_file_perms;
+allow hal_tv_tuner_default systemcontrol_hwservice:hwservice_manager { find };
+allow hal_tv_tuner_default system_control:binder { call };
