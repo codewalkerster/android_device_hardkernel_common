@@ -84,6 +84,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1
 
+#s4d invalid pid
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.dtv.fake_pid=0x2fff
+
 # low memory for 1G
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.config.low_ram=true
