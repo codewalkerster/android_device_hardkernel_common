@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resolutions>
+	<resolution> <!-- 800x480P60 VU5/7 -->
+		<clock>32000</clock>
+		<hdisplay>800</hdisplay>
+		<hsync_start>840</hsync_start>
+		<hsync_end>888</hsync_end>
+		<htotal>928</htotal>
+		<hskew>0</hskew>
+		<vdisplay>480</vdisplay>
+		<vsync_start>493</vsync_start>
+		<vsync_end>496</vsync_end>
+		<vtotal>525</vtotal>
+		<vscan>0</vscan>
+		<vrefresh>60</vrefresh>
+		<flags>a</flags>
+		<vic>0</vic>
+	</resolution>
 	<resolution> <!-- 720x480P60 -->
 		<clock>27000</clock>
 		<hdisplay>720</hdisplay>
@@ -15,6 +31,22 @@
 		<vrefresh>60</vrefresh>
 		<flags>a</flags>
 		<vic>2</vic>
+	</resolution>
+	<resolution> <!-- 1024x600P60 VU7+ -->
+		<clock>49000</clock>
+		<hdisplay>1024</hdisplay>
+		<hsync_start>1029</hsync_start>
+		<hsync_end>1042</hsync_end>
+		<htotal>1312</htotal>
+		<hskew>0</hskew>
+		<vdisplay>600</vdisplay>
+		<vsync_start>602</vsync_start>
+		<vsync_end>605</vsync_end>
+		<vtotal>622</vtotal>
+		<vscan>0</vscan>
+		<vrefresh>60</vrefresh>
+		<flags>6</flags>
+		<vic>0</vic>
 	</resolution>
 	<resolution> <!-- 1280x720P60 -->
 		<clock>74250</clock>
