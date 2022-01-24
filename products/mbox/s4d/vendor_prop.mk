@@ -163,7 +163,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.videolayerrotation.enable=false \
     vendor.omx2.nr.enable=true \
     vendor.omx2.di.localbuf.enable=true \
-    vendor.media.omx2.support_passthrough=true
+    vendor.media.omx2.support_passthrough=true \
+    vendor.media.omx.secure.prealloc=true
 
 ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
