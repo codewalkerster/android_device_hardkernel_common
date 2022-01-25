@@ -186,3 +186,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=ff400000.dwc2_a
 
 
+#Global Settings Key
+ifeq ($(ATV_LAUNCHER),amati)
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.global.settingskey=dashboard
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.global.settingskey=settings
+endif

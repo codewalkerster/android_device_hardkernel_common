@@ -200,3 +200,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 endif
 
+#Global Settings Key
+ifeq ($(ATV_LAUNCHER),amati)
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.global.settingskey=dashboard
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.global.settingskey=settings
+endif

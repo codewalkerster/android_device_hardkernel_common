@@ -187,3 +187,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.tsplayer.enable=true
 
+#Global Settings Key
+ifeq ($(ATV_LAUNCHER),amati)
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.global.settingskey=dashboard
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.global.settingskey=settings
+endif
