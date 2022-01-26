@@ -10,3 +10,6 @@ allow ueventd self:capability {sys_rawio sys_boot sys_admin};
 # allow ueventd proc_kallsyms:file { read };
 allow { ueventd drm_device aml_dsm_device } tmpfs:filesystem { associate } ;
 allow ueventd aml_dsm_device:chr_file { create getattr setattr relabelfrom relabelto } ;
+
+allow { ueventd drm_device aml_dsm_device cert_device } tmpfs:filesystem { associate } ;
+allow ueventd cert_device:chr_file { create getattr setattr relabelfrom relabelto } ;

@@ -51,3 +51,4 @@ allow vendor_init tee_vendor_file:dir { create relabelto };
 set_prop(vendor_init, vendor_miracast_prop)
 
 allow vendor_init aml_dsm_device:chr_file setattr;
+allow vendor_init cert_device:chr_file setattr;
