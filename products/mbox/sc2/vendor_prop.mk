@@ -196,3 +196,11 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.global.settingskey=settings
 endif
+
+ifeq ($(TARGET_BUILD_NAGRA),true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.nagracas.emi=0x4020 \
+    vendor.cas.type=nagra \
+    vendor.tv.dtv.tf.save_dmx=false
+endif
+

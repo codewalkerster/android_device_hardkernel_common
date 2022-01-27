@@ -91,3 +91,6 @@ allow dtvkitserver port:tcp_socket name_connect;
 allow dtvkitserver meson_display_ipc_hwservice:hwservice_manager find;
 allow dtvkitserver hal_graphics_composer_default:binder call;
 allow dtvkitserver ptsserver_device:chr_file rw_file_perms;
+allow dtvkitserver aml_dsm_device:chr_file { read write };
+allow dtvkitserver aml_dsm_device:chr_file open;
+allow dtvkitserver aml_dsm_device:chr_file ioctl;
