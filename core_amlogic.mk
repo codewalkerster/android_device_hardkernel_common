@@ -598,8 +598,14 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-amlogic
 
+ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
+# install  audio_effects.xml and audio_policy_configuration.xml soft link to oem file.
+PRODUCT_PACKAGES += \
+    audio_effects.xml
+else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
+endif
 
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 PRODUCT_COPY_FILES += \

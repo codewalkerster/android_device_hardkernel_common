@@ -19,4 +19,7 @@ allow dolbyms12_exec dolby_fw_device:chr_file { ioctl open read write };
 allow mediacodec dolbyms12_tmpfs:file { read getattr open };
 allow mediacodec dolby_fw_device:chr_file { open read ioctl };
 
+# /oem accesses.
+allow dolbyms12 oemfs:dir search;
+r_dir_file(dolbyms12, oemfs)
 

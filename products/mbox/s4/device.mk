@@ -109,7 +109,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 #
 #########################################################################
-
+ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 AUDIO_FEATURE_TYPE :=
 ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
@@ -133,6 +133,7 @@ PRODUCT_COPY_FILES += \
 $(warning 'using audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml')
 
 endif  ###end USE_XML_AUDIO_POLICY_CONF
+endif  ###endi TARGET_BUILD_OEM_WITH_LICENSE_FILES
 
 #########################################################################
 #
