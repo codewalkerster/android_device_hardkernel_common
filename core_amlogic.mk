@@ -89,6 +89,13 @@ endif
 
 endif
 
+#overlay config_wifi5ghzSupport #
+BOARD_ENABLE_WIFI_5G ?= true
+ifeq ($(BOARD_ENABLE_WIFI_5G),true)
+PRODUCT_PACKAGES += \
+    WiFiTetheringOverlay
+endif
+
 ifneq ($(TARGET_BUILD_KERNEL_4_9), true)
 ifneq ($(AB_OTA_UPDATER),true)
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4.fstab
