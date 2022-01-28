@@ -9,6 +9,7 @@ persist.vendor.bt_vendor       u:object_r:vendor_platform_prop:s0
 persist.vendor.libbt_vendor    u:object_r:vendor_platform_prop:s0
 persist.vendor.bt_module       u:object_r:vendor_platform_prop:s0
 persist.vendor.bt_name         u:object_r:vendor_platform_prop:s0
+persist.vendor.bt_debug        u:object_r:vendor_platform_prop:s0
 persist.vendor.wifi_type       u:object_r:vendor_platform_prop:s0
 persist.vendor.wifi_remove     u:object_r:vendor_platform_prop:s0
 vendor.drm.                    u:object_r:vendor_media_prop:s0
