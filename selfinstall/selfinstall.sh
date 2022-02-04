@@ -34,4 +34,4 @@ $SGDISK_HOST \
 	--n=11:2473984:8847359 --change-name=11:super \
 	$TARGET_IMAGE
 
-zip $TARGET_PATH/selfinstall.img.zip $TARGET_IMAGE
+#xz $TARGET_PATH/selfinstall.img $TARGET_IMAGE
