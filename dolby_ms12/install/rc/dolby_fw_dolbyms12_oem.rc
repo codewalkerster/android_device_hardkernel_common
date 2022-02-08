@@ -15,12 +15,19 @@
 on init
     # Mount tmpfs
     wait /odm/lib/ms12 2
-    mount tmpfs tmpfs /odm/lib/ms12 size=10240K,context=u:object_r:dolbyms12:s0 rw
+    mount tmpfs tmpfs /odm/lib size=10240K,context=u:object_r:dolbyms12:s0 rw
 
+    exec - root root -- /vendor/bin/toybox_vendor mkdir /odm/lib/ms12
+    exec - root root -- /vendor/bin/toybox_vendor ln -s /odm_dlkm/lib/modules /odm/lib/modules
     # Extracting the Dolby MS12 library
     exec - root root -- /vendor/bin/dolby_fw_dolbyms12 /oem/lib/ms12/libdolbyms12.so /odm/lib/ms12/libdolbyms12.so
+    exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libHwAudio_dcvdec.so  /odm/lib/libHwAudio_dcvdec.so
+    exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libHwAudio_dtshd.so  /odm/lib/libHwAudio_dtshd.so
 
+    chmod 755 /odm/lib/ms12/
     chmod 644 /odm/lib/ms12/libdolbyms12.so
+    chmod 644 /odm/lib/libHwAudio_dcvdec.so
+    chmod 644 /odm/lib/libHwAudio_dtshd.so
 
     # Changing access permission of the dev node used by libdolbyms12
     wait /dev/dolby_fw 2
@@ -28,7 +35,7 @@ on init
     chmod 440 /dev/dolby_fw
 
     # Let the partition be read-only
-    mount tmpfs tmpfs /odm/lib/ms12 remount ro
+    mount tmpfs tmpfs /odm/lib remount ro
 
     # Set extended attribute in kernel space to bypass selinux neverallow restriction
     # "chcon u:object_r:dolby_lib_file:s0 /odm/lib/ms12/libdolbyms12.so"

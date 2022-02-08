@@ -17,13 +17,18 @@ AML_KERNEL_MODULE_NAME ?= aml_chcon
 
 # default parameter if they're not defined
 AML_SECURE_LIB ?= "/odm/lib/ms12/libdolbyms12.so"
+AML_DTS_SECURE_LIB ?= "/odm/lib/libHwAudio_dtshd.so"
+AML_DCV_SECURE_LIB ?= "/odm/lib/libHwAudio_dcvdec.so"
 AML_SECURE_CON ?= "u:object_r:dolby_lib_file:s0"
 
 # generic form for all modules
 $(AML_KERNEL_MODULE_NAME)-objs := aml_chcon_main.o
 
 ccflags-y += -DAML_SECURE_LIB=\"$(AML_SECURE_LIB)\" \
+             -DAML_DTS_SECURE_LIB=\"$(AML_DTS_SECURE_LIB)\" \
+             -DAML_DCV_SECURE_LIB=\"$(AML_DCV_SECURE_LIB)\" \
              -DAML_SECURE_CON=\"$(AML_SECURE_CON)\"
+
 
 obj-m := $(AML_KERNEL_MODULE_NAME).o
 

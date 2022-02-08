@@ -303,12 +303,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsurfaceoverlay_jni
 
+ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
+PRODUCT_PACKAGES += \
+    libHwAudio_dcvdec \
+    libHwAudio_dtshd
+endif
+
 PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVideo \
     libOmxAudio \
-    libHwAudio_dcvdec \
-    libHwAudio_dtshd  \
     libthreadworker_alt \
     libdatachunkqueue_alt \
     libOmxBase \

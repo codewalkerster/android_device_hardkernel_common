@@ -25,6 +25,18 @@
 // e.g. /odm/lib/ms12/libdolbyms12.so
 #endif
 
+#ifndef AML_DTS_SECURE_LIB
+#error AML_SECURE_LIB not defined
+// e.g. /odm/lib/libHwAudio_dtshd.so
+#endif
+
+#ifndef AML_DCV_SECURE_LIB
+#error AML_SECURE_LIB not defined
+// e.g. /odm/lib/libHwAudio_dcvdec.so
+#endif
+
+
+
 #ifndef AML_SECURE_CON
 #error AML_SECURE_CON not defined
 // e.g. u:object_r:dolby_lib_file:s0
@@ -50,6 +62,20 @@ static void aml_chcon(struct work_struct *work)
         }
         filp_close(f, NULL);
     }
+    if (!IS_ERR(f = filp_open(AML_DTS_SECURE_LIB,  O_RDONLY | O_PATH, 0))) {
+        if (!IS_ERR(entry = file_dentry(f))) {
+            vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_SECURE_CON , sizeof(AML_SECURE_CON), 0);
+        }
+        filp_close(f, NULL);
+    }
+    if (!IS_ERR(f = filp_open(AML_DCV_SECURE_LIB,  O_RDONLY | O_PATH, 0))) {
+        if (!IS_ERR(entry = file_dentry(f))) {
+            vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_SECURE_CON , sizeof(AML_SECURE_CON), 0);
+        }
+        filp_close(f, NULL);
+    }
+
+
 #endif
     return;
 }
