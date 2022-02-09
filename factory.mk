@@ -435,6 +435,8 @@ endif
 		)
 ifneq ($(TARGET_GPT_PART),true)
 	ln -sf $(shell readlink -f $(PRODUCT_OUT)/dt.img) $(PRODUCT_UPGRADE_OUT)/dt.img;
+else
+	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
 endif
 	cp $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) $(PRODUCT_UPGRADE_OUT)/bootloader.img
 	@echo $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET)
