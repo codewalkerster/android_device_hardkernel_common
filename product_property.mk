@@ -47,8 +47,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # for device RAM <= 2G, which need use minfree levels
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lmk.kill_timeout_ms=100 \
-    ro.lmk.use_minfree_levels=true
+    ro.lmk.kill_timeout_ms=100
 
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
 PRODUCT_PROPERTY_OVERRIDES += \
