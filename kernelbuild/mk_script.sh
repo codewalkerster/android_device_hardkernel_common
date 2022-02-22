@@ -221,6 +221,8 @@ function build() {
 		if [ "$1" = "franklin" -o "$1" = "ohm" -o "$1" = "elektra" -o "$1" = "newton" ]; then
 			CONFIG_KERNEL_VERSION=4.9
 			echo "CONFIG_KERNEL_VERSION: ${CONFIG_KERNEL_VERSION}"
+		else
+			CONFIG_KERNEL_VERSION=5.4
 		fi
 	fi
 
@@ -258,6 +260,80 @@ function build() {
 	if [ $? -ne 0 ]; then
 		echo "build kernel error"
 		exit 1
+	fi
+
+	if [ "$CONFIG_KERNEL_VERSION" = "4.9" ]; then
+		KERNEL_OFFSET=0x1080000
+		BOOT_HEADER_VERSION=2
+		if [ $CONFIG_AB_UPDATE ]; then
+			BOOT_IMGSIZE=25165824
+		else
+			BOOT_IMGSIZE=16777216
+		fi
+	else
+		KERNEL_OFFSET=0x2080000
+		BOOT_IMGSIZE=67108864
+		BOOT_HEADER_VERSION=4
+	fi
+
+	if [ "$1" = "ohm" -o "$1" = "ohmcas" -o "$1" = "oppen" \
+		-o "$1" = "smith" -o "$1" = "oppencas" -o "$1" = "planck" ]; then
+		if [ "$CONFIG_KERNEL_VERSION" = "4.9" ]; then
+			BOOT_DEVICES="androidboot.boot_devices=fe08c000.emmc"
+		else
+			BOOT_DEVICES="androidboot.boot_devices=soc/fe08c000.mmc"
+		fi
+	fi
+
+	if [ "$1" = "galilei" -o "$1" = "newton" -o "$1" = "dalton" \
+		-o "$1" = "elektra" -o "$1" = "redi" -o "$1" = "franklin" ]; then
+		if [ "$CONFIG_KERNEL_VERSION" = "4.9" ]; then
+			BOOT_DEVICES="androidboot.boot_devices=ffe07000.emmc"
+		else
+			BOOT_DEVICES="androidboot.boot_devices=soc/ffe07000.mmc"
+		fi
+	fi
+
+	if [ "$1" = "ampere" ]; then
+		BOOT_DEVICES="androidboot.boot_devices=d0074000.emmc"
+	fi
+
+	if [ "${CONFIG_Ramdisk}" != "" ]; then
+		echo "CONFIG_Ramdisk: ${CONFIG_Ramdisk}"
+		if [ $KERNEL_A32_SUPPORT ]; then
+			KERNEL_FILE=device/${device_project}/$1-kernel/${CONFIG_KERNEL_VERSION}/uImage
+		else
+			KERNEL_FILE=device/${device_project}/$1-kernel/${CONFIG_KERNEL_VERSION}/Image.gz
+		fi
+		./device/amlogic/common/kernelbuild/mkbootimg --kernel ${KERNEL_FILE} \
+		--ramdisk ${CONFIG_Ramdisk} \
+		--os_version 12 --kernel_offset ${KERNEL_OFFSET} \
+		--header_version ${BOOT_HEADER_VERSION} \
+		--output out/$1_boot.img
+		./device/amlogic/common/kernelbuild/avbtool add_hash_footer --image out/$1_boot.img \
+		--partition_size ${BOOT_IMGSIZE} --partition_name boot  \
+		--prop com.android.build.boot.os_version:12
+	fi
+
+	if [ "${CONFIG_VENDOR_Ramdisk}" != "" -a "${CONFIG_RECOVERY_Ramdisk}" != "" ]; then
+		echo "CONFIG_VENDOR_Ramdisk: ${CONFIG_VENDOR_Ramdisk}"
+		echo "CONFIG_RECOVERY_Ramdisk: ${CONFIG_RECOVERY_Ramdisk}"
+		VENDOR_CMDLINE="androidboot.dynamic_partitions=true androidboot.dtbo_idx=0"
+		VENDOR_CMDLINE="$VENDOR_CMDLINE $BOOT_DEVICES"
+		VENDOR_CMDLINE="$VENDOR_CMDLINE use_uvm=1 buildvariant=userdebug"
+		echo "VENDOR_CMDLINE: $VENDOR_CMDLINE"
+
+		./device/amlogic/common/kernelbuild/mkbootimg \
+		--dtb device/${device_project}/$1-kernel/${CONFIG_KERNEL_VERSION}/$1.dtb --base 0x0 \
+		--vendor_cmdline "$VENDOR_CMDLINE" \
+		--kernel_offset ${KERNEL_OFFSET} --header_version ${BOOT_HEADER_VERSION} \
+		--vendor_ramdisk ${CONFIG_VENDOR_Ramdisk} \
+		--ramdisk_type RECOVERY --ramdisk_name recovery \
+		--vendor_ramdisk_fragment  ${CONFIG_RECOVERY_Ramdisk} \
+		--vendor_boot out/$1_vendor_boot.img
+		./device/amlogic/common/kernelbuild/avbtool add_hash_footer \
+		--image out/$1_vendor_boot.img \
+		--partition_size 25165824 --partition_name vendor_boot
 	fi
 }
 
@@ -385,6 +461,15 @@ function bin_path_parser() {
 				continue ;;
 			--kernel_only)
 				CONFIG_KERNEL_ONLY=true
+				continue ;;
+			--ramdisk)
+				CONFIG_Ramdisk="${argv[$i]}"
+				continue ;;
+			--vendor_ramdisk)
+				CONFIG_VENDOR_Ramdisk="${argv[$i]}"
+				continue ;;
+			--recovery_ramdisk)
+				CONFIG_RECOVERY_Ramdisk="${argv[$i]}"
 				continue ;;
 			--1g)
 				export CONFIG_KERNEL_DDR_1G=true
