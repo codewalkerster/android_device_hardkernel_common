@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BUILD_DOLBY_MS12_V2), true)
+ifeq ($(TARGET_INSTALL_DOLBY_MS12_V2), true)
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
