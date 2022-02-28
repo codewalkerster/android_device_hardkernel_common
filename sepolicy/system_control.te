@@ -40,6 +40,8 @@ allow system_control mnt_vendor_file:dir { search read open remove_name rmdir };
 allow system_control mnt_vendor_file:file { setattr getattr lock unlink };
 
 allow system_control vendor_memc_prop:file { read open getattr map};
+allow system_control sysfs_power:dir {search};
+allow system_control sysfs_power:file {read write open};
 # Property Service write
 #--------------------------------------------------------------------#
 #  product_shipping_api_level=28 vendor/system cannot share prop
