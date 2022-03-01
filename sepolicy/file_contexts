@@ -249,14 +249,15 @@
 #for kernel 5.4
 /sys/class/meson_pm/early_suspend_trigger                       u:object_r:sysfs_power:s0
 
-#/sys/devices/platform/[0-9a-z]*\.rtc/wakeup/wakeup[0-9](/.*)?   u:object_r:sysfs_power:s0
-#/sys/devices/platform/[0-9a-z]*\.ir/wakeup/wakeup[0-9](/.*)?    u:object_r:sysfs_power:s0
-#/sys/devices/platform/aml_bt/wakeup/wakeup[0-9](/.*)?            u:object_r:sysfs_power:s0
-/sys/devices/platform/.*/wakeup/wakeup[0-9](/.*)?                 u:object_r:sysfs_power:s0
-/sys/devices/platform/.*/wakeup[0-9](/.*)?                        u:object_r:sysfs_power:s0
-
-/sys/devices/platform/soc/[0-9a-z]*\.audiobus/[0-9a-z]*\.audiobus:vad/wakeup/wakeup[0-9](/.*)?  u:object_r:sysfs_power:s0
-/sys/devices/platform/[0-9a-z]*\.rtc/rtc/rtc[0-9]/wakeup[0-9](/.*)?  u:object_r:sysfs_power:s0
+/sys/devices/platform/[0-9a-z]*\.rtc/wakeup/wakeup[0-9](/.*)?   u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/[0-9a-z]*\.ir/wakeup/wakeup[0-9](/.*)?    u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/aml_bt/wakeup/wakeup[0-9](/.*)?           u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/.*/wakeup/wakeup[0-9](/.*)?               u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/.*/wakeup(/.*)?                           u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/[0-9a-z]*\.audiobus/[0-9a-z]*\.audiobus:vad/wakeup(/.*)?              u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/[0-9a-z]*\.audiobus/[0-9a-z]*\.audiobus:vad/wakeup/wakeup[0-9](/.*)?  u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/[0-9a-z]*\.rtc/rtc/rtc[0-9]/wakeup[0-9](/.*)?  u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/[0-9a-z]*\.[0-9a-z]*/wakeup[0-9](/.*)?  u:object_r:sysfs_wakeup:s0
 
 
 

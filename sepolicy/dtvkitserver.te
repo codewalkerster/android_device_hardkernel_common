@@ -81,7 +81,7 @@ allow dtvkitserver hal_audio_hwservice:hwservice_manager find;
 allow dtvkitserver hal_graphics_composer_default:fd use;
 allow dtvkitserver self:capability2 {wake_alarm  block_suspend};
 allow dtvkitserver sysfs_rtc:dir {read open search};
-allow dtvkitserver sysfs_power:file {read open getattr};
+allow dtvkitserver { sysfs_power sysfs_wakeup }:file {read open getattr};
 allow dtvkitserver system_suspend_hwservice:hwservice_manager {find };
 allow dtvkitserver sysfs_wake_lock:file rw_file_perms;
 allow dtvkitserver vmx_indiv_exec:file execute_no_trans;

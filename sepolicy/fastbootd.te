@@ -15,4 +15,4 @@ allow fastbootd bootloader_device:blk_file rw_file_perms;
 allow fastbootd { super_block_device sda_block_device }:blk_file rw_file_perms;
 allowxperm fastbootd { super_block_device sda_block_device }:blk_file ioctl { BLKSECDISCARD BLKDISCARD BLKGETSIZE64 BLKIOMIN BLKALIGNOFF };
 
-allow fastbootd sysfs_power:file { read write open getattr setattr create lock unlink };
+allow fastbootd { sysfs_power sysfs_wakeup }:file { read write open getattr setattr create lock unlink };
