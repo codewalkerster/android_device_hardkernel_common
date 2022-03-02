@@ -9,9 +9,17 @@ persist.vendor.bt_vendor       u:object_r:vendor_platform_prop:s0
 persist.vendor.libbt_vendor    u:object_r:vendor_platform_prop:s0
 persist.vendor.bt_module       u:object_r:vendor_platform_prop:s0
 persist.vendor.bt_name         u:object_r:vendor_platform_prop:s0
+persist.vendor.wifibt_name     u:object_r:vendor_platform_prop:s0
 persist.vendor.bt_debug        u:object_r:vendor_platform_prop:s0
 persist.vendor.wifi_type       u:object_r:vendor_platform_prop:s0
 persist.vendor.wifi_remove     u:object_r:vendor_platform_prop:s0
+persist.vendor.wifi_poweroff   u:object_r:vendor_platform_prop:s0
+persist.vendor.wifi_suspend    u:object_r:vendor_platform_prop:s0
+persist.vendor.bt_suspend      u:object_r:vendor_platform_prop:s0
+persist.vendor.wifibt_drv_path u:object_r:vendor_platform_prop:s0
+persist.vendor.amllibbt.loaddrv u:object_r:vendor_platform_prop:s0
+ro.vendor.kernel.qemu          u:object_r:vendor_default_prop:s0
+persist.vendor.vadwake         u:object_r:vendor_platform_prop:s0
 vendor.drm.                    u:object_r:vendor_media_prop:s0
 vendor.tv.                     u:object_r:vendor_tv_prop:s0
 vendor.dtv.                    u:object_r:vendor_tv_prop:s0
@@ -20,7 +28,7 @@ vendor.amtsplayer.pipeline     u:object_r:vendor_tv_prop:s0
 vendor.bcmdl_status            u:object_r:vendor_bcmdl_prop:s0
 vendor.wc_transport            u:object_r:vendor_bluetooth_prop:s0
 vendor.rc_hidraw_fd            u:object_r:vendor_bluetooth_prop:s0
-vendor.bcm_wifi                u:object_r:vendor_wifi_prop:s0
+vendor.wifi_name                u:object_r:vendor_wifi_prop:s0
 vendor.w1_wifi_type                u:object_r:vendor_wifi_prop:s0
 ro.vendor.rfkilldisabled       u:object_r:vendor_bluetooth_prop:s0
 vendor.display-size            u:object_r:vendor_netflix_prop:s0
