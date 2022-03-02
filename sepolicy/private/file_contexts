@@ -1,2 +1,3 @@
 # file in /system
 /system/bin/move_widevine_data\.sh              u:object_r:move-widevine-data-sh_exec:s0
+/system/bin/phh-su                              u:object_r:phh-su_exec:s0
