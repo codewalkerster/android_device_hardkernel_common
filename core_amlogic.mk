@@ -281,10 +281,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 
-#add managed_users feature
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.managed_users.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.managed_users.xml
-
 ifeq ($(ATV_LAUNCHER), amati)
 # Keymaster configuration
 PRODUCT_COPY_FILES += \
