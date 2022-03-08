@@ -66,8 +66,8 @@ PRODUCT_COPY_FILES += \
 
 
 #HDCP 1.4 file
-PRODUCT_COPY_FILES += \
-    $(CHIP_DIR)/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
+#PRODUCT_COPY_FILES += \
+#    $(CHIP_DIR)/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
 
 # tv config file
 TVCONFIG_FILES := \
