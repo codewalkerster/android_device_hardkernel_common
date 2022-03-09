@@ -34,6 +34,9 @@ allow mediaserver screen_control:binder { call transfer };
 allow mediaserver drm_device:chr_file rw_file_perms;
 allow mediaserver sysfs_video:dir search;
 
+# For CC display in AmUMediaPlayer ts Mode
+allow mediaserver  ptsserver_device:chr_file rw_file_perms;
+
 # For interfacing with miracast hdcp2 HAL
 allow mediaserver miracast_hdcp2_hwservice:hwservice_manager find;
 allow mediaserver miracast_hdcp2:binder { call transfer };
