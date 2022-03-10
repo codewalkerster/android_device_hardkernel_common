@@ -9,9 +9,9 @@ TARGET_IMAGE=$TARGET_PATH/selfinstall.img
 HOST_OUT=`get_build_var HOST_OUT_EXECUTABLES`
 SGDISK_HOST=$HOST_OUT/sgdisk
 
-dd if=$TARGET_PATH/uboot.img of=$TARGET_IMAGE bs=512 seek=16384
+dd if=$TARGET_PATH/uboot.img of=$TARGET_IMAGE bs=512 seek=49152
 
-dd if=$TARGET_PATH/fat.img of=$TARGET_IMAGE bs=512 seek=20480
+dd if=$TARGET_PATH/fat.img of=$TARGET_IMAGE bs=512 seek=2048
 dd if=$TARGET_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=53248
 dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=61440
 dd if=$TARGET_PATH/boot.img of=$TARGET_IMAGE bs=512 seek=63488
@@ -21,9 +21,9 @@ dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=2473984
 dd if=/dev/zero of=$TARGET_IMAGE bs=512 seek=8847360 count=34
 
 $SGDISK_HOST \
-	--n=1:8192:16383 --change-name=1:security \
-	--n=2:16384:20479 --change-name=2:uboot \
-	--n=3:20480:53247 --change-name=3:fat \
+	--n=1:2048:40959 --change-name=1:fat \
+	--n=2:40960:49151 --change-name=2:security \
+	--n=3:49152:53247 --change-name=3:uboot \
 	--n=4:53248:61439 --change-name=4:misc \
 	--n=5:61440:63487 --change-name=5:vbmeta \
 	--n=6:63488:145407 --change-name=6:boot \

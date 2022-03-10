@@ -8,7 +8,7 @@ source_dir := $(intermediates)/fat
 build_fat_img := $(intermediates)/fat.img
 build_boot_scr := $(intermediates)/boot.scr
 
-target_partition_size := 16384
+target_partition_size := 19456
 
 MKFS_FAT= device/hardkernel/proprietary/bin/mkfs.fat
 AOSP_FAT16COPY := build/make/tools/fat16copy.py
