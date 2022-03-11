@@ -222,6 +222,27 @@ endif
 .PHONY: logoimg
 logoimg: $(INSTALLED_AML_LOGO)
 
+INSTALLED_AML_OEM_IMAGE := $(PRODUCT_OUT)/oem_avb.img
+
+.PHONY:oemimage
+oemimage: $(INSTALLED_AML_OEM_IMAGE)
+$(INSTALLED_AML_OEM_IMAGE): $(INTERNAL_USERIMAGES_DEPS) $(BOARD_AVB_OEM_IMAGE_LIST)
+	@echo Target custom image: $(INSTALLED_AML_OEM_IMAGE) *** $(INTERNAL_USERIMAGES_DEPS)
+	mkdir -p $(PRODUCT_OUT)
+	cp $(BOARD_AVB_OEM_IMAGE_LIST) $(INSTALLED_AML_OEM_IMAGE)
+ifeq ($(BOARD_AVB_ENABLE),true)
+	PATH=$(INTERNAL_USERIMAGES_BINARY_PATHS):prebuilts/build-tools/path/linux-x86:out/.path:$$$$PATH \
+    $(AVBTOOL) add_hashtree_footer \
+    --image $(INSTALLED_AML_OEM_IMAGE) \
+    --key $(BOARD_AVB_OEM_KEY_PATH) \
+    --algorithm $(BOARD_AVB_OEM_ALGORITHM) \
+    --partition_size $(BOARD_AVB_OEM_PARTITION_SIZE) \
+    --partition_name oem \
+    $(INTERNAL_AVB_CUSTOMIMAGES_SIGNING_ARGS) \
+    $(BOARD_AVB_OEM_ADD_HASHTREE_FOOTER_ARGS)
+endif
+
+
 ifeq ($(TARGET_GPT_PART), true)
 INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
 AML_GPT_TOOL := out/host/linux-x86/bin/makegpt
