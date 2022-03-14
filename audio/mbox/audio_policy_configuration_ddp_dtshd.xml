@@ -255,11 +255,11 @@
                 <route type="mix" sink="primary input"
                        sources="Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,Tuner"/>
                 <route type="mix" sink="BT A2DP Out"
-                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Headphones"
-                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Speaker"
-                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="echo reference"
                        sources="Echo Reference"/>
                 <route type="mix" sink="built-in mic"
