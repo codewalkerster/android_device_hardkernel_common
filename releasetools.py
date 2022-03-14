@@ -69,6 +69,10 @@ def InstallRKLoader(loader_bin, input_zip, info):
   except KeyError:
     print "no RKLoader.bin, ignore it."
 
+def InstallFat(fat_bin, input_zip, info):
+  common.ZipWriteStr(info.output_zip, "fat.img", fat_bin)
+  info.script.Print("Writing fat loader img...")
+  info.script.WriteRawImage("/fat", "fat.img")
 
 def InstallUboot(loader_bin, input_zip, info):
   common.ZipWriteStr(info.output_zip, "uboot.img", loader_bin)
@@ -107,6 +111,13 @@ def FullOTA_InstallEnd(info):
     InstallUboot(uboot, info.input_zip, info)
   except KeyError:
     print "warning: no uboot.img in input target_files; not flashing uboot"
+
+  try:
+    fat = info.input_zip.read("fat.img")
+    print "write fat now..."
+    InstallFat(fat, info.input_zip, info)
+  except KeyError:
+    print "warning: no fat.img in input target_files; not flashing fat"
 
   try:
     vbmeta = info.input_zip.read("IMAGES/vbmeta.img")
@@ -211,6 +222,22 @@ def IncrementalOTA_InstallEnd(info):
     InstallUboot(loader_uboot_target, info.target_zip, info)
   else:
     print "uboot unchanged; skipping"
+
+  try:
+    fat_target = info.target_zip.read("fat.img")
+  except KeyError:
+    fat_target = None
+
+  try:
+    fat_source = info.source_zip.read("fat.img")
+  except KeyError:
+    fat_source = None
+
+  if (fat_target != None) and (fat_target != fat_source):
+    print "write fat now..."
+    InstallFat(fat_target, info.target_zip, info)
+  else:
+    print "fat unchanged; skipping"
 
   try:
     charge_target = info.target_zip.read("charge.img")
