@@ -12,9 +12,11 @@ LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES := audio_effects.xml
 
+ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 LOCAL_POST_INSTALL_CMD += \
     ln -sf /oem/etc/audio_policy_configuration.xml $(TARGET_OUT_VENDOR)/etc/audio_policy_configuration.xml; \
     ln -sf /oem/etc/media_codecs.xml $(TARGET_OUT_VENDOR)/etc/media_codecs.xml; \
     ln -sf /oem/etc/media_codecs_performance.xml $(TARGET_OUT_VENDOR)/etc/media_codecs_performance.xml;
+endif
 
 include $(BUILD_PREBUILT)
