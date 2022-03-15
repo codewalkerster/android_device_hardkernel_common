@@ -49,11 +49,11 @@ kernel_exec[3]="./mk ohm -v 5.4 --fccpip"
 ###########################################################################################
 
 ###########################################################################################
-# OHMCAS
-project[4]="Ohmcas"
+# OHMCAS GTV
+project[4]="Ohmcas-GTV"
 soc[4]="S905C2"
 hardware[4]="AH232"
-module[4]="ohmcas"
+module[4]="ohmcas_gtv"
 uboot_path[4]="device/amlogic/ohmcas"
 uboot_exec_aosp[4]="./mk sc2_ah232  --vab --avb2"
 uboot_exec_drm[4]="./mk sc2_ah232  --vab --avb2"
@@ -61,23 +61,23 @@ kernel_exec[4]="./mk ohmcas -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
-# OPPEN
-project[5]="Oppen-GTV"
-soc[5]="S905Y4"
-hardware[5]="AP222"
-module[5]="oppen"
-uboot_path[5]="device/amlogic/oppen"
-uboot_exec_aosp[5]="./mk s4_ap222  --vab --avb2"
-uboot_exec_drm[5]="./mk s4_ap222  --vab --avb2"
-kernel_exec[5]="./mk oppen -v 5.4"
+# OHMCAS ATV
+project[5]="Ohmcas-ATV"
+soc[5]="S905C2"
+hardware[5]="AH232"
+module[5]="ohmcas_atv"
+uboot_path[5]="device/amlogic/ohmcas"
+uboot_exec_aosp[5]="./mk sc2_ah232  --vab --avb2"
+uboot_exec_drm[5]="./mk sc2_ah232  --vab --avb2"
+kernel_exec[5]="./mk ohmcas -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
-# OPPEN
-project[6]="Oppen-ATV"
+# OPPEN GTV
+project[6]="Oppen-GTV"
 soc[6]="S905Y4"
 hardware[6]="AP222"
-module[6]="oppen_atv"
+module[6]="oppen_gtv"
 uboot_path[6]="device/amlogic/oppen"
 uboot_exec_aosp[6]="./mk s4_ap222  --vab --avb2"
 uboot_exec_drm[6]="./mk s4_ap222  --vab --avb2"
@@ -85,164 +85,189 @@ kernel_exec[6]="./mk oppen -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
-# AP223
-project[7]="Oppen-GTV"
+# OPPEN ATV
+project[7]="Oppen-ATV"
 soc[7]="S905Y4"
-hardware[7]="AP223"
-module[7]="oppen"
+hardware[7]="AP222"
+module[7]="oppen_atv"
 uboot_path[7]="device/amlogic/oppen"
-uboot_path[7]="device/amlogic/oppen"
-uboot_exec_aosp[7]="./mk s4_ap223  --vab --avb2"
-uboot_exec_drm[7]="./mk s4_ap223  --vab --avb2"
+uboot_exec_aosp[7]="./mk s4_ap222  --vab --avb2"
+uboot_exec_drm[7]="./mk s4_ap222  --vab --avb2"
 kernel_exec[7]="./mk oppen -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
-# OPPENCAS
-project[8]="Oppencas"
-soc[8]="S905C3"
-hardware[8]="AP232"
-module[8]="oppencas"
-uboot_path[8]="device/amlogic/oppencas"
-uboot_exec_aosp[8]="./mk s4_ap232  --vab --avb2"
-uboot_exec_drm[8]="./mk s4_ap232  --vab --avb2"
-kernel_exec[8]="./mk oppencas -v 5.4"
+# AP223
+project[8]="Oppen-GTV"
+soc[8]="S905Y4"
+hardware[8]="AP223"
+module[8]="oppen"
+uboot_path[8]="device/amlogic/oppen"
+uboot_path[8]="device/amlogic/oppen"
+uboot_exec_aosp[8]="./mk s4_ap223  --vab --avb2"
+uboot_exec_drm[8]="./mk s4_ap223  --vab --avb2"
+kernel_exec[8]="./mk oppen -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
-# OPPENCAS MXL258C
-project[9]="Oppencas_mxl258c"
+# OPPENCAS
+project[9]="Oppencas-ATV"
 soc[9]="S905C3"
 hardware[9]="AP232"
-module[9]="oppencas_mxl258c"
+module[9]="oppencas_atv"
 uboot_path[9]="device/amlogic/oppencas"
 uboot_exec_aosp[9]="./mk s4_ap232  --vab --avb2"
 uboot_exec_drm[9]="./mk s4_ap232  --vab --avb2"
-kernel_exec[9]="./mk oppencas -v 5.4 --fccpip"
+kernel_exec[9]="./mk oppencas -v 5.4"
+###########################################################################################
+
+###########################################################################################
+# OPPENCAS
+project[10]="Oppencas-GTV"
+soc[10]="S905C3"
+hardware[10]="AP232"
+module[10]="oppencas_gtv"
+uboot_path[10]="device/amlogic/oppencas"
+uboot_exec_aosp[10]="./mk s4_ap232  --vab --avb2"
+uboot_exec_drm[10]="./mk s4_ap232  --vab --avb2"
+kernel_exec[10]="./mk oppencas -v 5.4"
+###########################################################################################
+
+
+###########################################################################################
+# OPPENCAS MXL258C
+project[11]="Oppencas_mxl258c"
+soc[11]="S905C3"
+hardware[11]="AP232"
+module[11]="oppencas_mxl258c"
+uboot_path[11]="device/amlogic/oppencas"
+uboot_exec_aosp[11]="./mk s4_ap232  --vab --avb2"
+uboot_exec_drm[11]="./mk s4_ap232  --vab --avb2"
+kernel_exec[11]="./mk oppencas -v 5.4 --fccpip"
 ###########################################################################################
 
 ###########################################################################################
 # PLANCK
-project[10]="Planck-GTV"
-soc[10]="S805X2"
-hardware[10]="AQ222"
-module[10]="planck"
-uboot_path[10]="device/amlogic/planck"
-uboot_exec_aosp[10]="./mk s4_aq222  --vab --avb2"
-uboot_exec_drm[10]="./mk s4_aq222  --vab --avb2"
-kernel_exec[10]="./mk planck -v 5.4"
+project[12]="Planck-GTV"
+soc[12]="S805X2"
+hardware[12]="AQ222"
+module[12]="planck_gtv"
+uboot_path[12]="device/amlogic/planck"
+uboot_exec_aosp[12]="./mk s4_aq222  --vab --avb2"
+uboot_exec_drm[12]="./mk s4_aq222  --vab --avb2"
+kernel_exec[12]="./mk planck -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
 # PLANCK
-project[11]="Planck-ATV"
-soc[11]="S805X2"
-hardware[11]="AQ222"
-module[11]="planck_atv"
-uboot_path[11]="device/amlogic/planck"
-uboot_exec_aosp[11]="./mk s4_aq222  --vab --avb2"
-uboot_exec_drm[11]="./mk s4_aq222  --vab --avb2"
-kernel_exec[11]="./mk planck -v 5.4"
-kernel_addr[11]="export KERNEL_A32_SUPPORT=true"
+project[13]="Planck-ATV"
+soc[13]="S805X2"
+hardware[13]="AQ222"
+module[13]="planck_atv"
+uboot_path[13]="device/amlogic/planck"
+uboot_exec_aosp[13]="./mk s4_aq222  --vab --avb2"
+uboot_exec_drm[13]="./mk s4_aq222  --vab --avb2"
+kernel_exec[13]="./mk planck -v 5.4"
+kernel_addr[13]="export KERNEL_A32_SUPPORT=true"
 ###########################################################################################
 
 ###########################################################################################
 # REDI
-project[12]="Redi"
-soc[12]="T950D4/T950X4"
-hardware[12]="AM301/AM311"
-module[12]="redi"
-uboot_path[12]="device/amlogic/redi"
-uboot_exec_aosp[12]="./mk t5d_am301_v1 --vab "
-uboot_exec_drm[12]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2"
-kernel_exec[12]="./mk redi -v 5.4"
+project[14]="Redi"
+soc[14]="T950D4/T950X4"
+hardware[14]="AM301/AM311"
+module[14]="redi"
+uboot_path[14]="device/amlogic/redi"
+uboot_exec_aosp[14]="./mk t5d_am301_v1 --vab "
+uboot_exec_drm[14]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2"
+kernel_exec[14]="./mk redi -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
 # Smith
-project[13]="Smith"
-soc[13]="S905X4"
-hardware[13]="AR321"
-module[13]="smith"
-uboot_path[13]="device/amlogic/smith"
-uboot_exec_aosp[13]="./mk t3_t965d4  --vab"
-uboot_exec_drm[13]="./mk t3_t965d4  --vab --avb2"
-kernel_exec[13]="./mk smith -v 5.4"
+project[15]="Smith"
+soc[15]="S905X4"
+hardware[15]="AR321"
+module[15]="smith"
+uboot_path[15]="device/amlogic/smith"
+uboot_exec_aosp[15]="./mk t3_t965d4  --vab"
+uboot_exec_drm[15]="./mk t3_t965d4  --vab --avb2"
+kernel_exec[15]="./mk smith -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
 # Soddy
-project[14]="Soddy"
-soc[14]="T962D4"
-hardware[14]="AT301"
-module[14]="soddy"
-uboot_path[14]="device/amlogic/soddy"
-uboot_exec_aosp[14]="./mk t5w_at301_v1  --vab"
-uboot_exec_drm[14]="./mk t5w_at301_v1  --vab --avb2"
-kernel_exec[14]="./mk soddy -v 5.4"
+project[16]="Soddy"
+soc[16]="T962D4"
+hardware[16]="AT301"
+module[16]="soddy"
+uboot_path[16]="device/amlogic/soddy"
+uboot_exec_aosp[16]="./mk t5w_at301_v1  --vab"
+uboot_exec_drm[16]="./mk t5w_at301_v1  --vab --avb2"
+kernel_exec[16]="./mk soddy -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
 # Marconi
-project[15]="Marconi"
-soc[15]="T962X2"
-hardware[15]="X301"
-module[15]="marconi"
-uboot_path[15]="device/amlogic/marconi"
-uboot_exec_aosp[15]="./mk tl1_x301_v1  --vab"
-uboot_exec_drm[15]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tl1/bl32.img --vab --avb2"
-kernel_exec[15]="./mk marconi -v 5.4"
+project[17]="Marconi"
+soc[17]="T962X2"
+hardware[17]="X301"
+module[17]="marconi"
+uboot_path[17]="device/amlogic/marconi"
+uboot_exec_aosp[17]="./mk tl1_x301_v1  --vab"
+uboot_exec_drm[17]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tl1/bl32.img --vab --avb2"
+kernel_exec[17]="./mk marconi -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
 # Dalton
-project[16]="Dalton"
-soc[16]="T962E2"
-hardware[16]="AB311"
-module[16]="dalton"
-uboot_path[16]="device/amlogic/marconi"
-uboot_exec_aosp[16]="./mk tm2_t962e2_ab311_v1  --vab"
-uboot_exec_drm[16]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tm2/bl32.img --vab --avb2"
-kernel_exec[16]="./mk dalton -v 5.4"
+project[18]="Dalton"
+soc[18]="T962E2"
+hardware[18]="AB311"
+module[18]="dalton"
+uboot_path[18]="device/amlogic/marconi"
+uboot_exec_aosp[18]="./mk tm2_t962e2_ab311_v1  --vab"
+uboot_exec_drm[18]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tm2/bl32.img --vab --avb2"
+kernel_exec[18]="./mk dalton -v 5.4"
 ###########################################################################################
 
 ###########################################################################################
 # Franklin
-project[17]="Franklin"
-soc[17]="S905X2"
-hardware[17]="U212"
-module[17]="franklin"
-uboot_path[17]="device/amlogic/franklin"
-uboot_exec_aosp[17]="./mk g12a_u212_v1  --vab --avb2"
-uboot_exec_drm[17]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
-kernel_exec[17]="./mk franklin -v 4.9"
-android_exec[17]="TARGET_BUILD_KERNEL_4_9=true"
+project[19]="Franklin"
+soc[19]="S905X2"
+hardware[19]="U212"
+module[19]="franklin"
+uboot_path[19]="device/amlogic/franklin"
+uboot_exec_aosp[19]="./mk g12a_u212_v1  --vab --avb2"
+uboot_exec_drm[19]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
+kernel_exec[19]="./mk franklin -v 4.9"
+android_exec[19]="TARGET_BUILD_KERNEL_4_9=true"
 ###########################################################################################
 
 ###########################################################################################
 # Newton
-project[18]="Newton"
-soc[18]="S905X3"
-hardware[18]="AC215"
-module[18]="newton"
-uboot_path[18]="device/amlogic/newton"
-uboot_exec_aosp[18]="./mk sm1_ac215_v1  --vab --avb2"
-uboot_exec_drm[18]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
-kernel_exec[18]="./mk newton -v 4.9"
-android_exec[18]="TARGET_BUILD_KERNEL_4_9=true"
+project[20]="Newton"
+soc[20]="S905X3"
+hardware[20]="AC215"
+module[20]="newton"
+uboot_path[20]="device/amlogic/newton"
+uboot_exec_aosp[20]="./mk sm1_ac215_v1  --vab --avb2"
+uboot_exec_drm[20]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
+kernel_exec[20]="./mk newton -v 4.9"
+android_exec[20]="TARGET_BUILD_KERNEL_4_9=true"
 ###########################################################################################
 
 ###########################################################################################
 # Franklin_Hybrid
-project[19]="Franklin_Hybrid"
-soc[19]="S905X2"
-hardware[19]="U215"
-module[19]="franklin_hybrid"
-uboot_path[19]="device/amlogic/franklin/franklin_hybrid"
-uboot_exec_aosp[19]="./mk g12a_u215_v1  --vab --avb2"
-uboot_exec_drm[19]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
-kernel_exec[19]="./mk franklin -v 4.9"
-android_exec[19]="TARGET_BUILD_KERNEL_4_9=true"
+project[21]="Franklin_Hybrid"
+soc[21]="S905X2"
+hardware[21]="U215"
+module[21]="franklin_hybrid"
+uboot_path[21]="device/amlogic/franklin/franklin_hybrid"
+uboot_exec_aosp[21]="./mk g12a_u215_v1  --vab --avb2"
+uboot_exec_drm[21]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2"
+kernel_exec[21]="./mk franklin -v 4.9"
+android_exec[21]="TARGET_BUILD_KERNEL_4_9=true"
 ###########################################################################################
 
 usage() {

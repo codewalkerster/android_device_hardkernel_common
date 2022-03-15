@@ -24,15 +24,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.need.display.hdmicec=true
 
 #camera max to 720p
-#PRODUCT_PROPERTY_OVERRIDES += \
-    #ro.media.camera_preview.maxsize=1280x720 \
-    #ro.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.camera_preview.maxsize=1280x720 \
+    vendor.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28
 
 #camera max to 1080p
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.media.camera_preview.maxsize=1920x1080 \
-    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
-    ro.media.camera_preview.usemjpeg=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    vendor.media.camera_preview.maxsize=1920x1080 \
+#    vendor.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
+#    vendor.media.camera_preview.usemjpeg=1
 
 # screencontrol option
 # The prop is used to limit record buffer size,
@@ -73,7 +73,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1
 
 #set memory upper limit for extractor process
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.maxmem=629145600
 
 #adb
@@ -163,7 +163,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.videolayerrotation.enable=false \
     vendor.omx2.nr.enable=true \
     vendor.omx2.di.localbuf.enable=true \
-    vendor.media.omx.secure.prealloc=true
+    vendor.media.omx2.support_passthrough=true
+
+ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.codec2.support=true \
+    vendor.media.codec2.disable_secure=false \
+    debug.stagefright.ccodec_delayed_params=true \
+    debug.stagefright.c2-poolmask=12910592 \
+    debug.c2.use_dmabufheaps=1
+endif
 
 #use dv frame mode
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -184,8 +193,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=fdd00000.dwc2_a
 
+ifeq ($(CONFIG_DEVICE_LOW_RAM),true)
+ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.tv.dtv.tsplayer.enable=true
+    vendor.media.c2.prealloc_small_segment=true
+endif
+endif
 
 #Global Settings Key
 ifeq ($(ATV_LAUNCHER),amati)
