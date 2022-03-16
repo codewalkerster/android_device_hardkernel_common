@@ -1,3 +1,5 @@
+setenv bootlabel "Android 11"
+
 echo Start boot.scr booting.
 
 echo "  Init default values"
