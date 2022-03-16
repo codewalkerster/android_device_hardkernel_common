@@ -6,16 +6,12 @@ intermediates := $(call intermediates-dir-for,FAKE,hardkernel_fat)
 
 source_dir := $(intermediates)/fat
 build_fat_img := $(intermediates)/fat.img
-build_boot_scr := $(intermediates)/boot.scr
+build_boot_scr := $(PRODUCT_OUT)/boot.scr
 
 target_partition_size := 19456
 
 MKFS_FAT= device/hardkernel/proprietary/bin/mkfs.fat
 AOSP_FAT16COPY := build/make/tools/fat16copy.py
-BOOT_SCRIPT_TOOL := device/hardkernel/common/boot_script/mkbootscript.sh
-
-$(build_boot_scr) : $(PRODUCT_OUT)/boot.cmd
-	$(BOOT_SCRIPT_TOOL) $^ $(build_boot_scr)
 
 $(build_fat_img) : $(build_boot_scr) $(PRODUCT_DTB_TARGET)
 	@echo "Build dtb image file $@."

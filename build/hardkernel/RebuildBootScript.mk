@@ -9,8 +9,10 @@ mtd := "sfc_nor:0x20000@0xe0000(env),0x200000@0x100000(uboot),0x100000@0x300000(
 
 intermediates := $(call intermediates-dir-for,FAKE,hardkernel_bootscript)
 rebuild_bootscript := $(intermediates)/boot.cmd
+rebuild_bootscr := $(intermediates)/boot.scr
 
 HARDKERNEL_BOOTSCRIP_TOOLS := $(SOONG_HOST_OUT_EXECUTABLES)/bootscript_tools
+BOOT_SCRIPT_TOOL := device/hardkernel/common/boot_script/mkbootscript.sh
 
 $(rebuild_bootscript) : $(PRODUCT_BOOTSCRIPT_TEMPLATE) $(HARDKERNEL_BOOTSCRIP_TOOLS)
 	@echo "Building boot.cmd $@."
@@ -22,9 +24,20 @@ $(rebuild_bootscript) : $(PRODUCT_BOOTSCRIPT_TEMPLATE) $(HARDKERNEL_BOOTSCRIP_TO
 	--mtd $(mtd) \
 	--output $(rebuild_bootscript)
 
+$(rebuild_bootscr) : $(rebuild_bootscript)
+	$(BOOT_SCRIPT_TOOL) $^ $(rebuild_bootscr)
+
 INSTALLED_HK_BOOTSCRIPT := $(PRODUCT_OUT)/$(notdir $(rebuild_bootscript))
 $(INSTALLED_HK_BOOTSCRIPT) : $(rebuild_bootscript)
 	$(call copy-file-to-new-target-with-cp)
 
-ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_HK_BOOTSCRIPT)
+INSTALLED_HK_BOOTSCR := $(PRODUCT_OUT)/$(notdir $(rebuild_bootscr))
+$(INSTALLED_HK_BOOTSCR) : $(rebuild_bootscr)
+	$(call copy-file-to-new-target-with-cp)
+
+INSTALLED_HK_VENDOR_BOOTSCR := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/etc/$(notdir $(rebuild_bootscr))
+$(INSTALLED_HK_VENDOR_BOOTSCR) : $(rebuild_bootscr)
+	$(call copy-file-to-new-target-with-cp)
+
+ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_HK_BOOTSCRIPT) $(INSTALLED_HK_BOOTSCR) $(INSTALLED_HK_VENDOR_BOOTSCR)
 endif
