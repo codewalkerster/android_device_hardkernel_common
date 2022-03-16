@@ -17,6 +17,7 @@ allow hal_audio_default sysfs_video:dir search;
 allow hal_audio_default vendor_video_device:chr_file rw_file_perms;
 allow hal_audio_default self:netlink_kobject_uevent_socket { bind create read setopt };
 allow hal_audio_default sysfs_avsync:file rw_file_perms;
+allow hal_audio_default sysfs_cec:file { read open getattr};
 
 #--------------------------------------------------------------------#
 #  product_shipping_api_level=28
