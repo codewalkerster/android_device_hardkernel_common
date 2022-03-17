@@ -94,6 +94,10 @@ if [ -f oem.img ]
 then
 flash_with_retry oem oem.img
 fi
+if [ -f init_boot.img ]
+then
+	flash_with_retry init_boot init_boot.img
+fi
 flash_with_retry boot boot.img
 flash_with_retry recovery recovery.img
 flash_with_retry super super_empty_all.img

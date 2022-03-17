@@ -40,6 +40,9 @@ fastboot flash oem oem.img
 if exist vbmeta_system.img (
 fastboot flash vbmeta_system vbmeta_system.img
 )
+if exist init_boot.img (
+fastboot flash init_boot init_boot.img
+)
 fastboot flash boot boot.img
 fastboot flash recovery recovery.img
 fastboot flash super super_empty_all.img

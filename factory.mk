@@ -20,6 +20,10 @@ ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 BUILT_IMAGES += vendor_boot.img
 endif
 
+ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+BUILT_IMAGES += init_boot.img
+endif
+
 VB_CHECK_IMAGES := vbmeta.img boot.img
 VB_CHECK_IMAGES += vendor.img system.img product.img dtbo.img
 ifneq ($(TARGET_NO_RECOVERY),true)
@@ -28,6 +32,10 @@ endif
 
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 VB_CHECK_IMAGES += vendor_boot.img
+endif
+
+ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+VB_CHECK_IMAGES += init_boot.img
 endif
 
 ifeq ($(BOARD_USES_ODMIMAGE),true)
@@ -473,6 +481,10 @@ ifneq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 	echo "delete oem.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/oem.img/d" $(PACKAGE_CONFIG_FILE)
 endif
+ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
+	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
+	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
+endif
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
 	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
@@ -532,6 +544,10 @@ endif
 
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 FASTBOOT_IMAGES += vendor_boot.img
+endif
+
+ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+FASTBOOT_IMAGES += init_boot.img
 endif
 
 ifdef BOARD_PREBUILT_DTBOIMAGE

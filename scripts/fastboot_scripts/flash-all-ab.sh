@@ -102,6 +102,10 @@ then
 	flash_with_retry oem_a oem.img
 	flash_with_retry oem_b oem.img
 fi
+if [ -f init_boot.img ]
+then
+	flash_with_retry init_boot init_boot.img
+fi
 flash_with_retry vbmeta_system vbmeta_system.img
 flash_with_retry boot boot.img
 flash_with_retry vendor_boot vendor_boot.img
