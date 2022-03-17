@@ -1,3 +1,4 @@
+ifeq ($(filter adt2 adt3 deadpool sabrina boreal,$(TARGET_DEVICE)),)
 LOCAL_PATH := $(my-dir)
 ##############################
 
@@ -20,3 +21,4 @@ LOCAL_POST_INSTALL_CMD += \
 endif
 
 include $(BUILD_PREBUILT)
+endif
