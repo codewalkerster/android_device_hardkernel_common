@@ -15,7 +15,7 @@
 on init
     # Mount tmpfs
     wait /odm/lib/ms12 2
-    mount tmpfs tmpfs /odm/lib size=10240K,context=u:object_r:dolbyms12:s0 rw
+    mount tmpfs tmpfs /odm/lib size=10240K rw
 
     exec - root root -- /vendor/bin/toybox_vendor mkdir /odm/lib/ms12
     exec - root root -- /vendor/bin/toybox_vendor ln -s /odm_dlkm/lib/modules /odm/lib/modules

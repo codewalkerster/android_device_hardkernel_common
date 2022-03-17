@@ -1,0 +1,13 @@
+
+type vendor_toolbox, domain;
+
+init_daemon_domain(vendor_toolbox)
+
+# allows creating files in tmpfs
+allow vendor_toolbox tmpfs:dir { create open add_name write };
+allow vendor_toolbox tmpfs:file { create read write open getattr };
+allow vendor_toolbox tmpfs:lnk_file { create };
+
+# /oem accesses.
+allow vendor_toolbox oemfs:dir search;
+r_dir_file(vendor_toolbox, oemfs)
