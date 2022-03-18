@@ -241,10 +241,6 @@ PRODUCT_PACKAGES += \
     amlMpPlayerDemo.vendor \
     libamlMpTestSupporterJni.vendor
 
-PRODUCT_PACKAGES += \
-    libAmIptvMedia \
-    MultiMediaPlayer
-
 endif
 
 #########################################################################
