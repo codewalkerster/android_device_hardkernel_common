@@ -531,8 +531,8 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4-service.widevine \
-    android.hardware.drm@1.4-service.clearkey \
+    android.hardware.drm-service.widevine \
+    android.hardware.drm-service.clearkey \
     move_widevine_data.sh \
     android.hardware.drm@1.4-service.playready
 

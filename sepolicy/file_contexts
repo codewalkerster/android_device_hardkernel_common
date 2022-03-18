@@ -437,7 +437,7 @@
 /vendor/bin/hw/android\.hardware\.health@2\.1-service.droidlogic         u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.ir-service.droidlogic                   u:object_r:hal_ir_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.1-service.droidlogic      u:object_r:hal_dumpstate_default_exec:s0
-/vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.widevine   u:object_r:hal_drm_default_exec:s0
+/vendor/bin/hw/android\.hardware\.drm-service\.widevine                  u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.playready  u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.clearkey   u:object_r:hal_drm_clearkey_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.netflix    u:object_r:hal_drm_default_exec:s0
