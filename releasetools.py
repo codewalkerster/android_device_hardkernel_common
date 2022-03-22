@@ -275,25 +275,6 @@ def IncrementalOTA_InstallEnd(info):
     print "resource unchanged; skipping"
 
   try:
-    target_loader = info.target_zip.read("RKLoader.bin")
-  except KeyError:
-    print "warning: rk loader bin missing from target; not flashing loader"
-    target_loader = None
-    return
-
-  try:
-    source_loader = info.source_zip.read("RKLoader.bin")
-  except KeyError:
-    print "warning: rk loader bin missing from source; not flashing loader"
-    source_loader = None
-
-  if (target_loader != None) and (source_loader != target_loader):
-    print "write loader now..."
-    InstallRKLoader(target_loader, info.target_zip, info)
-  else:
-    print "loader unchanged; skipping"
-
-  try:
     vendor_boot_target = info.target_zip.read("IMAGES/vendor_boot.img")
   except KeyError:
     vendor_boot_target = None
