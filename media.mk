@@ -245,6 +245,22 @@ endif
 
 #########################################################################
 #
+#                                    Resman json
+#
+#########################################################################
+#enable resman config from json
+BUILD_WITH_RESMAN_JSON := true
+
+ifeq ($(BUILD_WITH_RESMAN_JSON), true)
+
+PRODUCT_PACKAGES += resmanload
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/resman.json:$(TARGET_COPY_OUT_VENDOR)/etc/resman.json
+
+endif
+
+#########################################################################
+#
 #                                Miracast Application
 ##########################################################################
 ifeq ($(BUILD_WITH_MIRACAST), true)
