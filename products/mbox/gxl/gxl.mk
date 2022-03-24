@@ -148,8 +148,7 @@ PRODUCT_COPY_FILES += \
 
 #consumerir hal
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl \
-    android.hardware.ir@1.0-service
+    android.hardware.ir-service.droidlogic
 
 #########################################################################
 #

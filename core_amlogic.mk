@@ -477,7 +477,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power.aidl-service.droidlogic
 
 #Memtack HAL
-ifeq ($(LAUNCH_ON_S),true)
+ifeq ($(LAUNCH_ON_T),true)
 PRODUCT_PACKAGES += \
      android.hardware.memtrack-service.droidlogic
 else
@@ -498,8 +498,12 @@ PRODUCT_PACKAGES += \
    android.hardware.graphics.composer@2.4-service.droidlogic
 
 # dumpstate binderized
+#PRODUCT_PACKAGES += \
+#    android.hardware.dumpstate@1.1-service.droidlogic
+
+#consumerir hal
 PRODUCT_PACKAGES += \
-    android.hardware.dumpstate@1.1-service.droidlogic
+    android.hardware.ir-service.droidlogic
 
 # Keymaster HAL
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)
