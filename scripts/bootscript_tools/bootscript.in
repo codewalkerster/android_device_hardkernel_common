@@ -52,17 +52,17 @@ if bcb load $$devnum misc; then
 
 	mmc read $$loadaddr $$boot_start $$boot_size
 
-	load $$devtype $$devnum:3 $$ini_addr_r config.ini
+	load $$devtype $$devnum:1 $$ini_addr_r config.ini
 	ini generic $$ini_addr_r
 
 	echo "  Load Device Tree"
-	load $$devtype $$devnum:3 $$fdt_addr_r rockchip/rk3568-odroid-m1.dtb
+	load $$devtype $$devnum:1 $$fdt_addr_r rockchip/rk3568-odroid-m1.dtb
 
 	fdt addr $$fdt_addr_r
 	fdt resize $$overlays_resize
 
 	for overlay in $$overlays; do
-		load $$devtype $$devnum:3 $$dtbo_addr_r rockchip/overlays/odroidm1/$$overlay.dtbo
+		load $$devtype $$devnum:1 $$dtbo_addr_r rockchip/overlays/odroidm1/$$overlay.dtbo
 		fdt apply $$dtbo_addr_r
 
 		ini $$overlay $$ini_addr_r
