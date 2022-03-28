@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Emit commands needed for Rockchip devices during OTA installation
-(installing the RK30xxLoader.bin)."""
+"""Emit commands needed for Odroid devices during OTA installation."""
 
 import common
 import re
@@ -59,15 +58,6 @@ def Install_Parameter(parameter_bin, input_zip, info):
     info.script.FormatPartition("/data");
   except KeyError:
     print "no parameter.bin, ignore it."
-
-def InstallRKLoader(loader_bin, input_zip, info):
-  try:
-    print "wirte RKLoader.bin now..."
-    #info.script.Print("Writing rk loader bin...")
-    common.ZipWriteStr(info.output_zip, "RKLoader.bin", loader_bin)
-    #info.script.WriteRawLoaderImage()
-  except KeyError:
-    print "no RKLoader.bin, ignore it."
 
 def InstallFat(fat_bin, input_zip, info):
   common.ZipWriteStr(info.output_zip, "fat.img", fat_bin)
@@ -151,21 +141,6 @@ def FullOTA_InstallEnd(info):
     InstallResource(resource, info.input_zip, info)
   except KeyError:
     print "info: no resource image; ignore it."
-
-#  try:
-#    loader_bin = info.input_zip.read("LOADER/RKLoader.img")
-#  except KeyError:
-#    # print "warning: no rk loader bin in input target_files; not flashing loader"
-#    print "no rk loader bin in input target_files; not flashing loader"
-#    print "to add clear misc command"
-#    info.script.ClearMiscCommand()
-#    return
-
-  try:
-    loader_bin = info.input_zip.read("RKLoader.bin")
-    InstallRKLoader(loader_bin, info.input_zip, info)
-  except KeyError:
-    print "no RKLoader.bin, ignore it."
 
   try:
     vendor_boot = info.input_zip.read("IMAGES/vendor_boot.img")
