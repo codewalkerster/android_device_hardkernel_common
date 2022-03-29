@@ -88,6 +88,10 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     OdroidSettings
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.url.official=https://dn.odroid.com/RK3568/ODROID-M1/Android/11/ \
+    ro.url.mirror=https://www.odroid.in/mirror/dn.odroid.com/RK3568/ODROID-M1/Android/11/
+
+PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=4 \
     dalvik.vm.dex2oat-threads=4
 
