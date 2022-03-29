@@ -58,7 +58,7 @@ allow dtvkitserver sysfs_stb:file { open read getattr write };
 allow dtvkitserver drm_device:chr_file { read write open ioctl };
 allow dtvkitserver cert_device:chr_file rw_file_perms;
 allow dtvkitserver system_data_file:file { read getattr };
-allow dtvkitserver key_device:chr_file { read open getattr };
+allow dtvkitserver key_device:chr_file rw_file_perms;
 allow dtvkitserver mnt_vendor_file:dir { search };
 allow dtvkitserver metadata_file:dir r_dir_perms;
 allow dtvkitserver self:udp_socket { create };
