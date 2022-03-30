@@ -135,15 +135,15 @@ cp -a rkst/Image/pcba_small_misc.img $IMAGE_PATH/pcba_small_misc.img
 cp -a rkst/Image/pcba_whole_misc.img $IMAGE_PATH/pcba_whole_misc.img
 echo "done."
 
-if [ "$TARGET_BOARD_HARDWARE" != "odroid" ]; then
 if [ -f $UBOOT_PATH/uboot.img ]
 then
 	echo "create uboot.img..."
 	cp -a $UBOOT_PATH/uboot.img $IMAGE_PATH/uboot.img
 else
-	echo "$UBOOT_PATH/uboot.img not fount! Please make it from $UBOOT_PATH first!"
+	echo "$UBOOT_PATH/uboot.img not fount! So uboot.img will not be included."
 fi
 
+if [ "$TARGET_BOARD_HARDWARE" != "odroid" ]; then
 if [ "$HIGH_RELIABLE_RECOVERY_OTA" = "true" ]; then
 	if [ -f $UBOOT_PATH/uboot_ro.img ]
 	then
