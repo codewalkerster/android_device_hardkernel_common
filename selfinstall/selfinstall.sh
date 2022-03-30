@@ -9,7 +9,7 @@ TARGET_IMAGE=$TARGET_PATH/selfinstall.img
 HOST_OUT=`get_build_var HOST_OUT_EXECUTABLES`
 SGDISK_HOST=$HOST_OUT/sgdisk
 
-if [ -f $TARGET_PATH/uboot.img ]; then;
+if [ -f $TARGET_PATH/uboot.img ]; then
 	dd if=$TARGET_PATH/uboot.img of=$TARGET_IMAGE bs=512 seek=49152
 fi
 
