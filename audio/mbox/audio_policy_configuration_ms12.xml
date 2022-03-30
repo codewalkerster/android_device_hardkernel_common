@@ -115,9 +115,13 @@
                 <mixPort name="tunnel direct output" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
                     <profile name=""/>
                 </mixPort>
+                <mixPort name="mmap_no_irq_out_dynamic" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="48000"/>
+                </mixPort>
                 <mixPort name="mmap_no_irq_out" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="48000"/>
+                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
                 <mixPort name="primary input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
@@ -231,7 +235,7 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="HDMI Out"
-                       sources="primary output,tunnel pcm,direct output,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,tunnel direct output"/>
+                       sources="primary output,tunnel pcm,direct output,Tuner,mmap_no_irq_out_dynamic,compress offload,tunnel compress offload,tunnel direct output"/>
                 <route type="mix" sink="Speaker"
                        sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
                 <route type="mix" sink="BT SCO"
