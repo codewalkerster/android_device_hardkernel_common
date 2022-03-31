@@ -66,6 +66,17 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
+                <mixPort name="compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
+                    <profile name="aac latm raw" format="AUDIO_FORMAT_AAC_HE_V1"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                    <profile name="aac adts raw" format="AUDIO_FORMAT_AAC_HE_V2"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                    <profile name="mpeg raw" format="AUDIO_FORMAT_MP3"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                </mixPort>
                 <mixPort name="direct output" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
                     <profile name=""/>
                 </mixPort>
@@ -192,17 +203,17 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="HDMI Out"
-                       sources="primary output,tunnel pcm,direct output,Tuner,mmap_no_irq_out_dynamic,tunnel direct output"/>
+                       sources="primary output,tunnel pcm,direct output,Tuner,mmap_no_irq_out_dynamic,compress offload,tunnel direct output"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT SCO"
-                       sources="primary output,BT SCO Headset Mic,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT SCO Headset"
-                       sources="primary output,BT SCO Headset Mic,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="Wired Headset"
-                       sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="Wired Headphones"
-                       sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="primary input"
                        sources="Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,Tuner"/>
                 <route type="mix" sink="BT A2DP Out"
