@@ -221,6 +221,7 @@
 /sys/class/audiodsp/digital_raw					u:object_r:sysfs_audio:s0
 /sys/class/audiodsp/codec_fatal_err                             u:object_r:sysfs_audio:s0
 /sys/class/amaudio/debug                                        u:object_r:sysfs_audio:s0
+/sys/class/amaudio/codec_report_info                            u:object_r:sysfs_audio:s0
 /sys/class/video/hdmin_delay_duration                           u:object_r:sysfs_avsync:s0
 /sys/class/video/vframe_walk_delay                              u:object_r:sysfs_avsync:s0
 /sys/class/video/hdmin_delay_max_ms                             u:object_r:sysfs_avsync:s0
@@ -502,6 +503,7 @@
 /vendor/lib(64)?/libscreencontrolclient\.so        u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkithidlclient\.so           u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkit_jni\.so                 u:object_r:vendor_app_file:s0
+
 
 
 /dev/hidraw[0-9]*	u:object_r:hidraw_audio_device:s0

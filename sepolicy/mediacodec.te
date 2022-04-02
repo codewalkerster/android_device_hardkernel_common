@@ -6,6 +6,7 @@ allow mediacodec audio_device:chr_file { setattr open read write };
 set_prop(mediacodec, vendor_media_prop)
 get_prop(mediacodec, vendor_media_prop)
 allow mediacodec vendor_default_prop:file { read open getattr map };
+allow mediaswcodec sysfs_audio:file rw_file_perms;
 
 allow mediacodec kernel:system module_request;
 allow mediacodec mediaserver:dir { search };
