@@ -173,6 +173,9 @@
 /dev/teepriv0           		u:object_r:drm_device:s0
 /dev/amlsec-mkl0    			u:object_r:cert_device:s0
 /dev/nocs-ca-cert0    			u:object_r:cert_device:s0
+/dev/socdata    			    u:object_r:cert_device:s0
+/dev/aml_crypto        			u:object_r:cert_device:s0
+/dev/efuse        			u:object_r:cert_device:s0
 /dev/ttyS[1-2]      			u:object_r:hci_attach_dev:s0
 /dev/tvafe0             		u:object_r:video_device:s0
 /dev/vdin0              		u:object_r:video_device:s0
