@@ -445,8 +445,8 @@ PRODUCT_PACKAGES += \
      android.hardware.wifi@1.0-service.droidlogic \
      android.hardware.usb@1.0-service
 
-# healthd hal 2.1
-PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
+# healthd aidl hal
+PRODUCT_PACKAGES += android.hardware.health-service.droidlogic
 
 #Audio HAL
 PRODUCT_PACKAGES += \
