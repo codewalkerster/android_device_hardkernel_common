@@ -44,7 +44,9 @@ soong_config_string_variable {
         "gxtvbb",
         "gxl",
         "g12a",
-        "g12b"
+        "g12b",
+        "deadpool",
+        "sc2",
     ],
 }
 
