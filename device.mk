@@ -1026,6 +1026,11 @@ PRODUCT_PACKAGES += \
     fw_printenv \
     fw_setenv
 
+#wiringPi
+PRODUCT_PACKAGES += \
+    wiringPi \
+    gpio
+
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(TARGET_BOARD_PLATFORM)/$(TARGET_PRODUCT)/fw_env/fw_env.config:system/etc/fw_env.config
 
