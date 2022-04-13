@@ -446,8 +446,11 @@ PRODUCT_PACKAGES += \
      android.hardware.usb@1.0-service
 
 # healthd aidl hal
+ifeq ($(LAUNCH_ON_T),true)
 PRODUCT_PACKAGES += android.hardware.health-service.droidlogic
-
+else
+PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
+endif
 #Audio HAL
 PRODUCT_PACKAGES += \
      android.hardware.audio@6.0-impl:32 \
