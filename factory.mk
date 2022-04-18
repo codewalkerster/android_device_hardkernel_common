@@ -113,6 +113,7 @@ AML_TARGET := $(PRODUCT_OUT)/obj/PACKAGING/target_files_intermediates/$(name_aml
 AML_TARGET_ZIP := $(PRODUCT_OUT)/super_empty_all.img
 
 ifeq ($(BUILD_WITH_AVB),true)
+ifneq ($(TARGET_GPT_PART),true)
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += \
     --include_descriptors_from_image $(INSTALLED_BOARDDTB_TARGET)
 
@@ -122,6 +123,7 @@ $(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL)
 # Add a dependency of dtb.img to vbmeta.img
 $(INSTALLED_VBMETAIMAGE_TARGET): $(INSTALLED_BOARDDTB_TARGET)
 vbmetaimage: $(INSTALLED_BOARDDTB_TARGET)
+endif
 endif
 
 

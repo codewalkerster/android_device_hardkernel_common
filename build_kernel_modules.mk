@@ -183,10 +183,12 @@ $(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL) $(LOCAL_DTB) $(MINIGZIP) | $(ACP)
 	$(hide) $(call aml-secureboot-sign-bin, $@)
 	@echo "Instaled $@"
 ifeq ($(BOARD_AVB_ENABLE),true)
+ifneq ($(TARGET_GPT_PART),true)
 	$(AVBTOOL) add_hash_footer \
 	  --image $@ \
 	  --partition_size $(BOARD_DTBIMAGE_PARTITION_SIZE) \
 	  --partition_name dt
+endif
 endif
 
 ifneq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
