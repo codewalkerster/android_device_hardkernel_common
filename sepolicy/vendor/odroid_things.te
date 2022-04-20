@@ -9,5 +9,5 @@ allow odroid_thing hwservicemanager_prop:file { getattr map open read };
 allow odroid_thing sysfs:file { getattr open read };
 allow odroid_thing vndbinder_device:chr_file { read write open ioctl };
 allow odroid_thing vndservicemanager:binder { call transfer };
-allow odroid_thing { odroidthing_hwservice hidl_base_hwservice }:hwservice_manager { add };
-allow odroid_thing odroidthing_hwservice:hwservice_manager { find };
+allow odroid_thing hidl_base_hwservice:hwservice_manager { add };
+allow odroid_thing odroidthing_hwservice:hwservice_manager { add find };

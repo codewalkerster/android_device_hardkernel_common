@@ -1028,11 +1028,18 @@ PRODUCT_PACKAGES += \
 
 #wiringPi
 PRODUCT_PACKAGES += \
-    wiringPi \
+    libwiringPi \
+    libwiringPiDev \
     gpio
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(TARGET_BOARD_PLATFORM)/$(TARGET_PRODUCT)/fw_env/fw_env.config:system/etc/fw_env.config
+
+PRODUCT_PACKAGES += \
+    Things \
+    odroidThings \
+    com.google.android.things.xml \
+    vendor.hardkernel.hardware.odroidthings@1.0-service
 
 PRODUCT_PACKAGES += \
     mkfs.exfat \
