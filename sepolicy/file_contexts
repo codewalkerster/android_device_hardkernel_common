@@ -448,7 +448,7 @@
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.boot@1\.[0-9]+-service.droidlogic      u:object_r:hal_bootctl_default_exec:s0
 
-/vendor/bin/hw/android\.hardware\.graphics\.composer@2\.[1-4]-service\.droidlogic u:object_r:hal_graphics_composer_default_exec:s0
+/vendor/bin/hw/android\.hardware\.graphics\.composer.*\.droidlogic       u:object_r:hal_graphics_composer_default_exec:s0
 /vendor/bin/hw/android\.hardware\.memtrack-service\.droidlogic           u:object_r:hal_memtrack_default_exec:s0
 /vendor/bin/hw/android\.hardware\.thermal@2\.0-service.droidlogic        u:object_r:hal_thermal_default_exec:s0
 /vendor/bin/hw/android\.hardware\.oemlock-service\.droidlogic            u:object_r:hal_oemlock_default_exec:s0
