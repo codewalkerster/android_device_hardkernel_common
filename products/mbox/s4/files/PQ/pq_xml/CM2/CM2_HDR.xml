@@ -712,6 +712,12 @@
 <Control ui_type="slider" name="luma_value" range="0~255" addr="0x21b" mask="31:24" dst="U" desc="luma_value" default="7" value="7" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="hue_value" range="0~4095" addr="0x21b" mask="23:12" dst="U" desc="hue_value" default="4080" value="4080" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="sat_value" range="0~4095" addr="0x21b" mask="11:0" dst="U" desc="sat_value" default="2048" value="2048" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_max" range="0~4095" addr="0x21c" mask="27:16" dst="U" desc="xvycc_y_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_min" range="0~4095" addr="0x21c" mask="11:0" dst="U" desc="xvycc_y_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_max" range="0~4095" addr="0x21d" mask="27:16" dst="U" desc="xvycc_u_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_min" range="0~4095" addr="0x21d" mask="11:0" dst="U" desc="xvycc_u_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_max" range="0~4095" addr="0x21e" mask="27:16" dst="U" desc="xvycc_v_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_min" range="0~4095" addr="0x21e" mask="11:0" dst="U" desc="xvycc_v_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
 </Page>
 </Group>
 <Group num="1" val="">
@@ -1426,6 +1432,12 @@
 <Control ui_type="slider" name="luma_value" range="0~255" addr="0x21b" mask="31:24" dst="U" desc="luma_value" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="hue_value" range="0~4095" addr="0x21b" mask="23:12" dst="U" desc="hue_value" default="4080" value="4080" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="sat_value" range="0~4095" addr="0x21b" mask="11:0" dst="U" desc="sat_value" default="2048" value="2048" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_max" range="0~4095" addr="0x21c" mask="27:16" dst="U" desc="xvycc_y_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_min" range="0~4095" addr="0x21c" mask="11:0" dst="U" desc="xvycc_y_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_max" range="0~4095" addr="0x21d" mask="27:16" dst="U" desc="xvycc_u_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_min" range="0~4095" addr="0x21d" mask="11:0" dst="U" desc="xvycc_u_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_max" range="0~4095" addr="0x21e" mask="27:16" dst="U" desc="xvycc_v_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_min" range="0~4095" addr="0x21e" mask="11:0" dst="U" desc="xvycc_v_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
 </Page>
 </Group>
 <Group num="2" val="">
@@ -2140,6 +2152,12 @@
 <Control ui_type="slider" name="luma_value" range="0~255" addr="0x21b" mask="31:24" dst="U" desc="luma_value" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="hue_value" range="0~4095" addr="0x21b" mask="23:12" dst="U" desc="hue_value" default="4080" value="4080" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="sat_value" range="0~4095" addr="0x21b" mask="11:0" dst="U" desc="sat_value" default="2048" value="2048" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_max" range="0~4095" addr="0x21c" mask="27:16" dst="U" desc="xvycc_y_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_min" range="0~4095" addr="0x21c" mask="11:0" dst="U" desc="xvycc_y_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_max" range="0~4095" addr="0x21d" mask="27:16" dst="U" desc="xvycc_u_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_min" range="0~4095" addr="0x21d" mask="11:0" dst="U" desc="xvycc_u_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_max" range="0~4095" addr="0x21e" mask="27:16" dst="U" desc="xvycc_v_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_min" range="0~4095" addr="0x21e" mask="11:0" dst="U" desc="xvycc_v_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
 </Page>
 </Group>
 <Group num="3" val="">
@@ -2854,6 +2872,12 @@
 <Control ui_type="slider" name="luma_value" range="0~255" addr="0x21b" mask="31:24" dst="U" desc="luma_value" default="7" value="7" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="hue_value" range="0~4095" addr="0x21b" mask="23:12" dst="U" desc="hue_value" default="4080" value="4080" cmd="cm:0xff0075c0,0xff0075c4"/>
 <Control ui_type="slider" name="sat_value" range="0~4095" addr="0x21b" mask="11:0" dst="U" desc="sat_value" default="2048" value="2048" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_max" range="0~4095" addr="0x21c" mask="27:16" dst="U" desc="xvycc_y_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_y_min" range="0~4095" addr="0x21c" mask="11:0" dst="U" desc="xvycc_y_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_max" range="0~4095" addr="0x21d" mask="27:16" dst="U" desc="xvycc_u_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_u_min" range="0~4095" addr="0x21d" mask="11:0" dst="U" desc="xvycc_u_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_max" range="0~4095" addr="0x21e" mask="27:16" dst="U" desc="xvycc_v_max" default="4095" value="4095" cmd="cm:0xff0075c0,0xff0075c4"/>
+<Control ui_type="slider" name="xvycc_v_min" range="0~4095" addr="0x21e" mask="11:0" dst="U" desc="xvycc_v_min" default="0" value="0" cmd="cm:0xff0075c0,0xff0075c4"/>
 </Page>
 </Group>
 </Form>

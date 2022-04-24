@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Form name="DEBLOCK_MPEG" platform="txlx" commands="">
 <Group num="0" val="0">
-<Page tab_title="" layout="18x4">
-<Control ui_type="checkbox" name="reg_dnr_en" range="0~1" addr="0x2d00" mask="16:16" dst="U" desc="reg_dnr_en, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_vdbstep" range="0~1" addr="0x2d00" mask="15:15" dst="U" desc="reg_dnr_db_vdbstep,vdb step,0:4, 1:8, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_vdbprten" range="0~1" addr="0x2d00" mask="14:14" dst="U" desc="reg_dnr_db_vdbprten,vdb protectoin enable, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_luma_en" range="0~1" addr="0x2d00" mask="12:12" dst="U" desc="reg_dnr_luma_en,enable ycbcr2luma module,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_mode" range="0~3" addr="0x2d00" mask="11:10" dst="U" desc="reg_dnr_db_mode,deblocking mode, 0: disable, 1: horizontal deblocking, 2: vertical deblocking, 3: horizontal and vertical deblocking,default = 3" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_chrmen" range="0~1" addr="0x2d00" mask="9:9" dst="U" desc="reg_dnr_db_chrmen,enable chroma deblocking,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
+<Page tab_title="" layout="15x4">
 <Control ui_type="slider" name="reg_dnr_db_yedgethd0" range="0~255" addr="0x2d0b" mask="31:24" dst="U" desc="reg_dnr_db_yedgethd0, edge threshold0 for luma. unsigned  , default = 12" default="8" value="8" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd1" range="0~255" addr="0x2d0b" mask="23:16" dst="U" desc="reg_dnr_db_yedgethd1, edge threshold1 for luma. unsigned  , default = 15" default="10" value="10" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd2" range="0~255" addr="0x2d0b" mask="15:8" dst="U" desc="reg_dnr_db_yedgethd2, edge threshold2 for luma. unsigned  , default = 18" default="12" value="12" cmd="common:2,0xff000000"/>
@@ -68,13 +62,7 @@
 </Page>
 </Group>
 <Group num="1" val="0">
-<Page tab_title="" layout="18x4">
-<Control ui_type="checkbox" name="reg_dnr_en" range="0~1" addr="0x2d00" mask="16:16" dst="U" desc="reg_dnr_en, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_vdbstep" range="0~1" addr="0x2d00" mask="15:15" dst="U" desc="reg_dnr_db_vdbstep,vdb step,0:4, 1:8, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_vdbprten" range="0~1" addr="0x2d00" mask="14:14" dst="U" desc="reg_dnr_db_vdbprten,vdb protectoin enable, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_luma_en" range="0~1" addr="0x2d00" mask="12:12" dst="U" desc="reg_dnr_luma_en,enable ycbcr2luma module,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_mode" range="0~3" addr="0x2d00" mask="11:10" dst="U" desc="reg_dnr_db_mode,deblocking mode, 0: disable, 1: horizontal deblocking, 2: vertical deblocking, 3: horizontal and vertical deblocking,default = 3" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_chrmen" range="0~1" addr="0x2d00" mask="9:9" dst="U" desc="reg_dnr_db_chrmen,enable chroma deblocking,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
+<Page tab_title="" layout="15x4">
 <Control ui_type="slider" name="reg_dnr_db_yedgethd0" range="0~255" addr="0x2d0b" mask="31:24" dst="U" desc="reg_dnr_db_yedgethd0, edge threshold0 for luma. unsigned  , default = 12" default="8" value="8" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd1" range="0~255" addr="0x2d0b" mask="23:16" dst="U" desc="reg_dnr_db_yedgethd1, edge threshold1 for luma. unsigned  , default = 15" default="10" value="10" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd2" range="0~255" addr="0x2d0b" mask="15:8" dst="U" desc="reg_dnr_db_yedgethd2, edge threshold2 for luma. unsigned  , default = 18" default="12" value="12" cmd="common:2,0xff000000"/>
@@ -135,13 +123,7 @@
 </Page>
 </Group>
 <Group num="2" val="0">
-<Page tab_title="" layout="18x4">
-<Control ui_type="checkbox" name="reg_dnr_en" range="0~1" addr="0x2d00" mask="16:16" dst="U" desc="reg_dnr_en, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_vdbstep" range="0~1" addr="0x2d00" mask="15:15" dst="U" desc="reg_dnr_db_vdbstep,vdb step,0:4, 1:8, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_vdbprten" range="0~1" addr="0x2d00" mask="14:14" dst="U" desc="reg_dnr_db_vdbprten,vdb protectoin enable, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_luma_en" range="0~1" addr="0x2d00" mask="12:12" dst="U" desc="reg_dnr_luma_en,enable ycbcr2luma module,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_mode" range="0~3" addr="0x2d00" mask="11:10" dst="U" desc="reg_dnr_db_mode,deblocking mode, 0: disable, 1: horizontal deblocking, 2: vertical deblocking, 3: horizontal and vertical deblocking,default = 3" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_chrmen" range="0~1" addr="0x2d00" mask="9:9" dst="U" desc="reg_dnr_db_chrmen,enable chroma deblocking,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
+<Page tab_title="" layout="15x4">
 <Control ui_type="slider" name="reg_dnr_db_yedgethd0" range="0~255" addr="0x2d0b" mask="31:24" dst="U" desc="reg_dnr_db_yedgethd0, edge threshold0 for luma. unsigned  , default = 12" default="8" value="8" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd1" range="0~255" addr="0x2d0b" mask="23:16" dst="U" desc="reg_dnr_db_yedgethd1, edge threshold1 for luma. unsigned  , default = 15" default="10" value="10" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd2" range="0~255" addr="0x2d0b" mask="15:8" dst="U" desc="reg_dnr_db_yedgethd2, edge threshold2 for luma. unsigned  , default = 18" default="12" value="12" cmd="common:2,0xff000000"/>
@@ -202,13 +184,7 @@
 </Page>
 </Group>
 <Group num="3" val="0">
-<Page tab_title="" layout="18x4">
-<Control ui_type="checkbox" name="reg_dnr_en" range="0~1" addr="0x2d00" mask="16:16" dst="U" desc="reg_dnr_en, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_vdbstep" range="0~1" addr="0x2d00" mask="15:15" dst="U" desc="reg_dnr_db_vdbstep,vdb step,0:4, 1:8, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_vdbprten" range="0~1" addr="0x2d00" mask="14:14" dst="U" desc="reg_dnr_db_vdbprten,vdb protectoin enable, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_luma_en" range="0~1" addr="0x2d00" mask="12:12" dst="U" desc="reg_dnr_luma_en,enable ycbcr2luma module,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_mode" range="0~3" addr="0x2d00" mask="11:10" dst="U" desc="reg_dnr_db_mode,deblocking mode, 0: disable, 1: horizontal deblocking, 2: vertical deblocking, 3: horizontal and vertical deblocking,default = 3" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_chrmen" range="0~1" addr="0x2d00" mask="9:9" dst="U" desc="reg_dnr_db_chrmen,enable chroma deblocking,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
+<Page tab_title="" layout="15x4">
 <Control ui_type="slider" name="reg_dnr_db_yedgethd0" range="0~255" addr="0x2d0b" mask="31:24" dst="U" desc="reg_dnr_db_yedgethd0, edge threshold0 for luma. unsigned  , default = 12" default="8" value="8" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd1" range="0~255" addr="0x2d0b" mask="23:16" dst="U" desc="reg_dnr_db_yedgethd1, edge threshold1 for luma. unsigned  , default = 15" default="10" value="10" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd2" range="0~255" addr="0x2d0b" mask="15:8" dst="U" desc="reg_dnr_db_yedgethd2, edge threshold2 for luma. unsigned  , default = 18" default="12" value="12" cmd="common:2,0xff000000"/>
@@ -269,13 +245,7 @@
 </Page>
 </Group>
 <Group num="4" val="0">
-<Page tab_title="" layout="18x4">
-<Control ui_type="checkbox" name="reg_dnr_en" range="0~1" addr="0x2d00" mask="16:16" dst="U" desc="reg_dnr_en, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_vdbstep" range="0~1" addr="0x2d00" mask="15:15" dst="U" desc="reg_dnr_db_vdbstep,vdb step,0:4, 1:8, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_vdbprten" range="0~1" addr="0x2d00" mask="14:14" dst="U" desc="reg_dnr_db_vdbprten,vdb protectoin enable, default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_luma_en" range="0~1" addr="0x2d00" mask="12:12" dst="U" desc="reg_dnr_luma_en,enable ycbcr2luma module,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_db_mode" range="0~3" addr="0x2d00" mask="11:10" dst="U" desc="reg_dnr_db_mode,deblocking mode, 0: disable, 1: horizontal deblocking, 2: vertical deblocking, 3: horizontal and vertical deblocking,default = 3" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_db_chrmen" range="0~1" addr="0x2d00" mask="9:9" dst="U" desc="reg_dnr_db_chrmen,enable chroma deblocking,default = 1" default="1" value="1" cmd="common:2,0xff000000"/>
+<Page tab_title="" layout="15x4">
 <Control ui_type="slider" name="reg_dnr_db_yedgethd0" range="0~255" addr="0x2d0b" mask="31:24" dst="U" desc="reg_dnr_db_yedgethd0, edge threshold0 for luma. unsigned  , default = 12" default="8" value="8" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd1" range="0~255" addr="0x2d0b" mask="23:16" dst="U" desc="reg_dnr_db_yedgethd1, edge threshold1 for luma. unsigned  , default = 15" default="10" value="10" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_db_yedgethd2" range="0~255" addr="0x2d0b" mask="15:8" dst="U" desc="reg_dnr_db_yedgethd2, edge threshold2 for luma. unsigned  , default = 18" default="12" value="12" cmd="common:2,0xff000000"/>

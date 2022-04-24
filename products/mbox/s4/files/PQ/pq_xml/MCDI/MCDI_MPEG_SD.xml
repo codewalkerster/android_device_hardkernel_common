@@ -73,9 +73,9 @@
 <Control ui_type="slider" name="reg_mcdi_unimvdstsgnshft" range="0~3" addr="0x2f05" mask="1:0" dst="U" desc="shift for neighboring distance of uni-mv" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_unisadcorepxlgain" range="0~3" addr="0x2f07" mask="18:17" dst="U" desc="uni-sad core pixels gain" default="3" value="3" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_mcdi_unisadcorepxlnormen" range="0~1" addr="0x2f07" mask="16:16" dst="U" desc="enable uni-sad core pixels normalization" default="0" value="0" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horsaddifthdgain" range="0~511" addr="0x2f16" mask="24:16" dst="U" desc="21*1/8, gain/divisor for sad dif threshold in hor line detection, normalized 8 as 1" default="21" value="21" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horsaddifthdoffst" range="-128~127" addr="0x2f16" mask="15:8" dst="S" desc="offset for sad dif threshold in hor line detection, -128~127" default="0" value="0" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horvdifthd" range="0~255" addr="0x2f16" mask="7:0" dst="U" desc="threshold (&gt;=) of vertical dif of next block for horizontal line detection" default="24" value="24" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horsaddifthdgain:debug" range="0~511" addr="0x2f16" mask="24:16" dst="U" desc="21*1/8, gain/divisor for sad dif threshold in hor line detection, normalized 8 as 1" default="0" value="0" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horsaddifthdoffst:debug" range="-128~127" addr="0x2f16" mask="15:8" dst="S" desc="offset for sad dif threshold in hor line detection, -128~127" default="0" value="0" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horvdifthd:debug" range="0~255" addr="0x2f16" mask="7:0" dst="U" desc="threshold (&gt;=) of vertical dif of next block for horizontal line detection" default="24" value="24" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvslpthd2" range="0~127" addr="0x2f0e" mask="31:25" dst="U" desc="slope thd (&gt;=) between i and i+3/i-3 (i+4/i-4)" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvslpthd1" range="0~31" addr="0x2f0e" mask="24:20" dst="U" desc="slope thd (&gt;=) between i and i+2/i-2" default="4" value="4" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvampthd2" range="0~1023" addr="0x2f0e" mask="19:10" dst="U" desc="amplitude thd (&gt;=) between max and min, when count cycles" default="300" value="300" cmd="common:2,0xff000000"/>
@@ -105,12 +105,12 @@
 <Control ui_type="checkbox" name="reg_mcdi_lmvinitmode" range="0~1" addr="0x2f0c" mask="9:9" dst="U" desc="initial lmvs at first row of input field, 0: intial value = 0; 1: inital = 32 (invalid)" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvrt0" range="0~15" addr="0x2f0c" mask="7:4" dst="U" desc="ratio of max mv" default="5" value="5" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvrt1" range="0~15" addr="0x2f0c" mask="3:0" dst="U" desc="ratio of second max mv" default="5" value="5" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvvxmaxgain" range="0~255" addr="0x2f0d" mask="31:24" dst="U" desc="max gain of lmv weight" default="32" value="32" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd0" range="0~7" addr="0x2f0d" mask="22:20" dst="U" desc="dif threshold 0 (less than) for small lmv" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd1" range="0~7" addr="0x2f0d" mask="19:17" dst="U" desc="dif threshold 1 (less than) for median lmv" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd2" range="0~7" addr="0x2f0d" mask="16:14" dst="U" desc="dif threshold 2 (less than) for large lmv" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvnumlmt" range="0~63" addr="0x2f0d" mask="13:8" dst="U" desc="least/limit number of (total number - max0)" default="20" value="20" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvfltthd" range="0~255" addr="0x2f0d" mask="7:0" dst="U" desc="flt cnt thd (less than) for lmv" default="9" value="9" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvvxmaxgain:debug" range="0~255" addr="0x2f0d" mask="31:24" dst="U" desc="max gain of lmv weight" default="32" value="32" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd0:debug" range="0~7" addr="0x2f0d" mask="22:20" dst="U" desc="dif threshold 0 (less than) for small lmv" default="3" value="3" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd1:debug" range="0~7" addr="0x2f0d" mask="19:17" dst="U" desc="dif threshold 1 (less than) for median lmv" default="2" value="2" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd2:debug" range="0~7" addr="0x2f0d" mask="16:14" dst="U" desc="dif threshold 2 (less than) for large lmv" default="3" value="3" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvnumlmt:debug" range="0~63" addr="0x2f0d" mask="13:8" dst="U" desc="least/limit number of (total number - max0)" default="20" value="20" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvfltthd:debug" range="0~255" addr="0x2f0d" mask="7:0" dst="U" desc="flt cnt thd (less than) for lmv" default="9" value="9" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntmax" range="0~15" addr="0x2f49" mask="19:16" dst="U" desc="max lmv lock count number" default="6" value="6" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntoffst" range="-8~7" addr="0x2f49" mask="15:12" dst="S" desc="offset for lmv lock count, -8~7" default="-1" value="-1" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntgain" range="0~15" addr="0x2f49" mask="11:8" dst="U" desc="gain for lmv lock count, normalized 8 as 1, 15 is set to 16" default="8" value="8" cmd="common:2,0xff000000"/>
@@ -123,7 +123,7 @@
 <Control ui_type="slider" name="reg_mcdi_lmvlockendrow" range="0~2047" addr="0x2f4b" mask="26:16" dst="U" desc="end row (less than) for lmv lock" default="2047" value="2047" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockstartrow" range="0~2047" addr="0x2f4b" mask="10:0" dst="U" desc="start row (&gt;=) for lmv lock" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockextmode" range="0~7" addr="0x2f4c" mask="26:24" dst="U" desc="extend lines for lmv lock check, check how many lines for lmv locking" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvlockfltcntrt" range="0~255" addr="0x2f4c" mask="23:16" dst="U" desc="ratio of flt cnt for lock check, normalized 256 as 1, 255 is set to 256" default="8" value="8" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvlockfltcntrt" range="0~255" addr="0x2f4c" mask="23:16" dst="U" desc="ratio of flt cnt for lock check, normalized 256 as 1, 255 is set to 256" default="32" value="32" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt1" range="0~255" addr="0x2f4c" mask="15:8" dst="U" desc="ratio when use non-zero lmv for lock check, normalized 256 as 1, 255 is set to 256" default="48" value="48" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt0" range="0~255" addr="0x2f4c" mask="7:0" dst="U" desc="ratio when use max lmv for lock check, normalized 256 as 1, 255 is set to 256" default="106" value="106" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvmtnrt0" range="0~127" addr="0x2f14" mask="30:24" dst="U" desc="ratio 0 for motion senario, set 127 to 128, normalized 128 as 1" default="32" value="32" cmd="common:2,0xff000000"/>
@@ -488,9 +488,9 @@
 <Control ui_type="slider" name="reg_mcdi_unimvdstsgnshft" range="0~3" addr="0x2f05" mask="1:0" dst="U" desc="shift for neighboring distance of uni-mv" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_unisadcorepxlgain" range="0~3" addr="0x2f07" mask="18:17" dst="U" desc="uni-sad core pixels gain" default="3" value="3" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_mcdi_unisadcorepxlnormen" range="0~1" addr="0x2f07" mask="16:16" dst="U" desc="enable uni-sad core pixels normalization" default="0" value="0" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horsaddifthdgai" range="0~511" addr="0x2f16" mask="24:16" dst="U" desc="21*1/8, gain/divisor for sad dif threshold in hor line detection, normalized 8 as 1" default="21" value="21" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horsaddifthdoffst" range="-128~127" addr="0x2f16" mask="15:8" dst="S" desc="offset for sad dif threshold in hor line detection, -128~127" default="0" value="0" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horvdifthd" range="0~255" addr="0x2f16" mask="7:0" dst="U" desc="threshold (&gt;=) of vertical dif of next block for horizontal line detection" default="24" value="24" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horsaddifthdgai:debugn" range="0~511" addr="0x2f16" mask="24:16" dst="U" desc="21*1/8, gain/divisor for sad dif threshold in hor line detection, normalized 8 as 1" default="4" value="4" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horsaddifthdoffst:debug" range="-128~127" addr="0x2f16" mask="15:8" dst="S" desc="offset for sad dif threshold in hor line detection, -128~127" default="8" value="8" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horvdifthd:debug" range="0~255" addr="0x2f16" mask="7:0" dst="U" desc="threshold (&gt;=) of vertical dif of next block for horizontal line detection" default="24" value="24" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvslpthd2" range="0~127" addr="0x2f0e" mask="31:25" dst="U" desc="slope thd (&gt;=) between i and i+3/i-3 (i+4/i-4)" default="64" value="64" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvslpthd1" range="0~31" addr="0x2f0e" mask="24:20" dst="U" desc="slope thd (&gt;=) between i and i+2/i-2" default="4" value="4" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvampthd2" range="0~1023" addr="0x2f0e" mask="19:10" dst="U" desc="amplitude thd (&gt;=) between max and min, when count cycles" default="300" value="300" cmd="common:2,0xff000000"/>
@@ -520,12 +520,12 @@
 <Control ui_type="checkbox" name="reg_mcdi_lmvinitmode" range="0~1" addr="0x2f0c" mask="9:9" dst="U" desc="initial lmvs at first row of input field, 0: intial value = 0; 1: inital = 32 (invalid)" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvrt0" range="0~15" addr="0x2f0c" mask="7:4" dst="U" desc="ratio of max mv" default="5" value="5" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvrt1" range="0~15" addr="0x2f0c" mask="3:0" dst="U" desc="ratio of second max mv" default="5" value="5" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvvxmaxgain" range="0~255" addr="0x2f0d" mask="31:24" dst="U" desc="max gain of lmv weight" default="32" value="32" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd0" range="0~7" addr="0x2f0d" mask="22:20" dst="U" desc="dif threshold 0 (less than) for small lmv" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd1" range="0~7" addr="0x2f0d" mask="19:17" dst="U" desc="dif threshold 1 (less than) for median lmv" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd2" range="0~7" addr="0x2f0d" mask="16:14" dst="U" desc="dif threshold 2 (less than) for large lmv" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvnumlmt" range="0~63" addr="0x2f0d" mask="13:8" dst="U" desc="least/limit number of (total number - max0)" default="20" value="20" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvfltthd" range="0~255" addr="0x2f0d" mask="7:0" dst="U" desc="flt cnt thd (less than) for lmv" default="2" value="2" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvvxmaxgain:debug" range="0~255" addr="0x2f0d" mask="31:24" dst="U" desc="max gain of lmv weight" default="32" value="32" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd0:debug" range="0~7" addr="0x2f0d" mask="22:20" dst="U" desc="dif threshold 0 (less than) for small lmv" default="3" value="3" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd1:debug" range="0~7" addr="0x2f0d" mask="19:17" dst="U" desc="dif threshold 1 (less than) for median lmv" default="2" value="2" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd2:debug" range="0~7" addr="0x2f0d" mask="16:14" dst="U" desc="dif threshold 2 (less than) for large lmv" default="3" value="3" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvnumlmt:debug" range="0~63" addr="0x2f0d" mask="13:8" dst="U" desc="least/limit number of (total number - max0)" default="20" value="20" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvfltthd:debug" range="0~255" addr="0x2f0d" mask="7:0" dst="U" desc="flt cnt thd (less than) for lmv" default="9" value="9" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntmax" range="0~15" addr="0x2f49" mask="19:16" dst="U" desc="max lmv lock count number" default="6" value="6" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntoffst" range="-8~7" addr="0x2f49" mask="15:12" dst="S" desc="offset for lmv lock count, -8~7" default="-1" value="-1" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntgain" range="0~15" addr="0x2f49" mask="11:8" dst="U" desc="gain for lmv lock count, normalized 8 as 1, 15 is set to 16" default="8" value="8" cmd="common:2,0xff000000"/>
@@ -538,7 +538,7 @@
 <Control ui_type="slider" name="reg_mcdi_lmvlockendrow" range="0~2047" addr="0x2f4b" mask="26:16" dst="U" desc="end row (less than) for lmv lock" default="2047" value="2047" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockstartrow" range="0~2047" addr="0x2f4b" mask="10:0" dst="U" desc="start row (&gt;=) for lmv lock" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockextmode" range="0~7" addr="0x2f4c" mask="26:24" dst="U" desc="extend lines for lmv lock check, check how many lines for lmv locking" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvlockfltcntrt" range="0~255" addr="0x2f4c" mask="23:16" dst="U" desc="ratio of flt cnt for lock check, normalized 256 as 1, 255 is set to 256" default="8" value="8" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvlockfltcntrt" range="0~255" addr="0x2f4c" mask="23:16" dst="U" desc="ratio of flt cnt for lock check, normalized 256 as 1, 255 is set to 256" default="32" value="32" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt1" range="0~255" addr="0x2f4c" mask="15:8" dst="U" desc="ratio when use non-zero lmv for lock check, normalized 256 as 1, 255 is set to 256" default="48" value="48" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt0" range="0~255" addr="0x2f4c" mask="7:0" dst="U" desc="ratio when use max lmv for lock check, normalized 256 as 1, 255 is set to 256" default="106" value="106" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvmtnrt0" range="0~127" addr="0x2f14" mask="30:24" dst="U" desc="ratio 0 for motion senario, set 127 to 128, normalized 128 as 1" default="32" value="32" cmd="common:2,0xff000000"/>
@@ -903,9 +903,9 @@
 <Control ui_type="slider" name="reg_mcdi_unimvdstsgnshft" range="0~3" addr="0x2f05" mask="1:0" dst="U" desc="shift for neighboring distance of uni-mv" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_unisadcorepxlgain" range="0~3" addr="0x2f07" mask="18:17" dst="U" desc="uni-sad core pixels gain" default="3" value="3" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_mcdi_unisadcorepxlnormen" range="0~1" addr="0x2f07" mask="16:16" dst="U" desc="enable uni-sad core pixels normalization" default="0" value="0" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horsaddifthdgain" range="0~511" addr="0x2f16" mask="24:16" dst="U" desc="21*1/8, gain/divisor for sad dif threshold in hor line detection, normalized 8 as 1" default="21" value="21" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horsaddifthdoffst" range="-128~127" addr="0x2f16" mask="15:8" dst="S" desc="offset for sad dif threshold in hor line detection, -128~127" default="0" value="0" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_horvdifthd" range="0~255" addr="0x2f16" mask="7:0" dst="U" desc="threshold (&gt;=) of vertical dif of next block for horizontal line detection" default="24" value="24" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horsaddifthdgain:debug" range="0~511" addr="0x2f16" mask="24:16" dst="U" desc="21*1/8, gain/divisor for sad dif threshold in hor line detection, normalized 8 as 1" default="0" value="0" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horsaddifthdoffst:debug" range="-128~127" addr="0x2f16" mask="15:8" dst="S" desc="offset for sad dif threshold in hor line detection, -128~127" default="0" value="0" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_horvdifthd:debug" range="0~255" addr="0x2f16" mask="7:0" dst="U" desc="threshold (&gt;=) of vertical dif of next block for horizontal line detection" default="24" value="24" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvslpthd2" range="0~127" addr="0x2f0e" mask="31:25" dst="U" desc="slope thd (&gt;=) between i and i+3/i-3 (i+4/i-4)" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvslpthd1" range="0~31" addr="0x2f0e" mask="24:20" dst="U" desc="slope thd (&gt;=) between i and i+2/i-2" default="4" value="4" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_rptmvampthd2" range="0~1023" addr="0x2f0e" mask="19:10" dst="U" desc="amplitude thd (&gt;=) between max and min, when count cycles" default="300" value="300" cmd="common:2,0xff000000"/>
@@ -935,12 +935,12 @@
 <Control ui_type="checkbox" name="reg_mcdi_lmvinitmode" range="0~1" addr="0x2f0c" mask="9:9" dst="U" desc="initial lmvs at first row of input field, 0: intial value = 0; 1: inital = 32 (invalid)" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvrt0" range="0~15" addr="0x2f0c" mask="7:4" dst="U" desc="ratio of max mv" default="5" value="5" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvrt1" range="0~15" addr="0x2f0c" mask="3:0" dst="U" desc="ratio of second max mv" default="5" value="5" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvvxmaxgain" range="0~255" addr="0x2f0d" mask="31:24" dst="U" desc="max gain of lmv weight" default="32" value="32" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd0" range="0~7" addr="0x2f0d" mask="22:20" dst="U" desc="dif threshold 0 (less than) for small lmv" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd1" range="0~7" addr="0x2f0d" mask="19:17" dst="U" desc="dif threshold 1 (less than) for median lmv" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvdifthd2" range="0~7" addr="0x2f0d" mask="16:14" dst="U" desc="dif threshold 2 (less than) for large lmv" default="3" value="3" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvnumlmt" range="0~63" addr="0x2f0d" mask="13:8" dst="U" desc="least/limit number of (total number - max0)" default="20" value="20" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvfltthd" range="0~255" addr="0x2f0d" mask="7:0" dst="U" desc="flt cnt thd (less than) for lmv" default="9" value="9" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvvxmaxgain:debug" range="0~255" addr="0x2f0d" mask="31:24" dst="U" desc="max gain of lmv weight" default="32" value="32" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd0:debug" range="0~7" addr="0x2f0d" mask="22:20" dst="U" desc="dif threshold 0 (less than) for small lmv" default="3" value="3" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd1:debug" range="0~7" addr="0x2f0d" mask="19:17" dst="U" desc="dif threshold 1 (less than) for median lmv" default="2" value="2" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvdifthd2:debug" range="0~7" addr="0x2f0d" mask="16:14" dst="U" desc="dif threshold 2 (less than) for large lmv" default="3" value="3" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvnumlmt:debug" range="0~63" addr="0x2f0d" mask="13:8" dst="U" desc="least/limit number of (total number - max0)" default="20" value="20" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvfltthd:debug" range="0~255" addr="0x2f0d" mask="7:0" dst="U" desc="flt cnt thd (less than) for lmv" default="9" value="9" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntmax" range="0~15" addr="0x2f49" mask="19:16" dst="U" desc="max lmv lock count number" default="6" value="6" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntoffst" range="-8~7" addr="0x2f49" mask="15:12" dst="S" desc="offset for lmv lock count, -8~7" default="-1" value="-1" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockcntgain" range="0~15" addr="0x2f49" mask="11:8" dst="U" desc="gain for lmv lock count, normalized 8 as 1, 15 is set to 16" default="8" value="8" cmd="common:2,0xff000000"/>
@@ -953,7 +953,7 @@
 <Control ui_type="slider" name="reg_mcdi_lmvlockendrow" range="0~2047" addr="0x2f4b" mask="26:16" dst="U" desc="end row (less than) for lmv lock" default="2047" value="2047" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockstartrow" range="0~2047" addr="0x2f4b" mask="10:0" dst="U" desc="start row (&gt;=) for lmv lock" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlockextmode" range="0~7" addr="0x2f4c" mask="26:24" dst="U" desc="extend lines for lmv lock check, check how many lines for lmv locking" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_mcdi_lmvlockfltcntrt" range="0~255" addr="0x2f4c" mask="23:16" dst="U" desc="ratio of flt cnt for lock check, normalized 256 as 1, 255 is set to 256" default="8" value="8" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_mcdi_lmvlockfltcntrt" range="0~255" addr="0x2f4c" mask="23:16" dst="U" desc="ratio of flt cnt for lock check, normalized 256 as 1, 255 is set to 256" default="32" value="32" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt1" range="0~255" addr="0x2f4c" mask="15:8" dst="U" desc="ratio when use non-zero lmv for lock check, normalized 256 as 1, 255 is set to 256" default="48" value="48" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt0" range="0~255" addr="0x2f4c" mask="7:0" dst="U" desc="ratio when use max lmv for lock check, normalized 256 as 1, 255 is set to 256" default="106" value="106" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvmtnrt0" range="0~127" addr="0x2f14" mask="30:24" dst="U" desc="ratio 0 for motion senario, set 127 to 128, normalized 128 as 1" default="32" value="32" cmd="common:2,0xff000000"/>
