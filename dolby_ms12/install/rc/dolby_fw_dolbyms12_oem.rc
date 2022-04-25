@@ -21,6 +21,8 @@ on init
     exec - root root -- /vendor/bin/toybox_vendor ln -s /odm_dlkm/lib/modules /odm/lib/modules
     # Extracting the Dolby MS12 library
     exec - root root -- /vendor/bin/dolby_fw_dolbyms12 /oem/lib/ms12/libdolbyms12.so /odm/lib/ms12/libdolbyms12.so
+    exec - root root -- /vendor/bin/toybox_vendor cp /vendor/lib/libHwAudio_dcvdec_passthrough.so  /odm/lib/libHwAudio_dcvdec.so
+    exec - root root -- /vendor/bin/toybox_vendor cp /vendor/lib/libHwAudio_dtshd_passthrough.so  /odm/lib/libHwAudio_dtshd.so
     exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libHwAudio_dcvdec.so  /odm/lib/libHwAudio_dcvdec.so
     exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libHwAudio_dtshd.so  /odm/lib/libHwAudio_dtshd.so
 

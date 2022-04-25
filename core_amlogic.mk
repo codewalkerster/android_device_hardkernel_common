@@ -313,6 +313,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVideo \
     libOmxAudio \
+    libHwAudio_dcvdec_passthrough \
+    libHwAudio_dtshd_passthrough \
     libthreadworker_alt \
     libdatachunkqueue_alt \
     libOmxBase \
