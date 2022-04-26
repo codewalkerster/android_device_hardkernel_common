@@ -67,3 +67,7 @@ SOONG_CONFIG_amlogic_vendorconfig_enable_swcodec := $(TARGET_WITH_SWCODEC_EXT)
 # for pq compress db
 SOONG_CONFIG_amlogic_vendorconfig += support_pq_compress_db
 SOONG_CONFIG_amlogic_vendorconfig_support_pq_compress_db := $(PRODUCT_SUPPORT_COMPRESS_DB)
+
+# for microphone lights
+SOONG_CONFIG_amlogic_vendorconfig += build_lights_microphone
+SOONG_CONFIG_amlogic_vendorconfig_build_lights_microphone := $(BOARD_HAS_MICROPHONE_LED)

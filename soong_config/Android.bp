@@ -21,6 +21,7 @@ soong_config_module_type {
         "playready_tvp",
         "enable_swcodec",
         "support_pq_compress_db",
+        "build_lights_microphone",
     ],
     properties: [
         "cflags", "srcs"
@@ -109,4 +110,8 @@ soong_config_bool_variable {
 }
 soong_config_bool_variable {
     name: "support_pq_compress_db",
+}
+
+soong_config_bool_variable {
+    name: "build_lights_microphone",
 }
