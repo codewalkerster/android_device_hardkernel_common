@@ -140,10 +140,8 @@ PRODUCT_PACKAGES += \
     libOMX_Core \
 
 # For screen hwrotation
-ifneq ($(filter 90 180 270, $(strip $(SF_PRIMARY_DISPLAY_ORIENTATION))), )
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.surface_flinger.primary_display_orientation=ORIENTATION_$(SF_PRIMARY_DISPLAY_ORIENTATION)
-endif
 
 # build with go optimization
 ifeq ($(strip $(BUILD_WITH_GO_OPT)),true)
