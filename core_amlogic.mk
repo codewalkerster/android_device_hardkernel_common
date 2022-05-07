@@ -482,8 +482,8 @@ endif
 #Camera HAL
 PRODUCT_PACKAGES += \
      camera.amlogic \
-     android.hardware.camera.provider@2.5-legacy \
-     android.hardware.camera.provider@2.5-service
+     android.hardware.camera.provider@2.5-legacy-droidlogic \
+     android.hardware.camera.provider@2.5-service-droidlogic
 
 #Power HAL
 PRODUCT_PACKAGES += \
