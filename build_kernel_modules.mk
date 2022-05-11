@@ -141,9 +141,6 @@ endif
 -include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner_modules.mk
 include device/amlogic/common/video_algorithm/dnlp/dnlp_modules.mk
 include device/amlogic/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
--include vendor/amlogic/reference/prebuilt/kernel-modules/speech/speech_modules.mk
-endif
 
 BOARD_VENDOR_KERNEL_MODULES ?= $(VENDOR_KERNEL_MODULES)
 
