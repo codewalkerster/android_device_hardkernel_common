@@ -173,12 +173,6 @@ PRODUCT_PACKAGES += \
   libplayreadymediadrmplugin \
   libplayready \
   9a04f079-9840-4286-ab92-e65be0885f95
-
-PRODUCT_COPY_FILES += \
-    $(BOARD_AML_VENDOR_PATH)/prebuilt/libmediadrm/playready/keycert/zgpriv.dat:$(TARGET_COPY_OUT_VENDOR)/etc/drm/playready/zgpriv.dat \
-    $(BOARD_AML_VENDOR_PATH)/prebuilt/libmediadrm/playready/keycert/bgroupcert.dat:$(TARGET_COPY_OUT_VENDOR)/etc/drm/playready/bgroupcert.dat \
-    $(BOARD_AML_VENDOR_PATH)/prebuilt/libmediadrm/playready/keycert/zgpriv_protected.dat:$(TARGET_COPY_OUT_VENDOR)/etc/drm/playready/zgpriv_protected.dat
-
 endif
 
 #########################################################################
