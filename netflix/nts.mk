@@ -22,7 +22,10 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities.json:vendor/etc/nrdp_audio_platform_capabilities.json
 
 
-ifeq ($(TARGET_WITH_VP9_NETFLIX), true)
+ifeq ($(TARGET_HDR_OUT_PUT_TYPE_NOT_APPLICABLE)_$(TARGET_WITH_VP9_NETFLIX), true_true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/netflix/etc/nrdp_platform_capabilities_vp9_hdr_not_applicable.json:vendor/etc/nrdp_platform_capabilities.json
+else ifeq ($(TARGET_WITH_VP9_NETFLIX), true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/netflix/etc/nrdp_platform_capabilities_vp9.json:vendor/etc/nrdp_platform_capabilities.json
 else ifeq ($(TARGET_WITH_HDR_PLAYBACK), true)

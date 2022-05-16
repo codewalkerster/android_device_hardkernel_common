@@ -24,6 +24,7 @@
 #########################################################################
 #Netflix
 ifeq ($(TARGET_BUILD_NETFLIX), true)
+TARGET_HDR_OUT_PUT_TYPE_NOT_APPLICABLE:= true
 TARGET_WITH_VP9_NETFLIX:= true
 $(call inherit-product-if-exists, device/amlogic/common/netflix/nts.mk)
 PRODUCT_COPY_FILES += \
