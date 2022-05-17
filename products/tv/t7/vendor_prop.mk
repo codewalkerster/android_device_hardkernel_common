@@ -188,6 +188,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=fdd00000.crgudc2
 
+#support seamless for QMS
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.support.seamless=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
