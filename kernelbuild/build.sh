@@ -246,6 +246,10 @@ if [ -n "${OBJCOPY}" ]; then
   TOOL_ARGS+=("OBJCOPY=${OBJCOPY}")
 fi
 
+if [ -n "${LLVM}" ]; then
+  TOOL_ARGS+=("LLVM=${LLVM}")
+fi
+
 # Allow hooks that refer to $CC_LD_ARG to keep working until they can be
 # updated.
 CC_LD_ARG="${TOOL_ARGS[@]}"
