@@ -596,6 +596,7 @@ PRODUCT_PACKAGES += \
 
 #oemlock HAL
 PRODUCT_PACKAGES += \
+    android.hardware.oemlock@1.0-service.droidlogic \
     android.hardware.oemlock-service.droidlogic
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
