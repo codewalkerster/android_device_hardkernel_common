@@ -287,7 +287,12 @@ if [ -z "${SKIP_BUILD_KERNEL}" ] ; then
 if [ -z "${SKIP_DEFCONFIG}" ] ; then
 set -x
 if [ $KERNEL_A32_SUPPORT ]; then
-(cd ${KERNEL_DIR} && make "${TOOL_ARGS[@]}" O=${OUT_DIR} ${MAKE_ARGS} meson64_a32_defconfig)
+    cp ${KERNEL_DIR}/arch/arm/configs/meson64_a32_defconfig ${KERNEL_DIR}/arch/arm/configs/meson64_a32_tmp_defconfig
+    if [ "$CONFIG_BOOTIMAGE" == "user" ];then
+        cat ${KERNEL_DIR}/scripts/amlogic/meson64_r_user_diffconfig >> ${KERNEL_DIR}/arch/arm/configs/meson64_a32_tmp_defconfig
+    fi
+    (cd ${KERNEL_DIR} && make "${TOOL_ARGS[@]}" O=${OUT_DIR} ${MAKE_ARGS} meson64_a32_tmp_defconfig)
+    rm -fr ${KERNEL_DIR}/arch/arm/configs/meson64_a32_tmp_defconfig
 else
     if [ "$CONFIG_BUILTIN_MODULES" == true ];then
         echo "builtin_modules defconfig"
