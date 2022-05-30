@@ -1,3 +1,3 @@
 KERNEL_DIR=common
-CLANG_VERSION=r416183b
-CLANG_PREBUILT_BIN=prebuilts/clang/host/linux-x86/clang-r416183b/bin
+CLANG_VERSION=r450784d
+CLANG_PREBUILT_BIN=prebuilts/clang/host/linux-x86/clang-r450784d/bin
