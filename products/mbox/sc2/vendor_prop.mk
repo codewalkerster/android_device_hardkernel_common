@@ -102,7 +102,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.tuner=0
 endif
 
-ifeq ($(PRODUCT_SUPPORT_DTVKIT),true)
+ifeq ($(filter true,$(PRODUCT_SUPPORT_DTVKIT) $(SUPPORT_CBS)),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.is.tv=1
 else
