@@ -10,3 +10,4 @@ allow kernel super_block_device:lnk_file relabelto;
 allow kernel device:blk_file { getattr };
 allow kernel { super_block_device sda_block_device }:blk_file { create getattr setattr unlink };
 allow kernel vendor_file:file { getattr read open };
+allow kernel hdcp_tx22_exec:file relabelto;

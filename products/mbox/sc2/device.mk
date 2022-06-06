@@ -61,8 +61,14 @@ PRODUCT_COPY_FILES += \
 # Init config
 #
 #########################################################################
+ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/products/mbox/init.amlogic.system.license.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+
+else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+endif
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \

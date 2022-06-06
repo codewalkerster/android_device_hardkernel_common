@@ -295,6 +295,9 @@ ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 PRODUCT_PACKAGES += \
     libHwAudio_dcvdec \
     libHwAudio_dtshd
+else
+PRODUCT_PACKAGES += \
+    oem_license_build
 endif
 
 PRODUCT_PACKAGES += \

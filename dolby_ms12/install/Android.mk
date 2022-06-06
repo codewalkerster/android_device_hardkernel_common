@@ -22,9 +22,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := bin/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/bin
 
-ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
-LOCAL_INIT_RC := rc/$(LOCAL_MODULE)_oem.rc
-else
+ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 LOCAL_INIT_RC := rc/$(LOCAL_MODULE).rc
 endif
 # creates mount point
