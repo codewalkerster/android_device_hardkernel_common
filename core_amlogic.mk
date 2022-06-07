@@ -231,21 +231,9 @@ PRODUCT_PACKAGES += \
     TetheringOverlay \
     InProcessTetheringOverlay
 
-ifeq ($(TARGET_BUILD_LIVETV), true)
+ifeq ($(TARGET_LIVETV_BUILT_FROM_SOURCE), true)
     PRODUCT_PACKAGES += \
-        libjnidtvepgscanner
-
-    ifeq ($(TARGET_LIVETV_BUILT_FROM_SOURCE), true)
-        PRODUCT_PACKAGES += \
-            LiveTv \
-            libtunertvinput_jni
-    else
-        PRODUCT_PACKAGES += \
-            DroidLogicLiveTv \
-            libdroidlogictunertvinput_jni
-    endif
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.build.livetv=true
+        LiveTv
 endif
 
 PRODUCT_PACKAGES += \

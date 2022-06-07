@@ -24,6 +24,7 @@ PRODUCT_PACKAGES += \
     droidlogic.tv.software.core.xml \
     TvProvider \
     DroidLogicTvInput \
+    libjnidtvepgscanner \
     DroidLogicFactoryMenu \
     libjnidtvsubtitle
 # CTC subtitle
@@ -43,8 +44,13 @@ PRODUCT_PACKAGES += \
 
 # LiveTv
 PRODUCT_PACKAGES += \
-    DroidLiveTvSettings
-endif
+    DroidLiveTvSettings \
+    DroidLogicLiveTv
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.build.livetv=true
+
+endif  #endof TARGET_BUILD_LIVETV
 
 # DTVKit
 ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
