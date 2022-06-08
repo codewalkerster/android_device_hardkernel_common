@@ -93,7 +93,7 @@ key 358      INFO
 key 213      CAPTIONS
 key 214      MEDIA_AUDIO_TRACK
 key 216      NUM_LOCK
-key 217      GUIDE
+key 217      TV_INPUT_VGA_1
 
 #special for tv remote
 #key 207      TV_SHORTCUTKEY_GLOBALSETUP
