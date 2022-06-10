@@ -29,4 +29,5 @@
     <sipsi pat_timeout="800" pmt_timeout="3000" sdt_timeout="15000" nit_timeout="10000" cat_timeout="2000" bat_timeout="12000" tot_timeout="32000" tdt_timeout="32000" eit_timeout="3000"/>
     <service_list service_without_sdt="no"/>
     <dmc_mem level = "2" size="83886080"/>
+    <fcc_pip enable="yes"/>
 </dtvkit>
