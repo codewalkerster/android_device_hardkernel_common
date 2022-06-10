@@ -543,6 +543,7 @@
 /data/vendor/cas(/.*)?                                                u:object_r:hal_hidlimw_file:s0
 /dev/media                                                            u:object_r:media_device:s0
 /dev/bl40                                                             u:object_r:irdeto_device:s0
+/dev/nee2scpu                                                         u:object_r:irdeto_device:s0
 /dev/secmem                                                           u:object_r:video_device:s0
 /dev/key                                                           u:object_r:key_device:s0
 /vendor/bin/miracast_hdcp2					      u:object_r:miracast_hdcp2_exec:s0
