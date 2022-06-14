@@ -114,7 +114,7 @@ key 469      TV_INPUT_HDMI_1      # for TV_SHORTCUTKEY_VIEWMODE
 key 470      TV_INPUT_HDMI_2      # for TV_SHORTCUTKEY_VOICEMODE
 key 471      TV_INPUT_HDMI_3      # for TV_SHORTCUTKEY_DISPAYMODE
 key 237      TV_INPUT_HDMI_4      # for FAV
-key 238      TV_INPUT_COMPOSITE_1 # for LIST
+key 395      TV_INPUT_COMPOSITE_1 # for LIST
 key 212      MEDIA_RECORD         # for TV_REPEAT
 key 219      TV_INPUT_COMPOSITE_2 # for TV_SLEEP
 key 70       EXPLORER             # for TV_BROWSER
