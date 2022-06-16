@@ -4,12 +4,6 @@ CONFIG_DHD_USE_STATIC_BUF ?= y
 PRODUCT_OUT=out/target/product/$(TARGET_PRODUCT)
 TARGET_OUT=$(PRODUCT_OUT)/obj/lib_vendor
 
-define bcm-sdio-wifi
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/ap6xxx/bcmdhd.100.10.315.x CONFIG_DHD_USE_STATIC_BUF=y CONFIG_BCMDHD_SDIO=y \
-	ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
-	cp $(shell pwd)/hardware/wifi/broadcom/drivers/ap6xxx/bcmdhd.100.10.315.x/dhd.ko $(TARGET_OUT)/
-endef
-
 multiwifi:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/rtl8812au ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/rtl8812au ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
@@ -20,14 +14,6 @@ multiwifi:
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8192cu ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
 	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/realtek/drivers/8192cu ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
 	cp $(shell pwd)/hardware/wifi/realtek/drivers/8192cu/8192cu.ko $(TARGET_OUT)/
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/esp8089 ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/wifi/broadcom/drivers/esp8089 ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
-	cp $(shell pwd)/hardware/wifi/broadcom/drivers/esp8089/esp8089.ko $(TARGET_OUT)/
 	$(MAKE) -C $(shell pwd)/hardware/wifi/mediatek/mt7610u ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
 	$(MAKE) -C $(shell pwd)/hardware/wifi/mediatek/mt7610u ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE)
 	cp $(shell pwd)/hardware/wifi/mediatek/mt7610u/os/linux/mt7610u_sta.ko $(TARGET_OUT)/
-
-	$(bcm-sdio-wifi)
-
-AP6256:
-	$(bcm-sdio-wifi)

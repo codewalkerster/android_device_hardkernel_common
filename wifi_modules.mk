@@ -6,6 +6,4 @@ DEFAULT_WIFI_KERNEL_MODULES := \
 	$(PRODUCT_OUT)/obj/lib_vendor/rt2800usb.ko \
 	$(PRODUCT_OUT)/obj/lib_vendor/rt2x00lib.ko \
 	$(PRODUCT_OUT)/obj/lib_vendor/rt2x00usb.ko \
-	$(PRODUCT_OUT)/obj/lib_vendor/esp8089.ko \
-	$(PRODUCT_OUT)/obj/lib_vendor/dhd.ko \
 	$(PRODUCT_OUT)/obj/lib_vendor/mt7610u_sta.ko \
