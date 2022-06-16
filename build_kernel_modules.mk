@@ -29,22 +29,31 @@ TARGET_KERNEL_DIR := 32/4.9
 else
 TARGET_KERNEL_DIR := 4.9
 endif
-else
+else ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.4)
 ifeq ($(KERNEL_A32_SUPPORT),true)
 TARGET_KERNEL_DIR := 32/5.4
 else
 TARGET_KERNEL_DIR := 5.4
 endif
+else ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+ifeq ($(KERNEL_A32_SUPPORT),true)
+TARGET_KERNEL_DIR := 32/5.15
+else
+TARGET_KERNEL_DIR := 5.15
+endif
 endif
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/dtbo.img
 
 ###########################################################
-
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+include $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/ramdisk_modules_order.mk
+else
 RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST += aml_i2c.ko \
 					 aml_media.ko \
 					 snd-soc-dummy_codec.ko \
 					 snd-soc-aml_t9015.ko \
 					 snd_soc.ko
+endif
 
 RAMDISK_KERNEL_MODULES_LOAD_BLACKLIST += dvb_demux.ko \
 					 aml_spicc.ko \

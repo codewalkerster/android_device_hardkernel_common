@@ -7,6 +7,9 @@ function clean() {
 	echo "Clean up"
 	cd ${MAIN_FOLDER}
 	rm -rf out/android*
+	if [[ -d common-5.15/out ]]; then
+		rm -rf common-5.15/out
+	fi
 	return
 }
 
@@ -201,11 +204,42 @@ function build_common_5.4() {
 	./device/amlogic/common/kernelbuild/build.sh
 }
 
+function build_common_5.15() {
+	export TARGET_BUILD_KERNEL_VERSION=${CONFIG_KERNEL_VERSION}
+	export TARGET_BUILD_KERNEL_4_9=false
+
+	export KERNEL_VERSION=${CONFIG_KERNEL_VERSION}
+	export KERNEL_REPO=common-${CONFIG_KERNEL_VERSION}
+	export KERNEL_DIR=common
+	export COMMON_DRIVERS_DIR=common_drivers
+	export BOARD_DEVICENAME=$1
+	export PRODUCT_DIRNAME=device/amlogic/${BOARD_DEVICENAME}
+
+	if [ ${SKIP_MRPROPER} = "true" ]; then
+		SKIP_MRPROPER=1
+	fi
+	cd ${MAIN_FOLDER}
+	BUILD_CONFIG_ANDROID=device/${device_project}/$1/build.config.meson.arm64.trunk.5.15
+	. ${MAIN_FOLDER}/${BUILD_CONFIG_ANDROID}
+
+	local ext_modules
+	for ext_mod in ${EXT_MODULES_ANDROID}; do
+		ext_modules="${ext_modules} ${MAIN_FOLDER}/${ext_mod}"
+	done
+	EXT_MODULES_ANDROID=${ext_modules}
+
+	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG_ANDROID})
+
+	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $@
+}
+
 function build_common() {
 	if [ "$CONFIG_KERNEL_VERSION" = "4.9" ]; then
 		build_common_4.9 $@
-	else
+	elif [ "$CONFIG_KERNEL_VERSION" = "5.4" ]; then
 		build_common_5.4 $@
+	elif [ "$CONFIG_KERNEL_VERSION" = "5.15" ]; then
+		build_common_5.15 $@
 	fi
 }
 
@@ -495,7 +529,7 @@ function main() {
 		return
 	fi
 
-	MAIN_FOLDER=`pwd`
+	export MAIN_FOLDER=`pwd`
 	parser $@
 	build $@
 }
