@@ -19,26 +19,17 @@ function build() {
 	CUR_DIR=$(pwd)
 	echo $CUR_DIR
 
-	TARGET_DIR=freeze_build/target_T
-
 	mkdir -p freeze_build
-	echo "unzip $TARGET_ZIP1"
-	unzip -o -q $TARGET_ZIP1 -d freeze_build/target_S
-	if [ $? -ne 0 ]; then
-		echo "unzip error"
-		exit 1
-	fi
-
-	echo "unzip $TARGET_ZIP2"
-	unzip -o -q $TARGET_ZIP2 -d $TARGET_DIR
-	if [ $? -ne 0 ]; then
-		echo "unzip error"
-		exit 1
-	fi
+	echo "copy readonly $TARGET_ZIP1 $TARGET_ZIP2"
+	cp $TARGET_ZIP1 freeze_build/target_S.zip
+	cp $TARGET_ZIP2 freeze_build/target_T.zip
 
 	cd $CUR_DIR
-	CONFIG_BOAED_NAME_S=$(grep "ro.build.product=" freeze_build/target_S/SYSTEM/build.prop | cut -f 2 -d "=")
-	CONFIG_BOAED_NAME_T=$(grep "ro.build.product=" freeze_build/target_T/SYSTEM/build.prop | cut -f 2 -d "=")
+	CONFIG_BOAED_NAME_S=${TARGET_ZIP1##*/}
+	CONFIG_BOAED_NAME_T=${TARGET_ZIP2##*/}
+	echo "board: $CONFIG_BOAED_NAME_S ... $CONFIG_BOAED_NAME_T "
+	CONFIG_BOAED_NAME_S=$(echo $CONFIG_BOAED_NAME_S | cut -f 1 -d "-")
+	CONFIG_BOAED_NAME_T=$(echo $CONFIG_BOAED_NAME_T | cut -f 1 -d "-")
 	echo "board: $CONFIG_BOAED_NAME_S ... $CONFIG_BOAED_NAME_T "
 	if [ $CONFIG_BOAED_NAME_S != $CONFIG_BOAED_NAME_T ]; then
 		echo "board name $CONFIG_BOAED_NAME_S != $CONFIG_BOAED_NAME_T"
@@ -52,127 +43,38 @@ function build() {
 	echo $PATH
 	echo $LD_LIBRARY_PATH
 
-	cd $CUR_DIR
-	echo "prepare target files"
-	cd $TARGET_DIR/IMAGES
-	rm -rf boot.img vendor_boot.img dtbo.img odm.img odm.map product.img product.map recovery.img recovery-two-step.img system.img system.map vbmeta.img vendor.img vendor.map system_ext.img *.img *.map
-	cd $CUR_DIR
-	cd $TARGET_DIR/
-	rm -rf BOOT INIT_BOOT VENDOR ODM
-
-	cd $CUR_DIR
-	cp -a freeze_build/target_S/BOOT $TARGET_DIR/
-	cp -a freeze_build/target_S/VENDOR $TARGET_DIR/
-	cp -a freeze_build/target_S/ODM $TARGET_DIR/
-
-	cp freeze_build/target_S/META/vendor_filesystem_config.txt $TARGET_DIR/META/vendor_filesystem_config.txt
-	cp freeze_build/target_S/META/odm_filesystem_config.txt $TARGET_DIR/META/odm_filesystem_config.txt
-	cp freeze_build/target_S/META/boot_filesystem_config.txt $TARGET_DIR/META/boot_filesystem_config.txt
-
-	cd $TARGET_DIR/IMAGES
-	rm -rf bootloader.img dt.img dtbo.img logo.img odm_ext* odm*
-	cd $CUR_DIR
-	cd $TARGET_DIR/RADIO
-	rm -rf bootloader.img dt.img dtbo.img logo.img odm_ext*
-	cd $CUR_DIR
-	cp -a freeze_build/target_S/RADIO/* $TARGET_DIR/RADIO/
-	cp -a freeze_build/target_S/PREBUILT_IMAGES/* $TARGET_DIR/PREBUILT_IMAGES/
-	cp -a freeze_build/target_S/IMAGES/bootloader.img $TARGET_DIR/IMAGES/
-	cp -a freeze_build/target_S/IMAGES/dt.img $TARGET_DIR/IMAGES/
-	cp -a freeze_build/target_S/IMAGES/dtbo.img $TARGET_DIR/IMAGES/
-	cp -a freeze_build/target_S/IMAGES/logo.img $TARGET_DIR/IMAGES/
-	cp -a freeze_build/target_S/IMAGES/odm_ext* $TARGET_DIR/IMAGES/
-
-	if [ -d $TARGET_DIR/VENDOR_BOOT ]; then
-		rm -rf $TARGET_DIR/VENDOR_BOOT
-		cp -a freeze_build/target_S/VENDOR_BOOT $TARGET_DIR/
-		cp freeze_build/target_S/META/vendor_boot_filesystem_config.txt $TARGET_DIR/META/vendor_boot_filesystem_config.txt
-	fi
-
-	if [ -d $TARGET_DIR/RECOVERY ]; then
-		cp -a freeze_build/target_S/RECOVERY/base $TARGET_DIR/RECOVERY/
-		cp -a freeze_build/target_S/RECOVERY/cmdline $TARGET_DIR/RECOVERY/
-		cp -a freeze_build/target_S/RECOVERY/dtb $TARGET_DIR/RECOVERY/
-		cp -a freeze_build/target_S/RECOVERY/kernel $TARGET_DIR/RECOVERY/
-		cp -a freeze_build/target_S/RECOVERY/recovery_dtbo $TARGET_DIR/RECOVERY/
-		cp -a freeze_build/target_S/RECOVERY/second $TARGET_DIR/RECOVERY/
-		cp -a freeze_build/target_S/RECOVERY/RAMDISK/init.recovery.amlogic.rc $TARGET_DIR/RECOVERY/RAMDISK/
-		cp -a freeze_build/target_S/RECOVERY/RAMDISK/sbin/* $TARGET_DIR/RECOVERY/RAMDISK/sbin/
+	EXTRA_FLAGS=""
+	if [ -d "device/amlogic/common/vf" ]; then
+		EXTRA_FLAGS+=" --framework-item-list device/amlogic/common/vf/framework_item_list.txt \
+		--framework-misc-info-keys device/amlogic/common/vf/framework_misc_info_keys.txt \
+		--vendor-item-list device/amlogic/common/vf/vendor_item_list.txt"
 	fi
 
 	cd $CUR_DIR
-	echo "make imgs..."
-	MKBOOTIMG=out/host/linux-x86/bin/mkbootimg ./out/host/linux-x86/bin/add_img_to_target_files -a -r -v $TARGET_DIR
+	echo "start to merge_target_files"
+	./out/host/linux-x86/bin/merge_target_files \
+		--framework-target-files freeze_build/target_T.zip \
+		--vendor-target-files freeze_build/target_S.zip \
+		--allow-duplicate-apkapex-keys \
+		--output-target-files freeze_build/${CONFIG_BOAED_NAME}-target_files.zip \
+		--output-img  freeze_build/${CONFIG_BOAED_NAME}-img.zip \
+		--output-ota  freeze_build/${CONFIG_BOAED_NAME}-ota.zip \
+		${EXTRA_FLAGS}
 
 	if [ $? -ne 0 ]; then
-		echo "add_img_to_target_files ERROR"
+		echo "merge_target_files ERROR"
 		exit 1
 	fi
 
-	echo "mk img ok"
+	echo "merge_target_files OK"
 
-	find $TARGET_DIR/META/ | sort > freeze_build/${CONFIG_BOAED_NAME}.zip.list
-	find $TARGET_DIR/ -path $TARGET_DIR/META -prune -o -print | sort >> freeze_build/${CONFIG_BOAED_NAME}.zip.list
-
-	echo "start to soong_zip"
-
-	if [ -f ./out/host/linux-x86/bin/soong_zip ]; then
-		./out/host/linux-x86/bin/soong_zip -d -o freeze_build/${CONFIG_BOAED_NAME}.zip -C $TARGET_DIR -r freeze_build/${CONFIG_BOAED_NAME}.zip.list
-	else
-		./out/soong/host/linux-x86/bin/soong_zip -d -o freeze_build/${CONFIG_BOAED_NAME}.zip -C $TARGET_DIR -r freeze_build/${CONFIG_BOAED_NAME}.zip.list
-	fi
-
-	if [ $? -ne 0 ]; then
-		echo "soong_zip ERROR"
-		exit 1
-	fi
-
-	if [ $KEY_DIR ]; then
-		echo "sign_target_files_apks by $KEY_DIR"
-		./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR freeze_build/${CONFIG_BOAED_NAME}.zip freeze_build/signed-${CONFIG_BOAED_NAME}.zip
-
-		if [ $? -ne 0 ]; then
-			echo "sign apk ERROR"
-			exit 1
-		fi
-		echo "sign apk OK"
-	else
-		mv freeze_build/${CONFIG_BOAED_NAME}.zip freeze_build/signed-${CONFIG_BOAED_NAME}.zip
-	fi
-
-	echo "CONFIG_BUILD_OTA: $CONFIG_BUILD_OTA"
-	if [ "$CONFIG_BUILD_OTA" = "true" ]; then
-		echo "generate signed-ota-update-${CONFIG_BOAED_NAME}.zip"
-
-		./out/host/linux-x86/bin/ota_from_target_files freeze_build/signed-${CONFIG_BOAED_NAME}.zip freeze_build/signed-ota-update-${CONFIG_BOAED_NAME}.zip
-
-		if [ $? -ne 0 ]; then
-			echo "build signed ota ERROR"
-			exit 1
-		fi
-
-		echo "build signed ota ok"
-	fi
-
-	echo "generate signed-img-${CONFIG_BOAED_NAME}.zip"
-
-	./out/host/linux-x86/bin/img_from_target_files freeze_build/signed-${CONFIG_BOAED_NAME}.zip freeze_build/signed-img-${CONFIG_BOAED_NAME}.zip
-
-	if [ $? -ne 0 ]; then
-		echo "build signed img ERROR"
-		exit 1
-	fi
-	echo "build signed img OK"
-
-	unzip -o -q freeze_build/signed-img-${CONFIG_BOAED_NAME}.zip -d freeze_build/signed-img-${CONFIG_BOAED_NAME}
-	rm freeze_build/signed-img-${CONFIG_BOAED_NAME}.zip
-	cp out/target/product/${CONFIG_BOAED_NAME}/fastboot_auto/flash-all.* freeze_build/signed-img-${CONFIG_BOAED_NAME}/
-	cd freeze_build/signed-img-${CONFIG_BOAED_NAME}
-	zip -1 -r ../signed-fastboot-${CONFIG_BOAED_NAME}.zip *
+	unzip -o -q freeze_build/${CONFIG_BOAED_NAME}-img.zip -d freeze_build/fastboot_auto
+	cp out/target/product/${CONFIG_BOAED_NAME}/fastboot_auto/flash-all.* freeze_build/fastboot_auto/
+	cd freeze_build/fastboot_auto/
+	zip -1 -r ../vendor-freeze-build-${CONFIG_BOAED_NAME}.zip *
 	cd ../
-	rm -rf signed-img-${CONFIG_BOAED_NAME}
-	rm -rf signed-${CONFIG_BOAED_NAME}.zip
-	rm -rf ${CONFIG_BOAED_NAME}.zip.list
+	rm ${CONFIG_BOAED_NAME}-img.zip
+	mv ${CONFIG_BOAED_NAME}-ota.zip vendor-freeze-ota-update-${TARGET}.zip
 
 	cd $CUR_DIR
 
@@ -183,7 +85,6 @@ function build() {
 
 	echo "build zip OK"
 
-	exit_log
 	exit 0
 }
 
@@ -196,12 +97,9 @@ cat << EOF
 	./vendor_freeze_build.sh clean   ### clean intermediate file
 	./vendor_freeze_build.sh -v   ### show version
 
-	#build fastboot.zip
-	./vendor_freeze_build.sh target_S.zip target_T.zip
 	#build fastboot.zip & ota.zip
-	./vendor_freeze_build.sh target_S.zip target_T.zip --ota
-	# use release keys and sign apk again
-	./vendor_freeze_build.sh target_S.zip target_T.zip --key key_path
+	./vendor_freeze_build.sh target_S.zip target_T.zip
+
 
 EOF
   exit 1
@@ -215,14 +113,6 @@ EOF
   exit 1
 }
 
-function exit_log() {
-	if [[ "$CONFIG_BOAED_NAME" =~ "google" ]]; then
-		echo "****** dele google keys ***"
-		rm -rf vendor/google/certs
-		rm -rf vendor/google/dev-keystore
-		rm -rf vendor/unbundled_google
-	fi
-}
 
 function parser() {
 	local i=0
