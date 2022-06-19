@@ -65,6 +65,10 @@ function build() {
 	cp -a freeze_build/target_S/VENDOR $TARGET_DIR/
 	cp -a freeze_build/target_S/ODM $TARGET_DIR/
 
+	cp freeze_build/target_S/META/vendor_filesystem_config.txt $TARGET_DIR/META/vendor_filesystem_config.txt
+	cp freeze_build/target_S/META/odm_filesystem_config.txt $TARGET_DIR/META/odm_filesystem_config.txt
+	cp freeze_build/target_S/META/boot_filesystem_config.txt $TARGET_DIR/META/boot_filesystem_config.txt
+
 	cd $TARGET_DIR/IMAGES
 	rm -rf bootloader.img dt.img dtbo.img logo.img odm_ext* odm*
 	cd $CUR_DIR
@@ -79,20 +83,10 @@ function build() {
 	cp -a freeze_build/target_S/IMAGES/logo.img $TARGET_DIR/IMAGES/
 	cp -a freeze_build/target_S/IMAGES/odm_ext* $TARGET_DIR/IMAGES/
 
-	(cd $TARGET_DIR/ROOT; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/ROOT -S $TARGET_DIR/META/file_contexts.bin -R / > $TARGET_DIR/META/root_filesystem_config.txt
-
-	(cd $TARGET_DIR/SYSTEM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,system/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R system/ > $TARGET_DIR/META/filesystem_config.txt
-
-	(cd $TARGET_DIR/VENDOR; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,vendor/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R vendor/ > $TARGET_DIR/META/vendor_filesystem_config.txt
-
-	(cd $TARGET_DIR/PRODUCT; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,product/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R product/ > $TARGET_DIR/META/product_filesystem_config.txt
-
-	(cd $TARGET_DIR/ODM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,odm/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R odm/ > $TARGET_DIR/META/odm_filesystem_config.txt
-
 	if [ -d $TARGET_DIR/VENDOR_BOOT ]; then
 		rm -rf $TARGET_DIR/VENDOR_BOOT
 		cp -a freeze_build/target_S/VENDOR_BOOT $TARGET_DIR/
-		(cd $TARGET_DIR/VENDOR_BOOT/RAMDISK; find . -type d | sed s,$,/,; find . \! -type d) | cut -c 3- | sort | sed s,^,, | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R / > $TARGET_DIR/META/vendor_boot_filesystem_config.txt
+		cp freeze_build/target_S/META/vendor_boot_filesystem_config.txt $TARGET_DIR/META/vendor_boot_filesystem_config.txt
 	fi
 
 	if [ -d $TARGET_DIR/RECOVERY ]; then
@@ -104,29 +98,6 @@ function build() {
 		cp -a freeze_build/target_S/RECOVERY/second $TARGET_DIR/RECOVERY/
 		cp -a freeze_build/target_S/RECOVERY/RAMDISK/init.recovery.amlogic.rc $TARGET_DIR/RECOVERY/RAMDISK/
 		cp -a freeze_build/target_S/RECOVERY/RAMDISK/sbin/* $TARGET_DIR/RECOVERY/RAMDISK/sbin/
-		(cd $TARGET_DIR/RECOVERY/RAMDISK; find . -type d | sed s,$,/,; find . \! -type d) | cut -c 3- | sort | sed s,^,, | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R / > $TARGET_DIR/META/recovery_filesystem_config.txt
-	fi
-
-	(cd $TARGET_DIR/BOOT/RAMDISK; find . -type d | sed s,$,/,; find . \! -type d) | cut -c 3- | sort | sed s,^,, | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R / > $TARGET_DIR/META/boot_filesystem_config.txt
-
-	rm -rf $TARGET_DIR/META/system_ext_filesystem_config.txt $TARGET_DIR/META/vendor_dlkm_filesystem_config.txt $TARGET_DIR/META/odm_dlkm_filesystem_config.txt $TARGET_DIR/META/init_boot_filesystem_config.txt
-
-	if [ -d $TARGET_DIR/SYSTEM_EXT ]; then
-		(cd $TARGET_DIR/SYSTEM_EXT; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,system_ext/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R system_ext/ > $TARGET_DIR/META/system_ext_filesystem_config.txt
-	fi
-
-	if [ -d $TARGET_DIR/VENDOR_DLKM ]; then
-		rm -rf $TARGET_DIR/VENDOR_DLKM
-		cp -a freeze_build/target_S/VENDOR_DLKM $TARGET_DIR/
-		(cd $TARGET_DIR/VENDOR_DLKM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,vendor_dlkm/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R vendor_dlkm/ > $TARGET_DIR/META/vendor_dlkm_filesystem_config.txt
-	fi
-
-	if [ -d $TARGET_DIR/ODM_DLKM ]; then
-		(cd $TARGET_DIR/ODM_DLKM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,odm_dlkm/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R odm_dlkm/ > $TARGET_DIR/META/odm_dlkm_filesystem_config.txt
-	fi
-
-	if [ -d $TARGET_DIR/INIT_BOOT ]; then
-		(cd $TARGET_DIR/INIT_BOOT; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,init_boot/,' | out/host/linux-x86/bin/fs_config -C -D $TARGET_DIR/SYSTEM -S $TARGET_DIR/META/file_contexts.bin -R init_boot/ > $TARGET_DIR/META/init_boot_filesystem_config.txt
 	fi
 
 	cd $CUR_DIR
