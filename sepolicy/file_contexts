@@ -7,6 +7,8 @@
 /data/misc/hdcp                         u:object_r:hdcp_file:s0
 /data/vendor/dtvkit(/.*)?               u:object_r:dtvkit_data_file:s0
 
+/data/vendor/irdeto                     u:object_r:irdeto_data_file:s0
+
 /dev/amaudio_.*     			u:object_r:audio_device:s0
 /dev/amaudio2_out       		u:object_r:audio_device:s0
 /dev/amremote       			u:object_r:input_device:s0

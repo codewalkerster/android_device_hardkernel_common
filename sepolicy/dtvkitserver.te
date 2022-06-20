@@ -29,6 +29,10 @@ allow dtvkitserver platform_app:binder { call };
 allow dtvkitserver { dtvkitserver_hwservice  hidl_base_hwservice }:hwservice_manager { add };
 allow dtvkitserver systemcontrol_hwservice:hwservice_manager {find};
 
+allow dtvkitserver irdeto_data_file:file { ioctl getattr read write open create setattr map};
+allow dtvkitserver irdeto_data_file:dir { create write read add_name remove_name open search getattr setattr };
+allow dtvkitserver irdeto_device:chr_file rwx_file_perms;
+
 allow dtvkitserver system_data_root_file:dir r_dir_perms;
 allow dtvkitserver tee_vendor_file:dir r_dir_perms;
 
