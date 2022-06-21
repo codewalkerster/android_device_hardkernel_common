@@ -6,7 +6,7 @@
 function clean() {
 	echo "Clean up"
 	cd ${MAIN_FOLDER}
-	rm -rf  freeze_build/*
+	rm -rf  out/freeze_build/*
 	return
 }
 
@@ -19,10 +19,17 @@ function build() {
 	CUR_DIR=$(pwd)
 	echo $CUR_DIR
 
-	mkdir -p freeze_build
+	mkdir -p out/freeze_build
+
+	cd $CUR_DIR
+	export PATH=$CUR_DIR/out/host/linux-x86/bin/:$CUR_DIR/out/soong/host/linux-x86/bin/:$CUR_DIR/system/extras/ext4_utils/:$CUR_DIR/prebuilts/build-tools/path/linux-x86:$CUR_DIR/out/.path:$PATH
+	export LD_LIBRARY_PATH=$CUR_DIR/out/host/linux-x86/lib64:$LD_LIBRARY_PATH
+	echo $PATH
+	echo $LD_LIBRARY_PATH
+
 	echo "copy readonly $TARGET_ZIP1 $TARGET_ZIP2"
-	cp $TARGET_ZIP1 freeze_build/target_S.zip
-	cp $TARGET_ZIP2 freeze_build/target_T.zip
+	cp $TARGET_ZIP1 out/freeze_build/target_S.zip
+	cp $TARGET_ZIP2 out/freeze_build/target_T.zip
 
 	cd $CUR_DIR
 	CONFIG_BOAED_NAME_S=${TARGET_ZIP1##*/}
@@ -38,11 +45,6 @@ function build() {
 	CONFIG_BOAED_NAME=$CONFIG_BOAED_NAME_T
 
 	cd $CUR_DIR
-	export PATH=$CUR_DIR/out/host/linux-x86/bin/:$CUR_DIR/out/soong/host/linux-x86/bin/:$CUR_DIR/system/extras/ext4_utils/:$CUR_DIR/prebuilts/build-tools/path/linux-x86:$CUR_DIR/out/.path:$PATH
-	export LD_LIBRARY_PATH=$CUR_DIR/out/host/linux-x86/lib64:$LD_LIBRARY_PATH
-	echo $PATH
-	echo $LD_LIBRARY_PATH
-
 	EXTRA_FLAGS=""
 	if [ -d "device/amlogic/common/vf" ]; then
 		EXTRA_FLAGS+=" --framework-item-list device/amlogic/common/vf/framework_item_list.txt \
@@ -53,12 +55,12 @@ function build() {
 	cd $CUR_DIR
 	echo "start to merge_target_files"
 	./out/host/linux-x86/bin/merge_target_files \
-		--framework-target-files freeze_build/target_T.zip \
-		--vendor-target-files freeze_build/target_S.zip \
+		--framework-target-files out/freeze_build/target_T.zip \
+		--vendor-target-files out/freeze_build/target_S.zip \
 		--allow-duplicate-apkapex-keys \
-		--output-target-files freeze_build/${CONFIG_BOAED_NAME}-target_files.zip \
-		--output-img  freeze_build/${CONFIG_BOAED_NAME}-img.zip \
-		--output-ota  freeze_build/${CONFIG_BOAED_NAME}-ota.zip \
+		--output-target-files out/freeze_build/${CONFIG_BOAED_NAME}-target_files.zip \
+		--output-img  out/freeze_build/${CONFIG_BOAED_NAME}-img.zip \
+		--output-ota  out/freeze_build/${CONFIG_BOAED_NAME}-ota.zip \
 		${EXTRA_FLAGS}
 
 	if [ $? -ne 0 ]; then
@@ -68,13 +70,13 @@ function build() {
 
 	echo "merge_target_files OK"
 
-	unzip -o -q freeze_build/${CONFIG_BOAED_NAME}-img.zip -d freeze_build/fastboot_auto
-	cp out/target/product/${CONFIG_BOAED_NAME}/fastboot_auto/flash-all.* freeze_build/fastboot_auto/
-	cd freeze_build/fastboot_auto/
+	unzip -o -q out/freeze_build/${CONFIG_BOAED_NAME}-img.zip -d out/freeze_build/fastboot_auto
+	cp out/target/product/${CONFIG_BOAED_NAME}/fastboot_auto/flash-all.* out/freeze_build/fastboot_auto/
+	cd out/freeze_build/fastboot_auto/
 	zip -1 -r ../vendor-freeze-build-${CONFIG_BOAED_NAME}.zip *
 	cd ../
 	rm ${CONFIG_BOAED_NAME}-img.zip
-	mv ${CONFIG_BOAED_NAME}-ota.zip vendor-freeze-ota-update-${TARGET}.zip
+	mv ${CONFIG_BOAED_NAME}-ota.zip vendor-freeze-ota-update-${CONFIG_BOAED_NAME}.zip
 
 	cd $CUR_DIR
 
