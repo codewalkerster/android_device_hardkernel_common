@@ -34,6 +34,10 @@ LOCAL_POST_INSTALL_CMD += \
     ln -sf /oem/etc/media_codecs_amlogic_encoder.xml $(TARGET_OUT_ODM)/etc/media_codecs_amlogic_encoder.xml; \
     ln -sf /oem/etc/media_codecs_amlogic_dolby_vision.xml $(TARGET_OUT_ODM)/etc/media_codecs_amlogic_dolby_vision.xml; \
     ln -sf /oem/etc/media_codecs_performance.xml $(TARGET_OUT_ODM)/etc/media_codecs_performance.xml; \
+    ln -sf /oem/etc/media_codecs_amlogic_performance_encoder.xml $(TARGET_OUT_ODM)/etc/media_codecs_amlogic_performance_encoder.xml; \
+    ln -sf /oem/etc/media_codecs_amlogic_performance_video.xml $(TARGET_OUT_ODM)/etc/media_codecs_amlogic_performance_video.xml; \
+    ln -sf /oem/etc/media_codecs_amlogic_performance_dolby_vision.xml $(TARGET_OUT_ODM)/etc/media_codecs_amlogic_performance_dolby_vision.xml; \
+    ln -sf /oem/etc/media_codecs_google_performance_video.xml $(TARGET_OUT_ODM)/etc/media_codecs_google_performance_video.xml; \
     ln -sf /oem/etc/firmware/firmware.le $(TARGET_OUT_ODM)/etc/firmware/firmware.le;
 
 include $(BUILD_PREBUILT)
