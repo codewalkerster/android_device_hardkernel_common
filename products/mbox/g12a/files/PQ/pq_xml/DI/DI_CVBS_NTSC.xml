@@ -60,7 +60,7 @@
 <Control ui_type="slider" name="reg_ei_caldrt_abext_sad00rate" range="0~15" addr="0x171d" mask="15:12" dst="U" desc="reg_ei_caldrt_abext_sad00rate" default="6" value="6" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_caldrt_abext_sad12rate" range="0~15" addr="0x171d" mask="11:8" dst="U" desc="reg_ei_caldrt_abext_sad12rate" default="6" value="6" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_caldrt_abext_sad00thhig" range="0~255" addr="0x171d" mask="7:0" dst="U" desc="reg_ei_caldrt_abext_sad00thhig" default="80" value="80" cmd="common:2,0xff900000" />
-<Control ui_type="slider" name="reg_ei_assign_headtail_magin" range="0~7" addr="0x171e" mask="30:28" dst="U" desc="reg_ei_assign_headtail_magin" default="2" value="2" cmd="common:2,0xff900000" />
+<Control ui_type="slider" name="reg_ei_assign_headtail_margin" range="0~7" addr="0x171e" mask="30:28" dst="U" desc="reg_ei_assign_headtail_margin" default="2" value="2" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_retime_lastcurpncnfltchk_mode" range="0~7" addr="0x171e" mask="26:24" dst="U" desc="reg_ei_retime_lastcurpncnfltchk_mode" default="3" value="3" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_retime_lastcurpncnfltchk_drtth" range="0~3" addr="0x171e" mask="22:21" dst="U" desc="reg_ei_retime_lastcurpncnfltchk_drtth" default="0" value="0" cmd="common:2,0xff900000" />
 <Control ui_type="checkbox" name="reg_ei_caldrt_histchk_cnfid" range="0~1" addr="0x171e" mask="20:20" dst="U" desc="reg_ei_caldrt_histchk_cnfid" default="0" value="0" cmd="common:2,0xff900000" />
@@ -117,7 +117,7 @@
 <Control ui_type="checkbox" name="reg_ei_assign_pkbiasvert_en" range="0~1" addr="0x179f" mask="19:19" dst="U" desc="reg_ei_assign_pkbiasvert_en" default="1" value="1" cmd="common:2,0xff900000" />
 <Control ui_type="checkbox" name="reg_ei_assign_xla_en" range="0~1" addr="0x179f" mask="18:18" dst="U" desc="reg_ei_assign_xla_en" default="1" value="1" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_assign_xla_mode" range="0~3" addr="0x179f" mask="17:16" dst="U" desc="reg_ei_assign_xla_mode" default="0" value="3" cmd="common:2,0xff900000" />
-<Control ui_type="slider" name="reg_ei_assign_nlfilter_magin" range="0~15" addr="0x179f" mask="15:12" dst="U" desc="reg_ei_assign_nlfilter_magin" default="2" value="2" cmd="common:2,0xff900000" />
+<Control ui_type="slider" name="reg_ei_assign_nlfilter_margin" range="0~15" addr="0x179f" mask="15:12" dst="U" desc="reg_ei_assign_nlfilter_margin" default="2" value="2" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_localsearch_maxrange" range="0~15" addr="0x179f" mask="11:8" dst="U" desc="reg_ei_localsearch_maxrange" default="5" value="5" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_xla_drtth" range="0~15" addr="0x179f" mask="7:4" dst="U" desc="reg_ei_xla_drtth" default="0" value="0" cmd="common:2,0xff900000" />
 <Control ui_type="slider" name="reg_ei_flatmsad_thrd" range="0~15" addr="0x179f" mask="3:0" dst="U" desc="reg_ei_flatmsad_thrd" default="3" value="12" cmd="common:2,0xff900000" />

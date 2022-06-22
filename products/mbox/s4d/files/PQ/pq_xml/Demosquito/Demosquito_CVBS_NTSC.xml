@@ -10,13 +10,13 @@
 <Control ui_type="slider" name="reg_dnr_luma_cgain" range="0~63" addr="0x2d0a" mask="5:0" dst="U" desc="final gain for delta part, 32 normalized to 1. unsigned, default = 4" default="4" value="4" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_scene_change_flag" range="0~1" addr="0x2d5d" mask="7:7" dst="U" desc="scence change flag for dnr" default="1" value="1" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_dm_lpf_en" range="0~1" addr="0x2d5d" mask="6:6" dst="U" desc="enable lpf fof demosquito filter" default="1" value="1" cmd="common:2,0xff000000"/>
-<Control ui_type="checkbox" name="reg_dnr_dm_adp_level_en" range="0~1" addr="0x2d5d" mask="5:5" dst="U" desc="enable adptive demosquito level" default="1" value="1" cmd="common:2,0xff000000"/>
+<Control ui_type="checkbox" name="reg_dnr_dm_adp_level_en" range="0~1" addr="0x2d5d" mask="5:5" dst="U" desc="enable adaptive demosquito level" default="1" value="1" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_dm_flag2bdif_en" range="0~1" addr="0x2d5d" mask="4:4" dst="U" desc="enable edge flag to blkdif calc" default="1" value="1" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_dm_edgeiir" range="0~3" addr="0x2d5d" mask="3:2" dst="U" desc="edge flag iir mode, 0:cur,1:max(pre,cur), 2,3: choice by org mtn" default="1" value="1" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_dm_dirdifmod" range="0~1" addr="0x2d5d" mask="1:1" dst="U" desc="dif mode for direction calc ,  0: abs(dif02), 1: (abs(dif01)+abs(dif21))/2" default="1" value="1" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_dm_sur_dir_mod" range="0~1" addr="0x2d5d" mask="0:0" dst="U" desc="sure direction mode for cordif calc" default="0" value="0" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_dm_dirdifcor" range="0~255" addr="0x2d5e" mask="23:16" dst="U" desc="dif coring threshold for direction calc" default="2" value="2" cmd="common:2,0xff000000"/>
-<Control ui_type="slider" name="reg_dnr_dm_edgecordifthd" range="0~255" addr="0x2d5e" mask="15:8" dst="U" desc="edge flag down when cordif is lager than theshold" default="160" value="160" cmd="common:2,0xff000000"/>
+<Control ui_type="slider" name="reg_dnr_dm_edgecordifthd" range="0~255" addr="0x2d5e" mask="15:8" dst="U" desc="edge flag down when cordif is lager than threshold" default="160" value="160" cmd="common:2,0xff000000"/>
 <Control ui_type="slider" name="reg_dnr_dm_mtnrt" range="0~255" addr="0x2d5e" mask="7:0" dst="U" desc="motion ration for mtn decision" default="60" value="60" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_fedgeflg_en" range="0~1" addr="0x2d60" mask="13:13" dst="U" desc="reg_dnr_fedgeflg_en, 1 to enable edge flag calculation for each frame" default="1" value="1" cmd="common:2,0xff000000"/>
 <Control ui_type="checkbox" name="reg_dnr_fedgeflg_cl" range="0~1" addr="0x2d60" mask="12:12" dst="U" desc="reg_dnr_fedgeflg_cl, 1 to clear the edge flag to 0 for each frame" default="1" value="1" cmd="common:2,0xff000000"/>

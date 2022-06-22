@@ -37,7 +37,7 @@ PRODUCT_PACKAGES += \
     EmulatorSmokeTests
 endif
 
-# 1p devcie without vendor/amlogic/reference code
+# 1p device without vendor/amlogic/reference code
 # reference device with vendor/amlogic/reference code
 ifeq ($(wildcard vendor/amlogic/reference/tv),)
 # for 1p device

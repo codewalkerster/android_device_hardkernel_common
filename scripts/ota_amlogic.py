@@ -108,7 +108,7 @@ Non-A/B OTA specific options
       is specified.
 
   -o  (--oem_settings) <main_file[,additional_files...]>
-      Comma seperated list of files used to specify the expected OEM-specific
+      Comma separated list of files used to specify the expected OEM-specific
       properties on the OEM partition of the intended device. Multiple expected
       values can be used by providing multiple files. Only the first dict will
       be used to compute fingerprint, while the rest will be used to assert
@@ -1111,7 +1111,7 @@ class PropertyFiles(object):
     """Computes the additional tokens to be included into the property-files.
 
     This applies to tokens without actual ZIP entries, such as
-    payload_metadadata.bin. We want to expose the offset/size to updaters, so
+    payload_metadata.bin. We want to expose the offset/size to updaters, so
     that they can download the payload metadata directly with the info.
 
     Args:

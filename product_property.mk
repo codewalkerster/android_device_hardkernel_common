@@ -59,7 +59,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.clientidbase=android-droid-tv
 
 # A new solution for oemkey as build param
-# if someone want to use the unfiykey solution
+# if someone want to use the unify key solution
 # pls comment next 2 line2
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.oem.key1=ATV00100021
@@ -81,7 +81,7 @@ PRODUCT_PRODUCT_PROPERTIES +=  \
 #llkd will recycle zombie process by killing parent process,
 #if the parent not recycle it. Antutu folk some process to run
 #gpu bench, and do not recycle these processes until exit.
-#so we need add antutu to the ingore list of llkd.
+#so we need add antutu to the ignore list of llkd.
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.llk.ignorelist.parent=com.antutu.ABenchMark
 

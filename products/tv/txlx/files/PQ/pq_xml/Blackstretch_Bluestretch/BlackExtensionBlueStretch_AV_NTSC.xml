@@ -2,7 +2,7 @@
 <Form name="BlackExtensionBlueStretch_AV_NTSC" platform="txlx" commands="">
 <Group num="0" val="0">
 <Page tab_title="" layout="10x4">
-<Control ui_type="checkbox" name="demo_blackext_enable" range="0~1" addr="0x1da1" mask="3:3" dst="U" desc="demo black enxtension enable" default="0" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="demo_blackext_enable" range="0~1" addr="0x1da1" mask="3:3" dst="U" desc="demo black extension enable" default="0" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="blackext_start" range="0~255" addr="0x1d80" mask="31:24" dst="U" desc="" default="0" value="80" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="blackext_slope1" range="0~255" addr="0x1d80" mask="23:16" dst="U" desc="" default="0" value="34" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="blackext_mid_point" range="0~255" addr="0x1d80" mask="15:8" dst="U" desc="" default="0" value="32" cmd="common:2,0xff900000"/>

@@ -46,12 +46,12 @@ endif
 
 #for amlogicplayer& liblayer related.
 #TARGET_WITH_AMLOGIC_EXTRATORS :=true
-#TARGET_WITH_AMLOGIC_SCREAN_MEDIASOURCE :=true
+#TARGET_WITH_AMLOGIC_SCREEN_MEDIASOURCE :=true
 #TARGET_WITH_AMLOGIC_RETRIEVER :=true
 #TARGET_WITH_AMLOGIC_PLAYERS :=true
 #move TARGET_WITH_MEDIA_EXT_LEVEL to platform mk
 #TARGET_WITH_MEDIA_EXT_LEVEL := 3
-#set on some prducts,used libplayer.
+#set on some products,used libplayer.
 BUILD_WITH_BOOT_PLAYER :=true
 BUILD_WITH_ES_PLAYER := true
 BUILD_WITH_DEC_INFO_TEST := true
@@ -346,7 +346,7 @@ ifeq ($(TARGET_WITH_AMLOGIC_RETRIEVER), true)
 PRODUCT_PACKAGES += libamlogic_metadata_retriever
 endif
 
-ifeq ($(TARGET_WITH_AMLOGIC_SCREAN_MEDIASOURCE), true)
+ifeq ($(TARGET_WITH_AMLOGIC_SCREEN_MEDIASOURCE), true)
 #for screensource
 PRODUCT_PACKAGES += libstagefright_screenmediasource
 endif

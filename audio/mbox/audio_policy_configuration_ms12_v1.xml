@@ -285,7 +285,7 @@
     <!-- Each of the listed formats gets an entry in Surround Settings dialog on TV devices.
         There must be a corresponding Java ENCODING_... contant defined in AudioFormat.java,
         and a display name defined in AudioFormat.toDisplayName. For the formats that don't
-        need a dedicated Surrond Settings dialog entry, a subformats list has to be used. -->
+        need a dedicated surround Settings dialog entry, a subformats list has to be used. -->
         <formats>
             <format name="AUDIO_FORMAT_AC3" />
             <format name="AUDIO_FORMAT_E_AC3" />

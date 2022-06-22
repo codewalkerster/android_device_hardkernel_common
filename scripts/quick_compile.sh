@@ -2,7 +2,7 @@
 ###########################################################################################
 # 1. project[x]          project name, as title only
 # 2. soc[x]              soc name, as title only
-# 3. hardware[x]         hardare platform name, as title only
+# 3. hardware[x]         hardware platform name, as title only
 # 4. module[x]           lunch name
 # 5. uboot_path[x]       bootloader store path
 # 6. uboot_exec_aosp[x]  build uboot aosp command
@@ -354,7 +354,7 @@ read_android_type() {
     while true :
     do
         echo -e \
-        "Select compile Android verion type lists:\n"\
+        "Select compile Android version type lists:\n"\
         "[NUM]   [Android Version]\n" \
         "[  1]   [AOSP]\n" \
         "[  2]   [DRM ]\n" \
@@ -383,7 +383,7 @@ read_android_type() {
 
 ########################################################################################################################################################################
 #
-# Compile Uboot throuth params
+# Compile Uboot through params
 # if no params compile userdebug
 ########################################################################################################################################################################
 compile_uboot() {

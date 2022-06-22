@@ -36,7 +36,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # screencontrol option
 # The prop is used to limit record buffer size,
-# expectially for software encode platform
+# especially for software encode platform
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.screencontrol.maxbufsize=104857600
 
