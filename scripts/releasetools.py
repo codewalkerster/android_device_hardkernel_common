@@ -198,7 +198,7 @@ def FullOTA_InstallBegin(info):
   OPTIONS.skip_compatibility_check = True
   LoadInfoDict_amlogic(info.info_dict, info.input_zip);
   SetBootloaderEnv(info.script, "upgrade_step", "3")
-  info.script.FormatPartition("/metadata")
+  #info.script.FormatPartition("/metadata")
   ZipOtherImage("super_empty_all", OPTIONS.input_tmp, info.output_zip)
   info.script.AppendExtra('if get_update_stage() == "2" then')
   info.script.AppendExtra('ui_print("DTB changed => writing super_empty_all.img to super block...");')
@@ -320,5 +320,5 @@ def IncrementalOTA_InstallEnd(info):
   IncrementalOTA_ImageCheck(info, "dt");
   IncrementalOTA_ImageCheck(info, "recovery");
   IncrementalOTA_ImageCheck(info, "vbmeta");
-  info.script.FormatPartition("/metadata")
+  #info.script.FormatPartition("/metadata")
   IncrementalOTA_ImageCheck(info, "bootloader");
