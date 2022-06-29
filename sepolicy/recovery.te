@@ -7,7 +7,7 @@ allow recovery self:capability net_admin;
 allow recovery rootfs:dir create_dir_perms;
 allow recovery sysfs:dir mounton;
 
-allow recovery vfat:dir create_dir_perms;
+allow recovery vfat:dir { create_dir_perms mounton };
 allow recovery vfat:file create_file_perms;
 
 allow recovery env_device:chr_file rw_file_perms;
