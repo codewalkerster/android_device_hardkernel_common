@@ -23,7 +23,7 @@
 #DEVICE_PRODUCT_PATH
 
 ###########################################################
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 ifeq ($(KERNEL_A32_SUPPORT),true)
 TARGET_KERNEL_DIR := 32/4.9
 else
@@ -56,7 +56,7 @@ RAMDISK_KERNEL_MODULES_LOAD_BLACKLIST += dvb_demux.ko \
 					 spi-nor.ko \
 					 aml_aucpu.ko
 
-ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
   ifneq ($(KERNEL_A32_SUPPORT),true)
       RAMDISK_KERNEL_MODULES := $(wildcard $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/ramdisk/lib/modules/*.ko)
       RAMDISK_KERNEL_MODULES_LOAD := $(RAMDISK_KERNEL_MODULES)
@@ -129,7 +129,7 @@ $(warning TARGET_PREBUILT_KERNEL=$(TARGET_PREBUILT_KERNEL))
 VENDOR_KERNEL_MODULES += \
     $(wildcard $(PREBUILT_KERNEL_PATH)/lib/modules/*.ko)
 
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 VENDOR_KERNEL_MODULES += \
     device/amlogic/common/soft_afbc/4.9/amlogic_fbc_lib.ko
 else

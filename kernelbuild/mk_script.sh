@@ -37,7 +37,8 @@ function build_boreal() {
 	echo "------device/google/boreal/build.config.meson.arm64.trunk-----"
 	cd ${MAIN_FOLDER}
 	export BUILD_CONFIG=device/google/boreal/build.config.meson.arm64.trunk
-	export TARGET_BUILD_KERNEL_4_9=false
+	export TARGET_BUILD_KERNEL_VERSION=5.4
+        export TARGET_BUILD_KERNEL_4_9=false
 	. ${MAIN_FOLDER}/${BUILD_CONFIG}
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG})
 
@@ -75,7 +76,8 @@ function build_anning() {
 		export BUILD_CONFIG=device/amlogic/ampere/anning/build.config.meson.arm64.trunk_4.9
 	fi
 
-	export TARGET_BUILD_KERNEL_4_9=true
+	export TARGET_BUILD_KERNEL_VERSION=4.9
+        export TARGET_BUILD_KERNEL_4_9=true
 	. ${MAIN_FOLDER}/${BUILD_CONFIG}
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG})
 	echo "KERNEL_DEVICETREE: ${KERNEL_DEVICETREE}"
@@ -115,7 +117,8 @@ function build_common_4.9() {
 	else
 		export BUILD_CONFIG=device/${device_project}/$1/build.config.meson.arm64.trunk_4.9
 	fi
-	export TARGET_BUILD_KERNEL_4_9=true
+	export TARGET_BUILD_KERNEL_VERSION=4.9
+        export TARGET_BUILD_KERNEL_4_9=true
 
 	. ${MAIN_FOLDER}/${BUILD_CONFIG}
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG})
@@ -158,7 +161,8 @@ function build_common_5.4() {
 	else
 		export BUILD_CONFIG=device/${device_project}/$1/build.config.meson.arm64.trunk
 	fi
-	export TARGET_BUILD_KERNEL_4_9=false
+	export TARGET_BUILD_KERNEL_VERSION=5.4
+        export TARGET_BUILD_KERNEL_4_9=false
 	. ${MAIN_FOLDER}/${BUILD_CONFIG}
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG})
 

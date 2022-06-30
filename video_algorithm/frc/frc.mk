@@ -20,7 +20,7 @@
 
 ifeq ($(strip $(FRC_FW_MODULE)),true)
     $(warning FRC_FW_MODULE is $(FRC_FW_MODULE))
-    ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+    ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)

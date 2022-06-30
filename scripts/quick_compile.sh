@@ -8,7 +8,7 @@
 # 6. uboot_exec_aosp[x]  build uboot aosp command
 # 7. uboot_exec_drm[x]   build uboot drm command
 # 8. kernel_exec[x]      build kernel command(do not include -t user)
-# 9. android_exec[x]="TARGET_BUILD_KERNEL_4_9=true"  only if build 4.9 kernel need it.
+# 9. android_exec[x]="TARGET_BUILD_KERNEL_VERSION=4.9"  only if build 4.9 kernel need it.
 # 10. kernel_addr[x]="export KERNEL_A32_SUPPORT=true"  only if build 32bit kernel need it.
 ###########################################################################################
 
@@ -22,6 +22,7 @@ uboot_path[1]="device/amlogic/ohm"
 uboot_exec_aosp[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 kernel_exec[1]="./mk ohm -v 5.4"
+android_exec[1]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -34,6 +35,7 @@ uboot_path[2]="device/amlogic/ohm"
 uboot_exec_aosp[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 kernel_exec[2]="./mk ohm -v 5.4"
+android_exec[2]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -46,6 +48,7 @@ uboot_path[3]="device/amlogic/ohm"
 uboot_exec_aosp[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 kernel_exec[3]="./mk ohm -v 5.4 --fccpip"
+android_exec[3]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -58,6 +61,7 @@ uboot_path[4]="device/amlogic/ohmcas"
 uboot_exec_aosp[4]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[4]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 kernel_exec[4]="./mk ohmcas -v 5.4"
+android_exec[4]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -70,6 +74,7 @@ uboot_path[5]="device/amlogic/ohmcas"
 uboot_exec_aosp[5]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[5]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 kernel_exec[5]="./mk ohmcas -v 5.4"
+android_exec[5]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -82,6 +87,7 @@ uboot_path[6]="device/amlogic/oppen"
 uboot_exec_aosp[6]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[6]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 kernel_exec[6]="./mk oppen -v 5.4"
+android_exec[6]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -94,6 +100,7 @@ uboot_path[7]="device/amlogic/oppen"
 uboot_exec_aosp[7]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[7]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 kernel_exec[7]="./mk oppen -v 5.4"
+android_exec[7]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -107,6 +114,7 @@ uboot_path[8]="device/amlogic/oppen"
 uboot_exec_aosp[8]="./mk s4_ap223  --vab --avb2 --fastboot-write"
 uboot_exec_drm[8]="./mk s4_ap223  --vab --avb2 --fastboot-write"
 kernel_exec[8]="./mk oppen -v 5.4"
+android_exec[8]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -119,6 +127,7 @@ uboot_path[9]="device/amlogic/oppencas"
 uboot_exec_aosp[9]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[9]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 kernel_exec[9]="./mk oppencas -v 5.4"
+android_exec[9]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -131,6 +140,7 @@ uboot_path[10]="device/amlogic/oppencas"
 uboot_exec_aosp[10]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[10]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 kernel_exec[10]="./mk oppencas -v 5.4"
+android_exec[10]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 
@@ -144,6 +154,7 @@ uboot_path[11]="device/amlogic/oppencas"
 uboot_exec_aosp[11]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[11]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 kernel_exec[11]="./mk oppencas -v 5.4 --fccpip"
+android_exec[11]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -156,6 +167,7 @@ uboot_path[12]="device/amlogic/planck"
 uboot_exec_aosp[12]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[12]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 kernel_exec[12]="./mk planck -v 5.4"
+android_exec[12]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -169,6 +181,7 @@ uboot_exec_aosp[13]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[13]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 kernel_exec[13]="./mk planck -v 5.4"
 kernel_addr[13]="export KERNEL_A32_SUPPORT=true"
+android_exec[13]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -181,6 +194,7 @@ uboot_path[14]="device/amlogic/redi"
 uboot_exec_aosp[14]="./mk t5d_am301_v1 --vab --fastboot-write"
 uboot_exec_drm[14]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[14]="./mk redi -v 5.4"
+android_exec[14]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -193,6 +207,7 @@ uboot_path[15]="device/amlogic/smith"
 uboot_exec_aosp[15]="./mk t3_t965d4  --vab --fastboot-write"
 uboot_exec_drm[15]="./mk t3_t965d4  --vab --avb2 --fastboot-write"
 kernel_exec[15]="./mk smith -v 5.4"
+android_exec[15]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -205,6 +220,7 @@ uboot_path[16]="device/amlogic/soddy"
 uboot_exec_aosp[16]="./mk t5w_at301_v1  --vab --fastboot-write"
 uboot_exec_drm[16]="./mk t5w_at301_v1  --vab --avb2 --fastboot-write"
 kernel_exec[16]="./mk soddy -v 5.4"
+android_exec[16]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -217,6 +233,7 @@ uboot_path[17]="device/amlogic/marconi"
 uboot_exec_aosp[17]="./mk tl1_x301_v1  --vab --fastboot-write"
 uboot_exec_drm[17]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tl1/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[17]="./mk marconi -v 5.4"
+android_exec[17]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -229,6 +246,7 @@ uboot_path[18]="device/amlogic/marconi"
 uboot_exec_aosp[18]="./mk tm2_t962e2_ab311_v1  --vab --fastboot-write"
 uboot_exec_drm[18]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tm2/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[18]="./mk dalton -v 5.4"
+android_exec[18]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -241,7 +259,7 @@ uboot_path[19]="device/amlogic/franklin"
 uboot_exec_aosp[19]="./mk g12a_u212_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[19]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[19]="./mk franklin -v 4.9"
-android_exec[19]="TARGET_BUILD_KERNEL_4_9=true"
+android_exec[19]="TARGET_BUILD_KERNEL_VERSION=4.9"
 ###########################################################################################
 
 ###########################################################################################
@@ -254,7 +272,7 @@ uboot_path[20]="device/amlogic/newton"
 uboot_exec_aosp[20]="./mk sm1_ac215_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[20]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[20]="./mk newton -v 4.9"
-android_exec[20]="TARGET_BUILD_KERNEL_4_9=true"
+android_exec[20]="TARGET_BUILD_KERNEL_VERSION=4.9"
 ###########################################################################################
 
 ###########################################################################################
@@ -267,7 +285,7 @@ uboot_path[21]="device/amlogic/franklin/franklin_hybrid"
 uboot_exec_aosp[21]="./mk g12a_u215_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[21]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[21]="./mk franklin -v 4.9"
-android_exec[21]="TARGET_BUILD_KERNEL_4_9=true"
+android_exec[21]="TARGET_BUILD_KERNEL_VERSION=4.9"
 ###########################################################################################
 
 usage() {

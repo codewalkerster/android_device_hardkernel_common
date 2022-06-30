@@ -20,7 +20,7 @@
 
 ifeq ($(strip $(LDIM_FW_MODULE)),true)
     $(warning LDIM_FW_MODULE is $(LDIM_FW_MODULE))
-    ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+    ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)

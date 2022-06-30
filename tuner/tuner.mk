@@ -23,7 +23,7 @@
 
 ifneq ($(strip $(TUNER_MODULE)),)
 $(warning TUNER_MODULE is $(TUNER_MODULE))
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
     $(if $(findstring true, $(KERNEL_A32_SUPPORT)),\
         device/amlogic/common/tuner/32_4_9/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\

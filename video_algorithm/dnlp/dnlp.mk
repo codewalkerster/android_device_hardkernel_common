@@ -20,7 +20,7 @@
 
 ifeq ($(strip $(DNLP_MODULE)),true)
     $(warning DNLP_MODULE is $(DNLP_MODULE))
-    ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+    ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \
                device/amlogic/common/video_algorithm/dnlp/32_4_9/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \

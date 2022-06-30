@@ -96,7 +96,7 @@ PRODUCT_PACKAGES += \
     WiFiTetheringOverlay
 endif
 
-ifneq ($(TARGET_BUILD_KERNEL_4_9), true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION), 4.9)
 ifneq ($(AB_OTA_UPDATER),true)
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4.fstab
 else
@@ -377,7 +377,7 @@ endif
 #                     metadata encryption
 #
 #######################################################################
-ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.dm_default_key.options_format.version=2 \
@@ -421,7 +421,7 @@ PRODUCT_PACKAGES += \
 
 endif
 
-ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += \
        device/amlogic/common/kexec/kernel54_arm64/Image2:$(TARGET_COPY_OUT_SYSTEM)/etc/Image2 \
        device/amlogic/common/kexec/kernel54_arm64/init.amlogic.kexec.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.amlogic.kexec.rc
@@ -456,7 +456,7 @@ PRODUCT_PACKAGES += \
      android.hardware.audio.effect@2.0-impl:32 \
      android.hardware.audio@2.0-service-droidlogic
 
-ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32
@@ -515,7 +515,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.software
 
 #DRM HAL
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
@@ -611,7 +611,7 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
 endif
 
-ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/initscripts/fs_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
     device/amlogic/common/initscripts/power_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
@@ -654,7 +654,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 endif
 
-ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 #Factory Reset Protection
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/by-name/frp
@@ -721,7 +721,7 @@ endif
 
 TARGET_BOOTLOADER_CONTROL_BLOCK := true
 
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 TARGET_NO_RECOVERY := false
 AB_OTA_PARTITIONS += recovery
@@ -750,7 +750,7 @@ TARGET_NO_RECOVERY := false
 
 BOARD_CACHEIMAGE_PARTITION_SIZE := 69206016
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 else
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432

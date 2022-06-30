@@ -20,7 +20,7 @@
 
 ifeq ($(strip $(HDR10_TMO_MODULE)),true)
     $(warning HDR10_TMO_MODULE is $(HDR10_TMO_MODULE))
-    ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
+    ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \
                device/amlogic/common/video_algorithm/hdr10_tmo/32_4_9/hdr10_tmo_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
