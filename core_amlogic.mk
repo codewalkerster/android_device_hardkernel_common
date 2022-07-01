@@ -557,8 +557,13 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.droidlogic
 
 #normally, every device need a config file, currently all chips are the same
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/thermal_info_config_5_15.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+endif
 
 #PRODUCT_PACKAGES += \
 #    android.hardware.cas@1.2-service

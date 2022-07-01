@@ -119,8 +119,13 @@ PQ_FILES := \
 endif
 
 #thermal 2.0 config file
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+PRODUCT_COPY_FILES += \
+    $(CHIP_DIR)/files/thermal_info_config_5_15.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+else
 PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+endif
 
 #########################################################################
 #
