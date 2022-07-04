@@ -153,6 +153,9 @@ endif
 
 PRODUCT_PACKAGES += libdsm
 
+#bin
+PRODUCT_PACKAGES += EsVideoDecPlayer
+
 #########################################################################
 #
 #                                                PlayReady DRM
