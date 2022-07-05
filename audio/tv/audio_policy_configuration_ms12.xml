@@ -49,6 +49,7 @@
                 <item>Speaker</item>
                 <item>Built-In Mic</item>
                 <item>Spdif In</item>
+                <item>Spdif Out</item>
                 <item>HDMI In</item>
                 <item>Line In</item>
                 <item>HDMI ARC In</item>
@@ -150,6 +151,15 @@
                     <profile name="" format="AUDIO_FORMAT_E_AC3"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO,AUDIO_CHANNEL_OUT_5POINT1,AUDIO_CHANNEL_OUT_7POINT1"/>
+                    <gains>
+                        <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
+                              minValueMB="-10000"
+                              maxValueMB="0"
+                              defaultValueMB="-6000"
+                              stepValueMB="100"/>
+                    </gains>
+                </devicePort>
+                <devicePort tagName="Spdif Out" role="sink" type="AUDIO_DEVICE_OUT_SPDIF">
                     <gains>
                         <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
                               minValueMB="-10000"
@@ -282,6 +292,8 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="Speaker"
+                       sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
+                <route type="mix" sink="Spdif Out"
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
