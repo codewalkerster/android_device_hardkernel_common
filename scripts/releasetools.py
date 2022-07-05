@@ -185,6 +185,11 @@ def FullOTA_Assertions(info):
       info.script.AppendExtra('set_bootloader_env("recovery_from_flash", "defenv_reserv;saveenv;reset");')
     info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
     info.script.WriteRawImage("/recovery", "recovery.img")
+    if OPTIONS.ota_vendor_boot:
+      info.script.AppendExtra('if package_extract_file("vendor_boot.img", "/dev/block/vendor_boot") == "" then')
+      info.script.AppendExtra('ui_print("update vendor_boot.img to super");')
+      info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/super");')
+      info.script.AppendExtra('endif;')
     if OPTIONS.backup_zip:
       info.script.AppendExtra('backup_update_package("/dev/block/mmcblk0", "1894");')
     info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
