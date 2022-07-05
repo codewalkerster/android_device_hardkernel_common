@@ -715,6 +715,11 @@ AB_OTA_PARTITIONS += \
     vbmeta_system
 endif
 
+ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+AB_OTA_PARTITIONS += \
+    system_dlkm
+endif
+
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 AB_OTA_PARTITIONS += \
     vendor_dlkm

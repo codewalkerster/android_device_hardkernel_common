@@ -50,6 +50,10 @@ ifeq ($(BOARD_USES_VBMETA_SYSTEM),true)
 VB_CHECK_IMAGES += vbmeta_system.img
 endif
 
+ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+VB_CHECK_IMAGES += system_dlkm.img
+endif
+
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 VB_CHECK_IMAGES += vendor_dlkm.img
 endif
@@ -534,6 +538,10 @@ ifeq ($(BOARD_USES_ODMIMAGE),true)
 endif
 ifeq ($(BUILDING_SYSTEM_EXT_IMAGE),true)
 FASTBOOT_IMAGES += system_ext.img
+endif
+
+ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+FASTBOOT_IMAGES += system_dlkm.img
 endif
 
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)

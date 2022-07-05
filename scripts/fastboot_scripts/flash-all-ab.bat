@@ -66,6 +66,9 @@ fastboot flash system_ext system_ext.img
 if exist vendor_dlkm.img (
 fastboot flash vendor_dlkm vendor_dlkm.img
 )
+if exist system_dlkm.img (
+fastboot flash system_dlkm system_dlkm.img
+)
 if exist odm_dlkm.img (
 fastboot flash odm_dlkm odm_dlkm.img
 )

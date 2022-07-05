@@ -111,6 +111,10 @@ if [ -f vendor_dlkm.img ]
 then
 	flash_with_retry vendor_dlkm vendor_dlkm.img
 fi
+if [ -f system_dlkm.img ]
+then
+	flash_with_retry system_dlkm system_dlkm.img
+fi
 if [ -f odm_dlkm.img ]
 then
 	flash_with_retry odm_dlkm odm_dlkm.img
