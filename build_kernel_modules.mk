@@ -138,22 +138,10 @@ $(warning TARGET_PREBUILT_KERNEL=$(TARGET_PREBUILT_KERNEL))
 VENDOR_KERNEL_MODULES += \
     $(wildcard $(PREBUILT_KERNEL_PATH)/lib/modules/*.ko)
 
-ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
-VENDOR_KERNEL_MODULES += \
-    device/amlogic/common/soft_afbc/4.9/amlogic_fbc_lib.ko
-else
-ifeq ($(KERNEL_A32_SUPPORT),true)
-VENDOR_KERNEL_MODULES += \
-    device/amlogic/common/soft_afbc/32/amlogic_fbc_lib.ko
-else
-VENDOR_KERNEL_MODULES += \
-    device/amlogic/common/soft_afbc/64/amlogic_fbc_lib.ko
-endif
-endif
-
 -include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner_modules.mk
 include device/amlogic/common/video_algorithm/dnlp/dnlp_modules.mk
 include device/amlogic/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
+include device/amlogic/common/soft_afbc/soft_afbc_modules.mk
 
 BOARD_VENDOR_KERNEL_MODULES ?= $(VENDOR_KERNEL_MODULES)
 

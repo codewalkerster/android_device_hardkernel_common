@@ -16,8 +16,8 @@
 
 ifeq ($(KERNEL_A32_SUPPORT),true)
 	DEFAULT_SOFTAFBC_KERNEL_MODULES := \
-		device/amlogic/common/soft_afbc/32/amlogic_fbc_lib.ko
+		device/amlogic/common/soft_afbc/$(TARGET_BUILD_KERNEL_VERSION)/32/amlogic_fbc_lib.ko
 else
 	DEFAULT_SOFTAFBC_KERNEL_MODULES := \
-		device/amlogic/common/soft_afbc/64/amlogic_fbc_lib.ko
+		device/amlogic/common/soft_afbc/$(TARGET_BUILD_KERNEL_VERSION)/64/amlogic_fbc_lib.ko
 endif
