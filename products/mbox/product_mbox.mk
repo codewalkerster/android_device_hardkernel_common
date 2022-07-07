@@ -211,3 +211,12 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
     audio.offload.min.duration.secs=5
+
+ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/products/mbox/hdcp_tx22_oem.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
+else
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/products/mbox/hdcp_tx22.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
+endif
+

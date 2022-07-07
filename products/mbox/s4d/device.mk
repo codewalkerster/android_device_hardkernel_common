@@ -61,13 +61,8 @@ PRODUCT_COPY_FILES += \
 # Init config
 #
 #########################################################################
-ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/init.amlogic.system.license.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
-else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
-endif
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
@@ -118,7 +113,7 @@ endif
 # Audio
 #
 #########################################################################
-
+ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 AUDIO_FEATURE_TYPE :=
 ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
@@ -140,5 +135,8 @@ endif
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'using audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml')
-
 endif  ###end USE_XML_AUDIO_POLICY_CONF
+else
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+endif  ###end TARGET_BUILD_OEM_WITH_LICENSE_FILES

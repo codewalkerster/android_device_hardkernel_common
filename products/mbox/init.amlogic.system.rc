@@ -114,12 +114,6 @@ service remotecfg /vendor/bin/remotecfg /vendor/etc/remote.conf
     oneshot
     seclabel u:r:remotecfg:s0
 
-service hdcp_tx22 /vendor/bin/hdcp_tx22 \
-    -f /odm/etc/firmware/firmware.le
-    class main
-    disabled
-    oneshot
-
 #service hdcp_rx22 /vendor/bin/hdcp_rx22 \
 #    -f /mnt/vendor/param/firmware.le
 #    class main
