@@ -357,8 +357,7 @@ rm -rf ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/*
 mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/firmware/video/
 mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/modules/
 
-cp ${OUT_DIR}/../vendor_lib/firmware/video/h264_enc.bin ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/firmware/video/
-cp ${OUT_DIR}/../vendor_lib/firmware/video/video_ucode.bin ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/firmware/video/
+cp ${OUT_DIR}/../vendor_lib/firmware/video/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/firmware/video/ -rf
 cp ${OUT_DIR}/../vendor_lib/optee* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/
 cp ${OUT_DIR}/../vendor_lib/modules/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/modules/
 if [ $KERNEL_A32_SUPPORT ]; then
