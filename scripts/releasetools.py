@@ -146,7 +146,7 @@ def AddCustomerImage(info, tmpdir):
     if os.path.splitext(file)[1] == '.map':
       of = file.rfind('.')
       name = file[:of]
-      if name not in ["system", "vendor", "odm", "product"]:
+      if name not in ["system", "vendor", "odm", "product", "system_ext", "vendor_dlkm", "odm_dlkm"]:
           tmp_tgt = GetImage(name, OPTIONS.input_tmp)
           tmp_tgt.ResetFileMap()
           tmp_diff = common.BlockDifference(name, tmp_tgt)
@@ -171,12 +171,23 @@ def FullOTA_Assertions(info):
   else:
     OPTIONS.ota_update_id_attestation = True
     common.ZipWriteStr(info.output_zip, "id_attestation.xml", attestation_file)
+
+  try:
+    vendor_boot_img = info.input_zip.read("IMAGES/vendor_boot.img")
+  except KeyError:
+    OPTIONS.ota_vendor_boot = False
+    print("no vendor_boot.img in target_files; skipping install")
+  else:
+    OPTIONS.ota_vendor_boot = True
+
   if OPTIONS.ota_zip_check:
     info.script.AppendExtra('if ota_zip_check() == "1" then')
     info.script.AppendExtra('ui_print("ota_zip_check() == 1");')
     info.script.AppendExtra('if recovery_backup_exist() == "0" then')
     info.script.AppendExtra('package_extract_file("dt.img", "/cache/recovery/dtb.img");')
     info.script.AppendExtra('package_extract_file("recovery.img", "/cache/recovery/recovery.img");')
+    if OPTIONS.ota_vendor_boot:
+      info.script.AppendExtra('package_extract_file("vendor_boot.img", "/cache/recovery/vendor_boot.img");')
     info.script.AppendExtra('endif;')
     info.script.AppendExtra('set_bootloader_env("upgrade_step", "3");')
     if OPTIONS.ota_partition_change:
@@ -194,6 +205,8 @@ def FullOTA_Assertions(info):
       info.script.AppendExtra('backup_update_package("/dev/block/mmcblk0", "1894");')
     info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
     info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
+    if OPTIONS.ota_vendor_boot:
+      info.script.AppendExtra('delete_file("/cache/recovery/vendor_boot.img");')
     info.script.AppendExtra('reboot_recovery();')
     info.script.AppendExtra('else')
     info.script.AppendExtra('ui_print("else case, ota_zip_check() != 1");')
@@ -225,20 +238,50 @@ def FullOTA_InstallEnd(info):
   if not OPTIONS.two_step:
     ZipOtherImage("recovery", OPTIONS.input_tmp, info.output_zip)
 
+  try:
+    vbmeta_system_img = info.input_zip.read("IMAGES/vbmeta_system.img")
+  except KeyError:
+    OPTIONS.ota_vbmeta_system = False
+    print("no vbmeta_system.img in target_files; skipping install")
+  else:
+    OPTIONS.ota_vbmeta_system = True
+
+  if OPTIONS.ota_vbmeta_system:
+    ZipOtherImage("vbmeta_system", OPTIONS.input_tmp, info.output_zip)
+  if OPTIONS.ota_vendor_boot:
+    ZipOtherImage("vendor_boot", OPTIONS.input_tmp, info.output_zip)
+
   info.script.AppendExtra("""ui_print("update logo.img...");
 package_extract_file("logo.img", "/dev/block/by-name/logo");
 ui_print("update dtbo.img...");
 package_extract_file("dtbo.img", "/dev/block/by-name/dtbo");
 if recovery_backup_exist() == "0" then
 backup_data_cache(dtb, /cache/recovery/);
-backup_data_cache(recovery, /cache/recovery/);
-endif;
+backup_data_cache(recovery, /cache/recovery/);""")
+
+  if OPTIONS.ota_vendor_boot:
+    info.script.AppendExtra('backup_data_cache(vendor_boot, /cache/recovery/);')
+
+  info.script.AppendExtra("""endif;
 ui_print("update dtb.img...");
 write_dtb_image(package_extract_file("dt.img"));
 ui_print("update recovery.img...");
 package_extract_file("recovery.img", "/dev/block/by-name/recovery");
 ui_print("update vbmeta.img...");
 package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
+
+  try:
+    vbmeta_system_img = info.input_zip.read("IMAGES/vbmeta_system.img")
+  except KeyError:
+    print("no vbmeta_system.img in target_files; skipping install")
+  else:
+    info.script.AppendExtra('ui_print("update vbmeta_system.img...");')
+    info.script.AppendExtra('package_extract_file("vbmeta_system.img", "/dev/block/vbmeta_system");')
+
+  if OPTIONS.ota_vendor_boot:
+    info.script.AppendExtra('ui_print("update vendor_boot.img...");')
+    info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/vendor_boot");')
+    info.script.AppendExtra('delete_file("/cache/recovery/vendor_boot.img");')
 
   info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
   info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
