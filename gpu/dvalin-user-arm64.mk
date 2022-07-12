@@ -17,7 +17,7 @@
 GPU_TARGET_PLATFORM := default_8a
 GPU_TYPE:=dvalin
 GPU_ARCH:=bifrost
-GPU_DRV_VERSION?=r32p1
+GPU_DRV_VERSION?=r38p1
 #GRALLOC_USE_GRALLOC1_API:=1
 GRALLOC_API_VERSION:=4.x
 GRALLOC_DISABLE_FRAMEBUFFER_HAL:=1
@@ -42,13 +42,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
 		frameworks/native/data/etc/android.hardware.opengles.aep.xml:vendor/etc/permissions/android.hardware.opengles.aep.xml \
-		frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2021-03-01.xml \
-		frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:vendor/etc/permissions/android.hardware.vulkan.version.xml \
+		frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2022-03-01.xml \
+		frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:vendor/etc/permissions/android.hardware.vulkan.version.xml \
 		frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:vendor/etc/permissions/android.hardware.vulkan.compute.xml \
 		frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:vendor/etc/permissions/android.hardware.vulkan.level.xml \
-		frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:vendor/etc/permissions/android.software.vulkan.deqp.level-2021-03-01.xml
+		frameworks/native/data/etc/android.software.vulkan.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.vulkan.deqp.level-2022-03-01.xml
 else
 PRODUCT_COPY_FILES += \
 		frameworks/native/data/etc/android.hardware.opengles.aep.xml:vendor/etc/permissions/android.hardware.opengles.aep.xml \
-		frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2021-03-01.xml
+		frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2022-03-01.xml
 endif
