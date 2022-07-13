@@ -51,6 +51,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 endif
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.wifi_priority_high=false
+
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_admin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_admin.xml
