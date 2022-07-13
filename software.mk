@@ -52,7 +52,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.wifi_priority_high=false
+    persist.wifi_priority_high=false \
+    persist.ignore_no_internet=false
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_COPY_FILES += \
