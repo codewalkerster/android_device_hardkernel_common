@@ -55,7 +55,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.wifi_priority_high=false \
     persist.ignore_no_internet=false \
     persist.kiosk_mode=false \
-    persist.feature.disable_bt=true
+    persist.feature.disable_bt=true \
+    persist.mouse_acceleration=true
 
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
 PRODUCT_COPY_FILES += \
