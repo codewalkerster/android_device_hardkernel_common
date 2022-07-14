@@ -283,19 +283,19 @@
 /sys/devices/platform/[0-9a-z]*\.sd2/mmc_host/sdio/sdio:0001/sdio:0001:[1-2]/net/wlan[0-1](/.*)?    u:object_r:sysfs_net:s0
 /sys/devices/platform/[0-9a-z]*\.sdio/mmc_host/sdio/sdio:0001/sdio:0001:[1-2]/net/wlan[0-1](/.*)?   u:object_r:sysfs_net:s0
 /sys/devices/platform/[0-9a-z]*\.sdio/mmc_host/sdio/sdio:0001/sdio:0001:[1-2]/net/p2p[0-1](/.*)?    u:object_r:sysfs_net:s0
+/sys/devices/platform/[0-9a-z]*\.sdio/mmc_host/sdio/sdio:0001/sdio:0001:[1-2]/net/ap[0-1](/.*)?    u:object_r:sysfs_net:s0
 
 # for android.security.cts.SELinuxHostTest#testNoBugreportDenials
 /sys/devices/platform(/.*)?\.emmc/mmc_host/emmc/emmc:0001/block/mmcblk0(/.*)? u:object_r:sysfs_devices_block:s0
 /sys/devices/platform/soc(/.*)?\.mmc/mmc_host/mmc[0-1]/mmc[0-1]:0001/block/mmcblk[0-1](/.*)? u:object_r:sysfs_devices_block:s0
 /sys/devices/platform/[0-9a-z]*\.tvafe/tvafe/tvafe[0-9]/reg(/.*)?    u:object_r:sysfs_cec:s0
 
-#add start by weifang.liu
 #for kernel 5.4
 #for jira SWPL-37171 NetdSELinuxTest#CheckProperMTULabels
 /sys/devices/platform/soc/[0-9a-z]*\.ethernet/net/eth0(/.*)?                                          u:object_r:sysfs_net:s0
 /sys/devices/platform/soc/[0-9a-z]*\.sdio/mmc_host/mmc[0-9]/mmc[0-9]:000[0-9]/mmc[0-9]:000[0-9]:[0-9]/net/wlan[0-1](/.*)? u:object_r:sysfs_net:s0
 /sys/devices/platform/soc/[0-9a-z]*\.sdio/mmc_host/mmc[0-9]/mmc[0-9]:000[0-9]/mmc[0-9]:000[0-9]:[0-9]/net/p2p[0-1](/.*)?  u:object_r:sysfs_net:s0
-#add end by weifang.liu
+/sys/devices/platform/soc/[0-9a-z]*\.sdio/mmc_host/mmc[0-9]/mmc[0-9]:000[0-9]/mmc[0-9]:000[0-9]:[0-9]/net/ap[0-1](/.*)?  u:object_r:sysfs_net:s0
 
 #for jira SWPL-43287 NetdSELinuxTest#CheckProperMTULabels
 /sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/p2p[0-1](/.*)?    u:object_r:sysfs_net:s0
