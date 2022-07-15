@@ -183,6 +183,11 @@ VERSION_ID=$(shell find device/*/$(TARGET_PRODUCT) -name version_id.mk)
 #$(call inherit-product, $(VERSION_ID))
 #endif
 
+#MESONHWC CONFIG
+ifeq ($(ATV_LAUNCHER),amati)
+HWC_FILTER_16_9MODE :=true
+endif
+
 DISPLAY_BUILD_NUMBER := true
 
 #TV project,set omx to video layer,or PQ hasn't effect
