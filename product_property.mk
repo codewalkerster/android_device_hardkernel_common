@@ -17,6 +17,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_graphics_height=1080 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
+# gfx: default boot config
+ifeq ($(HWC_ENABLE_AIDL), true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.default.config=true
+endif
+
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
