@@ -156,6 +156,13 @@ PRODUCT_PACKAGES += libdsm
 #bin
 PRODUCT_PACKAGES += EsVideoDecPlayer
 
+#dmabuf manage
+PRODUCT_PACKAGES += libmediahal_dmabufmanage
+
+ifneq ($(PRODUCT_IS_ATV_MAINLINE), true)
+PRODUCT_PACKAGES += libmediahal_dmabufmanage.system
+endif
+
 #########################################################################
 #
 #                                                PlayReady DRM
