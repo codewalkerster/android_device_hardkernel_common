@@ -25,6 +25,8 @@ on init
     write /sys/class/unifykeys/attach 1
     chmod 666 /dev/video_composer.0
     chmod 666 /dev/video_composer.1
+    chmod 660 /dev/di_process.0
+    chmod 660 /dev/di_process.1
 
     # pppoe
     mkdir /data/misc/etc 0777

@@ -5,6 +5,7 @@
 /dev/amvideo              0666   media        system
 /dev/ionvideo             0666   media        system
 /dev/video_composer*      0660   media        system
+/dev/di_process.*         0660   media        graphics
 /dev/ppmgr                0660   media        system
 /dev/amstream_*           0666   media        system
 /dev/audiodsp0            0660   media        system

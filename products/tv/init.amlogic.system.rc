@@ -29,7 +29,8 @@ on init
     chmod 666 /dev/video_composer.0
     chmod 666 /dev/video_composer.1
     chmod 666 /dev/video_composer.2
-
+    chmod 660 /dev/di_process.0
+    chmod 660 /dev/di_process.1
 on boot
     # osd logo legacy path
     chown system graphics /sys/module/fb/parameters/osd_logo_index
