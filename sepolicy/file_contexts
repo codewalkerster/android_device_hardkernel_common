@@ -551,4 +551,6 @@
 
 /system/bin/kexec           u:object_r:init_exec:s0
 
+/vendor/bin/dlkm_loader_droidlogic  u:object_r:dlkm_loader_droidlogic_exec:s0
+
 /dev/aml_dsm                                      u:object_r:aml_dsm_device:s0

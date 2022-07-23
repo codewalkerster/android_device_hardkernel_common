@@ -47,6 +47,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/d
 ###########################################################
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 include $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/ramdisk_modules_order.mk
+include $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/vendor_modules_order.mk
 else
 RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST += aml_i2c.ko \
 					 aml_media.ko \

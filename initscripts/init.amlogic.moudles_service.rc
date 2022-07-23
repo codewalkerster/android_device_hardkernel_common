@@ -1,0 +1,10 @@
+on early-init
+	start vendor.dlkm_loader_droidlogic
+
+service vendor.dlkm_loader_droidlogic /vendor/bin/dlkm_loader_droidlogic
+	class main
+	user root
+	group root system
+	disabled
+	oneshot
+

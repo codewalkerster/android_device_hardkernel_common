@@ -1,0 +1,17 @@
+type dlkm_loader_droidlogic, domain;
+type dlkm_loader_droidlogic_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(dlkm_loader_droidlogic)
+
+# Allow insmod on vendor, system and system_dlkm partitions
+allow dlkm_loader_droidlogic self:capability sys_module;
+allow dlkm_loader_droidlogic system_file:system module_load;
+allow dlkm_loader_droidlogic system_dlkm_file:system module_load;
+allow dlkm_loader_droidlogic vendor_file:system module_load;
+
+# needed for libmodprobe to read kernel commandline
+allow dlkm_loader_droidlogic proc_cmdline:file r_file_perms;
+
+# dlkm_loader_droidlogic searches tracefs while looking for modules
+dontaudit dlkm_loader_droidlogic debugfs_bootreceiver_tracing:dir search;
+dontaudit dlkm_loader_droidlogic debugfs_mm_events_tracing:dir search;
