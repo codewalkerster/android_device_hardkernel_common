@@ -17,3 +17,15 @@ allow hal_bootctl_default bootloader_device:blk_file rw_file_perms;
 
 allow hal_bootctl_default sysfs:dir { open read };
 #allow hal_bootctl_default sysfs:file { getattr open read };
+
+allow hal_bootctl_default sysfs_tee:dir { search open read };
+allow hal_bootctl_default sysfs_tee:file rw_file_perms;
+allow hal_bootctl_default property_socket:sock_file write;
+allow hal_bootctl_default init:unix_stream_socket connectto;
+allow hal_bootctl_default powerctl_prop:property_service set;
+
+allow hal_bootctl_default tmpfs:dir { write add_name };
+allow hal_bootctl_default tmpfs:file { create write open read };
+allow hal_bootctl_default block_device:dir { write remove_name add_name };
+allow hal_bootctl_default block_device:lnk_file { create unlink };
+allow hal_bootctl_default cert_device:chr_file { open read write ioctl };
