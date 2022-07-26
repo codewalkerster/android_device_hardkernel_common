@@ -256,6 +256,13 @@ ifeq ($(BOARD_AVB_ENABLE),true)
     $(BOARD_AVB_OEM_ADD_HASHTREE_FOOTER_ARGS)
 endif
 
+# package dt.img into bootloader.  b/228873222
+ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
+ifneq ($(TARGET_GPT_PART), true)
+INSTALLED_AML_DT := $(PRODUCT_OUT)/dt.img
+endif
+endif
+
 
 ifeq ($(TARGET_GPT_PART), true)
 INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
@@ -373,7 +380,12 @@ $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALL
 	cp $(TARGET_DEVICE_DIR)/prebuilt/bootloader/u-boot.bin.usb.tpl $(PRODUCT_OUT)/upgrade/
 	cp $(TARGET_DEVICE_DIR)/prebuilt/bootloader/u-boot.bin.sd $(PRODUCT_OUT)/upgrade/
 else
+# package dt.img into bootloader.  b/228873222
+ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
+$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALLED_AML_GPT) $(INSTALLED_AML_DT)
+else
 $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALLED_AML_GPT)
+endif
 	# the max size of bootloader.img is 4M, we reserve 128k for gpt.bin
 	# so we put gpt.bin at offset 0x3DFE00
 	# 0 ~ 512 bootloader secure boot, we don't care it here.
@@ -387,6 +399,12 @@ ifeq ($(BUILD_AMLOGIC_FACTORY_ZIP), false)
 endif
 else
 	$(hide) cp $< $@
+# package dt.img into bootloader.  b/228873222
+ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
+	@echo "Package dt.img into bootloader.img"
+	dd if=$(PRODUCT_OUT)/dt.img of=$@ bs=512 seek=7167
+endif
+
 endif
 	$(hide) $(call aml-secureboot-sign-bootloader,$@)
 	@echo "make $@: bootloader installed end"
@@ -475,7 +493,12 @@ ifneq ($(TARGET_GPT_PART),true)
 else
 	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
 endif
+# package dt.img into bootloader.  b/228873222
+ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
+	cp $(BOOTLOADER_INPUT) $(PRODUCT_UPGRADE_OUT)/bootloader.img
+else
 	cp $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) $(PRODUCT_UPGRADE_OUT)/bootloader.img
+endif
 	@echo $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET)
 ifneq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 	$(hide) $(foreach file,$(VB_CHECK_IMAGES), \
