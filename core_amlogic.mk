@@ -564,7 +564,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_COPY_FILES += \
-	device/amlogic/${TARGET_PRODUCT}-kernel/$(TARGET_BUILD_KERNEL_VERSION)/init.amlogic.moudles.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.moudles.rc
+	device/amlogic/${PRODUCT_DIR}-kernel/$(TARGET_BUILD_KERNEL_VERSION)/init.amlogic.moudles.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.moudles.rc
 PRODUCT_PACKAGES += \
 	dlkm_loader_droidlogic
 endif
