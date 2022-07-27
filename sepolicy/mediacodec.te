@@ -41,3 +41,5 @@ allow mediacodec system_control:binder { call };
 allow mediacodec oemfs:dir search;
 r_dir_file(mediacodec, oemfs)
 
+allow mediacodec logdr_socket:sock_file write;
+allow mediacodec logd:unix_stream_socket connectto;

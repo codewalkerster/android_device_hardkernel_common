@@ -657,13 +657,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
-#Codec2
-ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
-PRODUCT_COPY_FILES += \
-    vendor/amlogic/common/codec2/service/android.hardware.media.c2@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.c2@1.2-service.rc \
-    vendor/amlogic/common/codec2/service/seccomp_policy/android.hardware.amlogic.media.c2@1.2-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/android.hardware.amlogic.media.c2@1.2-seccomp-policy
-endif
-
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 PRODUCT_COPY_FILES += \
 	device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
