@@ -1,0 +1,50 @@
+on boot
+    chmod 666 /sys/class/vdec/poweron_clock_level
+    chmod 666 /sys/class/codec_mm/tvp_enable
+    chown mediacodec mediadrm /sys/class/codec_mm/tvp_enable
+    chown mediacodec system /sys/class/codec_mm/config
+    chown mediacodec system /sys/class/codec_mm/fastplay_enable
+    chown media system /sys/module/amvdec_mpeg12/parameters/dec_control
+    chown media system /sys/module/amvideo/parameters/smooth_sync_enable
+    chown system camera /dev/ge2d
+    chmod 660 /sys/class/secmem/secmem_mm_config
+    chown mediacodec system /sys/class/secmem/secmem_mm_config
+
+    write /sys/module/stream_input/parameters/def_vstreambuf_sizeM 10
+    write /sys/module/stream_input/parameters/def_4k_vstreambuf_sizeM 15
+    write /sys/devices/platform/ffe40000.bifrost/dvfs_period 50
+
+on fs
+    insmod /vendor/lib/modules/amlogic-media-clock.ko
+    write /sys/module/firmware_class/parameters/path "/vendor/lib/firmware/"
+    insmod /vendor/lib/modules/amlogic-firmware.ko
+    insmod /vendor/lib/modules/amlogic-decoder-common.ko
+    insmod /vendor/lib/modules/amlogic-stream-input.ko
+    insmod /vendor/lib/modules/amlogic-pts-server.ko
+
+on early-boot
+    insmod /vendor/lib/modules/amlogic-amvdec-mh264.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mh264_v4l.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-h264mvc.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-h265.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-h265_v4l.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mmjpeg.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mmjpeg_v4l.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mmpeg12.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mmpeg12_v4l.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mmpeg4.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mmpeg4_v4l.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-vc1.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-vp9.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-vp9_v4l.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-avs2.ko
+    insmod /vendor/lib/modules/amlogic-encoder.ko
+    insmod /vendor/lib/modules/amlogic-jpegenc.ko
+    insmod /vendor/lib/modules/amlogic-vpu.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-ports.ko
+    insmod /vendor/lib/modules/amlogic_fbc_lib.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-mavs.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-av1.ko
+    insmod /vendor/lib/modules/amlogic-amvdec-av1_v4l.ko
+    insmod /vendor/lib/modules/amlogic-media-sync.ko
+    insmod /vendor/lib/modules/amlogic-video-framerate-adapter.ko
