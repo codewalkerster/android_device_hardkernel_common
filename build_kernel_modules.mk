@@ -46,17 +46,26 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/d
 
 ###########################################################
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
-include $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/ramdisk_modules_order.mk
-include $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/vendor_modules_order.mk
+RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST := $(strip $(shell cat $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/vendor_boot.modules.load))
+ifeq ($(strip $(RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST)),)
+	$(error vendor_boot.modules.load not found or empty)
+endif
+
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/vendor_dlkm.modules.load))
+ifeq ($(strip $(BOARD_VENDOR_KERNEL_MODULES_LOAD)),)
+	$(error vendor_dlkm.modules.load not found or empty)
+endif
+
+RAMDISK_KERNEL_MODULES_LOAD_EXCLUDELIST +=
+
 else
 RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST += aml_i2c.ko \
 					 aml_media.ko \
 					 snd-soc-dummy_codec.ko \
 					 snd-soc-aml_t9015.ko \
 					 snd_soc.ko
-endif
 
-RAMDISK_KERNEL_MODULES_LOAD_BLACKLIST += dvb_demux.ko \
+RAMDISK_KERNEL_MODULES_LOAD_EXCLUDELIST += dvb_demux.ko \
 					 aml_spicc.ko \
 					 aml_spifc.ko \
 					 meson_spi_nand.ko \
@@ -65,6 +74,7 @@ RAMDISK_KERNEL_MODULES_LOAD_BLACKLIST += dvb_demux.ko \
 					 spinand.ko \
 					 spi-nor.ko \
 					 aml_aucpu.ko
+endif
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
   ifneq ($(KERNEL_A32_SUPPORT),true)
@@ -75,8 +85,8 @@ ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
       RAMDISK_KERNEL_MODULES_LOAD := $(filter-out $(__LOAD_FIRSTLIST), $(RAMDISK_KERNEL_MODULES_LOAD))
       RAMDISK_KERNEL_MODULES_LOAD := $(__LOAD_FIRSTLIST) $(RAMDISK_KERNEL_MODULES_LOAD)
 
-      __LOAD_BLACKLIST := $(foreach module, $(RAMDISK_KERNEL_MODULES_LOAD_BLACKLIST), $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/ramdisk/lib/modules/$(module))
-      RAMDISK_KERNEL_MODULES_LOAD := $(filter-out $(__LOAD_BLACKLIST), $(RAMDISK_KERNEL_MODULES_LOAD))
+      __LOAD_EXCLUDELIST := $(foreach module, $(RAMDISK_KERNEL_MODULES_LOAD_EXCLUDELIST), $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/ramdisk/lib/modules/$(module))
+      RAMDISK_KERNEL_MODULES_LOAD := $(filter-out $(__LOAD_EXCLUDELIST), $(RAMDISK_KERNEL_MODULES_LOAD))
 
       ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
         BOARD_VENDOR_RAMDISK_KERNEL_MODULES ?= $(RAMDISK_KERNEL_MODULES)

@@ -25,17 +25,18 @@ rm -rf device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/lib/modules/*
 cp ${DIST_DIR}/modules/vendor/*.ko device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/lib/modules/
 cp -a ${COMMON_OUT_DIR}/vendor_lib/* device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/lib/
 
-echo "RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST += \\" > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/ramdisk_modules_order.mk
-awk '{print $0" \\"}' ${DIST_DIR}/modules/ramdisk/ramdisk_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/ramdisk_modules_order.mk
-echo "" >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/ramdisk_modules_order.mk
+# awk '{print $0" \\"}' ${DIST_DIR}/modules/ramdisk/ramdisk_modules.order > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_boot.modules.load
+awk '{print $0}' ${DIST_DIR}/modules/ramdisk/ramdisk_modules.order > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_boot.modules.load
+echo "" >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_boot.modules.load
 
-echo "BOARD_VENDOR_KERNEL_MODULES_LOAD += \\" > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules_order.mk
-awk '{print $0" \\"}' ${DIST_DIR}/modules/vendor/vendor_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules_order.mk
+# awk '{print $0" \\"}' ${DIST_DIR}/modules/vendor/vendor_modules.order > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
+awk '{print $0}' ${DIST_DIR}/modules/vendor/vendor_modules.order > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 if [[ -n ${LOAD_EXT_MOFULES_IN_SECOND_STAGE} ]]; then
 	cp ${DIST_DIR}/ext_modules/*.ko device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/lib/modules/
-	awk '{print $0" \\"}' ${DIST_DIR}/ext_modules/ext_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules_order.mk
+#	awk '{print $0" \\"}' ${DIST_DIR}/ext_modules/ext_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
+	awk '{print $0}' ${DIST_DIR}/ext_modules/ext_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 fi
-echo "" >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules_order.mk
+echo "" >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 
 if [[ -n ${LOAD_VENDOR_MODULES_USE_SERVICE} ]]; then
 	cp device/amlogic/common/initscripts/init.amlogic.moudles_service.rc device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/init.amlogic.moudles.rc
