@@ -416,6 +416,7 @@ PRODUCT_PACKAGES += \
 	tee_key_inject \
 	libprovision \
 	tee_provision_ta \
+	tee_efuse_ta \
 	tee_hdcp \
 	tee_hdcp_ta
 
