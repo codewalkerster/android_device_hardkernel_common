@@ -26,12 +26,14 @@ on init
     exec - root root -- /vendor/bin/toybox_vendor cp /vendor/lib/libHwAudio_dtshd_passthrough.so  /odm/lib/libHwAudio_dtshd.so
     exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libHwAudio_dcvdec.so  /odm/lib/libHwAudio_dcvdec.so
     exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libHwAudio_dtshd.so  /odm/lib/libHwAudio_dtshd.so
+    exec - root root -- /vendor/bin/toybox_vendor cp /oem/lib/libdolbyms12.so  /odm/lib/libdolbyms12.so
     exec - root root -- /vendor/bin/toybox_vendor cp /oem/bin/hdcp_tx22  /odm/bin/hdcp_tx22
 
     chmod 755 /odm/lib/ms12/
     chmod 644 /odm/lib/ms12/libdolbyms12.so
     chmod 644 /odm/lib/libHwAudio_dcvdec.so
     chmod 644 /odm/lib/libHwAudio_dtshd.so
+    chmod 644 /odm/lib/libdolbyms12.so
     chmod 755 /odm/bin/hdcp_tx22
 
     # Changing access permission of the dev node used by libdolbyms12
