@@ -595,7 +595,7 @@ PRODUCT_PACKAGES += \
 ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.2-service \
-    libcodec2_aml \
+    libcodec2_aml_video_decoder\
     libc2plugin_store
 endif
 
