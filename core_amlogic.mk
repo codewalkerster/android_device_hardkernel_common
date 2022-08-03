@@ -565,9 +565,8 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_COPY_FILES += \
-	device/amlogic/${PRODUCT_DIR}-kernel/$(TARGET_BUILD_KERNEL_VERSION)/init.amlogic.moudles.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.moudles.rc
-PRODUCT_PACKAGES += \
-	dlkm_loader_droidlogic
+    device/amlogic/common/initscripts/5_15/init.modules.5_15.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.modules.5.15.rc \
+    device/amlogic/common/initscripts/5_15/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh
 endif
 
 #normally, every device need a config file, currently all chips are the same

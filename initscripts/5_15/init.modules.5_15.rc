@@ -1,0 +1,10 @@
+on early-init
+    exec_start insmod_sh_5_15
+
+service insmod_sh_5_15 /vendor/bin/init.insmod.sh
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+

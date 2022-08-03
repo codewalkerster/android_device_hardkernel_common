@@ -402,6 +402,8 @@
 #/vendor/bin/bootplayer       u:object_r:bootvideo_exec:s0
 #/vendor/bin/dv_config        u:object_r:dv_config_exec:s0
 
+# Kernel modules related
+/vendor/bin/init\.insmod\.sh    u:object_r:init-insmod-sh_exec:s0
 
 #/system/bin/mke2fs       --   u:object_r:fsck_exec:s0
 #/system/bin/e2fsdroid    --	  u:object_r:fsck_exec:s0
@@ -550,7 +552,5 @@
 /sys/class/tee_info(/.*)?					      u:object_r:sysfs_tee:s0
 
 /system/bin/kexec           u:object_r:init_exec:s0
-
-/vendor/bin/dlkm_loader_droidlogic  u:object_r:dlkm_loader_droidlogic_exec:s0
 
 /dev/aml_dsm                                      u:object_r:aml_dsm_device:s0

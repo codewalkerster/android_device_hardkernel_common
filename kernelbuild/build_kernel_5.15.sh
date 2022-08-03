@@ -31,22 +31,12 @@ echo "" >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_bo
 
 # awk '{print $0" \\"}' ${DIST_DIR}/modules/vendor/vendor_modules.order > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 awk '{print $0}' ${DIST_DIR}/modules/vendor/vendor_modules.order > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
-if [[ -n ${LOAD_EXT_MOFULES_IN_SECOND_STAGE} ]]; then
+if [[ -n ${LOAD_EXT_MODULES_IN_SECOND_STAGE} ]]; then
 	cp ${DIST_DIR}/ext_modules/*.ko device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/lib/modules/
 #	awk '{print $0" \\"}' ${DIST_DIR}/ext_modules/ext_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 	awk '{print $0}' ${DIST_DIR}/ext_modules/ext_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 fi
 echo "" >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
-
-if [[ -n ${LOAD_VENDOR_MODULES_USE_SERVICE} ]]; then
-	cp device/amlogic/common/initscripts/init.amlogic.moudles_service.rc device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/init.amlogic.moudles.rc
-else
-	echo "on early-init" > device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/init.amlogic.moudles.rc
-	cp ${DIST_DIR}/modules/vendor/vendor_modules.order device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/
-	sed -i 's/^/\tinsmod \/vendor\/lib\/modules\//g' device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules.order
-	cat device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules.order >> device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/init.amlogic.moudles.rc
-	rm device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_modules.order
-fi
 
 cp ${DIST_DIR}/dtbo.img device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/
 cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/amlogic/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/${BOARD_DEVICENAME}.dtb
