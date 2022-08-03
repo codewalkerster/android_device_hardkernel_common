@@ -48,12 +48,12 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/d
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST := $(strip $(shell cat $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/vendor_boot.modules.load))
 ifeq ($(strip $(RAMDISK_KERNEL_MODULES_LOAD_FIRSTLIST)),)
-	$(error vendor_boot.modules.load not found or empty)
+$(warning "vendor_boot.modules.load not found or empty")
 endif
 
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/vendor_dlkm.modules.load))
 ifeq ($(strip $(BOARD_VENDOR_KERNEL_MODULES_LOAD)),)
-	$(error vendor_dlkm.modules.load not found or empty)
+$(warning "vendor_dlkm.modules.load not found or empty")
 endif
 
 RAMDISK_KERNEL_MODULES_LOAD_EXCLUDELIST +=
