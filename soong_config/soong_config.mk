@@ -2,6 +2,8 @@
 $(call soong_config_set,amlogic_vendorconfig,board_platform,$(TARGET_BOARD_PLATFORM))
 $(call soong_config_set,amlogic_vendorconfig,hwc_dynamic_switch_viu,$(HWC_DYNAMIC_SWITCH_VIU))
 $(call soong_config_set,amlogic_vendorconfig,build_livetv,$(TARGET_BUILD_LIVETV))
+$(call soong_config_set,amlogic_vendorconfig,systemcontrol_display_type,$(SYSTEMCONTROL_DISPLAY_TYPE))
+$(call soong_config_set,amlogic_vendorconfig,systemcontrol_ui_type,$(SYSTEMCONTROL_UI_TYPE))
 
 # for alsa library
 $(call soong_config_set,amlogic_vendorconfig,build_alsa_audio,$(BOARD_ALSA_AUDIO))

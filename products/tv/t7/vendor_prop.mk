@@ -29,6 +29,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.dolbyvision=true
 
+#media
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.dv.standalone.component=true
+
 #camera max to 720p
 #PRODUCT_PROPERTY_OVERRIDES += \
     #ro.media.camera_preview.maxsize=1280x720 \
