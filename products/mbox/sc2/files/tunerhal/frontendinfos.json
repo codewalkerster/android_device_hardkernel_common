@@ -8,7 +8,7 @@
         //            0x80000-hierarchy, 0x100000-rf_lock, 0x200000-atsc3_plp
         {
             "id":0, "minFreq": 42000000, "maxFreq":1002000000, "minSymbol":0, "maxSymbol":0,
-            "acquireRange":0, "statusCap":1957414
+            "acquireRange":848, "statusCap":1957414
         }
     ],
 
