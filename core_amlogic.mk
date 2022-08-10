@@ -459,6 +459,7 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_PACKAGES += \
+    android.hardware.audio@7.1-impl:32 \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32
 endif
