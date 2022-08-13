@@ -230,7 +230,7 @@ function build_common_5.15() {
 
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG_ANDROID})
 
-	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $@
+	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
 }
 
 function build_common() {
@@ -464,15 +464,28 @@ function parser() {
 }
 
 function bin_path_parser() {
+
+	local para=$@
+	local main_parameters
+	if [[ $para =~ "--sp" ]]; then
+		sub_parameters=${para#*--sp}
+		main_parameters=${para%%--sp*}
+	else
+		main_parameters=$para
+	fi
+	sub_parameters=`echo $sub_parameters | awk '$1=$1'`
+	main_parameters=`echo $main_parameters | awk '$1=$1'`
+
 	local i=0
 	local argv=()
-	for arg in "$@" ; do
+	for arg in $main_parameters ; do
 		argv[$i]="$arg"
 		i=$((i + 1))
 	done
 	i=0
 
-	while [ $i -lt $# ]; do
+	num=${#argv[@]}
+	while [ $i -lt $num ]; do
 		arg="${argv[$i]}"
 		i=$((i + 1)) # must pleace here
 		case "$arg" in
