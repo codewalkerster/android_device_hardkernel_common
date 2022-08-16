@@ -8,7 +8,9 @@
 # 6. uboot_exec_aosp[x]  build uboot aosp command
 # 7. uboot_exec_drm[x]   build uboot drm command
 # 8. kernel_exec[x]      build kernel command(do not include -t user)
-# 9. android_exec[x]="TARGET_BUILD_KERNEL_VERSION=4.9"  only if build 4.9 kernel need it.
+#     remove 5.4/4.9 and dynamic select 5.15/5.4/4.9
+# //9. android_exec[x]="TARGET_BUILD_KERNEL_VERSION=4.9"  only if build 4.9 kernel need it.
+#     remove it intead and read kernel type.
 # 10. kernel_addr[x]="export KERNEL_A32_SUPPORT=true"  only if build 32bit kernel need it.
 ###########################################################################################
 
@@ -17,12 +19,11 @@
 project[1]="Ohm-GTV"
 soc[1]="S905X4"
 hardware[1]="AH212"
-module[1]="ohm"
+module[1]="ohm_gtv"
 uboot_path[1]="device/amlogic/ohm"
 uboot_exec_aosp[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[1]="./mk ohm -v 5.4"
-android_exec[1]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[1]="./mk ohm -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -34,8 +35,7 @@ module[2]="ohm"
 uboot_path[2]="device/amlogic/ohm"
 uboot_exec_aosp[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[2]="./mk ohm -v 5.4"
-android_exec[2]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[2]="./mk ohm -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -47,8 +47,7 @@ module[3]="ohm_mxl258c"
 uboot_path[3]="device/amlogic/ohm"
 uboot_exec_aosp[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[3]="./mk ohm -v 5.4 --fccpip"
-android_exec[3]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[3]="./mk ohm --fccpip -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -60,8 +59,7 @@ module[4]="ohmcas_gtv"
 uboot_path[4]="device/amlogic/ohmcas"
 uboot_exec_aosp[4]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[4]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
-kernel_exec[4]="./mk ohmcas -v 5.4"
-android_exec[4]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[4]="./mk ohmcas -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -69,12 +67,11 @@ android_exec[4]="TARGET_BUILD_KERNEL_VERSION=5.4"
 project[5]="Ohmcas-ATV"
 soc[5]="S905C2"
 hardware[5]="AH232"
-module[5]="ohmcas_atv"
+module[5]="ohmcas"
 uboot_path[5]="device/amlogic/ohmcas"
 uboot_exec_aosp[5]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[5]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
-kernel_exec[5]="./mk ohmcas -v 5.4"
-android_exec[5]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[5]="./mk ohmcas -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -86,8 +83,7 @@ module[6]="oppen_gtv"
 uboot_path[6]="device/amlogic/oppen"
 uboot_exec_aosp[6]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[6]="./mk s4_ap222  --vab --avb2 --fastboot-write"
-kernel_exec[6]="./mk oppen -v 5.4"
-android_exec[6]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[6]="./mk oppen -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -99,8 +95,7 @@ module[7]="oppen"
 uboot_path[7]="device/amlogic/oppen"
 uboot_exec_aosp[7]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[7]="./mk s4_ap222  --vab --avb2 --fastboot-write"
-kernel_exec[7]="./mk oppen -v 5.4"
-android_exec[7]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[7]="./mk oppen -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -108,13 +103,12 @@ android_exec[7]="TARGET_BUILD_KERNEL_VERSION=5.4"
 project[8]="Oppen-GTV"
 soc[8]="S905Y4"
 hardware[8]="AP223"
-module[8]="oppen"
+module[8]="oppen_gtv"
 uboot_path[8]="device/amlogic/oppen"
 uboot_path[8]="device/amlogic/oppen"
 uboot_exec_aosp[8]="./mk s4_ap223  --vab --avb2 --fastboot-write"
 uboot_exec_drm[8]="./mk s4_ap223  --vab --avb2 --fastboot-write"
-kernel_exec[8]="./mk oppen -v 5.4"
-android_exec[8]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[8]="./mk oppen -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -122,12 +116,11 @@ android_exec[8]="TARGET_BUILD_KERNEL_VERSION=5.4"
 project[9]="Oppencas-ATV"
 soc[9]="S905C3"
 hardware[9]="AP232"
-module[9]="oppencas_atv"
+module[9]="oppencas"
 uboot_path[9]="device/amlogic/oppencas"
 uboot_exec_aosp[9]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[9]="./mk s4_ap232  --vab --avb2 --fastboot-write"
-kernel_exec[9]="./mk oppencas -v 5.4"
-android_exec[9]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[9]="./mk oppencas -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -139,8 +132,7 @@ module[10]="oppencas_gtv"
 uboot_path[10]="device/amlogic/oppencas"
 uboot_exec_aosp[10]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[10]="./mk s4_ap232  --vab --avb2 --fastboot-write"
-kernel_exec[10]="./mk oppencas -v 5.4"
-android_exec[10]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[10]="./mk oppencas -v "
 ###########################################################################################
 
 
@@ -153,8 +145,7 @@ module[11]="oppencas_mxl258c"
 uboot_path[11]="device/amlogic/oppencas"
 uboot_exec_aosp[11]="./mk s4_ap232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[11]="./mk s4_ap232  --vab --avb2 --fastboot-write"
-kernel_exec[11]="./mk oppencas -v 5.4 --fccpip"
-android_exec[11]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[11]="./mk oppencas --fccpip -v"
 ###########################################################################################
 
 ###########################################################################################
@@ -166,8 +157,7 @@ module[12]="planck_gtv"
 uboot_path[12]="device/amlogic/planck"
 uboot_exec_aosp[12]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[12]="./mk s4_aq222  --vab --avb2 --fastboot-write"
-kernel_exec[12]="./mk planck -v 5.4"
-android_exec[12]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[12]="./mk planck -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -179,9 +169,8 @@ module[13]="planck"
 uboot_path[13]="device/amlogic/planck"
 uboot_exec_aosp[13]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[13]="./mk s4_aq222  --vab --avb2 --fastboot-write"
-kernel_exec[13]="./mk planck -v 5.4"
+kernel_exec[13]="./mk planck -v "
 kernel_addr[13]="export KERNEL_A32_SUPPORT=true"
-android_exec[13]="TARGET_BUILD_KERNEL_VERSION=5.4"
 ###########################################################################################
 
 ###########################################################################################
@@ -193,21 +182,19 @@ module[14]="redi"
 uboot_path[14]="device/amlogic/redi"
 uboot_exec_aosp[14]="./mk t5d_am301_v1 --vab --fastboot-write"
 uboot_exec_drm[14]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2 --fastboot-write"
-kernel_exec[14]="./mk redi -v 5.4"
-android_exec[14]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[14]="./mk redi -v "
 ###########################################################################################
 
 ###########################################################################################
 # Smith
 project[15]="Smith"
-soc[15]="S905X4"
+soc[15]="T965D4"
 hardware[15]="AR321"
 module[15]="smith"
 uboot_path[15]="device/amlogic/smith"
 uboot_exec_aosp[15]="./mk t3_t965d4  --vab --fastboot-write"
 uboot_exec_drm[15]="./mk t3_t965d4  --vab --avb2 --fastboot-write"
-kernel_exec[15]="./mk smith -v 5.4"
-android_exec[15]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[15]="./mk smith -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -219,8 +206,7 @@ module[16]="soddy"
 uboot_path[16]="device/amlogic/soddy"
 uboot_exec_aosp[16]="./mk t5w_at301_v1  --vab --fastboot-write"
 uboot_exec_drm[16]="./mk t5w_at301_v1  --vab --avb2 --fastboot-write"
-kernel_exec[16]="./mk soddy -v 5.4"
-android_exec[16]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[16]="./mk soddy -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -232,8 +218,7 @@ module[17]="marconi"
 uboot_path[17]="device/amlogic/marconi"
 uboot_exec_aosp[17]="./mk tl1_x301_v1  --vab --fastboot-write"
 uboot_exec_drm[17]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tl1/bl32.img --vab --avb2 --fastboot-write"
-kernel_exec[17]="./mk marconi -v 5.4"
-android_exec[17]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[17]="./mk marconi -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -245,8 +230,7 @@ module[18]="dalton"
 uboot_path[18]="device/amlogic/marconi"
 uboot_exec_aosp[18]="./mk tm2_t962e2_ab311_v1  --vab --fastboot-write"
 uboot_exec_drm[18]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tm2/bl32.img --vab --avb2 --fastboot-write"
-kernel_exec[18]="./mk dalton -v 5.4"
-android_exec[18]="TARGET_BUILD_KERNEL_VERSION=5.4"
+kernel_exec[18]="./mk dalton -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -258,8 +242,7 @@ module[19]="franklin"
 uboot_path[19]="device/amlogic/franklin"
 uboot_exec_aosp[19]="./mk g12a_u212_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[19]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
-kernel_exec[19]="./mk franklin -v 4.9"
-android_exec[19]="TARGET_BUILD_KERNEL_VERSION=4.9"
+kernel_exec[19]="./mk franklin -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -271,8 +254,7 @@ module[20]="newton"
 uboot_path[20]="device/amlogic/newton"
 uboot_exec_aosp[20]="./mk sm1_ac215_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[20]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
-kernel_exec[20]="./mk newton -v 4.9"
-android_exec[20]="TARGET_BUILD_KERNEL_VERSION=4.9"
+kernel_exec[20]="./mk newton -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -284,8 +266,7 @@ module[21]="franklin_hybrid"
 uboot_path[21]="device/amlogic/franklin/franklin_hybrid"
 uboot_exec_aosp[21]="./mk g12a_u215_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[21]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
-kernel_exec[21]="./mk franklin -v 4.9"
-android_exec[21]="TARGET_BUILD_KERNEL_VERSION=4.9"
+kernel_exec[21]="./mk franklin -v "
 ###########################################################################################
 
 usage() {
@@ -303,8 +284,8 @@ usage() {
     "                     odmextimage\n" \
     "                     systemimage\n" \
     "                     systemextimage\n" \
-    "       2. 3  Params: [project-name][android-type][user/userdebug].\n" \
-    "                  ./xxxx.sh ohm GTVS userdebug.\n" \
+    "       2. 4  Params: [project-name][android-type][kernel-type][user/userdebug].\n" \
+    "                  ./xxxx.sh ohm_gtv GTVS 5.15 userdebug.\n" \
 
 }
 
@@ -381,6 +362,36 @@ read_android_type() {
     done
 }
 
+
+########################################################################################################################################################################
+# Get Kernel Type: 5.15/5.4/4.9
+########################################################################################################################################################################
+read_kernel_type() {
+    while true :
+    do
+        echo -e \
+        "Select kernel version type lists:\n"\
+        "[NUM]   [Kernel Version]\n" \
+        "[  1]   [5.15]\n" \
+        "[  2]   [5.4 ]\n" \
+        "[  3]   [4.9 ]\n" \
+        "--------------------------------------------\n"
+
+        default=1
+        read -p "Please input Kernel Version (default $default):" kernel_type
+        if [ ${#kernel_type} -eq 0 ]; then
+            kernel_type=$default
+            break
+        fi
+        if [[ $kernel_type -lt 1 || $kernel_type -gt 3 ]];then
+            echo -e "\nError: The Kernel Version is illegal, please Input again [1 ~ 3]}\n"
+            echo -e "Please click Enter to continue"
+            read
+        else
+            break
+        fi
+    done
+}
 ########################################################################################################################################################################
 #
 # Compile Uboot through params
@@ -474,11 +485,21 @@ lunch_env() {
 }
 
 compile_kernel() {
+    if [ $kernel_type -eq 1 ]; then
+        kernel_version="5.15"
+    elif [ $kernel_type -eq 2 ]; then
+        kernel_version="5.4"
+    elif [ $kernel_type -eq 3 ]; then
+        kernel_version="4.9"
+    else
+        echo "Kernel Version is illegal\n"
+        exit
+    fi
     usermode="userdebug"
     ${kernel_addr[platform_type]}
     if [ $# -eq 1 ]; then usermode="$1"; fi
-    echo "${kernel_exec[platform_type]} -t ${usermode}"
-    ${kernel_exec[platform_type]} -t ${usermode}
+    echo "${kernel_exec[platform_type]} ${kernel_version} -t ${usermode}"
+    ${kernel_exec[platform_type]} ${kernel_version} -t ${usermode}
     if [ $? != 0 ]; then echo " Error : Build Kernel error, exit!!!"; exit; fi
 }
 
@@ -529,7 +550,7 @@ compile_sub_system() {
 ########################################################################################################################################################################
 # Main Function
 ########################################################################################################################################################################
-if [[ $# -eq 1 && $1 == *"help"* ]] || [ $# -eq 2 ] || [ $# -gt 3 ]; then
+if [[ $# -eq 1 && $1 == *"help"* ]] || [ $# -eq 2 ] || [ $# -gt 4 ]; then
     usage
     exit
 fi
@@ -537,10 +558,11 @@ fi
 if [ $# -eq 0 ]; then
     read_platform_type
     read_android_type
+    read_kernel_type
     compile_uboot
     compile_kernel
     lunch_env
-    make otapackage ${android_exec[platform_type]} -j8
+    make otapackage "TARGET_BUILD_KERNEL_VERSION=${kernel_version}" -j8
 fi
 
 if [ $# -eq 1 ]; then
@@ -552,7 +574,7 @@ if [ $# -eq 1 ]; then
     compile_sub_system $1
 fi
 
-if [ $# -eq 3 ]; then
+if [ $# -eq 4 ]; then
     if [ -d "vendor/google_gtvs" ];then
         default=3
     else
@@ -561,6 +583,7 @@ if [ $# -eq 3 ]; then
     uboot_drm_type=$default
     platform_type=0
     usermode="userdebug"
+    kernel_type="1"
     shopt -s nocasematch
     if [[ $@ == *"userdebug"* ]]; then
         usermode="userdebug"
@@ -580,6 +603,17 @@ if [ $# -eq 3 ]; then
         echo -e "please add params:AOSP/DRM/GTVS\n"
         exit
     fi
+    if [[ $@ == *"5.15"* ]]; then
+        kernel_type="1"
+    elif [[ $@ == *"5.4"* ]]; then
+        kernel_type="2"
+    elif [[ $@ == *"4.9"* ]]; then
+        kernel_type="3"
+    else
+        echo -e "please add params:Kernel version 5.15/5.4/4.9\n"
+        exit
+    fi
+
     for i in "${!module[@]}"
     do
         if [[ $1 == "${module[i]}" || $2 == "${module[i]}" || $3 == "${module[i]}" ]]; then
@@ -591,10 +625,10 @@ if [ $# -eq 3 ]; then
         echo -e "please add params:platform like ohm/oppen/redi\n"
         exit
     fi
-    echo $platform_type $uboot_drm_type $usermode
+    echo $platform_type $uboot_drm_type $kernel_type $usermode
     compile_uboot
     compile_kernel $usermode
     lunch_env $usermode
-    make otapackage ${android_exec[platform_type]} -j8
+    make otapackage "TARGET_BUILD_KERNEL_VERSION=${kernel_version}" -j8
 fi
-########################################################################################################################################################################
+
