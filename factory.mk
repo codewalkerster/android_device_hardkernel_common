@@ -510,9 +510,13 @@ ifneq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 	echo "delete oem.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/oem.img/d" $(PACKAGE_CONFIG_FILE)
 endif
-ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
-	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
-	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
+ifneq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
+	echo "delete vendor_boot.img in $(PACKAGE_CONFIG_FILE)"
+	sed -i "/vendor_boot.img/d" $(PACKAGE_CONFIG_FILE)
+endif
+ifneq ($(BOARD_USES_VBMETA_SYSTEM),true)
+	echo "delete vbmeta_system.img in $(PACKAGE_CONFIG_FILE)"
+	sed -i "/vbmeta_system.img/d" $(PACKAGE_CONFIG_FILE)
 endif
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
