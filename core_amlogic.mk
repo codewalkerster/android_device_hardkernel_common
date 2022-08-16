@@ -351,27 +351,6 @@ PRODUCT_PACKAGES += \
     2c1a33c0-44cc-11e5-bc3b-0002a5d5c51b
 endif
 
-# Dm-verity
-ifeq ($(BUILD_WITH_DM_VERITY), true)
-    PRODUCT_SYSTEM_VERITY_PARTITION = /dev/block/by-name/system
-    PRODUCT_VENDOR_VERITY_PARTITION = /dev/block/by-name/vendor
-
-    # Provides dependencies necessary for verified boot
-    PRODUCT_SUPPORTS_BOOT_SIGNER := true
-    PRODUCT_SUPPORTS_VERITY := true
-    PRODUCT_SUPPORTS_VERITY_FEC := true
-
-    # The dev key is used to sign boot and recovery images, and the verity
-    # metadata table. Actual product deliverables will be re-signed by hand.
-    # We expect this file to exist with the suffixes ".x509.pem" and ".pk8".
-    PRODUCT_VERITY_SIGNING_KEY := device/amlogic/common/security/verity
-
-    ifneq ($(TARGET_USE_SECURITY_DM_VERITY_MODE_WITH_TOOL),true)
-        PRODUCT_PACKAGES += \
-            verity_key.amlogic
-    endif
-endif
-
 #Bluetooth idc config file
 PRODUCT_COPY_FILES += \
     device/amlogic/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
