@@ -52,3 +52,51 @@ persist.vendor.sys.memc             u:object_r:vendor_memc_prop:s0
 
 persist.vendor.tvconfig.path             u:object_r:vendor_platform_prop:s0
 vendor.vmx.indiv.server.ip               u:object_r:vendor_platform_prop:s0
+
+# EGL config properties
+# r8_g8_b8_a8_32bit_fixed
+ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.hal_format               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.recordable               u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.framebuffer_target       u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r8_g8_b8_a0_32bit_fixed
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_32bit_fixed.hal_format               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_32bit_fixed.recordable               u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_32bit_fixed.framebuffer_target       u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r8_g8_b8_a0_24bit_fixed
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_fixed.hal_format               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_fixed.recordable               u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_fixed.framebuffer_target       u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r5_g6_b5_a0_16bit_fixed
+ro.vendor.arm.egl.configs.r5_g6_b5_a0_16bit_fixed.hal_format               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r5_g6_b5_a0_16bit_fixed.recordable               u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r5_g6_b5_a0_16bit_fixed.framebuffer_target       u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r10_g10_b10_a2_32bit_fixed
+ro.vendor.arm.egl.configs.r10_g10_b10_a2_32bit_fixed.hal_format            u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r10_g10_b10_a2_32bit_fixed.recordable            u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r10_g10_b10_a2_32bit_fixed.framebuffer_target    u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r16_g16_b16_a16_64bit_float
+ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.hal_format           u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.recordable           u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.framebuffer_target   u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+# r8_g8_b8_a0_24bit_yuv_special (implicitly recordable)
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.hal_format         u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+
+# Usage properties for the Arm reference Gralloc
+# No AFBC Vendor usage bit
+ro.vendor.arm.gralloc.no_afbc_usage_flags           u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.no_afbc_usage_mask            u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# Force Back Buffer Vendor usage bit
+ro.vendor.arm.gralloc.force_back_buffer_usage_flags u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.force_back_buffer_usage_mask  u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# Shared Access Vendor usage bit
+ro.vendor.arm.gralloc.shared_access_usage_flags     u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.shared_access_usage_mask      u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# RGBA AFRC Vendor usage bits               16B        24B        32B
+ro.vendor.arm.gralloc.afrc_rgba_usage_flags         u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.afrc_rgba_usage_mask          u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+# YUV AFRC Vendor usage bits                16B        24B        32B
+ro.vendor.arm.gralloc.afrc_luma_usage_flags         u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.afrc_luma_usage_mask          u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.afrc_chroma_usage_flags       u:object_r:vendor_arm_gralloc_prop:s0 exact uint
+ro.vendor.arm.gralloc.afrc_chroma_usage_mask        u:object_r:vendor_arm_gralloc_prop:s0 exact uint

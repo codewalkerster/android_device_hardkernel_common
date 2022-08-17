@@ -14,3 +14,8 @@ vendor_restricted_prop(vendor_exported_wifi_prop)
 vendor_restricted_prop(tee_supplicant_prop)
 vendor_restricted_prop(vendor_miracast_prop)
 vendor_restricted_prop(vendor_memc_prop)
+# Properties that determine the EGLConfig-s that the Mali DDK enables.
+vendor_public_prop(vendor_arm_egl_configs_prop)
+
+# Properties indicating the values of the buffer usage flags that the DDK needs.
+vendor_public_prop(vendor_arm_gralloc_prop)

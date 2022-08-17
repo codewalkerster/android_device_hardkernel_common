@@ -57,3 +57,14 @@ allow vendor_init oemfs:dir search;
 allow vendor_init oemfs:file { read open };
 allow vendor_init vendor_overlay_file:system module_load;
 allow vendor_init proc_watermark_scale_factor:file rw_file_perms;
+
+# Properties used for EGLConfig-s can only be set by vendor_init.
+# They are are readable by every type of process in the system.
+set_prop(vendor_init, vendor_arm_egl_configs_prop)
+get_prop(domain, vendor_arm_egl_configs_prop)
+
+# Properties used for Gralloc buffer usages can only be set by vendor_init.
+# They are readable by every type of process in the system.
+set_prop(vendor_init, vendor_arm_gralloc_prop)
+get_prop(domain, vendor_arm_gralloc_prop)
+
