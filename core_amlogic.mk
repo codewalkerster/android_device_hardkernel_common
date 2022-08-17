@@ -445,6 +445,13 @@ PRODUCT_PACKAGES += android.hardware.health-service.droidlogic
 else
 PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
 endif
+
+#
+# Bluetooth Audio AIDL HAL
+#
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio-impl
+
 #Audio HAL
 PRODUCT_PACKAGES += \
      android.hardware.audio@6.0-impl:32 \
