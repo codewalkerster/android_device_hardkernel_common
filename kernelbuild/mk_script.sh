@@ -213,6 +213,7 @@ function build_common_5.15() {
 	export KERNEL_DIR=common
 	export COMMON_DRIVERS_DIR=common_drivers
 	export BOARD_DEVICENAME=$1
+	export BOARD_MANUFACTURER=${device_project}
 	export PRODUCT_DIRNAME=device/amlogic/${BOARD_DEVICENAME}
 
 	if [ ${SKIP_MRPROPER} = "true" ]; then
@@ -286,7 +287,11 @@ function build() {
 		    build_anning
 			;;
 		heavenly)
-		        device_project="google"
+			device_project="google"
+			build_common $@
+			;;
+		adt4)
+			device_project="sei"
 			build_common $@
 			;;
 		*)
