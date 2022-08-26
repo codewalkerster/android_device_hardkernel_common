@@ -41,10 +41,6 @@ if [[ -n ${LOAD_EXT_MODULES_IN_SECOND_STAGE} ]]; then
 	cat ${OUT_AMLOGIC_DIR}/ext_modules/ext_modules.order >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
 fi
 
-head -n 60 device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_boot.modules.load
-sed -i "1,60d" device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/vendor_dlkm.modules.load
-cp ${OUT_AMLOGIC_DIR}/modules/vendor/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/ramdisk/lib/modules/
-
 cp ${DIST_DIR}/dtbo.img device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/
 cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/${BOARD_DEVICENAME}.dtb
 cp ${DIST_DIR}/Image.gz device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/
