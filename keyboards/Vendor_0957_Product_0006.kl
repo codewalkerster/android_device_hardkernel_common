@@ -38,7 +38,11 @@ key 115   VOLUME_UP
 key 113   VOLUME_MUTE
 key 402   CHANNEL_UP
 key 403   CHANNEL_DOWN
-key usage 0x0c0077  NES_SHORTCUT_04
-key usage 0x0c0078  NES_SHORTCUT_03
-key usage 0x0c0079  NES_SHORTCUT_02
-key usage 0x0c007a  NES_SHORTCUT_08
+#youtube
+key usage 0x0c0077  BUTTON_3
+#netflix
+key usage 0x0c0078  BUTTON_4
+#amazon
+key usage 0x0c0079  BUTTON_6
+#google play store
+key usage 0x0c007a  BUTTON_7
