@@ -79,9 +79,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #used forward seek for libplayer
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.libplayer.seek.fwdsearch=1
-#set memory upper limit for extractor process
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.maxmem=629145600
 
 #fix hls sync
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -131,11 +128,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # JIT config
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    dalvik.vm.jit.codecachesize=0
-
-# hwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=40.5f \
-    ro.hwui.layer_cache_size=33.75f
 
 # default enable sdr to hdr
 PRODUCT_PROPERTY_OVERRIDES += \

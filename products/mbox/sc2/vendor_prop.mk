@@ -67,10 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1
 
-#set memory upper limit for extractor process
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.maxmem=629145600
-
 #adb
 PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.tcp.port=5555
@@ -90,11 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # crypto volume
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
-
-# hwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=40.5f \
-    ro.hwui.layer_cache_size=33.75f
 
 # default enable sdr to hdr
 PRODUCT_PROPERTY_OVERRIDES += \

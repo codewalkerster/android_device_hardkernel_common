@@ -69,10 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1
 
-#set memory upper limit for extractor process
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.maxmem=629145600
-
 #adb
 PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.tcp.port=5555
@@ -93,11 +89,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #  dalvik.vm.heapmaxfree=4m \
 #  dalvik.vm.heapsize=224m \
 #  dalvik.vm.heapstartsize=4m
-
-# hwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=40.5f \
-    ro.hwui.layer_cache_size=33.75f
 
 ifeq ($(PRODUCT_SUPPORT_DTVKIT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
