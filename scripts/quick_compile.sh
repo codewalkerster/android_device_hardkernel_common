@@ -10,7 +10,7 @@
 # 8. kernel_exec[x]      build kernel command(do not include -t user)
 #     remove 5.4/4.9 and dynamic select 5.15/5.4/4.9
 # //9. android_exec[x]="TARGET_BUILD_KERNEL_VERSION=4.9"  only if build 4.9 kernel need it.
-#     remove it intead and read kernel type.
+#     remove it and read kernel type.
 # 10. kernel_addr[x]="export KERNEL_A32_SUPPORT=true"  only if build 32bit kernel need it.
 ###########################################################################################
 
