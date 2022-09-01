@@ -1,0 +1,8 @@
+type netflix_app, domain;
+app_domain(netflix_app)
+type nfx_tee_hal_lib, system_file_type, file_type;
+
+allow netflix_app drm_device:chr_file { ioctl open read write };
+allow netflix_app nfx_tee_hal_lib:file { execute getattr map open read };
+allow netflix_app activity_service:service_manager { find };
+
