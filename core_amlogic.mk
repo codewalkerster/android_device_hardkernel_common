@@ -416,6 +416,7 @@ PRODUCT_PACKAGES += \
 	libprovision \
 	tee_provision_ta \
 	tee_efuse_ta \
+	tee_fvp_ta \
 	tee_hdcp \
 	tee_hdcp_ta
 
