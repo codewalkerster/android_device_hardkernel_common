@@ -220,7 +220,11 @@ function build_common_5.15() {
 		SKIP_MRPROPER=1
 	fi
 	cd ${MAIN_FOLDER}
-	BUILD_CONFIG_ANDROID=device/${device_project}/$1/build.config.meson.arm64.trunk.5.15
+	if [ $KERNEL_A32_SUPPORT ]; then
+		BUILD_CONFIG_ANDROID=device/${device_project}/$1/build.config.meson.arm.trunk.5.15
+	else
+		BUILD_CONFIG_ANDROID=device/${device_project}/$1/build.config.meson.arm64.trunk.5.15
+	fi
 	. ${MAIN_FOLDER}/${BUILD_CONFIG_ANDROID}
 
 	local ext_modules
