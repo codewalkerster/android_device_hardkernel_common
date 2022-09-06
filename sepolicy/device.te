@@ -64,3 +64,5 @@ type galcore_device, dev_type;
 type dolby_fw_device, dev_type;
 type key_device, dev_type;
 type wifi_power_device, dev_type;
+
+type isp_device, dev_type;

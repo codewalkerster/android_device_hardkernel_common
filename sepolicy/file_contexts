@@ -554,3 +554,9 @@
 /system/bin/kexec           u:object_r:init_exec:s0
 
 /dev/aml_dsm                                      u:object_r:aml_dsm_device:s0
+
+/dev/ac_isp                  u:object_r:isp_device:s0
+/dev/ac_isp4uf               u:object_r:isp_device:s0
+/dev/ac_sbuf0                u:object_r:isp_device:s0
+/dev/ac_sbuf1                u:object_r:isp_device:s0
+/dev/v4l-subdev[0-9]         u:object_r:isp_device:s0
