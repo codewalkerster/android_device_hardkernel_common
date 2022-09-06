@@ -281,9 +281,10 @@ endif
 
 #for Netflix MGKID
 ifeq ($(TARGET_BUILD_NETFLIX_MGKID),true)
-PRODUCT_PACKAGES += libnetflixplugin \
+PRODUCT_PACKAGES += \
   00d1ca22-1764-4e35-90aa-5b8c12630764 \
-  android.hardware.drm@1.4-service.netflix
+  libtee-hal \
+  NfxTokenManager
 endif
 
 #for OMX
