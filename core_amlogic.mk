@@ -606,6 +606,11 @@ PRODUCT_PACKAGES += \
     libcodec2_aml_video_decoder\
     libcodec2_aml_video_encoder\
     libc2plugin_store
+#codec2 soft decoder
+ifeq ($(TARGET_WITH_SWCODEC_EXT), true)
+PRODUCT_PACKAGES += \
+    libcodec2_aml_soft_video_decoder
+endif
 endif
 
 #Atrace HAL
