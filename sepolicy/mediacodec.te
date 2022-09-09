@@ -5,6 +5,8 @@ allow mediacodec audio_device:chr_file { setattr open read write };
 #allow mediacodec audioserver_service:service_manager find;
 set_prop(mediacodec, vendor_media_prop)
 get_prop(mediacodec, vendor_media_prop)
+get_prop(mediacodec, ptsserver_device)
+set_prop(mediacodec, ptsserver_device)
 allow mediacodec vendor_default_prop:file { read open getattr map };
 allow mediaswcodec sysfs_audio:file rw_file_perms;
 
@@ -43,3 +45,5 @@ r_dir_file(mediacodec, oemfs)
 
 allow mediacodec logdr_socket:sock_file write;
 allow mediacodec logd:unix_stream_socket connectto;
+
+allow mediacodec ptsserver_device:chr_file rw_file_perms;
