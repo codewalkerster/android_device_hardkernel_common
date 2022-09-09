@@ -42,7 +42,20 @@ if [[ -n ${LOAD_EXT_MODULES_IN_SECOND_STAGE} ]]; then
 fi
 
 cp ${DIST_DIR}/dtbo.img device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/
-cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/${BOARD_DEVICENAME}.dtb
+
+DTBTOOL=device/amlogic/common/kernelbuild/dtbTool
+dtb_files_count=0
+mkdir -p ${OUT_AMLOGIC_DIR}/dtb
+for dtb_file in ${KERNEL_DEVICETREE}; do
+	cp ${DIST_DIR}/${dtb_file}.dtb ${OUT_AMLOGIC_DIR}/dtb/
+	dtb_files_count=`expr ${dtb_files_count} + 1`
+done
+if [[ ${dtb_files_count} == 1 ]]; then
+	cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/${BOARD_DEVICENAME}.dtb
+else
+	${DTBTOOL} -o device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/${BOARD_DEVICENAME}.dtb -p ${COMMON_OUT_DIR}/${KERNEL_DIR}/scripts/dtc/ ${OUT_AMLOGIC_DIR}/dtb/
+fi
+
 cp ${DIST_DIR}/Image.gz device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${KERNEL_VERSION}/
 
 rm -f ${KERNEL_BUILD_VAR_FILE}
