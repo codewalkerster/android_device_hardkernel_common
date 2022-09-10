@@ -606,6 +606,7 @@ PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.2-service \
     libcodec2_aml_video_decoder\
     libcodec2_aml_video_encoder\
+    libcodec2_aml_audio_decoder\
     libc2plugin_store
 #codec2 soft decoder
 ifeq ($(TARGET_WITH_SWCODEC_EXT), true)
