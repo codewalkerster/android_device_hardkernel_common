@@ -394,9 +394,7 @@ endif
 	# 512 * 7925 = 0x3DFE00
 ifeq ($(TARGET_GPT_PART),true)
 	dd if=$< of=$@
-ifeq ($(BUILD_AMLOGIC_FACTORY_ZIP), false)
 	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
-endif
 else
 	$(hide) cp $< $@
 # package dt.img into bootloader.  b/228873222
