@@ -17,12 +17,8 @@
             "description": "Gaelic"
         },
         {
-            "languagecode": "iri",
-            "description": "Irish1"
-        },
-        {
             "languagecode": "gle",
-            "description": "Irish2"
+            "description": "Irish"
         },
         {
             "languagecode": "dut",
@@ -85,14 +81,6 @@
             "description": "Danish"
         },
         {
-            "languagecode": "cmn",
-            "description": "Mandarin"
-        },
-        {
-            "languagecode": "yue",
-            "description": "Cantonese"
-        },
-        {
             "languagecode": "mao",
             "description": "Maori1"
         },
@@ -110,11 +98,7 @@
         },
         {
             "languagecode": "spa",
-            "description": "Spanish1"
-        },
-        {
-            "languagecode": "esl",
-            "description": "Spanish2"
+            "description": "Spanish"
         },
         {
             "languagecode": "kor",
@@ -147,10 +131,6 @@
         {
             "languagecode": "nbl",
             "description": "Ndebele"
-        },
-        {
-            "languagecode": "nso",
-            "description": "Northern Sotho"
         },
         {
             "languagecode": "sot",
@@ -265,20 +245,12 @@
             "description": "Estonian"
         },
         {
-            "languagecode": "smi",
-            "description": "Sami"
-        },
-        {
             "languagecode": "tur",
             "description": "Turkish"
         },
         {
             "languagecode": "bul",
             "description": "Bulgarian"
-        },
-        {
-            "languagecode": "afa",
-            "description": "Afro-Asiatic"
         },
         {
             "languagecode": "tha",
@@ -311,10 +283,6 @@
         {
             "languagecode": "fas",
             "description": "Persian2"
-        },
-        {
-            "languagecode": "mul",
-            "description": "Multiple languages"
         },
         {
             "languagecode": "kaz",
@@ -359,6 +327,14 @@
         {
             "languagecode": "ara",
             "description": "Arabic"
+        },
+        {
+            "languagecode": "urd",
+            "description": "Urdu"
+        },
+        {
+            "languagecode": "lit",
+            "description": "Lithuanian"
         },
         {
             "languagecode": "und",
