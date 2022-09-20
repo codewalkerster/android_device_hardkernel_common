@@ -739,7 +739,7 @@ AB_OTA_PARTITIONS += \
     odm_dlkm
 endif
 
-ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 AB_OTA_PARTITIONS += \
     init_boot
 endif

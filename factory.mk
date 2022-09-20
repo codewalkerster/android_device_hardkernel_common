@@ -20,7 +20,7 @@ ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 BUILT_IMAGES += vendor_boot.img
 endif
 
-ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 BUILT_IMAGES += init_boot.img
 endif
 
@@ -34,7 +34,7 @@ ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 VB_CHECK_IMAGES += vendor_boot.img
 endif
 
-ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 VB_CHECK_IMAGES += init_boot.img
 endif
 
@@ -508,7 +508,7 @@ ifneq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 	echo "delete oem.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/oem.img/d" $(PACKAGE_CONFIG_FILE)
 endif
-ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
 endif
@@ -577,7 +577,7 @@ ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 FASTBOOT_IMAGES += vendor_boot.img
 endif
 
-ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 FASTBOOT_IMAGES += init_boot.img
 endif
 
