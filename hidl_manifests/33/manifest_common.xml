@@ -95,12 +95,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl" optional="true">
-        <name>android.hardware.bluetooth.audio</name>
-        <version>2</version>
-        <interface>
-            <name>IBluetoothAudioProviderFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </manifest>
