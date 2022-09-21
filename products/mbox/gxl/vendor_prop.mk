@@ -69,10 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1
 
-#adb
-PRODUCT_PROPERTY_OVERRIDES += \
-    service.adb.tcp.port=5555
-
 # low memory for 1G
 ifneq ($(TARGET_PRODUCT),ampere)
 PRODUCT_PROPERTY_OVERRIDES += \

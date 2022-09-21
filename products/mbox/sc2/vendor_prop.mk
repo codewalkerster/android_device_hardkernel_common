@@ -67,10 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1
 
-#adb
-PRODUCT_PROPERTY_OVERRIDES += \
-    service.adb.tcp.port=5555
-
 #enable/disable afbc
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1

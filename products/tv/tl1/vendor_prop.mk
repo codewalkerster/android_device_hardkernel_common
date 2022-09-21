@@ -86,10 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.mapvalue=0,0,0,0
 
-#adb
-PRODUCT_PROPERTY_OVERRIDES += \
-    service.adb.tcp.port=5555
-
 #enable/disable afbc
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1

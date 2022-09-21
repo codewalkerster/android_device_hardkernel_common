@@ -109,10 +109,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mbx.hdmiin.switchfull=false \
     mbx.hdmiin.videolayer=false
 
-#adb
-PRODUCT_PROPERTY_OVERRIDES += \
-    service.adb.tcp.port=5555
-
 #enable/disable afbc
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1
