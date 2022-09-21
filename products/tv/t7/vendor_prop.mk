@@ -162,6 +162,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
     audio.offload.min.duration.secs=5
 
+# hwui
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.texture_cache_size=40.5f \
+    ro.hwui.layer_cache_size=33.75f
+
 #support video_composer
 PRODUCT_PROPERTY_OVERRIDES += \
     media.omx.display_mode=3
