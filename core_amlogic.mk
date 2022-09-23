@@ -631,7 +631,8 @@ endif
 
 PRODUCT_PACKAGES += \
     fastbootd \
-    android.hardware.fastboot@1.0-impl-amlogic
+    android.hardware.fastboot@1.1 \
+    android.hardware.fastboot@1.1-impl-amlogic
 
 # install  audio_effects.xml and audio_policy_configuration.xml soft link to oem file.
 PRODUCT_PACKAGES += \
