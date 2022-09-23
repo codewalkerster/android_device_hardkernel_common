@@ -46,7 +46,10 @@ cp -a ${COMMON_OUT_DIR}/vendor_lib/* device/${BOARD_MANUFACTURER}/${BOARD_DEVICE
 
 cp ${OUT_AMLOGIC_DIR}/modules/ramdisk/ramdisk_modules.order device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load
 
-NORMAL_MODE_END_MODULE=amlogic-mmc.ko
+# NORMAL_MODE_END_MODULE=amlogic-mmc.ko
+if [ -z ${NORMAL_MODE_END_MODULE} ]; then
+	NORMAL_MODE_END_MODULE=`tail -n 1 device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load`
+fi
 END_MODULE_LINE_NUM=`awk '/'${NORMAL_MODE_END_MODULE}'/{print NR}' device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load`
 head device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load -n ${END_MODULE_LINE_NUM} > device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_boot.modules.load
 
