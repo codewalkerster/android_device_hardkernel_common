@@ -143,6 +143,9 @@ allow system_control tvserver_hwservice:hwservice_manager find;
 allow system_control sysfs_leds:dir search;
 allow system_control sysfs_extcon:dir r_dir_perms;
 allow system_control hal_graphics_composer_default:binder call;
+allow system_control drm_device:chr_file { read write open ioctl};
+allow system_control vfat:dir {read open add_name write search};
+allow system_control vfat:file {read write open getattr create};
 
 #Irdeto
 allow system_control hal_hidlimw:binder { call transfer };
