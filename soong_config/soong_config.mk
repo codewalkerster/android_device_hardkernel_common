@@ -40,6 +40,9 @@ $(call soong_config_set,amlogic_vendorconfig,playready_tvp,$(BOARD_PLAYREADY_TVP
 # for media_ext
 $(call soong_config_set,amlogic_vendorconfig,enable_swcodec,$(TARGET_WITH_SWCODEC_EXT))
 
+# for hw media_ext
+$(call soong_config_set,amlogic_vendorconfig,enable_hwcodec,$(TARGET_WITH_CODEC_EXT))
+
 # for pq compress db
 $(call soong_config_set,amlogic_vendorconfig,support_pq_compress_db,$(PRODUCT_SUPPORT_COMPRESS_DB))
 
