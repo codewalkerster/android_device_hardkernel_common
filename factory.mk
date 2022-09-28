@@ -96,8 +96,6 @@ endif
 
 ifeq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 BUILT_IMAGES += oem.img
-INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/oem.img
-BOARD_PACK_RADIOIMAGES += oem.img
 VB_CHECK_IMAGES += oem.img
 endif
 
