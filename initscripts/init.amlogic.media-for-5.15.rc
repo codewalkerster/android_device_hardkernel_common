@@ -45,6 +45,7 @@ on early-boot
     insmod /vendor/lib/modules/amlogic-jpegenc.ko
     insmod /vendor/lib/modules/amlogic-vpu.ko
     insmod /vendor/lib/modules/amvdec_ports.ko
+    insmod /vendor/lib/modules/amlogic-multienc.ko
     insmod /vendor/lib/modules/amlogic_fbc_lib.ko
     insmod /vendor/lib/modules/amvdec_mavs.ko
     insmod /vendor/lib/modules/amvdec_mavs_v4l.ko
