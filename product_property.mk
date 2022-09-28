@@ -7,15 +7,22 @@ PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.latch_unsignaled=1 \
     debug.sf.vsync_reactor_ignore_present_fences=1
 
+# config of surfaceflinger
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.sf.disable_triple_buffer=0
 
-# config of surfaceflinger
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.max_graphics_width=1920 \
-    ro.surface_flinger.max_graphics_height=1080 \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ifeq ($(PRODUCT_SUPPORT_4K_UI), true)
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.surface_flinger.max_graphics_width?=3840 \
+        ro.surface_flinger.max_graphics_height?=2160 \
+        ro.surface_flinger.max_frame_buffer_acquired_buffers?=3
+else
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.surface_flinger.max_graphics_width?=1920 \
+        ro.surface_flinger.max_graphics_height?=1080 \
+        ro.surface_flinger.max_frame_buffer_acquired_buffers?=3
+endif
 
 # gfx: default boot config
 ifeq ($(HWC_ENABLE_AIDL), true)
