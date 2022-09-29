@@ -38,6 +38,7 @@ on early-boot
     insmod /vendor/lib/modules/amvdec_vp9.ko
     insmod /vendor/lib/modules/amvdec_vp9_v4l.ko
     insmod /vendor/lib/modules/amvdec_avs2.ko
+    insmod /vendor/lib/modules/amvdec_avs2_v4l.ko
 
 
     insmod /vendor/lib/modules/amlogic-encoder.ko
@@ -46,6 +47,7 @@ on early-boot
     insmod /vendor/lib/modules/amvdec_ports.ko
     insmod /vendor/lib/modules/amlogic_fbc_lib.ko
     insmod /vendor/lib/modules/amvdec_mavs.ko
+    insmod /vendor/lib/modules/amvdec_mavs_v4l.ko
     insmod /vendor/lib/modules/amvdec_av1.ko
     insmod /vendor/lib/modules/amvdec_av1_v4l.ko
     insmod /vendor/lib/modules/media_sync.ko
