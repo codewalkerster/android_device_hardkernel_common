@@ -68,3 +68,5 @@ get_prop(domain, vendor_arm_egl_configs_prop)
 set_prop(vendor_init, vendor_arm_gralloc_prop)
 get_prop(domain, vendor_arm_gralloc_prop)
 
+# allow init getattr /dev/adla0 node
+allow vendor_init adla_device:chr_file { open getattr read write ioctl };

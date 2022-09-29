@@ -66,6 +66,7 @@
 /dev/ac_isp4uf            0660   system    camera
 /dev/secmem               0660   system     mediadrm
 /dev/amresource_mgr       0666   media     system
+/dev/adla0                0666   system       system
 
 #audio data
 /dev/audio_data_debug     0660   mediacodec   audio

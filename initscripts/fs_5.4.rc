@@ -30,3 +30,6 @@ on post-fs-data
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
+
+    #for adla
+    mkdir /data/vendor/nn 0777 system system

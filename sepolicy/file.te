@@ -37,6 +37,9 @@ type misc_data_file, file_type;
 type sysfs_mpgpu, fs_type, sysfs_type;
 #type sysfs_power_trigger, fs_type, sysfs_type;
 
+#adla
+type nn_data_file, file_type, data_file_type;
+
 type sysfs_fb0_afbcd, fs_type, sysfs_type;
 type sysfs_digital_codec, fs_type, sysfs_type;
 type sysfs_audio_samesource, fs_type, sysfs_type;
