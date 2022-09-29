@@ -37,17 +37,14 @@ PRODUCT_PACKAGES += \
     EmulatorSmokeTests
 endif
 
-# 1p device without vendor/amlogic/reference code
-# reference device with vendor/amlogic/reference code
-ifeq ($(wildcard vendor/amlogic/reference/tv),)
-# for 1p device
 PRODUCT_PACKAGES += \
     droidlogic-res
-else
+# 1p device without vendor/amlogic/reference code
+# reference device with vendor/amlogic/reference code
+ifneq ($(wildcard vendor/amlogic/reference/tv),)
 ## for reference device
 include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner.mk
 PRODUCT_PACKAGES += \
-    droidlogic-hybrid-res \
     amazon_av_target_permissions
 #subtitle related
 PRODUCT_PACKAGES += \
