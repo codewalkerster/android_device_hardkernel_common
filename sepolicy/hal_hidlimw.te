@@ -10,6 +10,7 @@ init_daemon_domain(hal_hidlimw)
 add_hwservice(hal_hidlimw, hal_hidlimw_hwservice)
 allow hal_hidlimw system_app:binder { call };
 get_prop(hal_hidlimw, hwservicemanager_prop)
+get_prop(hal_hidlimw, vendor_default_prop)
 allow hal_hidlimw systemcontrol_hwservice:hwservice_manager { find };
 allow hal_hidlimw system_control:binder { call transfer };
 allow hal_hidlimw hal_hidlimw_file:file create_file_perms;
@@ -30,6 +31,7 @@ allow hal_hidlimw {
     gpu_device
     ptsserver_device
     mediasync_device
+    aml_dsm_device
 }:chr_file { read write open ioctl getattr };
 allowxperm hal_hidlimw {
     dvb_device
@@ -60,3 +62,5 @@ allow hal_hidlimw fuse:file { create_file_perms rw_file_perms };
 allow hal_hidlimw vendor_tv_prop:file { map };
 allow hal_hidlimw hal_graphics_composer_default:fd { use };
 allow hal_hidlimw hal_graphics_composer_default:binder call;
+allow hal_hidlimw meson_display_ipc_hwservice:hwservice_manager { find };
+
