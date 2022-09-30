@@ -1,4 +1,5 @@
 on early-init
+    write /sys/module/firmware_class/parameters/path "/vendor/lib/firmware/"
     exec_start insmod_sh_5_15
 
 service insmod_sh_5_15 /vendor/bin/init.insmod.sh
