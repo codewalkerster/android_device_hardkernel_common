@@ -233,6 +233,13 @@ function build_common_5.15() {
 	done
 	EXT_MODULES_ANDROID=${ext_modules}
 
+	local prebuilt_modules_path
+	local module_path
+	for module_path in ${PREBUILT_MODULES_PATH}; do
+		prebuilt_modules_path="${prebuilt_modules_path} ${MAIN_FOLDER}/${module_path}"
+	done
+	export PREBUILT_MODULES_PATH=${prebuilt_modules_path}
+
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG_ANDROID})
 
 	if [ $CONFIG_KERNEL_FCC_PIP ]; then
