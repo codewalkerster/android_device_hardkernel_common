@@ -222,6 +222,9 @@
 #flash_img
 /vendor/bin/flash_img.sh u:object_r:vendor_install_recovery_exec:s0
 
+# vibrator aidl
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.rockchip    u:object_r:hal_vibrator_default_exec:s0
+
 #fat
 /fat(/.*)?    u:object_r:oemfs:s0
 

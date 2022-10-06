@@ -109,7 +109,7 @@ PRODUCT_COPY_FILES += \
 
 #SDK Version
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rksdk.version=ANDROID$(PLATFORM_VERSION)_RKR10
+    ro.rksdk.version=ANDROID$(PLATFORM_VERSION)_RKR12
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -200,9 +200,9 @@ endif #BOARD_AVB_METADATA_BIN_PATH
 ifneq ($(strip $(BOARD_USES_AB_IMAGE)),true)
 BOARD_AVB_RECOVERY_KEY_PATH := $(BOARD_AVB_KEY_PATH)
 BOARD_AVB_RECOVERY_ALGORITHM := $(BOARD_AVB_ALGORITHM)
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 ifdef BOARD_AVB_ROLLBACK_INDEX
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := $(BOARD_AVB_ROLLBACK_INDEX)
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(BOARD_AVB_ROLLBACK_INDEX)
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 2
 endif
 endif #BOARD_USES_AB_IMAGE
 endif # BOARD_AVB_ENABLE
@@ -638,7 +638,8 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default\
     audio.r_submix.default\
     libaudioroute\
-    audio.usb.default
+    audio.usb.default\
+    libanr
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
@@ -1315,6 +1316,11 @@ AB_OTA_PARTITIONS += \
     vendor_boot
 endif
 
+ifeq ($(strip $(BUILD_WITH_RK_EBOOK)),true)
+AB_OTA_PARTITIONS += \
+    logo
+endif
+
 # A/B OTA dexopt package
 PRODUCT_PACKAGES += otapreopt_script
 
@@ -1463,6 +1469,19 @@ PRODUCT_COPY_FILES += \
 # build libmpimmz for rknn
 PRODUCT_PACKAGES += \
 	libmpimmz
+
+# prebuild camera binary tools
+ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    media-ctl \
+    v4l2-ctl
+ifneq (,$(filter rk356x, $(strip $(TARGET_BOARD_PLATFORM))))
+PRODUCT_PACKAGES += \
+    rkaiq_tool_server \
+    rkaiq_demo \
+    rkaiq_3A_server
+endif
+endif
 
 # GPS HAL
 PRODUCT_PACKAGES += \
