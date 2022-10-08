@@ -37,7 +37,7 @@ on boot
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     mount functionfs fastboot /dev/usb-ffs/fastboot rmode=0770,fmode=0660,uid=1000,gid=1000
     setprop sys.usb.configfs 1
-    setprop sys.usb.controller ${sys.usb.controller}
+    setprop sys.usb.controller ${vendor.usb.controller}
     rm /dev/block/by-name/mmcblk0boot0
     rm /dev/block/by-name/mmcblk0boot1
     symlink /dev/block/bootloader0 /dev/block/by-name/bootloader_a
