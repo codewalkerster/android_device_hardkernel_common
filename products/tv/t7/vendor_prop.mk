@@ -196,3 +196,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.use_minfree_levels=true
 
 PRODUCT_PROPERTY_OVERRIDES += ro.llk.enable=false
+
+#tv path use video_tunnel
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.fixed_tunnel=1
