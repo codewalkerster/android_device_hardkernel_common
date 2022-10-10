@@ -235,6 +235,11 @@ function build_common_5.15() {
 
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG_ANDROID})
 
+	if [ $CONFIG_KERNEL_FCC_PIP ]; then
+		export KERNEL_DEVICETREE=${KERNEL_DEVICETREE_FCC_PIP}
+		export CONFIG_KERNEL_FCC_PIP=true
+	fi
+
 	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
 }
 

@@ -69,6 +69,10 @@ fi
 
 cp ${DIST_DIR}/dtbo.img device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/
 
+if [ $CONFIG_KERNEL_FCC_PIP ]; then
+	export KERNEL_DEVICETREE=${KERNEL_DEVICETREE_FCC_PIP}
+fi
+
 DTBTOOL=device/amlogic/common/kernelbuild/dtbTool
 dtb_files_count=0
 mkdir -p ${OUT_AMLOGIC_DIR}/dtb
@@ -77,7 +81,19 @@ for dtb_file in ${KERNEL_DEVICETREE}; do
 	dtb_files_count=`expr ${dtb_files_count} + 1`
 done
 if [[ ${dtb_files_count} == 1 ]]; then
-	cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb
+	if [ $CONFIG_KERNEL_FCC_PIP ]; then
+		if [[ ${PRODUCT_DIRNAME} == *"ohm"* ]]; then
+			cp -f ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ohm_mxl258c.dtb
+		elif [[ ${PRODUCT_DIRNAME} == *"oppencas"* ]]; then
+			cp -f ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/oppencas_mxl258c.dtb
+		elif [[ ${PRODUCT_DIRNAME} == *"oppen"* ]]; then
+			cp -f ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/oppen_mxl258c.dtb
+		else
+			cp -f ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb
+		fi
+	else
+		cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb
+	fi
 else
 	${DTBTOOL} -o device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb -p ${COMMON_OUT_DIR}/${KERNEL_DIR}/scripts/dtc/ ${OUT_AMLOGIC_DIR}/dtb/
 fi
