@@ -127,7 +127,7 @@ endif
 
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
+    ro.sf.lcd_density?=320
 endif
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
