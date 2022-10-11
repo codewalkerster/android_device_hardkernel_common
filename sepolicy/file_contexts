@@ -468,6 +468,7 @@
 /vendor/bin/hw/android\.hardware\.tv\.tuner@1\.0-service\.droidlogic     u:object_r:hal_tv_tuner_default_exec:s0
 /vendor/bin/hw/android\.hardware\.bluetooth@1\.0-service-droidlogic      u:object_r:hal_bluetooth_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.[0-9]-service-aml-driver    u:object_r:hal_neuralnetworks_adla_exec:s0
+/vendor/bin/hw/android\.hardware\.tv\.tuner-service\.droidlogic          u:object_r:hal_tv_tuner_default_exec:s0
 
 /data/vendor/mediadrm(/.*)?                                              u:object_r:mediadrm_vendor_data_file:s0
 /data/vendor/mediacas(/.*)?                                              u:object_r:mediadrm_vendor_data_file:s0
