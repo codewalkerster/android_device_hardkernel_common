@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
     libhpeqwrapper \
     libsrswrapper \
     libtreblebasswrapper \
-    libms12dapwrapper \
+    libms12v2dapwrapper \
     libvirtualsurround \
     libvirtualx \
     libdbx \
