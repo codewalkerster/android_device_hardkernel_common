@@ -368,7 +368,7 @@
             "countrycode": "mys",
             "description": "Malaysia",
             "languagelist": "language_default.json",
-            "primarylang": "eng",
+            "primarylang": "may",
             "secondarylang": "eng",
             "lcn": true
         },
@@ -508,7 +508,7 @@
             "description": "Singapore",
             "languagelist": "language_default.json",
             "primarylang": "eng",
-            "secondarylang": "eng",
+            "secondarylang": "zho",
             "lcn": true
         },
         {
