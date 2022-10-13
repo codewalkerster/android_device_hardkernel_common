@@ -57,3 +57,6 @@ allow system_server tvserver:process { signal };
 allow system_server hal_tv_cec_default:process { signal };
 allow system_server hal_tv_input_default:process { signal };
 allow system_server dtvkitserver:process { signal };
+allow system_server subtitleserver:process { signal };
+#allow system_server mediatuner:process { signal };
+allow system_server hal_tv_tuner_default:process { signal };
