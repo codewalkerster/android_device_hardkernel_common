@@ -1,75 +1,69 @@
 {
     "frequencylist": [
         {
-            "name": "1",
-            "bandwidth": "8MHZ",
-            "frequency": "52500000",
-            "cofdmmode": "udef"
-        },
-        {
             "name": "2",
-            "bandwidth": "8MHZ",
-            "frequency": "62000000",
+            "bandwidth": "7MHZ",
+            "frequency": "50500000",
             "cofdmmode": "udef"
         },
         {
             "name": "3",
-            "bandwidth": "8MHZ",
-            "frequency": "80000000",
+            "bandwidth": "7MHZ",
+            "frequency": "57500000",
             "cofdmmode": "udef"
         },
         {
             "name": "4",
-            "bandwidth": "8MHZ",
-            "frequency": "88000000",
+            "bandwidth": "7MHZ",
+            "frequency": "64500000",
             "cofdmmode": "udef"
         },
         {
             "name": "5",
-            "bandwidth": "8MHZ",
-            "frequency": "96000000",
+            "bandwidth": "7MHZ",
+            "frequency": "177500000",
             "cofdmmode": "udef"
         },
         {
             "name": "6",
-            "bandwidth": "8MHZ",
-            "frequency": "178000000",
+            "bandwidth": "7MHZ",
+            "frequency": "184500000",
             "cofdmmode": "udef"
         },
         {
             "name": "7",
-            "bandwidth": "8MHZ",
-            "frequency": "186000000",
+            "bandwidth": "7MHZ",
+            "frequency": "191500000",
             "cofdmmode": "udef"
         },
         {
             "name": "8",
-            "bandwidth": "8MHZ",
-            "frequency": "194000000",
+            "bandwidth": "7MHZ",
+            "frequency": "198500000",
             "cofdmmode": "udef"
         },
         {
             "name": "9",
-            "bandwidth": "8MHZ",
-            "frequency": "202000000",
+            "bandwidth": "7MHZ",
+            "frequency": "205500000",
             "cofdmmode": "udef"
         },
         {
             "name": "10",
-            "bandwidth": "8MHZ",
-            "frequency": "210000000",
+            "bandwidth": "7MHZ",
+            "frequency": "212500000",
             "cofdmmode": "udef"
         },
         {
             "name": "11",
-            "bandwidth": "8MHZ",
-            "frequency": "218000000",
+            "bandwidth": "7MHZ",
+            "frequency": "219500000",
             "cofdmmode": "udef"
         },
         {
             "name": "12",
-            "bandwidth": "8MHZ",
-            "frequency": "226000000",
+            "bandwidth": "7MHZ",
+            "frequency": "226500000",
             "cofdmmode": "udef"
         },
         {

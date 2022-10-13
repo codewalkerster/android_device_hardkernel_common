@@ -33,7 +33,9 @@
             "FirstUnanllocLcn": "350",
             "LastUnanllocLcnx": "399",
             "tidy-db": "tsid,onid",
-            "SDTMandatory": "TRUE"
+            "SDTMandatory": "TRUE",
+            "frequencylist": "dvbtfrelist_aus.json"
+
         },
         {
             "countrycode": "aut",
@@ -90,6 +92,18 @@
             "LastUnanllocLcnx": "899",
             "tidy-db": "tsid,onid",
             "SDTMandatory": "FALSE"
+        },
+        {
+            "countrycode": "cmr",
+            "dvbtype": "DVB-A",
+            "networkid": "0",
+            "frequency": "0",
+            "LCN": "1",
+            "FirstUnanllocLcn": "1000",
+            "LastUnanllocLcnx": "9999",
+            "tidy-db": "tsid,onid",
+            "SDTMandatory": "FALSE",
+            "frequencylist": "dvbtfrelist_default.json"
         },
         {
             "countrycode": "cri",
@@ -172,6 +186,18 @@
             "SDTMandatory": "FALSE"
         },
         {
+            "countrycode": "egy",
+            "dvbtype": "DVB-A",
+            "networkid": "0",
+            "frequency": "0",
+            "LCN": "1",
+            "FirstUnanllocLcn": "1000",
+            "LastUnanllocLcnx": "9999",
+            "tidy-db": "tsid,onid",
+            "SDTMandatory": "FALSE",
+            "frequencylist": "dvbtfrelist_default.json"
+        },
+        {
             "countrycode": "esp",
             "dvbtype": "DVB-A",
             "networkid": "0",
@@ -202,7 +228,8 @@
             "FirstUnanllocLcn": "800",
             "LastUnanllocLcnx": "899",
             "tidy-db": "tsid,onid",
-            "SDTMandatory": "TRUE"
+            "SDTMandatory": "TRUE",
+            "frequencylist": "dvbtfrelist_default.json"
         },
         {
             "countrycode": "gbr",
@@ -213,7 +240,8 @@
             "FirstUnanllocLcn": "800",
             "LastUnanllocLcnx": "899",
             "tidy-db": "tsid,onid",
-            "SDTMandatory": "TRUE"
+            "SDTMandatory": "TRUE",
+            "frequencylist": "dvbtfrelist_uhf_default.json"
         },
         {
             "countrycode": "geo",
@@ -306,7 +334,8 @@
             "FirstUnanllocLcn": "850",
             "LastUnanllocLcnx": "999",
             "tidy-db": "tsid,onid",
-            "SDTMandatory": "TRUE"
+            "SDTMandatory": "TRUE",
+            "frequencylist": "dvbtfrelist_uhf_default.json"
         },
         {
             "countrycode": "jor",
@@ -319,6 +348,18 @@
             "tidy-db": "tsid,onid",
             "SDTMandatory": "FALSE",
             "frequencylist": "dvbtfrelist_eu.json"
+        },
+        {
+            "countrycode": "ken",
+            "dvbtype": "DVB-A",
+            "networkid": "0",
+            "frequency": "0",
+            "LCN": "1",
+            "FirstUnanllocLcn": "1000",
+            "LastUnanllocLcnx": "9999",
+            "tidy-db": "tsid,onid",
+            "SDTMandatory": "FALSE",
+            "frequencylist": "dvbtfrelist_default.json"
         },
         {
             "countrycode": "lby",
@@ -354,7 +395,7 @@
             "LastUnanllocLcnx": "9999",
             "tidy-db": "tsid,onid",
             "SDTMandatory": "FALSE",
-            "frequencylist": "dvbtfrelist_eu.json"
+            "frequencylist": "dvbtfrelist_mys.json"
         },
         {
             "countrycode": "nor",
@@ -365,7 +406,8 @@
             "FirstUnanllocLcn": "0",
             "LastUnanllocLcnx": "899",
             "tidy-db": "tsid,onid",
-            "SDTMandatory": "TRUE"
+            "SDTMandatory": "TRUE",
+            "frequencylist": "dvbtfrelist_default.json"
         },
         {
             "countrycode": "nzl",
@@ -376,7 +418,8 @@
             "FirstUnanllocLcn": "800",
             "LastUnanllocLcnx": "9999",
             "tidy-db": "tsid,onid",
-            "SDTMandatory": "TRUE"
+            "SDTMandatory": "TRUE",
+            "frequencylist": "dvbtfrelist_default.json"
         },
         {
             "countrycode": "rus",
@@ -422,7 +465,7 @@
             "LastUnanllocLcnx": "9999",
             "tidy-db": "tsid,onid",
             "SDTMandatory": "FALSE",
-            "frequencylist": "dvbtfrelist_gbr.json"
+            "frequencylist": "dvbtfrelist_tha.json"
         },
         {
             "countrycode": "tun",
