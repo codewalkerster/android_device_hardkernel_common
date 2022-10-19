@@ -236,7 +236,7 @@ kernel_exec[18]="./mk redi -v "
 ###########################################################################################
 # Smith
 project[19]="Smith"
-soc[19]="S905X4"
+soc[19]="T965D4"
 hardware[19]="AR321"
 module[19]="smith"
 uboot_path[19]="device/amlogic/smith"
