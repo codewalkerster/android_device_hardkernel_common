@@ -320,7 +320,7 @@ endif
 endif
 
 PRODUCT_PACKAGES += \
-    libwvhidl \
+    libwvaidl \
     liboemcrypto \
     e043cde0-61d0-11e5-9c26-0002a5d5c51b
 
