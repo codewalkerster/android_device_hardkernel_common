@@ -1,0 +1,2 @@
+allow hal_gatekeeper_default drm_device:chr_file { read open write ioctl };
+allow hal_gatekeeper_default tmpfs:dir { read };

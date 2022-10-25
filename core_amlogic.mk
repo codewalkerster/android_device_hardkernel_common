@@ -530,7 +530,7 @@ endif
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service.software
+    android.hardware.gatekeeper@1.0-service.amlogic
 
 #DRM HAL
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
