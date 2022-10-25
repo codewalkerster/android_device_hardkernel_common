@@ -150,6 +150,7 @@
 /dev/ttyBT0				u:object_r:hci_attach_dev:s0
 /dev/ttyBT1				u:object_r:hci_attach_dev:s0
 /dev/cec            			u:object_r:cec_device:s0
+/dev/audio_utils			u:object_r:audio_utils_device:s0
 /dev/defendkey      			u:object_r:defendkey_device:s0
 /dev/display        			u:object_r:display_device:s0
 /dev/dtb            			u:object_r:dtb_device:s0
