@@ -194,7 +194,7 @@ function build_common_5.4() {
 			if [ $KERNEL_A32_SUPPORT ]; then
 				sed -i 's/^#include \"partition_.*/#include "partition_mbox_ab.dtsi"/' ${KERNEL_DIR}/arch/arm/boot/dts/amlogic/$aDts.dts;
 			else
-				sed -i 's/^#include \"partition_.*/#include "partition_mbox_ab.dtsi"/' ${KERNEL_DIR}/arch/arm64/boot/dts/amlogic/$aDts.dts;
+				sed -i 's/^#include \"partition_.*/#include "partition_mbox_ab_T.dtsi"/' ${KERNEL_DIR}/arch/arm64/boot/dts/amlogic/$aDts.dts;
 			fi
 		done
 	fi
