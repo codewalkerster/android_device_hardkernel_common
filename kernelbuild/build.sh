@@ -773,7 +773,7 @@ if [ $KERNEL_A32_SUPPORT ]; then
     rm -rf ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/*
     mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/firmware/video/
     mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/modules/
-    cp ${OUT_DIR}/../vendor_lib/firmware/video/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/firmware/video/
+    cp ${OUT_DIR}/../vendor_lib/firmware/video/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/firmware/video/ -rf
     cp ${OUT_DIR}/../vendor_lib/optee* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/
     cp ${OUT_DIR}/../vendor_lib/modules/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/modules/
     cp ${OUT_DIR}/arch/arm/boot/uImage ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/
@@ -781,7 +781,7 @@ else
     rm -rf ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/*
     mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/firmware/video/
     mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/modules/
-    cp ${OUT_DIR}/../vendor_lib/firmware/video/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/firmware/video/
+    cp ${OUT_DIR}/../vendor_lib/firmware/video/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/firmware/video/ -rf
     cp ${OUT_DIR}/../vendor_lib/optee* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/
     cp ${OUT_DIR}/../vendor_lib/modules/* ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/modules/
     cp ${OUT_DIR}/arch/arm64/boot/Image.gz ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/
