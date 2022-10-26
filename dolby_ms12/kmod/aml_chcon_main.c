@@ -20,10 +20,6 @@
 #include <linux/fs.h>     /* filp_open(), filp_close(),           */
                           /* file_dentry(), alloc_chrdev_region() */
                           /* unregister_chrdev_region()           */
-#if IS_ENABLED(CONFIG_AMLOGIC_DEBUG_RELABEL)
-#include <linux/amlogic/debug_relabel.h>
-#endif
-
 #ifndef AML_SECURE_LIB
 #error AML_SECURE_LIB not defined
 // e.g. /odm/lib/ms12/libdolbyms12.so
@@ -71,37 +67,8 @@ static struct work_struct aml_work;
 static void aml_chcon(struct work_struct *work)
 {
 #ifdef CONFIG_SECURITY
-#if IS_ENABLED(CONFIG_AMLOGIC_DEBUG_RELABEL_GKI)
-    return;
-#else
     struct file *f;
     struct dentry *entry;
-#if IS_ENABLED(CONFIG_AMLOGIC_DEBUG_RELABEL)
-    if (!IS_ERR(f = debug_filp_open(AML_SECURE_LIB,  O_RDONLY | O_PATH, 0))) {
-        if (!IS_ERR(entry = file_dentry(f))) {
-            debug_vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_SECURE_CON, sizeof(AML_SECURE_CON), 0);
-        }
-        filp_close(f, NULL);
-    }
-    if (!IS_ERR(f = debug_filp_open(AML_DTS_SECURE_LIB,  O_RDONLY | O_PATH, 0))) {
-        if (!IS_ERR(entry = file_dentry(f))) {
-            debug_vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_SECURE_CON , sizeof(AML_SECURE_CON), 0);
-        }
-        filp_close(f, NULL);
-    }
-    if (!IS_ERR(f = debug_filp_open(AML_DCV_SECURE_LIB,  O_RDONLY | O_PATH, 0))) {
-        if (!IS_ERR(entry = file_dentry(f))) {
-            debug_vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_SECURE_CON , sizeof(AML_SECURE_CON), 0);
-        }
-        filp_close(f, NULL);
-    }
-    if (!IS_ERR(f = debug_filp_open(AML_HDCP_TX22_BIN,  O_RDONLY | O_PATH, 0))) {
-        if (!IS_ERR(entry = file_dentry(f))) {
-            debug_vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_HDCP_TX22_CON, sizeof(AML_HDCP_TX22_CON), 0);
-        }
-        filp_close(f, NULL);
-    }
-#else
     if (!IS_ERR(f = filp_open(AML_SECURE_LIB,  O_RDONLY | O_PATH, 0))) {
         if (!IS_ERR(entry = file_dentry(f))) {
             vfs_setxattr(entry, XATTR_NAME_SELINUX, AML_SECURE_CON , sizeof(AML_SECURE_CON), 0);
@@ -132,9 +99,8 @@ static void aml_chcon(struct work_struct *work)
         }
         filp_close(f, NULL);
     }
-#endif
 
-#endif
+
 
 #endif
     return;
