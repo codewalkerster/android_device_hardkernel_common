@@ -103,6 +103,9 @@ allow system_control appdomain:dir { getattr search };
 allow system_control appdomain:file { r_file_perms };
 allow system_control platform_app:dir { search };
 
+allow system_control sysfs_tee:dir { search };
+allow system_control sysfs_tee:file { write open };
+
 allow system_control param_tv_file:dir  { search read write open add_name remove_name rmdir create };
 allow system_control param_tv_file:file { create open read write setattr getattr lock unlink };
 
