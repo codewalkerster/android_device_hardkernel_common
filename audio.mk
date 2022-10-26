@@ -49,6 +49,11 @@ PRODUCT_PACKAGES += \
 #PRODUCT_COPY_FILES += $(foreach file, $(soft_adec_libs), \
 #        hardware/amlogic/LibAudio/amadec/acodec_lib_android_n/$(file):$(TARGET_COPY_OUT_VENDOR)/lib/$(file))
 
+
+ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
+PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+endif
+
 #configurable audio policy
 USE_XML_AUDIO_POLICY_CONF := 1
 
