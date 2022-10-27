@@ -41,6 +41,7 @@ allow mediacodec system_control:binder { call };
 allow mediacodec self:capability sys_nice;
 allow mediacodec bootanim:fd { use };
 allow mediacodec dmabuf_heap_device:chr_file {open read write ioctl};
+allow mediacodec hal_tv_tuner_default:fd use;
 
 # /oem accesses.
 allow mediacodec oemfs:dir search;
