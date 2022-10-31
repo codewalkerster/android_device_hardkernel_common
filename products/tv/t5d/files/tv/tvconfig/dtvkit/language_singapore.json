@@ -341,6 +341,14 @@
             "description": "Original Audio"
         },
         {
+            "languagecode": "qab",
+            "description": "Second Audio"
+        },
+        {
+            "languagecode": "qac",
+            "description": "Third Audio"
+        },
+        {
             "languagecode": "und",
             "description": "Undefined"
         }

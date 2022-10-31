@@ -506,7 +506,7 @@
         {
             "countrycode": "sgp",
             "description": "Singapore",
-            "languagelist": "language_default.json",
+            "languagelist": "language_singapore.json",
             "primarylang": "eng",
             "secondarylang": "zho",
             "lcn": true
