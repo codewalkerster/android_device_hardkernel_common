@@ -251,6 +251,14 @@
             "lcn": true
         },
         {
+            "countrycode": "isl",
+            "description": "Iceland",
+            "languagelist": "language_default.json",
+            "primarylang": "ice",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
             "countrycode": "ind",
             "description": "India",
             "languagelist": "language_default.json",
