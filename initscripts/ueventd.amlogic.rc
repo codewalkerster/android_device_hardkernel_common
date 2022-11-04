@@ -86,6 +86,9 @@
 /dev/dma_heap/heap-gfx    0666   system       graphics
 /dev/dma_heap/system      0666   system       graphics
 /dev/dma_heap/system-uncached      0666   system       graphics
+/dev/dma_heap/heap-codecmm      0666   system       graphics
+/dev/dma_heap/heap-cached-codecmm       0666   system       graphics
+/dev/dma_heap/heap-secure-codecmm       0666   system       graphics
 
 # uvm
 /dev/uvm                  0666   system       graphics
