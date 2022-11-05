@@ -36,6 +36,10 @@ on init
     chmod 644 /odm/lib/libdolbyms12.so
     chmod 755 /odm/bin/hdcp_tx22
 
+    # changing access permission of the dev node used by android.hardware.audio.service-droidlogic
+    chown audioserver mediadrm /dev/audio_utils
+    chmod 600 /dev/audio_utils
+
     # Changing access permission of the dev node used by libdolbyms12
     wait /dev/dolby_fw 2
     chown audioserver mediadrm /dev/dolby_fw
@@ -47,4 +51,7 @@ on init
 
     # Set extended attribute in kernel space to bypass selinux neverallow restriction
     # "chcon u:object_r:dolby_lib_file:s0 /odm/lib/ms12/libdolbyms12.so"
+    # when use the kernel 5.15(support GKI1.0/2.0), this aml_chcon.ko should not build.
+    # w/i this aml_chcon.ko, /dev/audio_utils does not exit in the DUT.
+    # w/o this aml_chcon.ko, /dev/audio_utils exits in the DUT.
     insmod /vendor/lib/modules/aml_chcon.ko
