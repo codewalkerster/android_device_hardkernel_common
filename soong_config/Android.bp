@@ -48,8 +48,9 @@ soong_config_string_variable {
         "g12a",
         "g12b",
         "deadpool",
+        "sabrina",
         "sc2",
-        "s4"
+        "s4",
     ],
 }
 
