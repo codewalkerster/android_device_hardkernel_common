@@ -43,4 +43,5 @@ allow netd subtitleserver:fd use;
 allow subtitleserver codec_device:chr_file rw_file_perms;
 allow subtitleserver mediasync_device:chr_file rw_file_perms;
 allow subtitleserver fuse:file read;
+allow subtitleserver sysfs_xbmc:file { open read};
 
