@@ -1,2 +1,3 @@
-on early-init
+on init
     insmod /vendor/lib/modules/rt710_fe.ko
+    write /sys/class/aml_dvb_extern/tuner_debug "attach"
