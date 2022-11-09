@@ -640,6 +640,7 @@ fi
 if [ $# -eq 1 ]; then
     read_platform_type
     read_android_type
+    read_kernel_type
     if [[ $1 == *"uboot"* ]]; then
         compile_sub_uboot $1
     fi
