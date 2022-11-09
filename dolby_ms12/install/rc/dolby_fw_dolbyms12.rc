@@ -22,6 +22,10 @@ on init
 
     chmod 644 /odm/lib/ms12/libdolbyms12.so
 
+    # changing access permission of the dev node used by android.hardware.audio.service-droidlogic
+    chown audioserver mediadrm /dev/audio_utils
+    chmod 600 /dev/audio_utils
+
     # Changing access permission of the dev node used by libdolbyms12
     wait /dev/dolby_fw 2
     chown audioserver mediadrm /dev/dolby_fw
