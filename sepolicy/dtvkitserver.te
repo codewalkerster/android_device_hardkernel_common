@@ -103,3 +103,4 @@ allow dtvkitserver ptsserver_device:chr_file rw_file_perms;
 allow dtvkitserver aml_dsm_device:chr_file { read write };
 allow dtvkitserver aml_dsm_device:chr_file open;
 allow dtvkitserver aml_dsm_device:chr_file ioctl;
+allow dtvkitserver proc_version:file { read open getattr };
