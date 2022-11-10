@@ -1,4 +1,4 @@
-service hdcp_tx22 /odm/bin/hdcp_tx22 \
+service hdcp_tx22 /vendor/bin/hdcp_tx22 \
      -f /odm/etc/firmware/firmware.le
      class main
      disabled

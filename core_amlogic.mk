@@ -297,7 +297,10 @@ PRODUCT_PACKAGES += \
     libHwAudio_dtshd
 else
 PRODUCT_PACKAGES += \
+    libHwAudio_dcvdec \
+    libHwAudio_dtshd \
     oem_license_build
+
 endif
 
 PRODUCT_PACKAGES += \
