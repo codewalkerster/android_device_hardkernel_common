@@ -3,7 +3,7 @@ TARGET_BUILD_NETFLIX_MGKID  := true
 
 # For NTS certification
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.nrdp.validation=ninja_8 \
+    ro.vendor.nrdp.validation=ninja_9 \
     vendor.system.always.dolbyvision=true  \
     persist.vendor.sys.framerate.priority=true \
     ro.vendor.nrdp.modelgroup=$(TARGET_BUILD_NETFLIX_MODELGROUP)
@@ -12,7 +12,7 @@ PRODUCT_PACKAGES += \
     Netflix
 
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.vendor.hailstorm.version=5.0.0
+   ro.vendor.hailstorm.version=6.0.0
 
 
 PRODUCT_COPY_FILES += \
