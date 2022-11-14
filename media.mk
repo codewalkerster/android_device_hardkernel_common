@@ -26,12 +26,6 @@ TARGET_ENABLE_TA_SIGN := true
 TARGET_USE_HW_KEYMASTER := true
 endif
 
-ifeq ($(BUILD_WITH_WIDEVINECAS), true)
-TARGET_USE_OPTEEOS := true
-TARGET_ENABLE_TA_SIGN := true
-TARGET_USE_HW_KEYMASTER := true
-endif
-
 ifeq ($(BOARD_COMPILE_CTS), false)
 TARGET_USE_HW_KEYMASTER := false
 endif
@@ -209,6 +203,12 @@ ifeq ($(BUILD_WITH_VIEWRIGHT_WEB),true)
        libvmxca_webclient_sys
 endif
 
+ifeq ($(BUILD_WITH_WIDEVINECAS),true)
+PRODUCT_PACKAGES += \
+    libdec_ca_wvcas.system \
+    wvcas_iptv_test_sys
+endif
+
  PRODUCT_PACKAGES += libamgralloc_ext
  PRODUCT_PACKAGES += arm.graphics-V1-ndk_platform.so
  PRODUCT_PACKAGES += libteec_sys
@@ -291,12 +291,8 @@ PRODUCT_PROPERTY_OVERRIDES += vendor.media.omx.out_buffer2_osd=8
 
 #for Widevine CAS
 ifeq ($(BUILD_WITH_WIDEVINECAS),true)
-  PRODUCT_PACKAGES += libwvmediacas \
-                      libcasoemcrypto \
-                      libdec_ca_wvcas
-  PRODUCT_PACKAGES += e043cde0-61d0-11e5-9c26-0002a5d5c5ca
-  PRODUCT_PACKAGES += wvcas_iptv_test \
-                      oemcrypto_cas_test
+PRODUCT_PACKAGES += libwvmediacas \
+                    libdec_ca_wvcas
 endif
 
 #for drm widevine.
