@@ -18,6 +18,7 @@
 
 # Set display related config
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.has.bdsuimode=true \
     ro.vendor.platform.has.mbxuimode=true \
     ro.vendor.platform.has.tvuimode=true \
     ro.vendor.platform.customize_tvsetting=true \
