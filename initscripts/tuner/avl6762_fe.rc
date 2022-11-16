@@ -1,2 +1,4 @@
 on early-init
     insmod /vendor/lib/modules/avl6762_fe.ko
+    write /sys/class/aml_dvb_extern/demod_debug "attach"
+    write /sys/class/aml_dvb_extern/demod_debug "register"
