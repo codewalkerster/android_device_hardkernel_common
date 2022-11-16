@@ -27,15 +27,12 @@ PRODUCT_PACKAGES += \
     libfaad    \
     libmad     \
     libamadec_wfd_out \
-    libavl \
     libbalance \
     libhpeqwrapper \
-    libsrswrapper \
     libtreblebasswrapper \
     libms12v2dapwrapper \
     libvirtualsurround \
     libvirtualx \
-    libdbx \
     param_set \
     AudioEffectTool \
     libAmlAudioOutPort \
