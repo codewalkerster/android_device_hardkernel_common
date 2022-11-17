@@ -36,6 +36,7 @@ fi
 rm -rf device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/*
 modules_list=$(find ${OUT_AMLOGIC_DIR}/modules/ramdisk -type f -name "*.ko")
 cp ${OUT_AMLOGIC_DIR}/modules/ramdisk/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
+cp ${OUT_AMLOGIC_DIR}/modules/recovery/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
 
 if [ ! -d "device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/" ]; then
 	mkdir -p device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
@@ -55,6 +56,8 @@ head device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR
 
 tail device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load -n +${END_MODULE_LINE_NUM} > device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
 sed -i '1d' device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
+
+cat ${OUT_AMLOGIC_DIR}/modules/recovery/recovery_modules.order >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load
 
 for recovery_module in $(cat device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load)
 do
