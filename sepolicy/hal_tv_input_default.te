@@ -5,6 +5,8 @@ allow hal_tv_input_default tvserver:binder { call transfer };
 #allow hal_tv_input_default hal_allocator_default:fd { use };
 #allow hal_tv_input_default hal_allocator_default:binder { call transfer };
 
+allow hal_tv_input_default sysfs_stb:dir search;
+
 allow hal_tv_input_default dtvkitserver_hwservice:hwservice_manager { find };
 allow hal_tv_input_default dtvkitserver:binder { call transfer };
 
