@@ -254,7 +254,8 @@ module[20]="soddy"
 uboot_path[20]="device/amlogic/soddy"
 uboot_exec_aosp[20]="./mk t5w_at301_v1  --vab --fastboot-write"
 uboot_exec_drm[20]="./mk t5w_at301_v1  --vab --avb2 --fastboot-write"
-kernel_exec[20]="./mk soddy -v "
+kernel_exec[20]="./mk soddy -v 5.4"
+kernel_addr[20]="export KERNEL_A32_SUPPORT=true"
 ###########################################################################################
 
 ###########################################################################################

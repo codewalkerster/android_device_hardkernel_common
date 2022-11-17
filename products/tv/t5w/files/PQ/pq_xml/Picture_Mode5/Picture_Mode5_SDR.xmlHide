@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form name="Picture_Mode5_SDR" platform="txlx" commands="">
+<Group num="0" val="0">
+<Page tab_title="" layout="10x4">
+<Control ui_type="" name="STANDARD" value="0" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="2" MpegNr="2" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="BRIGHT"   value="1" Backlight="100" Brightness="50" Contrast="50" Saturation="60" Sharpness="60" Hue="50" ColorTemperature="2" GammaMidLuminance="0" NR="3" BlueStretch="2" ChromaCoring="0" DynamicContrast="3" LocalContrast="3" ColorGamut="1" BlackExtension="3" MpegNr="2" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="SOFT"     value="2" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="2" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="USER"     value="3" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="MOVIE"    value="4" Backlight="80"  Brightness="50" Contrast="40" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="1" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="0" LocalContrast="0" ColorGamut="2" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="COLORFUL" value="5" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="Monitor"  value="6" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="0"  Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="0" BlueStretch="0" ChromaCoring="0" DynamicContrast="0" LocalContrast="0" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="Game"     value="7" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="0" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="SPORTS"   value="8" Backlight="100" Brightness="48" Contrast="50" Saturation="45" Sharpness="50" Hue="50" ColorTemperature="2" GammaMidLuminance="0" NR="1" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="2" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+</Page>
+</Group>
+</Form>
+

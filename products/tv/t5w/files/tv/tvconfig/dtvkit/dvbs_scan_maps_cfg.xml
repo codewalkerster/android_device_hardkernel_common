@@ -1,0 +1,1972 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1">
+    <F_sorting_rank>
+        <country name="DEU">
+            <rank name="Das Erste HD" on_id="1"  ts_id="1019"   svc_id="10301"   index="1"/>
+            <rank name="ZDF HD" on_id="1"  ts_id="1011"   svc_id="11110"   index="2"/>
+            <rank name="RTL Television" on_id="1"  ts_id="1089"   svc_id="12003"   index="3"/>
+            <rank name="SAT.1" on_id="1"  ts_id="1107"   svc_id="17500"   index="4"/>
+            <rank name="ProSieben" on_id="1"  ts_id="1107"   svc_id="17501"   index="5"/>
+            <rank name="VOX" on_id="1"  ts_id="1089"   svc_id="12060"   index="6"/>
+            <rank name="RTL2" on_id="1"  ts_id="1089"   svc_id="12020"   index="7"/>
+            <rank name="kabel eins" on_id="1"  ts_id="1107"   svc_id="17502"   index="8"/>
+            <rank name="ServusTV HD Deutschland" on_id="1"  ts_id="1007"   svc_id="4914"   index="9"/>
+            <rank name="3sat HD" on_id="1"  ts_id="1010"   svc_id="11150"   index="16"/>
+            <rank name="SUPER RTL" on_id="1"  ts_id="1089"   svc_id="12040"   index="17"/>
+            <rank name="KiKA HD" on_id="1"  ts_id="1010"   svc_id="11160"   index="18"/>
+            <rank name="arte HD" on_id="1"  ts_id="1019"   svc_id="10302"   index="19"/>
+            <rank name="TELE 5" on_id="133"  ts_id="33"   svc_id="51"   index="20"/>
+            <rank name="WDR HD Kln" on_id="1"  ts_id="1201"   svc_id="28325"   index="21"/>
+            <rank name="NDR FS HH HD" on_id="1"  ts_id="1025"   svc_id="10329"   index="22"/>
+            <rank name="BR Fernsehen Sd HD" on_id="1"  ts_id="1025"   svc_id="10325"   index="23"/>
+            <rank name="WELT" on_id="1"  ts_id="1107"   svc_id="17503"   index="24"/>
+            <rank name="n-tv" on_id="1"  ts_id="1089"   svc_id="12090"   index="25"/>
+            <rank name="NITRO" on_id="1"  ts_id="1089"   svc_id="12061"   index="32"/>
+            <rank name="1-2-3.tv HD" on_id="1"  ts_id="1055"   svc_id="5502"   index="33"/>
+            <rank name="Juwelo HD" on_id="1"  ts_id="1109"   svc_id="5403"   index="34"/>
+            <rank name="QVC UHD" on_id="1"  ts_id="1006"   svc_id="4230"   index="35"/>
+            <rank name="HSE24 HD" on_id="1"  ts_id="1053"   svc_id="21104"   index="36"/>
+            <rank name="ZDFinfo HD" on_id="1"  ts_id="1010"   svc_id="11170"   index="37"/>
+            <rank name="tagesschau24 HD" on_id="1"  ts_id="1039"   svc_id="10375"   index="38"/>
+            <rank name="PHOENIX HD" on_id="1"  ts_id="1025"   svc_id="10331"   index="39"/>
+            <rank name="QVC 2 HD" on_id="1"  ts_id="1055"   svc_id="5504"   index="40"/>
+            <rank name="HSE24 EXTRA HD" on_id="1"  ts_id="1055"   svc_id="5501"   index="41"/>
+            <rank name="HSE24 TREND" on_id="133"  ts_id="33"   svc_id="77"   index="48"/>
+            <rank name="QVC STYLE HD        HD hl" on_id="1"  ts_id="1033"   svc_id="10105"   index="49"/>
+            <rank name="Nickelodeon" on_id="1"  ts_id="1078"   svc_id="28680"   index="50"/>
+            <rank name="MTV" on_id="1"  ts_id="1078"   svc_id="28678"   index="51"/>
+            <rank name="Comedy Central/VIVA" on_id="1"  ts_id="1078"   svc_id="28676"   index="52"/>
+            <rank name="ONE HD" on_id="1"  ts_id="1039"   svc_id="10376"   index="53"/>
+            <rank name="zdfneo HD" on_id="1"  ts_id="1011"   svc_id="11130"   index="54"/>
+            <rank name="SWR RP HD" on_id="1"  ts_id="1019"   svc_id="10304"   index="55"/>
+            <rank name="MDR Thringen HD" on_id="1"  ts_id="1061"   svc_id="10354"   index="56"/>
+            <rank name="rbb Berlin HD" on_id="1"  ts_id="1061"   svc_id="10351"   index="57"/>
+            <rank name="hr-fernsehen HD" on_id="1"  ts_id="1061"   svc_id="10355"   index="64"/>
+            <rank name="SR Fernsehen HD" on_id="1"  ts_id="1039"   svc_id="10378"   index="65"/>
+            <rank name="SAT.1 Gold" on_id="1"  ts_id="1107"   svc_id="17504"   index="66"/>
+            <rank name="SIXX" on_id="133"  ts_id="5"   svc_id="776"   index="67"/>
+            <rank name="Pro7 MAXX" on_id="1"  ts_id="1107"   svc_id="17505"   index="68"/>
+            <rank name="CNN Int." on_id="1"  ts_id="1028"   svc_id="4422"   index="69"/>
+            <rank name="BBC World" on_id="1"  ts_id="1026"   svc_id="10050"   index="70"/>
+            <rank name="CNBC Europe" on_id="1"  ts_id="1026"   svc_id="10030"   index="71"/>
+            <rank name="CCTV NEWS" on_id="1"  ts_id="1022"   svc_id="6914"   index="72"/>
+            <rank name="Bloomberg Europe TV" on_id="1"  ts_id="1026"   svc_id="10067"   index="73"/>
+            <rank name="France 24 (in English) g" on_id="1"  ts_id="1022"   svc_id="6906"   index="80"/>
+            <rank name="1-2-3.tv" on_id="133"  ts_id="5"   svc_id="662"   index="81"/>
+            <rank name="TV5 MONDE" on_id="1"  ts_id="1086"   svc_id="9910"   index="82"/>
+            <rank name="NHK World TV" on_id="1"  ts_id="1002"   svc_id="5021"   index="83"/>
+            <rank name="Russia Today" on_id="1"  ts_id="1022"   svc_id="6904"   index="84"/>
+            <rank name="EuroNews" on_id="1"  ts_id="1091"   svc_id="31220"   index="85"/>
+            <rank name="Franken Fernsehen HD" on_id="1"  ts_id="1049"   svc_id="5901"   index="86"/>
+            <rank name="L-TV" on_id="1"  ts_id="1115"   svc_id="13113"   index="87"/>
+            <rank name="leer" on_id="1"  ts_id="1043"   svc_id="12501"   index="88"/>
+            <rank name="mnchen.tv HD" on_id="1"  ts_id="1023"   svc_id="5801"   index="89"/>
+            <rank name="TV Oberfranken" on_id="1"  ts_id="1021"   svc_id="4607"   index="96"/>
+            <rank name="Radio Bremen TV" on_id="1"  ts_id="1201"   svc_id="28385"   index="97"/>
+            <rank name="REGIO TV" on_id="133"  ts_id="33"   svc_id="47"   index="98"/>
+            <rank name="rhein main tv" on_id="1"  ts_id="1113"   svc_id="12614"   index="99"/>
+            <rank name="rfo Regio Oberbayern" on_id="1"  ts_id="1021"   svc_id="4605"   index="100"/>
+            <rank name="Disney Channel" on_id="133"  ts_id="5"   svc_id="1793"   index="101"/>
+            <rank name="TOGGO plus" on_id="1"  ts_id="1089"   svc_id="12030"   index="102"/>
+            <rank name="TLC" on_id="133"  ts_id="5"   svc_id="772"   index="103"/>
+            <rank name="Zee One HD" on_id="1"  ts_id="1033"   svc_id="10101"   index="104"/>
+            <rank name="RTLplus" on_id="1"  ts_id="1089"   svc_id="12080"   index="105"/>
+            <rank name="DMAX" on_id="133"  ts_id="33"   svc_id="63"   index="112"/>
+            <rank name="SPORT1" on_id="133"  ts_id="33"   svc_id="900"   index="113"/>
+            <rank name="Eurosport 1 Deutschland" on_id="1"  ts_id="1091"   svc_id="31200"   index="114"/>
+            <rank name="Sky Sport News" on_id="133"  ts_id="4"   svc_id="17"   index="115"/>
+            <rank name="ARD-alpha" on_id="1"  ts_id="1093"   svc_id="28487"   index="116"/>
+            <rank name="Welt der Wunder" on_id="1"  ts_id="1115"   svc_id="13103"   index="117"/>
+            <rank name="N24 DOKU" on_id="133"  ts_id="5"   svc_id="48"   index="118"/>
+            <rank name="kabel eins Doku" on_id="1"  ts_id="1107"   svc_id="17509"   index="119"/>
+            <rank name="DELUXE MUSIC" on_id="133"  ts_id="7"   svc_id="65"   index="120"/>
+            <rank name="Volksmusik" on_id="1"  ts_id="1003"   svc_id="13222"   index="121"/>
+            <rank name="Folx TV" on_id="1"  ts_id="1117"   svc_id="13018"   index="128"/>
+            <rank name="RTLplus Austria" on_id="1"  ts_id="1003"   svc_id="13229"   index="129"/>
+            <rank name="Bibel TV HD" on_id="1"  ts_id="1003"   svc_id="13224"   index="130"/>
+            <rank name="pearl.tv Shop" on_id="133"  ts_id="7"   svc_id="765"   index="131"/>
+            <rank name="EWTN                Vd" on_id="133"  ts_id="5"   svc_id="62"   index="132"/>
+            <rank name="HOPE Channel HD" on_id="1"  ts_id="1003"   svc_id="13227"   index="133"/>
+            <rank name="K-TV" on_id="1"  ts_id="1113"   svc_id="12601"   index="134"/>
+            <rank name="SOPHIA TV" on_id="1"  ts_id="1053"   svc_id="21112"   index="135"/>
+            <rank name="Die Neue Zeit TV" on_id="1"  ts_id="1015"   svc_id="4713"   index="136"/>
+            <rank name="a.tv HD" on_id="1"  ts_id="1023"   svc_id="5800"   index="137"/>
+            <rank name="rfo HD Fernsehen Oberbaye" on_id="1"  ts_id="1023"   svc_id="5802"   index="144"/>
+            <rank name="Ulm-Allgu HD" on_id="1"  ts_id="1023"   svc_id="5803"   index="145"/>
+            <rank name="intv HD" on_id="1"  ts_id="1023"   svc_id="5804"   index="146"/>
+            <rank name="Mainfranken HD" on_id="1"  ts_id="1049"   svc_id="5900"   index="147"/>
+            <rank name="TVA Ostbayern HD" on_id="1"  ts_id="1049"   svc_id="5902"   index="148"/>
+            <rank name="tv oberfranken HD" on_id="1"  ts_id="1049"   svc_id="5903"   index="149"/>
+            <rank name="Niederbayern HD" on_id="1"  ts_id="1049"   svc_id="5904"   index="150"/>
+            <rank name="Oberpfalz TV HD" on_id="1"  ts_id="1049"   svc_id="5905"   index="151"/>
+            <rank name="Immer etwas Neues TVay" on_id="133"  ts_id="7"   svc_id="514"   index="152"/>
+            <rank name="Lokal-TV-Portal HD" on_id="1"  ts_id="1023"   svc_id="5805"   index="153"/>
+            <rank name="Sky Arts HD" on_id="133"  ts_id="9"   svc_id="145"   index="256"/>
+            <rank name="Sky Atlantic" on_id="133"  ts_id="4"   svc_id="34"   index="257"/>
+            <rank name="Sky Atlantic HD" on_id="133"  ts_id="13"   svc_id="110"   index="258"/>
+            <rank name="Sky Atlantic +1 HD" on_id="133"  ts_id="16"   svc_id="144"   index="259"/>
+            <rank name="Sky Cinema" on_id="133"  ts_id="4"   svc_id="10"   index="260"/>
+            <rank name="Sky Cinema HD" on_id="133"  ts_id="6"   svc_id="131"   index="261"/>
+            <rank name="Sky Cinema +1 HD" on_id="133"  ts_id="8"   svc_id="134"   index="262"/>
+            <rank name="Sky Cinema +24 HD" on_id="133"  ts_id="8"   svc_id="135"   index="263"/>
+            <rank name="Sky Cinema Action HD" on_id="133"  ts_id="11"   svc_id="116"   index="264"/>
+            <rank name="Sky Cinema Comedy" on_id="133"  ts_id="3"   svc_id="8"   index="265"/>
+            <rank name="Sky Cinema Emotion" on_id="133"  ts_id="4"   svc_id="20"   index="272"/>
+            <rank name="Sky Cinema Family" on_id="133"  ts_id="4"   svc_id="407"   index="273"/>
+            <rank name="Sky Cinema Family HD" on_id="133"  ts_id="8"   svc_id="139"   index="274"/>
+            <rank name="Sky Cinema Nostalgie" on_id="133"  ts_id="4"   svc_id="516"   index="275"/>
+            <rank name="Sky Cinema Star Wars" on_id="133"  ts_id="2"   svc_id="41"   index="276"/>
+            <rank name="Sky Cinema Star Wars HD f" on_id="133"  ts_id="12"   svc_id="107"   index="277"/>
+            <rank name="13th Street HD" on_id="133"  ts_id="13"   svc_id="127"   index="278"/>
+            <rank name="Sky 1 HD" on_id="133"  ts_id="8"   svc_id="147"   index="279"/>
+            <rank name="Discovery HD" on_id="133"  ts_id="6"   svc_id="130"   index="280"/>
+            <rank name="E! Entertainm. HD" on_id="133"  ts_id="14"   svc_id="128"   index="281"/>
+            <rank name="Fox HD" on_id="133"  ts_id="10"   svc_id="124"   index="288"/>
+            <rank name="History HD" on_id="133"  ts_id="11"   svc_id="113"   index="289"/>
+            <rank name="MGM HD" on_id="133"  ts_id="12"   svc_id="115"   index="290"/>
+            <rank name="Nat Geo HD" on_id="133"  ts_id="13"   svc_id="112"   index="291"/>
+            <rank name="Nat Geo Wild HD" on_id="133"  ts_id="6"   svc_id="118"   index="292"/>
+            <rank name="NG WILD HD" on_id="1"  ts_id="1044"   svc_id="30857"   index="293"/>
+            <rank name="Spiegel Geschichte HD   f" on_id="133"  ts_id="10"   svc_id="137"   index="294"/>
+            <rank name="RTL Crime HD" on_id="133"  ts_id="9"   svc_id="140"   index="295"/>
+            <rank name="Syfy HD" on_id="133"  ts_id="12"   svc_id="126"   index="296"/>
+            <rank name="TNT Serie HD" on_id="133"  ts_id="11"   svc_id="123"   index="297"/>
+            <rank name="TLC HD" on_id="1"  ts_id="1033"   svc_id="10100"   index="304"/>
+            <rank name="Universal HD" on_id="133"  ts_id="14"   svc_id="101"   index="305"/>
+            <rank name="DISCOVERY" on_id="1"  ts_id="1086"   svc_id="9901"   index="306"/>
+            <rank name="DISCOVERY SCIENCE" on_id="1"  ts_id="1084"   svc_id="9407"   index="307"/>
+            <rank name="DISNEY CHANNEL" on_id="1"  ts_id="1090"   svc_id="9007"   index="308"/>
+            <rank name="DISNEY CHANNEL+1" on_id="1"  ts_id="1084"   svc_id="9408"   index="309"/>
+            <rank name="DISNEY CINEMA" on_id="1"  ts_id="1084"   svc_id="9402"   index="310"/>
+            <rank name="Disney Cinemagic HD" on_id="133"  ts_id="13"   svc_id="111"   index="311"/>
+            <rank name="DISNEY JUNIOR" on_id="1"  ts_id="1092"   svc_id="6602"   index="312"/>
+            <rank name="Disney Junior HD" on_id="133"  ts_id="8"   svc_id="138"   index="313"/>
+            <rank name="DISNEY XD" on_id="1"  ts_id="1084"   svc_id="9401"   index="320"/>
+            <rank name="Sky Sport News HD" on_id="133"  ts_id="12"   svc_id="108"   index="321"/>
+            <rank name="Sky Sport Fanzone HD" on_id="133"  ts_id="10"   svc_id="102"   index="322"/>
+            <rank name="Sky Sport 1 HD" on_id="133"  ts_id="6"   svc_id="129"   index="323"/>
+            <rank name="Sky Sport 2 HD" on_id="133"  ts_id="13"   svc_id="114"   index="324"/>
+            <rank name="Sky Sport Bundesliga 1 HD" on_id="133"  ts_id="12"   svc_id="105"   index="325"/>
+            <rank name="Sky Sport Bundesliga 2 HD" on_id="133"  ts_id="6"   svc_id="267"   index="326"/>
+            <rank name="Sky Sport Bundesliga 3 HD" on_id="133"  ts_id="13"   svc_id="277"   index="327"/>
+            <rank name="Sky Sport Bundesliga 4 HD" on_id="133"  ts_id="12"   svc_id="287"   index="328"/>
+            <rank name="Sky Sport Bundesliga 5 HD" on_id="133"  ts_id="11"   svc_id="297"   index="329"/>
+            <rank name="Sky Sport Bundesliga 6 HD" on_id="133"  ts_id="10"   svc_id="307"   index="336"/>
+            <rank name="Eurosport 1 HD" on_id="133"  ts_id="11"   svc_id="132"   index="337"/>
+            <rank name="Eurosport 2 HD" on_id="133"  ts_id="9"   svc_id="109"   index="338"/>
+            <rank name="Eurosport360HD 1" on_id="133"  ts_id="6"   svc_id="270"   index="339"/>
+            <rank name="Eurosport360HD 2" on_id="133"  ts_id="13"   svc_id="280"   index="340"/>
+            <rank name="Eurosport360HD 3" on_id="133"  ts_id="12"   svc_id="290"   index="341"/>
+            <rank name="Sport1 US HD" on_id="133"  ts_id="10"   svc_id="119"   index="342"/>
+            <rank name="Sport1 US HD1" on_id="133"  ts_id="10"   svc_id="309"   index="343"/>
+            <rank name="Sky Select" on_id="133"  ts_id="4"   svc_id="18"   index="344"/>
+            <rank name="Sky Select HD" on_id="133"  ts_id="14"   svc_id="120"   index="345"/>
+            <rank name="Sky Select 1" on_id="133"  ts_id="3"   svc_id="251"   index="352"/>
+            <rank name="Sky Select 2" on_id="133"  ts_id="3"   svc_id="261"   index="353"/>
+            <rank name="Sky Select 3" on_id="133"  ts_id="3"   svc_id="271"   index="354"/>
+            <rank name="Sky Select 4" on_id="133"  ts_id="3"   svc_id="281"   index="355"/>
+            <rank name="Sky Select 5" on_id="133"  ts_id="3"   svc_id="291"   index="356"/>
+            <rank name="Beate-Uhse.TV" on_id="133"  ts_id="3"   svc_id="21"   index="357"/>
+            <rank name="Blue Movie" on_id="133"  ts_id="4"   svc_id="513"   index="358"/>
+            <rank name="Blue Movie 1" on_id="133"  ts_id="2"   svc_id="345"   index="359"/>
+            <rank name="Blue Movie 2" on_id="133"  ts_id="2"   svc_id="355"   index="360"/>
+            <rank name="Blue Movie 3" on_id="133"  ts_id="2"   svc_id="365"   index="361"/>
+            <rank name="BLUE MOVIE HD" on_id="133"  ts_id="14"   svc_id="121"   index="368"/>
+            <rank name="MTV Dance" on_id="1"  ts_id="1066"   svc_id="28655"   index="369"/>
+            <rank name="MTV Hits" on_id="1"  ts_id="1066"   svc_id="28654"   index="370"/>
+            <rank name="MTV Music 24" on_id="1"  ts_id="1078"   svc_id="28671"   index="371"/>
+            <rank name="MTV ROCKS" on_id="1"  ts_id="1066"   svc_id="28659"   index="372"/>
+            <rank name="Sky 1 SD" on_id="133"  ts_id="6"   svc_id="408"   index="373"/>
+            <rank name="Boomerang" on_id="133"  ts_id="14"   svc_id="403"   index="374"/>
+            <rank name="Classica" on_id="133"  ts_id="3"   svc_id="24"   index="375"/>
+            <rank name="Goldstar TV" on_id="133"  ts_id="2"   svc_id="518"   index="376"/>
+            <rank name="Heimatkanal" on_id="133"  ts_id="2"   svc_id="22"   index="377"/>
+            <rank name="MGM" on_id="133"  ts_id="4"   svc_id="515"   index="384"/>
+            <rank name="Jukebox" on_id="133"  ts_id="9"   svc_id="401"   index="385"/>
+            <rank name="Junior" on_id="133"  ts_id="3"   svc_id="19"   index="386"/>
+            <rank name="Motorvision TV" on_id="133"  ts_id="9"   svc_id="168"   index="387"/>
+            <rank name="NAT GEO WILD" on_id="1"  ts_id="1034"   svc_id="30680"   index="388"/>
+            <rank name="RTL Crime" on_id="133"  ts_id="4"   svc_id="27"   index="389"/>
+            <rank name="Spiegel Geschichte" on_id="133"  ts_id="2"   svc_id="52"   index="390"/>
+            <rank name="Sky Krimi" on_id="133"  ts_id="4"   svc_id="23"   index="391"/>
+            <rank name="Sky 3D" on_id="133"  ts_id="10"   svc_id="117"   index="392"/>
+            <rank name="TNT Serie" on_id="133"  ts_id="2"   svc_id="50"   index="393"/>
+            <rank name="ANIXE HD" on_id="1"  ts_id="1053"   svc_id="21100"   index="400"/>
+            <rank name="BVN TV" on_id="1"  ts_id="1048"   svc_id="4320"   index="401"/>
+            <rank name="Al Jazeera English" on_id="1"  ts_id="1028"   svc_id="4440"   index="402"/>
+            <rank name="Sky News Intl" on_id="1"  ts_id="1111"   svc_id="7290"   index="403"/>
+            <rank name="pearl.tv HD Shop" on_id="1"  ts_id="1109"   svc_id="5404"   index="404"/>
+            <rank name="Shop24Direct" on_id="1"  ts_id="1113"   svc_id="12633"   index="405"/>
+            <rank name="sonnenklar.TV HD" on_id="1"  ts_id="1109"   svc_id="5400"   index="406"/>
+            <rank name="Channel21" on_id="133"  ts_id="7"   svc_id="769"   index="407"/>
+            <rank name="CCTV9 Documentary" on_id="1"  ts_id="1022"   svc_id="6912"   index="408"/>
+            <rank name="AstroTV" on_id="133"  ts_id="33"   svc_id="661"   index="409"/>
+            <rank name="RTL HD" on_id="1"  ts_id="1057"   svc_id="61200"   index="512"/>
+            <rank name="SAT.1 HD" on_id="1"  ts_id="1017"   svc_id="61300"   index="513"/>
+            <rank name="ProSieben HD" on_id="1"  ts_id="1017"   svc_id="61301"   index="514"/>
+            <rank name="VOX HD" on_id="1"  ts_id="1057"   svc_id="61201"   index="515"/>
+            <rank name="RTLII HD" on_id="1"  ts_id="1057"   svc_id="61205"   index="516"/>
+            <rank name="kabel eins HD" on_id="1"  ts_id="1017"   svc_id="61302"   index="517"/>
+            <rank name="SUPER RTL HD" on_id="1"  ts_id="1041"   svc_id="11931"   index="518"/>
+            <rank name="N24 HD" on_id="1"  ts_id="1053"   svc_id="21108"   index="519"/>
+            <rank name="n-tv HD" on_id="1"  ts_id="1057"   svc_id="61204"   index="520"/>
+            <rank name="TELE 5 HD" on_id="1"  ts_id="1109"   svc_id="5401"   index="521"/>
+            <rank name="SPORT1 HD" on_id="1"  ts_id="1055"   svc_id="5505"   index="528"/>
+            <rank name="DMAX HD" on_id="1"  ts_id="1109"   svc_id="5402"   index="529"/>
+            <rank name="RTL NITRO HD" on_id="1"  ts_id="1041"   svc_id="11951"   index="530"/>
+            <rank name="NICKELODEON HD" on_id="1"  ts_id="1053"   svc_id="21107"   index="531"/>
+            <rank name="SIXX HD" on_id="1"  ts_id="1017"   svc_id="61303"   index="532"/>
+            <rank name="SAT.1 Gold HD" on_id="1"  ts_id="1043"   svc_id="12500"   index="533"/>
+            <rank name="Pro7 MAXX HD" on_id="1"  ts_id="1017"   svc_id="61304"   index="534"/>
+            <rank name="Deluxe Music HD" on_id="1"  ts_id="1055"   svc_id="5503"   index="535"/>
+            <rank name="Disney Channel HD" on_id="1"  ts_id="1055"   svc_id="5500"   index="536"/>
+            <rank name="MTV HD" on_id="1"  ts_id="1033"   svc_id="10103"   index="537"/>
+            <rank name="RTL Passion" on_id="133"  ts_id="4"   svc_id="29"   index="544"/>
+            <rank name="a.tv" on_id="1"  ts_id="1021"   svc_id="4600"   index="545"/>
+            <rank name="ANIXE SD" on_id="133"  ts_id="5"   svc_id="764"   index="546"/>
+            <rank name="ARAGON TV" on_id="1"  ts_id="1032"   svc_id="30205"   index="547"/>
+            <rank name="Arirang TV" on_id="1"  ts_id="1020"   svc_id="7011"   index="548"/>
+            <rank name="Aristo.TV" on_id="1"  ts_id="1005"   svc_id="13311"   index="549"/>
+            <rank name="BB-Lokal-TV" on_id="133"  ts_id="7"   svc_id="70"   index="550"/>
+            <rank name="BBC World News Europe HD" on_id="1"  ts_id="1002"   svc_id="5001"   index="551"/>
+            <rank name="StarParadies" on_id="133"  ts_id="7"   svc_id="54"   index="552"/>
+            <rank name="flimmit" on_id="1"  ts_id="1005"   svc_id="13310"   index="553"/>
+            <rank name="Family TV" on_id="133"  ts_id="15"   svc_id="33"   index="560"/>
+            <rank name="Genius Plus" on_id="1"  ts_id="1053"   svc_id="21113"   index="561"/>
+            <rank name="GOD Channel" on_id="133"  ts_id="7"   svc_id="774"   index="562"/>
+            <rank name="gotv" on_id="1"  ts_id="1117"   svc_id="13021"   index="563"/>
+            <rank name="H2D Handshake 2 Deutschl" on_id="1"  ts_id="1015"   svc_id="4702"   index="564"/>
+            <rank name="HITRADIO OE3" on_id="1"  ts_id="1117"   svc_id="13013"   index="565"/>
+            <rank name="HSE24" on_id="133"  ts_id="33"   svc_id="40"   index="566"/>
+            <rank name="HSE24 EXTRA" on_id="1"  ts_id="1091"   svc_id="31210"   index="567"/>
+            <rank name="hr-fernsehen" on_id="1"  ts_id="1101"   svc_id="28108"   index="568"/>
+            <rank name="I24 NEWS" on_id="1"  ts_id="1040"   svc_id="31307"   index="569"/>
+            <rank name="intv" on_id="1"  ts_id="1021"   svc_id="4602"   index="576"/>
+            <rank name="Kabel 1 Austria" on_id="1"  ts_id="1082"   svc_id="20004"   index="577"/>
+            <rank name="Kabel 1 Schweiz" on_id="1"  ts_id="1082"   svc_id="20003"   index="578"/>
+            <rank name="kabel1 Doku austria" on_id="1"  ts_id="1031"   svc_id="5312"   index="579"/>
+            <rank name="KiKA" on_id="1"  ts_id="1079"   svc_id="28008"   index="580"/>
+            <rank name="Mei Musi TV" on_id="1"  ts_id="1117"   svc_id="13015"   index="581"/>
+            <rank name="LCI" on_id="1"  ts_id="1090"   svc_id="9009"   index="582"/>
+            <rank name="multithek (Internet)" on_id="1"  ts_id="1113"   svc_id="12644"   index="583"/>
+            <rank name="LCP" on_id="1"  ts_id="1088"   svc_id="9310"   index="584"/>
+            <rank name="oe24.TV" on_id="1"  ts_id="1005"   svc_id="13314"   index="585"/>
+            <rank name="LT1-OOE" on_id="1"  ts_id="1115"   svc_id="13104"   index="592"/>
+            <rank name="Juwelo TV" on_id="1"  ts_id="1113"   svc_id="12616"   index="593"/>
+            <rank name="Niederbayern" on_id="1"  ts_id="1021"   svc_id="4609"   index="594"/>
+            <rank name="LTC" on_id="1"  ts_id="1052"   svc_id="29853"   index="595"/>
+            <rank name="NDR FS SH" on_id="1"  ts_id="1073"   svc_id="28227"   index="596"/>
+            <rank name="NDR FS HH" on_id="1"  ts_id="1073"   svc_id="28225"   index="597"/>
+            <rank name="NDR FS MV" on_id="1"  ts_id="1073"   svc_id="28224"   index="598"/>
+            <rank name="NDR FS NDS" on_id="1"  ts_id="1073"   svc_id="28226"   index="599"/>
+            <rank name="NDR FS MV HD" on_id="1"  ts_id="1025"   svc_id="10328"   index="600"/>
+            <rank name="NDR FS NDS HD" on_id="1"  ts_id="1025"   svc_id="10327"   index="601"/>
+            <rank name="NDR FS SH HD" on_id="1"  ts_id="1025"   svc_id="10330"   index="608"/>
+            <rank name="PORTADA" on_id="1"  ts_id="1058"   svc_id="30150"   index="609"/>
+            <rank name="PORTADA" on_id="1"  ts_id="1058"   svc_id="30108"   index="610"/>
+            <rank name="PORTADA C5" on_id="1"  ts_id="1058"   svc_id="30107"   index="611"/>
+            <rank name="Pro7 MAXX Austria" on_id="1"  ts_id="1031"   svc_id="5311"   index="612"/>
+            <rank name="QVC" on_id="133"  ts_id="5"   svc_id="1794"   index="613"/>
+            <rank name="QVC HD" on_id="1"  ts_id="1053"   svc_id="21103"   index="614"/>
+            <rank name="QVC 2" on_id="1"  ts_id="1108"   svc_id="3394"   index="615"/>
+            <rank name="QVC STYLE" on_id="133"  ts_id="5"   svc_id="64"   index="616"/>
+            <rank name="R9 Oesterreich HD" on_id="1"  ts_id="1005"   svc_id="13312"   index="617"/>
+            <rank name="rbb Brandenburg HD" on_id="1"  ts_id="1061"   svc_id="10350"   index="624"/>
+            <rank name="R1" on_id="1"  ts_id="1027"   svc_id="5126"   index="625"/>
+            <rank name="RADIOS" on_id="1"  ts_id="1058"   svc_id="30102"   index="626"/>
+            <rank name="RAI News 24" on_id="1"  ts_id="1006"   svc_id="4216"   index="627"/>
+            <rank name="RiC" on_id="1"  ts_id="1117"   svc_id="13019"   index="628"/>
+            <rank name="RT Esp" on_id="1"  ts_id="1020"   svc_id="7013"   index="629"/>
+            <rank name="RT Esp HD" on_id="1"  ts_id="1012"   svc_id="6392"   index="630"/>
+            <rank name="RT HD" on_id="1"  ts_id="1012"   svc_id="6381"   index="631"/>
+            <rank name="RTL 2 CH" on_id="1"  ts_id="1013"   svc_id="12400"   index="632"/>
+            <rank name="RTL Austria" on_id="1"  ts_id="1091"   svc_id="28800"   index="633"/>
+            <rank name="RTL CH" on_id="1"  ts_id="1091"   svc_id="28825"   index="640"/>
+            <rank name="RTL FS" on_id="1"  ts_id="1089"   svc_id="12006"   index="641"/>
+            <rank name="RTL NITRO A" on_id="1"  ts_id="1115"   svc_id="13102"   index="642"/>
+            <rank name="RTL2 Austria" on_id="1"  ts_id="1091"   svc_id="28810"   index="643"/>
+            <rank name="SCHWEIZ 5" on_id="1"  ts_id="1005"   svc_id="13313"   index="644"/>
+            <rank name="SAT.1 A" on_id="1"  ts_id="1082"   svc_id="20005"   index="645"/>
+            <rank name="SAT.1 CH" on_id="1"  ts_id="1082"   svc_id="20006"   index="646"/>
+            <rank name="SAT.1 Gold sterreich hl" on_id="1"  ts_id="1031"   svc_id="5310"   index="647"/>
+            <rank name="Schau TV HD" on_id="1"  ts_id="1003"   svc_id="13225"   index="648"/>
+            <rank name="sixx Austria" on_id="1"  ts_id="1115"   svc_id="13106"   index="649"/>
+            <rank name="TBN Espana" on_id="1"  ts_id="1040"   svc_id="31305"   index="656"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30159"   index="657"/>
+            <rank name="." on_id="133"  ts_id="33"   svc_id="76"   index="658"/>
+            <rank name="Fashion 4K" on_id="1"  ts_id="1043"   svc_id="12510"   index="659"/>
+            <rank name="PEARL TV 4K UHD" on_id="1"  ts_id="1097"   svc_id="2010"   index="660"/>
+            <rank name="UHD1 by ASTRA / HD+" on_id="1"  ts_id="1035"   svc_id="2"   index="661"/>
+            <rank name="SES UHD Demo Channel" on_id="1"  ts_id="1035"   svc_id="1"   index="662"/>
+            <rank name="Sky Sport UHD" on_id="133"  ts_id="16"   svc_id="553"   index="663"/>
+            <rank name="Sky Sport Bundesliga UHD" on_id="133"  ts_id="16"   svc_id="552"   index="664"/>
+            <rank name="TELESUR" on_id="1"  ts_id="1040"   svc_id="31304"   index="665"/>
+            <rank name="TRT Turk" on_id="1"  ts_id="1027"   svc_id="5113"   index="768"/>
+            <rank name="TV Record SD" on_id="1"  ts_id="1040"   svc_id="31301"   index="769"/>
+            <rank name="TV TRWAM" on_id="1"  ts_id="1048"   svc_id="4310"   index="770"/>
+            <rank name="TV5MONDE EUROPE" on_id="1"  ts_id="1022"   svc_id="6915"   index="771"/>
+            <rank name="TVA-OTV" on_id="1"  ts_id="1021"   svc_id="4608"   index="772"/>
+            <rank name="TVE INTERNACIONAL EUROPA" on_id="1"  ts_id="1028"   svc_id="4401"   index="773"/>
+            <rank name="ALQUILER" on_id="1"  ts_id="1058"   svc_id="30128"   index="774"/>
+            <rank name="ALQUILER" on_id="1"  ts_id="1058"   svc_id="30130"   index="775"/>
+            <rank name="ALQUILER 1" on_id="1"  ts_id="1054"   svc_id="30350"   index="776"/>
+            <rank name="ALQUILER 2" on_id="1"  ts_id="1054"   svc_id="30351"   index="777"/>
+            <rank name="ALQUILER 3" on_id="1"  ts_id="1042"   svc_id="30055"   index="784"/>
+            <rank name="ALQUILER 4" on_id="1"  ts_id="1042"   svc_id="30063"   index="785"/>
+            <rank name="ALQUILER 5" on_id="1"  ts_id="1042"   svc_id="30053"   index="786"/>
+            <rank name="ALQUILER 6" on_id="1"  ts_id="1042"   svc_id="30054"   index="787"/>
+            <rank name="ALQUILER X" on_id="1"  ts_id="1042"   svc_id="30056"   index="788"/>
+            <rank name="ALQUILER XX" on_id="1"  ts_id="1042"   svc_id="30057"   index="789"/>
+            <rank name="Eurosport360HD 4" on_id="133"  ts_id="11"   svc_id="300"   index="790"/>
+            <rank name="ALQ XXHARD" on_id="1"  ts_id="1042"   svc_id="30058"   index="791"/>
+            <rank name="Eurosport360HD 5" on_id="133"  ts_id="10"   svc_id="310"   index="792"/>
+            <rank name="ALQUILER XY" on_id="1"  ts_id="1054"   svc_id="30357"   index="793"/>
+            <rank name="Eurosport360HD 6" on_id="133"  ts_id="14"   svc_id="320"   index="800"/>
+            <rank name="Eurosport360HD 7" on_id="133"  ts_id="14"   svc_id="330"   index="801"/>
+            <rank name="Eurosport360HD 8" on_id="133"  ts_id="10"   svc_id="340"   index="802"/>
+            <rank name="Eurosport360HD 9" on_id="133"  ts_id="14"   svc_id="260"   index="803"/>
+            <rank name="EXTREME SPORTS" on_id="1"  ts_id="1102"   svc_id="6509"   index="804"/>
+            <rank name="FOX LIFE HD" on_id="1"  ts_id="1004"   svc_id="30901"   index="805"/>
+            <rank name="FRANCE 2" on_id="1"  ts_id="1088"   svc_id="9306"   index="806"/>
+            <rank name="FRANCE 3" on_id="1"  ts_id="1088"   svc_id="9309"   index="807"/>
+            <rank name="FRANCE 5" on_id="1"  ts_id="1090"   svc_id="9008"   index="808"/>
+            <rank name="FRANCE O" on_id="1"  ts_id="1092"   svc_id="6608"   index="809"/>
+            <rank name="FRANCEINFO" on_id="1"  ts_id="1070"   svc_id="8005"   index="816"/>
+            <rank name="FRENCH LOVER" on_id="1"  ts_id="1024"   svc_id="8501"   index="817"/>
+            <rank name="GOLF+" on_id="1"  ts_id="1086"   svc_id="9903"   index="818"/>
+            <rank name="GULLI" on_id="1"  ts_id="1092"   svc_id="6609"   index="819"/>
+            <rank name="HD1" on_id="1"  ts_id="1090"   svc_id="9003"   index="820"/>
+            <rank name="HISTOIRE" on_id="1"  ts_id="1070"   svc_id="8006"   index="821"/>
+            <rank name="HOLLYWOODHD" on_id="1"  ts_id="1056"   svc_id="29964"   index="822"/>
+            <rank name="INFOSPORT+" on_id="1"  ts_id="1090"   svc_id="9010"   index="823"/>
+            <rank name="INSIGHT TV HD" on_id="1"  ts_id="1002"   svc_id="5010"   index="824"/>
+            <rank name="INSIGHT UHD Russia" on_id="1"  ts_id="1097"   svc_id="2005"   index="825"/>
+            <rank name="iTELE" on_id="1"  ts_id="1080"   svc_id="8810"   index="832"/>
+            <rank name="J-ONE" on_id="1"  ts_id="1086"   svc_id="9906"   index="833"/>
+            <rank name="LALIGATV BAR" on_id="1"  ts_id="1050"   svc_id="30809"   index="834"/>
+            <rank name="kabel eins HD Austria D" on_id="1"  ts_id="1031"   svc_id="5302"   index="835"/>
+            <rank name="LA 1 HD" on_id="1"  ts_id="1050"   svc_id="30819"   index="836"/>
+            <rank name="M. ACCIN HD" on_id="1"  ts_id="1056"   svc_id="29961"   index="837"/>
+            <rank name="LIBIDO TV" on_id="1"  ts_id="1024"   svc_id="8504"   index="838"/>
+            <rank name="M. DCINE HD" on_id="1"  ts_id="1056"   svc_id="29963"   index="839"/>
+            <rank name="M. DEP 1 HD" on_id="1"  ts_id="1064"   svc_id="30760"   index="840"/>
+            <rank name="M. DEP 2 HD" on_id="1"  ts_id="1016"   svc_id="29910"   index="841"/>
+            <rank name="M. FTBOL HD" on_id="1"  ts_id="1056"   svc_id="29951"   index="848"/>
+            <rank name="M. GOLF HD" on_id="1"  ts_id="1004"   svc_id="30903"   index="849"/>
+            <rank name="M. SERIES HD" on_id="1"  ts_id="1044"   svc_id="30850"   index="850"/>
+            <rank name="M. SeriesXtraHD" on_id="1"  ts_id="1004"   svc_id="30902"   index="851"/>
+            <rank name="M. XTRA HD" on_id="1"  ts_id="1016"   svc_id="29912"   index="852"/>
+            <rank name="M.COMEDIA HD" on_id="1"  ts_id="1050"   svc_id="30807"   index="853"/>
+            <rank name="M.ESTRENOSHD" on_id="1"  ts_id="1016"   svc_id="29909"   index="854"/>
+            <rank name="M.PartidazoHD" on_id="1"  ts_id="1050"   svc_id="30815"   index="855"/>
+            <rank name="M6" on_id="1"  ts_id="1088"   svc_id="9303"   index="856"/>
+            <rank name="M6 MUSIC" on_id="1"  ts_id="1102"   svc_id="6503"   index="857"/>
+            <rank name="MA CHAINE SPORT" on_id="1"  ts_id="1084"   svc_id="9403"   index="864"/>
+            <rank name="MAN X" on_id="1"  ts_id="1102"   svc_id="6507"   index="865"/>
+            <rank name="MCS BIEN ETRE" on_id="1"  ts_id="1086"   svc_id="9909"   index="866"/>
+            <rank name="MCS EXTREME" on_id="1"  ts_id="1092"   svc_id="6607"   index="867"/>
+            <rank name="MDR S-Anhalt HD" on_id="1"  ts_id="1061"   svc_id="10353"   index="868"/>
+            <rank name="MDR Sachsen HD" on_id="1"  ts_id="1061"   svc_id="10352"   index="869"/>
+            <rank name="mediaspar HD" on_id="1"  ts_id="1033"   svc_id="10102"   index="870"/>
+            <rank name="MEZZO" on_id="1"  ts_id="1070"   svc_id="8010"   index="871"/>
+            <rank name="MEZZO LIVE" on_id="1"  ts_id="1102"   svc_id="6502"   index="872"/>
+            <rank name="MEZZO LIVE HD" on_id="1"  ts_id="1064"   svc_id="30755"   index="873"/>
+            <rank name="MTV HD Austria" on_id="1"  ts_id="1033"   svc_id="10113"   index="880"/>
+            <rank name="MTV HITS" on_id="1"  ts_id="1070"   svc_id="8003"   index="881"/>
+            <rank name="MULTISPORTS 1" on_id="1"  ts_id="1118"   svc_id="9502"   index="882"/>
+            <rank name="MULTISPORTS 2" on_id="1"  ts_id="1118"   svc_id="9503"   index="883"/>
+            <rank name="MULTISPORTS 3" on_id="1"  ts_id="1118"   svc_id="9504"   index="884"/>
+            <rank name="N24 HD Austria" on_id="1"  ts_id="1053"   svc_id="21118"   index="885"/>
+            <rank name="MULTISPORTS 4" on_id="1"  ts_id="1118"   svc_id="9505"   index="886"/>
+            <rank name="MULTISPORTS 5" on_id="1"  ts_id="1118"   svc_id="9506"   index="887"/>
+            <rank name="MULTISPORTS 6" on_id="1"  ts_id="1118"   svc_id="9507"   index="888"/>
+            <rank name="NICKELODEON HD AT" on_id="1"  ts_id="1053"   svc_id="21117"   index="889"/>
+            <rank name="NICKELODEONHD" on_id="1"  ts_id="1064"   svc_id="30752"   index="896"/>
+            <rank name="NON STOP PEOPLE" on_id="1"  ts_id="1084"   svc_id="9405"   index="897"/>
+            <rank name="NRJ HITS" on_id="1"  ts_id="1024"   svc_id="8503"   index="898"/>
+            <rank name="NUMERO 23" on_id="1"  ts_id="1024"   svc_id="8502"   index="899"/>
+            <rank name="OCS CHOC" on_id="1"  ts_id="1084"   svc_id="9404"   index="900"/>
+            <rank name="OCS CITY" on_id="1"  ts_id="1070"   svc_id="8007"   index="901"/>
+            <rank name="OCS GEANTS" on_id="1"  ts_id="1092"   svc_id="6604"   index="902"/>
+            <rank name="OCS MAX" on_id="1"  ts_id="1102"   svc_id="6506"   index="903"/>
+            <rank name="OL TV" on_id="1"  ts_id="1024"   svc_id="8505"   index="904"/>
+            <rank name="OM TV" on_id="1"  ts_id="1024"   svc_id="8506"   index="905"/>
+            <rank name="ONZEO" on_id="1"  ts_id="1024"   svc_id="8507"   index="912"/>
+            <rank name="ORF III HD" on_id="1"  ts_id="1005"   svc_id="13308"   index="913"/>
+            <rank name="ORF SPORT+ HD" on_id="1"  ts_id="1005"   svc_id="13309"   index="914"/>
+            <rank name="ORF1 HD" on_id="1"  ts_id="1007"   svc_id="4911"   index="915"/>
+            <rank name="ORF2B HD" on_id="1"  ts_id="1005"   svc_id="13303"   index="916"/>
+            <rank name="ORF2K HD" on_id="1"  ts_id="1005"   svc_id="13302"   index="917"/>
+            <rank name="ORF2N HD" on_id="1"  ts_id="1007"   svc_id="4916"   index="918"/>
+            <rank name="ORF2O HD" on_id="1"  ts_id="1005"   svc_id="13304"   index="919"/>
+            <rank name="ORF2S HD" on_id="1"  ts_id="1005"   svc_id="13305"   index="920"/>
+            <rank name="ORF2St HD" on_id="1"  ts_id="1005"   svc_id="13301"   index="921"/>
+            <rank name="ORF2T HD" on_id="1"  ts_id="1005"   svc_id="13306"   index="1024"/>
+            <rank name="ORF2V HD" on_id="1"  ts_id="1005"   svc_id="13307"   index="1025"/>
+            <rank name="ORF2W HD" on_id="1"  ts_id="1007"   svc_id="4912"   index="1026"/>
+            <rank name="PARAMOUNT CHANNEL" on_id="1"  ts_id="1092"   svc_id="6606"   index="1027"/>
+            <rank name="PARIS PREMIERE" on_id="1"  ts_id="1090"   svc_id="9004"   index="1028"/>
+            <rank name="PENTHOUSE" on_id="1"  ts_id="1086"   svc_id="9907"   index="1029"/>
+            <rank name="PINK X" on_id="1"  ts_id="1024"   svc_id="8508"   index="1030"/>
+            <rank name="PIWI+" on_id="1"  ts_id="1102"   svc_id="6510"   index="1031"/>
+            <rank name="PLANETE+" on_id="1"  ts_id="1090"   svc_id="9006"   index="1032"/>
+            <rank name="PLANETE+ A&amp;E" on_id="1"  ts_id="1090"   svc_id="9011"   index="1033"/>
+            <rank name="PLANETE+ CI" on_id="1"  ts_id="1084"   svc_id="9409"   index="1040"/>
+            <rank name="ProSieben HD Austria HD" on_id="1"  ts_id="1031"   svc_id="5301"   index="1041"/>
+            <rank name="PULS 4 HD Austria" on_id="1"  ts_id="1031"   svc_id="5303"   index="1042"/>
+            <rank name="QVC France HD" on_id="1"  ts_id="1048"   svc_id="4330"   index="1043"/>
+            <rank name="RTL HD Austria" on_id="1"  ts_id="1041"   svc_id="11911"   index="1044"/>
+            <rank name="RTL II HD Austria" on_id="1"  ts_id="1041"   svc_id="11941"   index="1045"/>
+            <rank name="SAT.1 HD Austria" on_id="1"  ts_id="1031"   svc_id="5300"   index="1046"/>
+            <rank name="SEASONS" on_id="1"  ts_id="1092"   svc_id="6610"   index="1047"/>
+            <rank name="SERIE CLUB" on_id="1"  ts_id="1102"   svc_id="6505"   index="1048"/>
+            <rank name="ServusTV HD Oesterreich" on_id="1"  ts_id="1007"   svc_id="4913"   index="1049"/>
+            <rank name="Sky Sport 10 HD" on_id="133"  ts_id="10"   svc_id="338"   index="1056"/>
+            <rank name="Sky Sport 11 HD" on_id="133"  ts_id="14"   svc_id="258"   index="1057"/>
+            <rank name="Sky Sport 5 HD" on_id="133"  ts_id="12"   svc_id="288"   index="1058"/>
+            <rank name="Sky Sport 6 HD" on_id="133"  ts_id="11"   svc_id="298"   index="1059"/>
+            <rank name="Sky Sport 7 HD" on_id="133"  ts_id="10"   svc_id="308"   index="1060"/>
+            <rank name="Sky Sport 8 HD" on_id="133"  ts_id="14"   svc_id="318"   index="1061"/>
+            <rank name="Sky Sport 9 HD" on_id="133"  ts_id="14"   svc_id="328"   index="1062"/>
+            <rank name="Sky Sport Austria" on_id="133"  ts_id="9"   svc_id="143"   index="1063"/>
+            <rank name="Sky Sport Buli 7 HD" on_id="133"  ts_id="14"   svc_id="257"   index="1064"/>
+            <rank name="Sky Sport Buli 8 HD" on_id="133"  ts_id="14"   svc_id="317"   index="1065"/>
+            <rank name="Sky Sport Buli 9 HD" on_id="133"  ts_id="14"   svc_id="327"   index="1072"/>
+            <rank name="Sky Sport Buli10 HD" on_id="133"  ts_id="10"   svc_id="337"   index="1073"/>
+            <rank name="Sport1+ HD" on_id="133"  ts_id="11"   svc_id="122"   index="1074"/>
+            <rank name="SUNDANCE TV" on_id="1"  ts_id="1024"   svc_id="8509"   index="1075"/>
+            <rank name="TCM CINEMA" on_id="1"  ts_id="1086"   svc_id="9902"   index="1076"/>
+            <rank name="TCM HD" on_id="1"  ts_id="1044"   svc_id="30853"   index="1077"/>
+            <rank name="TELE 5 HD Austria" on_id="1"  ts_id="1109"   svc_id="5421"   index="1078"/>
+            <rank name="TELETOON+" on_id="1"  ts_id="1084"   svc_id="9411"   index="1079"/>
+            <rank name="TELETOON+1" on_id="1"  ts_id="1084"   svc_id="9412"   index="1080"/>
+            <rank name="TEVA" on_id="1"  ts_id="1086"   svc_id="9905"   index="1081"/>
+            <rank name="TF1" on_id="1"  ts_id="1090"   svc_id="9001"   index="1088"/>
+            <rank name="TLC HD Austria" on_id="1"  ts_id="1033"   svc_id="10110"   index="1089"/>
+            <rank name="TNT Comedy HD" on_id="133"  ts_id="14"   svc_id="136"   index="1090"/>
+            <rank name="TNT HD" on_id="1"  ts_id="1044"   svc_id="30856"   index="1091"/>
+            <rank name="TOROS TV HD" on_id="1"  ts_id="1064"   svc_id="30765"   index="1092"/>
+            <rank name="TRACE AFRICA" on_id="1"  ts_id="1070"   svc_id="8012"   index="1093"/>
+            <rank name="USHUAIA TV" on_id="1"  ts_id="1088"   svc_id="9305"   index="1094"/>
+            <rank name="VIAJAR HD" on_id="1"  ts_id="1016"   svc_id="29907"   index="1095"/>
+            <rank name="VOX HD Austria" on_id="1"  ts_id="1041"   svc_id="11921"   index="1096"/>
+            <rank name="VOYAGE" on_id="1"  ts_id="1092"   svc_id="6605"   index="1097"/>
+            <rank name=".1." on_id="1"  ts_id="1015"   svc_id="4718"   index="1104"/>
+            <rank name=".2." on_id="1"  ts_id="1015"   svc_id="4719"   index="1105"/>
+            <rank name=".3." on_id="1"  ts_id="1015"   svc_id="4720"   index="1106"/>
+            <rank name="123-Damenwahl" on_id="1"  ts_id="1113"   svc_id="12620"   index="1107"/>
+            <rank name="13th Street" on_id="133"  ts_id="2"   svc_id="42"   index="1108"/>
+            <rank name="24 HORAS" on_id="1"  ts_id="1046"   svc_id="30520"   index="1109"/>
+            <rank name="3+" on_id="1"  ts_id="1015"   svc_id="4704"   index="1110"/>
+            <rank name="A&amp;E" on_id="1"  ts_id="1046"   svc_id="30509"   index="1111"/>
+            <rank name="A&amp;E" on_id="133"  ts_id="15"   svc_id="57"   index="1112"/>
+            <rank name="Achtung Sexy TV" on_id="1"  ts_id="1113"   svc_id="12628"   index="1113"/>
+            <rank name="Al Jazeera Channel" on_id="1"  ts_id="1020"   svc_id="7009"   index="1120"/>
+            <rank name="Algerie 3" on_id="1"  ts_id="1026"   svc_id="10082"   index="1121"/>
+            <rank name="ALT Sendersuchlauf starte" on_id="1"  ts_id="1113"   svc_id="12643"   index="1122"/>
+            <rank name="AMC" on_id="1"  ts_id="1038"   svc_id="30415"   index="1123"/>
+            <rank name="ANTENA 3" on_id="1"  ts_id="1032"   svc_id="30212"   index="1124"/>
+            <rank name="ARD-TEST-1" on_id="1"  ts_id="1073"   svc_id="28221"   index="1125"/>
+            <rank name="ATV" on_id="1"  ts_id="1117"   svc_id="13012"   index="1126"/>
+            <rank name="ATV2" on_id="1"  ts_id="1003"   svc_id="13223"   index="1127"/>
+            <rank name="AXN WHITE" on_id="1"  ts_id="1008"   svc_id="29809"   index="1128"/>
+            <rank name="Babestation24" on_id="1"  ts_id="1113"   svc_id="12635"   index="1129"/>
+            <rank name="BABY TV" on_id="1"  ts_id="1052"   svc_id="29852"   index="1136"/>
+            <rank name="BAJO DEMANDA" on_id="1"  ts_id="1032"   svc_id="30203"   index="1137"/>
+            <rank name="BAR+" on_id="1"  ts_id="1058"   svc_id="30129"   index="1138"/>
+            <rank name="BARKER COLLECTIVITES" on_id="1"  ts_id="1072"   svc_id="8212"   index="1139"/>
+            <rank name="BARKER COLLECTIVITES SD4" on_id="1"  ts_id="1088"   svc_id="9311"   index="1140"/>
+            <rank name="BARA TV" on_id="1"  ts_id="1052"   svc_id="29856"   index="1141"/>
+            <rank name="BEIN LALIGA" on_id="1"  ts_id="1060"   svc_id="30615"   index="1142"/>
+            <rank name="BEIN MAX 1" on_id="1"  ts_id="1054"   svc_id="30367"   index="1143"/>
+            <rank name="BEIN MAX 2" on_id="1"  ts_id="1042"   svc_id="30074"   index="1144"/>
+            <rank name="BEIN MAX 3" on_id="1"  ts_id="1042"   svc_id="30079"   index="1145"/>
+            <rank name="BEIN MAX 4" on_id="1"  ts_id="1042"   svc_id="30076"   index="1152"/>
+            <rank name="BEIN MAX 5" on_id="1"  ts_id="1042"   svc_id="30077"   index="1153"/>
+            <rank name="BEIN MAX 6" on_id="1"  ts_id="1054"   svc_id="30365"   index="1154"/>
+            <rank name="BEIN MAX 7" on_id="1"  ts_id="1054"   svc_id="30366"   index="1155"/>
+            <rank name="BEIN MAX 8" on_id="1"  ts_id="1042"   svc_id="30070"   index="1156"/>
+            <rank name="BEIN SPORTS" on_id="1"  ts_id="1042"   svc_id="30075"   index="1157"/>
+            <rank name="beIN Sports 1 HD" on_id="1"  ts_id="1012"   svc_id="6321"   index="1158"/>
+            <rank name="beIN Sports 1 HD" on_id="1"  ts_id="1012"   svc_id="6301"   index="1159"/>
+            <rank name="beIN Sports 2 HD" on_id="1"  ts_id="1012"   svc_id="6322"   index="1160"/>
+            <rank name="beIN Sports 2 HD" on_id="1"  ts_id="1012"   svc_id="6302"   index="1161"/>
+            <rank name="beIN Sports 3 HD" on_id="1"  ts_id="1012"   svc_id="6324"   index="1168"/>
+            <rank name="beIN Sports 3 HD" on_id="1"  ts_id="1012"   svc_id="6304"   index="1169"/>
+            <rank name="BEINLALIGA1" on_id="1"  ts_id="1042"   svc_id="30059"   index="1170"/>
+            <rank name="BEINLALIGA2" on_id="1"  ts_id="1042"   svc_id="30080"   index="1171"/>
+            <rank name="BEINLALIGA3" on_id="1"  ts_id="1042"   svc_id="30081"   index="1172"/>
+            <rank name="BEINLALIGA4" on_id="1"  ts_id="1054"   svc_id="30363"   index="1173"/>
+            <rank name="BEINLALIGA5" on_id="1"  ts_id="1042"   svc_id="30073"   index="1174"/>
+            <rank name="BEINLALIGA6" on_id="1"  ts_id="1042"   svc_id="30078"   index="1175"/>
+            <rank name="BEINLALIGA7" on_id="1"  ts_id="1042"   svc_id="30062"   index="1176"/>
+            <rank name="BEINLALIGA8." on_id="1"  ts_id="1054"   svc_id="30352"   index="1177"/>
+            <rank name="BOING" on_id="1"  ts_id="1052"   svc_id="29854"   index="1280"/>
+            <rank name="BR Fernsehen Nord" on_id="1"  ts_id="1101"   svc_id="28110"   index="1281"/>
+            <rank name="BR Fernsehen Sd" on_id="1"  ts_id="1101"   svc_id="28107"   index="1282"/>
+            <rank name="BTV" on_id="1"  ts_id="1115"   svc_id="13141"   index="1283"/>
+            <rank name="BunnyClub24" on_id="1"  ts_id="1113"   svc_id="12640"   index="1284"/>
+            <rank name="CALLE 13" on_id="1"  ts_id="1060"   svc_id="30608"   index="1285"/>
+            <rank name="CANAL 24 HORAS" on_id="1"  ts_id="1028"   svc_id="4402"   index="1286"/>
+            <rank name="Canal Algerie" on_id="1"  ts_id="1026"   svc_id="10083"   index="1287"/>
+            <rank name="CANAL COCINA" on_id="1"  ts_id="1038"   svc_id="30414"   index="1288"/>
+            <rank name="CANAL DECASA" on_id="1"  ts_id="1060"   svc_id="30613"   index="1289"/>
+            <rank name="CANAL ODISEA" on_id="1"  ts_id="1060"   svc_id="30602"   index="1296"/>
+            <rank name="CANAL ORBE21" on_id="1"  ts_id="1054"   svc_id="30372"   index="1297"/>
+            <rank name="CANAL PANDA" on_id="1"  ts_id="1032"   svc_id="30207"   index="1298"/>
+            <rank name="CANAL SUR A." on_id="1"  ts_id="1046"   svc_id="30505"   index="1299"/>
+            <rank name="CANAL+" on_id="1"  ts_id="1072"   svc_id="8221"   index="1300"/>
+            <rank name="CANAL+ CINEMA" on_id="1"  ts_id="1072"   svc_id="8203"   index="1301"/>
+            <rank name="CANAL+ SPORT" on_id="1"  ts_id="1072"   svc_id="8204"   index="1302"/>
+            <rank name="Cartoon Network" on_id="133"  ts_id="14"   svc_id="404"   index="1303"/>
+            <rank name="CashTV" on_id="1"  ts_id="1108"   svc_id="12185"   index="1304"/>
+            <rank name="CAZA Y PESCA" on_id="1"  ts_id="1046"   svc_id="30507"   index="1305"/>
+            <rank name="CCTV F" on_id="1"  ts_id="1022"   svc_id="6913"   index="1312"/>
+            <rank name="CD/TVV info&amp;nieuws" on_id="53"  ts_id="1105"   svc_id="4016"   index="1313"/>
+            <rank name="Cherie 25" on_id="1"  ts_id="1108"   svc_id="12141"   index="1314"/>
+            <rank name="Cherie 25" on_id="1"  ts_id="1108"   svc_id="12140"   index="1315"/>
+            <rank name="CINE+ FRISSON" on_id="1"  ts_id="1072"   svc_id="8211"   index="1316"/>
+            <rank name="CINE+ PREMIER" on_id="1"  ts_id="1072"   svc_id="8205"   index="1317"/>
+            <rank name="CLAN  TVE" on_id="1"  ts_id="1034"   svc_id="30654"   index="1318"/>
+            <rank name="CLASSICA" on_id="1"  ts_id="1032"   svc_id="30210"   index="1319"/>
+            <rank name="Clipmobile" on_id="1"  ts_id="1113"   svc_id="12641"   index="1320"/>
+            <rank name="COMEDY CENTRAL" on_id="1"  ts_id="1038"   svc_id="30408"   index="1321"/>
+            <rank name="Comedy Central / VIVA AT" on_id="133"  ts_id="7"   svc_id="60"   index="1328"/>
+            <rank name="Comedy Central Nederland" on_id="1"  ts_id="1078"   svc_id="28675"   index="1329"/>
+            <rank name="CONTRATO" on_id="1"  ts_id="1058"   svc_id="30169"   index="1330"/>
+            <rank name="COSMO" on_id="1"  ts_id="1046"   svc_id="30512"   index="1331"/>
+            <rank name="CRIMEN+INVES" on_id="1"  ts_id="1046"   svc_id="30514"   index="1332"/>
+            <rank name="CSC TEST" on_id="53"  ts_id="1105"   svc_id="4033"   index="1333"/>
+            <rank name="CUATRO" on_id="1"  ts_id="1034"   svc_id="30663"   index="1334"/>
+            <rank name="Cubavision Internacional" on_id="1"  ts_id="1020"   svc_id="7008"   index="1335"/>
+            <rank name="Date Line" on_id="1"  ts_id="1113"   svc_id="12623"   index="1336"/>
+            <rank name="DECODEUR" on_id="1"  ts_id="1112"   svc_id="9609"   index="1337"/>
+            <rank name="Deutsche Girls 24 TV" on_id="1"  ts_id="1113"   svc_id="12615"   index="1344"/>
+            <rank name="Deutsches Musik Fernsehen" on_id="1"  ts_id="1113"   svc_id="12604"   index="1345"/>
+            <rank name="DISCOVERY" on_id="1"  ts_id="1046"   svc_id="30511"   index="1346"/>
+            <rank name="Discovery Channel" on_id="133"  ts_id="4"   svc_id="14"   index="1347"/>
+            <rank name="DISNEY CH." on_id="1"  ts_id="1038"   svc_id="30403"   index="1348"/>
+            <rank name="DISNEY CHANNEL" on_id="1"  ts_id="1072"   svc_id="8207"   index="1349"/>
+            <rank name="Disney Cinemagic" on_id="133"  ts_id="2"   svc_id="25"   index="1350"/>
+            <rank name="DISNEY JR" on_id="1"  ts_id="1008"   svc_id="29803"   index="1351"/>
+            <rank name="Disney Junior" on_id="133"  ts_id="3"   svc_id="26"   index="1352"/>
+            <rank name="Disney XD" on_id="133"  ts_id="3"   svc_id="28"   index="1353"/>
+            <rank name="DISNEY XD" on_id="1"  ts_id="1046"   svc_id="30506"   index="1360"/>
+            <rank name="DIVINITY" on_id="1"  ts_id="1052"   svc_id="29850"   index="1361"/>
+            <rank name="DMAX Austria" on_id="133"  ts_id="7"   svc_id="73"   index="1362"/>
+            <rank name="Dopool Drama" on_id="1"  ts_id="1030"   svc_id="4554"   index="1363"/>
+            <rank name="Dopool Kids" on_id="1"  ts_id="1030"   svc_id="4552"   index="1364"/>
+            <rank name="Dragon TV" on_id="1"  ts_id="1030"   svc_id="4550"   index="1365"/>
+            <rank name="Dreamgirls24 TV" on_id="1"  ts_id="1113"   svc_id="12618"   index="1366"/>
+            <rank name="DW" on_id="1"  ts_id="1028"   svc_id="4430"   index="1367"/>
+            <rank name="DW (Arabia 2)" on_id="1"  ts_id="1028"   svc_id="4435"   index="1368"/>
+            <rank name="e8 television" on_id="133"  ts_id="33"   svc_id="897"   index="1369"/>
+            <rank name="ENERGY" on_id="1"  ts_id="1052"   svc_id="29855"   index="1376"/>
+            <rank name="Eros TV" on_id="1"  ts_id="1113"   svc_id="12627"   index="1377"/>
+            <rank name="EROTIKA TV - NEU!" on_id="1"  ts_id="1113"   svc_id="12639"   index="1378"/>
+            <rank name="Erotiksat24 TV" on_id="1"  ts_id="1113"   svc_id="12619"   index="1379"/>
+            <rank name="EUROSPORT 1" on_id="1"  ts_id="1072"   svc_id="8206"   index="1380"/>
+            <rank name="EUROSPORT 2" on_id="1"  ts_id="1032"   svc_id="30222"   index="1381"/>
+            <rank name="EUROSPORT 2" on_id="1"  ts_id="1072"   svc_id="8209"   index="1382"/>
+            <rank name="FDF" on_id="1"  ts_id="1034"   svc_id="30652"   index="1383"/>
+            <rank name="FOX" on_id="1"  ts_id="1008"   svc_id="29807"   index="1384"/>
+            <rank name="FOX LIFE" on_id="1"  ts_id="1008"   svc_id="29800"   index="1385"/>
+            <rank name="FOX NEWS" on_id="1"  ts_id="1052"   svc_id="29851"   index="1392"/>
+            <rank name="Fox Serie" on_id="133"  ts_id="2"   svc_id="16"   index="1393"/>
+            <rank name="France 24 (en Franais)" on_id="1"  ts_id="1022"   svc_id="6905"   index="1394"/>
+            <rank name="France 24 (in Arabic) s)" on_id="1"  ts_id="1022"   svc_id="6910"   index="1395"/>
+            <rank name="Fundorado TV" on_id="1"  ts_id="1113"   svc_id="12636"   index="1396"/>
+            <rank name="GayBoys LIVE" on_id="1"  ts_id="1113"   svc_id="12612"   index="1397"/>
+            <rank name="GOL" on_id="1"  ts_id="1052"   svc_id="29859"   index="1398"/>
+            <rank name="Guangdong TV" on_id="1"  ts_id="1030"   svc_id="4551"   index="1399"/>
+            <rank name="GUA" on_id="1"  ts_id="1058"   svc_id="30121"   index="1400"/>
+            <rank name="GUA FCIL" on_id="1"  ts_id="1058"   svc_id="30198"   index="1401"/>
+            <rank name="Heiss und Sexy TV" on_id="1"  ts_id="1113"   svc_id="12630"   index="1408"/>
+            <rank name="HISTORIA" on_id="1"  ts_id="1046"   svc_id="30513"   index="1409"/>
+            <rank name="HOLLYWOOD" on_id="1"  ts_id="1034"   svc_id="30657"   index="1410"/>
+            <rank name="Hunan TV" on_id="1"  ts_id="1030"   svc_id="4553"   index="1411"/>
+            <rank name="IBERALIA TV" on_id="1"  ts_id="1008"   svc_id="29802"   index="1412"/>
+            <rank name="Kinowelt TV" on_id="133"  ts_id="4"   svc_id="406"   index="1413"/>
+            <rank name="L EQUIPE 21" on_id="1"  ts_id="1040"   svc_id="31409"   index="1414"/>
+            <rank name="L EQUIPE 21" on_id="1"  ts_id="1040"   svc_id="31309"   index="1415"/>
+            <rank name="LA 1" on_id="1"  ts_id="1034"   svc_id="30656"   index="1416"/>
+            <rank name="LA 2" on_id="1"  ts_id="1034"   svc_id="30658"   index="1417"/>
+            <rank name="LA SEXTA" on_id="1"  ts_id="1034"   svc_id="30655"   index="1424"/>
+            <rank name="LALIGATV BAR" on_id="1"  ts_id="1060"   svc_id="30611"   index="1425"/>
+            <rank name="LALIGATVBAR1" on_id="1"  ts_id="1054"   svc_id="30362"   index="1426"/>
+            <rank name="Los40" on_id="1"  ts_id="1038"   svc_id="30405"   index="1427"/>
+            <rank name="Lustkanal24 TV" on_id="1"  ts_id="1113"   svc_id="12606"   index="1428"/>
+            <rank name="M. ACCIN" on_id="1"  ts_id="1008"   svc_id="29804"   index="1429"/>
+            <rank name="M. Cine Espaol" on_id="1"  ts_id="1046"   svc_id="30518"   index="1430"/>
+            <rank name="M. COMEDIA" on_id="1"  ts_id="1008"   svc_id="29805"   index="1431"/>
+            <rank name="M. DCINE" on_id="1"  ts_id="1008"   svc_id="29806"   index="1432"/>
+            <rank name="M. DEP 1" on_id="1"  ts_id="1060"   svc_id="30607"   index="1433"/>
+            <rank name="M. DEP 2" on_id="1"  ts_id="1032"   svc_id="30220"   index="1536"/>
+            <rank name="M. ESTRENOS" on_id="1"  ts_id="1038"   svc_id="30400"   index="1537"/>
+            <rank name="M. FTBOL" on_id="1"  ts_id="1060"   svc_id="30606"   index="1538"/>
+            <rank name="M. GOLF" on_id="1"  ts_id="1060"   svc_id="30601"   index="1539"/>
+            <rank name="M. MOTOGP" on_id="1"  ts_id="1046"   svc_id="30521"   index="1540"/>
+            <rank name="M. SERIES" on_id="1"  ts_id="1054"   svc_id="30358"   index="1541"/>
+            <rank name="M. SERIESXTRA" on_id="1"  ts_id="1038"   svc_id="30410"   index="1542"/>
+            <rank name="M. XTRA" on_id="1"  ts_id="1034"   svc_id="30662"   index="1543"/>
+            <rank name="M.FORMULA1" on_id="1"  ts_id="1052"   svc_id="29860"   index="1544"/>
+            <rank name="M.Partidazo" on_id="1"  ts_id="1054"   svc_id="30364"   index="1545"/>
+            <rank name="Maennersache TV" on_id="1"  ts_id="1113"   svc_id="12622"   index="1552"/>
+            <rank name="MEDIA BROADCAST - Test 4" on_id="1"  ts_id="1113"   svc_id="12642"   index="1553"/>
+            <rank name="MEDIA BROADCAST - Test 6" on_id="1"  ts_id="1113"   svc_id="12607"   index="1554"/>
+            <rank name="MEZZO" on_id="1"  ts_id="1054"   svc_id="30361"   index="1555"/>
+            <rank name="MNC Drama" on_id="1"  ts_id="1030"   svc_id="4536"   index="1556"/>
+            <rank name="MNC Infotainment" on_id="1"  ts_id="1030"   svc_id="4537"   index="1557"/>
+            <rank name="MNC International" on_id="1"  ts_id="1030"   svc_id="4535"   index="1558"/>
+            <rank name="MNC World News" on_id="1"  ts_id="1030"   svc_id="4538"   index="1559"/>
+            <rank name="Mobile Sex" on_id="1"  ts_id="1113"   svc_id="12625"   index="1560"/>
+            <rank name="MTV ESPAA" on_id="1"  ts_id="1052"   svc_id="29858"   index="1561"/>
+            <rank name="MTV Nederland" on_id="1"  ts_id="1078"   svc_id="28674"   index="1568"/>
+            <rank name="N24 DOKU Austria" on_id="133"  ts_id="7"   svc_id="53"   index="1569"/>
+            <rank name="NAT GEOGRAPH" on_id="1"  ts_id="1060"   svc_id="30605"   index="1570"/>
+            <rank name="NatGeo Wild" on_id="133"  ts_id="2"   svc_id="12"   index="1571"/>
+            <rank name="NATIONAL GEO" on_id="1"  ts_id="1072"   svc_id="8202"   index="1572"/>
+            <rank name="National Geographic" on_id="133"  ts_id="4"   svc_id="13"   index="1573"/>
+            <rank name="NEOX" on_id="1"  ts_id="1032"   svc_id="30206"   index="1574"/>
+            <rank name="nice" on_id="1"  ts_id="1113"   svc_id="12634"   index="1575"/>
+            <rank name="Nick/Spike" on_id="1"  ts_id="1078"   svc_id="28679"   index="1576"/>
+            <rank name="NICKELODEON AT" on_id="133"  ts_id="7"   svc_id="61"   index="1577"/>
+            <rank name="NICKELODEON Iberia" on_id="1"  ts_id="1066"   svc_id="28660"   index="1584"/>
+            <rank name="Nickelodeon Turkey" on_id="1"  ts_id="1066"   svc_id="28652"   index="1585"/>
+            <rank name="Nicktoons (S)" on_id="1"  ts_id="1078"   svc_id="28682"   index="1586"/>
+            <rank name="NONSTOPEOPLE" on_id="1"  ts_id="1046"   svc_id="30510"   index="1587"/>
+            <rank name="NOVA" on_id="1"  ts_id="1008"   svc_id="29801"   index="1588"/>
+            <rank name="NPO1" on_id="53"  ts_id="1105"   svc_id="4011"   index="1589"/>
+            <rank name="NPO2" on_id="53"  ts_id="1105"   svc_id="4012"   index="1590"/>
+            <rank name="ONE" on_id="1"  ts_id="1051"   svc_id="28722"   index="1591"/>
+            <rank name="ORF III" on_id="1"  ts_id="1115"   svc_id="13101"   index="1592"/>
+            <rank name="ORF SPORT+" on_id="1"  ts_id="1003"   svc_id="13221"   index="1593"/>
+            <rank name="ORF1" on_id="1"  ts_id="1117"   svc_id="13001"   index="1600"/>
+            <rank name="ORF2" on_id="1"  ts_id="1117"   svc_id="13002"   index="1601"/>
+            <rank name="ORF2 B" on_id="1"  ts_id="1117"   svc_id="13005"   index="1602"/>
+            <rank name="ORF2 K" on_id="1"  ts_id="1117"   svc_id="13011"   index="1603"/>
+            <rank name="ORF2 N" on_id="1"  ts_id="1117"   svc_id="13004"   index="1604"/>
+            <rank name="ORF2 O" on_id="1"  ts_id="1117"   svc_id="13006"   index="1605"/>
+            <rank name="ORF2 S" on_id="1"  ts_id="1117"   svc_id="13007"   index="1606"/>
+            <rank name="ORF2 St" on_id="1"  ts_id="1117"   svc_id="13010"   index="1607"/>
+            <rank name="ORF2 T" on_id="1"  ts_id="1117"   svc_id="13008"   index="1608"/>
+            <rank name="ORF2 V" on_id="1"  ts_id="1117"   svc_id="13009"   index="1609"/>
+            <rank name="ORF2 W" on_id="1"  ts_id="1117"   svc_id="13003"   index="1616"/>
+            <rank name="ORF2E" on_id="1"  ts_id="1117"   svc_id="13014"   index="1617"/>
+            <rank name="PARAMOUNT" on_id="1"  ts_id="1032"   svc_id="30201"   index="1618"/>
+            <rank name="PARIS PREMIERE" on_id="1"  ts_id="1072"   svc_id="8208"   index="1619"/>
+            <rank name="PLANETE+" on_id="1"  ts_id="1072"   svc_id="8210"   index="1620"/>
+            <rank name="PLAYBOY TV" on_id="1"  ts_id="1060"   svc_id="30603"   index="1621"/>
+            <rank name="ProSieben Austria" on_id="1"  ts_id="1082"   svc_id="20002"   index="1622"/>
+            <rank name="ProSieben Schweiz" on_id="1"  ts_id="1082"   svc_id="20001"   index="1623"/>
+            <rank name="PULS 4 Austria" on_id="1"  ts_id="1082"   svc_id="20007"   index="1624"/>
+            <rank name="R. MADRID TV" on_id="1"  ts_id="1032"   svc_id="30209"   index="1625"/>
+            <rank name="Deutschland Vozrozhdenie" on_id="1"  ts_id="1006"   svc_id="4225"   index="1632"/>
+            <rank name="RMC Decouverte HD" on_id="1"  ts_id="1026"   svc_id="10081"   index="1633"/>
+            <rank name="RMC Decouverte HD" on_id="1"  ts_id="1026"   svc_id="10079"   index="1634"/>
+            <rank name="RT Esp HD" on_id="1"  ts_id="1012"   svc_id="6382"   index="1635"/>
+            <rank name="RTL HB NDS" on_id="1"  ts_id="1089"   svc_id="12005"   index="1636"/>
+            <rank name="RTL Regional NRW" on_id="1"  ts_id="1089"   svc_id="12004"   index="1637"/>
+            <rank name="SAT.1 Bayern" on_id="1"  ts_id="1107"   svc_id="17507"   index="1638"/>
+            <rank name="SAT.1 emotions" on_id="1"  ts_id="1015"   svc_id="4701"   index="1639"/>
+            <rank name="SAT.1 HH/SH" on_id="1"  ts_id="1082"   svc_id="20008"   index="1640"/>
+            <rank name="SAT.1 NRW" on_id="1"  ts_id="1107"   svc_id="17508"   index="1641"/>
+            <rank name="SAT.1 NS/Bremen" on_id="1"  ts_id="1082"   svc_id="20009"   index="1648"/>
+            <rank name="SAT.1 RhlPf/Hessen" on_id="1"  ts_id="1082"   svc_id="20010"   index="1649"/>
+            <rank name="ServusTV Oesterreich" on_id="1"  ts_id="1115"   svc_id="13111"   index="1650"/>
+            <rank name="SEX-Kontakte" on_id="1"  ts_id="1113"   svc_id="12626"   index="1651"/>
+            <rank name="SEXYSAT TV" on_id="1"  ts_id="1040"   svc_id="31310"   index="1652"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="4"   svc_id="223"   index="1653"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="3"   svc_id="252"   index="1654"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="3"   svc_id="262"   index="1655"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="3"   svc_id="272"   index="1656"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="3"   svc_id="282"   index="1657"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="3"   svc_id="292"   index="1664"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="3"   svc_id="302"   index="1665"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="2"   svc_id="312"   index="1666"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="2"   svc_id="322"   index="1667"/>
+            <rank name="Sky Sport Bundeslig" on_id="133"  ts_id="2"   svc_id="332"   index="1668"/>
+            <rank name="Sky Sport News" on_id="133"  ts_id="4"   svc_id="241"   index="1669"/>
+            <rank name="Sky Sport News HD" on_id="133"  ts_id="12"   svc_id="242"   index="1670"/>
+            <rank name="Sonlife Broadcasting Netw" on_id="1"  ts_id="1026"   svc_id="10080"   index="1671"/>
+            <rank name="Sonnenklar TV" on_id="133"  ts_id="33"   svc_id="32"   index="1672"/>
+            <rank name="Sparhandy TV" on_id="133"  ts_id="5"   svc_id="659"   index="1673"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="72"   index="1680"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="71"   index="1681"/>
+            <rank name="1LIVE" on_id="1"  ts_id="1093"   svc_id="28475"   index="1682"/>
+            <rank name="1LIVE diGGi" on_id="1"  ts_id="1093"   svc_id="28481"   index="1683"/>
+            <rank name="ANTENNE BAYERN" on_id="133"  ts_id="7"   svc_id="170"   index="1684"/>
+            <rank name="Antenne Brandenburg" on_id="1"  ts_id="1093"   svc_id="28454"   index="1685"/>
+            <rank name="AUDIO PRIMO" on_id="1"  ts_id="1098"   svc_id="9102"   index="1686"/>
+            <rank name="B5 aktuell" on_id="1"  ts_id="1093"   svc_id="28404"   index="1687"/>
+            <rank name="B5 plus" on_id="1"  ts_id="1093"   svc_id="28408"   index="1688"/>
+            <rank name="Bayern 1" on_id="1"  ts_id="1093"   svc_id="28400"   index="1689"/>
+            <rank name="Bayern 2" on_id="1"  ts_id="1093"   svc_id="28401"   index="1792"/>
+            <rank name="BAYERN 3" on_id="1"  ts_id="1093"   svc_id="28402"   index="1793"/>
+            <rank name="BAYERN plus" on_id="1"  ts_id="1093"   svc_id="28405"   index="1794"/>
+            <rank name="BBC ARABIC" on_id="1"  ts_id="1098"   svc_id="9143"   index="1795"/>
+            <rank name="BBCW SERVICE" on_id="1"  ts_id="1098"   svc_id="9142"   index="1796"/>
+            <rank name="BEUR FM" on_id="1"  ts_id="1098"   svc_id="9198"   index="1797"/>
+            <rank name="BFM BUSINESS" on_id="1"  ts_id="1098"   svc_id="9111"   index="1798"/>
+            <rank name="BR Heimat" on_id="1"  ts_id="1093"   svc_id="28407"   index="1799"/>
+            <rank name="BR-KLASSIK" on_id="1"  ts_id="1093"   svc_id="28403"   index="1800"/>
+            <rank name="Bremen Eins" on_id="1"  ts_id="1093"   svc_id="28448"   index="1801"/>
+            <rank name="Bremen Vier" on_id="1"  ts_id="1093"   svc_id="28450"   index="1808"/>
+            <rank name="CHERIE FM" on_id="1"  ts_id="1098"   svc_id="9185"   index="1809"/>
+            <rank name="CONTACT FM" on_id="1"  ts_id="1098"   svc_id="9180"   index="1810"/>
+            <rank name="COSMO" on_id="1"  ts_id="1093"   svc_id="28480"   index="1811"/>
+            <rank name="DASDING" on_id="1"  ts_id="1093"   svc_id="28471"   index="1812"/>
+            <rank name="DKULTUR" on_id="1"  ts_id="1079"   svc_id="28012"   index="1813"/>
+            <rank name="DLF" on_id="1"  ts_id="1079"   svc_id="28013"   index="1814"/>
+            <rank name="domradio" on_id="133"  ts_id="5"   svc_id="171"   index="1815"/>
+            <rank name="DRadio DokDeb" on_id="1"  ts_id="1079"   svc_id="28015"   index="1816"/>
+            <rank name="DRadio Wissen" on_id="1"  ts_id="1079"   svc_id="28017"   index="1817"/>
+            <rank name="egoFM" on_id="133"  ts_id="5"   svc_id="172"   index="1824"/>
+            <rank name="ERF Plus" on_id="133"  ts_id="7"   svc_id="161"   index="1825"/>
+            <rank name="ERF Pop" on_id="133"  ts_id="7"   svc_id="162"   index="1826"/>
+            <rank name="EUROPE 1" on_id="1"  ts_id="1098"   svc_id="9166"   index="1827"/>
+            <rank name="ffn" on_id="1"  ts_id="1113"   svc_id="12654"   index="1828"/>
+            <rank name="FIP" on_id="1"  ts_id="1098"   svc_id="9155"   index="1829"/>
+            <rank name="FM4" on_id="1"  ts_id="1115"   svc_id="13134"   index="1830"/>
+            <rank name="FM4" on_id="1"  ts_id="1115"   svc_id="13134"   index="1831"/>
+            <rank name="FRANCE BLEU" on_id="1"  ts_id="1098"   svc_id="9159"   index="1832"/>
+            <rank name="FRANCE CULTURE" on_id="1"  ts_id="1098"   svc_id="9158"   index="1833"/>
+            <rank name="FRANCE INFO" on_id="1"  ts_id="1098"   svc_id="9156"   index="1840"/>
+            <rank name="FRANCE INTER" on_id="1"  ts_id="1098"   svc_id="9157"   index="1841"/>
+            <rank name="FRANCE MUSIQUE" on_id="1"  ts_id="1098"   svc_id="9154"   index="1842"/>
+            <rank name="Fritz" on_id="1"  ts_id="1093"   svc_id="28457"   index="1843"/>
+            <rank name="FUN RADIO" on_id="1"  ts_id="1098"   svc_id="9140"   index="1844"/>
+            <rank name="harmony.fm" on_id="1"  ts_id="1113"   svc_id="12662"   index="1845"/>
+            <rank name="HIT RADIO FFH" on_id="1"  ts_id="1113"   svc_id="12660"   index="1846"/>
+            <rank name="Hope Channel Radio" on_id="1"  ts_id="1115"   svc_id="13139"   index="1847"/>
+            <rank name="Hope Channel Radio" on_id="1"  ts_id="1115"   svc_id="13139"   index="1848"/>
+            <rank name="hr-iNFO" on_id="1"  ts_id="1093"   svc_id="28424"   index="1849"/>
+            <rank name="hr1" on_id="1"  ts_id="1093"   svc_id="28419"   index="1856"/>
+            <rank name="hr2" on_id="1"  ts_id="1093"   svc_id="28420"   index="1857"/>
+            <rank name="hr3" on_id="1"  ts_id="1093"   svc_id="28421"   index="1858"/>
+            <rank name="hr4" on_id="1"  ts_id="1093"   svc_id="28422"   index="1859"/>
+            <rank name="Inforadio" on_id="1"  ts_id="1093"   svc_id="28452"   index="1860"/>
+            <rank name="Inselradio" on_id="1"  ts_id="1113"   svc_id="12651"   index="1861"/>
+            <rank name="JAM FM" on_id="133"  ts_id="5"   svc_id="177"   index="1862"/>
+            <rank name="JAZZ RADIO" on_id="1"  ts_id="1098"   svc_id="9177"   index="1863"/>
+            <rank name="KIRAKA" on_id="1"  ts_id="1093"   svc_id="28482"   index="1864"/>
+            <rank name="Klassik Radio" on_id="133"  ts_id="5"   svc_id="173"   index="1865"/>
+            <rank name="Kulturradio" on_id="1"  ts_id="1093"   svc_id="28453"   index="1872"/>
+            <rank name="Life Channel CH" on_id="133"  ts_id="7"   svc_id="163"   index="1873"/>
+            <rank name="MC DOUALIYA" on_id="1"  ts_id="1098"   svc_id="9110"   index="1874"/>
+            <rank name="MDR AKTUELL" on_id="1"  ts_id="1093"   svc_id="28434"   index="1875"/>
+            <rank name="MDR JUMP" on_id="1"  ts_id="1093"   svc_id="28432"   index="1876"/>
+            <rank name="MDR KLASSIK" on_id="1"  ts_id="1093"   svc_id="28435"   index="1877"/>
+            <rank name="MDR KULTUR" on_id="1"  ts_id="1093"   svc_id="28431"   index="1878"/>
+            <rank name="MDR S-ANHALT" on_id="1"  ts_id="1093"   svc_id="28429"   index="1879"/>
+            <rank name="MDR SPUTNIK" on_id="1"  ts_id="1093"   svc_id="28433"   index="1880"/>
+            <rank name="MDR THRINGEN" on_id="1"  ts_id="1093"   svc_id="28430"   index="1881"/>
+            <rank name="MDR1 SACHSEN" on_id="1"  ts_id="1093"   svc_id="28428"   index="1888"/>
+            <rank name="MOSAIQUE RADIOS" on_id="1"  ts_id="1098"   svc_id="9118"   index="1889"/>
+            <rank name="MOUV'" on_id="1"  ts_id="1098"   svc_id="9153"   index="1890"/>
+            <rank name="N-JOY" on_id="1"  ts_id="1093"   svc_id="28440"   index="1891"/>
+            <rank name="NDR 1 Nieders." on_id="1"  ts_id="1093"   svc_id="28444"   index="1892"/>
+            <rank name="NDR 1 Radio MV" on_id="1"  ts_id="1093"   svc_id="28443"   index="1893"/>
+            <rank name="NDR 2" on_id="1"  ts_id="1093"   svc_id="28437"   index="1894"/>
+            <rank name="NDR 90" on_id="1"  ts_id="1093"   svc_id="28441"   index="1895"/>
+            <rank name="NDR Blue" on_id="1"  ts_id="1093"   svc_id="28446"   index="1896"/>
+            <rank name="NDR Info" on_id="1"  ts_id="1093"   svc_id="28439"   index="1897"/>
+            <rank name="NDR Info Spez." on_id="1"  ts_id="1093"   svc_id="28445"   index="1904"/>
+            <rank name="NDR Kultur" on_id="1"  ts_id="1093"   svc_id="28438"   index="1905"/>
+            <rank name="NDR Plus" on_id="1"  ts_id="1093"   svc_id="28447"   index="1906"/>
+            <rank name="NDR1WelleNord" on_id="1"  ts_id="1093"   svc_id="28442"   index="1907"/>
+            <rank name="Nordwestradio" on_id="1"  ts_id="1093"   svc_id="28449"   index="1908"/>
+            <rank name="Nostalgie" on_id="53"  ts_id="1105"   svc_id="4114"   index="1909"/>
+            <rank name="NOSTALGIE" on_id="1"  ts_id="1098"   svc_id="9181"   index="1910"/>
+            <rank name="NOVA" on_id="1"  ts_id="1098"   svc_id="9178"   index="1911"/>
+            <rank name="NRJ" on_id="1"  ts_id="1098"   svc_id="9182"   index="1912"/>
+            <rank name="OE1" on_id="1"  ts_id="1115"   svc_id="13121"   index="1913"/>
+            <rank name="OE1" on_id="1"  ts_id="1115"   svc_id="13121"   index="1920"/>
+            <rank name="OE1 DD" on_id="1"  ts_id="1115"   svc_id="13122"   index="1921"/>
+            <rank name="OE1 DD" on_id="1"  ts_id="1115"   svc_id="13122"   index="1922"/>
+            <rank name="OE2 B" on_id="1"  ts_id="1115"   svc_id="13125"   index="1923"/>
+            <rank name="OE2 B" on_id="1"  ts_id="1115"   svc_id="13125"   index="1924"/>
+            <rank name="OE2 K" on_id="1"  ts_id="1115"   svc_id="13131"   index="1925"/>
+            <rank name="OE2 K" on_id="1"  ts_id="1115"   svc_id="13131"   index="1926"/>
+            <rank name="OE2 N" on_id="1"  ts_id="1115"   svc_id="13124"   index="1927"/>
+            <rank name="OE2 N" on_id="1"  ts_id="1115"   svc_id="13124"   index="1928"/>
+            <rank name="OE2 O" on_id="1"  ts_id="1115"   svc_id="13126"   index="1929"/>
+            <rank name="OE2 O" on_id="1"  ts_id="1115"   svc_id="13126"   index="1936"/>
+            <rank name="OE2 S" on_id="1"  ts_id="1115"   svc_id="13127"   index="1937"/>
+            <rank name="OE2 S" on_id="1"  ts_id="1115"   svc_id="13127"   index="1938"/>
+            <rank name="OE2 St" on_id="1"  ts_id="1115"   svc_id="13130"   index="1939"/>
+            <rank name="OE2 St" on_id="1"  ts_id="1115"   svc_id="13130"   index="1940"/>
+            <rank name="OE2 T" on_id="1"  ts_id="1115"   svc_id="13128"   index="1941"/>
+            <rank name="OE2 T" on_id="1"  ts_id="1115"   svc_id="13128"   index="1942"/>
+            <rank name="OE2 V" on_id="1"  ts_id="1115"   svc_id="13129"   index="1943"/>
+            <rank name="OE2 V" on_id="1"  ts_id="1115"   svc_id="13129"   index="1944"/>
+            <rank name="OE2 W" on_id="1"  ts_id="1115"   svc_id="13123"   index="1945"/>
+            <rank name="OE2 W" on_id="1"  ts_id="1115"   svc_id="13123"   index="2048"/>
+            <rank name="OE3" on_id="1"  ts_id="1115"   svc_id="13133"   index="2049"/>
+            <rank name="OE3" on_id="1"  ts_id="1115"   svc_id="13133"   index="2050"/>
+            <rank name="OUI FM" on_id="1"  ts_id="1098"   svc_id="9176"   index="2051"/>
+            <rank name="planet radio" on_id="1"  ts_id="1113"   svc_id="12661"   index="2052"/>
+            <rank name="PULS" on_id="1"  ts_id="1093"   svc_id="28406"   index="2053"/>
+            <rank name="RADIO ALFA" on_id="1"  ts_id="1098"   svc_id="9195"   index="2054"/>
+            <rank name="RADIO CLASSIQUE" on_id="1"  ts_id="1098"   svc_id="9164"   index="2055"/>
+            <rank name="RADIO COURTOISIE" on_id="1"  ts_id="1098"   svc_id="9141"   index="2056"/>
+            <rank name="RADIO FG" on_id="1"  ts_id="1098"   svc_id="9179"   index="2057"/>
+            <rank name="Radio Freundes-Dienst et" on_id="53"  ts_id="1105"   svc_id="4062"   index="2064"/>
+            <rank name="Radio Gloria" on_id="1"  ts_id="1113"   svc_id="12659"   index="2065"/>
+            <rank name="Radio HBR" on_id="1"  ts_id="1113"   svc_id="12656"   index="2066"/>
+            <rank name="Radio HCJB" on_id="1"  ts_id="1113"   svc_id="12657"   index="2067"/>
+            <rank name="Radio Horeb" on_id="1"  ts_id="1111"   svc_id="7289"   index="2068"/>
+            <rank name="Radio Lebensquelle" on_id="53"  ts_id="1105"   svc_id="4060"   index="2069"/>
+            <rank name="RADIO MARIA" on_id="1"  ts_id="1115"   svc_id="13140"   index="2070"/>
+            <rank name="RADIO MARIA" on_id="1"  ts_id="1115"   svc_id="13140"   index="2071"/>
+            <rank name="Radio Maryja" on_id="1"  ts_id="1048"   svc_id="4311"   index="2072"/>
+            <rank name="Radio neue Hoffnung" on_id="1"  ts_id="1111"   svc_id="7292"   index="2073"/>
+            <rank name="RADIO NOTRE DAME" on_id="1"  ts_id="1098"   svc_id="9194"   index="2080"/>
+            <rank name="Radio Paloma" on_id="1"  ts_id="1113"   svc_id="12655"   index="2081"/>
+            <rank name="Radio Regenbogen" on_id="1"  ts_id="1113"   svc_id="12663"   index="2082"/>
+            <rank name="radioB2  SCHLAGER" on_id="1"  ts_id="1113"   svc_id="12664"   index="2083"/>
+            <rank name="radioBERLIN 88" on_id="1"  ts_id="1093"   svc_id="28455"   index="2084"/>
+            <rank name="radioeins" on_id="1"  ts_id="1093"   svc_id="28456"   index="2085"/>
+            <rank name="RADIOS ESP" on_id="1"  ts_id="1058"   svc_id="30104"   index="2086"/>
+            <rank name="RFI INTERNAT" on_id="1"  ts_id="1098"   svc_id="9163"   index="2087"/>
+            <rank name="RFM" on_id="1"  ts_id="1098"   svc_id="9183"   index="2088"/>
+            <rank name="RIRE &amp; CHANSONS" on_id="1"  ts_id="1098"   svc_id="9168"   index="2089"/>
+            <rank name="RMC" on_id="1"  ts_id="1098"   svc_id="9167"   index="2096"/>
+            <rank name="RNE RADIO 1" on_id="1"  ts_id="1028"   svc_id="4411"   index="2097"/>
+            <rank name="RNE RADIO 3" on_id="1"  ts_id="1028"   svc_id="4412"   index="2098"/>
+            <rank name="RNE RADIO 4" on_id="1"  ts_id="1028"   svc_id="4413"   index="2099"/>
+            <rank name="RNE RADIO 5 TODO NOTICIA" on_id="1"  ts_id="1028"   svc_id="4414"   index="2100"/>
+            <rank name="RNE RADIO CLASICA" on_id="1"  ts_id="1028"   svc_id="4415"   index="2101"/>
+            <rank name="RNE RADIO EXTERIOR DE ES" on_id="1"  ts_id="1028"   svc_id="4416"   index="2102"/>
+            <rank name="ROCK ANTENNE" on_id="133"  ts_id="7"   svc_id="160"   index="2103"/>
+            <rank name="RTL" on_id="1"  ts_id="1098"   svc_id="9165"   index="2104"/>
+            <rank name="RTL RADIO" on_id="1"  ts_id="1111"   svc_id="7931"   index="2105"/>
+            <rank name="RTL2" on_id="1"  ts_id="1098"   svc_id="9186"   index="2112"/>
+            <rank name="SCHLAGERPARADIES" on_id="1"  ts_id="1113"   svc_id="12658"   index="2113"/>
+            <rank name="SKYROCK" on_id="1"  ts_id="1098"   svc_id="9187"   index="2114"/>
+            <rank name="SR 1 Europawelle" on_id="1"  ts_id="1093"   svc_id="28461"   index="2115"/>
+            <rank name="SR 2 KulturRadio" on_id="1"  ts_id="1093"   svc_id="28462"   index="2116"/>
+            <rank name="SR 3 Saarlandwelle" on_id="1"  ts_id="1093"   svc_id="28463"   index="2117"/>
+            <rank name="SUD RADIO" on_id="1"  ts_id="1098"   svc_id="9109"   index="2118"/>
+            <rank name="sunshine live" on_id="133"  ts_id="7"   svc_id="169"   index="2119"/>
+            <rank name="SWR Aktuell" on_id="1"  ts_id="1093"   svc_id="28472"   index="2120"/>
+            <rank name="SWR1 BW" on_id="1"  ts_id="1093"   svc_id="28465"   index="2121"/>
+            <rank name="SWR1 RP" on_id="1"  ts_id="1093"   svc_id="28466"   index="2128"/>
+            <rank name="SWR2" on_id="1"  ts_id="1093"   svc_id="28467"   index="2129"/>
+            <rank name="SWR3" on_id="1"  ts_id="1093"   svc_id="28468"   index="2130"/>
+            <rank name="SWR4 BW" on_id="1"  ts_id="1093"   svc_id="28469"   index="2131"/>
+            <rank name="SWR4 RP" on_id="1"  ts_id="1093"   svc_id="28470"   index="2132"/>
+            <rank name="TSF JAZZ" on_id="1"  ts_id="1098"   svc_id="9175"   index="2133"/>
+            <rank name="TSR Turkce" on_id="1"  ts_id="1027"   svc_id="5116"   index="2134"/>
+            <rank name="U1 Tirol" on_id="1"  ts_id="1115"   svc_id="13136"   index="2135"/>
+            <rank name="U1 Tirol" on_id="1"  ts_id="1115"   svc_id="13136"   index="2136"/>
+            <rank name="VIRGIN RADIO" on_id="1"  ts_id="1098"   svc_id="9184"   index="2137"/>
+            <rank name="VRT Radio1" on_id="53"  ts_id="1105"   svc_id="4122"   index="2144"/>
+            <rank name="VRT Radio2" on_id="53"  ts_id="1105"   svc_id="4123"   index="2145"/>
+            <rank name="WDR 2" on_id="1"  ts_id="1093"   svc_id="28476"   index="2146"/>
+            <rank name="WDR 3" on_id="1"  ts_id="1093"   svc_id="28477"   index="2147"/>
+            <rank name="WDR 4" on_id="1"  ts_id="1093"   svc_id="28478"   index="2148"/>
+            <rank name="WDR 5" on_id="1"  ts_id="1093"   svc_id="28479"   index="2149"/>
+            <rank name="WDR Event" on_id="1"  ts_id="1093"   svc_id="28483"   index="2150"/>
+            <rank name="YOU FM" on_id="1"  ts_id="1093"   svc_id="28423"   index="2151"/>
+        </country>
+        <country name="AUT">
+            <rank name="ORF1 HD" on_id="1"  ts_id="1007"   svc_id="4911"   index="1"/>
+            <rank name="ORF2W HD" on_id="1"  ts_id="1007"   svc_id="4912"   index="2"/>
+            <rank name="RTL Austria" on_id="1"  ts_id="1091"   svc_id="28800"   index="3"/>
+            <rank name="VOX Austria" on_id="1"  ts_id="1091"   svc_id="28805"   index="4"/>
+            <rank name="ServusTV HD Oesterreich" on_id="1"  ts_id="1007"   svc_id="4913"   index="5"/>
+            <rank name="RTL2 Austria" on_id="1"  ts_id="1091"   svc_id="28810"   index="6"/>
+            <rank name="ProSieben Austria" on_id="1"  ts_id="1082"   svc_id="20002"   index="7"/>
+            <rank name="ATV HD" on_id="1"  ts_id="1003"   svc_id="13228"   index="8"/>
+            <rank name="PULS 4 Austria" on_id="1"  ts_id="1082"   svc_id="20007"   index="9"/>
+            <rank name="Das Erste HD" on_id="1"  ts_id="1019"   svc_id="10301"   index="16"/>
+            <rank name="ZDF HD" on_id="1"  ts_id="1011"   svc_id="11110"   index="17"/>
+            <rank name="NITRO Austria" on_id="1"  ts_id="1115"   svc_id="13102"   index="18"/>
+            <rank name="oe24.TV HD" on_id="1"  ts_id="1005"   svc_id="13314"   index="19"/>
+            <rank name="TELE 5" on_id="133"  ts_id="33"   svc_id="51"   index="20"/>
+            <rank name="SUPER RTL A" on_id="1"  ts_id="1091"   svc_id="28815"   index="21"/>
+            <rank name="RTLplus Austria" on_id="1"  ts_id="1003"   svc_id="13229"   index="22"/>
+            <rank name="Schau TV HD" on_id="1"  ts_id="1003"   svc_id="13225"   index="23"/>
+            <rank name="TLC Austria" on_id="133"  ts_id="7"   svc_id="71"   index="24"/>
+            <rank name="QVC HD" on_id="1"  ts_id="1053"   svc_id="21103"   index="25"/>
+            <rank name="DMAX Austria" on_id="133"  ts_id="7"   svc_id="73"   index="32"/>
+            <rank name="1-2-3.tv HD" on_id="1"  ts_id="1055"   svc_id="5502"   index="33"/>
+            <rank name="Juwelo HD" on_id="1"  ts_id="1109"   svc_id="5403"   index="34"/>
+            <rank name="QVC2 HD" on_id="1"  ts_id="1055"   svc_id="5504"   index="35"/>
+            <rank name="HSE24 HD" on_id="1"  ts_id="1053"   svc_id="21104"   index="36"/>
+            <rank name="n-tv Austria" on_id="1"  ts_id="1117"   svc_id="13021"   index="37"/>
+            <rank name="N24 DOKU Austria" on_id="133"  ts_id="7"   svc_id="53"   index="38"/>
+            <rank name="SAT.1 A" on_id="1"  ts_id="1082"   svc_id="20005"   index="39"/>
+            <rank name="QVC Style HD" on_id="1"  ts_id="1033"   svc_id="10105"   index="40"/>
+            <rank name="HSE24 EXTRA HD" on_id="1"  ts_id="1055"   svc_id="5501"   index="41"/>
+            <rank name="HSE24 TREND" on_id="133"  ts_id="33"   svc_id="77"   index="48"/>
+            <rank name="Kabel 1 Austria" on_id="1"  ts_id="1082"   svc_id="20004"   index="49"/>
+            <rank name="NICKELODEON AT" on_id="133"  ts_id="7"   svc_id="61"   index="50"/>
+            <rank name="MTV" on_id="1"  ts_id="1078"   svc_id="28678"   index="51"/>
+            <rank name="Comedy Central Austria" on_id="133"  ts_id="7"   svc_id="60"   index="52"/>
+            <rank name="ATV2" on_id="1"  ts_id="1003"   svc_id="13223"   index="53"/>
+            <rank name="WELT HD" on_id="1"  ts_id="1053"   svc_id="21118"   index="54"/>
+            <rank name="3sat HD" on_id="1"  ts_id="1010"   svc_id="11150"   index="55"/>
+            <rank name="arte HD" on_id="1"  ts_id="1019"   svc_id="10302"   index="56"/>
+            <rank name="ONE HD" on_id="1"  ts_id="1039"   svc_id="10376"   index="57"/>
+            <rank name="zdfneo HD" on_id="1"  ts_id="1011"   svc_id="11130"   index="64"/>
+            <rank name="SWR RP HD" on_id="1"  ts_id="1019"   svc_id="10304"   index="65"/>
+            <rank name="MDR Sachsen HD" on_id="1"  ts_id="1061"   svc_id="10352"   index="66"/>
+            <rank name="rbb Berlin HD" on_id="1"  ts_id="1061"   svc_id="10351"   index="67"/>
+            <rank name="hr-fernsehen HD" on_id="1"  ts_id="1061"   svc_id="10355"   index="68"/>
+            <rank name="SR Fernsehen HD" on_id="1"  ts_id="1039"   svc_id="10378"   index="69"/>
+            <rank name="WDR HD Kln" on_id="1"  ts_id="1201"   svc_id="28325"   index="70"/>
+            <rank name="NDR FS HH HD" on_id="1"  ts_id="1025"   svc_id="10329"   index="71"/>
+            <rank name="BR Fernsehen Sd HD" on_id="1"  ts_id="1025"   svc_id="10325"   index="72"/>
+            <rank name="SAT.1 Gold sterreich" on_id="1"  ts_id="1031"   svc_id="5310"   index="73"/>
+            <rank name="sixx Austria" on_id="1"  ts_id="1115"   svc_id="13106"   index="80"/>
+            <rank name="1-2-3.tv" on_id="133"  ts_id="5"   svc_id="662"   index="81"/>
+            <rank name="ZDFinfo HD" on_id="1"  ts_id="1010"   svc_id="11170"   index="82"/>
+            <rank name="tagesschau24 HD" on_id="1"  ts_id="1039"   svc_id="10375"   index="83"/>
+            <rank name="Pro7 MAXX Austria" on_id="1"  ts_id="1031"   svc_id="5311"   index="84"/>
+            <rank name="ORF SPORT+ HD" on_id="1"  ts_id="1005"   svc_id="13309"   index="85"/>
+            <rank name="CNN Int." on_id="1"  ts_id="1028"   svc_id="4422"   index="86"/>
+            <rank name="BBC World News Europe HD" on_id="1"  ts_id="1002"   svc_id="5001"   index="87"/>
+            <rank name="CNBC Europe" on_id="1"  ts_id="1026"   svc_id="10030"   index="88"/>
+            <rank name="Bloomberg Europe TV" on_id="1"  ts_id="1026"   svc_id="10067"   index="89"/>
+            <rank name="EURONEWS GERMAN SD" on_id="1"  ts_id="1091"   svc_id="31230"   index="96"/>
+            <rank name="Franken Fernsehen HD" on_id="1"  ts_id="1049"   svc_id="5901"   index="97"/>
+            <rank name="L-TV" on_id="1"  ts_id="1115"   svc_id="13113"   index="98"/>
+            <rank name="ORF III HD" on_id="1"  ts_id="1005"   svc_id="13308"   index="99"/>
+            <rank name="mnchen.tv HD" on_id="1"  ts_id="1023"   svc_id="5801"   index="100"/>
+            <rank name="Oberpfalz TV HD" on_id="1"  ts_id="1049"   svc_id="5905"   index="101"/>
+            <rank name="phoenix HD" on_id="1"  ts_id="1025"   svc_id="10331"   index="102"/>
+            <rank name="REGIO TV" on_id="133"  ts_id="33"   svc_id="47"   index="103"/>
+            <rank name="rhein main tv" on_id="1"  ts_id="1113"   svc_id="12614"   index="104"/>
+            <rank name="BR Fernsehen Nord HD" on_id="1"  ts_id="1025"   svc_id="10326"   index="105"/>
+            <rank name="DISNEY CHANNEL" on_id="1"  ts_id="1090"   svc_id="9007"   index="112"/>
+            <rank name="KiKA HD" on_id="1"  ts_id="1010"   svc_id="11160"   index="113"/>
+            <rank name="TOGGO plus" on_id="1"  ts_id="1089"   svc_id="12030"   index="114"/>
+            <rank name="Zee One HD" on_id="1"  ts_id="1033"   svc_id="10101"   index="115"/>
+            <rank name="SPORT1" on_id="133"  ts_id="33"   svc_id="900"   index="116"/>
+            <rank name="Eurosport 1 Deutschland" on_id="1"  ts_id="1091"   svc_id="31200"   index="117"/>
+            <rank name="Sky Sport News HD" on_id="133"  ts_id="12"   svc_id="108"   index="118"/>
+            <rank name="ARD-alpha" on_id="1"  ts_id="1093"   svc_id="28487"   index="119"/>
+            <rank name="Welt der Wunder" on_id="1"  ts_id="1115"   svc_id="13103"   index="120"/>
+            <rank name="kabel1 Doku austria" on_id="1"  ts_id="1031"   svc_id="5312"   index="121"/>
+            <rank name="WELT" on_id="1"  ts_id="1107"   svc_id="17503"   index="128"/>
+            <rank name="DELUXE MUSIC" on_id="133"  ts_id="7"   svc_id="65"   index="129"/>
+            <rank name="Volksmusik" on_id="1"  ts_id="1003"   svc_id="13222"   index="130"/>
+            <rank name="Folx TV" on_id="1"  ts_id="1117"   svc_id="13018"   index="131"/>
+            <rank name="Melodie TV NEU" on_id="1"  ts_id="1005"   svc_id="13317"   index="132"/>
+            <rank name="Bibel TV HD" on_id="1"  ts_id="1003"   svc_id="13224"   index="133"/>
+            <rank name="EWTN katholisches TVD" on_id="133"  ts_id="5"   svc_id="62"   index="134"/>
+            <rank name="HOPE Channel HD" on_id="1"  ts_id="1003"   svc_id="13227"   index="135"/>
+            <rank name="K-TV" on_id="1"  ts_id="1113"   svc_id="12601"   index="136"/>
+            <rank name="SOPHIA TV" on_id="1"  ts_id="1053"   svc_id="21112"   index="137"/>
+            <rank name="a.tv HD" on_id="1"  ts_id="1023"   svc_id="5800"   index="144"/>
+            <rank name="rfo HD Fernsehen Oberbaye" on_id="1"  ts_id="1023"   svc_id="5802"   index="145"/>
+            <rank name="Ulm-Allgu HD" on_id="1"  ts_id="1023"   svc_id="5803"   index="146"/>
+            <rank name="tv.ingolstadt HD" on_id="1"  ts_id="1023"   svc_id="5804"   index="147"/>
+            <rank name="TV Mainfranken HD" on_id="1"  ts_id="1049"   svc_id="5900"   index="148"/>
+            <rank name="TVA Ostbayern HD" on_id="1"  ts_id="1049"   svc_id="5902"   index="149"/>
+            <rank name="tv oberfranken HD" on_id="1"  ts_id="1049"   svc_id="5903"   index="150"/>
+            <rank name="NIEDERBAYERN TV HD" on_id="1"  ts_id="1049"   svc_id="5904"   index="151"/>
+            <rank name="Oberpfalz TV HD" on_id="1"  ts_id="1019"   svc_id="10303"   index="152"/>
+            <rank name="Lokal-TV-Portal HD" on_id="1"  ts_id="1023"   svc_id="5805"   index="153"/>
+            <rank name="Sky Atlantic HD" on_id="133"  ts_id="13"   svc_id="110"   index="256"/>
+            <rank name="Sky Cinema HD" on_id="133"  ts_id="6"   svc_id="131"   index="257"/>
+            <rank name="Sky Cinema +1 HD" on_id="133"  ts_id="11"   svc_id="134"   index="258"/>
+            <rank name="Sky Cinema +24 HD" on_id="133"  ts_id="11"   svc_id="135"   index="259"/>
+            <rank name="Sky Cinema Action HDaye" on_id="133"  ts_id="9"   svc_id="116"   index="260"/>
+            <rank name="Sky Cinema Family HDaye" on_id="133"  ts_id="2"   svc_id="139"   index="261"/>
+            <rank name="Sky Sport 1 HD" on_id="133"  ts_id="6"   svc_id="129"   index="262"/>
+            <rank name="Sky Sport 2 HD" on_id="133"  ts_id="13"   svc_id="114"   index="263"/>
+            <rank name="Sky Sport Austria HDaye" on_id="133"  ts_id="9"   svc_id="143"   index="264"/>
+            <rank name="Universal TV HD" on_id="133"  ts_id="9"   svc_id="101"   index="265"/>
+            <rank name="TNT Comedy HD" on_id="133"  ts_id="11"   svc_id="136"   index="272"/>
+            <rank name="TNT Film HD" on_id="133"  ts_id="4"   svc_id="140"   index="273"/>
+            <rank name="TNT HD" on_id="1"  ts_id="1044"   svc_id="30856"   index="274"/>
+            <rank name="TNT Serie HD" on_id="133"  ts_id="9"   svc_id="123"   index="275"/>
+            <rank name="DAZN 1 Bar HD" on_id="133"  ts_id="9"   svc_id="132"   index="276"/>
+            <rank name="DAZN 2 Bar HD" on_id="133"  ts_id="16"   svc_id="122"   index="277"/>
+            <rank name="Discovery HD" on_id="133"  ts_id="6"   svc_id="130"   index="278"/>
+            <rank name="Disney Channel HD" on_id="1"  ts_id="1055"   svc_id="5500"   index="279"/>
+            <rank name="FOX HD" on_id="1"  ts_id="1056"   svc_id="29956"   index="280"/>
+            <rank name="History HD" on_id="133"  ts_id="11"   svc_id="113"   index="281"/>
+            <rank name="NAT GEO HD" on_id="1"  ts_id="1064"   svc_id="30761"   index="288"/>
+            <rank name="Nat Geo Wild HD" on_id="133"  ts_id="6"   svc_id="118"   index="289"/>
+            <rank name="Beate-Uhse.TV HD" on_id="133"  ts_id="3"   svc_id="133"   index="290"/>
+            <rank name="Blue Movie" on_id="133"  ts_id="11"   svc_id="513"   index="291"/>
+            <rank name="Blue Movie 1" on_id="133"  ts_id="11"   svc_id="345"   index="292"/>
+            <rank name="Blue Movie 2" on_id="133"  ts_id="11"   svc_id="355"   index="293"/>
+            <rank name="Blue Movie 3" on_id="133"  ts_id="11"   svc_id="365"   index="294"/>
+            <rank name="Sky Cinema" on_id="133"  ts_id="4"   svc_id="10"   index="295"/>
+            <rank name="Sky Cinema +1" on_id="133"  ts_id="6"   svc_id="11"   index="296"/>
+            <rank name="Sky Cinema +24" on_id="133"  ts_id="6"   svc_id="43"   index="297"/>
+            <rank name="Sky Krimi" on_id="133"  ts_id="4"   svc_id="23"   index="304"/>
+            <rank name="Sky News Intl" on_id="1"  ts_id="1111"   svc_id="7290"   index="305"/>
+            <rank name="Sky Select" on_id="133"  ts_id="4"   svc_id="18"   index="306"/>
+            <rank name="Sky Select 1" on_id="133"  ts_id="3"   svc_id="251"   index="307"/>
+            <rank name="Sky Select 2" on_id="133"  ts_id="3"   svc_id="261"   index="308"/>
+            <rank name="Sky Select 3" on_id="133"  ts_id="2"   svc_id="271"   index="309"/>
+            <rank name="Sky Select 4" on_id="133"  ts_id="2"   svc_id="281"   index="310"/>
+            <rank name="Sky Select 5" on_id="133"  ts_id="3"   svc_id="291"   index="311"/>
+            <rank name="Sky Select 6" on_id="133"  ts_id="3"   svc_id="301"   index="312"/>
+            <rank name="Sky Select 7" on_id="133"  ts_id="3"   svc_id="311"   index="313"/>
+            <rank name="Sky Select 8" on_id="133"  ts_id="3"   svc_id="321"   index="320"/>
+            <rank name="Sky Select 9" on_id="133"  ts_id="2"   svc_id="331"   index="321"/>
+            <rank name="Sky Sport 1" on_id="133"  ts_id="4"   svc_id="221"   index="322"/>
+            <rank name="Sky Sport 2" on_id="133"  ts_id="2"   svc_id="222"   index="323"/>
+            <rank name="Sky Sport 3" on_id="133"  ts_id="3"   svc_id="263"   index="324"/>
+            <rank name="Sky Sport 4" on_id="133"  ts_id="2"   svc_id="273"   index="325"/>
+            <rank name="Sky Sport 5" on_id="133"  ts_id="2"   svc_id="283"   index="326"/>
+            <rank name="Sky Sport Austria 1" on_id="133"  ts_id="2"   svc_id="30"   index="327"/>
+            <rank name="13th Street HD" on_id="133"  ts_id="13"   svc_id="127"   index="328"/>
+            <rank name="kabel eins HD" on_id="1"  ts_id="1017"   svc_id="61302"   index="329"/>
+            <rank name="DISNEY CHANNEL+1" on_id="1"  ts_id="1084"   svc_id="9408"   index="336"/>
+            <rank name="DISNEY CINEMA" on_id="1"  ts_id="1084"   svc_id="9402"   index="337"/>
+            <rank name="Disney Cinemagic HD" on_id="133"  ts_id="13"   svc_id="111"   index="338"/>
+            <rank name="Disney Junior HD" on_id="133"  ts_id="3"   svc_id="138"   index="339"/>
+            <rank name="Comedy Central HD" on_id="1"  ts_id="1053"   svc_id="21107"   index="340"/>
+            <rank name="Comedy Central HD ATaye" on_id="1"  ts_id="1053"   svc_id="21117"   index="341"/>
+            <rank name="COMEDYCENTRALHD" on_id="1"  ts_id="1004"   svc_id="30912"   index="342"/>
+            <rank name="Eurosport 1 HD" on_id="1"  ts_id="1043"   svc_id="12502"   index="343"/>
+            <rank name="Eurosport 2 HD" on_id="133"  ts_id="11"   svc_id="109"   index="344"/>
+            <rank name="Eurosport360HD 1" on_id="133"  ts_id="6"   svc_id="270"   index="345"/>
+            <rank name="MTV HD" on_id="1"  ts_id="1033"   svc_id="10103"   index="352"/>
+            <rank name="Sky Sport 3 HD" on_id="133"  ts_id="6"   svc_id="268"   index="353"/>
+            <rank name="Sky Sport 4 HD" on_id="133"  ts_id="13"   svc_id="278"   index="354"/>
+            <rank name="Sky Sport 5 HD" on_id="133"  ts_id="12"   svc_id="288"   index="355"/>
+            <rank name="Sky Sport Bundesliga 1 H" on_id="133"  ts_id="12"   svc_id="105"   index="356"/>
+            <rank name="Sky Sport Bundesliga 2 H" on_id="133"  ts_id="6"   svc_id="267"   index="357"/>
+            <rank name="Sky Sport Bundesliga 3 H" on_id="133"  ts_id="13"   svc_id="277"   index="358"/>
+            <rank name="Sky Sport Bundesliga 4 H" on_id="133"  ts_id="12"   svc_id="287"   index="359"/>
+            <rank name="Sky Sport Bundesliga 5 H" on_id="133"  ts_id="9"   svc_id="297"   index="360"/>
+            <rank name="Sky Cinema Action" on_id="133"  ts_id="3"   svc_id="9"   index="361"/>
+            <rank name="Sky Cinema Comedy" on_id="133"  ts_id="3"   svc_id="8"   index="368"/>
+            <rank name="Sky Cinema Emotion" on_id="133"  ts_id="4"   svc_id="20"   index="369"/>
+            <rank name="Sky Cinema Family" on_id="133"  ts_id="4"   svc_id="407"   index="370"/>
+            <rank name="Sky Cinema Hits" on_id="133"  ts_id="2"   svc_id="41"   index="371"/>
+            <rank name="Sky Cinema Nostalgie5" on_id="133"  ts_id="4"   svc_id="516"   index="372"/>
+            <rank name="Sky Select Event A" on_id="133"  ts_id="3"   svc_id="254"   index="373"/>
+            <rank name="Sky Select Event B" on_id="133"  ts_id="2"   svc_id="334"   index="374"/>
+            <rank name="NatGeo HD" on_id="133"  ts_id="13"   svc_id="112"   index="375"/>
+            <rank name="NATIONAL GEO" on_id="1"  ts_id="1090"   svc_id="9002"   index="376"/>
+            <rank name="NATIONAL GEOGRAPHIC  WILD" on_id="1"  ts_id="1102"   svc_id="6501"   index="377"/>
+            <rank name="NG WILD HD" on_id="1"  ts_id="1044"   svc_id="30857"   index="384"/>
+            <rank name="Pro7 MAXX HD" on_id="1"  ts_id="1017"   svc_id="61304"   index="385"/>
+            <rank name="E! Entertainm. HD" on_id="133"  ts_id="11"   svc_id="128"   index="386"/>
+            <rank name="Fox HD" on_id="133"  ts_id="12"   svc_id="124"   index="387"/>
+            <rank name="FOX LIFE HD" on_id="1"  ts_id="1004"   svc_id="30901"   index="388"/>
+            <rank name="SYFY HD" on_id="133"  ts_id="12"   svc_id="126"   index="389"/>
+            <rank name="Heimatkanal" on_id="133"  ts_id="2"   svc_id="22"   index="390"/>
+            <rank name="RTL HD Austria" on_id="1"  ts_id="1041"   svc_id="11911"   index="391"/>
+            <rank name="VOX HD Austria" on_id="1"  ts_id="1041"   svc_id="11921"   index="392"/>
+            <rank name="RTL II HD Austria" on_id="1"  ts_id="1041"   svc_id="11941"   index="393"/>
+            <rank name="." on_id="1"  ts_id="1070"   svc_id="8006"   index="400"/>
+            <rank name="rbb Brandenburg" on_id="1"  ts_id="1073"   svc_id="28205"   index="401"/>
+            <rank name="NDR FS MV" on_id="1"  ts_id="1073"   svc_id="28224"   index="402"/>
+            <rank name="MDR S-Anhalt" on_id="1"  ts_id="1073"   svc_id="28229"   index="403"/>
+            <rank name="SWR Fernsehen BW" on_id="1"  ts_id="1101"   svc_id="28113"   index="404"/>
+            <rank name="3sat" on_id="1"  ts_id="1079"   svc_id="28007"   index="405"/>
+            <rank name="HSE24 EXTRA" on_id="1"  ts_id="1091"   svc_id="31210"   index="406"/>
+            <rank name="ServusTV HD Deutschland" on_id="1"  ts_id="1007"   svc_id="4914"   index="407"/>
+            <rank name="QVC2" on_id="1"  ts_id="1108"   svc_id="3394"   index="408"/>
+            <rank name="QVC Deutschland" on_id="1"  ts_id="1108"   svc_id="12100"   index="409"/>
+            <rank name="ServusTV Oesterreich" on_id="1"  ts_id="1115"   svc_id="13111"   index="512"/>
+            <rank name="kabel eins HD AustriaD" on_id="1"  ts_id="1017"   svc_id="61322"   index="513"/>
+            <rank name="ProSieben HD AustriaD" on_id="1"  ts_id="1031"   svc_id="5301"   index="514"/>
+            <rank name="Pro7 MAXX HD AustriaD" on_id="1"  ts_id="1017"   svc_id="61324"   index="515"/>
+            <rank name="sixx HD Austria" on_id="1"  ts_id="1017"   svc_id="61323"   index="516"/>
+            <rank name="PULS 4 HD Austria" on_id="1"  ts_id="1031"   svc_id="5303"   index="517"/>
+            <rank name="SAT.1 HD Austria" on_id="1"  ts_id="1031"   svc_id="5300"   index="518"/>
+            <rank name="DMAX HD Austria" on_id="1"  ts_id="1109"   svc_id="5422"   index="519"/>
+            <rank name="Disney Channel HD Austri" on_id="1"  ts_id="1055"   svc_id="5510"   index="520"/>
+            <rank name="Deluxe Music HD Austria" on_id="1"  ts_id="1055"   svc_id="5513"   index="521"/>
+            <rank name="TLC HD Austria" on_id="1"  ts_id="1033"   svc_id="10110"   index="528"/>
+            <rank name="MTV HD Austria" on_id="1"  ts_id="1033"   svc_id="10113"   index="529"/>
+            <rank name="Eurosport 1 HD Austria" on_id="1"  ts_id="1043"   svc_id="12522"   index="530"/>
+            <rank name="SAT.1 Gold HD Austria" on_id="1"  ts_id="1043"   svc_id="12520"   index="531"/>
+            <rank name="ORF SPORT+" on_id="1"  ts_id="1003"   svc_id="13221"   index="532"/>
+            <rank name="ORF2B HD" on_id="1"  ts_id="1005"   svc_id="13303"   index="533"/>
+            <rank name="ORF2K HD" on_id="1"  ts_id="1005"   svc_id="13302"   index="534"/>
+            <rank name="ORF2O HD" on_id="1"  ts_id="1005"   svc_id="13304"   index="535"/>
+            <rank name="ORF2N HD" on_id="1"  ts_id="1007"   svc_id="4916"   index="536"/>
+            <rank name="ORF2S HD" on_id="1"  ts_id="1005"   svc_id="13305"   index="537"/>
+            <rank name="ORF2St HD" on_id="1"  ts_id="1005"   svc_id="13301"   index="544"/>
+            <rank name="ORF2T HD" on_id="1"  ts_id="1005"   svc_id="13306"   index="545"/>
+            <rank name="ORF2V HD" on_id="1"  ts_id="1005"   svc_id="13307"   index="546"/>
+            <rank name="ProSieben HD" on_id="1"  ts_id="1017"   svc_id="61301"   index="547"/>
+            <rank name="TELE 5 HD Austria" on_id="1"  ts_id="1109"   svc_id="5421"   index="548"/>
+            <rank name="ORF III" on_id="1"  ts_id="1115"   svc_id="13101"   index="549"/>
+            <rank name="ATV" on_id="1"  ts_id="1117"   svc_id="13012"   index="550"/>
+            <rank name="ORF1" on_id="1"  ts_id="1117"   svc_id="13001"   index="551"/>
+            <rank name="ORF2" on_id="1"  ts_id="1117"   svc_id="13002"   index="552"/>
+            <rank name="ORF2 B" on_id="1"  ts_id="1117"   svc_id="13005"   index="553"/>
+            <rank name="ORF2 K" on_id="1"  ts_id="1117"   svc_id="13011"   index="560"/>
+            <rank name="ORF2 N" on_id="1"  ts_id="1117"   svc_id="13004"   index="561"/>
+            <rank name="ORF2 O" on_id="1"  ts_id="1117"   svc_id="13006"   index="562"/>
+            <rank name="ORF2 S" on_id="1"  ts_id="1117"   svc_id="13007"   index="563"/>
+            <rank name="ORF2 St" on_id="1"  ts_id="1117"   svc_id="13010"   index="564"/>
+            <rank name="ORF2 T" on_id="1"  ts_id="1117"   svc_id="13008"   index="565"/>
+            <rank name="ORF2 V" on_id="1"  ts_id="1117"   svc_id="13009"   index="566"/>
+            <rank name="ORF2 W" on_id="1"  ts_id="1117"   svc_id="13003"   index="567"/>
+            <rank name="WELT HD" on_id="1"  ts_id="1053"   svc_id="21108"   index="568"/>
+            <rank name="n-tv HD" on_id="1"  ts_id="1057"   svc_id="61204"   index="569"/>
+            <rank name="sportdigital HD" on_id="1"  ts_id="1030"   svc_id="4500"   index="576"/>
+            <rank name="kabel eins classics" on_id="1"  ts_id="1031"   svc_id="5314"   index="577"/>
+            <rank name="SAT.1 emotions" on_id="1"  ts_id="1031"   svc_id="5313"   index="578"/>
+            <rank name="AXN Deutschland" on_id="53"  ts_id="1105"   svc_id="4125"   index="579"/>
+            <rank name="Eurosport2 ger" on_id="53"  ts_id="1105"   svc_id="4106"   index="580"/>
+            <rank name="TELE 5 HD" on_id="1"  ts_id="1109"   svc_id="5401"   index="581"/>
+            <rank name="Nick Jr.." on_id="1"  ts_id="1066"   svc_id="28663"   index="582"/>
+            <rank name="MTV Dance" on_id="1"  ts_id="1078"   svc_id="28655"   index="583"/>
+            <rank name="MTV Hits" on_id="1"  ts_id="1078"   svc_id="28654"   index="584"/>
+            <rank name="MTV Music 24" on_id="1"  ts_id="1078"   svc_id="28671"   index="585"/>
+            <rank name="MTV ROCKS" on_id="1"  ts_id="1078"   svc_id="28659"   index="592"/>
+            <rank name="VH1" on_id="1"  ts_id="1078"   svc_id="28656"   index="593"/>
+            <rank name="VH1 Classic" on_id="1"  ts_id="1078"   svc_id="28657"   index="594"/>
+            <rank name="Brazzers TV" on_id="53"  ts_id="1105"   svc_id="4105"   index="595"/>
+            <rank name="Hustler TV" on_id="53"  ts_id="1105"   svc_id="4107"   index="596"/>
+            <rank name="Vivid" on_id="53"  ts_id="1105"   svc_id="4064"   index="597"/>
+            <rank name="Planet" on_id="53"  ts_id="1105"   svc_id="4115"   index="598"/>
+            <rank name="JuweloTV" on_id="1"  ts_id="1113"   svc_id="12616"   index="599"/>
+            <rank name="Kabel 1 Schweiz" on_id="1"  ts_id="1082"   svc_id="20003"   index="600"/>
+            <rank name="kabel eins" on_id="1"  ts_id="1107"   svc_id="17502"   index="601"/>
+            <rank name="KiKA" on_id="1"  ts_id="1079"   svc_id="28008"   index="608"/>
+            <rank name="0 HD" on_id="1"  ts_id="1044"   svc_id="30860"   index="609"/>
+            <rank name="VAMOSHD" on_id="1"  ts_id="1016"   svc_id="29902"   index="610"/>
+            <rank name="VAMOSHD" on_id="1"  ts_id="1016"   svc_id="29910"   index="611"/>
+            <rank name="." on_id="133"  ts_id="9"   svc_id="142"   index="612"/>
+            <rank name="." on_id="133"  ts_id="15"   svc_id="55"   index="613"/>
+            <rank name="." on_id="1"  ts_id="1031"   svc_id="5302"   index="614"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4712"   index="615"/>
+            <rank name="." on_id="133"  ts_id="12"   svc_id="117"   index="616"/>
+            <rank name="3+" on_id="1"  ts_id="1015"   svc_id="4704"   index="617"/>
+            <rank name="6TER" on_id="1"  ts_id="1070"   svc_id="8011"   index="624"/>
+            <rank name="Al Jazeera English HDi" on_id="1"  ts_id="1002"   svc_id="5031"   index="625"/>
+            <rank name="ALQUILER 2 HD" on_id="1"  ts_id="1050"   svc_id="30814"   index="626"/>
+            <rank name="ALQUILER HD" on_id="1"  ts_id="1050"   svc_id="30804"   index="627"/>
+            <rank name="PULS 24 HD" on_id="1"  ts_id="1031"   svc_id="5304"   index="628"/>
+            <rank name="ANIXE+" on_id="133"  ts_id="5"   svc_id="764"   index="629"/>
+            <rank name="ARD-alpha HD" on_id="1"  ts_id="1039"   svc_id="10377"   index="630"/>
+            <rank name="AXN HD" on_id="1"  ts_id="1050"   svc_id="30806"   index="631"/>
+            <rank name="AXN WHITE HD" on_id="1"  ts_id="1016"   svc_id="29915"   index="632"/>
+            <rank name="BEIN LALIGA" on_id="1"  ts_id="1056"   svc_id="29967"   index="633"/>
+            <rank name="BEIN SPORTS 1" on_id="1"  ts_id="1088"   svc_id="9314"   index="640"/>
+            <rank name="BEINLALIGA1" on_id="1"  ts_id="1056"   svc_id="29951"   index="641"/>
+            <rank name="M. LaLiga 2 HD" on_id="1"  ts_id="1050"   svc_id="30805"   index="642"/>
+            <rank name="BET" on_id="1"  ts_id="1070"   svc_id="8001"   index="643"/>
+            <rank name="BOING" on_id="1"  ts_id="1090"   svc_id="9005"   index="644"/>
+            <rank name="BOOMERANG" on_id="1"  ts_id="1090"   svc_id="9011"   index="645"/>
+            <rank name="CLASSICA" on_id="1"  ts_id="1092"   svc_id="6613"   index="646"/>
+            <rank name="CALLE 13 HD" on_id="1"  ts_id="1064"   svc_id="30756"   index="647"/>
+            <rank name="CANAL J" on_id="1"  ts_id="1102"   svc_id="6511"   index="648"/>
+            <rank name="CANAL+" on_id="1"  ts_id="1080"   svc_id="8801"   index="649"/>
+            <rank name="CANAL+ CINEMA" on_id="1"  ts_id="1080"   svc_id="8803"   index="656"/>
+            <rank name="CANAL+ SERIES" on_id="1"  ts_id="1080"   svc_id="8806"   index="657"/>
+            <rank name="CANAL+ FAMILY" on_id="1"  ts_id="1080"   svc_id="8805"   index="658"/>
+            <rank name="CANAL+ SPORT" on_id="1"  ts_id="1080"   svc_id="8804"   index="659"/>
+            <rank name="CNEWS" on_id="1"  ts_id="1090"   svc_id="9014"   index="660"/>
+            <rank name="hr-fernsehen" on_id="1"  ts_id="1101"   svc_id="28108"   index="661"/>
+            <rank name="SIXX" on_id="133"  ts_id="5"   svc_id="776"   index="662"/>
+            <rank name="CARTOON NETWORK" on_id="1"  ts_id="1086"   svc_id="9908"   index="663"/>
+            <rank name="ANIXE HD" on_id="1"  ts_id="1053"   svc_id="21100"   index="664"/>
+            <rank name="CAZAyPESCA HD" on_id="1"  ts_id="1044"   svc_id="30861"   index="665"/>
+            <rank name="INSIGHT TV UHD" on_id="1"  ts_id="1097"   svc_id="2000"   index="768"/>
+            <rank name="Fashion 4K" on_id="1"  ts_id="1043"   svc_id="12510"   index="769"/>
+            <rank name="PEARL TV 4K UHD" on_id="1"  ts_id="1097"   svc_id="2010"   index="770"/>
+            <rank name="Sky Sport UHD" on_id="133"  ts_id="16"   svc_id="553"   index="771"/>
+            <rank name="SES UHD Demo Channel" on_id="1"  ts_id="1035"   svc_id="1"   index="772"/>
+            <rank name="UHD1 by ASTRA / HD+" on_id="1"  ts_id="1035"   svc_id="2"   index="773"/>
+            <rank name="Travelxp 4k" on_id="1"  ts_id="1035"   svc_id="6202"   index="774"/>
+            <rank name="QVC UHD" on_id="1"  ts_id="1006"   svc_id="4230"   index="775"/>
+            <rank name="Sky Sport Bundesliga UHD" on_id="133"  ts_id="16"   svc_id="552"   index="776"/>
+            <rank name="RTL UHD" on_id="1"  ts_id="1013"   svc_id="12410"   index="777"/>
+            <rank name="CINE+ CLASSIC" on_id="1"  ts_id="1080"   svc_id="8809"   index="784"/>
+            <rank name="CINE+ CLUB" on_id="1"  ts_id="1086"   svc_id="9913"   index="785"/>
+            <rank name="CINE+ EMOTION" on_id="1"  ts_id="1088"   svc_id="9307"   index="786"/>
+            <rank name="CINE+ FAMIZ" on_id="1"  ts_id="1080"   svc_id="8808"   index="787"/>
+            <rank name="CINE+ FRISSON" on_id="1"  ts_id="1080"   svc_id="8807"   index="788"/>
+            <rank name="CINE+ PREMIER" on_id="1"  ts_id="1088"   svc_id="9302"   index="789"/>
+            <rank name="COLMAX TV" on_id="1"  ts_id="1084"   svc_id="9413"   index="790"/>
+            <rank name="COMEDIE+" on_id="1"  ts_id="1102"   svc_id="6508"   index="791"/>
+            <rank name="COSMO HD" on_id="1"  ts_id="1004"   svc_id="30904"   index="792"/>
+            <rank name="CSTAR" on_id="1"  ts_id="1090"   svc_id="9013"   index="793"/>
+            <rank name="CSTAR HITS FRANCE" on_id="1"  ts_id="1084"   svc_id="9410"   index="800"/>
+            <rank name="Deluxe Music HD" on_id="1"  ts_id="1055"   svc_id="5503"   index="801"/>
+            <rank name="DISNEY CH HD" on_id="1"  ts_id="1044"   svc_id="30859"   index="802"/>
+            <rank name="DISNEY XD" on_id="1"  ts_id="1084"   svc_id="9401"   index="803"/>
+            <rank name="DJAZZ" on_id="1"  ts_id="1102"   svc_id="6504"   index="804"/>
+            <rank name="DMAX HD" on_id="1"  ts_id="1109"   svc_id="5402"   index="805"/>
+            <rank name="EQUIDIA" on_id="1"  ts_id="1092"   svc_id="6612"   index="806"/>
+            <rank name="EUROSPORT 1" on_id="1"  ts_id="1088"   svc_id="9313"   index="807"/>
+            <rank name="EUROSPORT 2" on_id="1"  ts_id="1084"   svc_id="9406"   index="808"/>
+            <rank name="Eurosport 2 HD Xtra" on_id="1"  ts_id="1043"   svc_id="12503"   index="809"/>
+            <rank name="EUROSPORT1HD" on_id="1"  ts_id="1064"   svc_id="30758"   index="816"/>
+            <rank name="Eurosport360HD 2" on_id="133"  ts_id="13"   svc_id="280"   index="817"/>
+            <rank name="Eurosport360HD 3" on_id="133"  ts_id="12"   svc_id="290"   index="818"/>
+            <rank name="Eurosport360HD 4" on_id="133"  ts_id="9"   svc_id="300"   index="819"/>
+            <rank name="Eurosport360HD 5" on_id="133"  ts_id="4"   svc_id="310"   index="820"/>
+            <rank name="Eurosport360HD 6" on_id="133"  ts_id="2"   svc_id="320"   index="821"/>
+            <rank name="Eurosport360HD 7" on_id="133"  ts_id="6"   svc_id="330"   index="822"/>
+            <rank name="Eurosport360HD 8" on_id="133"  ts_id="16"   svc_id="340"   index="823"/>
+            <rank name="Eurosport360HD 9" on_id="133"  ts_id="11"   svc_id="260"   index="824"/>
+            <rank name="EVENEMENT" on_id="1"  ts_id="1092"   svc_id="6609"   index="825"/>
+            <rank name="EXTREME SPORTS" on_id="1"  ts_id="1102"   svc_id="6509"   index="832"/>
+            <rank name="flimmit Zusatzpaket" on_id="1"  ts_id="1005"   svc_id="13310"   index="833"/>
+            <rank name="FRANCE 2" on_id="1"  ts_id="1088"   svc_id="9306"   index="834"/>
+            <rank name="FRANCE 3" on_id="1"  ts_id="1088"   svc_id="9309"   index="835"/>
+            <rank name="FRANCE 5" on_id="1"  ts_id="1090"   svc_id="9008"   index="836"/>
+            <rank name="FRANCEINFO" on_id="1"  ts_id="1070"   svc_id="8005"   index="837"/>
+            <rank name="freenet TV connect" on_id="1"  ts_id="1113"   svc_id="12607"   index="838"/>
+            <rank name="GAME ONE" on_id="1"  ts_id="1084"   svc_id="9415"   index="839"/>
+            <rank name="GOLF+" on_id="1"  ts_id="1086"   svc_id="9903"   index="840"/>
+            <rank name="Handystar TV HD" on_id="1"  ts_id="1033"   svc_id="10102"   index="841"/>
+            <rank name="HITRADIO OE3" on_id="1"  ts_id="1117"   svc_id="13013"   index="848"/>
+            <rank name="C8" on_id="1"  ts_id="1090"   svc_id="9012"   index="849"/>
+            <rank name="HOLLYWOODHD" on_id="1"  ts_id="1056"   svc_id="29964"   index="850"/>
+            <rank name="INFOSPORT+" on_id="1"  ts_id="1090"   svc_id="9010"   index="851"/>
+            <rank name="INSIGHT TV HD" on_id="1"  ts_id="1002"   svc_id="5010"   index="852"/>
+            <rank name="INSIGHT TV HD INT" on_id="1"  ts_id="1002"   svc_id="5011"   index="853"/>
+            <rank name="J-ONE" on_id="1"  ts_id="1086"   svc_id="9906"   index="854"/>
+            <rank name="SAT.1 HD" on_id="1"  ts_id="1017"   svc_id="61300"   index="855"/>
+            <rank name="LA 1 HD" on_id="1"  ts_id="1050"   svc_id="30819"   index="856"/>
+            <rank name="LALIGATV BAR" on_id="1"  ts_id="1050"   svc_id="30809"   index="857"/>
+            <rank name="LCI" on_id="1"  ts_id="1090"   svc_id="9009"   index="864"/>
+            <rank name="LCP" on_id="1"  ts_id="1090"   svc_id="9015"   index="865"/>
+            <rank name="LIBIDO TV" on_id="1"  ts_id="1092"   svc_id="6607"   index="866"/>
+            <rank name="M. ACCIN HD" on_id="1"  ts_id="1056"   svc_id="29961"   index="867"/>
+            <rank name="M. DEPORTESHD" on_id="1"  ts_id="1064"   svc_id="30760"   index="868"/>
+            <rank name="M. DRAMA HD" on_id="1"  ts_id="1056"   svc_id="29963"   index="869"/>
+            <rank name="M. GOLF HD" on_id="1"  ts_id="1004"   svc_id="30903"   index="870"/>
+            <rank name="M. SERIES HD" on_id="1"  ts_id="1044"   svc_id="30850"   index="871"/>
+            <rank name="M.CineDoc&amp;Roll" on_id="1"  ts_id="1016"   svc_id="29912"   index="872"/>
+            <rank name="M.COMEDIA HD" on_id="1"  ts_id="1050"   svc_id="30807"   index="873"/>
+            <rank name="M.ESTRENOSHD" on_id="1"  ts_id="1016"   svc_id="29909"   index="880"/>
+            <rank name="M.LCAMPEON1" on_id="1"  ts_id="1050"   svc_id="30817"   index="881"/>
+            <rank name="M.LCAMPEON2" on_id="1"  ts_id="1050"   svc_id="30820"   index="882"/>
+            <rank name="M.LCAMPEONES" on_id="1"  ts_id="1004"   svc_id="30900"   index="883"/>
+            <rank name="M. LaLiga 3 HD" on_id="1"  ts_id="1050"   svc_id="30815"   index="884"/>
+            <rank name="M.Seriesmania HD" on_id="1"  ts_id="1004"   svc_id="30902"   index="885"/>
+            <rank name="M6" on_id="1"  ts_id="1088"   svc_id="9303"   index="886"/>
+            <rank name="M6 MUSIC" on_id="1"  ts_id="1102"   svc_id="6503"   index="887"/>
+            <rank name="MAN X" on_id="1"  ts_id="1102"   svc_id="6507"   index="888"/>
+            <rank name="MB LIVE" on_id="1"  ts_id="1002"   svc_id="5081"   index="889"/>
+            <rank name="MB SAT - Test2" on_id="1"  ts_id="1113"   svc_id="12644"   index="896"/>
+            <rank name="MDR S-Anhalt HD" on_id="1"  ts_id="1061"   svc_id="10353"   index="897"/>
+            <rank name="MDR Thringen HD" on_id="1"  ts_id="1061"   svc_id="10354"   index="898"/>
+            <rank name="MEZZO" on_id="1"  ts_id="1070"   svc_id="8010"   index="899"/>
+            <rank name="MEZZO LIVE" on_id="1"  ts_id="1102"   svc_id="6502"   index="900"/>
+            <rank name="MEZZO LIVE HD" on_id="1"  ts_id="1064"   svc_id="30755"   index="901"/>
+            <rank name="MTV" on_id="1"  ts_id="1070"   svc_id="8004"   index="902"/>
+            <rank name="MTV HITS" on_id="1"  ts_id="1070"   svc_id="8003"   index="903"/>
+            <rank name="MULTISPORTS 1" on_id="1"  ts_id="1070"   svc_id="8013"   index="904"/>
+            <rank name="MULTISPORTS 3" on_id="1"  ts_id="1102"   svc_id="6513"   index="905"/>
+            <rank name="MULTISPORTS 5" on_id="1"  ts_id="1086"   svc_id="9921"   index="912"/>
+            <rank name="MULTISPORTS 6" on_id="1"  ts_id="1092"   svc_id="6621"   index="913"/>
+            <rank name="MUSEUM" on_id="1"  ts_id="1086"   svc_id="9901"   index="914"/>
+            <rank name="MY ZEN TV" on_id="1"  ts_id="1084"   svc_id="9407"   index="915"/>
+            <rank name="NDR FS MV HD" on_id="1"  ts_id="1025"   svc_id="10328"   index="916"/>
+            <rank name="NDR FS NDS HD" on_id="1"  ts_id="1025"   svc_id="10327"   index="917"/>
+            <rank name="NDR FS SH HD" on_id="1"  ts_id="1025"   svc_id="10330"   index="918"/>
+            <rank name="NICKELODEON" on_id="1"  ts_id="1070"   svc_id="8008"   index="919"/>
+            <rank name="NICKELODEON TEEN" on_id="1"  ts_id="1102"   svc_id="6512"   index="920"/>
+            <rank name="NICKELODEONHD" on_id="1"  ts_id="1064"   svc_id="30752"   index="921"/>
+            <rank name="NITRO HD" on_id="1"  ts_id="1041"   svc_id="11951"   index="1024"/>
+            <rank name="NON STOP PEOPLE" on_id="1"  ts_id="1084"   svc_id="9405"   index="1025"/>
+            <rank name="NOVELAS TV" on_id="1"  ts_id="1092"   svc_id="6602"   index="1026"/>
+            <rank name="OCS CHOC" on_id="1"  ts_id="1084"   svc_id="9404"   index="1027"/>
+            <rank name="OCS CITY" on_id="1"  ts_id="1080"   svc_id="8813"   index="1028"/>
+            <rank name="OCS GEANTS" on_id="1"  ts_id="1092"   svc_id="6604"   index="1029"/>
+            <rank name="OCS MAX" on_id="1"  ts_id="1080"   svc_id="8814"   index="1030"/>
+            <rank name="OL TV" on_id="1"  ts_id="1070"   svc_id="8014"   index="1031"/>
+            <rank name="ONZEO" on_id="1"  ts_id="1086"   svc_id="9909"   index="1032"/>
+            <rank name="PARAMOUNT CHANNEL" on_id="1"  ts_id="1092"   svc_id="6606"   index="1033"/>
+            <rank name="PARIS PREMIERE" on_id="1"  ts_id="1090"   svc_id="9004"   index="1040"/>
+            <rank name="pearl.tv HD Shop" on_id="1"  ts_id="1109"   svc_id="5404"   index="1041"/>
+            <rank name="PENTHOUSE" on_id="1"  ts_id="1086"   svc_id="9907"   index="1042"/>
+            <rank name="PENTHOUSE BLACK" on_id="1"  ts_id="1092"   svc_id="6608"   index="1043"/>
+            <rank name="PINK X" on_id="1"  ts_id="1070"   svc_id="8009"   index="1044"/>
+            <rank name="Sky Sport 6" on_id="133"  ts_id="3"   svc_id="293"   index="1045"/>
+            <rank name="PIWI+" on_id="1"  ts_id="1102"   svc_id="6510"   index="1046"/>
+            <rank name="PLANETE+" on_id="1"  ts_id="1090"   svc_id="9006"   index="1047"/>
+            <rank name="Das Erste" on_id="1"  ts_id="1101"   svc_id="28106"   index="1048"/>
+            <rank name="ZDF" on_id="1"  ts_id="1079"   svc_id="28006"   index="1049"/>
+            <rank name="PLANETE+ A&amp;E" on_id="1"  ts_id="1086"   svc_id="9912"   index="1056"/>
+            <rank name="PLANETE+ CI" on_id="1"  ts_id="1084"   svc_id="9409"   index="1057"/>
+            <rank name="SIXX HD" on_id="1"  ts_id="1017"   svc_id="61303"   index="1058"/>
+            <rank name="RMC SPORT 2" on_id="1"  ts_id="1092"   svc_id="6601"   index="1059"/>
+            <rank name="RMC SPORT 4" on_id="1"  ts_id="1070"   svc_id="8007"   index="1060"/>
+            <rank name="RMC SPORT NEWS" on_id="1"  ts_id="1092"   svc_id="6603"   index="1061"/>
+            <rank name="RTL HD" on_id="1"  ts_id="1057"   svc_id="61200"   index="1062"/>
+            <rank name="RTLII HD" on_id="1"  ts_id="1057"   svc_id="61205"   index="1063"/>
+            <rank name="SAT.1 Gold HD" on_id="1"  ts_id="1043"   svc_id="12500"   index="1064"/>
+            <rank name="SEASONS" on_id="1"  ts_id="1092"   svc_id="6610"   index="1065"/>
+            <rank name="SERIE CLUB" on_id="1"  ts_id="1102"   svc_id="6505"   index="1072"/>
+            <rank name="Sky 1 HD" on_id="133"  ts_id="2"   svc_id="147"   index="1073"/>
+            <rank name="Sky Cinema Hits HD" on_id="133"  ts_id="12"   svc_id="107"   index="1074"/>
+            <rank name="Sky Sport 10 HD" on_id="133"  ts_id="16"   svc_id="338"   index="1075"/>
+            <rank name="Sky Sport 7" on_id="133"  ts_id="3"   svc_id="303"   index="1076"/>
+            <rank name="Sky Sport 11 HD" on_id="133"  ts_id="11"   svc_id="258"   index="1077"/>
+            <rank name="Sky Sport 8" on_id="133"  ts_id="3"   svc_id="313"   index="1078"/>
+            <rank name="Sky Sport 12 HD" on_id="133"  ts_id="11"   svc_id="381"   index="1079"/>
+            <rank name="Sky Sport 9" on_id="133"  ts_id="3"   svc_id="323"   index="1080"/>
+            <rank name="Sky Sport 13 HD" on_id="133"  ts_id="11"   svc_id="386"   index="1081"/>
+            <rank name="Sky Sport 10" on_id="133"  ts_id="2"   svc_id="333"   index="1088"/>
+            <rank name="Sky Sport 11" on_id="133"  ts_id="3"   svc_id="253"   index="1089"/>
+            <rank name="Sky Sport 14 HD" on_id="133"  ts_id="13"   svc_id="391"   index="1090"/>
+            <rank name="Sky Sport 6 HD" on_id="133"  ts_id="9"   svc_id="298"   index="1091"/>
+            <rank name="Sky Sport 7 HD" on_id="133"  ts_id="4"   svc_id="308"   index="1092"/>
+            <rank name="Sky Sport 8 HD" on_id="133"  ts_id="2"   svc_id="318"   index="1093"/>
+            <rank name="Sky Sport 9 HD" on_id="133"  ts_id="6"   svc_id="328"   index="1094"/>
+            <rank name="Sky Sport Bundesliga 10" on_id="133"  ts_id="11"   svc_id="257"   index="1095"/>
+            <rank name="Sky Sport Bundesliga 6 H" on_id="133"  ts_id="4"   svc_id="307"   index="1096"/>
+            <rank name="Sky Sport Bundesliga 7 H" on_id="133"  ts_id="2"   svc_id="317"   index="1097"/>
+            <rank name="Sky Sport Bundesliga 8 H" on_id="133"  ts_id="6"   svc_id="327"   index="1104"/>
+            <rank name="Sky Sport Bundesliga 9 H" on_id="133"  ts_id="16"   svc_id="337"   index="1105"/>
+            <rank name="sonnenklar.TV HD" on_id="1"  ts_id="1109"   svc_id="5400"   index="1106"/>
+            <rank name="Spiegel Geschichte HD H" on_id="133"  ts_id="16"   svc_id="137"   index="1107"/>
+            <rank name="SPORT1 HD" on_id="1"  ts_id="1055"   svc_id="5505"   index="1108"/>
+            <rank name="SUPER RTL HD" on_id="1"  ts_id="1041"   svc_id="11931"   index="1109"/>
+            <rank name="SYFY HD" on_id="1"  ts_id="1016"   svc_id="29901"   index="1110"/>
+            <rank name="TCM CINEMA" on_id="1"  ts_id="1086"   svc_id="9902"   index="1111"/>
+            <rank name="TCM HD" on_id="1"  ts_id="1044"   svc_id="30853"   index="1112"/>
+            <rank name="TELETOON+" on_id="1"  ts_id="1084"   svc_id="9411"   index="1113"/>
+            <rank name="TELETOON+1" on_id="1"  ts_id="1084"   svc_id="9412"   index="1120"/>
+            <rank name="TEVA" on_id="1"  ts_id="1086"   svc_id="9905"   index="1121"/>
+            <rank name="TF1" on_id="1"  ts_id="1088"   svc_id="9312"   index="1122"/>
+            <rank name="TF1 SERIES FILMS" on_id="1"  ts_id="1090"   svc_id="9003"   index="1123"/>
+            <rank name="TLC HD" on_id="1"  ts_id="1033"   svc_id="10100"   index="1124"/>
+            <rank name="TOONAMI" on_id="1"  ts_id="1086"   svc_id="9922"   index="1125"/>
+            <rank name="TOROS HD" on_id="1"  ts_id="1064"   svc_id="30765"   index="1126"/>
+            <rank name="TRACE URBAN" on_id="1"  ts_id="1084"   svc_id="9414"   index="1127"/>
+            <rank name="TV5 MONDE" on_id="1"  ts_id="1086"   svc_id="9910"   index="1128"/>
+            <rank name="USHUAIA TV" on_id="1"  ts_id="1088"   svc_id="9305"   index="1129"/>
+            <rank name="VIAJAR HD" on_id="1"  ts_id="1016"   svc_id="29907"   index="1136"/>
+            <rank name="VOX HD" on_id="1"  ts_id="1057"   svc_id="61201"   index="1137"/>
+            <rank name="VOYAGE" on_id="1"  ts_id="1092"   svc_id="6605"   index="1138"/>
+            <rank name="W9" on_id="1"  ts_id="1088"   svc_id="9304"   index="1139"/>
+            <rank name="WARNER TV" on_id="1"  ts_id="1102"   svc_id="6506"   index="1140"/>
+            <rank name="WDR HD Aachen" on_id="1"  ts_id="1111"   svc_id="28544"   index="1141"/>
+            <rank name="WDR HD Bielefeld" on_id="1"  ts_id="1201"   svc_id="28326"   index="1142"/>
+            <rank name="WDR HD Bonn" on_id="1"  ts_id="1111"   svc_id="28546"   index="1143"/>
+            <rank name="WDR HD Dortmund" on_id="1"  ts_id="1201"   svc_id="28327"   index="1144"/>
+            <rank name="WDR HD Duisburg" on_id="1"  ts_id="1111"   svc_id="28547"   index="1145"/>
+            <rank name="WDR HD Dsseldorf" on_id="1"  ts_id="1201"   svc_id="28328"   index="1152"/>
+            <rank name="WDR HD Essen" on_id="1"  ts_id="1201"   svc_id="28329"   index="1153"/>
+            <rank name="WDR HD Mnster" on_id="1"  ts_id="1201"   svc_id="28330"   index="1154"/>
+            <rank name="WDR HD Siegen" on_id="1"  ts_id="1201"   svc_id="28331"   index="1155"/>
+            <rank name="WDR HD Wuppertal" on_id="1"  ts_id="1111"   svc_id="28545"   index="1156"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30194"   index="1157"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30127"   index="1158"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30154"   index="1159"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30123"   index="1160"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30151"   index="1161"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30193"   index="1168"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30118"   index="1169"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30122"   index="1170"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30159"   index="1171"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30197"   index="1172"/>
+            <rank name="" on_id="1"  ts_id="1034"   svc_id="30660"   index="1173"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30179"   index="1174"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30190"   index="1175"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30191"   index="1176"/>
+            <rank name="" on_id="1"  ts_id="1058"   svc_id="30195"   index="1177"/>
+            <rank name="0" on_id="1"  ts_id="1008"   svc_id="29816"   index="1280"/>
+            <rank name="VAMOS" on_id="1"  ts_id="1032"   svc_id="30220"   index="1281"/>
+            <rank name="VAMOS" on_id="1"  ts_id="1032"   svc_id="30214"   index="1282"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="70"   index="1283"/>
+            <rank name="." on_id="1"  ts_id="1109"   svc_id="5411"   index="1284"/>
+            <rank name="." on_id="1"  ts_id="1107"   svc_id="17506"   index="1285"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4702"   index="1286"/>
+            <rank name="." on_id="133"  ts_id="15"   svc_id="57"   index="1287"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4716"   index="1288"/>
+            <rank name="." on_id="133"  ts_id="15"   svc_id="56"   index="1289"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4715"   index="1296"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="768"   index="1297"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4711"   index="1298"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4717"   index="1299"/>
+            <rank name="." on_id="1"  ts_id="1109"   svc_id="5412"   index="1300"/>
+            <rank name="." on_id="133"  ts_id="15"   svc_id="59"   index="1301"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4710"   index="1302"/>
+            <rank name="." on_id="133"  ts_id="16"   svc_id="31"   index="1303"/>
+            <rank name="." on_id="1"  ts_id="1082"   svc_id="20011"   index="1304"/>
+            <rank name="." on_id="133"  ts_id="15"   svc_id="58"   index="1305"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="72"   index="1312"/>
+            <rank name="." on_id="1"  ts_id="1015"   svc_id="4714"   index="1313"/>
+            <rank name="." on_id="1"  ts_id="1032"   svc_id="30203"   index="1314"/>
+            <rank name=".1." on_id="1"  ts_id="1015"   svc_id="4718"   index="1315"/>
+            <rank name="	.2." on_id="1"  ts_id="1015"   svc_id="4719"   index="1316"/>
+            <rank name=".3." on_id="1"  ts_id="1015"   svc_id="4720"   index="1317"/>
+            <rank name="24 HORAS" on_id="1"  ts_id="1046"   svc_id="30520"   index="1318"/>
+            <rank name="4MEDIATHEK" on_id="1"  ts_id="1115"   svc_id="13112"   index="1319"/>
+            <rank name="8 TV RU" on_id="1"  ts_id="1027"   svc_id="5147"   index="1320"/>
+            <rank name="AB3" on_id="53"  ts_id="1105"   svc_id="4102"   index="1321"/>
+            <rank name="Achtung Sexy TV" on_id="1"  ts_id="1113"   svc_id="12628"   index="1328"/>
+            <rank name="Achtung Sexy TV temp" on_id="1"  ts_id="1113"   svc_id="12620"   index="1329"/>
+            <rank name="Al Jazeera Channel" on_id="1"  ts_id="1020"   svc_id="7009"   index="1330"/>
+            <rank name="Al Jazeera English" on_id="1"  ts_id="1028"   svc_id="4440"   index="1331"/>
+            <rank name="Algerie 3" on_id="1"  ts_id="1026"   svc_id="10082"   index="1332"/>
+            <rank name="ALQ XXHARD" on_id="1"  ts_id="1042"   svc_id="30058"   index="1333"/>
+            <rank name="ALQUILER" on_id="1"  ts_id="1058"   svc_id="30128"   index="1334"/>
+            <rank name="ALQUILER" on_id="1"  ts_id="1058"   svc_id="30130"   index="1335"/>
+            <rank name="ALQUILER 1" on_id="1"  ts_id="1054"   svc_id="30350"   index="1336"/>
+            <rank name="ALQUILER 2" on_id="1"  ts_id="1054"   svc_id="30351"   index="1337"/>
+            <rank name="ALQUILER 3" on_id="1"  ts_id="1042"   svc_id="30055"   index="1344"/>
+            <rank name="ALQUILER 4" on_id="1"  ts_id="1042"   svc_id="30063"   index="1345"/>
+            <rank name="ALQUILER 5" on_id="1"  ts_id="1042"   svc_id="30053"   index="1346"/>
+            <rank name="ALQUILER 6" on_id="1"  ts_id="1042"   svc_id="30054"   index="1347"/>
+            <rank name="ALQUILER X" on_id="1"  ts_id="1042"   svc_id="30056"   index="1348"/>
+            <rank name="ALQUILER XX" on_id="1"  ts_id="1042"   svc_id="30057"   index="1349"/>
+            <rank name="ALQUILER XY" on_id="1"  ts_id="1054"   svc_id="30357"   index="1350"/>
+            <rank name="ALT Sendersuchlauf starte" on_id="1"  ts_id="1113"   svc_id="12643"   index="1351"/>
+            <rank name="AMC" on_id="1"  ts_id="1038"   svc_id="30415"   index="1352"/>
+            <rank name="ANTENA 3" on_id="1"  ts_id="1032"   svc_id="30212"   index="1353"/>
+            <rank name="CANAL+ DECALE" on_id="1"  ts_id="1080"   svc_id="8802"   index="1360"/>
+            <rank name="ARAGON TV INT" on_id="1"  ts_id="1032"   svc_id="30205"   index="1361"/>
+            <rank name="." on_id="133"  ts_id="9"   svc_id="141"   index="1362"/>
+            <rank name="ARD-TEST-1" on_id="1"  ts_id="1073"   svc_id="28221"   index="1363"/>
+            <rank name="Arirang TV" on_id="1"  ts_id="1020"   svc_id="7011"   index="1364"/>
+            <rank name="Aristo.TV" on_id="1"  ts_id="1005"   svc_id="13311"   index="1365"/>
+            <rank name="arte" on_id="1"  ts_id="1051"   svc_id="28724"   index="1366"/>
+            <rank name="AstroTV" on_id="133"  ts_id="33"   svc_id="661"   index="1367"/>
+            <rank name="AXN" on_id="1"  ts_id="1008"   svc_id="29815"   index="1368"/>
+            <rank name="AXN WHITE" on_id="1"  ts_id="1008"   svc_id="29809"   index="1369"/>
+            <rank name="Babestation24" on_id="1"  ts_id="1113"   svc_id="12635"   index="1376"/>
+            <rank name="BABY TV" on_id="1"  ts_id="1052"   svc_id="29852"   index="1377"/>
+            <rank name="Baden TV" on_id="133"  ts_id="33"   svc_id="76"   index="1378"/>
+            <rank name="BAJO DEMANDA" on_id="1"  ts_id="1058"   svc_id="30110"   index="1379"/>
+            <rank name="BARKER COLLECTIVITES SD4" on_id="1"  ts_id="1088"   svc_id="9311"   index="1380"/>
+            <rank name="BARA TV" on_id="1"  ts_id="1052"   svc_id="29856"   index="1381"/>
+            <rank name="BE MAD" on_id="1"  ts_id="1032"   svc_id="30208"   index="1382"/>
+            <rank name="BEIN LALIGA" on_id="1"  ts_id="1060"   svc_id="30615"   index="1383"/>
+            <rank name="BEINLALIGA1" on_id="1"  ts_id="1042"   svc_id="30059"   index="1384"/>
+            <rank name="BEINLALIGA2" on_id="1"  ts_id="1042"   svc_id="30080"   index="1385"/>
+            <rank name="BEINLALIGA3" on_id="1"  ts_id="1042"   svc_id="30081"   index="1392"/>
+            <rank name="BEINLALIGA4" on_id="1"  ts_id="1054"   svc_id="30363"   index="1393"/>
+            <rank name="BEINLALIGA5" on_id="1"  ts_id="1042"   svc_id="30073"   index="1394"/>
+            <rank name="BEINLALIGA6" on_id="1"  ts_id="1042"   svc_id="30078"   index="1395"/>
+            <rank name="BEINLALIGA7" on_id="1"  ts_id="1042"   svc_id="30062"   index="1396"/>
+            <rank name="BEINLALIGA8" on_id="1"  ts_id="1054"   svc_id="30352"   index="1397"/>
+            <rank name="Bibel TV" on_id="1"  ts_id="1108"   svc_id="12122"   index="1398"/>
+            <rank name="BLAZE" on_id="1"  ts_id="1046"   svc_id="30509"   index="1399"/>
+            <rank name="BOING" on_id="1"  ts_id="1052"   svc_id="29854"   index="1400"/>
+            <rank name="Boomerang" on_id="133"  ts_id="11"   svc_id="403"   index="1401"/>
+            <rank name="BR Fernsehen Nord" on_id="1"  ts_id="1101"   svc_id="28110"   index="1408"/>
+            <rank name="BR Fernsehen Sd" on_id="1"  ts_id="1101"   svc_id="28107"   index="1409"/>
+            <rank name="Brazzers TV CZ" on_id="53"  ts_id="1105"   svc_id="4145"   index="1410"/>
+            <rank name="BunnyClub24" on_id="1"  ts_id="1113"   svc_id="12640"   index="1411"/>
+            <rank name="CALLE 13" on_id="1"  ts_id="1060"   svc_id="30608"   index="1412"/>
+            <rank name="CANAL 24 HORAS" on_id="1"  ts_id="1028"   svc_id="4402"   index="1413"/>
+            <rank name="Canal Algerie" on_id="1"  ts_id="1026"   svc_id="10083"   index="1414"/>
+            <rank name="CANAL COCINA" on_id="1"  ts_id="1038"   svc_id="30414"   index="1415"/>
+            <rank name="CANAL DECASA" on_id="1"  ts_id="1060"   svc_id="30613"   index="1416"/>
+            <rank name="CANAL ODISEA" on_id="1"  ts_id="1060"   svc_id="30602"   index="1417"/>
+            <rank name="CANAL ORBE21" on_id="1"  ts_id="1054"   svc_id="30372"   index="1424"/>
+            <rank name="CANAL PANDA" on_id="1"  ts_id="1032"   svc_id="30207"   index="1425"/>
+            <rank name="CANAL SUR A." on_id="1"  ts_id="1046"   svc_id="30505"   index="1426"/>
+            <rank name="Cartoon Network" on_id="133"  ts_id="11"   svc_id="404"   index="1427"/>
+            <rank name="CAZA Y PESCA" on_id="1"  ts_id="1046"   svc_id="30507"   index="1428"/>
+            <rank name="CGTN" on_id="1"  ts_id="1022"   svc_id="6914"   index="1429"/>
+            <rank name="CGTN Documentary" on_id="1"  ts_id="1022"   svc_id="6912"   index="1430"/>
+            <rank name="CGTN F" on_id="1"  ts_id="1022"   svc_id="6913"   index="1431"/>
+            <rank name="Cherie 25" on_id="1"  ts_id="1108"   svc_id="12140"   index="1432"/>
+            <rank name="Cherie 25" on_id="1"  ts_id="1108"   svc_id="12141"   index="1433"/>
+            <rank name="CLAN  TVE" on_id="1"  ts_id="1034"   svc_id="30654"   index="1536"/>
+            <rank name="CLASSICA" on_id="1"  ts_id="1032"   svc_id="30210"   index="1537"/>
+            <rank name="Classica" on_id="133"  ts_id="4"   svc_id="24"   index="1538"/>
+            <rank name="Clipmobile" on_id="1"  ts_id="1113"   svc_id="12641"   index="1539"/>
+            <rank name="COMEDY CENTRAL" on_id="1"  ts_id="1038"   svc_id="30408"   index="1540"/>
+            <rank name="Comedy Central" on_id="1"  ts_id="1078"   svc_id="28676"   index="1541"/>
+            <rank name="CONTRATO" on_id="1"  ts_id="1058"   svc_id="30169"   index="1542"/>
+            <rank name="COSMO" on_id="1"  ts_id="1046"   svc_id="30512"   index="1543"/>
+            <rank name="Crime + Investigation" on_id="133"  ts_id="11"   svc_id="402"   index="1544"/>
+            <rank name="CRIMEN+INVES" on_id="1"  ts_id="1046"   svc_id="30514"   index="1545"/>
+            <rank name="CUATRO" on_id="1"  ts_id="1034"   svc_id="30663"   index="1552"/>
+            <rank name="Cubavision Internacional" on_id="1"  ts_id="1020"   svc_id="7008"   index="1553"/>
+            <rank name="DateLine" on_id="1"  ts_id="1113"   svc_id="12623"   index="1554"/>
+            <rank name="Deutsche Girls 24 TV" on_id="1"  ts_id="1113"   svc_id="12615"   index="1555"/>
+            <rank name="Deutsches Musik Fernsehen" on_id="1"  ts_id="1113"   svc_id="12604"   index="1556"/>
+            <rank name="Deutschland Vozrozhdenie" on_id="1"  ts_id="1006"   svc_id="4225"   index="1557"/>
+            <rank name="Die Neue Zeit TV" on_id="1"  ts_id="1015"   svc_id="4713"   index="1558"/>
+            <rank name="DISCOVERY" on_id="1"  ts_id="1046"   svc_id="30511"   index="1559"/>
+            <rank name="DISNEY CH." on_id="1"  ts_id="1038"   svc_id="30403"   index="1560"/>
+            <rank name="Disney Channel" on_id="133"  ts_id="5"   svc_id="1793"   index="1561"/>
+            <rank name="DISNEY JR" on_id="1"  ts_id="1008"   svc_id="29803"   index="1568"/>
+            <rank name="DISNEY XD" on_id="1"  ts_id="1046"   svc_id="30506"   index="1569"/>
+            <rank name="Disney XD" on_id="133"  ts_id="3"   svc_id="28"   index="1570"/>
+            <rank name="DIVINITY" on_id="1"  ts_id="1052"   svc_id="29850"   index="1571"/>
+            <rank name="DMAX" on_id="133"  ts_id="33"   svc_id="63"   index="1572"/>
+            <rank name="Dreamgirls24 TV temp" on_id="1"  ts_id="1113"   svc_id="12618"   index="1573"/>
+            <rank name="DW English" on_id="1"  ts_id="1028"   svc_id="4430"   index="1574"/>
+            <rank name="e8 television" on_id="133"  ts_id="33"   svc_id="897"   index="1575"/>
+            <rank name="Elevensports1" on_id="53"  ts_id="1105"   svc_id="4126"   index="1576"/>
+            <rank name="ElevenSports2" on_id="53"  ts_id="1105"   svc_id="4127"   index="1577"/>
+            <rank name="ENERGY" on_id="1"  ts_id="1052"   svc_id="29855"   index="1584"/>
+            <rank name="eoTV" on_id="133"  ts_id="15"   svc_id="39"   index="1585"/>
+            <rank name="Eros TV" on_id="1"  ts_id="1113"   svc_id="12627"   index="1586"/>
+            <rank name="EROTIKA TV - NEU!" on_id="1"  ts_id="1113"   svc_id="12639"   index="1587"/>
+            <rank name="Erotiksat24 TV temp" on_id="1"  ts_id="1113"   svc_id="12619"   index="1588"/>
+            <rank name="EURONEWS FRENCH SD" on_id="1"  ts_id="1091"   svc_id="31220"   index="1589"/>
+            <rank name="EUROSPORT 1" on_id="1"  ts_id="1052"   svc_id="29857"   index="1590"/>
+            <rank name="EUROSPORT 2" on_id="1"  ts_id="1032"   svc_id="30222"   index="1591"/>
+            <rank name="EXTREMADURA SAT" on_id="1"  ts_id="1012"   svc_id="6384"   index="1592"/>
+            <rank name="F3 ALPES" on_id="1"  ts_id="1120"   svc_id="9808"   index="1593"/>
+            <rank name="F3 ALSACE" on_id="1"  ts_id="1120"   svc_id="9810"   index="1600"/>
+            <rank name="F3 AQUITAINE" on_id="1"  ts_id="1120"   svc_id="9815"   index="1601"/>
+            <rank name="F3 AUVERGNE" on_id="1"  ts_id="1120"   svc_id="9816"   index="1602"/>
+            <rank name="F3 BNORMANDIE" on_id="1"  ts_id="1120"   svc_id="9801"   index="1603"/>
+            <rank name="F3 BOURGOGNE" on_id="1"  ts_id="1120"   svc_id="9805"   index="1604"/>
+            <rank name="F3 BRETAGNE" on_id="1"  ts_id="1120"   svc_id="9817"   index="1605"/>
+            <rank name="F3 CENTRE" on_id="1"  ts_id="1120"   svc_id="9804"   index="1606"/>
+            <rank name="F3 CHAMP ARDENNE" on_id="1"  ts_id="1120"   svc_id="9807"   index="1607"/>
+            <rank name="F3 CORSEVIASTELLA" on_id="1"  ts_id="1120"   svc_id="9812"   index="1608"/>
+            <rank name="F3 COTE D'AZUR" on_id="1"  ts_id="1120"   svc_id="9803"   index="1609"/>
+            <rank name="F3 FRANCHE COMTE" on_id="1"  ts_id="1120"   svc_id="9824"   index="1616"/>
+            <rank name="F3 HNORMANDIE" on_id="1"  ts_id="1120"   svc_id="9814"   index="1617"/>
+            <rank name="F3 LANGUEDOCROU" on_id="1"  ts_id="1120"   svc_id="9811"   index="1618"/>
+            <rank name="F3 LIMOUSIN" on_id="1"  ts_id="1120"   svc_id="9818"   index="1619"/>
+            <rank name="F3 LORRAINE" on_id="1"  ts_id="1120"   svc_id="9819"   index="1620"/>
+            <rank name="F3 MIDI PYRENEES" on_id="1"  ts_id="1120"   svc_id="9820"   index="1621"/>
+            <rank name="F3 NORD PDC" on_id="1"  ts_id="1120"   svc_id="9809"   index="1622"/>
+            <rank name="F3 PARIS IDF" on_id="1"  ts_id="1120"   svc_id="9821"   index="1623"/>
+            <rank name="F3 PAYS DE LA LOIRE" on_id="1"  ts_id="1120"   svc_id="9802"   index="1624"/>
+            <rank name="F3 PICARDIE" on_id="1"  ts_id="1120"   svc_id="9822"   index="1625"/>
+            <rank name="F3 POITOUCHAR" on_id="1"  ts_id="1120"   svc_id="9806"   index="1632"/>
+            <rank name="F3 PROV ALPES" on_id="1"  ts_id="1120"   svc_id="9813"   index="1633"/>
+            <rank name="F3 RHONE ALPES" on_id="1"  ts_id="1120"   svc_id="9823"   index="1634"/>
+            <rank name="FDF" on_id="1"  ts_id="1034"   svc_id="30652"   index="1635"/>
+            <rank name="Fotohandy" on_id="1"  ts_id="1113"   svc_id="12624"   index="1636"/>
+            <rank name="FOX" on_id="1"  ts_id="1008"   svc_id="29807"   index="1637"/>
+            <rank name="FOX LIFE" on_id="1"  ts_id="1008"   svc_id="29800"   index="1638"/>
+            <rank name="FOX NEWS" on_id="1"  ts_id="1052"   svc_id="29851"   index="1639"/>
+            <rank name="France 24 (en Franais)" on_id="1"  ts_id="1022"   svc_id="6905"   index="1640"/>
+            <rank name="France 24 (in Arabic)s)" on_id="1"  ts_id="1022"   svc_id="6910"   index="1641"/>
+            <rank name="France 24 (in English))" on_id="1"  ts_id="1022"   svc_id="6906"   index="1648"/>
+            <rank name="freenet Shopping" on_id="1"  ts_id="1113"   svc_id="12636"   index="1649"/>
+            <rank name="GayBoys LIVE" on_id="1"  ts_id="1113"   svc_id="12612"   index="1650"/>
+            <rank name="Genius exklusiv" on_id="133"  ts_id="7"   svc_id="54"   index="1651"/>
+            <rank name="Genius family" on_id="133"  ts_id="15"   svc_id="33"   index="1652"/>
+            <rank name="Genius Plus" on_id="1"  ts_id="1053"   svc_id="21113"   index="1653"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="774"   index="1654"/>
+            <rank name="GOL" on_id="1"  ts_id="1052"   svc_id="29859"   index="1655"/>
+            <rank name="gotv neu" on_id="1"  ts_id="1005"   svc_id="13316"   index="1656"/>
+            <rank name="kabel eins Doku" on_id="1"  ts_id="1107"   svc_id="17509"   index="1657"/>
+            <rank name="GUA" on_id="1"  ts_id="1058"   svc_id="30121"   index="1664"/>
+            <rank name="GUA FCIL" on_id="1"  ts_id="1058"   svc_id="30198"   index="1665"/>
+            <rank name="Handystar TV" on_id="133"  ts_id="5"   svc_id="659"   index="1666"/>
+            <rank name="Handystar TV 2" on_id="133"  ts_id="33"   svc_id="46"   index="1667"/>
+            <rank name="health.tv" on_id="1"  ts_id="1113"   svc_id="12600"   index="1668"/>
+            <rank name="Heiss und Sexy TV" on_id="1"  ts_id="1113"   svc_id="12630"   index="1669"/>
+            <rank name="HGTV" on_id="133"  ts_id="15"   svc_id="38"   index="1670"/>
+            <rank name="HISTORIA" on_id="1"  ts_id="1046"   svc_id="30513"   index="1671"/>
+            <rank name="HOLLYWOOD" on_id="1"  ts_id="1034"   svc_id="30657"   index="1672"/>
+            <rank name="HSE24" on_id="133"  ts_id="33"   svc_id="40"   index="1673"/>
+            <rank name="Hustler TV CZ" on_id="53"  ts_id="1105"   svc_id="4109"   index="1680"/>
+            <rank name="I24 Francis" on_id="1"  ts_id="1040"   svc_id="31307"   index="1681"/>
+            <rank name="IBERALIA TV" on_id="1"  ts_id="1008"   svc_id="29802"   index="1682"/>
+            <rank name="Immer etwas Neues TVs)" on_id="133"  ts_id="7"   svc_id="514"   index="1683"/>
+            <rank name="Jukebox" on_id="133"  ts_id="9"   svc_id="401"   index="1684"/>
+            <rank name="Junior" on_id="133"  ts_id="4"   svc_id="19"   index="1685"/>
+            <rank name="Kinowelt TV" on_id="133"  ts_id="4"   svc_id="406"   index="1686"/>
+            <rank name="LA 1" on_id="1"  ts_id="1034"   svc_id="30656"   index="1687"/>
+            <rank name="LA 2" on_id="1"  ts_id="1034"   svc_id="30658"   index="1688"/>
+            <rank name="LA SEXTA" on_id="1"  ts_id="1034"   svc_id="30655"   index="1689"/>
+            <rank name="LALIGA123TV" on_id="1"  ts_id="1038"   svc_id="30405"   index="1792"/>
+            <rank name="LaLiga123TVM1" on_id="1"  ts_id="1042"   svc_id="30072"   index="1793"/>
+            <rank name="LaLiga123TVM2" on_id="1"  ts_id="1042"   svc_id="30068"   index="1794"/>
+            <rank name="LaLiga123TVM3" on_id="1"  ts_id="1054"   svc_id="30374"   index="1795"/>
+            <rank name="LaLiga123TVM4" on_id="1"  ts_id="1054"   svc_id="30353"   index="1796"/>
+            <rank name="LALIGATV BAR" on_id="1"  ts_id="1060"   svc_id="30611"   index="1797"/>
+            <rank name="LALIGATVBAR1" on_id="1"  ts_id="1054"   svc_id="30362"   index="1798"/>
+            <rank name="LALIGATVBAR2" on_id="1"  ts_id="1042"   svc_id="30082"   index="1799"/>
+            <rank name="LEGENDEN TV" on_id="1"  ts_id="1113"   svc_id="12633"   index="1800"/>
+            <rank name="LT1-OOE" on_id="1"  ts_id="1115"   svc_id="13104"   index="1801"/>
+            <rank name="LTC" on_id="1"  ts_id="1058"   svc_id="30107"   index="1808"/>
+            <rank name="M. ACCIN" on_id="1"  ts_id="1008"   svc_id="29804"   index="1809"/>
+            <rank name="M. Cine Espaol" on_id="1"  ts_id="1046"   svc_id="30518"   index="1810"/>
+            <rank name="M. COMEDIA" on_id="1"  ts_id="1008"   svc_id="29805"   index="1811"/>
+            <rank name="M. DEPORTES" on_id="1"  ts_id="1060"   svc_id="30607"   index="1812"/>
+            <rank name="M. DEPORTES2" on_id="1"  ts_id="1042"   svc_id="30061"   index="1813"/>
+            <rank name="M. DEPORTES3" on_id="1"  ts_id="1042"   svc_id="30067"   index="1814"/>
+            <rank name="M. DEPORTES4" on_id="1"  ts_id="1042"   svc_id="30069"   index="1815"/>
+            <rank name="M. DEPORTES5" on_id="1"  ts_id="1042"   svc_id="30071"   index="1816"/>
+            <rank name="M. DEPORTES6" on_id="1"  ts_id="1054"   svc_id="30366"   index="1817"/>
+            <rank name="M. DEPORTES7" on_id="1"  ts_id="1054"   svc_id="30355"   index="1824"/>
+            <rank name="M. DISNEY" on_id="1"  ts_id="1052"   svc_id="29853"   index="1825"/>
+            <rank name="M. DRAMA" on_id="1"  ts_id="1008"   svc_id="29806"   index="1826"/>
+            <rank name="M. ESTRENOS" on_id="1"  ts_id="1038"   svc_id="30400"   index="1827"/>
+            <rank name="M. FTBOL" on_id="1"  ts_id="1060"   svc_id="30606"   index="1828"/>
+            <rank name="M. FTBOL 1" on_id="1"  ts_id="1054"   svc_id="30375"   index="1829"/>
+            <rank name="M. FTBOL 2" on_id="1"  ts_id="1042"   svc_id="30060"   index="1830"/>
+            <rank name="M. GOLF" on_id="1"  ts_id="1060"   svc_id="30601"   index="1831"/>
+            <rank name="M. SERIES" on_id="1"  ts_id="1054"   svc_id="30358"   index="1832"/>
+            <rank name="M. SERIESMANIA" on_id="1"  ts_id="1038"   svc_id="30410"   index="1833"/>
+            <rank name="M. WIMBLEDON" on_id="1"  ts_id="1046"   svc_id="30521"   index="1840"/>
+            <rank name="M.CineDoc&amp;Roll" on_id="1"  ts_id="1034"   svc_id="30662"   index="1841"/>
+            <rank name="M.FORMULA1" on_id="1"  ts_id="1052"   svc_id="29860"   index="1842"/>
+            <rank name="M.LCAMPEON1" on_id="1"  ts_id="1042"   svc_id="30074"   index="1843"/>
+            <rank name="M.LCAMPEON2" on_id="1"  ts_id="1054"   svc_id="30367"   index="1844"/>
+            <rank name="M.LCAMPEON3" on_id="1"  ts_id="1042"   svc_id="30079"   index="1845"/>
+            <rank name="M.LCAMPEON4" on_id="1"  ts_id="1054"   svc_id="30365"   index="1846"/>
+            <rank name="M.LCAMPEON5" on_id="1"  ts_id="1042"   svc_id="30077"   index="1847"/>
+            <rank name="M.LCAMPEON6" on_id="1"  ts_id="1042"   svc_id="30076"   index="1848"/>
+            <rank name="M.LCAMPEON7" on_id="1"  ts_id="1042"   svc_id="30083"   index="1849"/>
+            <rank name="M.LCAMPEON8" on_id="1"  ts_id="1042"   svc_id="30070"   index="1856"/>
+            <rank name="M.LCAMPEONES" on_id="1"  ts_id="1042"   svc_id="30075"   index="1857"/>
+            <rank name="M.Partidazo" on_id="1"  ts_id="1054"   svc_id="30364"   index="1858"/>
+            <rank name="Maennersache TV" on_id="1"  ts_id="1113"   svc_id="12622"   index="1859"/>
+            <rank name="MB SAT - Test 8" on_id="1"  ts_id="1113"   svc_id="12606"   index="1860"/>
+            <rank name="MB SAT - Test1" on_id="1"  ts_id="1113"   svc_id="12621"   index="1861"/>
+            <rank name="QVC Style" on_id="133"  ts_id="5"   svc_id="64"   index="1862"/>
+            <rank name="MB SAT - Test4" on_id="1"  ts_id="1113"   svc_id="12646"   index="1863"/>
+            <rank name="MB SAT - Test5" on_id="1"  ts_id="1113"   svc_id="12647"   index="1864"/>
+            <rank name="MB SAT - Test6" on_id="1"  ts_id="1113"   svc_id="12645"   index="1865"/>
+            <rank name="MB SAT - Test7" on_id="1"  ts_id="1113"   svc_id="12642"   index="1872"/>
+            <rank name="MDR Sachsen" on_id="1"  ts_id="1073"   svc_id="28228"   index="1873"/>
+            <rank name="MDR Thringen" on_id="1"  ts_id="1073"   svc_id="28230"   index="1874"/>
+            <rank name="MediaShop- Meine Einkauf" on_id="133"  ts_id="7"   svc_id="775"   index="1875"/>
+            <rank name="MediaShop- Neuheitenauf" on_id="133"  ts_id="33"   svc_id="898"   index="1876"/>
+            <rank name="Mei Musi TV" on_id="1"  ts_id="1117"   svc_id="13015"   index="1877"/>
+            <rank name="meinTVshop" on_id="133"  ts_id="33"   svc_id="899"   index="1878"/>
+            <rank name="MEZZO" on_id="1"  ts_id="1054"   svc_id="30361"   index="1879"/>
+            <rank name="Mobile Sex" on_id="1"  ts_id="1113"   svc_id="12625"   index="1880"/>
+            <rank name="Motorvision TV" on_id="133"  ts_id="11"   svc_id="168"   index="1881"/>
+            <rank name="MTV ESPAA" on_id="1"  ts_id="1052"   svc_id="29858"   index="1888"/>
+            <rank name="MULTI-X" on_id="1"  ts_id="1042"   svc_id="30050"   index="1889"/>
+            <rank name="MULTI-X (1)" on_id="1"  ts_id="1042"   svc_id="30065"   index="1890"/>
+            <rank name="MULTI-X (2)" on_id="1"  ts_id="1042"   svc_id="30051"   index="1891"/>
+            <rank name="MULTI-X (3)" on_id="1"  ts_id="1042"   svc_id="30066"   index="1892"/>
+            <rank name="MULTIDEPORTE" on_id="1"  ts_id="1054"   svc_id="30371"   index="1893"/>
+            <rank name="MULTIDEPORTE" on_id="1"  ts_id="1054"   svc_id="30354"   index="1894"/>
+            <rank name="NAT GEO WILD" on_id="1"  ts_id="1034"   svc_id="30680"   index="1895"/>
+            <rank name="Radio Bremen HD" on_id="1"  ts_id="1039"   svc_id="10379"   index="1896"/>
+            <rank name="R9 Oesterreich HD" on_id="1"  ts_id="1005"   svc_id="13312"   index="1897"/>
+            <rank name="NAT GEOGRAPH" on_id="1"  ts_id="1060"   svc_id="30605"   index="1904"/>
+            <rank name="NDR FS HH" on_id="1"  ts_id="1073"   svc_id="28225"   index="1905"/>
+            <rank name="NDR FS NDS" on_id="1"  ts_id="1073"   svc_id="28226"   index="1906"/>
+            <rank name="NDR FS SH" on_id="1"  ts_id="1073"   svc_id="28227"   index="1907"/>
+            <rank name="NEOX" on_id="1"  ts_id="1032"   svc_id="30206"   index="1908"/>
+            <rank name="NHK WORLD-JPN" on_id="1"  ts_id="1002"   svc_id="5021"   index="1909"/>
+            <rank name="nice" on_id="1"  ts_id="1113"   svc_id="12634"   index="1910"/>
+            <rank name="Nicer Dicer TV" on_id="133"  ts_id="5"   svc_id="74"   index="1911"/>
+            <rank name="NICK JR" on_id="1"  ts_id="1054"   svc_id="30359"   index="1912"/>
+            <rank name="Nick Jr" on_id="1"  ts_id="1066"   svc_id="28661"   index="1913"/>
+            <rank name="Nick Jr." on_id="1"  ts_id="1066"   svc_id="28662"   index="1920"/>
+            <rank name="" on_id="1"  ts_id="1066"   svc_id="28665"   index="1921"/>
+            <rank name="NICK/MTV+" on_id="1"  ts_id="1078"   svc_id="28680"   index="1922"/>
+            <rank name="NICKELODEON" on_id="1"  ts_id="1046"   svc_id="30510"   index="1923"/>
+            <rank name="Nickelodeon HD" on_id="1"  ts_id="1066"   svc_id="28651"   index="1924"/>
+            <rank name="NICKELODEON Iberia" on_id="1"  ts_id="1066"   svc_id="28660"   index="1925"/>
+            <rank name="Nicktoons (S)" on_id="1"  ts_id="1078"   svc_id="28682"   index="1926"/>
+            <rank name="Nicktoons Turkey" on_id="1"  ts_id="1078"   svc_id="28683"   index="1927"/>
+            <rank name="NickJr." on_id="1"  ts_id="1066"   svc_id="28668"   index="1928"/>
+            <rank name="NickJr.." on_id="1"  ts_id="1066"   svc_id="28677"   index="1929"/>
+            <rank name="NOVA" on_id="1"  ts_id="1008"   svc_id="29801"   index="1936"/>
+            <rank name="NRJ 12" on_id="1"  ts_id="1108"   svc_id="12146"   index="1937"/>
+            <rank name="NRJ 12" on_id="1"  ts_id="1108"   svc_id="12145"   index="1938"/>
+            <rank name="NTV Mir" on_id="1"  ts_id="1027"   svc_id="5144"   index="1939"/>
+            <rank name="ONE" on_id="1"  ts_id="1051"   svc_id="28722"   index="1940"/>
+            <rank name="INSIGHT TV UHD SPAINauf" on_id="1"  ts_id="1097"   svc_id="2001"   index="1941"/>
+            <rank name="INSIGHT UHD Russia" on_id="1"  ts_id="1097"   svc_id="2005"   index="1942"/>
+            <rank name="PARAMOUNT" on_id="1"  ts_id="1032"   svc_id="30201"   index="1943"/>
+            <rank name="pearl.tv Shop" on_id="133"  ts_id="7"   svc_id="765"   index="1944"/>
+            <rank name="phoenix" on_id="1"  ts_id="1051"   svc_id="28725"   index="1945"/>
+            <rank name="PLAYBOY TV" on_id="1"  ts_id="1060"   svc_id="30603"   index="2048"/>
+            <rank name="PORTADA" on_id="1"  ts_id="1058"   svc_id="30150"   index="2049"/>
+            <rank name="PORTADA" on_id="1"  ts_id="1058"   svc_id="30108"   index="2050"/>
+            <rank name="Pro7 MAXX" on_id="1"  ts_id="1107"   svc_id="17505"   index="2051"/>
+            <rank name="ProSieben" on_id="1"  ts_id="1107"   svc_id="17501"   index="2052"/>
+            <rank name="ProSieben Schweiz" on_id="1"  ts_id="1082"   svc_id="20001"   index="2053"/>
+            <rank name="QVC" on_id="133"  ts_id="5"   svc_id="1794"   index="2054"/>
+            <rank name="R. MADRID TV" on_id="1"  ts_id="1032"   svc_id="30209"   index="2055"/>
+            <rank name="Radio Bremen TV" on_id="1"  ts_id="1201"   svc_id="28385"   index="2056"/>
+            <rank name="RADIOS" on_id="1"  ts_id="1058"   svc_id="30102"   index="2057"/>
+            <rank name="RAI News 24" on_id="1"  ts_id="1006"   svc_id="4216"   index="2064"/>
+            <rank name="rbb Berlin" on_id="1"  ts_id="1073"   svc_id="28206"   index="2065"/>
+            <rank name="RiC" on_id="1"  ts_id="1117"   svc_id="13019"   index="2066"/>
+            <rank name="Romance TV" on_id="133"  ts_id="2"   svc_id="518"   index="2067"/>
+            <rank name="RT Esp" on_id="1"  ts_id="1020"   svc_id="7013"   index="2068"/>
+            <rank name="RT Esp HD" on_id="1"  ts_id="1012"   svc_id="6392"   index="2069"/>
+            <rank name="RT Esp HD" on_id="1"  ts_id="1012"   svc_id="6382"   index="2070"/>
+            <rank name="RT France HD" on_id="1"  ts_id="1012"   svc_id="6383"   index="2071"/>
+            <rank name="RT HD" on_id="1"  ts_id="1012"   svc_id="6381"   index="2072"/>
+            <rank name="RTL 2 CH" on_id="1"  ts_id="1013"   svc_id="12400"   index="2073"/>
+            <rank name="RTL Bayern" on_id="1"  ts_id="1089"   svc_id="12006"   index="2080"/>
+            <rank name="RTL HB NDS" on_id="1"  ts_id="1089"   svc_id="12005"   index="2081"/>
+            <rank name="RTL HH SH" on_id="1"  ts_id="1089"   svc_id="12009"   index="2082"/>
+            <rank name="RTL Lounge" on_id="53"  ts_id="1105"   svc_id="4066"   index="2083"/>
+            <rank name="RTL Regional NRW" on_id="1"  ts_id="1089"   svc_id="12004"   index="2084"/>
+            <rank name="RTL Television" on_id="1"  ts_id="1089"   svc_id="12003"   index="2085"/>
+            <rank name="RTL2" on_id="1"  ts_id="1089"   svc_id="12020"   index="2086"/>
+            <rank name="Russia Today" on_id="1"  ts_id="1022"   svc_id="6904"   index="2087"/>
+            <rank name="Russkij Perwyj R1" on_id="1"  ts_id="1027"   svc_id="5126"   index="2088"/>
+            <rank name="SAT.1" on_id="1"  ts_id="1107"   svc_id="17500"   index="2089"/>
+            <rank name="SAT.1 Bayern" on_id="1"  ts_id="1107"   svc_id="17507"   index="2096"/>
+            <rank name="SAT.1 CH" on_id="1"  ts_id="1082"   svc_id="20006"   index="2097"/>
+            <rank name="SAT.1 Gold" on_id="1"  ts_id="1107"   svc_id="17504"   index="2098"/>
+            <rank name="SAT.1 HH/SH" on_id="1"  ts_id="1082"   svc_id="20008"   index="2099"/>
+            <rank name="SAT.1 NRW" on_id="1"  ts_id="1107"   svc_id="17508"   index="2100"/>
+            <rank name="SAT.1 NS/Bremen" on_id="1"  ts_id="1082"   svc_id="20009"   index="2101"/>
+            <rank name="SAT.1 RhlPf/Hessen" on_id="1"  ts_id="1082"   svc_id="20010"   index="2102"/>
+            <rank name="Service 13232" on_id="1"  ts_id="1003"   svc_id="13232"   index="2103"/>
+            <rank name="Service 13233" on_id="1"  ts_id="1003"   svc_id="13233"   index="2104"/>
+            <rank name="ServusTV Deutschland" on_id="1"  ts_id="1115"   svc_id="13110"   index="2105"/>
+            <rank name="SES 01" on_id="1"  ts_id="1015"   svc_id="4700"   index="2112"/>
+            <rank name="SES 02" on_id="1"  ts_id="1015"   svc_id="4701"   index="2113"/>
+            <rank name="SES 04" on_id="1"  ts_id="1015"   svc_id="4703"   index="2114"/>
+            <rank name="SES 06" on_id="1"  ts_id="1015"   svc_id="4705"   index="2115"/>
+            <rank name="SES 07" on_id="1"  ts_id="1015"   svc_id="4706"   index="2116"/>
+            <rank name="SES 08" on_id="1"  ts_id="1015"   svc_id="4707"   index="2117"/>
+            <rank name="SES 09" on_id="1"  ts_id="1015"   svc_id="4708"   index="2118"/>
+            <rank name="SES 10" on_id="1"  ts_id="1015"   svc_id="4709"   index="2119"/>
+            <rank name="SES 75" on_id="1"  ts_id="1053"   svc_id="21111"   index="2120"/>
+            <rank name="SEX-Kontakte" on_id="1"  ts_id="1113"   svc_id="12626"   index="2121"/>
+            <rank name="Sky Sport Bundesliga 1f" on_id="133"  ts_id="4"   svc_id="223"   index="2128"/>
+            <rank name="Sky Sport Bundesliga 10" on_id="133"  ts_id="3"   svc_id="252"   index="2129"/>
+            <rank name="Sky Sport Bundesliga 2" on_id="133"  ts_id="3"   svc_id="262"   index="2130"/>
+            <rank name="Sky Sport Bundesliga 3f" on_id="133"  ts_id="2"   svc_id="272"   index="2131"/>
+            <rank name="Sky Sport Bundesliga 4" on_id="133"  ts_id="2"   svc_id="282"   index="2132"/>
+            <rank name="Sky Sport Bundesliga 5" on_id="133"  ts_id="3"   svc_id="292"   index="2133"/>
+            <rank name="Sky Sport Bundesliga 6" on_id="133"  ts_id="3"   svc_id="302"   index="2134"/>
+            <rank name="Sky Sport Bundesliga 7f" on_id="133"  ts_id="3"   svc_id="312"   index="2135"/>
+            <rank name="Sky Sport Bundesliga 8" on_id="133"  ts_id="3"   svc_id="322"   index="2136"/>
+            <rank name="Sky Sport Bundesliga 9" on_id="133"  ts_id="2"   svc_id="332"   index="2137"/>
+            <rank name="Sky Sport News" on_id="133"  ts_id="15"   svc_id="37"   index="2144"/>
+            <rank name="Sonlife Broadcasting Netw" on_id="1"  ts_id="1026"   svc_id="10080"   index="2145"/>
+            <rank name="Sonnenklar TV" on_id="133"  ts_id="33"   svc_id="32"   index="2146"/>
+            <rank name="Spiegel TV Wissen" on_id="133"  ts_id="13"   svc_id="49"   index="2147"/>
+            <rank name="SR Fernsehen" on_id="1"  ts_id="1093"   svc_id="28486"   index="2148"/>
+            <rank name="Starparadies A" on_id="1"  ts_id="1005"   svc_id="13315"   index="2149"/>
+            <rank name="Starparadies AT" on_id="1"  ts_id="1003"   svc_id="13226"   index="2150"/>
+            <rank name="STEST1" on_id="133"  ts_id="12"   svc_id="800"   index="2151"/>
+            <rank name="STEST2" on_id="133"  ts_id="12"   svc_id="801"   index="2152"/>
+            <rank name="STS Int" on_id="1"  ts_id="1027"   svc_id="5146"   index="2153"/>
+            <rank name="SUNDANCE TV" on_id="1"  ts_id="1054"   svc_id="30373"   index="2160"/>
+            <rank name="SUPER RTL" on_id="1"  ts_id="1089"   svc_id="12040"   index="2161"/>
+            <rank name="SWR Fernsehen RP" on_id="1"  ts_id="1073"   svc_id="28231"   index="2162"/>
+            <rank name="SYFY" on_id="1"  ts_id="1060"   svc_id="30614"   index="2163"/>
+            <rank name="tagesschau24" on_id="1"  ts_id="1051"   svc_id="28721"   index="2164"/>
+            <rank name="TBN Espana" on_id="1"  ts_id="1040"   svc_id="31305"   index="2165"/>
+            <rank name="TCM" on_id="1"  ts_id="1038"   svc_id="30407"   index="2166"/>
+            <rank name="TELECINCO" on_id="1"  ts_id="1034"   svc_id="30659"   index="2167"/>
+            <rank name="TELEDEPORTE" on_id="1"  ts_id="1038"   svc_id="30412"   index="2168"/>
+            <rank name="TELEMAROC" on_id="1"  ts_id="1040"   svc_id="31309"   index="2169"/>
+            <rank name="TELESUR" on_id="1"  ts_id="1040"   svc_id="31304"   index="2176"/>
+            <rank name="TELESUR HD" on_id="1"  ts_id="1012"   svc_id="6380"   index="2177"/>
+            <rank name="TEST" on_id="1"  ts_id="1022"   svc_id="6925"   index="2178"/>
+            <rank name="TEST" on_id="1"  ts_id="1040"   svc_id="31310"   index="2179"/>
+            <rank name="TEST P" on_id="1"  ts_id="1032"   svc_id="30215"   index="2180"/>
+            <rank name="TEST TCNICO" on_id="1"  ts_id="1058"   svc_id="30173"   index="2181"/>
+            <rank name="Test-R" on_id="1"  ts_id="1051"   svc_id="28726"   index="2182"/>
+            <rank name="TESTCSD1" on_id="1"  ts_id="1058"   svc_id="30174"   index="2183"/>
+            <rank name="TESTCSD2" on_id="1"  ts_id="1058"   svc_id="30175"   index="2184"/>
+            <rank name="TESTCSD3" on_id="1"  ts_id="1058"   svc_id="30176"   index="2185"/>
+            <rank name="TESTCSD4" on_id="1"  ts_id="1058"   svc_id="30177"   index="2192"/>
+            <rank name="TESTCSD5" on_id="1"  ts_id="1058"   svc_id="30178"   index="2193"/>
+            <rank name="TLC" on_id="133"  ts_id="5"   svc_id="772"   index="2194"/>
+            <rank name="TNT" on_id="1"  ts_id="1034"   svc_id="30665"   index="2195"/>
+            <rank name="TOROS" on_id="1"  ts_id="1042"   svc_id="30064"   index="2196"/>
+            <rank name="Traumfrauen TV" on_id="1"  ts_id="1113"   svc_id="12629"   index="2197"/>
+            <rank name="TRT World HD" on_id="1"  ts_id="1022"   svc_id="6918"   index="2198"/>
+            <rank name="TV Record SD" on_id="1"  ts_id="1040"   svc_id="31301"   index="2199"/>
+            <rank name="TV TRWAM" on_id="1"  ts_id="1048"   svc_id="4310"   index="2200"/>
+            <rank name="TV1 OOE" on_id="1"  ts_id="1115"   svc_id="13141"   index="2201"/>
+            <rank name="TV5MONDE EUROPE" on_id="1"  ts_id="1022"   svc_id="6915"   index="2304"/>
+            <rank name="TVCI" on_id="1"  ts_id="1027"   svc_id="5145"   index="2305"/>
+            <rank name="TVE INTERNACIONAL EUROPA" on_id="1"  ts_id="1028"   svc_id="4401"   index="2306"/>
+            <rank name="TVGA" on_id="1"  ts_id="1040"   svc_id="31306"   index="2307"/>
+            <rank name="TVRUS" on_id="1"  ts_id="1027"   svc_id="5601"   index="2308"/>
+            <rank name="VElevensports1" on_id="53"  ts_id="1105"   svc_id="4146"   index="2309"/>
+            <rank name="VElevenSports2" on_id="53"  ts_id="1105"   svc_id="4147"   index="2310"/>
+            <rank name="VIAJAR" on_id="1"  ts_id="1038"   svc_id="30409"   index="2311"/>
+            <rank name="VISIT-X.tv" on_id="1"  ts_id="1115"   svc_id="13107"   index="2312"/>
+            <rank name="Vivid CZ" on_id="53"  ts_id="1105"   svc_id="4065"   index="2313"/>
+            <rank name="VOX" on_id="1"  ts_id="1089"   svc_id="12060"   index="2320"/>
+            <rank name="VOXup" on_id="1"  ts_id="1091"   svc_id="28820"   index="2321"/>
+            <rank name="WDR Aachen" on_id="1"  ts_id="1111"   svc_id="28534"   index="2322"/>
+            <rank name="WDR Bielefeld" on_id="1"  ts_id="1201"   svc_id="28306"   index="2323"/>
+            <rank name="WDR Bonn" on_id="1"  ts_id="1111"   svc_id="28536"   index="2324"/>
+            <rank name="WDR Dortmund" on_id="1"  ts_id="1201"   svc_id="28307"   index="2325"/>
+            <rank name="WDR Duisburg" on_id="1"  ts_id="1111"   svc_id="28537"   index="2326"/>
+            <rank name="WDR Dsseldorf" on_id="1"  ts_id="1201"   svc_id="28308"   index="2327"/>
+            <rank name="WDR Essen" on_id="1"  ts_id="1201"   svc_id="28309"   index="2328"/>
+            <rank name="WDR Kln" on_id="1"  ts_id="1101"   svc_id="28111"   index="2329"/>
+            <rank name="WDR Mnster" on_id="1"  ts_id="1201"   svc_id="28310"   index="2336"/>
+            <rank name="WDR Siegen" on_id="1"  ts_id="1201"   svc_id="28311"   index="2337"/>
+            <rank name="WDR Test A" on_id="1"  ts_id="1201"   svc_id="28395"   index="2338"/>
+            <rank name="WDR Wuppertal" on_id="1"  ts_id="1111"   svc_id="28535"   index="2339"/>
+            <rank name="YOL TV" on_id="1"  ts_id="1027"   svc_id="5130"   index="2340"/>
+            <rank name="ZDFinfo" on_id="1"  ts_id="1079"   svc_id="28011"   index="2341"/>
+            <rank name="zdfneo" on_id="1"  ts_id="1079"   svc_id="28014"   index="2342"/>
+            <rank name="Zee One" on_id="133"  ts_id="15"   svc_id="35"   index="2343"/>
+            <rank name="." on_id="133"  ts_id="5"   svc_id="175"   index="2344"/>
+            <rank name="." on_id="133"  ts_id="5"   svc_id="171"   index="2345"/>
+            <rank name="." on_id="133"  ts_id="7"   svc_id="163"   index="2352"/>
+            <rank name="." on_id="133"  ts_id="5"   svc_id="174"   index="2353"/>
+            <rank name="1LIVE" on_id="1"  ts_id="1093"   svc_id="28475"   index="2354"/>
+            <rank name="1LIVE diGGi" on_id="1"  ts_id="1093"   svc_id="28481"   index="2355"/>
+            <rank name="ANTENNE BAYERN" on_id="133"  ts_id="7"   svc_id="170"   index="2356"/>
+            <rank name="Antenne Brandenburg" on_id="1"  ts_id="1093"   svc_id="28454"   index="2357"/>
+            <rank name="AUDIO PRIMO" on_id="1"  ts_id="1098"   svc_id="9102"   index="2358"/>
+            <rank name="B5 aktuell" on_id="1"  ts_id="1093"   svc_id="28404"   index="2359"/>
+            <rank name="B5 plus" on_id="1"  ts_id="1093"   svc_id="28408"   index="2360"/>
+            <rank name="Bayern 1" on_id="1"  ts_id="1093"   svc_id="28400"   index="2361"/>
+            <rank name="Bayern 2" on_id="1"  ts_id="1093"   svc_id="28401"   index="2368"/>
+            <rank name="BAYERN 3" on_id="1"  ts_id="1093"   svc_id="28402"   index="2369"/>
+            <rank name="BAYERN plus" on_id="1"  ts_id="1093"   svc_id="28405"   index="2370"/>
+            <rank name="BBC ARABIC" on_id="1"  ts_id="1098"   svc_id="9143"   index="2371"/>
+            <rank name="BBCW SERVICE" on_id="1"  ts_id="1098"   svc_id="9142"   index="2372"/>
+            <rank name="BEUR FM" on_id="1"  ts_id="1098"   svc_id="9198"   index="2373"/>
+            <rank name="BFM BUSINESS" on_id="1"  ts_id="1098"   svc_id="9111"   index="2374"/>
+            <rank name="BR Heimat" on_id="1"  ts_id="1093"   svc_id="28407"   index="2375"/>
+            <rank name="BR-KLASSIK" on_id="1"  ts_id="1093"   svc_id="28403"   index="2376"/>
+            <rank name="Bremen Eins" on_id="1"  ts_id="1093"   svc_id="28448"   index="2377"/>
+            <rank name="Bremen Vier" on_id="1"  ts_id="1093"   svc_id="28450"   index="2384"/>
+            <rank name="Bremen Zwei" on_id="1"  ts_id="1093"   svc_id="28449"   index="2385"/>
+            <rank name="CHERIE FM" on_id="1"  ts_id="1098"   svc_id="9185"   index="2386"/>
+            <rank name="CONTACT FM" on_id="1"  ts_id="1098"   svc_id="9180"   index="2387"/>
+            <rank name="COSMO" on_id="1"  ts_id="1093"   svc_id="28480"   index="2388"/>
+            <rank name="DASDING" on_id="1"  ts_id="1093"   svc_id="28471"   index="2389"/>
+            <rank name="Dlf" on_id="1"  ts_id="1079"   svc_id="28013"   index="2390"/>
+            <rank name="Dlf Kultur" on_id="1"  ts_id="1079"   svc_id="28012"   index="2391"/>
+            <rank name="Dlf Nova" on_id="1"  ts_id="1079"   svc_id="28017"   index="2392"/>
+            <rank name="DRadio DokDeb" on_id="1"  ts_id="1079"   svc_id="28015"   index="2393"/>
+            <rank name="egoFM" on_id="133"  ts_id="5"   svc_id="172"   index="2400"/>
+            <rank name="ERF Plus" on_id="133"  ts_id="7"   svc_id="161"   index="2401"/>
+            <rank name="ERF Pop" on_id="133"  ts_id="7"   svc_id="162"   index="2402"/>
+            <rank name="EUROPE 1" on_id="1"  ts_id="1098"   svc_id="9166"   index="2403"/>
+            <rank name="ffn" on_id="1"  ts_id="1113"   svc_id="12654"   index="2404"/>
+            <rank name="FIP" on_id="1"  ts_id="1098"   svc_id="9155"   index="2405"/>
+            <rank name="FM4" on_id="1"  ts_id="1115"   svc_id="13134"   index="2406"/>
+            <rank name="FRANCE BLEU" on_id="1"  ts_id="1098"   svc_id="9159"   index="2407"/>
+            <rank name="FRANCE CULTURE" on_id="1"  ts_id="1098"   svc_id="9158"   index="2408"/>
+            <rank name="FRANCE INFO" on_id="1"  ts_id="1098"   svc_id="9156"   index="2409"/>
+            <rank name="FRANCE INTER" on_id="1"  ts_id="1098"   svc_id="9157"   index="2416"/>
+            <rank name="FRANCE MUSIQUE" on_id="1"  ts_id="1098"   svc_id="9154"   index="2417"/>
+            <rank name="Fritz" on_id="1"  ts_id="1093"   svc_id="28457"   index="2418"/>
+            <rank name="FUN RADIO" on_id="1"  ts_id="1098"   svc_id="9140"   index="2419"/>
+            <rank name="harmony.fm" on_id="1"  ts_id="1113"   svc_id="12662"   index="2420"/>
+            <rank name="HIT RADIO FFH" on_id="1"  ts_id="1113"   svc_id="12660"   index="2421"/>
+            <rank name="hr-iNFO" on_id="1"  ts_id="1093"   svc_id="28424"   index="2422"/>
+            <rank name="hr1" on_id="1"  ts_id="1093"   svc_id="28419"   index="2423"/>
+            <rank name="hr2" on_id="1"  ts_id="1093"   svc_id="28420"   index="2424"/>
+            <rank name="hr3" on_id="1"  ts_id="1093"   svc_id="28421"   index="2425"/>
+            <rank name="hr4" on_id="1"  ts_id="1093"   svc_id="28422"   index="2432"/>
+            <rank name="Inforadio" on_id="1"  ts_id="1093"   svc_id="28452"   index="2433"/>
+            <rank name="Inselradio" on_id="1"  ts_id="1113"   svc_id="12651"   index="2434"/>
+            <rank name="JAM FM" on_id="133"  ts_id="5"   svc_id="177"   index="2435"/>
+            <rank name="JAZZ RADIO" on_id="1"  ts_id="1098"   svc_id="9177"   index="2436"/>
+            <rank name="KIRAKA" on_id="1"  ts_id="1093"   svc_id="28482"   index="2437"/>
+            <rank name="Klassik Radio" on_id="133"  ts_id="5"   svc_id="173"   index="2438"/>
+            <rank name="MDR AKTUELL" on_id="1"  ts_id="1093"   svc_id="28434"   index="2439"/>
+            <rank name="MDR JUMP" on_id="1"  ts_id="1093"   svc_id="28432"   index="2440"/>
+            <rank name="MDR KLASSIK" on_id="1"  ts_id="1093"   svc_id="28435"   index="2441"/>
+            <rank name="MDR KULTUR" on_id="1"  ts_id="1093"   svc_id="28431"   index="2448"/>
+            <rank name="NITRO" on_id="1"  ts_id="1089"   svc_id="12061"   index="2449"/>
+            <rank name="n-tv" on_id="1"  ts_id="1089"   svc_id="12090"   index="2450"/>
+            <rank name="RTLplus" on_id="1"  ts_id="1089"   svc_id="12080"   index="2451"/>
+            <rank name="N24 DOKU" on_id="133"  ts_id="5"   svc_id="48"   index="2452"/>
+            <rank name="BB-MV-LokalTV" on_id="1"  ts_id="1023"   svc_id="5806"   index="2453"/>
+            <rank name="Channel21 HD" on_id="1"  ts_id="1033"   svc_id="10104"   index="2454"/>
+            <rank name="Channel21" on_id="133"  ts_id="7"   svc_id="769"   index="2455"/>
+            <rank name="rbb Brandenburg HD" on_id="1"  ts_id="1061"   svc_id="10350"   index="2456"/>
+            <rank name="MDR S-ANHALT MD" on_id="1"  ts_id="1093"   svc_id="28429"   index="2457"/>
+            <rank name="MDR SACHSEN DD" on_id="1"  ts_id="1093"   svc_id="28428"   index="4096"/>
+            <rank name="MDR SPUTNIK" on_id="1"  ts_id="1093"   svc_id="28433"   index="4097"/>
+            <rank name="MDR THRINGEN EF" on_id="1"  ts_id="1093"   svc_id="28430"   index="4098"/>
+            <rank name="MOSAIQUE RADIOS" on_id="1"  ts_id="1098"   svc_id="9118"   index="4099"/>
+            <rank name="MOUV'" on_id="1"  ts_id="1098"   svc_id="9153"   index="4100"/>
+            <rank name="N-JOY" on_id="1"  ts_id="1093"   svc_id="28440"   index="4101"/>
+            <rank name="NDR 1 Nieders. HAN" on_id="1"  ts_id="1093"   svc_id="28444"   index="4102"/>
+            <rank name="NDR 1 Radio MV SN" on_id="1"  ts_id="1093"   svc_id="28443"   index="4103"/>
+            <rank name="NDR 2 NDS" on_id="1"  ts_id="1093"   svc_id="28437"   index="4104"/>
+            <rank name="NDR 90" on_id="1"  ts_id="1093"   svc_id="28441"   index="4105"/>
+            <rank name="NDR Blue" on_id="1"  ts_id="1093"   svc_id="28446"   index="4112"/>
+            <rank name="NDR Info NDS" on_id="1"  ts_id="1093"   svc_id="28439"   index="4113"/>
+            <rank name="NDR Info Spez." on_id="1"  ts_id="1093"   svc_id="28445"   index="4114"/>
+            <rank name="NDR Kultur" on_id="1"  ts_id="1093"   svc_id="28438"   index="4115"/>
+            <rank name="NDR Plus" on_id="1"  ts_id="1093"   svc_id="28447"   index="4116"/>
+            <rank name="NDR1 Welle Nord KI" on_id="1"  ts_id="1093"   svc_id="28442"   index="4117"/>
+            <rank name="Nostalgie" on_id="53"  ts_id="1105"   svc_id="4114"   index="4118"/>
+            <rank name="NOSTALGIE" on_id="1"  ts_id="1098"   svc_id="9181"   index="4119"/>
+            <rank name="NOVA" on_id="1"  ts_id="1098"   svc_id="9178"   index="4120"/>
+            <rank name="NRJ" on_id="1"  ts_id="1098"   svc_id="9182"   index="4121"/>
+            <rank name="NRJ" on_id="53"  ts_id="1105"   svc_id="4159"   index="4128"/>
+            <rank name="OE1" on_id="1"  ts_id="1115"   svc_id="13121"   index="4129"/>
+            <rank name="OE1 DD" on_id="1"  ts_id="1115"   svc_id="13122"   index="4130"/>
+            <rank name="OE2 B" on_id="1"  ts_id="1115"   svc_id="13125"   index="4131"/>
+            <rank name="OE2 K" on_id="1"  ts_id="1115"   svc_id="13131"   index="4132"/>
+            <rank name="OE2 N" on_id="1"  ts_id="1115"   svc_id="13124"   index="4133"/>
+            <rank name="OE2 O" on_id="1"  ts_id="1115"   svc_id="13126"   index="4134"/>
+            <rank name="OE2 S" on_id="1"  ts_id="1115"   svc_id="13127"   index="4135"/>
+            <rank name="OE2 St" on_id="1"  ts_id="1115"   svc_id="13130"   index="4136"/>
+            <rank name="OE2 T" on_id="1"  ts_id="1115"   svc_id="13128"   index="4137"/>
+            <rank name="OE2 V" on_id="1"  ts_id="1115"   svc_id="13129"   index="4144"/>
+            <rank name="OE2 W" on_id="1"  ts_id="1115"   svc_id="13123"   index="4145"/>
+            <rank name="OE3" on_id="1"  ts_id="1115"   svc_id="13133"   index="4146"/>
+            <rank name="OUI FM" on_id="1"  ts_id="1098"   svc_id="9176"   index="4147"/>
+            <rank name="planet radio" on_id="1"  ts_id="1113"   svc_id="12661"   index="4148"/>
+            <rank name="PULS" on_id="1"  ts_id="1093"   svc_id="28406"   index="4149"/>
+            <rank name="RADIO CLASSIQUE" on_id="1"  ts_id="1098"   svc_id="9164"   index="4150"/>
+            <rank name="RADIO FG" on_id="1"  ts_id="1098"   svc_id="9179"   index="4151"/>
+            <rank name="Radio Freundes-DienstOPA" on_id="53"  ts_id="1105"   svc_id="4062"   index="4152"/>
+            <rank name="Radio Gloria" on_id="1"  ts_id="1113"   svc_id="12659"   index="4153"/>
+            <rank name="Radio HBR" on_id="1"  ts_id="1113"   svc_id="12656"   index="4160"/>
+            <rank name="Radio HCJB" on_id="1"  ts_id="1113"   svc_id="12657"   index="4161"/>
+            <rank name="Radio Horeb" on_id="1"  ts_id="1111"   svc_id="7289"   index="4162"/>
+            <rank name="Radio Lebensquelle" on_id="53"  ts_id="1105"   svc_id="4060"   index="4163"/>
+            <rank name="RADIO MARIA" on_id="1"  ts_id="1115"   svc_id="13140"   index="4164"/>
+            <rank name="Radio Maryja" on_id="1"  ts_id="1048"   svc_id="4311"   index="4165"/>
+            <rank name="Radio neue Hoffnung" on_id="1"  ts_id="1111"   svc_id="7292"   index="4166"/>
+            <rank name="RADIO NOTRE DAME" on_id="1"  ts_id="1098"   svc_id="9194"   index="4167"/>
+            <rank name="Radio Paloma" on_id="1"  ts_id="1113"   svc_id="12655"   index="4168"/>
+            <rank name="Radio Regenbogen" on_id="1"  ts_id="1113"   svc_id="12663"   index="4169"/>
+            <rank name="radioB2  SCHLAGER" on_id="1"  ts_id="1113"   svc_id="12664"   index="4176"/>
+            <rank name="radioeins" on_id="1"  ts_id="1093"   svc_id="28456"   index="4177"/>
+            <rank name="RADIOS ESP" on_id="1"  ts_id="1058"   svc_id="30104"   index="4178"/>
+            <rank name="rbb 88.8" on_id="1"  ts_id="1093"   svc_id="28455"   index="4179"/>
+            <rank name="rbbKultur" on_id="1"  ts_id="1093"   svc_id="28453"   index="4180"/>
+            <rank name="Regenbogen 2" on_id="1"  ts_id="1113"   svc_id="12665"   index="4181"/>
+            <rank name="RFI INTERNAT" on_id="1"  ts_id="1098"   svc_id="9163"   index="4182"/>
+            <rank name="RFM" on_id="1"  ts_id="1098"   svc_id="9183"   index="4183"/>
+            <rank name="RIRE &amp; CHANSONS" on_id="1"  ts_id="1098"   svc_id="9168"   index="4184"/>
+            <rank name="RMC" on_id="1"  ts_id="1098"   svc_id="9167"   index="4185"/>
+            <rank name="RNE RADIO 1" on_id="1"  ts_id="1028"   svc_id="4411"   index="4192"/>
+            <rank name="RNE RADIO 3" on_id="1"  ts_id="1028"   svc_id="4412"   index="4193"/>
+            <rank name="RNE RADIO 4" on_id="1"  ts_id="1028"   svc_id="4413"   index="4194"/>
+            <rank name="RNE RADIO 5 TODO NOTICIA" on_id="1"  ts_id="1028"   svc_id="4414"   index="4195"/>
+            <rank name="RNE RADIO CLASICA" on_id="1"  ts_id="1028"   svc_id="4415"   index="4196"/>
+            <rank name="RNE RADIO EXTERIOR DE ES" on_id="1"  ts_id="1028"   svc_id="4416"   index="4197"/>
+            <rank name="ROCK ANTENNE" on_id="133"  ts_id="7"   svc_id="160"   index="4198"/>
+            <rank name="RTL" on_id="1"  ts_id="1098"   svc_id="9165"   index="4199"/>
+            <rank name="RTL RADIO" on_id="1"  ts_id="1111"   svc_id="7931"   index="4200"/>
+            <rank name="RTL2" on_id="1"  ts_id="1098"   svc_id="9186"   index="4201"/>
+            <rank name="SCHLAGER-RADIO" on_id="1"  ts_id="1113"   svc_id="12658"   index="4208"/>
+            <rank name="SKYROCK" on_id="1"  ts_id="1098"   svc_id="9187"   index="4209"/>
+            <rank name="SR 1 Europawelle" on_id="1"  ts_id="1093"   svc_id="28461"   index="4210"/>
+            <rank name="SR 2 KulturRadio" on_id="1"  ts_id="1093"   svc_id="28462"   index="4211"/>
+            <rank name="SR 3 Saarlandwelle" on_id="1"  ts_id="1093"   svc_id="28463"   index="4212"/>
+            <rank name="SUD RADIO" on_id="1"  ts_id="1098"   svc_id="9109"   index="4213"/>
+            <rank name="sunshine live" on_id="133"  ts_id="7"   svc_id="169"   index="4214"/>
+            <rank name="SWR Aktuell" on_id="1"  ts_id="1093"   svc_id="28472"   index="4215"/>
+            <rank name="SWR1 BW" on_id="1"  ts_id="1093"   svc_id="28465"   index="4216"/>
+            <rank name="SWR1 RP" on_id="1"  ts_id="1093"   svc_id="28466"   index="4217"/>
+            <rank name="SWR2" on_id="1"  ts_id="1093"   svc_id="28467"   index="4224"/>
+            <rank name="SWR3" on_id="1"  ts_id="1093"   svc_id="28468"   index="4225"/>
+            <rank name="SWR4 BW" on_id="1"  ts_id="1093"   svc_id="28469"   index="4226"/>
+            <rank name="SWR4 RP" on_id="1"  ts_id="1093"   svc_id="28470"   index="4227"/>
+            <rank name="TSF JAZZ" on_id="1"  ts_id="1098"   svc_id="9175"   index="4228"/>
+            <rank name="TSR Turkce" on_id="1"  ts_id="1027"   svc_id="5116"   index="4229"/>
+            <rank name="U1 Tirol" on_id="1"  ts_id="1115"   svc_id="13136"   index="4230"/>
+            <rank name="VIRGIN RADIO" on_id="1"  ts_id="1098"   svc_id="9184"   index="4231"/>
+            <rank name="VRT Radio1" on_id="53"  ts_id="1105"   svc_id="4122"   index="4232"/>
+            <rank name="VRT Radio2" on_id="53"  ts_id="1105"   svc_id="4123"   index="4233"/>
+            <rank name="WDR 2 Rheinland" on_id="1"  ts_id="1093"   svc_id="28476"   index="4240"/>
+            <rank name="WDR 3" on_id="1"  ts_id="1093"   svc_id="28477"   index="4241"/>
+            <rank name="WDR 4" on_id="1"  ts_id="1093"   svc_id="28478"   index="4242"/>
+            <rank name="WDR 5" on_id="1"  ts_id="1093"   svc_id="28479"   index="4243"/>
+            <rank name="WDR Event" on_id="1"  ts_id="1093"   svc_id="28483"   index="4244"/>
+            <rank name="YOU FM" on_id="1"  ts_id="1093"   svc_id="28423"   index="4245"/>
+            <rank name="ORF2E" on_id="1"  ts_id="1117"   svc_id="13014"   index="4246"/>
+        </country>
+    </F_sorting_rank>
+</configuration>

@@ -186,7 +186,11 @@ include device/amlogic/common/soft_afbc/soft_afbc_modules.mk
 BOARD_VENDOR_KERNEL_MODULES ?= $(VENDOR_KERNEL_MODULES)
 
 SOURCE_OPTEE_FILES := $(wildcard $(PREBUILT_KERNEL_PATH)/lib/*.ko)
-SOURCE_FIRMWARE_FILES += $(wildcard $(PREBUILT_KERNEL_PATH)/lib/firmware/video/*.bin)
+ifeq ($(BOARD_AML_SOC_TYPE),)
+	SOURCE_FIRMWARE_FILES += $(wildcard $(PREBUILT_KERNEL_PATH)/lib/firmware/video/*.bin)
+else
+	SOURCE_FIRMWARE_FILES += $(wildcard $(PREBUILT_KERNEL_PATH)/lib/firmware/video/$(BOARD_AML_SOC_TYPE)/*.bin)
+endif
 
 INSTALLED_FIRMWARE_TARGET := \
     $(PRODUCT_OUT)/vendor/lib/firmware/video/*.bin
@@ -194,7 +198,14 @@ INSTALLED_FIRMWARE_TARGET := \
 $(INSTALLED_FIRMWARE_TARGET): $(SOURCE_FIRMWARE_FILES)
 	@echo "cp kernel modules"
 	mkdir -p $(PRODUCT_OUT)/vendor/lib/firmware/video
-	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/* $(PRODUCT_OUT)/vendor/lib/firmware/video/
+ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
+	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/checkmsg $(PRODUCT_OUT)/vendor/lib/firmware/video/
+endif
+ifeq ($(BOARD_AML_SOC_TYPE),)
+	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/*.bin $(PRODUCT_OUT)/vendor/lib/firmware/video/
+ else
+	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/$(BOARD_AML_SOC_TYPE)/*.bin $(PRODUCT_OUT)/vendor/lib/firmware/video/
+endif
 
 INSTALLED_OPTEE_TARGET := \
     $(PRODUCT_OUT)/vendor/lib/optee*.ko
