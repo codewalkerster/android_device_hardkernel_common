@@ -202,7 +202,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx2.support_mpeg=true \
     vendor.ionvideo.enable=1 \
     vendor.media.omx.dibypass.enable=false \
-    vendor.media.omx.videolayerrotation.enable=false
+    vendor.media.omx.videolayerrotation.enable=false \
+    vendor.media.omx.dec.enable_h264_4k_mmu=true
 
 #codec2
 ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
@@ -210,7 +211,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.codec2.support=true \
     vendor.media.codec2.disable_secure=false \
     debug.stagefright.ccodec_delayed_params=true \
-    debug.c2.use_dmabufheaps=1
+    debug.c2.use_dmabufheaps=1 \
+    vendor.media.c2.vdec.enable_h264_4k_mmu=true
 endif
 
 #usb controller
