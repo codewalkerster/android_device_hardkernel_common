@@ -1,4 +1,3 @@
-on init
+on post-fs-data
     insmod /vendor/lib/modules/cxd2856_fe.ko
     write /sys/class/aml_dvb_extern/demod_debug "attach"
-    write /sys/class/aml_dvb_extern/demod_debug "register"
