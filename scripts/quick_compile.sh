@@ -231,6 +231,7 @@ uboot_path[18]="device/amlogic/redi"
 uboot_exec_aosp[18]="./mk t5d_am301_v1 --vab --fastboot-write"
 uboot_exec_drm[18]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[18]="./mk redi -v "
+kernel_addr[18]="export KERNEL_A32_SUPPORT=true"
 ###########################################################################################
 
 ###########################################################################################
@@ -255,6 +256,7 @@ uboot_path[20]="device/amlogic/soddy"
 uboot_exec_aosp[20]="./mk t5w_at301_v1  --vab --fastboot-write"
 uboot_exec_drm[20]="./mk t5w_at301_v1  --vab --avb2 --fastboot-write"
 kernel_exec[20]="./mk soddy -v "
+kernel_addr[20]="export KERNEL_A32_SUPPORT=true"
 ###########################################################################################
 
 ###########################################################################################
