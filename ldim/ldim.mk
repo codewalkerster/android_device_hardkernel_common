@@ -21,7 +21,14 @@
 ifeq ($(strip $(LDIM_FW_MODULE)),true)
     $(warning LDIM_FW_MODULE is $(LDIM_FW_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
+    elif ($(TARGET_BUILD_KERNEL_VERSION),5.4)
+        ifeq ($(KERNEL_A32_SUPPORT),true)
 
+        else
+            PRODUCT_COPY_FILES += \
+                device/amlogic/common/ldim/64_5_4/ldim_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/ldim_fw.ko \
+                device/amlogic/common/initscripts/ldim.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ldim.rc
+        endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
 

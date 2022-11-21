@@ -30,6 +30,16 @@ ifeq ($(strip $(HDR10_TMO_MODULE)),true)
                 device/amlogic/common/video_algorithm/hdr10_tmo/64_4_9/hdr10_tmo_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
                 device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
         endif
+    elif ($(TARGET_BUILD_KERNEL_VERSION),5.4)
+        ifeq ($(KERNEL_A32_SUPPORT),true)
+           PRODUCT_COPY_FILES += \
+               device/amlogic/common/video_algorithm/hdr10_tmo/32_5_4/hdr10_tmo_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
+               device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
+        else
+           PRODUCT_COPY_FILES += \
+                device/amlogic/common/video_algorithm/hdr10_tmo/64_5_4/hdr10_tmo_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
+                device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
+        endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \

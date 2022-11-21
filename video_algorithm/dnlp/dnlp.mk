@@ -30,6 +30,16 @@ ifeq ($(strip $(DNLP_MODULE)),true)
                 device/amlogic/common/video_algorithm/dnlp/64_4_9/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
                 device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         endif
+    elif ($(TARGET_BUILD_KERNEL_VERSION),5.4)
+        ifeq ($(KERNEL_A32_SUPPORT),true)
+           PRODUCT_COPY_FILES += \
+               device/amlogic/common/video_algorithm/dnlp/32_5_4/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+               device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+        else
+           PRODUCT_COPY_FILES += \
+                device/amlogic/common/video_algorithm/dnlp/64_5_4/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+        endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
