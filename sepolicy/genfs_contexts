@@ -14,3 +14,5 @@ genfscon sysfs /class/astream u:object_r:sysfs_astream:s0
 genfscon sysfs /devices/virtual/astream/astream-dev u:object_r:sysfs_astream:s0
 genfscon proc    /kcore u:object_r:proc_iomem:s0
 #genfscon proc    /kallsyms u:object_r:proc_iomem:s0
+
+genfscon proc    /cpu_chipid        u:object_r:proc_cpuinfo:s0
