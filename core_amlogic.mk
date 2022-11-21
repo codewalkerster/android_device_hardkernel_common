@@ -132,6 +132,7 @@ ifeq ($(TARGET_BUILD_LIVETV),true)
 endif
 
 $(call inherit-product, device/google/atv/products/atv_base.mk)
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioTv.mk)
 
 PRODUCT_PRODUCT_VNDK_VERSION := current
 
