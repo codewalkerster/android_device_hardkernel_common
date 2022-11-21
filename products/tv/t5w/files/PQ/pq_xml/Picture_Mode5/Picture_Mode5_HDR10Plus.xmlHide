@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form name="Picture_Mode5_HDR10Plus" platform="txlx" commands="">
+<Group num="0" val="0">
+<Page tab_title="" layout="10x4">
+<Control ui_type="" name="STANDARD_HDR10P" value="0" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="1" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="BRIGHT_HDR10P"   value="1" Backlight="100" Brightness="50" Contrast="55" Saturation="60" Sharpness="60" Hue="50" ColorTemperature="2" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="1" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="SOFT_HDR10P"     value="2" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="1" GammaMidLuminance="0" NR="2" BlueStretch="0" ChromaCoring="0" DynamicContrast="0" LocalContrast="0" ColorGamut="2" BlackExtension="0" MpegNr="1" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="USER_HDR10P"     value="3" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="1" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="MOVIE_HDR10P"    value="4" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="40" Hue="50" ColorTemperature="1" GammaMidLuminance="0" NR="1" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="COLORFUL_HDR10P" value="5" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="1" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="Game_HDR10P"     value="6" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="50" Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="0" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="Monitor_HDR10P"  value="7" Backlight="100" Brightness="50" Contrast="50" Saturation="50" Sharpness="0"  Hue="50" ColorTemperature="0" GammaMidLuminance="0" NR="0" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+<Control ui_type="" name="SPORTS_HDR10P"   value="8" Backlight="100" Brightness="50" Contrast="50" Saturation="55" Sharpness="65" Hue="50" ColorTemperature="2" GammaMidLuminance="0" NR="1" BlueStretch="0" ChromaCoring="0" DynamicContrast="2" LocalContrast="2" ColorGamut="1" BlackExtension="0" MpegNr="0" DolbyMode="-1" DolbyDarkDetail="-1"/>
+</Page>
+</Group>
+</Form>
+

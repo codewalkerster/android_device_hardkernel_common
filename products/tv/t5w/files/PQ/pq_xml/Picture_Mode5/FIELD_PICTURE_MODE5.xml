@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form name="FIELD_PICTURE_MODE5" platform="txlx" commands="">
+<Group num="0" val="">
+<Page tab_title="FIELD" layout="50x3">
+<Control type="field" tablename="Picture_Mode5_DEFAULT"     tableid="0" port="0,"                         sig="0," trans="0,"/>
+<Control type="field" tablename="Picture_Mode5_SDR"         tableid="0" port="0,1,2,3,4,5,6,7,8,9,10,11," sig="1," trans="0,"/>
+<Control type="field" tablename="Picture_Mode5_HDR10"       tableid="0" port="5,6,7,8,10,11,"             sig="2," trans="0,"/>
+<Control type="field" tablename="Picture_Mode5_HDR10Plus"   tableid="0" port="5,6,7,8,10,11,"             sig="3," trans="0,"/>
+<Control type="field" tablename="Picture_Mode5_HLG"         tableid="0" port="5,6,7,8,10,11,"             sig="4," trans="0,"/>
+<Control type="field" tablename="Picture_Mode5_DolbyVision" tableid="0" port="5,6,7,8,10,11,"             sig="5," trans="0,"/>
+
+<Control type="port"  name="TVIN_PORT_TV"            value="0"/>
+<Control type="port"  name="TVIN_PORT_AV1"           value="1"/>
+<Control type="port"  name="TVIN_PORT_AV2"           value="2"/>
+<Control type="port"  name="TVIN_PORT_YPBPR1"        value="3"/>
+<Control type="port"  name="TVIN_PORT_YPBPR2"        value="4"/>
+<Control type="port"  name="TVIN_PORT_HDMI1"         value="5"/>
+<Control type="port"  name="TVIN_PORT_HDMI2"         value="6"/>
+<Control type="port"  name="TVIN_PORT_HDMI3"         value="7"/>
+<Control type="port"  name="TVIN_PORT_HDMI4"         value="8"/>
+<Control type="port"  name="TVIN_PORT_VGA"           value="9"/>
+<Control type="port"  name="TVIN_PORT_MPEG"          value="10"/>
+<Control type="port"  name="TVIN_PORT_DTV"           value="11"/>
+
+<Control type="sig"   name="TVIN_PQ_SIG_FMT_DEFAULT" value="0"/>
+<Control type="sig"   name="TVIN_PQ_SIG_FMT_SDR"     value="1"/>
+<Control type="sig"   name="TVIN_PQ_SIG_FMT_HDR"     value="2"/>
+<Control type="sig"   name="TVIN_PQ_SIG_FMT_HDRP"    value="3"/>
+<Control type="sig"   name="TVIN_PQ_SIG_FMT_HLG"     value="4"/>
+<Control type="sig"   name="TVIN_PQ_SIG_FMT_DOBLY"   value="5"/>
+
+<Control type="trans" name="TVIN_TFMT0_2D"           value="0"/>
+</Page>
+</Group>
+</Form>
+
