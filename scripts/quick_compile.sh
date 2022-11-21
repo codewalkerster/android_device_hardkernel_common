@@ -316,6 +316,16 @@ uboot_exec_aosp[25]="./mk g12a_u215_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[25]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[25]="./mk franklin -v "
 ###########################################################################################
+# BDS_T7_AN400
+project[26]="BDS-64bit-AOSP"
+soc[26]="t7_an400"
+hardware[26]="t7_an400"
+module[26]="t7_an400_arm64"
+uboot_path[26]="device/amlogic/t7_an400"
+uboot_exec_aosp[26]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
+uboot_exec_drm[26]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
+kernel_exec[26]="./mk t7_an400 -v "
+###########################################################################################
 
 usage() {
     echo -e \
