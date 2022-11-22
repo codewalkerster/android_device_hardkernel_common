@@ -52,9 +52,11 @@ PRODUCT_COPY_FILES += \
 		frameworks/native/data/etc/android.hardware.opengles.aep.xml:vendor/etc/permissions/android.hardware.opengles.aep.xml \
 		frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2022-03-01.xml
 endif
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_COPY_FILES += \
 		hardware/amlogic/gralloc/gpu.xml:vendor/etc/gralloc/gpu.xml \
 		hardware/amlogic/gralloc/dpu.xml:vendor/etc/gralloc/dpu.xml \
 		hardware/amlogic/gralloc/dpu_aeu.xml:vendor/etc/gralloc/dpu_aeu.xml \
 		hardware/amlogic/gralloc/vpu.xml:vendor/etc/gralloc/vpu.xml \
 		hardware/amlogic/gralloc/cam.xml:vendor/etc/gralloc/cam.xml
+endif
