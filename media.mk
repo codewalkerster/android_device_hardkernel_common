@@ -172,10 +172,6 @@ ifeq ($(BOARD_PLAYREADY_LEVEL),1)
     BUILD_WITH_PLAYREADY_DRM := true
     BOARD_PLAYREADY_TVP := true
     TARGET_USE_OPTEEOS := true
-else
-ifeq ($(BOARD_PLAYREADY_LEVEL), 3)
-    BUILD_WITH_PLAYREADY_DRM := true
-endif
 endif
 
 ifeq ($(BUILD_WITH_PLAYREADY_DRM),true)
