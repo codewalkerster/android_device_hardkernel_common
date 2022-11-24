@@ -13,6 +13,7 @@ hal_client_domain(subtitleserver, hal_graphics_allocator)
 
 get_prop(subtitleserver, hwservicemanager_prop)
 get_prop(subtitleserver, vendor_platform_prop)
+get_prop(subtitleserver, vendor_media_prop);
 
 allow subtitleserver subtitle_device:chr_file rw_file_perms;
 allow subtitleserver dvb_device:chr_file rw_file_perms;
@@ -44,4 +45,4 @@ allow subtitleserver codec_device:chr_file rw_file_perms;
 allow subtitleserver mediasync_device:chr_file rw_file_perms;
 allow subtitleserver fuse:file read;
 allow subtitleserver sysfs_xbmc:file { open read};
-
+allow subtitleserver sysfs_xbmc:file rw_file_perms;
