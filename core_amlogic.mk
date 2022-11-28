@@ -193,11 +193,11 @@ ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     WifiOverlay \
     AppInstaller \
-    FileBrowser \
+    #FileBrowser \
     RemoteIME \
     NativeImagePlayer \
     imageserver \
-    MboxLauncher \
+    #MboxLauncher \
     DLNA \
     BluetoothRemote \
     OTAUpgrade \
@@ -210,6 +210,17 @@ PRODUCT_PACKAGES += \
     FileBrower \
     SystemUIOverlay
 
+ifeq ($(PRODUCT_SUPPORT_ATK_UI),true)
+    PRODUCT_PACKAGES += \
+        TVLauncher \
+        FileBrowser2 \
+        TvCast \
+        SetupWizard
+else
+    PRODUCT_PACKAGES += \
+        MboxLauncher \
+        FileBrowser
+endif
 #add camera app
 PRODUCT_PACKAGES += Camera2
 endif
