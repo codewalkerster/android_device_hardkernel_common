@@ -19,3 +19,6 @@ allow hal_tv_input_default vendor_tv_prop:file { getattr map open read };
 get_prop(hal_tv_input_default, vendor_tv_prop)
 
 allow hal_tv_input_default gpu_device:chr_file { read open ioctl };
+
+allow hal_tv_input_default sysfs_video:dir search;
+allow hal_tv_input_default sysfs_video:file { read open write map getattr};
