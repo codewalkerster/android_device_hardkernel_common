@@ -93,17 +93,13 @@ PRODUCT_PACKAGES += \
     WiFiTetheringOverlay
 endif
 
-ifneq ($(TARGET_BUILD_KERNEL_VERSION), 4.9)
+ifeq ($(LAUNCH_ON_T)_$(TARGET_BUILD_KERNEL_VERSION), true_5.15)
+TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.15_ab.fstab
+else
 ifneq ($(AB_OTA_UPDATER),true)
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4.fstab
 else
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4_ab.fstab
-endif
-else
-ifneq ($(AB_OTA_UPDATER),true)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery.fstab
-else
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_4.9_ab.fstab
 endif
 endif
 
