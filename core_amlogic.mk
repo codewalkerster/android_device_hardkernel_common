@@ -618,6 +618,22 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
+ifeq ($(VENDOR_ENCODER_SUPPORT_HCODEC),true)
+PRODUCT_PACKAGES += \
+    lib_avc_vpcodec
+endif
+
+ifeq ($(VENDOR_ENCODER_SUPPORT_WAVE420),true)
+PRODUCT_PACKAGES += \
+    libvp_hevc_codec
+endif
+
+ifeq ($(VENDOR_ENCODER_SUPPORT_WAVE521),true)
+PRODUCT_PACKAGES += \
+    libvpcodec \
+    libamvenc_api
+endif
+
 #Atrace HAL
 PRODUCT_PACKAGES += \
      android.hardware.atrace@1.0-service
