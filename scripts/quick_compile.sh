@@ -318,15 +318,29 @@ uboot_exec_aosp[25]="./mk g12a_u215_v1  --vab --avb2 --fastboot-write"
 uboot_exec_drm[25]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[25]="./mk franklin -v "
 ###########################################################################################
-# BDS_T7_AN400
-project[26]="BDS-64bit-AOSP"
-soc[26]="t7_an400"
-hardware[26]="t7_an400"
+
+###########################################################################################
+# T7_AN400
+project[26]="BDS-T7-64bit"
+soc[26]="A311D2"
+hardware[26]="AN400"
 module[26]="t7_an400_arm64"
 uboot_path[26]="device/amlogic/t7_an400"
 uboot_exec_aosp[26]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
 uboot_exec_drm[26]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
 kernel_exec[26]="./mk t7_an400 -v "
+###########################################################################################
+
+###########################################################################################
+# T982_AR301
+project[27]="T982"
+soc[27]="T982X9"
+hardware[27]="AR301"
+module[27]="t982_arm64"
+uboot_path[27]="device/amlogic/t982_ar301"
+uboot_exec_aosp[27]="./mk t3_t982 --vab --avb2 --fastboot-write"
+uboot_exec_drm[27]="./mk t3_t982 --vab --avb2 --fastboot-write"
+kernel_exec[27]="./mk t982_ar301 -v "
 ###########################################################################################
 
 usage() {
@@ -363,10 +377,10 @@ read_platform_type() {
     fi
     while true :
     do
-        printf "[%3s]   [%16s]   [%15s]  [%15s]\n" "NUM" "PROJECT" "SOC TYPE" "HARDWARE TYPE"
+        printf "[%3s]   [%18s]  [%15s]  [%15s]\n" "NUM" "PROJECT" "SOC TYPE" "HARDWARE TYPE"
         echo "-----------------------------------------------------------------"
         for i in `seq ${#project[@]}`;do
-            printf "[%3d]   [%16s]  [%15s]  [%15s]\n" $i ${project[i]} ${soc[i]} ${hardware[i]}
+            printf "[%3d]   [%18s]  [%15s]  [%15s]\n" $i ${project[i]} ${soc[i]} ${hardware[i]}
         done
 
         echo "-----------------------------------------------------------------"
