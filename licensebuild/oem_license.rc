@@ -14,6 +14,8 @@
 
 on init
     # Mount tmpfs
+    wait /dev/audio_utils  2
+    wait /dev/dolby_fw 2
     wait /odm/lib/ms12 2
     mount tmpfs tmpfs /odm/lib/ms12 size=10240K,context=u:object_r:dolbyms12:s0 rw
 
@@ -27,7 +29,6 @@ on init
     chmod 600 /dev/audio_utils
 
     # Changing access permission of the dev node used by libdolbyms12
-    wait /dev/dolby_fw 2
     chown audioserver mediadrm /dev/dolby_fw
     chmod 440 /dev/dolby_fw
 
