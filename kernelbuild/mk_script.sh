@@ -247,7 +247,12 @@ function build_common_5.15() {
 		export CONFIG_KERNEL_FCC_PIP=true
 	fi
 
-	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
+	if [ $CONFIG_UPGRADE ]; then
+		echo "--- upgrade mode, use buildin ---"
+		./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters --upgrade
+	else
+		./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
+	fi
 }
 
 function build_common() {
@@ -527,6 +532,9 @@ function bin_path_parser() {
 				continue ;;
 			--nonGKI)
 				CONFIG_NONGKI=true
+				continue ;;
+			--upgrade)
+				CONFIG_UPGRADE=true
 				continue ;;
 			--modules)
 				CONFIG_ONE_MODULES="${argv[$i]}"

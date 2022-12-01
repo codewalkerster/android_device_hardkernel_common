@@ -93,14 +93,10 @@ PRODUCT_PACKAGES += \
     WiFiTetheringOverlay
 endif
 
-ifeq ($(LAUNCH_ON_T)_$(TARGET_BUILD_KERNEL_VERSION), true_5.15)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.15_ab.fstab
+ifeq ($(LAUNCH_VERSION),T)
+TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_newlaunch.fstab
 else
-ifneq ($(AB_OTA_UPDATER),true)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4.fstab
-else
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4_ab.fstab
-endif
+TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_upgrade.fstab
 endif
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/amlogic/common/scripts
@@ -451,7 +447,7 @@ PRODUCT_PACKAGES += \
      android.hardware.usb@1.0-service
 
 # healthd aidl hal
-ifeq ($(LAUNCH_ON_T),true)
+ifeq ($(LAUNCH_VERSION),T)
 PRODUCT_PACKAGES += android.hardware.health-service.droidlogic
 else
 PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
@@ -493,7 +489,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power.aidl-service.droidlogic
 
 #Memtack HAL
-ifeq ($(LAUNCH_ON_T),true)
+ifneq ($(filter T S,$(LAUNCH_VERSION)),)
 PRODUCT_PACKAGES += \
      android.hardware.memtrack-service.droidlogic
 else
@@ -773,7 +769,7 @@ AB_OTA_PARTITIONS += \
     odm_dlkm
 endif
 
-ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 AB_OTA_PARTITIONS += \
     init_boot
 endif
