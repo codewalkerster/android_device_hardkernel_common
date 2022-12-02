@@ -1,0 +1,648 @@
+{
+    "countrylist": [
+        {
+            "countrycode": "dza",
+            "description": "Algeria",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "arg",
+            "description": "Argentina",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "aus",
+            "description": "Australia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "aut",
+            "description": "Austria",
+            "languagelist": "language_default.json",
+            "primarylang": "deu",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "aze",
+            "description": "Azerbaijan",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "bhr",
+            "description": "Bahrain",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "blr",
+            "description": "Belarus",
+            "languagelist": "language_default.json",
+            "primarylang": "rus",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "bel",
+            "description": "Belgium",
+            "languagelist": "language_default.json",
+            "primarylang": "nld",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "bol",
+            "description": "Bolivia",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "bra",
+            "description": "Brazil",
+            "languagelist": "language_default.json",
+            "primarylang": "por",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "bgr",
+            "description": "Bulgaria",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "cmr",
+            "description": "Cameroon",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "chl",
+            "description": "Chile",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "chn",
+            "description": "China",
+            "languagelist": "language_default.json",
+            "primarylang": "zho",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "col",
+            "description": "Colombia",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "cri",
+            "description": "Costarica",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "hrv",
+            "description": "Croatia",
+            "languagelist": "language_default.json",
+            "primarylang": "hrv",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "cze",
+            "description": "Czech Rep",
+            "languagelist": "language_default.json",
+            "primarylang": "ces",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "dnk",
+            "description": "Denmark",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "dom",
+            "description": "Dominican Rep",
+            "languagelist": "language_default.json",
+            "primarylang": "dan",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "ecu",
+            "description": "Ecuador",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "egy",
+            "description": "Egypt",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "slv",
+            "description": "Elsalvador",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "est",
+            "description": "Estonia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "fin",
+            "description": "Finland",
+            "languagelist": "language_default.json",
+            "primarylang": "fin",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "fra",
+            "description": "France",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "geo",
+            "description": "Georgia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "deu",
+            "description": "Germany",
+            "languagelist": "language_default.json",
+            "primarylang": "deu",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "gha",
+            "description": "Ghana",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "grc",
+            "description": "Greece",
+            "languagelist": "language_default.json",
+            "primarylang": "ell",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "gtm",
+            "description": "Guatemala",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "hnd",
+            "description": "Honduras",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "hun",
+            "description": "Hungary",
+            "languagelist": "language_default.json",
+            "primarylang": "hun",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "isl",
+            "description": "Iceland",
+            "languagelist": "language_default.json",
+            "primarylang": "ice",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "ind",
+            "description": "India",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "idn",
+            "description": "Indonesia",
+            "languagelist": "language_default.json",
+            "primarylang": "ind",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "irn",
+            "description": "Iran",
+            "languagelist": "language_default.json",
+            "primarylang": "fas",
+            "secondarylang": "ara"
+        },
+        {
+            "countrycode": "irq",
+            "description": "Iraq",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "irl",
+            "description": "Ireland",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "isr",
+            "description": "Israel",
+            "languagelist": "language_default.json",
+            "primarylang": "heb",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "ita",
+            "description": "Italy",
+            "languagelist": "language_default.json",
+            "primarylang": "ita",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "jpn",
+            "description": "Japan",
+            "languagelist": "language_default.json",
+            "primarylang": "jpn",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "jor",
+            "description": "Jordan",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "ken",
+            "description": "Kenya",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "kwt",
+            "description": "Kuwait",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "lva",
+            "description": "Latvia",
+            "languagelist": "language_default.json",
+            "primarylang": "lav",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "lby",
+            "description": "Libya",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "lux",
+            "description": "Luxembourg",
+            "languagelist": "language_default.json",
+            "primarylang": "ltz",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "omn",
+            "description": "Oman",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "mys",
+            "description": "Malaysia",
+            "languagelist": "language_default.json",
+            "primarylang": "may",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "mex",
+            "description": "Mexico",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "mar",
+            "description": "Morocco",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "mmr",
+            "description": "Myanmar",
+            "languagelist": "language_default.json",
+            "primarylang": "mya",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "nld",
+            "description": "Netherlands",
+            "languagelist": "language_default.json",
+            "primarylang": "nld",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "nzl",
+            "description": "New Zealand",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "nic",
+            "description": "Nicaragua",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "nor",
+            "description": "Norway",
+            "languagelist": "language_default.json",
+            "primarylang": "nor",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "pak",
+            "description": "Pakistan",
+            "languagelist": "language_default.json",
+            "primarylang": "urd",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "pan",
+            "description": "Panama",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "per",
+            "description": "Peru",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "pol",
+            "description": "Poland",
+            "languagelist": "language_default.json",
+            "primarylang": "pol",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "prt",
+            "description": "Portugal",
+            "languagelist": "language_default.json",
+            "primarylang": "por",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "qat",
+            "description": "Qatar",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "rou",
+            "description": "Romania",
+            "languagelist": "language_default.json",
+            "primarylang": "ron",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "rus",
+            "description": "Russia",
+            "languagelist": "language_default.json",
+            "primarylang": "rus",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "sau",
+            "description": "Saudi Arabia",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "srb",
+            "description": "Serbia",
+            "languagelist": "language_default.json",
+            "primarylang": "srp",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "sgp",
+            "description": "Singapore",
+            "languagelist": "language_singapore.json",
+            "primarylang": "eng",
+            "secondarylang": "zho",
+            "lcn": true
+        },
+        {
+            "countrycode": "svk",
+            "description": "Slovakia",
+            "languagelist": "language_default.json",
+            "primarylang": "slk",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "svn",
+            "description": "Slovenia",
+            "languagelist": "language_default.json",
+            "primarylang": "slv",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "zaf",
+            "description": "South Africa",
+            "languagelist": "language_default.json",
+            "primarylang": "afr",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "esp",
+            "description": "Spain",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "swe",
+            "description": "Sweden",
+            "languagelist": "language_default.json",
+            "primarylang": "swe",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "che",
+            "description": "Switzerland",
+            "languagelist": "language_default.json",
+            "primarylang": "deu",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "tza",
+            "description": "Tanzania",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "tha",
+            "description": "Thailand",
+            "languagelist": "language_default.json",
+            "primarylang": "tha",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "tun",
+            "description": "Tunisia",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "tur",
+            "description": "Turkey",
+            "languagelist": "language_default.json",
+            "primarylang": "tur",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "twn",
+            "description": "Taiwan(China)",
+            "languagelist": "language_default.json",
+            "primarylang": "zho",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "are",
+            "description": "United Arab Emirates",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "gbr",
+            "description": "UK",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "ukr",
+            "description": "Ukraine",
+            "languagelist": "language_default.json",
+            "primarylang": "ukr",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "ven",
+            "description": "Venezuela",
+            "languagelist": "language_default.json",
+            "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "vnm",
+            "description": "Vietnam",
+            "languagelist": "language_default.json",
+            "primarylang": "vie",
+            "secondarylang": "eng",
+            "lcn": true
+        }
+    ]
+}

@@ -336,7 +336,7 @@ function build() {
 	fi
 
 	if [ "$1" = "ohm" -o "$1" = "ohmcas" -o "$1" = "oppen" \
-		-o "$1" = "smith" -o "$1" = "oppencas" -o "$1" = "planck" ]; then
+		-o "$1" = "smith" -o "$1" = "calla" -o "$1" = "oppencas" -o "$1" = "planck" ]; then
 		if [ "$CONFIG_KERNEL_VERSION" = "4.9" ]; then
 			BOOT_DEVICES="androidboot.boot_devices=fe08c000.emmc"
 		else

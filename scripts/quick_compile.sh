@@ -343,6 +343,18 @@ uboot_exec_drm[27]="./mk t3_t982 --vab --avb2 --fastboot-write"
 kernel_exec[27]="./mk t982_ar301 -v "
 ###########################################################################################
 
+###########################################################################################
+# calla
+project[27]="Calla"
+soc[27]="t5m_pxp"
+hardware[27]="AY301"
+module[27]="calla"
+uboot_path[27]="device/amlogic/calla"
+uboot_exec_aosp[27]="./mk t5m_pxp --vab --avb2 --fastboot-write"
+uboot_exec_drm[27]="./mk t5m_pxp --vab --avb2 --fastboot-write"
+kernel_exec[27]="./mk calla -v "
+###########################################################################################
+
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
