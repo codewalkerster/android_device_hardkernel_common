@@ -40,7 +40,7 @@ endif
 ########################################################################
 ifeq ($(ANDROID_BUILD_TYPE), 64)
 ifeq ($(TARGET_DYNAMIC_ZYGOTE_SECONDARY_ENABLE), true)
-$(call inherit-product, device/amlogic/common/dynamic_zygote_seondary/dynamic_zygote_64_bit.mk)
+$(call inherit-product, device/amlogic/common/dynamic_zygote_secondary/dynamic_zygote_64_bit.mk)
 else
 $(call inherit-product, build/target/product/core_64_bit.mk)
 endif
