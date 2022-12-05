@@ -14,17 +14,6 @@
 # limitations under the License.
 #
 
-#########################################################################
-#
-# Remote config
-#
-#########################################################################
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/tm2/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
-    device/amlogic/common/products/tv/tm2/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
-    device/amlogic/common/products/tv/tm2/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
-    device/amlogic/common/products/tv/tm2/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3
-
 PRODUCT_COPY_FILES += \
     device/amlogic/common/products/tv/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
     device/amlogic/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
@@ -33,12 +22,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/amlogic/common/recovery/busybox:recovery/root/sbin/busybox \
     device/amlogic/common/products/tv/tm2/recovery/init.recovery.amlogic.rc:recovery/root/init.recovery.amlogic.rc \
-    device/amlogic/common/products/tv/tm2/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
-    device/amlogic/common/products/tv/tm2/recovery/remotecfg:recovery/root/sbin/remotecfg \
-    device/amlogic/common/products/tv/tm2/files/remote.cfg:recovery/root/sbin/remote.cfg \
-    device/amlogic/common/products/tv/tm2/files/remote.tab1:recovery/root/sbin/remote.tab1 \
-    device/amlogic/common/products/tv/tm2/files/remote.tab2:recovery/root/sbin/remote.tab2 \
-    device/amlogic/common/products/tv/tm2/files/remote.tab3:recovery/root/sbin/remote.tab3 \
     device/amlogic/common/products/tv/tm2/recovery/sh:recovery/root/sbin/sh
 
 #########################################################################

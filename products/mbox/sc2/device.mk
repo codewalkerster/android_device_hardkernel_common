@@ -16,17 +16,6 @@
 
 CHIP_DIR := device/amlogic/common/products/mbox/sc2
 
-#########################################################################
-#
-# Remote config
-#
-#########################################################################
-PRODUCT_COPY_FILES += \
-    $(CHIP_DIR)/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
-    $(CHIP_DIR)/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
-    $(CHIP_DIR)/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
-    $(CHIP_DIR)/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3
-
 PRODUCT_COPY_FILES += \
     device/amlogic/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
@@ -38,14 +27,6 @@ else
     PRODUCT_COPY_FILES += \
        device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 endif
-
-PRODUCT_COPY_FILES += \
-    $(CHIP_DIR)/recovery/remotecfg:recovery/root/sbin/remotecfg \
-    $(CHIP_DIR)/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
-    $(CHIP_DIR)/files/remote.cfg:recovery/root/sbin/remote.cfg \
-    $(CHIP_DIR)/files/remote.tab1:recovery/root/sbin/remote.tab1 \
-    $(CHIP_DIR)/files/remote.tab2:recovery/root/sbin/remote.tab2 \
-    $(CHIP_DIR)/files/remote.tab3:recovery/root/sbin/remote.tab3 \
 
 #########################################################################
 #

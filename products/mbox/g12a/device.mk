@@ -16,17 +16,6 @@
 
 CHIP_DIR := device/amlogic/common/products/mbox/g12a
 
-#########################################################################
-#
-# Remote config
-#
-#########################################################################
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/g12a/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
-    device/amlogic/common/products/mbox/g12a/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
-    device/amlogic/common/products/mbox/g12a/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
-    device/amlogic/common/products/mbox/g12a/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3
-
 PRODUCT_COPY_FILES += \
     device/amlogic/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
@@ -38,14 +27,6 @@ else
     PRODUCT_COPY_FILES += \
        device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 endif
-
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/g12a/recovery/remotecfg:recovery/root/sbin/remotecfg \
-    device/amlogic/common/products/mbox/g12a/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
-    device/amlogic/common/products/mbox/g12a/files/remote.cfg:recovery/root/sbin/remote.cfg \
-    device/amlogic/common/products/mbox/g12a/files/remote.tab1:recovery/root/sbin/remote.tab1 \
-    device/amlogic/common/products/mbox/g12a/files/remote.tab2:recovery/root/sbin/remote.tab2 \
-    device/amlogic/common/products/mbox/g12a/files/remote.tab3:recovery/root/sbin/remote.tab3 \
 
 #########################################################################
 #
