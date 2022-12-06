@@ -193,11 +193,9 @@ ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     WifiOverlay \
     AppInstaller \
-    #FileBrowser \
     RemoteIME \
     NativeImagePlayer \
     imageserver \
-    #MboxLauncher \
     DLNA \
     BluetoothRemote \
     OTAUpgrade \
