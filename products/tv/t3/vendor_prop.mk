@@ -32,21 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.dv.standalone.component=true
 
-#camera max to 720p
-#PRODUCT_PROPERTY_OVERRIDES += \
-    #ro.media.camera_preview.maxsize=1280x720 \
-    #ro.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28
-
-#camera max to 1080p
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.camera_preview.maxsize=1920x1080 \
-    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
-    ro.media.camera_preview.usemjpeg=1 \
-    ro.vendor.platform.usehwmjpeg=true \
-    ro.vendor.platform.omx=true
-
-
-
 #need support screen capture
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.screencontrol.maxbufsize=104857600
