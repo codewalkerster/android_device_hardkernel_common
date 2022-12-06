@@ -47,7 +47,7 @@ module[3]="ohm_cbs"
 uboot_path[3]="device/amlogic/ohm"
 uboot_exec_aosp[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[3]="./mk ohm -v 5.4"
+kernel_exec[3]="./mk ohm -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -366,6 +366,31 @@ uboot_exec_aosp[29]="./mk s4_ap201  --vab --avb2 --fastboot-write"
 uboot_exec_drm[29]="./mk s4_ap201  --vab --avb2 --fastboot-write"
 kernel_exec[29]="./mk ap201 -v"
 ###########################################################################################
+
+###########################################################################################
+# OHMCAS2 GTV
+project[30]="Ohmcas2-GTV"
+soc[30]="S905C2L"
+hardware[30]="AH221"
+module[30]="ohmcas2_gtv"
+uboot_path[30]="device/amlogic/ohmcas2"
+uboot_exec_aosp[30]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
+uboot_exec_drm[30]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
+kernel_exec[30]="./mk ohmcas2 -v "
+###########################################################################################
+
+###########################################################################################
+# OHMCAS2 ATV
+project[31]="Ohmcas2-ATV"
+soc[31]="S905C2L"
+hardware[31]="AH221"
+module[31]="ohmcas2"
+uboot_path[31]="device/amlogic/ohmcas2"
+uboot_exec_aosp[31]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
+uboot_exec_drm[31]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
+kernel_exec[31]="./mk ohmcas2 -v "
+###########################################################################################
+
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
