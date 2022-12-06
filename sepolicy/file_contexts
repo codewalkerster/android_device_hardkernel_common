@@ -418,6 +418,7 @@
 #/system/bin/e2fsdroid    --	  u:object_r:fsck_exec:s0
 #/vendor/bin/pppoe_wrapper    u:object_r:pppoe_wrapper_exec:s0
 /vendor/bin/screencontrol     u:object_r:screen_control_exec:s0
+/vendor/bin/vadservice        u:object_r:vadservice_exec:s0
 
 /vendor/bin/hdcp_rx22         u:object_r:hdcp_rx22_exec:s0
 /vendor/bin/hdcp_tx22         u:object_r:hdcp_tx22_exec:s0

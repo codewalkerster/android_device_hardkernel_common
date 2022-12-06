@@ -6,6 +6,7 @@ allow system_server vendor_framework_file:file { read getattr open };
 allow system_server bluetooth:file { open read write };
 
 get_prop(system_server, vendor_media_prop)
+get_prop(system_server, vendor_platform_prop)
 
 # For writing to /proc/<tid>/timerslack_ns (XXX - this is probably wrong)
 allow system_server priv_app:file write;

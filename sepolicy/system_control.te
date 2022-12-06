@@ -86,6 +86,8 @@ allow system_control sysfs_mpgpu:dir search;
 allow system_control block_device:dir r_dir_perms;
 allow system_control display_device:chr_file rw_file_perms;
 
+allow system_control audio_device:dir {search};
+allow system_control audio_device:chr_file {open read write};
 allow system_control sysfs_audio_cap:file {open getattr read};
 allow system_control sysfs_audio:file {open getattr read};
 allow system_control sysfs_video:file rw_file_perms;

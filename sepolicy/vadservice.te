@@ -1,0 +1,19 @@
+type vadservice, domain;
+type vadservice_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vadservice)
+
+allow vadservice audio_device:chr_file { open read write ioctl };
+allow vadservice { sysfs_cec sysfs_video sysfs_audio sysfs_lcd sysfs_rdma sysfs_di sysfs_am_vecm }:file { read write open getattr };
+allow vadservice sysfs_cec:dir { search };
+allow vadservice audio_device:dir { search };
+allow vadservice sysfs_power:file { read write open };
+allow vadservice self:capability sys_boot;
+allow vadservice proc_cmdline:file { open read };
+allow vadservice kmsg_device:chr_file { write open read };
+allow vadservice proc_asound:dir { search read };
+allow vadservice proc_asound:file { read open getattr };
+set_prop(vadservice, powerctl_prop)
+get_prop(vadservice, vendor_platform_prop)
+set_prop(vadservice, vendor_persist_prop)
+get_prop(vadservice, vendor_persist_prop)

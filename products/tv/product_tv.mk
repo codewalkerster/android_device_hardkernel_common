@@ -89,7 +89,8 @@ PRODUCT_PACKAGES += \
     libscreencontrol_jni \
     videomediaconvertortest \
     tspacktest \
-    screencatch
+    screencatch \
+    vadservice
 
 $(warning echo "ATV_LAUNCHER =="$(ATV_LAUNCHER))
 
