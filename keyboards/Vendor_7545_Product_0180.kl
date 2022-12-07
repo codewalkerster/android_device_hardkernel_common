@@ -42,7 +42,7 @@ key 172   HOME
 
 #youtube
 key usage 0x0c000d F1
-#watcgo
+#watchdog
 key usage 0x0c000e F2
 
 #num
