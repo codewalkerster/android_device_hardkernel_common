@@ -510,6 +510,10 @@ ifneq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
 endif
+ifneq ($(TARGET_GPT_PART),true)
+	echo "don't need to burn bootloader_a in null gpt"
+	sed -i "/bootloader_a/d" $(PACKAGE_CONFIG_FILE)
+endif
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
 	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
