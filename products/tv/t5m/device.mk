@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/tv/t3
+CHIP_DIR := device/amlogic/common/products/tv/t5m
 
 #########################################################################
 #

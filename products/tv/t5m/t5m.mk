@@ -220,7 +220,7 @@ PRODUCT_COPY_FILES += \
 #########################################################################
 
 #PRODUCT_COPY_FILES += \
-#    device/amlogic/common/products/tv/t3/files/tv/dec:$(TARGET_COPY_OUT_VENDOR)/bin/dec
+#    device/amlogic/common/products/tv/t5m/files/tv/dec:$(TARGET_COPY_OUT_VENDOR)/bin/dec
 
 #########################################################################
 #
@@ -228,11 +228,11 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/t3/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
-    device/amlogic/common/products/tv/t3/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt \
-    device/amlogic/common/products/tv/t3/files/nn/SRNetx2_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_e8.nb \
-    device/amlogic/common/products/tv/t3/files/nn/SRNetx3_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_e8.nb \
-    device/amlogic/common/products/tv/t3/files/nn/SRNetx4_960_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_e8.nb \
-    device/amlogic/common/products/tv/t3/files/nn/SRNetx2_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_i_e8.nb \
-    device/amlogic/common/products/tv/t3/files/nn/SRNetx3_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_i_e8.nb \
-    device/amlogic/common/products/tv/t3/files/nn/SRNetx4_960_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_i_e8.nb
+    device/amlogic/common/products/tv/t5m/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
+    device/amlogic/common/products/tv/t5m/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt \
+    device/amlogic/common/products/tv/t5m/files/nn/SRNetx2_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_e8.nb \
+    device/amlogic/common/products/tv/t5m/files/nn/SRNetx3_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_e8.nb \
+    device/amlogic/common/products/tv/t5m/files/nn/SRNetx4_960_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_e8.nb \
+    device/amlogic/common/products/tv/t5m/files/nn/SRNetx2_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_i_e8.nb \
+    device/amlogic/common/products/tv/t5m/files/nn/SRNetx3_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_i_e8.nb \
+    device/amlogic/common/products/tv/t5m/files/nn/SRNetx4_960_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_i_e8.nb
