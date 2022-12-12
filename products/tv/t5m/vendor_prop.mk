@@ -217,7 +217,7 @@ endif
 
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.usb.controller=fdf00000.dwc2_a
+    vendor.usb.controller=fe350000.crgudc3
 #audio dual spdif setting
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.platform.is.dualspdif=true
