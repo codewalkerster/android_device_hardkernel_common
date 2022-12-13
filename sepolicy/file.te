@@ -105,6 +105,7 @@ type factory_vendor_file, file_type;
 #dtvkit
 type dtvkit_data_file, file_type, data_file_type;
 type nagracas_data_file, file_type, data_file_type;
+type oad_data_file, file_type, data_file_type;
 
 #irdeto
 type irdeto_data_file, file_type, data_file_type;

@@ -36,6 +36,9 @@ get_prop(dtvkitserver, vendor_tv_prop)
 set_prop(dtvkitserver, vendor_tv_prop)
 allow platform_app subtitleserver:binder { call transfer };
 allow platform_app dtvkit_data_file:dir { search open read getattr };
+allow platform_app oad_data_file:dir{ create write read add_name remove_name open search getattr };
+allow platform_app oad_data_file:file { ioctl getattr read write open create lock setattr unlink append map};
+allow platform_app oad_data_file:chr_file{ ioctl };
 
 allow platform_app screencontrol_hwservice:hwservice_manager { find };
 allow platform_app screen_control:binder { call };
