@@ -8,6 +8,10 @@ on fs
 
     restorecon_recursive /mnt/vendor/param
 
+on late-fs
+    # Enable ZRAM
+    swapon_all /vendor/etc/fstab.amlogic
+
 on post-fs-data
     mkdir /data/vendor/wifi 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
