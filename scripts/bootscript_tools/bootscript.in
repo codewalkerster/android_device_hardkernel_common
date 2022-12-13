@@ -1,6 +1,6 @@
 setenv bootlabel "Android 11"
 
-echo Start boot.scr booting.
+echo "Start boot.scr booting."
 
 echo "  Init default values"
 
@@ -12,10 +12,15 @@ setenv lcd_density 240
 echo "  Boot sequence"
 if test "$${devnum}" = 0 ; then
 	setenv media emmc
-	setenv boot_device fe310000.sdhci,fe330000.nandc
+	setenv boot_device fe310000.sdhci
 else
 	setenv media sd
-	setenv boot_device fe2b0000.dwmmc,fe330000.nandc
+	setenv boot_device fe2b0000.dwmmc
+fi
+
+if test $${devtype} = nvme; then
+	setenv media $${devtype}
+	setenv boot_device 3c0800000.pcie
 fi
 
 setenv fdt_addr_r 0x0a100000
