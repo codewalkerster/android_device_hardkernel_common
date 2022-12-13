@@ -48,6 +48,8 @@ type ge2d_device, dev_type;
 type display_device, dev_type;
 type amvecm_device, dev_type;
 type di0_device, dev_type;
+type lcd0_device, dev_type;
+type mtd0_device, dev_type;
 type hidraw_device, dev_type;
 type vbi_device, dev_type;
 type hidraw_audio_device, dev_type;

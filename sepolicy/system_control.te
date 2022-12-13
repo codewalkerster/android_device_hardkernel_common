@@ -123,6 +123,7 @@ allow system_control { system_app platform_app }:binder { call };
 
 allow system_control { video_device amvecm_device }:chr_file  { read write open ioctl getattr };
 allow system_control di0_device:chr_file { read write open ioctl };
+allow system_control lcd0_device:chr_file { read write open ioctl getattr};
 allow system_control param_tv_file:dir { write search add_name create };
 allow system_control param_tv_file:file { create read write open getattr ioctl};
 allow system_control sysfs_amhdmitx:dir search;
@@ -158,3 +159,7 @@ allow system_control sysfs_stb:dir { search };
 allow system_control oemfs:dir search;
 allow system_control oemfs:file { read open };
 
+allow system_control mtd0_device:chr_file { read open ioctl getattr };
+allow system_control mtd0_device:dir { search };
+allow system_control sysfs_lcd:lnk_file { read open write getattr };
+allow system_control sysfs_lcd:dir { search };

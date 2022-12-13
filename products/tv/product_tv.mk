@@ -83,6 +83,11 @@ PRODUCT_PACKAGES += \
     screencatch
 
 $(warning echo "ATV_LAUNCHER =="$(ATV_LAUNCHER))
+
+#tconless tools
+PRODUCT_PACKAGES += \
+    tcondump
+
 #TvSettings
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \

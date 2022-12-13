@@ -66,6 +66,10 @@ on boot
     write /sys/class/vfm/map "rm default"
     write /sys/class/vfm/map "add default decoder ppmgr deinterlace amvideo"
 
+    #for lcd
+    chown root root /dev/lcd0
+    chmod 0660 /dev/lcd0
+
     #TV default set dolby mode to RF
     write /sys/class/audiodsp/ac3_drc_control "drchighcutscale 0"
     write /sys/class/audiodsp/ac3_drc_control "drclowboostscale 0"
