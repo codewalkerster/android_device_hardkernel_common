@@ -16,7 +16,7 @@ on init
     symlink /sdcard /mnt/sdcard
     #start console
     #30 means reserve 3% memory using for high water mark, 1GB DDR x 3% = 30MB
-    write /proc/sys/vm/watermark_scale_factor 30
+    #write /proc/sys/vm/watermark_scale_factor 30
     write /proc/sys/vm/watermark_boost_factor 0
     #12288KB
     write /proc/sys/vm/min_free_kbytes 12288
@@ -139,6 +139,8 @@ on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.amlogic
     start factoryreset
+    #30 means reserve 3% memory using for high water mark, 1GB DDR x 3% = 30MB
+    write /proc/sys/vm/watermark_scale_factor 30
 
 service pppoe_wrapper /system/bin/pppoe_wrapper
     class main
