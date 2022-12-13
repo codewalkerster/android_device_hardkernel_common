@@ -227,9 +227,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.omx.display_mode=3
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omxvideo-optmize=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
 
 #lmkd use minfree for kernel5.4

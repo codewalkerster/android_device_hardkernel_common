@@ -176,9 +176,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.omx.display_mode=3
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omxvideo-optmize=1
-
 
 #omx2
 PRODUCT_PROPERTY_OVERRIDES += \

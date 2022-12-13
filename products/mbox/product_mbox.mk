@@ -193,8 +193,6 @@ DISPLAY_BUILD_NUMBER := true
 #TV project,set omx to video layer,or PQ hasn't effect
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.display_mode=3
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.sf.omxvideo-optmize=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.hdmi.keep_awake=false
