@@ -74,13 +74,6 @@ PQ_FILES := \
     $(CHIP_DIR)/files/PQ/pq.db \
     $(CHIP_DIR)/files/PQ/pq_default.ini
 endif
-#########################################################################
-#
-# Set default USB configuration
-#
-#########################################################################
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
 
 #########################################################################
 #

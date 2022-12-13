@@ -69,7 +69,3 @@ PQ_FILES := \
     device/amlogic/common/products/tv/tl1/files/PQ/pq_default.ini
 endif
 
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-

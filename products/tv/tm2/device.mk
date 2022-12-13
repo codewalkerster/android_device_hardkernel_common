@@ -61,13 +61,6 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/products/tv/tm2/files/PQ/overscan.db:$(TARGET_COPY_OUT_ODM)/etc/tvconfig/pq/overscan.db \
     device/amlogic/common/products/tv/tm2/files/PQ/pq_default.ini:$(TARGET_COPY_OUT_ODM)/etc/tvconfig/pq/pq_default.ini
 
-
-
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
-
 #########################################################################
 #
 # Audio

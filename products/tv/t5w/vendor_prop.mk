@@ -184,11 +184,6 @@ endif
 #    ro.vendor.platform.wifi.suspend=true
 #endif
 
-
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # secure playback enable di
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.enable_secure_di=1 \
