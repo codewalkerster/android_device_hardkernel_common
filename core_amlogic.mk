@@ -872,20 +872,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.opp.enabled=true \
     bluetooth.profile.pan.nap.enabled=true \
     bluetooth.profile.pan.panu.enabled=true
-
-#########################################################################
-#
-##                                     Auto Patch
-#                          must put in the end of mk files
-##########################################################################
-AUTO_PATCH_SHELL_FILE := vendor/amlogic/common/pre_submit_for_google/auto_patch.sh
-HAVE_WRITED_SHELL_FILE := $(shell test -f $(AUTO_PATCH_SHELL_FILE) && echo yes)
-
-ifeq ($(HAVE_WRITED_SHELL_FILE),yes)
-SCRIPT_RESULT :=$(shell ($(AUTO_PATCH_SHELL_FILE)))
-ifeq ($(filter Error,$(SCRIPT_RESULT)), Error)
-$(error $(SCRIPT_RESULT))
-else
-$(warning $(SCRIPT_RESULT))
-endif
-endif
