@@ -1,0 +1,62 @@
+#
+# Copyright (C) 2015 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+GPU_TARGET_PLATFORM := default_8a
+GPU_TYPE:=valhall
+GPU_ARCH:=valhall
+GPU_DRV_VERSION?=r37p0
+#GRALLOC_USE_GRALLOC1_API:=1
+GRALLOC_API_VERSION:=4.x
+GRALLOC_DISABLE_FRAMEBUFFER_HAL:=1
+MALI_GPU_SUPPORT_AFBC_BASIC:=1
+#MALI_GPU_SUPPORT_AFBC_SPLITBLK:=1
+MALI_GPU_SUPPORT_AFBC_WIDEBLK:=1
+
+ifeq ($(GRALLOC_USE_GRALLOC1_API), 1)
+PRODUCT_PACKAGES += \
+		libamgralloc_ext \
+		libamgralloc_ext_static \
+		libamgralloc_internal_static
+endif
+
+# The OpenGL ES API level that is natively supported by this device.
+PRODUCT_PROPERTY_OVERRIDES += \
+		ro.opengles.version=196610
+
+ifneq ($(BOARD_INSTALL_VULKAN), false)
+PRODUCT_PROPERTY_OVERRIDES += \
+		ro.hardware.vulkan=amlogic
+
+PRODUCT_COPY_FILES += \
+		frameworks/native/data/etc/android.hardware.opengles.aep.xml:vendor/etc/permissions/android.hardware.opengles.aep.xml \
+		frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2022-03-01.xml \
+		frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:vendor/etc/permissions/android.hardware.vulkan.version.xml \
+		frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:vendor/etc/permissions/android.hardware.vulkan.compute.xml \
+		frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:vendor/etc/permissions/android.hardware.vulkan.level.xml \
+		frameworks/native/data/etc/android.software.vulkan.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.vulkan.deqp.level-2022-03-01.xml
+else
+PRODUCT_COPY_FILES += \
+		frameworks/native/data/etc/android.hardware.opengles.aep.xml:vendor/etc/permissions/android.hardware.opengles.aep.xml \
+		frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:vendor/etc/permissions/android.software.opengles.deqp.level-2022-03-01.xml
+endif
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+PRODUCT_COPY_FILES += \
+		hardware/amlogic/gralloc/gpu.xml:vendor/etc/gralloc/gpu.xml \
+		hardware/amlogic/gralloc/dpu.xml:vendor/etc/gralloc/dpu.xml \
+		hardware/amlogic/gralloc/dpu_aeu.xml:vendor/etc/gralloc/dpu_aeu.xml \
+		hardware/amlogic/gralloc/vpu.xml:vendor/etc/gralloc/vpu.xml \
+		hardware/amlogic/gralloc/cam.xml:vendor/etc/gralloc/cam.xml
+endif
