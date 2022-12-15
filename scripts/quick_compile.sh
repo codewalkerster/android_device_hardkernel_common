@@ -345,26 +345,26 @@ kernel_exec[27]="./mk t982_ar301 -v "
 
 ###########################################################################################
 # calla
-project[27]="Calla"
-soc[27]="t5m_ay301"
-hardware[27]="AY301"
-module[27]="calla"
-uboot_path[27]="device/amlogic/calla"
-uboot_exec_aosp[27]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
-uboot_exec_drm[27]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
-kernel_exec[27]="./mk calla -v "
+project[28]="Calla"
+soc[28]="t5m_ay301"
+hardware[28]="AY301"
+module[28]="calla"
+uboot_path[28]="device/amlogic/calla"
+uboot_exec_aosp[28]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+uboot_exec_drm[28]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+kernel_exec[28]="./mk calla -v "
 ###########################################################################################
 
 ###########################################################################################
 # AP201
-project[28]="AP201"
-soc[28]="S905W2"
-hardware[28]="AP201"
-module[28]="ap201"
-uboot_path[28]="device/amlogic/ap201"
-uboot_exec_aosp[28]="./mk s4_ap201  --vab --avb2 --fastboot-write"
-uboot_exec_drm[28]="./mk s4_ap201  --vab --avb2 --fastboot-write"
-kernel_exec[28]="./mk ap201 -v"
+project[29]="AP201"
+soc[29]="S905W2"
+hardware[29]="AP201"
+module[29]="ap201"
+uboot_path[29]="device/amlogic/ap201"
+uboot_exec_aosp[29]="./mk s4_ap201  --vab --avb2 --fastboot-write"
+uboot_exec_drm[29]="./mk s4_ap201  --vab --avb2 --fastboot-write"
+kernel_exec[29]="./mk ap201 -v"
 ###########################################################################################
 usage() {
     echo -e \
