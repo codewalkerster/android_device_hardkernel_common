@@ -37,14 +37,9 @@ PRODUCT_PACKAGES += \
     AudioEffectTool \
     libAmlAudioOutPort \
 
-#PRODUCT_COPY_FILES += \
-#    $(TARGET_PRODUCT_DIR)/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
-#    $(TARGET_PRODUCT_DIR)/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
-
-#arm audio decoder lib
-#soft_adec_libs := $(shell ls hardware/amlogic/LibAudio/amadec/acodec_lib_android_n)
-#PRODUCT_COPY_FILES += $(foreach file, $(soft_adec_libs), \
-#        hardware/amlogic/LibAudio/amadec/acodec_lib_android_n/$(file):$(TARGET_COPY_OUT_VENDOR)/lib/$(file))
+ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
+PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+endif
 
 
 ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
