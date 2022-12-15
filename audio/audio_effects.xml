@@ -15,6 +15,7 @@
         <library name="virtualsurround" path="libvirtualsurround.so"/>
         <library name="ms12v2dapwrapper" path="libms12v2dapwrapper.so"/>
         <library name="virtualx" path="libvirtualx.so"/>
+        <library name="dpe" path="libdpe.so"/>
     </libraries>
     <effects>
         <effect name="bassboost" library="bundle" uuid="8631f300-72e2-11df-b57e-0002a5d5c51b"/>
@@ -37,6 +38,7 @@
         <effect name="virtualsurround" library="virtualsurround" uuid="c8459cd3-4400-4859-b76b-e12cc2aa67ce"/>
         <effect name="ms12v2dapwrapper" library="ms12v2dapwrapper" uuid="86cafba6-3ff3-485d-b8df-0de96b34b272"/>
         <effect name="virtualx" library="virtualx" uuid="61821587-ce3c-4aac-9122-86d874ea1fb1"/>
+        <effect name="dpe" library="dpe" uuid="3f16eef0-7459-11ec-9272-020017000b7b"/>
     </effects>
     <!--preprocess>
         <stream type="voice_communication">

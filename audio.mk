@@ -33,6 +33,7 @@ PRODUCT_PACKAGES += \
     libms12v2dapwrapper \
     libvirtualsurround \
     libvirtualx \
+    libdpe\
     param_set \
     AudioEffectTool \
     libAmlAudioOutPort \
