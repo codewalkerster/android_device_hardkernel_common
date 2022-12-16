@@ -1,0 +1,4 @@
+on init
+    insmod /vendor/lib/modules/r842_fe.ko r842_common_agc=1
+on post-fs-data
+    write /sys/class/aml_dvb_extern/demod_debug "attach"
