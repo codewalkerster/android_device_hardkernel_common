@@ -7,8 +7,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid",
             "frequencylist": "dvbcfrelist_default.json"
         },
@@ -19,8 +19,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "350",
-            "LastUnanllocLcnx": "399",
+            "FirstUnallocatedLcn": "350",
+            "LastUnallocatedLcn": "399",
             "tidy-db": "tsid,onid"
         },
         {
@@ -30,8 +30,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -41,8 +41,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -52,8 +52,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -63,8 +63,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -74,8 +74,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid",
             "frequencylist": "dvbcfrelist_default.json"
         },
@@ -86,8 +86,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -97,8 +97,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -108,8 +108,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -119,8 +119,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -130,8 +130,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -141,8 +141,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -152,8 +152,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid",
             "frequencylist": "dvbcfrelist_default.json"
         },
@@ -164,8 +164,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -175,8 +175,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -186,8 +186,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -197,8 +197,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "1000",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "1000",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -208,8 +208,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -219,8 +219,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -230,8 +230,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "850",
-            "LastUnanllocLcnx": "999",
+            "FirstUnallocatedLcn": "850",
+            "LastUnallocatedLcn": "999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -241,8 +241,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid",
             "frequencylist": "dvbcfrelist_default.json"
         },
@@ -253,8 +253,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "0",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "0",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -264,8 +264,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -275,8 +275,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid",
             "frequencylist": "dvbcfrelist_rus.json",
             "operatorlist": "rus_operators"
@@ -288,8 +288,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -299,8 +299,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         },
         {
@@ -310,8 +310,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "899",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "899",
             "tidy-db": "tsid,onid"
         },
         {
@@ -321,8 +321,8 @@
             "frequency": "0",
             "symbolrate": "0",
             "LCN": "1",
-            "FirstUnanllocLcn": "800",
-            "LastUnanllocLcnx": "9999",
+            "FirstUnallocatedLcn": "800",
+            "LastUnallocatedLcn": "9999",
             "tidy-db": "tsid,onid"
         }
     ],
