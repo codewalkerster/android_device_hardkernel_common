@@ -67,7 +67,7 @@
                 <mixPort name="compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
                     <profile name="multi pcm" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="32000 44100 48000"
-                             channelMasks="AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
                     <profile name="ac3 raw" format="AUDIO_FORMAT_AC3"
                              samplingRates="32000 44100 48000"
                              channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_TRI_BACK AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1"/>
@@ -89,6 +89,15 @@
                     <profile name="iec raw" format="AUDIO_FORMAT_IEC61937"
                              samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                    <profile name="aac latm raw" format="AUDIO_FORMAT_AAC_HE_V1"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                    <profile name="aac adts raw" format="AUDIO_FORMAT_AAC_HE_V2"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                    <profile name="mpeg raw" format="AUDIO_FORMAT_MP3"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
                 <mixPort name="tunnel compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
                     <profile name="ac3 raw" format="AUDIO_FORMAT_AC3"
@@ -336,11 +345,11 @@
                 <route type="mix" sink="HDMI ARC"
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
                 <route type="mix" sink="BT A2DP Out"
-                       sources="primary output,tunnel a2dp,direct a2dp,offload a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel a2dp,direct a2dp,offload a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Headphones"
-                       sources="primary output,tunnel a2dp,direct a2dp,offload a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel a2dp,direct a2dp,offload a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Speaker"
-                       sources="primary output,tunnel a2dp,direct a2dp,offload a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out"/>
+                       sources="primary output,tunnel a2dp,direct a2dp,offload a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="built-in mic"
                        sources="Built-In Mic"/>
                 <route type="mix" sink="ble_in"

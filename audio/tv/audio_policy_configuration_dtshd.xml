@@ -65,6 +65,9 @@
                              samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
                 <mixPort name="compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT|AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
+	            <profile name="multi pcm" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
                     <profile name="dts raw" format="AUDIO_FORMAT_DTS"
                              samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
                              channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
@@ -74,6 +77,15 @@
                     <profile name="iec raw" format="AUDIO_FORMAT_IEC61937"
                              samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                    <profile name="aac latm raw" format="AUDIO_FORMAT_AAC_HE_V1"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                    <profile name="aac adts raw" format="AUDIO_FORMAT_AAC_HE_V2"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+                    <profile name="mpeg raw" format="AUDIO_FORMAT_MP3"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
                 <mixPort name="tunnel compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
                     <profile name="dts raw" format="AUDIO_FORMAT_DTS"

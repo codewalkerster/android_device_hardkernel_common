@@ -115,3 +115,13 @@ endif
 endif
 endif
 endif
+
+#########################################################################
+#
+# tunerhal
+#
+#########################################################################
+ifeq ($(SUPPORT_TUNERHAL), true)
+PRODUCT_COPY_FILES += \
+    $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
+endif

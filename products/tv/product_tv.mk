@@ -116,6 +116,10 @@ PRODUCT_PACKAGES += \
     OTAUpgrade
 endif
 
+ifeq ($(SUPPORT_TUNERHAL), true)
+$(call inherit-product, hardware/amlogic/tuner/1.1/droidlogic_tuner_hal.mk)
+endif
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml \
     frameworks/native/data/etc/android.software.backup.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.backup.xml \
