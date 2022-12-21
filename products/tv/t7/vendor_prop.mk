@@ -198,10 +198,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
 
-#lmkd use minfree for kernel5.4
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lmk.use_minfree_levels=true
-
 PRODUCT_PROPERTY_OVERRIDES += ro.llk.enable=false
 
 #tv path use video_tunnel
