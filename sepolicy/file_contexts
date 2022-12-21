@@ -446,6 +446,7 @@
 ## keylayout is vendor config file! must update!
 /(vendor|system/vendor)/usr/keylayout(/.*)?               u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/usr/idc(/.*)?                     u:object_r:vendor_configs_file:s0
+/vendor/usr/icu/icudt60l.dat                              u:object_r:vendor_configs_file:s0
 
 /vendor/bin/hw/android\.hardware\.health-service.droidlogic               u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.health@2\.1-service.droidlogic         u:object_r:hal_health_default_exec:s0
