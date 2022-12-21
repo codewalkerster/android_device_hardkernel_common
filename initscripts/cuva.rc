@@ -1,0 +1,2 @@
+on early-init
+    insmod /vendor/lib/modules/cuva_hdr_alg.ko

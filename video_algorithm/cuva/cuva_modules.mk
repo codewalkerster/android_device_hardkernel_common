@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 The Android Open Source Project
+# Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-# "Beast" to be removed later after s/Beast/beast/ gets done.
-
-ifneq ($(filter adt2 adt3 adt4 ampere braun curie darwin atom beast Beast galilei franklin faraday deadpool sabrina fermi newton elektra marconi ohm ohmcas redi oppen oppencas planck einstein smith t982_ar301 soddy t7_an400 ohm_mxl258c ohm_vmx dalton oppen_mxl258c calla tyson tyson_mxl258c,$(TARGET_DEVICE)),)
-
-include $(all-subdir-makefiles)
+ifeq ($(strip $(CUVA_MODULE)),true)
+VENDOR_KERNEL_MODULES += $(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko
 endif
