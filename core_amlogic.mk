@@ -425,7 +425,8 @@ PRODUCT_PACKAGES += \
 	tee_efuse_ta \
 	tee_fvp_ta \
 	tee_hdcp \
-	tee_hdcp_ta
+	tee_hdcp_ta \
+	tee_ciplus_ta
 
 endif
 
