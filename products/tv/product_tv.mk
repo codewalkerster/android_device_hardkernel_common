@@ -84,9 +84,10 @@ PRODUCT_PACKAGES += \
 
 $(warning echo "ATV_LAUNCHER =="$(ATV_LAUNCHER))
 
-#tconless tools
+#lcd/tconless tools
 PRODUCT_PACKAGES += \
-    tcondump
+    tcondump \
+    lcdhelper
 
 #TvSettings
 ifeq ($(ATV_LAUNCHER),amati)
