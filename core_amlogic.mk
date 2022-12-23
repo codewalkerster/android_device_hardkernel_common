@@ -123,7 +123,10 @@ ifeq ($(TARGET_BUILD_LIVETV),true)
     USE_OEM_TV_APP := true
 endif
 
+ifneq ($(TARGET_BUILD_GMS), true)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
+endif
+
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioTv.mk)
 
 PRODUCT_PRODUCT_VNDK_VERSION := current
@@ -160,10 +163,6 @@ PRODUCT_PACKAGES += \
 #Get some property
 $(call inherit-product, device/amlogic/common/product_property.mk)
 
-PRODUCT_PACKAGES += \
-    libufdt\
-    ExoPlayer
-
 PRODUCT_HOST_PACKAGES += \
     dtc \
     mkdtimg \
@@ -186,6 +185,7 @@ endif
 
 $(warning BOARD_COMPILE_ATV is $(BOARD_COMPILE_ATV))
 ifeq ($(BOARD_COMPILE_ATV), false)
+ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \
     WifiOverlay \
     AppInstaller \
@@ -218,6 +218,7 @@ endif
 #add camera app
 PRODUCT_PACKAGES += Camera2
 endif
+endif
 
 PRODUCT_PACKAGES += \
     Bluetooth \
@@ -225,10 +226,16 @@ PRODUCT_PACKAGES += \
     PrintSpooler \
     SubTitle
 
+ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \
-    ABUpdater \
+    ABUpdater\
+    ExoPlayer
+endif
+
+PRODUCT_PACKAGES += \
     TetheringOverlay \
-    InProcessTetheringOverlay
+    InProcessTetheringOverlay \
+    libufdt
 
 ifeq ($(TARGET_LIVETV_BUILT_FROM_SOURCE), true)
     PRODUCT_PACKAGES += \
