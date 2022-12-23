@@ -148,9 +148,10 @@
         },
         {
             "countrycode": "tur",
-            "LCN": "3",
+            "LCN": "1",
             "FirstUnallocatedLcn": "800",
-            "LastUnallocatedLcn": "899"
+            "LastUnallocatedLcn": "899",
+            "operatorlist": "tur_operators"
         },
         {
             "countrycode": "ukr",
@@ -159,6 +160,7 @@
             "LastUnallocatedLcn": "9999"
         }
     ],
+
     "deu_operators": [
         {
             "countrycode": "deu",
@@ -193,6 +195,21 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999"
+        }
+    ],
+
+    "tur_operators": [
+        {
+            "countrycode": "tur",
+            "name": "TKGS",
+            "code": "0x0301",
+            "LCN": "1"
+        },
+        {
+            "countrycode": "tur",
+            "name": "Other Operators",
+            "code": "0xffff",
+            "LCN": "3"
         }
     ]
 }
