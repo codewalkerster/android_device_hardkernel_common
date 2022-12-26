@@ -255,12 +255,7 @@ function build_common_5.15() {
 		export CONFIG_KERNEL_FCC_PIP=true
 	fi
 
-	if [ $CONFIG_UPGRADE ]; then
-		echo "--- upgrade mode, use buildin ---"
-		./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters --upgrade
-	else
-		./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
-	fi
+	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
 }
 
 function build_common() {

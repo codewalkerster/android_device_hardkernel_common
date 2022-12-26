@@ -485,15 +485,8 @@ PRODUCT_PACKAGES += \
     android.hardware.power.aidl-service.droidlogic
 
 #Memtack HAL
-ifneq ($(filter T S,$(LAUNCH_VERSION)),)
 PRODUCT_PACKAGES += \
      android.hardware.memtrack-service.droidlogic
-else
-PRODUCT_PACKAGES += \
-     memtrack.amlogic \
-     android.hardware.memtrack@1.0-impl \
-     android.hardware.memtrack@1.0-service
-endif
 
 # Gralloc HAL
 PRODUCT_PACKAGES += \
