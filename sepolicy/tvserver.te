@@ -31,9 +31,11 @@ allow tvserver vendor_tv_prop:file { read open getattr };
 
 allow tvserver proc:file { read write open ioctl getattr };
 
-allow tvserver param_tv_file:dir  { search read write open add_name remove_name rmdir };
+allow tvserver param_tv_file:dir  { search read write open add_name remove_name rmdir getattr};
 allow tvserver param_tv_file:file { create open read write setattr getattr lock unlink ioctl };
 allow param_tv_file labeledfs:filesystem { associate };
+
+allow tvserver unlabeled:dir { search };
 
 allow tvserver { vendor_shell_exec vendor_toolbox_exec vendor_file }:file execute_no_trans;
 
@@ -87,5 +89,6 @@ allow tvserver meson_display_ipc_hwservice:hwservice_manager find;
 allow tvserver hal_graphics_composer_default:binder call;
 allow tvserver ptsserver_device:chr_file { read write open ioctl };
 
-allow tvserver oemfs:dir search;
-allow tvserver oemfs:file { read open };
+#add for tsplayer
+allow tvserver sysfs_stb:dir { search };
+allow tvserver sysfs_stb:file { open read getattr write };
