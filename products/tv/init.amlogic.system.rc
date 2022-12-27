@@ -27,6 +27,8 @@ on init
     chmod 0666 /sys/class/gpio/unexport
     chmod 666 /dev/video_composer.0
     chmod 666 /dev/video_composer.1
+    chmod 666 /dev/video_composer.2
+
 on boot
     # osd logo legacy path
     chown system graphics /sys/module/fb/parameters/osd_logo_index
