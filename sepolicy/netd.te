@@ -12,3 +12,4 @@ allow netd self:capability sys_nice;
 
 allow netd dtvkitserver:fd use;
 allow netd dtvkitserver:tcp_socket { getopt read write setopt};
+allow netd dtvkitserver:udp_socket { read write getopt setopt };
