@@ -21,7 +21,7 @@
 ifeq ($(strip $(FRC_FW_MODULE)),true)
     $(warning FRC_FW_MODULE is $(FRC_FW_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
-    elif ($(TARGET_BUILD_KERNEL_VERSION),4.9)
+    else ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
         ifeq ($(KERNEL_A32_SUPPORT),true)
         else
             PRODUCT_COPY_FILES += \
