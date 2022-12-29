@@ -10,6 +10,7 @@
     <vdec/>
     <adec/>
     <adec/>
+    <ci_slot/>
     <av demux="0"/>
     <ci_source is_set_tsout="1" tsout_source="2" is_set_tssource="1" camPlug_tssource="1" camUnPlug_tssource="2" is_changeTo_utf8="1" encodec_source="gb2312" dev_id="2"/>
     <pvr encrypt="0x0" />
