@@ -272,9 +272,7 @@
 /sys/devices/platform/soc/[0-9a-z]*\.audiobus/[0-9a-z]*\.audiobus:vad/wakeup/wakeup[0-9](/.*)?  u:object_r:sysfs_wakeup:s0
 /sys/devices/platform/[0-9a-z]*\.rtc/rtc/rtc[0-9]/wakeup[0-9](/.*)?  u:object_r:sysfs_wakeup:s0
 /sys/devices/platform/[0-9a-z]*\.[0-9a-z]*/wakeup[0-9](/.*)?  u:object_r:sysfs_wakeup:s0
-
-
-
+/sys/devices/genpd.+hifi4dsp/wakeup(/.*)?                       u:object_r:sysfs_wakeup:s0
 
 /sys/module/firmware_class/parameters/path                      u:object_r:sysfs_video:s0
 /sys/module/rdma/parameters/enable                              u:object_r:sysfs_rdma:s0
