@@ -370,7 +370,8 @@ PRODUCT_PACKAGES += bootplayer \
 endif
 
 ifeq ($(BUILD_WITH_ES_PLAYER),true)
-PRODUCT_PACKAGES += esplayer
+PRODUCT_PACKAGES += esplayer \
+    vdec_debug
 endif
 
 ifeq ($(BUILD_WITH_DEC_INFO_TEST),true)
