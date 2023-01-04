@@ -163,3 +163,6 @@ allow system_control mtd0_device:chr_file { read open ioctl getattr };
 allow system_control mtd0_device:dir { search };
 allow system_control sysfs_lcd:lnk_file { read open write getattr };
 allow system_control sysfs_lcd:dir { search };
+
+#GPU
+allow system_control gpu_device:chr_file { read write open ioctl };
