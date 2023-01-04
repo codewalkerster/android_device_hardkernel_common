@@ -192,6 +192,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.codec2.support=true \
     vendor.media.codec2.disable_secure=false \
     debug.c2.use_dmabufheaps=1 \
+    vendor.media.c2.disp.nr.enable=true \
+    vendor.media.c2.disp.di.loacalbuf_enable=true \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true
 endif
 
