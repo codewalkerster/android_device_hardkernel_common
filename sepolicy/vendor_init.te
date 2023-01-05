@@ -71,3 +71,5 @@ get_prop(domain, vendor_arm_gralloc_prop)
 # allow init getattr /dev/adla0 node
 allow vendor_init adla_device:chr_file { open getattr read write ioctl };
 allow vendor_init audio_utils_device:chr_file { open ioctl read write getattr map execute };
+
+allow vendor_init galcore_device:chr_file getattr;
