@@ -1,5 +1,5 @@
 {
   "vp9Disabled": "true",
   "hdrOutputType": "playback",
-  "minVideoFramesForPlaybackStart": "10"
+  "minVideoFramesForPlaybackStart": "11"
 }
