@@ -48,3 +48,7 @@ allow mediacodec logdr_socket:sock_file write;
 allow mediacodec logd:unix_stream_socket connectto;
 
 allow mediacodec ptsserver_device:chr_file rw_file_perms;
+
+
+allow mediacodec audio_utils_device:chr_file { open ioctl read write getattr map execute };
+allow mediacodec tmpfs:file {read open getattr};
