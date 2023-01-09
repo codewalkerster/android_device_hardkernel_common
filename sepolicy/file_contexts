@@ -204,8 +204,8 @@
 
 /sys/devices/platform/bt-dev/rfkill/rfkill0/state	        u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/platform/bt-dev/rfkill/rfkill0/type	        u:object_r:sysfs_bluetooth_writable:s0
-/sys/devices/platform/aml_bt/rfkill/rfkill0/state               u:object_r:sysfs_bluetooth_writable:s0
-/sys/devices/platform/aml_bt/rfkill/rfkill0/type                u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/soc/soc:aml_bt/rfkill/rfkill0/state               u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/soc/soc:aml_bt/rfkill/rfkill0/type                u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bt-dev.*/rfkill/rfkill0/state		        u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bt-dev.*/rfkill/rfkill0/type			u:object_r:sysfs_bluetooth_writable:s0
 

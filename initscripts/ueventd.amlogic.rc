@@ -162,10 +162,10 @@
 #
 
 #bluetooth
-/sys/devices/platform/bt-dev/rfkill/rfkill0   state   0666    bluetooth   bluetooth
-/sys/devices/platform/bt-dev/rfkill/rfkill0   type    0660    bluetooth   bluetooth
-/sys/devices/platform/aml_bt/rfkill/rfkill0   state   0666    bluetooth   bluetooth
-/sys/devices/platform/aml_bt/rfkill/rfkill0   type    0660    bluetooth   bluetooth
+/sys/devices/platform/bt-dev/rfkill/rfkill0           state   0666    bluetooth   bluetooth
+/sys/devices/platform/bt-dev/rfkill/rfkill0           type    0660    bluetooth   bluetooth
+/sys/devices/platform/soc/soc:aml_bt/rfkill/rfkill0   state   0666    bluetooth   bluetooth
+/sys/devices/platform/soc/soc:aml_bt/rfkill/rfkill0   type    0660    bluetooth   bluetooth
 /sys/devices/bt-dev.*/rfkill/rfkill0          state   0660    bluetooth   bluetooth
 /sys/devices/bt-dev.*/rfkill/rfkill0          type    0660    bluetooth   bluetooth
 /sys/devices/platform/mtty.0/rfkill/rfkill1    state   0660    bluetooth   bluetooth
