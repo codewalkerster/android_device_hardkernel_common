@@ -2,9 +2,9 @@
 <Form name="OVERSCAN_4_3" platform="txlx" commands="">
 <Group num="TVIN_PORT_TV" val="0">
 <Page tab_title="vs,hs,ve,he" layout="2x4">
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_M" range="0~255" addr="1537" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_M" default="10 30 8 6" value="17 43 15 13" cmd="ovsc:crop"/>
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_443" range="0~255" addr="1538" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_443" default="10 30 8 6" value="14 20 10 38" cmd="ovsc:crop"/>
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_I" range="0~255" addr="1539" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_I" default="10 16 10 28" value="16 32 18 38" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_M" range="0~255" addr="1537" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_M" default="10 30 8 6" value="10 20 10 20" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_443" range="0~255" addr="1538" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_443" default="10 30 8 6" value="14 12 10 30" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_I" range="0~255" addr="1539" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_I" default="10 16 10 28" value="16 32 18 22" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_M" range="0~255" addr="1540" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_M" default="8 16 4 16" value="14 32 10 28" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_60" range="0~255" addr="1541" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_60" default="0 6 16 32" value="4 16 20 42" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_CN" range="0~255" addr="1542" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_CN" default="10 16 10 28" value="16 38 20 32" cmd="ovsc:crop"/>
@@ -14,9 +14,9 @@
 </Group>
 <Group num="TVIN_PORT_AV1" val="1">
 <Page tab_title="vs,hs,ve,he" layout="2x4">
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_M" range="0~255" addr="1537" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_M" default="10 30 8 6" value="14 44 13 14" cmd="ovsc:crop"/>
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_443" range="0~255" addr="1538" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_443" default="10 30 8 6" value="14 20 10 38" cmd="ovsc:crop"/>
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_I" range="0~255" addr="1539" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_I" default="10 16 10 28" value="16 32 18 38" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_M" range="0~255" addr="1537" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_M" default="10 30 8 6" value="14 18 10 18" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_443" range="0~255" addr="1538" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_443" default="10 30 8 6" value="14 4 10 40" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_I" range="0~255" addr="1539" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_I" default="10 16 10 28" value="16 18 18 28" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_M" range="0~255" addr="1540" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_M" default="8 16 4 16" value="14 32 10 28" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_60" range="0~255" addr="1541" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_60" default="0 6 16 32" value="4 16 20 42" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_CN" range="0~255" addr="1542" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_CN" default="10 16 10 28" value="16 38 20 32" cmd="ovsc:crop"/>
@@ -26,9 +26,9 @@
 </Group>
 <Group num="TVIN_PORT_AV2" val="2">
 <Page tab_title="vs,hs,ve,he" layout="2x4">
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_M" range="0~255" addr="1537" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_M" default="10 30 8 6" value="14 44 13 14" cmd="ovsc:crop"/>
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_443" range="0~255" addr="1538" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_443" default="10 30 8 6" value="14 20 10 38" cmd="ovsc:crop"/>
-<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_I" range="0~255" addr="1539" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_I" default="10 16 10 28" value="16 32 18 38" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_M" range="0~255" addr="1537" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_M" default="10 30 8 6" value="14 18 10 18" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_NTSC_443" range="0~255" addr="1538" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_NTSC_443" default="10 30 8 6" value="14 4 10 40" cmd="ovsc:crop"/>
+<Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_I" range="0~255" addr="1539" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_I" default="10 16 10 28" value="16 18 18 28" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_M" range="0~255" addr="1540" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_M" default="8 16 4 16" value="14 32 10 28" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_60" range="0~255" addr="1541" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_60" default="0 6 16 32" value="4 16 20 42" cmd="ovsc:crop"/>
 <Control ui_type="array" name="TVIN_SIG_FMT_CVBS_PAL_CN" range="0~255" addr="1542" mask="" dst="U" desc="TVIN_SIG_FMT_CVBS_PAL_CN" default="10 16 10 28" value="16 38 20 32" cmd="ovsc:crop"/>
