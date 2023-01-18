@@ -542,17 +542,18 @@
 /vendor/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.amlogic    u:object_r:hal_gatekeeper_default_exec:s0
 /vendor/bin/hw/android\.hardware\.media\.c2@1\.2-service              u:object_r:mediacodec_exec:s0
 
+# Irdeto hidlimw
 /vendor/lib(64)?/libNativeIMW\.so                                     u:object_r:vendor_app_file:s0
 /(vendor|system/vendor)/bin/hw/vendor\.irdeto\.hal\.hidlimw@1\.0-service u:object_r:hal_hidlimw_exec:s0
 /vendor/lib/libhidlimw_hal_client\.so                                 u:object_r:same_process_hal_file:s0
 /vendor/lib/libspimw_hal\.so                                          u:object_r:same_process_hal_file:s0
 /vendor/lib/vendor\.irdeto\.hal\.hidlimw\.common@1\.0\.so             u:object_r:same_process_hal_file:s0
-/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v30_0\.base@2\.0\.so        u:object_r:same_process_hal_file:s0
-/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v30_0\.base.av@2\.0\.so        u:object_r:same_process_hal_file:s0
-/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v30_0\.base.dmx@2\.0\.so        u:object_r:same_process_hal_file:s0
-/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v30_0\.base.svcpipe@2\.0\.so       u:object_r:same_process_hal_file:s0
-/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v30_0\.base.tspipe@2\.0\.so        u:object_r:same_process_hal_file:s0
-/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v30_0\.pvr@2\.0\.so         u:object_r:same_process_hal_file:s0
+/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v34_0\.base@2\.0\.so        u:object_r:same_process_hal_file:s0
+/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v34_0\.base.av@2\.0\.so        u:object_r:same_process_hal_file:s0
+/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v34_0\.base.dmx@2\.0\.so        u:object_r:same_process_hal_file:s0
+/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v34_0\.base.svcpipe@2\.0\.so       u:object_r:same_process_hal_file:s0
+/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v34_0\.base.tspipe@2\.0\.so        u:object_r:same_process_hal_file:s0
+/vendor/lib/vendor\.irdeto\.hal\.hidlimw\.v34_0\.pvr@2\.0\.so         u:object_r:same_process_hal_file:s0
 /data/vendor/cas(/.*)?                                                u:object_r:hal_hidlimw_file:s0
 /dev/media                                                            u:object_r:media_device:s0
 /dev/bl40                                                             u:object_r:irdeto_device:s0

@@ -9,7 +9,7 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.irdeto.hal.hidlimw.v30_0.base</name>
+        <name>vendor.irdeto.hal.hidlimw.v34_0.base</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
         <interface>
@@ -28,9 +28,17 @@
             <name>IimwDSC</name>
             <instance>default</instance>
         </interface>
+        <interface>
+	    <name>IimwCOPYCONTROL</name>
+	    <instance>default</instance>
+        </interface>
+	<interface>
+	    <name>IimwFZB</name>
+	    <instance>default</instance>
+	</interface>
     </hal>
 	<hal format="hidl">
-        <name>vendor.irdeto.hal.hidlimw.v30_0.base.svcpipe</name>
+        <name>vendor.irdeto.hal.hidlimw.v34_0.base.svcpipe</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
         <interface>
@@ -39,7 +47,7 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.irdeto.hal.hidlimw.v30_0.base.tspipe</name>
+        <name>vendor.irdeto.hal.hidlimw.v34_0.base.tspipe</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
         <interface>
@@ -48,7 +56,7 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.irdeto.hal.hidlimw.v30_0.pvr</name>
+        <name>vendor.irdeto.hal.hidlimw.v34_0.pvr</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
         <interface>
