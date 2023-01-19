@@ -128,6 +128,7 @@ allow system_control param_tv_file:dir { write search add_name create };
 allow system_control param_tv_file:file { create read write open getattr ioctl};
 allow system_control sysfs_amhdmitx:dir search;
 allow system_control sysfs_amvdec:file { create open read write getattr};
+allow system_control sysfs_xbmc:file { read open };
 
 allow system_control vendor_configs_file:file { ioctl lock };
 allow system_control sysfs_display:lnk_file { read write open getattr };
