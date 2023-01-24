@@ -278,9 +278,6 @@ PRODUCT_PACKAGES += \
     mkfs.exfat \
     mount.exfat \
     fsck.exfat \
-    ntfs-3g \
-    ntfsfix \
-    mkntfs \
     libxml2
 
 #add camera feature

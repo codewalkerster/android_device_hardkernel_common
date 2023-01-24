@@ -16,8 +16,6 @@ allow droidvold usb_device:dir { open read search };
 
 allow droidvold block_device:dir { create read write search add_name };
 
-allow droidvold fuseblk:filesystem { mount unmount };
-
 allow droidvold self:capability { net_admin sys_admin chown fowner fsetid };
 
 allow droidvold tmpfs:dir create_dir_perms;
@@ -52,10 +50,9 @@ allow droidvold system_app:binder { call transfer };
 allow droidvold mnt_media_rw_file:dir { create_dir_perms mounton };
 allow droidvold mnt_media_rw_file:file create_file_perms;
 
-#allow droidvold ntfs:filesystem { mount unmount};
 #allow droidvold exfat:filesystem { mount unmount};
 #allow droidvold vfat:filesystem { mount unmount};
-#allow droidvold { vfat exfat ntfs }:dir rw_dir_perms;
+#allow droidvold { vfat exfat }:dir rw_dir_perms;
 
 allow droidvold iso9660:filesystem { mount unmount};
 allow droidvold hfsplus:filesystem { mount unmount};
@@ -85,11 +82,7 @@ allow droidvold fuse_device:chr_file r_file_perms;
 
 allow droidvold devpts:chr_file rw_file_perms;
 
-domain_auto_trans(droidvold, ntfs_3g_exec, ntfs_3g);
-
 allow droidvold loop_device:blk_file { open read write ioctl };
-allow droidvold fuseblk:dir { search };
-allow droidvold fuseblk:file { open read write };
 
 allow droidvold sdcardfs:filesystem { mount unmount remount };
 allow droidvold storage_file:dir { write add_name create setattr mounton search getattr };

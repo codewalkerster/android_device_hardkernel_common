@@ -1,8 +1,6 @@
 typeattribute mnt_media_rw_file mlstrustedobject;
 allow untrusted_app system_control:binder { call };
 
-allow untrusted_app fuseblk:dir  { search };
-allow untrusted_app fuseblk:file { read open getattr };
 allow untrusted_app nearby_service:service_manager { find };
 
 #allow untrusted_app vendor_file:file { read open getattr };

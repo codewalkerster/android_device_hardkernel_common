@@ -1,5 +1,3 @@
-# NTFS
-type fuseblk, sdcard_type, fs_type, mlstrustedsubject;
 type hfsplus, sdcard_type, fs_type;
 type iso9660, sdcard_type, fs_type;
 type udf,sdcard_type, fs_type;
@@ -116,6 +114,3 @@ type sysfs_tee, fs_type, sysfs_type;
 
 # /dev/aml_dsm
 type aml_dsm_device, fs_type,sysfs_type;
-
-# ntfs3
-type ntfs3, sdcard_type, fs_type, mlstrustedobject;

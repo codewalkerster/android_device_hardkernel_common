@@ -27,9 +27,6 @@ allow system_app droidmount_service:service_manager { add };
 
 allow system_app hidl_base_hwservice:hwservice_manager { add };
 
-allow system_app fuseblk:dir create_dir_perms;
-allow system_app fuseblk:file create_file_perms;
-
 allow system_app sysfs_di:dir search;
 
 allow system_app sysfs_video:dir search;

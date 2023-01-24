@@ -416,7 +416,6 @@
 #/system/bin/mke2fs       --   u:object_r:fsck_exec:s0
 #/system/bin/e2fsdroid    --	  u:object_r:fsck_exec:s0
 #/vendor/bin/pppoe_wrapper    u:object_r:pppoe_wrapper_exec:s0
-/system_ext/bin/ntfsfix    --      u:object_r:fsck_exec:s0
 /vendor/bin/screencontrol     u:object_r:screen_control_exec:s0
 
 /vendor/bin/hdcp_rx22         u:object_r:hdcp_rx22_exec:s0
@@ -536,7 +535,6 @@
 /dev/hidraw[0-9]*	u:object_r:hidraw_audio_device:s0
 #The final space is necessary. Please don't delete it.
 
-/system_ext/bin/ntfs-3g             u:object_r:fsck_exec:s0
 /system_ext/bin/fsck.exfat          u:object_r:fsck_exec:s0
 /vendor/bin/hw/android\.hardware\.keymaster@4\.1-service.amlogic      u:object_r:hal_keymaster_default_exec:s0
 /vendor/bin/hw/android\.hardware\.keymaster@4\.0-service.amlogic      u:object_r:hal_keymaster_default_exec:s0

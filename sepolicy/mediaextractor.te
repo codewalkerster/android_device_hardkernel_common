@@ -3,7 +3,6 @@ get_prop(mediaextractor, vendor_media_prop)
 get_prop(mediaextractor, vendor_platform_prop)
 
 allow mediaextractor vfat:file { read getattr };
-allow mediaextractor fuseblk:file { read getattr };
 allow mediaextractor fuse:file { read getattr };
 allow mediaextractor sdcardfs:file { read getattr };
 allow mediaextractor system_server:fifo_file { write getattr append };
