@@ -16,8 +16,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/netflix.xml:system/etc/sysconfig/netflix.xml \
-    device/amlogic/common/netflix/etc/nrdp.xml:vendor/etc/permissions/nrdp.xml \
+    device/amlogic/common/netflix/etc/netflix.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/netflix.xml \
+    device/amlogic/common/netflix/etc/nrdp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/nrdp.xml \
     device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities_ms12.json:vendor/etc/nrdp_audio_platform_capabilities_ms12.json \
     device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities.json:vendor/etc/nrdp_audio_platform_capabilities.json
 
@@ -32,4 +32,3 @@ else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/netflix/etc/nrdp_platform_capabilities.json:vendor/etc/nrdp_platform_capabilities.json
 endif
-
