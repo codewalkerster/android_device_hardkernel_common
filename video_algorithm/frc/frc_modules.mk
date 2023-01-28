@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 ifeq ($(strip $(FRC_FW_MODULE)),true)
 VENDOR_KERNEL_MODULES += $(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko
 endif
