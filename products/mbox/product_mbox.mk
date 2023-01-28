@@ -169,6 +169,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bootvideo.zip:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo.zip \
     $(LOCAL_PATH)/mbox.mp4:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo
 
+# copy fulldump
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/fulldump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/fulldump.sh
+
 # Save memory
 # dumpsys SurfaceFlinger | grep com.android.systemui.ImageWallpaper
 # 16.00 KiB |   64 (  64) x   64 |    1 |       2B | 0x40000000000b00 | com.android.systemui.ImageWallpaper#0

@@ -759,7 +759,8 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     device/amlogic/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
     device/amlogic/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
-    device/amlogic/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc
+    device/amlogic/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
+    device/amlogic/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc
 
 PRODUCT_COPY_FILES += \
     device/amlogic/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
