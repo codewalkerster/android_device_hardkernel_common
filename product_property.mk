@@ -16,12 +16,14 @@ ifeq ($(PRODUCT_SUPPORT_4K_UI), true)
     PRODUCT_PROPERTY_OVERRIDES += \
         ro.surface_flinger.max_graphics_width?=3840 \
         ro.surface_flinger.max_graphics_height?=2160 \
-        ro.surface_flinger.max_frame_buffer_acquired_buffers?=3
+        ro.surface_flinger.max_frame_buffer_acquired_buffers?=3 \
+        dalvik.vm.heapgrowthlimit=384m
 else
     PRODUCT_PROPERTY_OVERRIDES += \
         ro.surface_flinger.max_graphics_width?=1920 \
         ro.surface_flinger.max_graphics_height?=1080 \
-        ro.surface_flinger.max_frame_buffer_acquired_buffers?=3
+        ro.surface_flinger.max_frame_buffer_acquired_buffers?=3 \
+        dalvik.vm.heapgrowthlimit=256m
 endif
 
 # gfx: default boot config
@@ -30,9 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.default.config=true
 endif
 
-# Override heap growth limit due to high display density on device
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m
 endif
 
 #config vsync offset
