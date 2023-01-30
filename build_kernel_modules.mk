@@ -209,6 +209,7 @@ ifeq ($(BOARD_AML_SOC_TYPE),)
 	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/$(BOARD_AML_SOC_TYPE)/*.bin $(PRODUCT_OUT)/vendor/lib/firmware/video/
 endif
 
+ifneq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 INSTALLED_OPTEE_TARGET := \
     $(PRODUCT_OUT)/vendor/lib/optee*.ko
 
@@ -217,7 +218,7 @@ $(INSTALLED_OPTEE_TARGET): $(SOURCE_OPTEE_FILES)
 	mkdir -p $(PRODUCT_OUT)/vendor/lib/
 	cp $(PREBUILT_KERNEL_PATH)/lib/optee_armtz.ko $(PRODUCT_OUT)/vendor/lib/
 	cp $(PREBUILT_KERNEL_PATH)/lib/optee.ko $(PRODUCT_OUT)/vendor/lib/
-
+endif
 
 $(INSTALLED_KERNEL_TARGET): $(INSTALLED_BOARDDTB_TARGET) $(TARGET_PREBUILT_KERNEL) $(INSTALLED_FIRMWARE_TARGET) $(INSTALLED_OPTEE_TARGET)
 	@echo "cp kernel modules"
