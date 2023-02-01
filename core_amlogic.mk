@@ -469,21 +469,21 @@ PRODUCT_PACKAGES += \
 
 #Audio HAL
 PRODUCT_PACKAGES += \
-     android.hardware.audio@6.0-impl:32 \
-     android.hardware.audio@5.0-impl:32 \
-     android.hardware.audio@4.0-impl:32 \
-     android.hardware.audio.effect@6.0-impl:32 \
-     android.hardware.audio.effect@5.0-impl:32 \
-     android.hardware.audio.effect@4.0-impl:32 \
-     android.hardware.audio@2.0-impl:32 \
-     android.hardware.audio.effect@2.0-impl:32 \
+     android.hardware.audio@6.0-impl \
+     android.hardware.audio@5.0-impl \
+     android.hardware.audio@4.0-impl \
+     android.hardware.audio.effect@6.0-impl \
+     android.hardware.audio.effect@5.0-impl \
+     android.hardware.audio.effect@4.0-impl \
+     android.hardware.audio@2.0-impl \
+     android.hardware.audio.effect@2.0-impl \
      android.hardware.audio@2.0-service-droidlogic
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.1-impl:32 \
-    android.hardware.audio@7.0-impl:32 \
-    android.hardware.audio.effect@7.0-impl:32
+    android.hardware.audio@7.1-impl \
+    android.hardware.audio@7.0-impl \
+    android.hardware.audio.effect@7.0-impl
 endif
 
 #Camera HAL
