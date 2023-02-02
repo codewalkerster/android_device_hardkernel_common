@@ -539,9 +539,11 @@ PRODUCT_PACKAGES += \
     android.hardware.security.keymint-service
 endif
 
+ifneq ($(TARGET_BUILD_GMS), true)
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.amlogic
+endif
 
 #DRM HAL
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)

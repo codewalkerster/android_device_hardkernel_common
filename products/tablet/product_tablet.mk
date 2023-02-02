@@ -13,6 +13,10 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhwbinder
 
+# new gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service.software
+
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
 PRODUCT_PACKAGES += \
