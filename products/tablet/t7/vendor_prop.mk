@@ -43,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #if wifi Only
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.radio.noril=false
+    ro.radio.noril=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=100
