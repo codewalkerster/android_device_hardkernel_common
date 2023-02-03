@@ -1,6 +1,13 @@
 {
     "countrylist": [
         {
+            "countrycode": "alb",
+            "description": "Albania",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
+        },
+        {
             "countrycode": "dza",
             "description": "Algeria",
             "languagelist": "language_default.json",
@@ -12,6 +19,13 @@
             "description": "Argentina",
             "languagelist": "language_default.json",
             "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "arm",
+            "description": "Armenia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
             "secondarylang": "eng"
         },
         {
@@ -251,6 +265,14 @@
             "lcn": true
         },
         {
+            "countrycode": "isl",
+            "description": "Iceland",
+            "languagelist": "language_default.json",
+            "primarylang": "ice",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
             "countrycode": "ind",
             "description": "India",
             "languagelist": "language_default.json",
@@ -334,6 +356,13 @@
             "lcn": true
         },
         {
+            "countrycode": "kgz",
+            "description": "kyrgyzstan",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
+        },
+        {
             "countrycode": "lva",
             "description": "Latvia",
             "languagelist": "language_default.json",
@@ -346,6 +375,13 @@
             "description": "Libya",
             "languagelist": "language_default.json",
             "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "ltu",
+            "description": "LitHuania",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
             "secondarylang": "eng"
         },
         {
@@ -415,6 +451,20 @@
             "description": "Nicaragua",
             "languagelist": "language_default.json",
             "primarylang": "spa",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "nga",
+            "description": "nigeria",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "mkd",
+            "description": "North Macedonia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
             "secondarylang": "eng"
         },
         {
@@ -506,7 +556,7 @@
         {
             "countrycode": "sgp",
             "description": "Singapore",
-            "languagelist": "language_default.json",
+            "languagelist": "language_singapore.json",
             "primarylang": "eng",
             "secondarylang": "zho",
             "lcn": true
@@ -560,6 +610,14 @@
             "lcn": true
         },
         {
+            "countrycode": "tjk",
+            "description": "Tajikistan",
+            "languagelist": "language_default.json",
+            "primarylang": "rus",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
             "countrycode": "tza",
             "description": "Tanzania",
             "languagelist": "language_default.json",
@@ -589,6 +647,13 @@
             "primarylang": "tur",
             "secondarylang": "eng",
             "lcn": true
+        },
+        {
+            "countrycode": "tuk",
+            "description": "Turkmenistan",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
         },
         {
             "countrycode": "twn",
