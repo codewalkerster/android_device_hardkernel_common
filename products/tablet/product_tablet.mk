@@ -58,29 +58,13 @@ PRODUCT_PACKAGES += \
 # LiveTv
 PRODUCT_PACKAGES += \
     DroidLiveTvSettings \
-    DroidLogicLiveTv
+    DroidLogicLiveTv \
+    DroidTvSettings
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.build.livetv=true
 
 endif  #endof TARGET_BUILD_LIVETV
-
-# DTVKit
-ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
-SUPPORT_CAS = true
-PRODUCT_PACKAGES += \
-    inputsource \
-    libdtvkit_jni \
-    dtvkitserver \
-    dtvkitserver_releaseinfo.txt \
-    libicuuc_vendor \
-    libicui18n_vendor \
-    droidlogic-dtvkit \
-    droidlogic.dtvkit.software.core.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.video.show_first_frame_nosync=1
-endif
 
 PRODUCT_PACKAGES += \
     remotecfg
