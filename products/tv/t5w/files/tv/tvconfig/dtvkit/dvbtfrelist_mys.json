@@ -1,45 +1,51 @@
 {
     "frequencylist": [
         {
-            "name": "ch4",
-            "bandwidth": "7MHZ",
-            "frequency": "178000000",
-            "cofdmmode": "udef"
-        },
-        {
             "name": "ch5",
             "bandwidth": "7MHZ",
-            "frequency": "186000000",
+            "frequency": "177500000",
             "cofdmmode": "udef"
         },
         {
             "name": "ch6",
             "bandwidth": "7MHZ",
-            "frequency": "194000000",
+            "frequency": "184500000",
             "cofdmmode": "udef"
         },
         {
             "name": "ch7",
             "bandwidth": "7MHZ",
-            "frequency": "202000000",
+            "frequency": "191500000",
             "cofdmmode": "udef"
         },
         {
             "name": "ch8",
             "bandwidth": "7MHZ",
-            "frequency": "210000000",
+            "frequency": "198500000",
             "cofdmmode": "udef"
         },
         {
             "name": "ch9",
             "bandwidth": "7MHZ",
-            "frequency": "218000000",
+            "frequency": "205500000",
             "cofdmmode": "udef"
         },
         {
             "name": "ch10",
             "bandwidth": "7MHZ",
-            "frequency": "226000000",
+            "frequency": "212500000",
+            "cofdmmode": "udef"
+        },
+        {
+            "name": "ch11",
+            "bandwidth": "7MHZ",
+            "frequency": "219500000",
+            "cofdmmode": "udef"
+        },
+        {
+            "name": "ch12",
+            "bandwidth": "7MHZ",
+            "frequency": "226500000",
             "cofdmmode": "udef"
         },
         {
