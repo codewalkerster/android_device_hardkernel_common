@@ -95,7 +95,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #disable timeshift
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.tv.dtv.tf.disable=true
+    vendor.tv.dtv.tf.disable=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.tsplayer.enable=true
