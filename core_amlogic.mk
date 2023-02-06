@@ -208,7 +208,6 @@ ifeq ($(PRODUCT_SUPPORT_ATK_UI),true)
     PRODUCT_PACKAGES += \
         TVLauncher \
         FileBrowser2 \
-        TvCast \
         SetupWizard
 else
     PRODUCT_PACKAGES += \
