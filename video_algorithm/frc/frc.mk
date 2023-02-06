@@ -20,6 +20,7 @@
 $(warning frc.mk)
 $(warning TARGET_BUILD_KERNEL_VERSION=$(TARGET_BUILD_KERNEL_VERSION))
 $(warning TARGET_PRODUCT=$(TARGET_PRODUCT))
+$(warning PLATFORM_SUPPORT_MEMC_CHIP=$(PLATFORM_SUPPORT_MEMC_CHIP))
 ifeq ($(strip $(FRC_FW_MODULE)),true)
     $(warning FRC_FW_MODULE is $(FRC_FW_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.4)
@@ -41,6 +42,16 @@ ifeq ($(strip $(FRC_FW_MODULE)),true)
                     device/amlogic/common/video_algorithm/frc/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
                     device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
             else ifeq ($(TARGET_PRODUCT), calla)
+                $(warning copy frc_fw_t5m.ko)
+                PRODUCT_COPY_FILES += \
+                    device/amlogic/common/video_algorithm/frc/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                    device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+            else ifeq ($(PLATFORM_SUPPORT_MEMC_CHIP), T3)
+                $(warning copy frc_fw_t3.ko)
+                PRODUCT_COPY_FILES += \
+                    device/amlogic/common/video_algorithm/frc/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                    device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+            else ifeq ($(PLATFORM_SUPPORT_MEMC_CHIP), T5M)
                 $(warning copy frc_fw_t5m.ko)
                 PRODUCT_COPY_FILES += \
                     device/amlogic/common/video_algorithm/frc/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
