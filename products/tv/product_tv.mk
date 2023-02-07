@@ -194,7 +194,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
     BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
 else
-    ifeq ($(BOARD_COMPILE_ATV), false)
-        BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-    endif
+#    ifeq ($(BOARD_COMPILE_ATV), false)
+#        BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
+#    endif
 endif
