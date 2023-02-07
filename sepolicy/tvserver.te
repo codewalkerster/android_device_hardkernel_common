@@ -65,6 +65,8 @@ allow tvserver mnt_vendor_file:file { create open write setattr getattr lock rea
 allow tvserver platform_app:binder { call };
 allow tvserver sysfs:file { read write open };
 
+allow tvserver oemfs:dir search;
+
 #add for search channel
 allow tvserver dvb_device:chr_file { open read write ioctl };
 allow tvserver frontend_device:chr_file { open read write ioctl };
