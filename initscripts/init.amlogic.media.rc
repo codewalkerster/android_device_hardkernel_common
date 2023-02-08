@@ -9,6 +9,7 @@ on boot
     chown system camera /dev/ge2d
     chmod 660 /sys/class/secmem/secmem_mm_config
     chown mediacodec system /sys/class/secmem/secmem_mm_config
+    chown system camera /dev/vicp
 
     write /sys/module/stream_input/parameters/def_vstreambuf_sizeM 10
     write /sys/module/stream_input/parameters/def_4k_vstreambuf_sizeM 15

@@ -12,6 +12,7 @@ allow hal_camera_default hal_graphics_allocator_default_tmpfs:file rw_file_perms
 
 allow hal_camera_default ge2d_device:chr_file { read write open ioctl };
 allow hal_camera_default amlgdc_device:chr_file { read write open ioctl };
+allow hal_camera_default vicp_device:chr_file { read write open ioctl };
 allow hal_camera_default video_device:chr_file { read write open ioctl };
 allow hal_camera_default vendor_video_device:chr_file { read write open ioctl };
 allow hal_camera_default codec_device:chr_file { read write open ioctl };

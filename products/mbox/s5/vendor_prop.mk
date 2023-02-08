@@ -23,16 +23,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.realoutputmode=true \
     ro.vendor.platform.need.display.hdmicec=true
 
-#camera max to 1080p
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28
-
-#camera max to 1080p
-#PRODUCT_PRODUCT_PROPERTIES += \
-#    ro.media.camera_preview.maxsize=1920x1080 \
-#    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
-#    ro.media.camera_preview.usemjpeg=1
-
 #the prop is used for enable or disable
 #DD+/DD force output when HDMI EDID is not supported
 #by default,the force output mode is enabled.

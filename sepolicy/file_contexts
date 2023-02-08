@@ -204,10 +204,9 @@
 
 /dev/hdmitx_report           u:object_r:hdmitx_device:s0
 /dev/stune/foreground/tasks   u:object_r:tasks_device:s0
-
 /dev/adla0                              u:object_r:adla_device:s0
 /dev/aml_afd                    u:object_r:afd_device:s0
-
+/dev/vicp                     u:object_r:vicp_device:s0
 #############################
 # boot files
 #
