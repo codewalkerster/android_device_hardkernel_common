@@ -97,6 +97,8 @@ PRODUCT_PACKAGES += \
     tinyplay \
     tinycap \
     tinymix \
+    tinypcminfo \
+    tinyhostless \
     audio.usb.amlogic
 endif
 
