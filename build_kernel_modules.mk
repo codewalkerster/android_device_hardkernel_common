@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+ifneq ($(TARGET_NO_KERNEL),true)
 ####################### INPUT PARAMS ######################
 
 #TARGET_PREBUILT_KERNEL
@@ -253,3 +254,4 @@ $(PRODUCT_OUT)/ramdisk.img: $(INSTALLED_KERNEL_TARGET)
 $(PRODUCT_OUT)/boot.img: $(INSTALLED_KERNEL_TARGET)
 # The ko is copied to vendor, must depends on kernel modules
 $(PRODUCT_OUT)/vendor.img: $(INSTALLED_KERNEL_TARGET) $(AML_VENDOR_COPY_MODULES)
+endif

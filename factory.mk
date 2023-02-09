@@ -10,6 +10,7 @@ AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
 
 #$(warning Build dtbo image here, make sure BOARD_PREBUILT_DTBOIMAGE is defined before this warning)
 
+ifneq ($(TARGET_NO_KERNEL),true)
 ifeq ($(TARGET_NO_RECOVERY),true)
 BUILT_IMAGES := boot.img
 else
@@ -23,9 +24,15 @@ endif
 ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 BUILT_IMAGES += init_boot.img
 endif
+endif
 
-VB_CHECK_IMAGES := vbmeta.img boot.img
-VB_CHECK_IMAGES += vendor.img system.img product.img dtbo.img
+VB_CHECK_IMAGES := vbmeta.img
+ifneq ($(TARGET_NO_KERNEL),true)
+VB_CHECK_IMAGES += boot.img dtbo.img
+endif
+VB_CHECK_IMAGES += vendor.img system.img product.img
+
+ifneq ($(TARGET_NO_KERNEL),true)
 ifneq ($(TARGET_NO_RECOVERY),true)
 VB_CHECK_IMAGES += recovery.img
 endif
@@ -36,6 +43,7 @@ endif
 
 ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 VB_CHECK_IMAGES += init_boot.img
+endif
 endif
 
 ifeq ($(BOARD_USES_ODMIMAGE),true)
@@ -62,8 +70,10 @@ ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 VB_CHECK_IMAGES += odm_dlkm.img
 endif
 
+ifneq ($(TARGET_NO_KERNEL),true)
 ifdef BOARD_PREBUILT_DTBOIMAGE
 BUILT_IMAGES += dtbo.img
+endif
 endif
 
 ifneq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
@@ -538,9 +548,11 @@ INSTALLED_AML_FASTBOOT_ZIP := $(PRODUCT_OUT)/$(TARGET_PRODUCT)-fastboot-flashall
 $(warning will keep $(INSTALLED_AML_FASTBOOT_ZIP))
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_FASTBOOT_ZIP))
 
+ifneq ($(TARGET_NO_KERNEL),true)
 FASTBOOT_IMAGES := boot.img
 ifneq ($(TARGET_NO_RECOVERY),true)
 	FASTBOOT_IMAGES += recovery.img
+endif
 endif
 
 ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
@@ -575,6 +587,7 @@ ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 FASTBOOT_IMAGES += odm_dlkm.img
 endif
 
+ifneq ($(TARGET_NO_KERNEL),true)
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 FASTBOOT_IMAGES += vendor_boot.img
 endif
@@ -585,6 +598,7 @@ endif
 
 ifdef BOARD_PREBUILT_DTBOIMAGE
 FASTBOOT_IMAGES += dtbo.img
+endif
 endif
 
 ifeq ($(BUILD_WITH_AVB),true)
@@ -721,7 +735,7 @@ ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 endif
 
 droidcore: $(INSTALLED_MANIFEST_XML)
-otapackage: otatools-package
+#otapackage: otatools-package
 
 ifneq ($(BUILD_AMLOGIC_FACTORY_ZIP), false)
 droidcore: $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_AML_FASTBOOT_ZIP)
