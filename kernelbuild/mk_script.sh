@@ -10,6 +10,9 @@ function clean() {
 	if [[ -d common-5.15/out ]]; then
 		rm -rf common-5.15/out
 	fi
+	if [[ -d common14-5.15/out ]]; then
+		rm -rf common14-5.15/out
+	fi
 	return
 }
 
@@ -205,11 +208,16 @@ function build_common_5.4() {
 }
 
 function build_common_5.15() {
-	export TARGET_BUILD_KERNEL_VERSION=${CONFIG_KERNEL_VERSION}
+	export KERNEL_VERSION=${CONFIG_KERNEL_VERSION##*-}
+	export TARGET_BUILD_KERNEL_VERSION=${KERNEL_VERSION}
 	export TARGET_BUILD_KERNEL_4_9=false
-
-	export KERNEL_VERSION=${CONFIG_KERNEL_VERSION}
-	export KERNEL_REPO=common-${CONFIG_KERNEL_VERSION}
+	if [ ${CONFIG_KERNEL_VERSION} = "5.15" ]; then
+		export KERNEL_REPO=common-${CONFIG_KERNEL_VERSION}
+		export FULL_KERNEL_VERSION="common13-5.15"
+	else
+		export FULL_KERNEL_VERSION=${CONFIG_KERNEL_VERSION}
+		export KERNEL_REPO=${CONFIG_KERNEL_VERSION}
+	fi
 	export KERNEL_DIR=common
 	export COMMON_DRIVERS_DIR=common_drivers
 	export BOARD_DEVICENAME=$1
@@ -260,7 +268,7 @@ function build_common() {
 		build_common_4.9 $@
 	elif [ "$CONFIG_KERNEL_VERSION" = "5.4" ]; then
 		build_common_5.4 $@
-	elif [ "$CONFIG_KERNEL_VERSION" = "5.15" ]; then
+	elif [[ "$CONFIG_KERNEL_VERSION" =~ "5.15" ]]; then
 		build_common_5.15 $@
 	fi
 }
