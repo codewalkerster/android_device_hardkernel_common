@@ -2,6 +2,9 @@ $(call inherit-product, device/amlogic/common/core_amlogic.mk)
 
 BOARD_SEPOLICY_DIRS += device/google/atv/sepolicy/vendor
 
+# Get some sounds
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackageGo.mk)
+
 PRODUCT_PACKAGES += \
         Settings \
         LatinIME
@@ -157,6 +160,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
     audio.offload.min.duration.secs=5
 
+# props for Dalvik heap
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=384m
+
 #TV project, need use 8 ch 32 bit output.
 TARGET_WITH_TV_AUDIO_MODE := true
 
@@ -166,8 +173,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #userdebug, eng, AOSP version default disable AVB
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
     BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-else
-    ifeq ($(BOARD_COMPILE_ATV), false)
-        BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-    endif
 endif
