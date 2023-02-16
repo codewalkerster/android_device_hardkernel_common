@@ -55,6 +55,11 @@ if [ ! -d "device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERN
 fi
 rm -rf device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/*
 cp ${OUT_AMLOGIC_DIR}/modules/vendor/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
+
+res=`ls ${OUT_AMLOGIC_DIR}/modules/service_module`
+if [[ -n ${res} ]]; then
+	cp ${OUT_AMLOGIC_DIR}/modules/service_module/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
+fi
 cp -a ${COMMON_OUT_DIR}/vendor_lib/* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/
 
 cp ${OUT_AMLOGIC_DIR}/modules/ramdisk/ramdisk_modules.order device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load
