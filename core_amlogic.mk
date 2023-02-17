@@ -63,6 +63,15 @@ PRODUCT_PACKAGES += \
 
 endif
 
+$(warning start to am kernel patches...)
+KERNEL_AUTO_PATCH := $(shell ls common*/mk.sh)
+KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
+    $(shell $(patch_shell) --patch ))
+ifeq ($(filter Error,$(KERNEL_AUTO_PATCH_RESULT)), Error)
+$(error end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
+else
+$(warning end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
+endif
 
 # Net:
 #   Vendors can use the platform-provided network configuration utilities (ip,
