@@ -32,6 +32,11 @@ else
 	TARGET_KERNEL_DIR=${KERNEL_VERSION}
 fi
 
+if [[ -d  device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/symbols ]]; then
+	rm -rf device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/symbols
+fi
+cp -rf ${OUT_AMLOGIC_DIR}/symbols device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/symbols
+
 if [ ! -d "device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/" ]; then
 	mkdir -p device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
 fi
