@@ -5,7 +5,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
-    debug.sf.vsync_reactor_ignore_present_fences=1
+    debug.sf.vsync_reactor_ignore_present_fences=1 \
+    debug.sf.enable_gl_backpressure=0
+
 
 # config of surfaceflinger
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
