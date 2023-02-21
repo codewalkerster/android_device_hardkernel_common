@@ -38,7 +38,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifneq ($(BOARD_INSTALL_VULKAN), false)
 PRODUCT_PROPERTY_OVERRIDES += \
-		ro.hardware.vulkan=amlogic
+		ro.hardware.vulkan=amlogic \
+		graphics.gpu.profiler.support=true
 
 PRODUCT_COPY_FILES += \
 		frameworks/native/data/etc/android.hardware.opengles.aep.xml:vendor/etc/permissions/android.hardware.opengles.aep.xml \
