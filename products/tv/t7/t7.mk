@@ -203,6 +203,3 @@ endif
 PRODUCT_COPY_FILES += \
     device/amlogic/common/initscripts/dvb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
     device/amlogic/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.hdmi.device_type=0

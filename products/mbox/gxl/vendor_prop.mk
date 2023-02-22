@@ -109,9 +109,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.media.bootvideo=0050
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.hdmi.device_type=4
-
 #support mvc
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.support.mvc=true
