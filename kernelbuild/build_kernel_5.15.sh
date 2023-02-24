@@ -12,8 +12,10 @@ if [ $KERNEL_A32_SUPPORT ]; then
 else
 	./mk.sh --android_project ${BOARD_DEVICENAME} $@
 fi
-
 popd
+
+[[ "$@" =~ "--patch" ]] && echo "Finish patch" &&  exit
+
 echo "========================================================"
 echo "exit kernel build"
 echo "========================================================"
