@@ -73,6 +73,11 @@ else
 $(warning end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
 endif
 
+BOARD_DO_NOT_STRIP_VENDOR_RAMDISK_MODULES := true
+BOARD_DO_NOT_STRIP_VENDOR_MODULES := true
+BOARD_DO_NOT_STRIP_RECOVERY_MODULES := true
+BOARD_DO_NOT_STRIP_VENDOR_KERNEL_RAMDISK_MODULES := true
+
 # Net:
 #   Vendors can use the platform-provided network configuration utilities (ip,
 #   iptable, etc.) to configure the Linux networking stack, but these utilities
