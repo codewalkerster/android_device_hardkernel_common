@@ -211,12 +211,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1
-#enable aisr
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.hwc.aisr_enable=1
-#aisr default config
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.sys.aisr=true
-#aisr  check I/P input source
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.hwc.aisr_check_interlace=1
+
