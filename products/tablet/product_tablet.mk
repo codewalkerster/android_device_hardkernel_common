@@ -113,7 +113,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.live_tv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.live_tv.xml
+    frameworks/native/data/etc/android.software.live_tv.xml:system/etc/permissions/android.software.live_tv.xml
 endif
 
 #copy lowmemorykiller.txt
