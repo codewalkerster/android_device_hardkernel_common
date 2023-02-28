@@ -373,8 +373,6 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
     device/amlogic/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
     device/amlogic/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
-    device/amlogic/common/keyboards/Vendor_0957_Product_0006.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0957_Product_0006.idc \
-    device/amlogic/common/keyboards/Vendor_0957_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0957_Product_0001.kl \
     device/amlogic/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
 #########################################################################
 #
