@@ -33,6 +33,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.dv.standalone.component=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.camera_usb.faceback=true
+
 # t962x3_ab301 support screen capture
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.screencontrol.porttype=1 \
