@@ -256,6 +256,11 @@ on init
     chmod 0664 sys/module/aml_media/parameters/force_output
     chown system system sys/module/aml_media/parameters/force_output
 
+    chmod 0664 /sys/class/amhdmitx/amhdmitx0/rxsense_policy
+    chown system system /sys/class/amhdmitx/amhdmitx0/rxsense_policy
+
+    chmod 0664 /sys/class/amhdmitx/amhdmitx0/rxsense_state
+    chown system system /sys/class/amhdmitx/amhdmitx0/rxsense_state
 on boot
     chmod 0664 /sys/class/mpgpu/scale_mode
     chown media system /sys/class/mpgpu/scale_mode

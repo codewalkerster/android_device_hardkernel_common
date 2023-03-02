@@ -159,6 +159,7 @@
 /dev/display        			u:object_r:display_device:s0
 /dev/dtb            			u:object_r:dtb_device:s0
 /dev/dvb0.*         			u:object_r:dvb_device:s0
+/dev/smc0                   u:object_r:dvb_device:s0
 /dev/v4l2_frontend			u:object_r:frontend_device:s0
 /dev/esm            			u:object_r:hdcptx_device:s0
 /dev/esm_rx         			u:object_r:hdcprx_device:s0
@@ -578,3 +579,7 @@
 /dev/ac_sbuf1                u:object_r:isp_device:s0
 /dev/v4l-subdev[0-9]         u:object_r:isp_device:s0
 /system_ext/lib/libtee-hal.so             u:object_r:nfx_tee_hal_lib:s0
+
+
+/sys/class/smc_sc2-class/ctrl_5v3v  u:object_r:sysfs_stb:s0
+/sys/class/smc_sc2-class/pins_mode  u:object_r:sysfs_stb:s0

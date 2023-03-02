@@ -30,6 +30,9 @@ on boot
     chmod 0666 /dev/dvb0.ca5
     chmod 0666 /dev/aml_dsm
     chmod 0666 /sys/class/stb/tsn_source
+    chmod 0666 /dev/smc0
+    chmod 0666 /sys/class/smc_sc2-class/ctrl_5v3v
+    chmod 0666 /sys/class/smc_sc2-class/pins_mode
 
     chown media system /dev/dvb0.frontend0
     chown media system /dev/dvb0.frontend1
@@ -56,3 +59,6 @@ on boot
     chown media system /dev/aml_dsm
 
     chown media system /sys/class/stb/tsn_source
+    chown media system /dev/smc0
+    chown media system /sys/class/smc_sc2-class/ctrl_5v3v
+    chown media system /sys/class/smc_sc2-class/pins_mode
