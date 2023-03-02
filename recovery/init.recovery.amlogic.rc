@@ -1,4 +1,17 @@
+on init
+    chmod 0777 /bin/systemcontrol_static
+    chmod 0777 /sbin/remotecfg
+
+on fs
+
+on post-fs-data
+    chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file
+    chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file
+    chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
+    chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
+
 on boot
+    mkdir /udisk
     mount configfs none /config
     mkdir /config/usb_gadget/g1 0770 shell shell
     mkdir /config/usb_gadget/g1/strings/0x409 0770 shell shell
@@ -22,6 +35,12 @@ on boot
     setprop sys.usb.configfs 1
     setprop sys.usb.controller ${vendor.usb.controller}
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+    write sys/class/unifykeys/attach     1
+
+service systemcontrol /bin/systemcontrol_static /sbin/mesondisplay.cfg
+    oneshot
+    seclabel u:r:recovery:s0
+
 
 on property:sys.usb.config=none && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/os_desc/use 0
@@ -51,7 +70,17 @@ on property:sys.usb.config=adb && property:sys.usb.configfs=1
     write /sys/class/usb_role/ffe09000.usb-role-switch/role device
 
 on property:sys.usb.config=none && property:sys.usb.configfs=1
+    setprop sys.usb.state ${sys.usb.config}
     write /config/usb_gadget/g1/os_desc/use 0
+
+# USB mode changes
+on property:sys.usb.typec.mode=dfp
+    write /sys/class/dual_role_usb/otg_default/mode ${sys.usb.typec.mode}
+    setprop sys.usb.typec.state ${sys.usb.typec.mode}
+
+on property:sys.usb.typec.mode=ufp
+    write /sys/class/dual_role_usb/otg_default/mode ${sys.usb.typec.mode}
+    setprop sys.usb.typec.state ${sys.usb.typec.mode}
 
 service console /system/bin/sh
     class core
