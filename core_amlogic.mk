@@ -235,12 +235,12 @@ endif
 
 PRODUCT_PACKAGES += \
     Bluetooth \
-    DroidOverlay \
     PrintSpooler \
     SubTitle
 
 ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \
+    DroidOverlay \
     ABUpdater\
     ExoPlayer
 endif

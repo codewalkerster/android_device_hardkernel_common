@@ -1,0 +1,325 @@
+<resources>
+    <!-- This string array should be overridden by the device to present a list of network
+         attributes.  This is used by the connectivity manager to decide which networks can coexist
+         based on the hardware -->
+    <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
+         [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
+    <!-- the 5th element "restore-time" indicates the number of milliseconds to delay
+         before automatically restore the default connection.  Set -1 if the connection
+         does not require auto-restore. -->
+    <!-- the 6th element indicates boot-time dependency-met value. -->
+    <bool name="config_enableAutoPowerModes">false</bool>
+
+    <string-array translatable="false" name="networkAttributes">
+        <item>"wifi,1,1,1,-1,true"</item>
+        <item>"ethernet,9,9,9,-1,true"</item>
+    <!--        <item>"pppoe,18,18,1,-1,true"</item> -->
+    </string-array>
+    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering__-->
+        <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
+                 <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
+    <!-- [18,9] for TYPE_PPPOE, TYPE_ETHERNET -->
+    <integer-array translatable="false" name="config_tether_upstream_types">
+        <item>1</item>
+        <item>9</item>
+    </integer-array>
+    <!-- This string array should be overridden by the device to present a list of radio
+         attributes.  This is used by the connectivity manager to decide which networks can coexist
+         based on the hardware -->
+    <!-- An Array of "[ConnectivityManager connectionType],
+                      [# simultaneous connection types]"  -->
+    <string-array translatable="false" name="radioAttributes">
+        <item>"1,1"</item>
+        <item>"9,1"</item>
+    </string-array>
+
+	<!-- CEC config values -->
+
+    <bool name="config_cecPowerStateChangeOnActiveSourceLostNone_default">false</bool>
+    <bool name="config_cecPowerStateChangeOnActiveSourceLostStandbyNow_default">true</bool>
+
+    <!-- Which Short Audio Descriptors a TV should query via CEC -->
+    <bool name="config_cecQuerySadLpcmEnabled_default">false</bool>
+    <bool name="config_cecQuerySadLpcmDisabled_default">true</bool>
+
+	<!-- AC3/DD -->
+    <bool name="config_cecQuerySadDdEnabled_default">true</bool>
+    <bool name="config_cecQuerySadDdDisabled_default">false</bool>
+
+    <bool name="config_cecQuerySadMpeg1Enabled_default">false</bool>
+    <bool name="config_cecQuerySadMpeg1Disabled_default">true</bool>
+
+    <bool name="config_cecQuerySadMp3Enabled_default">false</bool>
+    <bool name="config_cecQuerySadMp3Disabled_default">true</bool>
+
+    <bool name="config_cecQuerySadMpeg2Enabled_default">false</bool>
+    <bool name="config_cecQuerySadMpeg2Disabled_default">true</bool>
+
+    <bool name="config_cecQuerySadAacEnabled_default">false</bool>
+    <bool name="config_cecQuerySadAacDisabled_default">true</bool>
+
+    <bool name="config_cecQuerySadDtsEnabled_default">true</bool>
+    <bool name="config_cecQuerySadDtsDisabled_default">false</bool>
+
+    <bool name="config_cecQuerySadAtracEnabled_default">false</bool>
+    <bool name="config_cecQuerySadAtracDisabled_default">true</bool>
+
+    <bool name="config_cecQuerySadOnebitaudioEnabled_default">false</bool>
+    <bool name="config_cecQuerySadOnebitaudioDisabled_default">true</bool>
+
+    <bool name="config_cecQuerySadDdpEnabled_default">true</bool>
+    <bool name="config_cecQuerySadDdpDisabled_default">false</bool>
+
+    <bool name="config_cecQuerySadDtshdEnabled_default">true</bool>
+    <bool name="config_cecQuerySadDtshdDisabled_default">false</bool>
+
+	<!-- Truehd/MAT not supported in ARC-->
+    <bool name="config_cecQuerySadTruehdEnabled_default">false</bool>
+    <bool name="config_cecQuerySadTruehdDisabled_default">true</bool>
+
+    <bool name="config_cecQuerySadDstEnabled_default">false</bool>
+    <bool name="config_cecQuerySadDstDisabled_default">true</bool>
+
+    <bool name="config_cecQuerySadWmaproEnabled_default">false</bool>
+    <bool name="config_cecQuerySadWmaproDisabled_default">true</bool>
+
+    <bool name="config_cecQuerySadMaxEnabled_default">false</bool>
+    <bool name="config_cecQuerySadMaxDisabled_default">true</bool>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+         should be empty.  An example would be "softap.*" -->
+    <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>"wlan0"</item>
+    </string-array>
+    <bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">1</integer>
+    <!-- Enable overlay for all location components. -->
+    <bool name="config_enableNetworkLocationOverlay" translatable="false">true</bool>
+    <bool name="config_enableFusedLocationOverlay" translatable="false">true</bool>
+
+    <!-- Flag indicating whether the current device is "voice capable".
+         If true, this means that the device supports circuit-switched
+         (i.e. voice) phone calls over the telephony network, and is
+         allowed to display the in-call UI while a cellular voice call is
+         active.  This can be overridden to false for "data only" devices
+         which can't make voice calls and don't support any in-call UI.
+
+         Note: this flag is subtly different from the
+         PackageManager.FEATURE_TELEPHONY system feature, which is
+         available on *any* device with a telephony radio, even if the
+         device is data-only. -->
+    <bool name="config_voice_capable">false</bool>
+
+    <bool name="config_quickSettingsSupported">false</bool>
+    <string name="config_deviceConfiguratorPackageName" translatable="false">com.google.android.gms</string>
+    <string name="config_defaultSupervisionProfileOwnerComponent" translatable="false">com.google.android.gms/.kids.account.receiver.ProfileOwnerReceiver</string>
+    <!-- disable wifi debugging -->
+    <bool translatable="false" name="config_wifi_enable_wifi_firmware_debugging">false</bool>
+
+   <!-- pin some little and always need files -->
+   <!-- /system/framework/framework-res.apk -->
+   <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+      <item>"/system/lib/libandroid_servers.so"</item>
+      <item>"/system/bin/logd"</item>
+      <item>"/system/lib/libjavacrypto.so"</item>
+      <item>"/system/lib/libhidltransport.so"</item>
+   </string-array>
+
+    <!-- True if the device should block turning display on at boot until wallpaper is ready -->
+    <bool name="config_checkWallpaperAtBoot">false</bool>
+
+    <!-- Integer size limit, in KB, for a single WifiLogger ringbuffer, in default logging mode -->
+    <integer translatable="false" name="config_wifi_logger_ring_buffer_default_size_limit_kb">16</integer>
+
+    <!-- Integer size limit, in KB, for a single WifiLogger ringbuffer, in verbose logging mode -->
+    <integer translatable="false" name="config_wifi_logger_ring_buffer_verbose_size_limit_kb">16</integer>
+
+    <integer name="config_maxUiWidth">0</integer>
+
+    <!-- Control the behavior when the user long presses the power button.
+        0 - Nothing
+        1 - Global actions menu
+        2 - Power off (with confirmation)
+        3 - Power off (without confirmation)
+        4 - Go to voice assist
+        5 - Go to assistant (Settings.Secure.ASSISTANT -->
+    <integer name="config_longPressOnPowerBehavior">1</integer>
+
+    <!-- This device does not allow sms service. -->
+    <bool name="config_sms_capable">false</bool>
+
+    <!-- This device does not support mobile data. -->
+    <bool name="config_mobile_data_capable">false</bool>
+
+    <!-- Flag indicating whether all audio streams should be mapped to
+         one single stream. If true, all audio streams are mapped to
+         STREAM_MUSIC as if it's on TV platform. -->
+    <bool name="config_single_volume">false</bool>
+
+    <!-- Show the "Adaptive Brightness" toggle. -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- An array describing the screen's backlight values corresponding to the brightness
+         values in the config_screenBrightnessNits array.
+
+         This array should be equal in size to config_screenBrightnessBacklight. -->
+    <integer-array name="config_screenBrightnessBacklight">
+        <item>1</item>
+        <item>255</item>
+    </integer-array>
+
+    <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
+         values in the config_screenBrightnessBacklight array.  On OLED displays these  values
+         should be measured with an all white image while the display is in the fully on state.
+         Note that this value should *not* reflect the maximum brightness value for any high
+         brightness modes but only the maximum brightness value obtainable in a sustainable manner.
+
+         This array should be equal in size to config_screenBrightnessBacklight -->
+    <array name="config_screenBrightnessNits">
+        <item>2.0</item>
+        <item>450.0</item>
+    </array>
+
+    <!-- Nonlinear coefficients for maximum panel brightness of 450 nits -->
+    <string-array name="config_reduceBrightColorsCoefficientsNonlinear">
+        <!-- a-coefficient --> <item>-0.4429953456</item>
+        <!-- b-coefficient --> <item>-0.2434077725</item>
+        <!-- y-intercept --> <item>0.9809063061</item>
+    </string-array>
+
+    <!-- Linear coefficients for maximum panel brightness of 450 nits -->
+    <string-array name="config_reduceBrightColorsCoefficients">
+        <!-- a-coefficient --> <item>-0.000000000000001</item>
+        <!-- b-coefficient --> <item>-0.955555555555554</item>
+        <!-- y-intercept --> <item>1.000000000000000</item>
+    </string-array>
+
+
+    <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
+         The N entries of this array define N  1 zones as follows:
+
+         Zone 0:        0 <= LUX < array[0]
+         Zone 1:        array[0] <= LUX < array[1]
+         ...
+         Zone N:        array[N - 1] <= LUX < array[N]
+         Zone N + 1     array[N] <= LUX < infinity
+
+         Must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>8</item>
+        <item>12</item>
+        <item>20</item>
+        <item>33</item>
+        <item>55</item>
+        <item>90</item>
+        <item>148</item>
+        <item>245</item>
+        <item>403</item>
+        <item>665</item>
+        <item>1097</item>
+        <item>1808</item>
+        <item>2981</item>
+        <item>5000</item>
+        <item>10000</item>
+    </integer-array>
+
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
+         config_screenBrightnessMaximumNits, the display brightness is defined as the measured
+         brightness of an all-white image.
+
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
+
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
+    <array name="config_autoBrightnessDisplayValuesNits">
+        <item>10.27811</item>    <!--  0 - 1  -->
+        <item>25.5265</item>    <!--  1 - 2  -->
+        <item>32.9902384256</item>    <!--  2 - 3  -->
+        <item>37.3278742039</item>    <!--  3 - 4  -->
+        <item>40.2339130994</item>    <!--  4 - 8  -->
+        <item>47.3775896947</item>    <!--  8 - 12  -->
+        <item>52.0773980991</item>    <!--  12 - 20  -->
+        <item>58.9500178659</item>    <!--  20 - 33  -->
+        <item>67.0727661023</item>    <!--  33 - 55  -->
+        <item>77.4795277377</item>    <!--  55 - 90  -->
+        <item>90.1649821044</item>    <!--  90 - 148  -->
+        <item>106.199488897</item>    <!--  148 - 245  -->
+        <item>126.920893691</item>    <!--  245 - 403  -->
+        <item>155.278937975</item>    <!--  403 - 665  -->
+        <item>192.014446343</item>    <!--  665 - 1097  -->
+        <item>238.225445161</item>    <!--  1097 - 1808  -->
+        <item>292.196984602</item>    <!--  1808 - 2981  -->
+        <item>355.964092728</item>    <!--  2981 - 5000  -->
+        <item>431.503962344</item>    <!--  5000 - 10000  -->
+        <item>546.6433233</item>    <!--  10000+  -->
+    </array>
+
+    <!-- Minimum screen brightness allowed by the power manager. -->
+    <integer name="config_screenBrightnessDim">6</integer>
+
+    <!-- Screen brightness when dozing. -->
+    <integer name="config_screenBrightnessDoze">34</integer>
+
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- True if the display hardware only has brightness buckets rather than a full range of
+         backlight values -->
+    <bool name="config_displayBrightnessBucketsInDoze">true</bool>
+
+    <!-- Default screen brightness setting.
+         Must be in the range specified by minimum and maximum. -->
+    <integer name="config_screenBrightnessSettingDefault">98</integer>
+
+    <!-- Default screen brightness for VR setting. Target default value: 0x0BB for EVT1.1. -->
+    <!-- 8 bit brightness level of 6 corresponds to the 10 bit brightness level of 0x0B6,
+         8 bit brightness level of 7 corresponds to the 10 bit brightness level of 0x0C1 on EVT1.1. -->
+    <integer name="config_screenBrightnessForVrSettingDefault">7</integer>
+    <integer name="config_screenBrightnessForVrSettingMinimum">6</integer>
+    <integer name="config_screenBrightnessForVrSettingMaximum">7</integer>
+
+    <!-- Minimum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness below this level. -->
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+
+    <!-- Maximum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness above this level. -->
+    <integer name="config_screenBrightnessSettingMaximum">255</integer>
+
+    <!-- Minimum screen brightness setting allowed by power manager.
+        The user is forbidden from setting the brightness below this level.
+        Equivalent to 1/255. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0</item>
+
+    <!-- Maximum screen brightness allowed by the power manager.
+         The user is forbidden from setting the brightness above this level.
+         This value is a fraction between 3.5% and 100%. -->
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+
+    <!-- Default screen brightness setting.
+         Must be in the range specified by minimum and maximum.
+         This value is a fraction between 3.5% and 100%.
+         Equivalent to 98/255 (default for this device)    -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.38188976378</item>
+
+    <!-- Enable freeform window & split-screen window. -->
+    <bool name="config_supportsSplitScreenMultiWindow">true</bool>
+    <bool name="config_supportsMultiWindow">true</bool>
+    <integer name="config_defaultUiModeType">1</integer>
+
+    <!-- Whether this device is supporting the microphone toggle -->
+    <bool name="config_supportsMicToggle">true</bool>
+    <!-- Whether this device is supporting the camera toggle -->
+    <bool name="config_supportsCamToggle">true</bool>
+</resources>
