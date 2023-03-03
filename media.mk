@@ -399,10 +399,5 @@ AMLOGIC_FRAMEWORKS_AV_CONFIG_MK := $(BOARD_AML_VENDOR_PATH)/frameworks/av/mediae
 BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 
 # for media modules
-ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
-PRODUCT_COPY_FILES += \
-	device/amlogic/common/initscripts/init.amlogic.media-for-5.15.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
-else
 PRODUCT_COPY_FILES += \
 	device/amlogic/common/initscripts/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
-endif

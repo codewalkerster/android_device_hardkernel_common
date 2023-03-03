@@ -18,7 +18,6 @@ on fs
     insmod /vendor/lib/modules/media_clock.ko
     write /sys/module/firmware_class/parameters/path "/vendor/lib/firmware/"
     insmod /vendor/lib/modules/firmware.ko
-    insmod /vendor/lib/modules/video_framerate_adapter.ko
     insmod /vendor/lib/modules/decoder_common.ko
     insmod /vendor/lib/modules/stream_input.ko
     insmod /vendor/lib/modules/pts_server.ko
@@ -39,12 +38,19 @@ on early-boot
     insmod /vendor/lib/modules/amvdec_vp9.ko
     insmod /vendor/lib/modules/amvdec_vp9_v4l.ko
     insmod /vendor/lib/modules/amvdec_avs2.ko
-    insmod /vendor/lib/modules/encoder.ko
-    insmod /vendor/lib/modules/vpu.ko
+    insmod /vendor/lib/modules/amvdec_avs2_v4l.ko
+
+
+    insmod /vendor/lib/modules/amlogic-encoder.ko
+    insmod /vendor/lib/modules/amlogic-jpegenc.ko
+    insmod /vendor/lib/modules/amlogic-vpu.ko
     insmod /vendor/lib/modules/amvdec_ports.ko
+    insmod /vendor/lib/modules/amlogic-multienc.ko
     insmod /vendor/lib/modules/amlogic_fbc_lib.ko
     insmod /vendor/lib/modules/amvdec_mavs.ko
+    insmod /vendor/lib/modules/amvdec_mavs_v4l.ko
     insmod /vendor/lib/modules/amvdec_av1.ko
     insmod /vendor/lib/modules/amvdec_av1_v4l.ko
     insmod /vendor/lib/modules/media_sync.ko
+    insmod /vendor/lib/modules/video_framerate_adapter.ko
 
