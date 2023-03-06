@@ -55,6 +55,11 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
 #    $(CHIP_DIR)/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
 
+#dv config file
+PRODUCT_COPY_FILES += \
+    $(CHIP_DIR)/files/tv/tvconfig/panel/Amlogic_dv.cfg:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/amdv/Amlogic_dv.cfg \
+    $(CHIP_DIR)/files/tv/tvconfig/panel/dv_config.bin:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/amdv/dv_config.bin
+
 # tv config file
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig/*
