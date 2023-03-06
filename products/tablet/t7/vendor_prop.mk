@@ -199,3 +199,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.llk.enable=false
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.camera_preview.maxsize=1280x720 \
+    ro.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28
