@@ -151,6 +151,7 @@
 /dev/input/js*            0664   system       system
 
 /dev/wifi_power           0660   wifi         bluetooth
+/dev/wifi_mac             0660   wifi         bluetooth
 
 /dev/otz_client           0666   drm          drm
 

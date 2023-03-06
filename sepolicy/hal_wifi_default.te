@@ -2,6 +2,7 @@ allow hal_wifi_default sysfs_wifi:file write;
 allow hal_wifi_default self:capability sys_module;
 allow hal_wifi_default proc_modules:file rw_file_perms;
 allow hal_wifi_default wifi_power_device:chr_file rw_file_perms;
+allow hal_wifi_default wifi_mac_device:chr_file rw_file_perms;
 allow hal_wifi_default vendor_data_file:dir rw_file_perms;
 allow hal_wifi_default device:dir rw_file_perms;
 allow hal_wifi_default usb_device:dir rw_file_perms;
