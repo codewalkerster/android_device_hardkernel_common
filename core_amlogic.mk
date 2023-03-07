@@ -91,6 +91,9 @@ PRODUCT_PACKAGES += \
     PlayAutoInstallStub \
     LauncherCustomization
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.locale=en-US
+
 #No need a2dp sink now,remove it #
 ifeq ($(BOARD_ENABLE_A2DP_SINK),true)
 PRODUCT_PACKAGES += \
