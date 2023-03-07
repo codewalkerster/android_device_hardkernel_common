@@ -30,14 +30,22 @@ PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
         device/amlogic/common/tuner/64_4_9/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
         device/amlogic/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
 else ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
-ifeq ($(PRODUCT_DIR), calla)
-    PRODUCT_COPY_FILES += device/amlogic/common/initscripts/tuner/r842_fe_calla.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/r842_fe.rc
-endif
-PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
-    $(if $(findstring true, $(KERNEL_A32_SUPPORT)),\
-        device/amlogic/common/tuner/32_5_15/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
-        device/amlogic/common/tuner/64_5_15/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
-        device/amlogic/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
+	ifeq ($(PRODUCT_DIR), calla)
+		PRODUCT_COPY_FILES += device/amlogic/common/initscripts/tuner/r842_fe_calla.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/r842_fe.rc
+	endif
+	ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15), true)
+		PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
+			$(if $(findstring true, $(KERNEL_A32_SUPPORT)),\
+				device/amlogic/common/tuner/14_5.15/32_5_15/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
+				device/amlogic/common/tuner/14_5.15/64_5_15/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
+				device/amlogic/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
+	else
+		PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
+			$(if $(findstring true, $(KERNEL_A32_SUPPORT)),\
+				device/amlogic/common/tuner/13_5.15/32_5_15/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
+				device/amlogic/common/tuner/13_5.15/64_5_15/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
+				device/amlogic/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
+	endif
 else
 PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
     $(if $(findstring true, $(KERNEL_A32_SUPPORT)),\

@@ -15,5 +15,7 @@
 #
 
 ifeq ($(strip $(HDR10_TMO_MODULE)),true)
-VENDOR_KERNEL_MODULES += $(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko
+    ifneq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
+        VENDOR_KERNEL_MODULES += $(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko
+    endif
 endif

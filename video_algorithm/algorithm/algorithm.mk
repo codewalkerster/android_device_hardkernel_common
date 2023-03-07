@@ -20,13 +20,25 @@
 
 ifeq ($(strip $(ALGORITHM_MODULE)),true)
     $(warning ALGORITHM_MODULE is $(ALGORITHM_MODULE))
-    ifeq ($(KERNEL_A32_SUPPORT),true)
-        PRODUCT_COPY_FILES += \
-            device/amlogic/common/video_algorithm/algorithm/32/amlogic-algorithm_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic-algorithm.ko \
-            device/amlogic/common/initscripts/amlogic-algorithm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-algorithm.rc
-    else
-        PRODUCT_COPY_FILES += \
-            device/amlogic/common/video_algorithm/algorithm/64/amlogic-algorithm_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic-algorithm.ko \
-            device/amlogic/common/initscripts/amlogic-algorithm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-algorithm.rc
-    endif
+	ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
+		ifeq ($(KERNEL_A32_SUPPORT),true)
+			PRODUCT_COPY_FILES += \
+				device/amlogic/common/video_algorithm/algorithm/14_5.15/32/amlogic-algorithm_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic-algorithm.ko \
+				device/amlogic/common/initscripts/amlogic-algorithm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-algorithm.rc
+		else
+			PRODUCT_COPY_FILES += \
+				device/amlogic/common/video_algorithm/algorithm/14_5.15/64/amlogic-algorithm_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic-algorithm.ko \
+				device/amlogic/common/initscripts/amlogic-algorithm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-algorithm.rc
+		endif
+	else
+		ifeq ($(KERNEL_A32_SUPPORT),true)
+			PRODUCT_COPY_FILES += \
+				device/amlogic/common/video_algorithm/algorithm/13_5.15/32/amlogic-algorithm_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic-algorithm.ko \
+				device/amlogic/common/initscripts/amlogic-algorithm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-algorithm.rc
+		else
+			PRODUCT_COPY_FILES += \
+				device/amlogic/common/video_algorithm/algorithm/13_5.15/64/amlogic-algorithm_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic-algorithm.ko \
+				device/amlogic/common/initscripts/amlogic-algorithm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-algorithm.rc
+		endif
+	endif
 endif

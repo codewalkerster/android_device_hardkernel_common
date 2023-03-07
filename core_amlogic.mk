@@ -1,3 +1,6 @@
+#kernel version kernel
+TARGET_BUILD_KERNEL_USING_14_5.15 ?= true
+
 #ATV version, need compile DRM related modules
 ifneq ($(BOARD_COMPILE_ATV),false)
   BOARD_COMPILE_CTS := true
