@@ -29,3 +29,6 @@ allow hal_bootctl_default tmpfs:file { create write open read };
 allow hal_bootctl_default block_device:dir { write remove_name add_name };
 allow hal_bootctl_default block_device:lnk_file { create unlink };
 allow hal_bootctl_default cert_device:chr_file { open read write ioctl };
+
+allow hal_bootctl_default system_control:binder { call transfer };
+allow hal_bootctl_default systemcontrol_hwservice:hwservice_manager { find };
