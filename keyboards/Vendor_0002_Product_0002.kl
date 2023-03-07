@@ -21,8 +21,23 @@
 #
 
 
-key 116   POWER
-key 466   TV_INPUT
+key 116   TV_POWER      WAKE
+key 217   ASSIST        WAKE
+
+
+key 103   DPAD_UP
+key 108   DPAD_DOWN
+key 105   DPAD_LEFT
+key 106   DPAD_RIGHT
+key 28    DPAD_CENTER
+
+key 158   BACK
+key 102   HOME          WAKE
+
+key 113   VOLUME_MUTE
+key 114   VOLUME_DOWN
+key 115   VOLUME_UP
+
 key 2     1
 key 3     2
 key 4     3
@@ -32,31 +47,35 @@ key 7     6
 key 8     7
 key 9     8
 key 10    9
-key 471   TV_INPUT_VGA_1
 key 11    0
+
+
+#custom keys
+key 466   TV_INPUT
+key 471   CAPTIONS
+
 key 358   INFO
+
 key 398   PROG_RED
 key 399   PROG_GREEN
 key 400   PROG_YELLOW
 key 401   PROG_BLUE
+
+
 key 156   BOOKMARK
-key 217   ASSIST
 key 141   SETTINGS
-key 103   DPAD_UP
-key 108   DPAD_DOWN
-key 105   DPAD_LEFT
-key 106   DPAD_RIGHT
-key 28    DPAD_CENTER
-key 158   BACK
-key 102   HOME
+
 key 138   GUIDE
-key 114   VOLUME_DOWN
-key 115   VOLUME_UP
-key 113   VOLUME_MUTE
+
 key 402   CHANNEL_UP
 key 403   CHANNEL_DOWN
 
-key 188 F1
-key 187 F2
-key 189 F3
-key 190 F4
+key 188   BUTTON_3     WAKE #YouTube
+key 187   BUTTON_4     WAKE #Netflix
+key 189   BUTTON_6     WAKE
+key 190   BUTTON_7     WAKE
+###########################
+
+
+
+
