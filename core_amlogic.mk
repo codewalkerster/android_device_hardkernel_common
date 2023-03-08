@@ -304,6 +304,7 @@ PRODUCT_COPY_FILES += \
 #amlogic HALs
 PRODUCT_PACKAGES += \
     libGLES_meson_mali \
+    libgpudataproducer \
     libamgralloc_ext \
     hwcomposer.amlogic \
     screen_source.amlogic
