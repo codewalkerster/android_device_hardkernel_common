@@ -198,6 +198,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += ro.llk.enable=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1

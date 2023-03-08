@@ -45,6 +45,7 @@ set_prop(vendor_init, exported_default_prop)
 set_prop(vendor_init, system_prop)
 set_prop(vendor_init, vendor_persist_prop)
 set_prop(vendor_init, vendor_bluetooth_prop)
+set_prop(vendor_init, exported_system_prop)
 allow vendor_init vendor_persist_prop:property_service {set};
 allow vendor_init tee_vendor_file:dir { create relabelto };
 

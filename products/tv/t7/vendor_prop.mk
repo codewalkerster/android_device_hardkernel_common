@@ -201,6 +201,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 PRODUCT_PROPERTY_OVERRIDES += ro.llk.enable=false
 
 #tv path use video_tunnel

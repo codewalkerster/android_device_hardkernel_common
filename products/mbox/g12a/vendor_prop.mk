@@ -167,6 +167,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=ff400000.dwc2_a
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #Global Settings Key
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -201,6 +201,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.platform.is.dualspdif=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #support video_composer
 PRODUCT_PROPERTY_OVERRIDES += \
     media.omx.display_mode=3

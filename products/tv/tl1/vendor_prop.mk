@@ -142,6 +142,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.support.mvc=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #omx2
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.support.omx2=true \

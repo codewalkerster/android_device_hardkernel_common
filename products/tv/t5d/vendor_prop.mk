@@ -177,6 +177,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.fhd_di_size=0 \
     vendor.media.omx.fhd_di_size=0
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #omx2
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.support.omx2=true \

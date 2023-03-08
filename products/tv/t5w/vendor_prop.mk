@@ -203,6 +203,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx2.hithBitrate_mbps=45 \
     vendor.media.omx.dec.enable_h264_4k_mmu=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=ff400000.dwc2_a

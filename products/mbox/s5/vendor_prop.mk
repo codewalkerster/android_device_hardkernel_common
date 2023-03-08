@@ -191,6 +191,9 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hwc.aisr_enable=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.locale=en-US
+
 #aisr  check I/P input source
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hwc.aisr_check_interlace=1
