@@ -159,10 +159,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
-custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
-PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
-    $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
-
 # bootanimation
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip

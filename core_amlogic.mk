@@ -357,6 +357,18 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
     device/amlogic/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
     device/amlogic/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
+
+### custom keylayouts
+custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
+PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
+    $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
+
+# AOSP can use modified generic.kl
+ifeq ($(BOARD_COMPILE_ATV), false)
+PRODUCT_COPY_FILES += device/amlogic/common/keyboards/Generic.kl.aosp:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
+endif
+
+
 #########################################################################
 #
 #                                                App optimization

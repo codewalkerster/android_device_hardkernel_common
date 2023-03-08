@@ -129,10 +129,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
-custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
-PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
-    $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
-
 # Save memory
 # dumpsys SurfaceFlinger | grep com.android.systemui.ImageWallpaper
 # 16.00 KiB |   64 (  64) x   64 |    1 |       2B | 0x40000000000b00 | com.android.systemui.ImageWallpaper#0
