@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DroidLiveTvSettings \
     DroidLogicLiveTv \
-    DroidTvSettings
+    DroidTvSettingsEdla
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.build.livetv=true
