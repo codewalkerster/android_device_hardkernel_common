@@ -60,3 +60,4 @@ allow system_server dtvkitserver:process { signal };
 allow system_server subtitleserver:process { signal };
 #allow system_server mediatuner:process { signal };
 allow system_server hal_tv_tuner_default:process { signal };
+allow system_server zygote:binder { call transfer };

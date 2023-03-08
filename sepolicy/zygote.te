@@ -15,3 +15,5 @@ allow zygote tasks_device:file { open write };
 allow zygote adbd:unix_stream_socket connectto;
 allow zygote ashmem_device:chr_file execute;
 allow zygote servicemanager:binder call;
+allow zygote system_server:binder { call transfer };
+allow zygote user_profile_data_file:file getattr;
