@@ -133,9 +133,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.av1=true
 
-#unsupport 4k
-#PRODUCT_PROPERTY_OVERRIDES += \
-#	media.amplayer.videolimiter=true
+#support 4k
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.amplayer.videolimiter=true \
+    ro.vendor.platform.support.4k=true
+
 
 #used for controlling reference board's preview window,
 #project's need disable it or can refer its implementation method.
