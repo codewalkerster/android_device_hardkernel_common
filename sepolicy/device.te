@@ -47,6 +47,7 @@ type sw_sync_device, dev_type;
 type ge2d_device, dev_type;
 type display_device, dev_type;
 type amvecm_device, dev_type;
+type amdolbyvision_device, dev_type;
 type di0_device, dev_type;
 type lcd0_device, dev_type;
 type mtd0_device, dev_type;

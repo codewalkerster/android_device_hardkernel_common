@@ -11,6 +11,7 @@
 
 /dev/amaudio_.*     			u:object_r:audio_device:s0
 /dev/amaudio2_out       		u:object_r:audio_device:s0
+/dev/amdolby_vision             u:object_r:amdolbyvision_device:s0
 /dev/amremote       			u:object_r:input_device:s0
 /dev/am_adc_kpd     			u:object_r:input_device:s0
 /dev/amv.*          			u:object_r:video_device:s0
