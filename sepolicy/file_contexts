@@ -476,7 +476,7 @@
 /vendor/bin/hw/android\.hardware\.tv\.tuner@1\.1-service\.droidlogic     u:object_r:hal_tv_tuner_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.[0-9]-service-ovx-driver    u:object_r:hal_neuralnetworks_default_exec:s0
 /vendor/bin/hw/android\.hardware\.camera\.provider@2\.5-service-droidlogic                      u:object_r:hal_camera_default_exec:s0
-
+/vendor/bin/hw/android\.hardware\.camera\.provider-V1-amlogic-service                  u:object_r:hal_camera_default_exec:s0
 /data/vendor/mediadrm(/.*)?                                              u:object_r:mediadrm_vendor_data_file:s0
 /data/vendor/mediacas(/.*)?                                              u:object_r:mediadrm_vendor_data_file:s0
 
