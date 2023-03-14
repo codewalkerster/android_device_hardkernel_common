@@ -1,6 +1,5 @@
 on fs
     mount_all /vendor/etc/fstab.amlogic --early
-    setprop ro.crypto.fuse_sdcard true
 
     restorecon_recursive /mnt/vendor/param
 
