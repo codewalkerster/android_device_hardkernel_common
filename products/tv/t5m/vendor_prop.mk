@@ -136,7 +136,7 @@ endif
 # ro.vendor.platform.digitaltv.standards
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.digitaltv.standards=dtmb
+    ro.vendor.platform.digitaltv.standards=dvb
 
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
