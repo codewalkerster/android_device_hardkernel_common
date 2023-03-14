@@ -391,6 +391,18 @@ uboot_exec_drm[31]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
 kernel_exec[31]="./mk ohmcas2 -v "
 ###########################################################################################
 
+###########################################################################################
+# Tyson
+project[32]="Tyson"
+soc[32]="S928X"
+hardware[32]="AX201"
+module[32]="tyson"
+uboot_path[32]="device/amlogic/tyson"
+uboot_exec_aosp[32]="./mk s5_ax201  --vab --avb2 --fastboot-write"
+uboot_exec_drm[32]="./mk s5_ax201  --vab --avb2 --fastboot-write"
+kernel_exec[32]="./mk tyson -v "
+###########################################################################################
+
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
