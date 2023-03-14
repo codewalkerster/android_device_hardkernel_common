@@ -640,13 +640,8 @@ PRODUCT_PACKAGES += \
     android.hardware.oemlock@1.0-service.droidlogic \
     android.hardware.oemlock-service.droidlogic
 
-ifeq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.oem_unlock_supported = 0
-else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported = 1
-endif
 
 PRODUCT_PACKAGES += \
     fastbootd \
