@@ -14,20 +14,6 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
-	ifeq ($(KERNEL_A32_SUPPORT),true)
-		VENDOR_KERNEL_MODULES += \
-			device/amlogic/common/soft_afbc/14_5.15/32/amlogic_fbc_lib.ko
-	else
-		VENDOR_KERNEL_MODULES += \
-			device/amlogic/common/soft_afbc/14_5.15/64/amlogic_fbc_lib_64.ko
-	endif
-else
-	ifeq ($(KERNEL_A32_SUPPORT),true)
-		VENDOR_KERNEL_MODULES += \
-			device/amlogic/common/soft_afbc/13_5.15/32/amlogic_fbc_lib.ko
-	else
-		VENDOR_KERNEL_MODULES += \
-			device/amlogic/common/soft_afbc/13_5.15/64/amlogic_fbc_lib_64.ko
-	endif
+ifeq ($(strip $(SOFT_AFBC_MODULE)),true)
+VENDOR_KERNEL_MODULES += $(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko
 endif
