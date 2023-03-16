@@ -160,7 +160,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.c2-poolmask=458752 \
     debug.c2.use_dmabufheaps=1 \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true \
-    vendor.media.c2.secure.prealloc=true
+    vendor.media.mediahal.videodec.media.c2_secure_prealloc=true
 endif
 
 #use dv frame mode
