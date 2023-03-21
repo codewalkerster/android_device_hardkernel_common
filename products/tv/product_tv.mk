@@ -67,6 +67,15 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.video.show_first_frame_nosync=1
+
+#HbbTV
+ifeq ($(PRODUCT_SUPPORT_HBBTV), true)
+PRODUCT_PACKAGES += \
+    amlogic-vewd-service
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.dtv.hbbtv.enable = true \
+    vendor.tv.dtv.hbbtv.keyremap = true
+endif
 endif
 
 PRODUCT_PACKAGES += \
