@@ -160,7 +160,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # hwui
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=40.5f \
-    ro.hwui.layer_cache_size=33.75f
+    ro.hwui.layer_cache_size=33.75f \
+    ro.hwui.max_texture_allocation_size=157286400
 
 #support video_composer
 PRODUCT_PROPERTY_OVERRIDES += \
