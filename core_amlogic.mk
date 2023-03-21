@@ -295,6 +295,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
     hardware/amlogic/keymaster/keymint/rkp_extract.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rkp_extract.rc
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    remote_provisioning.hostname=remoteprovisioning.googleapis.com
+
 #amlogic HALs
 PRODUCT_PACKAGES += \
     libGLES_meson_mali \
