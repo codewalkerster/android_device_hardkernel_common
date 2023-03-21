@@ -359,6 +359,8 @@ BOARD_SUPPORT_HDMI ?= true
 # gralloc 4.0
 include device/hardkernel/common/gralloc.device.mk
 
+# Can utils
+include device/hardkernel/common/can_utils.mk
 
 # google apps
 BUILD_BOX_WITH_GOOGLE_MARKET ?= false
