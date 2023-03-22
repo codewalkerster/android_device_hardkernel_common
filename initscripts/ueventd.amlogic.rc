@@ -155,6 +155,7 @@
 /dev/tee0                 0666   system       system
 
 /dev/block/by-name/frp    0660   system       system
+/dev/block/by-name/env    0660   system       system
 
 #dma buf
 /dev/dma_heap/system-secure-*	0444	system system

@@ -29,6 +29,7 @@ get_prop(hal_graphics_composer_default, vendor_tv_prop)
 
 allow hal_graphics_composer_default  vendor_media_prop:file { getattr open read  };
 get_prop(hal_graphics_composer_default, vendor_media_prop)
+set_prop(hal_graphics_composer_default, vendor_media_prop)
 
 allow hal_graphics_composer_default sysfs_video:dir { search };
 allow hal_graphics_composer_default sysfs_display:file { read write open getattr };
@@ -38,12 +39,27 @@ allow hal_graphics_composer_default hal_graphics_allocator_default_tmpfs:fifo_fi
 allow hal_graphics_composer_default hal_graphics_allocator_default_tmpfs:file rw_file_perms;
 allow hal_graphics_composer_default vendor_platform_prop:file {getattr open read};
 get_prop(hal_graphics_composer_default, vendor_platform_prop)
+set_prop(hal_graphics_composer_default, vendor_platform_prop)
 allow hal_graphics_composer_default kernel:process setsched;
 
 allow hal_graphics_composer_default sysfs_am_vecm:dir search;
 allow hal_graphics_composer_default sysfs_am_vecm:file { open read write };
 allow hal_graphics_composer_default galcore_device:chr_file { open read write getattr ioctl };
 hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator)
+
+allow hal_graphics_composer_default block_device:dir r_dir_perms;
+allow hal_graphics_composer_default env_device:blk_file rw_file_perms;
+
+#property
+set_prop(hal_graphics_composer_default, vendor_persist_prop)
+get_prop(hal_graphics_composer_default, vendor_persist_prop)
+
+set_prop(hal_graphics_composer_default, vendor_netflix_prop)
+get_prop(hal_graphics_composer_default, vendor_netflix_prop)
+
+# ctl interface
+set_prop(hal_graphics_composer_default, ctl_default_prop)
+set_prop(hal_graphics_composer_default, ctl_stop_prop)
 
 allow hal_graphics_composer_default adla_device:chr_file { open read write getattr ioctl };
 

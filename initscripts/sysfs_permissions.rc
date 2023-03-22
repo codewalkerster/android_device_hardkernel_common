@@ -231,8 +231,27 @@ on init
     chmod 0664 /sys/class/amhdmitx/amhdmitx0/hdr_cap
     chown system system /sys/class/amhdmitx/amhdmitx0/hdr_cap
 
+    chmod 0664 /sys/class/amhdmitx/amhdmitx0/hdcp_mode
+    chown system system /sys/class/amhdmitx/amhdmitx0/hdcp_mode
+
+    chmod 0664 /sys/class/amhdmitx/amhdmitx0/hdcp_pwr
+    chown system system /sys/class/amhdmitx/amhdmitx0/hdcp_pwr
+
+    chmod 0664 /sys/class/amhdmitx/amhdmitx0/hdcp_ctrl
+    chown system system /sys/class/amhdmitx/amhdmitx0/hdcp_ctrl
+
+    chmod 0664 /sys/class/amhdmitx/amhdmitx0/phy
+    chown system system /sys/class/amhdmitx/amhdmitx0/phy
+
     chmod 0664 /sys/devices/virtual/amhdmitx/amhdmitx0/avmute
     chown system system /sys/devices/virtual/amhdmitx/amhdmitx0/avmute
+
+    chmod 0664 /sys/devices/virtual/amhdmitx/amhdmitx0/valid_mode
+    chown system system /sys/devices/virtual/amhdmitx/amhdmitx0/valid_mode
+
+    #forcemode
+    chmod 0664 sys/module/aml_media/parameters/force_output
+    chown system system sys/module/aml_media/parameters/force_output
 
 on boot
     chmod 0664 /sys/class/mpgpu/scale_mode
