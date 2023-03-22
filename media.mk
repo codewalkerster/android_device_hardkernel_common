@@ -405,6 +405,20 @@ BOARD_AML_HARDWARE_PATH := hardware/amlogic/
 AMLOGIC_FRAMEWORKS_AV_CONFIG_MK := $(BOARD_AML_VENDOR_PATH)/frameworks/av/mediaextconfig/config.mk
 BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 
+ifeq ($(TARGET_PRODUCT),tyson)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else ifeq ($(TARGET_PRODUCT),tyson_mxl258c)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else ifeq ($(TARGET_PRODUCT),anemone)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else
 # for media modules
 PRODUCT_COPY_FILES += \
 	device/amlogic/common/initscripts/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+endif
