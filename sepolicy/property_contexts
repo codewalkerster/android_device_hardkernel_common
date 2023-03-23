@@ -40,7 +40,9 @@ vendor.sys                     u:object_r:vendor_platform_prop:s0
 ro.vendor.app                  u:object_r:vendor_app_prop:s0
 vendor.wlan                    u:object_r:vendor_wifi_prop:s0
 ro.boot.oem.                   u:object_r:vendor_oem_prop:s0
-
+ro.boot.mac_bt                 u:object_r:vendor_bluetooth_prop:s0
+ro.boot.mac_wifi               u:object_r:vendor_wifi_prop:s0
+ro.boot.mac                    u:object_r:vendor_platform_prop:s0
 
 vendor.allm.support                 u:object_r:vendor_media_prop:s0
 vendor.contenttype_game.support     u:object_r:vendor_media_prop:s0
