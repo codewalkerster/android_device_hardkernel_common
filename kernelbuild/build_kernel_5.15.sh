@@ -43,48 +43,54 @@ if [ ! -d "device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERN
 	mkdir -p device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
 fi
 rm -rf device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/*
-modules_list=$(find ${OUT_AMLOGIC_DIR}/modules/ramdisk -type f -name "*.ko")
 cp ${OUT_AMLOGIC_DIR}/modules/ramdisk/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
 
 if [ -s ${OUT_AMLOGIC_DIR}/modules/recovery/recovery_modules.order ]; then
-cp ${OUT_AMLOGIC_DIR}/modules/recovery/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
+	cp ${OUT_AMLOGIC_DIR}/modules/recovery/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/
 fi
 
 if [ ! -d "device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/" ]; then
 	mkdir -p device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
 fi
 rm -rf device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/*
+cp -a ${COMMON_OUT_DIR}/vendor_lib/* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/
 cp ${OUT_AMLOGIC_DIR}/modules/vendor/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
 
 res=`ls ${OUT_AMLOGIC_DIR}/modules/service_module`
 if [[ -n ${res} ]]; then
 	cp ${OUT_AMLOGIC_DIR}/modules/service_module/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
 fi
-cp -a ${COMMON_OUT_DIR}/vendor_lib/* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/
 
+cp ${OUT_AMLOGIC_DIR}/modules/ramdisk/ramdisk_modules.order device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_boot.modules.load
 cp ${OUT_AMLOGIC_DIR}/modules/ramdisk/ramdisk_modules.order device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load
-
-# NORMAL_MODE_END_MODULE=amlogic-mmc.ko
-if [ -z ${NORMAL_MODE_END_MODULE} ]; then
-	NORMAL_MODE_END_MODULE=`tail -n 1 device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load`
-fi
-END_MODULE_LINE_NUM=`awk '/'${NORMAL_MODE_END_MODULE}'/{print NR}' device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load`
-head device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load -n ${END_MODULE_LINE_NUM} > device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_boot.modules.load
-
-tail device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load -n +${END_MODULE_LINE_NUM} > device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
-sed -i '1d' device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
-
 cat ${OUT_AMLOGIC_DIR}/modules/recovery/recovery_modules.order >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_recovery.modules.load
+cp ${OUT_AMLOGIC_DIR}/modules/vendor/vendor_modules.order device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
 
-for recovery_module in $(cat device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load)
-do
-	cp device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/ramdisk/lib/modules/$recovery_module device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
-done
-
-cat ${OUT_AMLOGIC_DIR}/modules/vendor/vendor_modules.order >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
 if [[ -n ${LOAD_EXT_MODULES_IN_SECOND_STAGE} ]]; then
 	cp ${OUT_AMLOGIC_DIR}/ext_modules/*.ko device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/
 	cat ${OUT_AMLOGIC_DIR}/ext_modules/ext_modules.order >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
+fi
+
+if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" ]]; then
+	DIST_GKI_DIR=${DIST_GKI_DIR:-${DIST_DIR}}
+        if [[ -e device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/system_dlkm.modules.load ]]; then
+                rm device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/system_dlkm.modules.load
+        fi
+        cat device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load  | rev | cut -d '/' -f 1 | rev | while read gki_module; do
+        	awk "/${gki_module}/" ${DIST_GKI_DIR}/system_dlkm.modules.load >> device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/system_dlkm.modules.load
+	done
+	cat ${DIST_GKI_DIR}/system_dlkm.modules.load  | rev | cut -d '/' -f 1 | rev | while read gki_module; do
+		sed -i "/${gki_module}/d" device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/vendor_dlkm.modules.load
+		rm device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/lib/modules/${gki_module}
+	done
+	if [[ -d device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki ]]; then
+		rm -rf device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
+	fi
+	mkdir device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
+	cp ${DIST_GKI_DIR}/Image* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
+	cp ${DIST_GKI_DIR}/boot* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
+	cp ${DIST_GKI_DIR}/system_dlkm* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
+	cp ${DIST_GKI_DIR}/vmlinux device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
 fi
 
 cp ${DIST_DIR}/dtbo.img device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/
@@ -121,7 +127,11 @@ fi
 if [ $KERNEL_A32_SUPPORT ]; then
 	cp ${DIST_DIR}/uImage device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/
 else
-	cp ${DIST_DIR}/Image.gz device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/
+	if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" ]]; then
+		cp ${DIST_GKI_DIR}/Image* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/
+	else
+		cp ${DIST_DIR}/Image.gz device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/
+	fi
 fi
 
 rm -f ${KERNEL_BUILD_VAR_FILE}
