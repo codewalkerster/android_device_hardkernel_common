@@ -410,6 +410,7 @@ ifeq ($(TARGET_USE_OPTEEOS),true)
 PRODUCT_PACKAGES += \
 	tee-supplicant \
 	libteec \
+	tee_stest \
 	tee_helloworld \
 	tee_crypto \
 	tee_xtest \
