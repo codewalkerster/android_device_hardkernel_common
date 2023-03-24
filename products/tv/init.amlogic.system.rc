@@ -160,6 +160,8 @@ on property:sys.boot_completed=1
     #30 means reserve 3% memory using for high water mark, 1GB DDR x 3% = 30MB
     write /proc/sys/vm/watermark_scale_factor 30
 
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 400
+
 service pppoe_wrapper /system/bin/pppoe_wrapper
     class main
     group system inet
