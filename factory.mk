@@ -10,7 +10,7 @@ AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
 
 #$(warning Build dtbo image here, make sure BOARD_PREBUILT_DTBOIMAGE is defined before this warning)
 
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(TARGET_NO_RECOVERY),true)
 BUILT_IMAGES := boot.img
 else
@@ -27,12 +27,12 @@ endif
 endif
 
 VB_CHECK_IMAGES := vbmeta.img
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 VB_CHECK_IMAGES += boot.img dtbo.img
 endif
 VB_CHECK_IMAGES += vendor.img system.img product.img
 
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifneq ($(TARGET_NO_RECOVERY),true)
 VB_CHECK_IMAGES += recovery.img
 endif
@@ -58,9 +58,7 @@ ifeq ($(BOARD_USES_VBMETA_SYSTEM),true)
 VB_CHECK_IMAGES += vbmeta_system.img
 endif
 
-ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
 VB_CHECK_IMAGES += system_dlkm.img
-endif
 
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 VB_CHECK_IMAGES += vendor_dlkm.img
@@ -70,7 +68,7 @@ ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 VB_CHECK_IMAGES += odm_dlkm.img
 endif
 
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifdef BOARD_PREBUILT_DTBOIMAGE
 BUILT_IMAGES += dtbo.img
 endif
@@ -548,7 +546,7 @@ INSTALLED_AML_FASTBOOT_ZIP := $(PRODUCT_OUT)/$(TARGET_PRODUCT)-fastboot-flashall
 $(warning will keep $(INSTALLED_AML_FASTBOOT_ZIP))
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_FASTBOOT_ZIP))
 
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 FASTBOOT_IMAGES := boot.img
 ifneq ($(TARGET_NO_RECOVERY),true)
 	FASTBOOT_IMAGES += recovery.img
@@ -575,9 +573,7 @@ ifeq ($(BUILDING_SYSTEM_EXT_IMAGE),true)
 FASTBOOT_IMAGES += system_ext.img
 endif
 
-ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
 FASTBOOT_IMAGES += system_dlkm.img
-endif
 
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 FASTBOOT_IMAGES += vendor_dlkm.img
@@ -587,7 +583,7 @@ ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 FASTBOOT_IMAGES += odm_dlkm.img
 endif
 
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 FASTBOOT_IMAGES += vendor_boot.img
 endif

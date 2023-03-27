@@ -91,6 +91,10 @@ if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" ]]; then
 	cp ${DIST_GKI_DIR}/boot* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
 	cp ${DIST_GKI_DIR}/system_dlkm* device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
 	cp ${DIST_GKI_DIR}/vmlinux device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki
+
+	if [ -f device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki/system_dlkm_staging_archive.tar.gz ]; then
+		(cd device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/gki; tar -zxvf system_dlkm_staging_archive.tar.gz)
+	fi
 fi
 
 cp ${DIST_DIR}/dtbo.img device/${BOARD_MANUFACTURER}/${BOARD_DEVICENAME}-kernel/${TARGET_KERNEL_DIR}/

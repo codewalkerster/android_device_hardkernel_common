@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(TARGET_NO_KERNEL),true)
+ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ####################### INPUT PARAMS ######################
 
 #TARGET_PREBUILT_KERNEL
@@ -153,11 +153,14 @@ INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
 ############ build prebuilt kernel ###############################
 PREBUILT_KERNEL_PATH := $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)
 
+ifneq ($(TARGET_NO_KERNEL),true)
 ifeq ($(KERNEL_A32_SUPPORT), true)
 TARGET_PREBUILT_KERNEL :=$(PREBUILT_KERNEL_PATH)/uImage
 else
 TARGET_PREBUILT_KERNEL :=$(PREBUILT_KERNEL_PATH)/Image.gz
 endif
+endif
+
 ifeq ($(TARGET_PRODUCT),ohm_mxl258c)
 LOCAL_DTB := $(PREBUILT_KERNEL_PATH)/ohm_mxl258c.dtb
 else ifeq ($(TARGET_PRODUCT),oppen_mxl258c)
@@ -220,12 +223,14 @@ $(INSTALLED_OPTEE_TARGET): $(SOURCE_OPTEE_FILES)
 	cp $(PREBUILT_KERNEL_PATH)/lib/optee.ko $(PRODUCT_OUT)/vendor/lib/
 endif
 
+ifneq ($(TARGET_NO_KERNEL),true)
 $(INSTALLED_KERNEL_TARGET): $(INSTALLED_BOARDDTB_TARGET) $(TARGET_PREBUILT_KERNEL) $(INSTALLED_FIRMWARE_TARGET) $(INSTALLED_OPTEE_TARGET)
 	@echo "cp kernel modules"
 	rm -f $(INSTALLED_KERNEL_TARGET)
 	cp $(TARGET_PREBUILT_KERNEL) $(INSTALLED_KERNEL_TARGET)
+endif
 
-$(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL) $(LOCAL_DTB) $(MINIGZIP) | $(ACP)
+$(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL) $(LOCAL_DTB) $(MINIGZIP) $(INSTALLED_FIRMWARE_TARGET) $(INSTALLED_OPTEE_TARGET) | $(ACP)
 	@echo "dtb installed"
 	cp $(LOCAL_DTB) $@
 	if [ -n "$(shell find $@ -size +180)" ]; then \
@@ -252,9 +257,40 @@ endif
 $(INSTALLED_DTBIMAGE_TARGET): $(LOCAL_DTB)
 	$(transform-prebuilt-to-target)
 
+ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
+AML_VENDOR_COPY_FILES := $(PRODUCT_OUT)/vendor_dlkm/lib/modules/system_dlkm.modules.load
+LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
+$(AML_VENDOR_COPY_FILES): $(LOCAL_SYSTEM_PROP)
+	mkdir -p $(PRODUCT_OUT)/vendor_dlkm/lib/modules/
+	$(transform-prebuilt-to-target)
+endif
+
+ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+AML_SYSTEM_DLKM_COPY_FILES := $(PRODUCT_OUT)/system_dlkm/lib/modules/system_dlkm.modules.load
+LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
+$(AML_SYSTEM_DLKM_COPY_FILES): $(LOCAL_SYSTEM_PROP)
+	mkdir -p $(PRODUCT_OUT)/system_dlkm/lib/modules/
+	cp -a $(PREBUILT_KERNEL_PATH)/gki/lib/modules/* $(PRODUCT_OUT)/system_dlkm/lib/modules/
+	$(transform-prebuilt-to-target)
+endif
+
 ####  Modules depends for build kernel ####
+ifneq ($(TARGET_NO_KERNEL),true)
 $(PRODUCT_OUT)/ramdisk.img: $(INSTALLED_KERNEL_TARGET)
 $(PRODUCT_OUT)/boot.img: $(INSTALLED_KERNEL_TARGET)
 # The ko is copied to vendor, must depends on kernel modules
 $(PRODUCT_OUT)/vendor.img: $(INSTALLED_KERNEL_TARGET) $(AML_VENDOR_COPY_MODULES)
+else
+$(PRODUCT_OUT)/ramdisk.img: $(INSTALLED_BOARDDTB_TARGET)
+$(PRODUCT_OUT)/boot.img: $(INSTALLED_BOARDDTB_TARGET)
+$(PRODUCT_OUT)/vendor.img: $(AML_VENDOR_COPY_MODULES) $(INSTALLED_BOARDDTB_TARGET)
+endif
+
+ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
+$(PRODUCT_OUT)/vendor_dlkm.img: $(AML_VENDOR_COPY_FILES)
+endif
+
+ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+$(PRODUCT_OUT)/installed-files-system_dlkm.txt: $(AML_SYSTEM_DLKM_COPY_FILES)
+endif
 endif

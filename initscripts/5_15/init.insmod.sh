@@ -1,6 +1,6 @@
 #!/vendor/bin/sh
 
-system_modules_dir=$(echo /system/lib/modules/*)
+system_modules_dir=$(echo /system/lib/modules/5.15*)
 for module in `cat /vendor/lib/modules/system_dlkm.modules.load`
 do
     insmod ${system_modules_dir}/${module}
