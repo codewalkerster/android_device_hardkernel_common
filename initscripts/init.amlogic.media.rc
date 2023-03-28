@@ -71,3 +71,5 @@ on property:vendor.media.c2.vdec.game_low_latency=0
     write /sys/module/amlogic_debug/parameters/sched_interactive_task_util 150
 
 
+    chmod 666 /sys/class/amstream/vcodec_feature
+    chown media system /sys/class/amstream/vcodec_feature
