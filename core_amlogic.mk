@@ -521,8 +521,8 @@ PRODUCT_PACKAGES += \
 endif
 
 # dumpstate binderized
-#PRODUCT_PACKAGES += \
-#    android.hardware.dumpstate@1.1-service.droidlogic
+PRODUCT_PACKAGES += \
+   android.hardware.dumpstate-service.droidlogic
 
 #consumerir hal
 PRODUCT_PACKAGES += \
