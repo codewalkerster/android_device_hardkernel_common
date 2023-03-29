@@ -216,7 +216,6 @@ PRODUCT_PACKAGES += \
     Browser2 \
     DeskClock \
     FileBrower \
-    SystemUIOverlay
 
 ifeq ($(PRODUCT_SUPPORT_ATK_UI),true)
     PRODUCT_PACKAGES += \
@@ -246,6 +245,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
+    SystemUIOverlay \
     TetheringOverlay \
     InProcessTetheringOverlay \
     libufdt
