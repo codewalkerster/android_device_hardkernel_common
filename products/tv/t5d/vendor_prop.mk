@@ -199,3 +199,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #audio dual spdif setting
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.platform.is.dualspdif=true
+
+#tv path use video_tunnel
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.fixed_tunnel=0
