@@ -524,10 +524,6 @@ endif
 PRODUCT_PACKAGES += \
    android.hardware.dumpstate-service.droidlogic
 
-#consumerir hal
-PRODUCT_PACKAGES += \
-    android.hardware.ir-service.droidlogic
-
 # Keymaster HAL
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)
 PRODUCT_PACKAGES += \
