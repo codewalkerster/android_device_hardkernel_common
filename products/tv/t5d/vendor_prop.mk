@@ -153,7 +153,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #unsupport 4k
 PRODUCT_PROPERTY_OVERRIDES += \
-	media.amplayer.videolimiter=true \
+    media.amplayer.videolimiter=true \
         ro.vendor.platform.support.4k=false
 
 #used for controlling reference board's preview window,
@@ -191,7 +191,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.videolayerrotation.enable=false \
     vendor.omx2.nr.enable=true \
     vendor.omx2.di.localbuf.enable=true \
-    vendor.media.omx.secure.prealloc=true
+    vendor.media.omx.secure.prealloc=true\
+    vendor.omx2.avc.size_level=1
 
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
