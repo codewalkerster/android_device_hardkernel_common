@@ -7,7 +7,7 @@ hal_server_domain(hal_drm_clearkey, hal_drm)
 
 vndbinder_use(hal_drm_clearkey);
 
-allow hal_drm_clearkey { appdomain -isolated_app }:fd use;
+allow hal_drm_clearkey { appdomain -isolated_app_all }:fd use;
 
 allow hal_drm_clearkey mediadrm_vendor_data_file:dir create_dir_perms;
 allow hal_drm_clearkey mediadrm_vendor_data_file:file create_file_perms;
