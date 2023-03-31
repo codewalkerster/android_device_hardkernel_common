@@ -4,6 +4,9 @@
     <demux live="yes" pip="yes" rec="yes" playback="yes" si="yes"/>
     <demux live="yes" pip="yes" rec="yes" playback="yes" si="yes"/>
     <demux live="yes" pip="yes" rec="yes" playback="yes" si="yes"/>
+    <demux live="yes" pip="yes" rec="yes" playback="yes" si="yes"/>
+    <demux live="yes" pip="yes" rec="yes" playback="yes" si="yes"/>
+    <demux live="yes" pip="yes" rec="yes" playback="yes" si="yes"/>
     <recorder/>
     <recorder/>
     <recorder/>
