@@ -19,7 +19,6 @@
 #======================================================================================
 
 ifeq ($(strip $(SOFT_AFBC_MODULE)),true)
-    $(warning SOFT_AFBC_MODULE is $(SOFT_AFBC_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
 			PRODUCT_COPY_FILES += \

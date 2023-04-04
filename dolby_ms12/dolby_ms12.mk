@@ -13,7 +13,6 @@
 # limitations under the License.
 
 ifeq ($(TARGET_INSTALL_DOLBY_MS12_V2), true)
-$(warning 'Dolby MS12 2.4 will be installed')
 
 BOARD_SEPOLICY_DIRS += \
    device/amlogic/common/dolby_ms12/install/sepolicy

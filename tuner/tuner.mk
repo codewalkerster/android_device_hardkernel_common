@@ -22,7 +22,6 @@
 #======================================================================================
 
 ifneq ($(strip $(TUNER_MODULE)),)
-$(warning TUNER_MODULE is $(TUNER_MODULE))
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
     $(if $(findstring true, $(KERNEL_A32_SUPPORT)),\

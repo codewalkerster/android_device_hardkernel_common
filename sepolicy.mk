@@ -1,4 +1,3 @@
-$(warning current build platform is $(PLATFORM_VERSION))
 BOARD_SEPOLICY_DIRS += \
     device/amlogic/common/sepolicy
 
