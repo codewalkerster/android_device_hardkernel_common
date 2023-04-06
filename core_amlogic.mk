@@ -247,9 +247,12 @@ endif
 PRODUCT_PACKAGES += \
     SystemUIOverlay \
     TetheringOverlay \
-    InProcessTetheringOverlay \
     libufdt
 
+ifeq ($(PRODUCT_IS_ATV_MAINLINE), true)
+PRODUCT_PACKAGES += \
+    GoogleTetheringOverlay
+endif
 ifeq ($(TARGET_LIVETV_BUILT_FROM_SOURCE), true)
     PRODUCT_PACKAGES += \
         LiveTv
