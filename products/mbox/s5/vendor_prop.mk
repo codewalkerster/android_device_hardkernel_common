@@ -159,14 +159,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.omx2.nr.enable=true \
     vendor.omx2.di.localbuf.enable=true \
     vendor.media.omx2.support_passthrough=true \
-    vendor.media.omx2.1080p_buffer=true
+    vendor.media.omx2.1080p_buffer=true \
+    vendor.media.omx.dec.enable_h264_4k_mmu=true
+
+#codec2
+ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.codec2.support=true \
+    vendor.media.codec2.disable_secure=false \
+    debug.c2.use_dmabufheaps=1 \
+    vendor.media.c2.vdec.enable_h264_4k_mmu=true
+
+endif
 
 #use dv frame mode
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.use_dv_frame=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
+    ro.vendor.platform.is.dualspdif=true
 
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
