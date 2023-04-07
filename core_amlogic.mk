@@ -539,7 +539,7 @@ endif
 ifneq ($(TARGET_BUILD_GMS), true)
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service.amlogic
+    android.hardware.gatekeeper-service.amlogic
 endif
 
 #DRM HAL
