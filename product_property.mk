@@ -32,10 +32,10 @@ else
 endif
 endif
 
-# gfx: default boot config
+# gfx: mode policy config
 ifeq ($(HWC_ENABLE_AIDL), true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.default.config=true
+    ro.vendor.hwc.default.config=true
 endif
 
 endif
