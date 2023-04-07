@@ -168,10 +168,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.platform.is.dualspdif=true
 
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.av1=true
