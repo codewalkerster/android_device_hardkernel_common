@@ -169,6 +169,6 @@ allow system_control sysfs_lcd:dir { search };
 
 #GPU
 allow system_control gpu_device:chr_file { read write open ioctl };
-allow system_control amdolbyvision_device:chr_file { read write };
+allow system_control amdolbyvision_device:chr_file { read write open ioctl getattr};
 
 allow system_control param_tv_file:dir { getattr };
