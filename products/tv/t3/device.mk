@@ -17,7 +17,7 @@
 CHIP_DIR := device/amlogic/common/products/tv/t3
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
+    device/amlogic/common/products/tv/Vendor_1b8e_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1b8e_Product_0001.kl \
     device/amlogic/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 # recovery
