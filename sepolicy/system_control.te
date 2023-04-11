@@ -43,6 +43,9 @@ allow system_control vendor_memc_prop:file { read open getattr map};
 allow system_control sysfs_power:dir {search};
 allow system_control sysfs_power:file {read write open};
 allow system_control cgroup:file { read };
+
+allow system_control vendor_data_file:dir search;
+allow system_control vendor_data_file:file { read open };
 # Property Service write
 #--------------------------------------------------------------------#
 #  product_shipping_api_level=28 vendor/system cannot share prop

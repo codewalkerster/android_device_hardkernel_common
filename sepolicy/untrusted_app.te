@@ -12,3 +12,5 @@ get_prop(untrusted_app, vendor_netflix_prop)
 allow untrusted_app galcore_device:chr_file { write open read getattr ioctl };
 
 allow untrusted_app adla_device:chr_file { write open read getattr ioctl };
+
+allow untrusted_app systemcontrol_hwservice:hwservice_manager find;
