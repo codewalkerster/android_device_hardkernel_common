@@ -8,7 +8,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.vsync_reactor_ignore_present_fences=1 \
     debug.sf.enable_gl_backpressure=0
 
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.enable_frame_rate_override=false
 
 # config of surfaceflinger
