@@ -11,6 +11,7 @@ function clean() {
 		rm -rf common-5.15/out
 	fi
 	if [[ -d common14-5.15/out ]]; then
+		[[ -d common14-5.15/bazel-out ]] && (cd common14-5.15; tools/bazel clean --async)
 		rm -rf common14-5.15/out
 	fi
 	return
@@ -207,6 +208,64 @@ function build_common_5.4() {
 	./device/amlogic/common/kernelbuild/build.sh
 }
 
+function build_config_to_bzl() {
+	#[[ -f ${PROJECT_DIR}/BUILD.bazel ]] || touch ${PROJECT_DIR}/BUILD.bazel
+	#echo "# SPDX-License-Identifier: GPL-2.0" 	> ${PROJECT_DIR}/BUILD.bazel
+	#echo 						>> ${PROJECT_DIR}/BUILD.bazel
+	#echo "package(" 				>> ${PROJECT_DIR}/BUILD.bazel
+	#echo "    default_visibility = [" 		>> ${PROJECT_DIR}/BUILD.bazel
+	#echo "        "//visibility:public"," 		>> ${PROJECT_DIR}/BUILD.bazel
+	#echo "    ]," 					>> ${PROJECT_DIR}/BUILD.bazel
+	#echo ")" 					>> ${PROJECT_DIR}/BUILD.bazel
+
+	[[ -f ${PROJECT_DIR}/project.bazel ]] || touch ${PROJECT_DIR}/project.bzl
+	echo "# SPDX-License-Identifier: GPL-2.0" 	> ${PROJECT_DIR}/project.bzl
+	echo 						>> ${PROJECT_DIR}/project.bzl
+
+	echo "AMLOGIC_MODULES_ANDROID = [" 		>> ${PROJECT_DIR}/project.bzl
+	echo "    \"common_drivers/drivers/tty/serial/amlogic-uart.ko\","	>> ${PROJECT_DIR}/project.bzl
+	echo "]" 					>> ${PROJECT_DIR}/project.bzl
+
+	echo 						>> ${PROJECT_DIR}/project.bzl
+	echo "EXT_MODULES_ANDROID = [" 			>> ${PROJECT_DIR}/project.bzl
+	export FILES_COPY=
+	local ext_modules
+	for ext_module in ${EXT_MODULES_ANDROID}; do
+		if [[ "${ext_module}" =~ "hardware/amlogic/media_modules" ]]; then
+			echo "    \"//driver_modules/media_modules:media\"," 		>> ${PROJECT_DIR}/project.bzl
+			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/media_modules ${ext_modules}"
+			FILES_COPY="${KERNEL_REPO}/driver_modules/media_modules/firmware/*+firmware/video/ ${FILES_COPY}"
+		elif [[ "${ext_module}" =~ "vendor/amlogic/common/gpu/bifrost" ]]; then
+			echo "    \"//driver_modules/gpu/bifrost:gpu\"," 		>> ${PROJECT_DIR}/project.bzl
+			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/gpu/bifrost ${ext_modules}"
+		elif [[ "${ext_module}" =~ "vendor/amlogic/reference/external/DTVKit/AFD" ]]; then
+			echo "    \"//driver_modules/DTVKit/AFD:afd\"," 		>> ${PROJECT_DIR}/project.bzl
+			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/DTVKit/AFD ${ext_modules}"
+		#elif [[ "${ext_module}" =~ "vendor/amlogic/common/wifi_bt/bluetooth/configs/5_15" ]]; then
+		#	echo "    \"//driver_modules/wifi_bt/bt:bt\"," 	>> ${PROJECT_DIR}/project.bzl
+		#	ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/wifi_bt/bt/configs/5_15 ${ext_modules}"
+		#elif [[ "${ext_module}" =~ "vendor/amlogic/common/wifi_bt/wifi/configs/5_15" ]]; then
+		#	echo "    \"//driver_modules/wifi_bt/wifi:wlan\"," 		>> ${PROJECT_DIR}/project.bzl
+		#	ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/wifi_bt/wifi/configs/5_15 ${ext_modules}"
+		else
+			echo "${ext_module} cna't support bazle build"
+			ext_modules="${ext_module} ${ext_modules}"
+			#exit
+		fi
+	done
+	echo "]" 					>> ${PROJECT_DIR}/project.bzl
+	EXT_MODULES_ANDROID=${ext_modules}
+}
+
+function build_config_to_build_config() {
+	[[ -f ${PROJECT_DIR}/build.config.project ]] || touch ${PROJECT_DIR}/build.config.project
+	echo "# SPDX-License-Identifier: GPL-2.0" 	> ${PROJECT_DIR}/build.config.project
+	echo 						>> ${PROJECT_DIR}/build.config.project
+
+	echo "PRODUCT_DIR=${PRODUCT_DIR}" >> ${PROJECT_DIR}/build.config.project
+	[[ -n ${GPU_DRV_VERSION} ]] && echo "GPU_DRV_VERSION=${GPU_DRV_VERSION}" >> ${PROJECT_DIR}/build.config.project
+}
+
 function build_common_5.15() {
 	export KERNEL_VERSION=${CONFIG_KERNEL_VERSION##*-}
 	export TARGET_BUILD_KERNEL_VERSION=${KERNEL_VERSION}
@@ -237,7 +296,7 @@ function build_common_5.15() {
 
 	local ext_modules
 	for ext_mod in ${EXT_MODULES_ANDROID}; do
-		ext_modules="${ext_modules} ${MAIN_FOLDER}/${ext_mod}"
+		ext_modules="${MAIN_FOLDER}/${ext_mod} ${ext_modules}"
 	done
 	EXT_MODULES_ANDROID=${ext_modules}
 
@@ -253,6 +312,16 @@ function build_common_5.15() {
 	if [ $CONFIG_KERNEL_FCC_PIP ]; then
 		export KERNEL_DEVICETREE=${KERNEL_DEVICETREE_FCC_PIP}
 		export CONFIG_KERNEL_FCC_PIP=true
+	fi
+
+	if [[ "${FULL_KERNEL_VERSION}" != "common13-5.15" ]]; then
+		local common_drivers=${KERNEL_REPO}/common/common_drivers
+		PROJECT_DIR=${common_drivers}/project
+		[[ ! -d ${common_drivers} ]] && echo "no common_drivers: ${common_drivers}" && exit
+		[[ -d ${PROJECT_DIR} ]] || mkdir -p ${PROJECT_DIR}
+
+		build_config_to_bzl
+		build_config_to_build_config
 	fi
 
 	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters

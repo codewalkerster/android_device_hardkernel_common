@@ -60,6 +60,16 @@ rm -rf ${DEVICE_KERNEL_DIR}/lib/modules/*
 if [[ -d ${COMMON_OUT_DIR}/vendor_lib ]]; then
 	cp -a ${COMMON_OUT_DIR}/vendor_lib/* ${DEVICE_KERNEL_DIR}/lib/
 fi
+if [[ "$@" =~ "--bazel" ]]; then
+	cp -a ${OUT_AMLOGIC_DIR}/ext_modules/*.ko ${DEVICE_KERNEL_DIR}/lib/modules/
+
+	for src_dst in ${FILES_COPY}; do
+		src=`echo ${src_dst} | cut -d '+' -f 1`
+		dst=`echo ${src_dst} | cut -d '+' -f 2`
+		mkdir -p ${DEVICE_KERNEL_DIR}/lib/${dst}
+		cp -a ${src} ${DEVICE_KERNEL_DIR}/lib/${dst}
+	done
+fi
 cp ${OUT_AMLOGIC_DIR}/modules/vendor/*.ko ${DEVICE_KERNEL_DIR}/lib/modules/
 
 echo "copy service_module ko"
@@ -115,7 +125,7 @@ if [ $CONFIG_KERNEL_FCC_PIP ]; then
 	export KERNEL_DEVICETREE=${KERNEL_DEVICETREE_FCC_PIP}
 fi
 
-DTBTOOL=device/amlogic/common/kernelbuild/dtbTool
+DTBTOOL_DIR=device/amlogic/common/kernelbuild
 dtb_files_count=0
 mkdir -p ${OUT_AMLOGIC_DIR}/dtb
 for dtb_file in ${KERNEL_DEVICETREE}; do
@@ -141,14 +151,14 @@ if [[ ${dtb_files_count} == 1 ]]; then
 		fi
 	fi
 else
-	${DTBTOOL} -o ${DEVICE_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb -p ${COMMON_OUT_DIR}/${KERNEL_DIR}/scripts/dtc/ ${OUT_AMLOGIC_DIR}/dtb/
+	${DTBTOOL_DIR}/dtbTool -o ${DEVICE_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb -p ${DTBTOOL_DIR}/ ${OUT_AMLOGIC_DIR}/dtb/
 fi
 
 echo "copy Image*"
 if [ $KERNEL_A32_SUPPORT ]; then
 	cp ${DIST_DIR}/uImage ${DEVICE_KERNEL_DIR}/
 else
-	[[ -e ${DIST_GKI_DIR}/Image* ]] && rm -f ${DIST_GKI_DIR}/Image*
+	[[ -f ${DEVICE_KERNEL_DIR}/Image ]] && rm -f ${DEVICE_KERNEL_DIR}/Image*
 	if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" ]]; then
 		cp ${DIST_GKI_DIR}/Image* ${DEVICE_KERNEL_DIR}/
 	else
