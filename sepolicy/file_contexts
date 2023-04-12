@@ -163,6 +163,7 @@
 /dev/esm            			u:object_r:hdcptx_device:s0
 /dev/esm_rx         			u:object_r:hdcprx_device:s0
 /dev/ge2d                               u:object_r:ge2d_device:s0
+/dev/amlgdc                               u:object_r:amlgdc_device:s0
 /dev/hdmirx0        			u:object_r:hdmirx0_device:s0
 /dev/mali           			u:object_r:gpu_device:s0
 /dev/mali0          			u:object_r:gpu_device:s0
