@@ -199,6 +199,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.hdmi.keep_awake=false
 
+# cec device types
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hdmi.cec_device_types=playback_device \
+    ro.hdmi.device_type=4
 
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.media_vol_steps=25 \
