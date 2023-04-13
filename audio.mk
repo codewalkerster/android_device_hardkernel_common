@@ -38,14 +38,20 @@ PRODUCT_PACKAGES += \
     AudioEffectTool \
     libAmlAudioOutPort \
 
-ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
-endif
+ifneq ($(BOARD_COMPILE_HDMITX_ONLY), true)
+# default with aml_audio_config.json
+    ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
+      PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+    endif
+else
+# HDMITX_ONLY ver need to be replaced with aml_audio_config_hdmitx.json
+    ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config_hdmitx.json))
+      PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config_hdmitx.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+    else
+      PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+    endif
+endif ### end of HDMITX_ONLY
 
-
-ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
-endif
 
 #configurable audio policy
 USE_XML_AUDIO_POLICY_CONF := 1
