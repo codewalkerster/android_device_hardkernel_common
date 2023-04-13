@@ -33,7 +33,10 @@
         <item>"9,1"</item>
     </string-array>
 
+    <!-- QR settings -->
     <string name="config_defaultQrCodeComponent">net.qrbot/.ui.main.MainActivity</string>
+    <bool name="config_enableQrCodeScannerOnLockScreen">true</bool>
+
     <!-- CEC config values -->
     <bool name="config_cecPowerStateChangeOnActiveSourceLostNone_default">false</bool>
     <bool name="config_cecPowerStateChangeOnActiveSourceLostStandbyNow_default">true</bool>

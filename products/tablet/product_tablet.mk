@@ -6,8 +6,19 @@ BOARD_SEPOLICY_DIRS += device/google/atv/sepolicy/vendor
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackageGo.mk)
 
 PRODUCT_PACKAGES += \
-        Settings \
-        LatinIME
+    LatinIME \
+    Settings \
+    ThemesStub \
+    ThemePicker
+
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/products/tablet/permissions/com.android.wallpaper.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.wallpaper.xml
+
+PRODUCT_COPY_FILES += \
+    frameworks/base/core/res/res/drawable-nodpi/default_wallpaper.png:$(TARGET_COPY_OUT_VENDOR)/etc/default_wallpaper.png
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.wallpaper=vendor/etc/default_wallpaper.png
 
 # These libraries are empty and have been combined into libhidlbase, but are still depended
 # on by things off /system.
@@ -128,15 +139,6 @@ endif
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
-
-# Save memory
-# dumpsys SurfaceFlinger | grep com.android.systemui.ImageWallpaper
-# 16.00 KiB |   64 (  64) x   64 |    1 |       2B | 0x40000000000b00 | com.android.systemui.ImageWallpaper#0
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/default_wallpaper.png:$(TARGET_COPY_OUT_VENDOR)/etc/default_wallpaper.png
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.wallpaper=vendor/etc/default_wallpaper.png
 
 # Include BUILD_NUMBER if defined
 VERSION_ID=$(shell find device/*/$(TARGET_PRODUCT) -name version_id.mk)
