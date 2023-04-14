@@ -241,12 +241,12 @@ function build_config_to_bzl() {
 		elif [[ "${ext_module}" =~ "vendor/amlogic/reference/external/DTVKit/AFD" ]]; then
 			echo "    \"//driver_modules/DTVKit/AFD:afd\"," 		>> ${PROJECT_DIR}/project.bzl
 			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/DTVKit/AFD ${ext_modules}"
-		#elif [[ "${ext_module}" =~ "vendor/amlogic/common/wifi_bt/bluetooth/configs/5_15" ]]; then
-		#	echo "    \"//driver_modules/wifi_bt/bt:bt\"," 	>> ${PROJECT_DIR}/project.bzl
-		#	ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/wifi_bt/bt/configs/5_15 ${ext_modules}"
-		#elif [[ "${ext_module}" =~ "vendor/amlogic/common/wifi_bt/wifi/configs/5_15" ]]; then
-		#	echo "    \"//driver_modules/wifi_bt/wifi:wlan\"," 		>> ${PROJECT_DIR}/project.bzl
-		#	ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/wifi_bt/wifi/configs/5_15 ${ext_modules}"
+		elif [[ "${ext_module}" =~ "vendor/amlogic/common/wifi_bt/bluetooth/configs/5_15" ]]; then
+			echo "    \"//driver_modules/wifi_bt/bt:bt\"," 	>> ${PROJECT_DIR}/project.bzl
+			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/wifi_bt/bt/configs/5_15 ${ext_modules}"
+		elif [[ "${ext_module}" =~ "vendor/amlogic/common/wifi_bt/wifi/configs/5_15" ]]; then
+			echo "    \"//driver_modules/wifi_bt/wifi:wlan\"," 		>> ${PROJECT_DIR}/project.bzl
+			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/wifi_bt/wifi/configs/5_15 ${ext_modules}"
 		else
 			echo "${ext_module} cna't support bazle build"
 			ext_modules="${ext_module} ${ext_modules}"
