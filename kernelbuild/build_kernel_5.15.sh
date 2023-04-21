@@ -134,7 +134,11 @@ if [[ ${dtb_files_count} == 1 ]]; then
 			cp -f ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb ${DEVICE_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb
 		fi
 	else
-		cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb ${DEVICE_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb
+		if [[ ${KERNEL_DEVICETREE} == "adt4_1k_ui" ]]; then
+			cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb ${DEVICE_KERNEL_DIR}/${KERNEL_DEVICETREE}.dtb
+		else
+			cp ${DIST_DIR}/${KERNEL_DEVICETREE}.dtb ${DEVICE_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb
+		fi
 	fi
 else
 	${DTBTOOL} -o ${DEVICE_KERNEL_DIR}/${BOARD_DEVICENAME}.dtb -p ${COMMON_OUT_DIR}/${KERNEL_DIR}/scripts/dtc/ ${OUT_AMLOGIC_DIR}/dtb/
