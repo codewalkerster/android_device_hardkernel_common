@@ -60,6 +60,7 @@ allow hal_camera_default vendor_platform_prop:file { open read getattr map };
 allow hal_camera_default sysfs_amhdmitx:file rw_file_perms;
 allow hal_camera_default sysfs_amhdmitx:dir search;
 
+allow hal_camera_default self:global_capability_class_set { setuid setgid sys_nice };
 
 allow hal_camera_default sysfs_devices_system_cpu:file { open read write };
 allow hal_camera_default sysfs_display:file { open read write };
