@@ -257,6 +257,7 @@ endif
 $(INSTALLED_DTBIMAGE_TARGET): $(LOCAL_DTB)
 	$(transform-prebuilt-to-target)
 
+ifneq ($(KERNEL_A32_SUPPORT),true)
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 AML_VENDOR_COPY_FILES := $(PRODUCT_OUT)/vendor_dlkm/lib/modules/system_dlkm.modules.load
 LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
@@ -273,6 +274,7 @@ $(AML_SYSTEM_DLKM_COPY_FILES): $(LOCAL_SYSTEM_PROP)
 	cp -a $(PREBUILT_KERNEL_PATH)/gki/lib/modules/* $(PRODUCT_OUT)/system_dlkm/lib/modules/
 	$(transform-prebuilt-to-target)
 endif
+endif
 
 ####  Modules depends for build kernel ####
 ifneq ($(TARGET_NO_KERNEL),true)
@@ -286,11 +288,13 @@ $(PRODUCT_OUT)/boot.img: $(INSTALLED_BOARDDTB_TARGET)
 $(PRODUCT_OUT)/vendor.img: $(AML_VENDOR_COPY_MODULES) $(INSTALLED_BOARDDTB_TARGET)
 endif
 
+ifneq ($(KERNEL_A32_SUPPORT),true)
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 $(PRODUCT_OUT)/vendor_dlkm.img: $(AML_VENDOR_COPY_FILES)
 endif
 
 ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
 $(PRODUCT_OUT)/installed-files-system_dlkm.txt: $(AML_SYSTEM_DLKM_COPY_FILES)
+endif
 endif
 endif

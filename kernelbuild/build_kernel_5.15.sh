@@ -91,7 +91,7 @@ if [[ -n ${LOAD_EXT_MODULES_IN_SECOND_STAGE} ]]; then
 fi
 
 echo "copy gki image"
-if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" ]]; then
+if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" && "$KERNEL_A32_SUPPORT" != "true" ]]; then
 	DIST_GKI_DIR=${DIST_GKI_DIR:-${DIST_DIR}}
         if [[ -e ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load ]]; then
                 rm ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load
