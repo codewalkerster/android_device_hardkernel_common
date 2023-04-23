@@ -39,17 +39,18 @@ $(INSTALLED_ODM_EXTIMAGE_TARGET) : $(INTERNAL_ODM_EXTIMAGE_FILES) $(INTERNAL_USE
 	$(call pretty,"Target odm_ext fs image::::: $(INSTALLED_ODM_EXTIMAGE_TARGET)")
 	@mkdir -p $(TARGET_OUT_ODM_EXT)
 	@mkdir -p $(odm_extimage_intermediates) && rm -rf $(odm_extimage_intermediates)/odm_ext_image_info.txt
-	$(call generate-userimage-prop-dictionary, $(odm_extimage_intermediates)/odm_ext_image_info.txt, skip_fsck=true)
-	PATH=$(HOST_OUT_EXECUTABLES):$$PATH \
-		mkuserimg_mke2fs -s $(PRODUCT_OUT)/odm_ext $(INSTALLED_ODM_EXTIMAGE_TARGET) $(BOARD_ODM_EXTIMAGE_FILE_SYSTEM_TYPE) \
-	 odm_ext $(BOARD_ODM_EXTIMAGE_PARTITION_SIZE) -j 0 -T 1230768000 -B $(PRODUCT_OUT)/odm_ext.map -L odm_ext --inode_size 256 -M 0 \
-	 $(PRODUCT_OUT)/obj/ETC/file_contexts.bin_intermediates/file_contexts.bin
-	$(call assert-max-image-size,$(INSTALLED_ODM_EXTIMAGE_TARGET),$(BOARD_ODM_EXTIMAGE_PARTITION_SIZE))
-	-cp $(PRODUCT_OUT)/odm_ext.map $(AML_TARGET)/IMAGES/
-	-cp $(PRODUCT_OUT)/odm_ext.img $(AML_TARGET)/IMAGES/
-
-# We need a (implicit) rule for odm_ext.map, in order to support the INSTALLED_RADIOIMAGE_TARGET above.
-$(INSTALLED_ODM_EXTIMAGE_TARGET): .KATI_IMPLICIT_OUTPUTS := $(PRODUCT_OUT)/odm_ext.map
+	mkdir -p $(odm_extimage_intermediates)
+	$(hide) echo "# odm_ext info" > $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "mount_point=/mnt/vendor/odm_ext" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "partition_name=odm_ext" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "fs_type=$(BOARD_ODM_EXTIMAGE_FILE_SYSTEM_TYPE)" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "partition_size=$(BOARD_ODM_EXTIMAGE_PARTITION_SIZE)" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "ext_mkuserimg=$(notdir $(MKEXTUSERIMG))" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "avb_avbtool=$(PRIVATE_AVB_AVBTOOL)" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "skip_fsck=true" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) PATH=$(INTERNAL_USERIMAGES_BINARY_PATHS):$$PATH \
+		$(BUILD_IMAGE) \
+		$(PRODUCT_OUT)/$(TARGET_COPY_OUT_ODM_EXT) $(odm_extimage_intermediates)/odm_ext_image_info.txt $@ $(TARGET_OUT)
 
 .PHONY: odm_ext_image
 odm_ext_image : $(INSTALLED_ODM_EXTIMAGE_TARGET)

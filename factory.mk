@@ -98,8 +98,8 @@ endif
 
 ifeq ($(BOARD_USES_ODM_EXTIMAGE), true)
 BUILT_IMAGES += odm_ext.img
-INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/odm_ext.img $(PRODUCT_OUT)/odm_ext.map
-BOARD_PACK_RADIOIMAGES += odm_ext.img odm_ext.map
+INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/odm_ext.img
+BOARD_PACK_RADIOIMAGES += odm_ext.img
 endif
 
 ifeq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
