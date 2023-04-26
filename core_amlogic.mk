@@ -550,10 +550,16 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.widevine \
     android.hardware.drm-service.clearkey \
     move_widevine_data.sh \
     android.hardware.drm@1.4-service.playready
+
+ifneq ($(BOARD_COMPILE_ATV), false)
+include vendor/widevine/libwvdrmengine/apex/device/device-nonupdatable.mk
+else
+PRODUCT_PACKAGES += \
+    android.hardware.drm-service.widevine
+endif
 
 # HDMITX CEC HAL
 PRODUCT_PACKAGES += \
