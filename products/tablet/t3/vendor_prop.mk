@@ -224,3 +224,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #aisr  check I/P input source
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hwc.aisr_check_interlace=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.camera_preview.maxsize=1920x1080 \
+    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
+    ro.vendor.platform.usehwmjpeg=true \
+    vendor.media.camera.dec.mediahalsdk=true
