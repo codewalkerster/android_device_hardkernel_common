@@ -252,6 +252,7 @@ $(INSTALLED_DTBIMAGE_TARGET): $(LOCAL_DTB)
 	$(transform-prebuilt-to-target)
 
 ifneq ($(KERNEL_A32_SUPPORT),true)
+ifneq ($(wildcard $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load),)
 LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 AML_VENDOR_COPY_FILES := $(PRODUCT_OUT)/vendor_dlkm/lib/modules/system_dlkm.modules.load
@@ -272,6 +273,10 @@ $(AML_SYSTEM_DLKM_COPY_FILES): $(LOCAL_SYSTEM_PROP)
 	mkdir -p $(PRODUCT_OUT)/system_dlkm/lib/modules/
 	cp -a $(PREBUILT_KERNEL_PATH)/gki/lib/modules/* $(PRODUCT_OUT)/system_dlkm/lib/modules/
 	$(transform-prebuilt-to-target)
+endif
+else
+$(AML_VENDOR_COPY_FILES):
+$(AML_SYSTEM_DLKM_COPY_FILES):
 endif
 endif
 
