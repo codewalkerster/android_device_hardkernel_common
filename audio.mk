@@ -69,6 +69,13 @@ PRODUCT_COPY_FILES += \
 #    $(configurable_audiopolicy_xmls)audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
 
 endif
+
+#AQ tuning tool for TV
+ifeq ($(BOARD_HAVE_HARDWARE_EQDRC_AUGE),true)
+	PRODUCT_COPY_FILES += hardware/amlogic/audio/amlogic_AQ_tools/Amlogic_EQ_Param_Generator:$(TARGET_COPY_OUT_VENDOR)/bin/Amlogic_EQ_Param_Generator
+	PRODUCT_COPY_FILES += hardware/amlogic/audio/amlogic_AQ_tools/Amlogic_DRC_Param_Generator:$(TARGET_COPY_OUT_VENDOR)/bin/Amlogic_DRC_Param_Generator
+endif
+
 ################################################################################## alsa
 
 ifeq ($(BOARD_ALSA_AUDIO),legacy)

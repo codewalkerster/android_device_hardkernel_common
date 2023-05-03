@@ -121,20 +121,23 @@
 /sys/class/audiodsp/digital_raw					u:object_r:sysfs_audio:s0
 /sys/class/amaudio/debug                                        u:object_r:sysfs_audio:s0
 /sys/class/amaudio/mute_unmute                                  u:object_r:sysfs_audio:s0
-/sys/class/astream/addr_offset                                  u:object_r:sysfs_audio:s0
-/sys/class/astream/format                                       u:object_r:sysfs_audio:s0
+/sys/class/astream(/.*)?                                        u:object_r:sysfs_audio:s0
+/sys/devices/virtual/astream/astream-dev/subsystem(/.*)?        u:object_r:sysfs_audio:s0
 /sys/class/astream/astream-dev/uio0/maps/map0(/.*)?             u:object_r:sysfs_audio:s0
 /sys/devices/virtual/astream/astream-dev/uio0/maps/map0(/.*)?   u:object_r:sysfs_audio:s0
 /sys/class/dmx/demux0_scramble                                  u:object_r:sysfs_audio:s0
 /sys/class/tsync/firstapts                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_audio                                      u:object_r:sysfs_xbmc:s0
-/sys/class/tsync/pts_video                                     u:object_r:sysfs_xbmc:s0
+/sys/class/tsync/pts_video                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/event                                          u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_pcrscr                                     u:object_r:sysfs_xbmc:s0
+/sys/class/stb/audio_pts                                        u:object_r:sysfs_xbmc:s0
+/sys/class/stb/video_pts                                        u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/firstvpts                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/mode                                           u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/checkin_firstapts                              u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/checkin_firstvpts                              u:object_r:sysfs_xbmc:s0
+/sys/class/tsync_pcr/tsync_pcr_mode                             u:object_r:sysfs_xbmc:s0
 /sys/devices/virtual/amhdmitx/amhdmitx0(/.*)?                   u:object_r:sysfs_amhdmitx:s0
 
 /sys/class/audiodsp/digital_codec       		        u:object_r:sysfs_digital_codec:s0
@@ -165,6 +168,7 @@
 /sys/devices/platform/meson-fb/graphics/fb[0-3](/.*)            u:object_r:sysfs_display:s0
 /sys/devices/platform/fb/graphics/fb[0-3](/.*)                  u:object_r:sysfs_display:s0
 /sys/class/lcd/enable                                           u:object_r:sysfs_lcd:s0
+/sys/class/wol/enable                                           u:object_r:sysfs_wol:s0
 /sys/class/video/video_scaler_path_sel                          u:object_r:sysfs_video:s0
 /sys/module/amdolby_vision/parameters(/.*)?                     u:object_r:sysfs_video:s0
 
@@ -214,6 +218,8 @@
 /sys/devices/platform/fb/graphics(/.*)?                         u:object_r:sysfs_display:s0
 /dev/graphics/fb0                                               u:object_r:sysfs_display:s0
 /dev/graphics/fb1                                               u:object_r:sysfs_display:s0
+
+/sys/devices/platform/ffe40000.bifrost/mem_pool_size            u:object_r:sysfs_mali:s0
 
 /sys/devices/system/clocksource/clocksource0/current_clocksource    u:object_r:sysfs_clock:s0
 

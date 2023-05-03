@@ -1,4 +1,12 @@
 # Inherit from those products. Most specific first.
+# Get some sounds
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+
+# Get the TTS language packs
+$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
+
+# Get a list of languages.
+#$(call inherit-product, build/target/product/locales_full.mk)
 
 # Define the host tools and libs that are parts of the SDK.
 ifneq ($(filter sdk win_sdk sdk_addon,$(MAKECMDGOALS)),)
@@ -13,7 +21,15 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dateformat=MM-dd-yyyy
 
+# Put en_US first in the list, so make it default.
+PRODUCT_LOCALES := en_US
+
+AMLOGIC_PRODUCT := true
+
 ALLOW_MISSING_DEPENDENCIES := true
+
+# If want kernel build with KASAN, set it to true
+ENABLE_KASAN := false
 
 # Include drawables for all densities
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
@@ -47,6 +63,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
     net.tethering.noprovisioning=true
+
+
+SKIP_BOOT_JARS_CHECK = true
+PRODUCT_BOOT_JARS += \
+        exoplayer
 
 $(call inherit-product-if-exists, external/naver-fonts/fonts.mk)
 ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
@@ -381,20 +402,25 @@ PRODUCT_PACKAGES += \
 
 # VNDK version is specified
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=28.0.0
+    ro.vendor.vndk.version=26.1.0
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.fake_battery=42
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.boot.fake_battery=42
 
 #set audioflinger heapsize,for lowramdevice
 #the default af heap size is 1M,it is not enough
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.af.client_heap_size_kbyte=1536
+
+#set AAudio support (AAUDIO_POLICY_AUTO)
+#1 = AAUDIO_POLICY_NEVER, 2 = AAUDIO_POLICY_AUTO, 3 = AAUDIO_POLICY_ALWAYS
+PRODUCT_PROPERTY_OVERRIDES += \
+    aaudio.mmap_policy=2
 
 #fix android.permission2.cts.ProtectedBroadcastsTest
 #PRODUCT_PACKAGES += \

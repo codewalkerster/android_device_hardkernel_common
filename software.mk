@@ -35,9 +35,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.app.rotation=original \
     media.amplayer.widevineenable=true
 
-#WITH_DEXPREOPT := true
-#WITH_DEXPREOPT_PIC := true
-
 PRODUCT_PACKAGES += \
     Bluetooth \
     PrintSpooler
@@ -49,6 +46,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.app.rotation=middle_port
 
+endif
+
+
+user_variant := $(filter eng,$(TARGET_BUILD_VARIANT))
+ifneq (,$(user_variant))
+    WITH_DEXPREOPT := false
+else
+    WITH_DEXPREOPT := true
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \

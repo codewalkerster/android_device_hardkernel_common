@@ -29,6 +29,9 @@
 #TARGET_WITH_MEDIA_EXT_LEVEL := 3
 #set on some prducts,used libplayer.
 BUILD_WITH_BOOT_PLAYER :=true
+BUILD_WITH_ES_PLAYER := true
+BUILD_WITH_CTC_MEDIAPROCESSOR := false
+BUILD_WITH_DEC_INFO_TEST := true
 
 #########################################################################
 #
@@ -52,7 +55,11 @@ ifeq ($(TARGET_WITH_MEDIA_EXT_LEVEL), 4)
     TARGET_WITH_MEDIA_EXT :=true
     TARGET_WITH_SWCODEC_EXT := true
     TARGET_WITH_CODEC_EXT := true
-    TARGET_WITH_PLAYERS_EXT :=true
+    TARGET_WITH_PLAYERS_EXT := true
+#add our private retriever extension
+#only can open for customer do no use cts
+#defult do not open it
+    #TARGET_WITH_RETRIEVER_EXT := true
 endif
 endif
 endif
@@ -88,7 +95,10 @@ ifeq (,$(wildcard $(BOARD_AML_VENDOR_PATH)/frameworks/av/AmFFmpegAdapter))
 ifeq (,$(wildcard $(BOARD_AML_VENDOR_PATH)/AmFFmpegAdapter))
 PRODUCT_COPY_FILES += \
    $(BOARD_AML_VENDOR_PATH)/prebuilt/libmedia/libavenhancements/vendor/lib/libavenhancements.so:$(TARGET_COPY_OUT_VENDOR)/lib/libavenhancements.so \
-
+    
+PRODUCT_COPY_FILES += \
+   $(BOARD_AML_VENDOR_PATH)/prebuilt/libmedia/libavenhancements/vendor/lib64/libavenhancements.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libavenhancements.so \
+    
 endif
 endif
 
@@ -102,7 +112,10 @@ TARGET_WITH_AMNUPLAYER :=true
 
 endif
 
-
+ifeq ($(TARGET_WITH_RETRIEVER_EXT), true)
+PRODUCT_PACKAGES += \
+    libmetadataretriever_ext
+endif
 
 #########################################################################
 #
@@ -270,12 +283,53 @@ PRODUCT_PACKAGES += bootplayer \
     alsalib-cardsaliasesconf
 
 endif
+
+ifeq ($(BUILD_WITH_ES_PLAYER),true)
+PRODUCT_PACKAGES += esplayer
+endif
+
+ifeq ($(BUILD_WITH_DEC_INFO_TEST),true)
+PRODUCT_PACKAGES += DecInfo_test
+endif
+
 ifeq ($(BUILD_WITH_TEEVIDEOFIRM_LOAD),true)
 PRODUCT_PACKAGES += \
     libtee_load_video_fw \
     tee_preload_fw \
     526fc4fc-7ee6-4a12-96e3-83da9565bce8
 endif
+
+ifeq ($(BOARD_BUILD_VMX_DRM),true)
+#for drmplayer vmx
+PRODUCT_PACKAGES += libam_adp_adec \
+      libamadec_system \
+      libamavutils_sys \
+      libfaad_sys \
+      libmad_sys \
+      libteec_sys \
+      libDrmPlayer \
+      libdrmp \
+      libdec_ca \
+      41fe9859-71e4-4bf4-bbaad71435b127ae \
+      libdec_ca_vmx_iptv \
+      libdec_ca_vmx_web
+endif
+
+ifeq ($(BUILD_WITH_WIDEVINECAS),true)
+#for drmplayer wvcas
+PRODUCT_PACKAGES += libam_adp_adec \
+      libamadec_system \
+      libamavutils_sys \
+      libfaad_sys \
+      libmad_sys \
+      libteec_sys \
+      libDrmPlayer \
+      libdrmp \
+      libdec_ca \
+      41fe9859-71e4-4bf4-bbaad71435b127ae \
+      libdec_ca_wvcas
+endif
+
 #BOARD_SECCOMP_POLICY := device/hardkernel/common/seccomp
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
@@ -291,4 +345,24 @@ BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 # for media modules
 PRODUCT_COPY_FILES += \
 	device/hardkernel/$(PRODUCT_DIR)/init.$(TARGET_PRODUCT).media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.odroid.media.rc
+
+#########################################################################
+#
+#                     CTC_MediaProcessor
+#
+#########################################################################
+ifeq ($(BUILD_WITH_CTC_MEDIAPROCESSOR),true)
+PRODUCT_PACKAGES += \
+    libffmpeg40 \
+    libFFExtractor \
+    libamFFExtractor \
+    libCTC_MediaProcessor \
+    libCTC_MediaProcessorjni \
+    libCTC_AmlPlayer \
+    mediaProcessorDemo \
+    libminiframework \
+    libliveplayer \
+    libAmIptvMedia
+endif
+
 
