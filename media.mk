@@ -59,7 +59,7 @@ ifeq ($(TARGET_WITH_MEDIA_EXT_LEVEL), 4)
 #add our private retriever extension
 #only can open for customer do no use cts
 #defult do not open it
-    #TARGET_WITH_RETRIEVER_EXT := true
+    TARGET_WITH_RETRIEVER_EXT := true
 endif
 endif
 endif
