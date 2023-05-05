@@ -304,6 +304,20 @@ function build_common_5.15() {
 	done
 	EXT_MODULES_ANDROID=${ext_modules}
 
+	local dev_configs
+	for dev_config in ${DEV_CONFIG}; do
+		if [[ -f ${dev_config} ]]; then # full path name search
+			dev_config=${MAIN_FOLDER}/${dev_config}
+		elif [[ -f device/${device_project}/$1/${dev_config} ]]; then # relative path search
+			dev_config=${MAIN_FOLDER}/device/${device_project}/$1/${dev_config}
+		else
+			echo "cannot find config file ${dev_config}"
+			exit
+		fi
+		dev_configs="${dev_configs} ${dev_config}"
+	done
+	export DEV_CONFIGS=${dev_configs}
+
 	local prebuilt_modules_path
 	local module_path
 	for module_path in ${PREBUILT_MODULES_PATH}; do
