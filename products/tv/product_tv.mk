@@ -59,6 +59,8 @@ PRODUCT_PACKAGES += \
     inputsource \
     libdtvkit_jni \
     dtvkitserver \
+    isdb_server \
+    dvb_server \
     dtvkitserver_releaseinfo.txt \
     libicuuc_vendor \
     libicui18n_vendor \

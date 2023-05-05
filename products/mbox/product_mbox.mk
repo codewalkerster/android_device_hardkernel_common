@@ -60,6 +60,8 @@ PRODUCT_PACKAGES += \
     inputsource \
     libdtvkit_jni \
     dtvkitserver \
+    isdb_server \
+    dvb_server \
     dtvkitserver_releaseinfo.txt \
     droidlogic-dtvkit \
     droidlogic.dtvkit.software.core.xml
