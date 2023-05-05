@@ -107,7 +107,7 @@ PRODUCT_PACKAGES += \
     WiFiTetheringOverlay
 endif
 
-ifeq ($(LAUNCH_VERSION),T)
+ifneq ($(filter T U,$(LAUNCH_VERSION)),)
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_newlaunch.fstab
 else
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_upgrade.fstab
@@ -372,6 +372,11 @@ PRODUCT_COPY_FILES += device/amlogic/common/keyboards/Generic.kl.aosp:$(TARGET_C
 endif
 
 
+
+# mali
+PRODUCT_VENDOR_PROPERTIES += \
+	ro.hardware.egl = mali
+
 #########################################################################
 #
 #                                                App optimization
@@ -462,7 +467,7 @@ PRODUCT_PACKAGES += \
      android.hardware.usb@1.0-service
 
 # healthd aidl hal
-ifeq ($(LAUNCH_VERSION),T)
+ifneq ($(filter T U,$(LAUNCH_VERSION)),)
 PRODUCT_PACKAGES += android.hardware.health-service.droidlogic
 else
 PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
@@ -498,6 +503,10 @@ PRODUCT_PACKAGES += \
      camera.amlogic \
      android.hardware.camera.provider@2.5-legacy-droidlogic \
      android.hardware.camera.provider@2.5-service-droidlogic
+
+
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-service
 
 #Power HAL
 PRODUCT_PACKAGES += \
@@ -651,13 +660,18 @@ PRODUCT_PACKAGES += \
 endif
 
 #Atrace HAL
-PRODUCT_PACKAGES += \
-     android.hardware.atrace@1.0-service
+#PRODUCT_PACKAGES += \
+#     android.hardware.atrace@1.0-service
 
 #oemlock HAL
+ifneq ($(filter T U,$(LAUNCH_VERSION)),)
 PRODUCT_PACKAGES += \
-    android.hardware.oemlock@1.0-service.droidlogic \
     android.hardware.oemlock-service.droidlogic
+else
+PRODUCT_PACKAGES += \
+    android.hardware.oemlock@1.0-service.droidlogic
+endif
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported = 1
