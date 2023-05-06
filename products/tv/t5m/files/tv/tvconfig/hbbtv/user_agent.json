@@ -1,0 +1,23 @@
+{
+  "product": "Mozilla/5.0",
+  "system-information": "(Linux; Andr0id 13; AML)",
+  "platform": "AppleWdbKit/537.36 (KHTML, like Gecko)",
+  "platform-extensions": "Chrome/73.0.3683.75 Safari/537.36 OPR/46.0.2207.0 OMI/4.21.1.12.master",
+  "hbbtv": {
+      "version": "HbbTV/1.6.1",
+      "capabilities": "+DRM",
+      "vendorName": "Amlogic",
+      "modelName": "T963D4",
+      "softwareVersion": "1.0",
+      "hardwareVersion": "1.0",
+      "familyName": "com.amlogic",
+      "reserved": ""
+  },
+  "fvp": {
+      "version": "FVC/7.0",
+      "vendorName": "Amlogic",
+      "familyName": "com.amlogic",
+      "reserved": ""
+  },
+  "reserved": ""
+}

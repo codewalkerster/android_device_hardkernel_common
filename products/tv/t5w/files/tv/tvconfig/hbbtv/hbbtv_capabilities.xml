@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<profilelist xmlns="urn:hbbtv:config:oitf:oitfCapabilities:2017-1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:hbbtv:config:oitf:oitfCapabilities:2017-1 config-hbbtv-oitfCapabilities.xsd">
+
+  <ui_profile name='OITF_HD_UIPROF+DRM+CS_APP_LAUNCH+DASHIF+DEVICE_ID_DISABLED+DTT+DVBSUB+DVB_T_FVC_P5+DVB_T_FVC_P6+DVB_T_FVC_P7+EAC3+GRAPHICS_01+GRAPHICS_02+HEVC_HD_10+HEVC_HD_8+HEVC_UHD+MULTI_CHANNEL_AUDIO+PRIV_CAN_BLOCK_TRACKERS+PRIV_DEFAULT_BLOCK_3RD_PARTY_COOKIES+PRIV_DNT_LEGALREGULATORY+SPDIF+STERO+SYNC_BUFFER+VK_PLAY_PAUSE+CHANGE_CHANNEL_BY_NUMBER+DVB_T'>
+
+    <ext>
+      <parentalcontrol schemes="dvb-si">true</parentalcontrol>
+
+      <drm DRMSystemID='urn:dvb:casystemid:19219'></drm>" // PlayReady
+      <drm DRMSystemID='urn:dvb:casystemid:19188'></drm>" // Marlin
+      <key>VK_PLAY_PAUSE</key>
+
+    </ext>
+  </ui_profile>
+
+  <audio_profile name="MPEG1_L3" type="audio/mpeg"/>
+  <audio_profile name="HEAAC" type="audio/mp4"/>
+  <audio_profile name="MP4_HEAAC" type="audio/mp4" transport="dash" sync_tl="dash_pr"/>
+  <audio_profile name="MP4_E-AC3" type="audio/mp4"/>
+  <audio_profile name="MP4_E-AC3" type="audio/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="TS_AVC_SD_25_HEAAC" type="video/mpeg" sync_tl="temi"/>
+  <video_profile name="TS_AVC_HD_25_HEAAC" type="video/mpeg" sync_tl="temi"/>
+  <video_profile name="TS_AVC_SD_25_E-AC3" type="video/mpeg" sync_tl="temi"/>
+  <video_profile name="TS_AVC_HD_25_E-AC3" type="video/mpeg" sync_tl="temi"/>
+  <video_profile name="MP4_AVC_SD_25_E-AC3" type="video/mp4"/>
+  <video_profile name="MP4_AVC_SD_25_E-AC3" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_AVC_HD_25_E-AC3" type="video/mp4"/>
+  <video_profile name="MP4_AVC_HD_25_E-AC3" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_AVC_SD_25_E-AC3_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_AVC_HD_25_E-AC3_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_HEVC_UHD_25_HEAAC_EBUTTD" type="video/mp4"/>
+  <video_profile name="MP4_HEVC_UHD_25_HEAAC_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_HEVC_UHD_25_HEAAC_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr" hdr="urn:dvb:dash:bitstream:video:hdr_hlg10"/>
+  <video_profile name="MP4_HEVC_UHD_25_HEAAC_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr" hdr="urn:dvb:dash:bitstream:video:hdr_pq10"/>
+  <video_profile name="MP4_HEVC_UHD_HFR_25_HEAAC_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr" hdr="urn:dvb:dash:bitstream:video:hdr_pq10"/>
+  <video_profile name="MP4_HEVC_UHD_25_E-AC3_EBUTTD" type="video/mp4"/>
+  <video_profile name="MP4_HEVC_UHD_25_E-AC3_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_HEVC_HD_25_10_HEAAC_EBUTTD" type="video/mp4"/>
+  <video_profile name="MP4_HEVC_HD_25_10_HEAAC_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+  <video_profile name="MP4_HEVC_HD_25_10_E-AC3_EBUTTD" type="video/mp4"/>
+  <video_profile name="MP4_HEVC_HD_25_10_E-AC3_EBUTTD" type="video/mp4" transport="dash" sync_tl="dash_pr"/>
+
+  <video_display_format width="1280" height="720" frame_rate="50" bit_depth="8" colorimetry=""/>
+
+  <broadcast>urn:dvb:broadcast:ird:video:HEVC_UHDTV_IRD</broadcast>
+  <broadcast>urn:dvb:broadcast:ird:video:25_Hz_H.264_AVC_HDTV_IRD</broadcast>
+  <broadcast>urn:dvb:broadcast:ird:video:25_Hz_H.264_AVC_SDTV</broadcast>
+  <html5_media>true</html5_media>
+</profilelist>
