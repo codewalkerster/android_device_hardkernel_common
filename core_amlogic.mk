@@ -555,7 +555,8 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.playready
 
 ifneq ($(BOARD_COMPILE_ATV), false)
-include vendor/widevine/libwvdrmengine/apex/device/device-nonupdatable.mk
+TARGET_BUILD_WIDEVINE := nonupdatable
+-include vendor/widevine/libwvdrmengine/apex/device/device.mk
 else
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.widevine
