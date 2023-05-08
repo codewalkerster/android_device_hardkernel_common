@@ -209,3 +209,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hwc.aipq.nn_input_frame_width=224 \
     vendor.hwc.aipq.nn_input_frame_height=224
 
+#S5 8k support
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.resolution.limit.32bit=8192
+
