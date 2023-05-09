@@ -182,6 +182,7 @@ VENDOR_KERNEL_MODULES += \
     $(wildcard $(PREBUILT_KERNEL_PATH)/lib/modules/*.ko)
 
 -include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner_modules.mk
+include device/amlogic/common/tcon/tcon_modules.mk
 include device/amlogic/common/ldim/ldim_modules.mk
 include device/amlogic/common/video_algorithm/dnlp/dnlp_modules.mk
 include device/amlogic/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
