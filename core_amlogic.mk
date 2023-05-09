@@ -862,16 +862,13 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(TARGET_GPT_PART),true)
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-bootloader.rc
+    android.hardware.boot-bootloader.rc
 endif
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2 \
-    android.hardware.boot@1.2-impl.droidlogic \
-    android.hardware.boot@1.2-service.droidlogic
 
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl.droidlogic.recovery \
-    android.hardware.boot@1.2-impl.droidlogic
+    android.hardware.boot-service \
+    android.hardware.boot-service_recovery
+
 
 PRODUCT_PACKAGES += \
     update_engine_sideload \
