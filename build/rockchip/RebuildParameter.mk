@@ -3,9 +3,9 @@ ifdef PRODUCT_PARAMETER_TEMPLATE
 $(info build parameter.txt with $(PRODUCT_PARAMETER_TEMPLATE)....)
 
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
-partition_list := security:4M,uboot_a:2M,fat:16M,misc:4M
+partition_list := fat:19M,security:4M,uboot_a:2M,misc:4M
 else
-partition_list := security:4M,uboot:2M,fat:16M,misc:4M
+partition_list := fat:19M,security:4M,uboot:2M,misc:4M
 endif # BOARD_USES_AB_IMAGE
 
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
@@ -16,7 +16,7 @@ endif # Header V3
 ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 partition_list := $(partition_list),dtbo_a:$(BOARD_DTBOIMG_PARTITION_SIZE),vbmeta_a:1M,boot_a:$(BOARD_BOOTIMAGE_PARTITION_SIZE)
 else
-partition_list := $(partition_list),dtb_a:$(BOARD_DTBIMG_PARTITION_SIZE),vbmeta_a:1M,boot_a:$(BOARD_BOOTIMAGE_PARTITION_SIZE)
+partition_list := $(partition_list),vbmeta_a:1M,boot_a:$(BOARD_BOOTIMAGE_PARTITION_SIZE)
 endif
 else # None-A/B
 # Header V3, add vendor_boot and resource.
@@ -26,7 +26,7 @@ endif # Header V3
 ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 partition_list := $(partition_list),dtbo:$(BOARD_DTBOIMG_PARTITION_SIZE),vbmeta:1M,boot:$(BOARD_BOOTIMAGE_PARTITION_SIZE),recovery:$(BOARD_RECOVERYIMAGE_PARTITION_SIZE)
 else
-partition_list := $(partition_list),dtb:$(BOARD_DTBIMG_PARTITION_SIZE),vbmeta:1M,boot:$(BOARD_BOOTIMAGE_PARTITION_SIZE),recovery:$(BOARD_RECOVERYIMAGE_PARTITION_SIZE)
+partition_list := $(partition_list),vbmeta:1M,boot:$(BOARD_BOOTIMAGE_PARTITION_SIZE),recovery:$(BOARD_RECOVERYIMAGE_PARTITION_SIZE)
 endif
 endif # BOARD_USES_AB_IMAGE
 
@@ -52,7 +52,7 @@ ROCKCHIP_PARAMETER_TOOLS := $(SOONG_HOST_OUT_EXECUTABLES)/parameter_tools
 $(rebuild_parameter) : $(PRODUCT_PARAMETER_TEMPLATE) $(ROCKCHIP_PARAMETER_TOOLS)
 	@echo "Building parameter.txt $@."
 	$(ROCKCHIP_PARAMETER_TOOLS) --input $(PRODUCT_PARAMETER_TEMPLATE) \
-	--start-offset 8192 \
+	--start-offset 2048 \
 	--firmware-version $(BOARD_PLATFORM_VERSION) \
 	--machine-model $(PRODUCT_MODEL) \
 	--manufacturer $(PRODUCT_MANUFACTURER) \
