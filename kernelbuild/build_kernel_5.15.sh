@@ -91,16 +91,18 @@ if [[ -n ${LOAD_EXT_MODULES_IN_SECOND_STAGE} ]]; then
 fi
 
 echo "copy gki image"
-if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" && "$KERNEL_A32_SUPPORT" != "true" ]]; then
+if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" && "${KERNEL_A32_SUPPORT}" != "true" && -z ${EXT_MODULES} ]]; then
 	DIST_GKI_DIR=${DIST_GKI_DIR:-${DIST_DIR}}
         if [[ -e ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load ]]; then
                 rm ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load
         fi
-        cat ${DEVICE_KERNEL_DIR}/vendor_dlkm.modules.load  | rev | cut -d '/' -f 1 | rev | while read gki_module; do
-		awk "/${gki_module}/" ${DIST_GKI_DIR}/system_dlkm.modules.load >> ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load
+	touch ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load
+        cat ${DEVICE_KERNEL_DIR}/vendor_dlkm.modules.load | while read gki_module; do
+		awk "/\/${gki_module}/" ${DIST_GKI_DIR}/system_dlkm.modules.load >> ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load
 	done
-	cat ${DIST_GKI_DIR}/system_dlkm.modules.load  | rev | cut -d '/' -f 1 | rev | while read gki_module; do
-		sed -i "/${gki_module}/d" ${DEVICE_KERNEL_DIR}/vendor_dlkm.modules.load
+	cat ${DEVICE_KERNEL_DIR}/system_dlkm.modules.load  | while read gki_module; do
+		gki_module=${gki_module##*/}
+		sed -i "/^${gki_module}/d" ${DEVICE_KERNEL_DIR}/vendor_dlkm.modules.load
 		rm ${DEVICE_KERNEL_DIR}/lib/modules/${gki_module}
 	done
 	if [[ -d ${DEVICE_KERNEL_DIR}/gki ]]; then
@@ -114,6 +116,15 @@ if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" && "$KERNEL_A32_SUPPORT" != "tru
 
 	if [ -f ${DEVICE_KERNEL_DIR}/gki/system_dlkm_staging_archive.tar.gz ]; then
 		(cd ${DEVICE_KERNEL_DIR}/gki; tar -zxf system_dlkm_staging_archive.tar.gz)
+		for module in `find ${DEVICE_KERNEL_DIR}/gki -name *.ko`; do
+			module_name=${module##*/}
+			for black_module in ${GKI_MODULES_LOAD_BLACK_LIST}; do
+				if [[ "${module_name}" == "${black_module}" ]]; then
+					rm -f ${module}
+					break;
+				fi
+			done
+		done
 	fi
 fi
 
