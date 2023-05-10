@@ -597,7 +597,8 @@ PRODUCT_PACKAGES += \
 
 #thermal hal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.droidlogic
+    android.hardware.thermal-service.droidlogic
+
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_COPY_FILES += \
