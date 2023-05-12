@@ -149,11 +149,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     tv.need.droidlogic.preview_window=true
 endif
 
-ifeq ($(TARGET_BUILD_GOOGLE_ATV), false)
+#ifeq ($(TARGET_BUILD_GOOGLE_ATV), false)
 #USB wifi need to be disabled when suspending
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.wifi.suspend=false
-endif
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.vendor.platform.wifi.suspend=false
+#endif
 
 # for playback of audio offload
 PRODUCT_PROPERTY_OVERRIDES += \

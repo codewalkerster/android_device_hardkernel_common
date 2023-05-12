@@ -162,11 +162,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.need.droidlogic.preview_window=true
 endif
 
-ifeq ($(BOARD_COMPILE_ATV), false)
+#ifeq ($(BOARD_COMPILE_ATV), false)
 #USB wifi need to be disabled when suspending
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.wifi.suspend=true
-endif
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.vendor.platform.wifi.suspend=true
+#endif
 
 
 # secure playback enable di
