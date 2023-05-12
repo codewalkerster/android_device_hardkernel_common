@@ -218,6 +218,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_COPY_FILES += \
+    device/hardkernel/common/init.busybox.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.busybox.rc \
     device/hardkernel/common/init.hardkernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.hardkernel.rc \
     device/hardkernel/common/init.mount_all_early.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mount_all.rc \
     device/hardkernel/common/init.tune_io.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.tune_io.rc \
