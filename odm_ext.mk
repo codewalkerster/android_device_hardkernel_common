@@ -48,6 +48,7 @@ $(INSTALLED_ODM_EXTIMAGE_TARGET) : $(INTERNAL_ODM_EXTIMAGE_FILES) $(INTERNAL_USE
 	$(hide) echo "ext_mkuserimg=$(notdir $(MKEXTUSERIMG))" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
 	$(hide) echo "avb_avbtool=$(PRIVATE_AVB_AVBTOOL)" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
 	$(hide) echo "skip_fsck=true" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
+	$(hide) echo "selinux_fc=$(PRODUCT_OUT)/obj/ETC/file_contexts.bin_intermediates/file_contexts.bin" >> $(odm_extimage_intermediates)/odm_ext_image_info.txt
 	$(hide) PATH=$(INTERNAL_USERIMAGES_BINARY_PATHS):$$PATH \
 		$(BUILD_IMAGE) \
 		$(PRODUCT_OUT)/$(TARGET_COPY_OUT_ODM_EXT) $(odm_extimage_intermediates)/odm_ext_image_info.txt $@ $(TARGET_OUT)
