@@ -560,8 +560,7 @@ endif
 
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
-    move_widevine_data.sh \
-    android.hardware.drm@1.4-service.playready
+    move_widevine_data.sh
 
 ifneq ($(BOARD_COMPILE_ATV), false)
 TARGET_BUILD_WIDEVINE := nonupdatable

@@ -169,6 +169,7 @@ endif
 
 ifeq ($(BUILD_WITH_PLAYREADY_DRM),true)
 PRODUCT_PACKAGES += \
+  android.hardware.drm@1.4-service.playready \
   libplayreadymediadrmplugin \
   libplayready \
   9a04f079-9840-4286-ab92-e65be0885f95
@@ -316,9 +317,11 @@ PRODUCT_PACKAGES += \
     libwvaidl
 endif
 
+ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
 PRODUCT_PACKAGES += \
     liboemcrypto \
     e043cde0-61d0-11e5-9c26-0002a5d5c51b
+endif
 
 ifeq ($(TARGET_WITH_AMLOGIC_PLAYERS), true)
 ##player related
