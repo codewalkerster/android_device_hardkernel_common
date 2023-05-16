@@ -118,12 +118,14 @@ if [[ ${FULL_KERNEL_VERSION} != "common13-5.15" && "${KERNEL_A32_SUPPORT}" != "t
 		(cd ${DEVICE_KERNEL_DIR}/gki; tar -zxf system_dlkm_staging_archive.tar.gz)
 		for module in `find ${DEVICE_KERNEL_DIR}/gki -name *.ko`; do
 			module_name=${module##*/}
-			for black_module in ${GKI_MODULES_LOAD_BLACK_LIST}; do
-				if [[ "${module_name}" == "${black_module}" ]]; then
-					rm -f ${module}
+			find_module=
+			for white_module in ${GKI_MODULES_LOAD_WHITE_LIST}; do
+				if [[ "${module_name}" == "${white_module}" ]]; then
+					find_module=1
 					break;
 				fi
 			done
+			[[ -z ${find_module} ]] && rm -f ${module}
 		done
 	fi
 fi
