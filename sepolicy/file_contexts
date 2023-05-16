@@ -471,8 +471,10 @@
 /vendor/bin/hw/android\.hardware\.oemlock-service\.droidlogic            u:object_r:hal_oemlock_default_exec:s0
 /vendor/bin/hw/android\.hardware\.oemlock@1\.0-service\.droidlogic       u:object_r:hal_oemlock_default_exec:s0
 /vendor/bin/hw/android\.hardware\.audio\.service-droidlogic              u:object_r:hal_audio_default_exec:s0
-/vendor/bin/hw/android\.hardware\.usb\.gadget@1\.1-service\.droidlogic   u:object_r:hal_usb_gadget_default_exec:s0
-/vendor/bin/hw/android\.hardware\.usb\.gadget@1\.2-service\.droidlogic   u:object_r:hal_usb_gadget_default_exec:s0
+
+/vendor/bin/hw/android\.hardware\.usb\.gadget-service\.droidlogic        u:object_r:hal_usb_gadget_default_exec:s0
+/vendor/bin/hw/android\.hardware\.usb-service\.droidlogic                u:object_r:hal_usb_default_exec:s0
+
 /vendor/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.software      u:object_r:hal_gatekeeper_default_exec:s0
 /vendor/bin/hw/android\.hardware\.wifi-service\.droidlogic               u:object_r:hal_wifi_default_exec:s0
 /vendor/bin/hw/android\.hardware\.tv\.tuner@1\.0-service\.droidlogic     u:object_r:hal_tv_tuner_default_exec:s0

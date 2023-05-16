@@ -458,8 +458,6 @@ endif
 #                                     hardware interfaces
 #
 #########################################################################
-PRODUCT_PACKAGES += \
-     android.hardware.usb@1.0-service
 
 # WiFi AIDL HAL
 PRODUCT_PACKAGES += \
@@ -598,9 +596,13 @@ PRODUCT_PACKAGES += \
 #endif
 endif
 
+#usb hal
+PRODUCT_PACKAGES += \
+    android.hardware.usb-service.droidlogic
+
 #usb gadget hal
 PRODUCT_PACKAGES += \
-    android.hardware.usb.gadget@1.2-service.droidlogic
+    android.hardware.usb.gadget-service.droidlogic
 
 #thermal hal
 PRODUCT_PACKAGES += \
