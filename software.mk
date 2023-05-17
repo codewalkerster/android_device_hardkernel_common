@@ -48,14 +48,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 endif
 
-
-user_variant := $(filter eng,$(TARGET_BUILD_VARIANT))
-ifneq (,$(user_variant))
-    WITH_DEXPREOPT := false
-else
-    WITH_DEXPREOPT := true
-endif
-
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.wifi_priority_high=false \
     persist.ignore_no_internet=false \

@@ -24,12 +24,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Put en_US first in the list, so make it default.
 PRODUCT_LOCALES := en_US
 
-AMLOGIC_PRODUCT := true
-
 ALLOW_MISSING_DEPENDENCIES := true
-
-# If want kernel build with KASAN, set it to true
-ENABLE_KASAN := false
 
 # Include drawables for all densities
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
@@ -402,15 +397,15 @@ PRODUCT_PACKAGES += \
 
 # VNDK version is specified
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=26.1.0
+    ro.vendor.vndk.version=28.0.0
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
 
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.boot.fake_battery=42
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.fake_battery=42
 
 #set audioflinger heapsize,for lowramdevice
 #the default af heap size is 1M,it is not enough
