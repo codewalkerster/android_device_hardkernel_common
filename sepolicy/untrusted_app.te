@@ -14,3 +14,7 @@ allow untrusted_app galcore_device:chr_file { write open read getattr ioctl };
 allow untrusted_app adla_device:chr_file { write open read getattr ioctl };
 
 allow untrusted_app systemcontrol_hwservice:hwservice_manager find;
+
+allow untrusted_app_32 systemcontrol_hwservice:hwservice_manager { find };
+
+allow untrusted_app_32 system_control:binder { call };
