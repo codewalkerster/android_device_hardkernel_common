@@ -176,8 +176,6 @@ endif
 endif
 INSTALLED_AVB_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb-avb.img
 
-$(warning TARGET_PREBUILT_KERNEL=$(TARGET_PREBUILT_KERNEL))
-
 VENDOR_KERNEL_MODULES += \
     $(wildcard $(PREBUILT_KERNEL_PATH)/lib/modules/*.ko)
 

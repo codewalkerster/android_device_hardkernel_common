@@ -8,8 +8,6 @@ AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
 AML_PKG_ADD_USB_BIN := $(AML_UPGRADE_TOOL_DIR)/aml_pkg_add_usb_bin.app
 AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
 
-#$(warning Build dtbo image here, make sure BOARD_PREBUILT_DTBOIMAGE is defined before this warning)
-
 ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(TARGET_NO_RECOVERY),true)
 BUILT_IMAGES := boot.img
@@ -154,7 +152,6 @@ ifneq ($(TARGET_GPT_PART),true)
 BOARD_PACK_RADIOIMAGES += dt.img
 endif
 BOARD_PACK_RADIOIMAGES += bootloader.img
-$(warning echo "radio add dt and bootloader")
 
 INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/super_empty_all.img
 BOARD_PACK_RADIOIMAGES += super_empty_all.img
@@ -173,7 +170,7 @@ UPGRADE_FILES := \
 
 TOOL_ITEMS := usb_flow.aml keys.conf
 UPGRADE_FILES += $(TOOL_ITEMS)
-$(warning TARGET_GPT_PART is $(TARGET_GPT_PART))
+
 ifeq ($(TARGET_GPT_PART),true)
 	TOOL_ITEMS += gpt.bin
 	BUILT_IMAGES += gpt.bin
@@ -428,7 +425,7 @@ $(PRODUCT_OUT)/ramdisk-debug.img: $(INSTALLED_DEBUG_FIRST_STAGE)
 
 ifeq ($(TARGET_SUPPORT_USB_BURNING_V2),true)
 INSTALLED_AML_UPGRADE_PACKAGE_TARGET := $(PRODUCT_OUT)/aml_upgrade_package.img
-$(warning will keep $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET))
+
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET))
 
 PACKAGE_CONFIG_FILE := $(PRODUCT_UPGRADE_OUT)/$(notdir $(PACKAGE_CONFIG_FILE))
@@ -543,7 +540,7 @@ INSTALLED_AML_UPGRADE_PACKAGE_TARGET :=
 endif
 
 INSTALLED_AML_FASTBOOT_ZIP := $(PRODUCT_OUT)/$(TARGET_PRODUCT)-fastboot-flashall-$(FILE_NAME).zip
-$(warning will keep $(INSTALLED_AML_FASTBOOT_ZIP))
+
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_FASTBOOT_ZIP))
 
 ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
