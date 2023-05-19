@@ -208,7 +208,7 @@ ifeq ($(BOARD_AML_SOC_TYPE),)
 	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/$(BOARD_AML_SOC_TYPE)/*.bin $(PRODUCT_OUT)/vendor/lib/firmware/video/
 endif
 
-ifneq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
+ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
 INSTALLED_OPTEE_TARGET := \
     $(PRODUCT_OUT)/vendor/lib/optee*.ko
 
