@@ -46,6 +46,7 @@
         <!-- Primary Audio HAL -->
         <module name="primary" halVersion="3.0">
             <attachedDevices>
+                <item>Earpiece</item>
                 <item>Speaker</item>
                 <item>Built-In Mic</item>
                 <item>Echo Reference</item>
@@ -138,7 +139,18 @@
             </mixPorts>
             <devicePorts>
                 <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
+                <devicePort tagName="Earpiece" role="sink" type="AUDIO_DEVICE_OUT_EARPIECE">
+                </devicePort>
                 <devicePort tagName="Speaker" role="sink" type="AUDIO_DEVICE_OUT_SPEAKER">
+                    <gains>
+                        <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
+                              minValueMB="-10000"
+                              maxValueMB="0"
+                              defaultValueMB="-6000"
+                              stepValueMB="100"/>
+                    </gains>
+                </devicePort>
+                <devicePort tagName="Spdif Out" role="sink" type="AUDIO_DEVICE_OUT_SPDIF">
                     <gains>
                         <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
                               minValueMB="-10000"
@@ -218,7 +230,11 @@
             <routes>
                 <route type="mix" sink="HDMI Out"
                        sources="primary output,tunnel pcm,direct output,Tuner,mmap_no_irq_out_dynamic,compress offload,tunnel compress offload,tunnel direct output"/>
+                <route type="mix" sink="Earpiece"
+                       sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
                 <route type="mix" sink="Speaker"
+                       sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
+                <route type="mix" sink="Spdif Out"
                        sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
