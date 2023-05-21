@@ -10,9 +10,10 @@ function clean() {
 	if [[ -d common-5.15/out ]]; then
 		rm -rf common-5.15/out
 	fi
-	if [[ -d common14-5.15/out ]]; then
+	if [[ -d common14-5.15/out || -d common14-5.15/out_abi ]]; then
 		[[ -d common14-5.15/bazel-out ]] && (cd common14-5.15; tools/bazel clean --async)
-		rm -rf common14-5.15/out
+		[[ -d common14-5.15/out ]] && rm -rf common14-5.15/out
+		[[ -d common14-5.15/out_abi ]] && rm -rf common14-5.15/out_abi
 	fi
 	return
 }
@@ -238,9 +239,6 @@ function build_config_to_bzl() {
 		elif [[ "${ext_module}" =~ "vendor/amlogic/common/gpu/bifrost" ]]; then
 			echo "    \"//driver_modules/gpu/bifrost:gpu\"," 		>> ${PROJECT_DIR}/project.bzl
 			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/gpu/bifrost ${ext_modules}"
-		elif [[ "${ext_module}" =~ "vendor/amlogic/common/gpu/valhall" ]]; then
-			echo "    \"//driver_modules/gpu/valhall:gpu\"," 		>> ${PROJECT_DIR}/project.bzl
-			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/gpu/valhall ${ext_modules}"
 		elif [[ "${ext_module}" =~ "vendor/amlogic/reference/external/DTVKit/AFD" ]]; then
 			echo "    \"//driver_modules/DTVKit/AFD:afd\"," 		>> ${PROJECT_DIR}/project.bzl
 			ext_modules="${MAIN_FOLDER}/${KERNEL_REPO}/driver_modules/DTVKit/AFD ${ext_modules}"
