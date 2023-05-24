@@ -474,7 +474,7 @@
 /vendor/bin/hw/android\.hardware\.usb\.gadget@1\.1-service\.droidlogic   u:object_r:hal_usb_gadget_default_exec:s0
 /vendor/bin/hw/android\.hardware\.usb\.gadget@1\.2-service\.droidlogic   u:object_r:hal_usb_gadget_default_exec:s0
 /vendor/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.software      u:object_r:hal_gatekeeper_default_exec:s0
-/vendor/bin/hw/android\.hardware\.wifi@1\.0-service\.droidlogic          u:object_r:hal_wifi_default_exec:s0
+/vendor/bin/hw/android\.hardware\.wifi-service\.droidlogic               u:object_r:hal_wifi_default_exec:s0
 /vendor/bin/hw/android\.hardware\.tv\.tuner@1\.0-service\.droidlogic     u:object_r:hal_tv_tuner_default_exec:s0
 /vendor/bin/hw/android\.hardware\.bluetooth@1\.0-service-droidlogic      u:object_r:hal_bluetooth_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.[0-9]-service-aml-driver    u:object_r:hal_neuralnetworks_adla_exec:s0

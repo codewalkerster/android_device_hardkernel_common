@@ -459,9 +459,12 @@ endif
 #
 #########################################################################
 PRODUCT_PACKAGES += \
-     libwifi-hal-aml \
-     android.hardware.wifi@1.0-service.droidlogic \
      android.hardware.usb@1.0-service
+
+# WiFi AIDL HAL
+PRODUCT_PACKAGES += \
+     libwifi-hal-aml \
+     android.hardware.wifi-service.droidlogic
 
 # healthd aidl hal
 ifneq ($(filter T U,$(LAUNCH_VERSION)),)
