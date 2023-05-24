@@ -76,6 +76,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.hbbtv.enable = true \
     vendor.tv.dtv.hbbtv.keyremap = true
 endif
+
+#FVP
+ifeq ($(PRODUCT_SUPPORT_FVP), true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.dtv.fvp.enable=true
+endif
+
 endif
 
 PRODUCT_PACKAGES += \
