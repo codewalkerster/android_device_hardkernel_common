@@ -19,9 +19,6 @@
 #======================================================================================
 
 ifeq ($(strip $(TCON_FW_MODULE)),true)
-    $(warning TCON_FW_MODULE is $(TCON_FW_MODULE))
-    $(warning TARGET_BUILD_KERNEL_VERSION is $(TARGET_BUILD_KERNEL_VERSION))
-    $(warning KERNEL_A32_SUPPORT is $(KERNEL_A32_SUPPORT))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 
     else ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.4)

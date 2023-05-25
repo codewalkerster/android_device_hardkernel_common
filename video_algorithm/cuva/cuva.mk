@@ -19,7 +19,6 @@
 #======================================================================================
 
 ifeq ($(strip $(CUVA_MODULE)),true)
-    $(warning CUVA_MODULE is $(CUVA_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \

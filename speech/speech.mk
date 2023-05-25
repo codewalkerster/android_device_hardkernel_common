@@ -20,11 +20,9 @@
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 SPEECH_MODULE := false
-$(warning because speech does not support kernel 5.4, So set SPEECH_MODULE to $(SPEECH_MODULE) here)
 endif
 
 ifeq ($(strip $(SPEECH_MODULE)),true)
-    $(warning SPEECH_MODULE is $(SPEECH_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \

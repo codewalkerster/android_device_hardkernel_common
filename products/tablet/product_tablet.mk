@@ -97,8 +97,6 @@ PRODUCT_PACKAGES += \
     tspacktest \
     screencatch
 
-$(warning echo "ATV_LAUNCHER =="$(ATV_LAUNCHER))
-
 #lcd/tconless tools
 PRODUCT_PACKAGES += \
     tcondump \

@@ -85,32 +85,26 @@ ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
 ifeq ($(TARGET_BUILD_DTSHD),true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'This platform support dolby ms12 & dtshd decoder')
 else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'This platform support dolby ms12 decoder')
 endif
 else
 ifeq ($(TARGET_BUILD_DOLBY_DDP),true)
 ifeq ($(TARGET_BUILD_DTSHD),true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'This platform support dolby ddp & dtshd decoder')
 else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'This platform support dolby ddp decoder')
 endif
 else
 ifeq ($(TARGET_BUILD_DTSHD),true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'This platform support dtshd decoder')
 else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'This platform nonsupport dolby ms12 & dtshd decoder')
 endif
 endif
 endif

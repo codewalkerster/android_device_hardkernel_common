@@ -19,7 +19,6 @@
 #======================================================================================
 
 ifeq ($(strip $(GDC_FW_MODULE)),true)
-    $(warning GDC_FW_MODULE is $(GDC_FW_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
 
     else

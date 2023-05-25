@@ -131,7 +131,6 @@ endif
 
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-$(warning 'using audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml')
 
 endif  ###end USE_XML_AUDIO_POLICY_CONF
 #########################################################################

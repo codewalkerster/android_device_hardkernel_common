@@ -99,8 +99,6 @@ PRODUCT_PACKAGES += \
     screencatch \
     vadservice
 
-$(warning echo "ATV_LAUNCHER =="$(ATV_LAUNCHER))
-
 #lcd/tconless tools
 PRODUCT_PACKAGES += \
     tcondump \

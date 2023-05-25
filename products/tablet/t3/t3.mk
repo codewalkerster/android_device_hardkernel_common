@@ -97,7 +97,6 @@ BOARD_AVB_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 endif #ifeq ($(PRODUCT_USE_PREBUILD_SECURE_BOOTLOADER),true)
 BOARD_AVB_ROLLBACK_INDEX := 0
-$(warning BOARD_AVB_KEY_PATH is $(BOARD_AVB_KEY_PATH))
 ifeq ($(BOARD_AVB_KEY_PATH),)
 	$(error BOARD_AVB_KEY_PATH undefined or null)
 endif

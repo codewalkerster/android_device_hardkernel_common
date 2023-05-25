@@ -19,7 +19,6 @@
 #======================================================================================
 
 ifeq ($(strip $(ALGORITHM_MODULE)),true)
-    $(warning ALGORITHM_MODULE is $(ALGORITHM_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
 			PRODUCT_COPY_FILES += \

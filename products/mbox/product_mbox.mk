@@ -106,7 +106,6 @@ PRODUCT_PACKAGES += \
     screencatch
 endif
 
-$(warning echo "ATV_LAUNCHER =="$(ATV_LAUNCHER))
 #TvSettings
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \

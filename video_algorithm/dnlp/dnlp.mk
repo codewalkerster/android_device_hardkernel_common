@@ -19,7 +19,6 @@
 #======================================================================================
 
 ifeq ($(strip $(DNLP_MODULE)),true)
-    $(warning DNLP_MODULE is $(DNLP_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \

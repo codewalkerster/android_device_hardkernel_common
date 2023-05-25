@@ -63,14 +63,11 @@ PRODUCT_PACKAGES += \
 
 endif
 
-$(warning start to am kernel patches...)
 KERNEL_AUTO_PATCH := $(shell ls common*/mk.sh)
 KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
     $(shell $(patch_shell) --patch ))
 ifeq ($(filter Error,$(KERNEL_AUTO_PATCH_RESULT)), Error)
 $(error end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
-else
-$(warning end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
 endif
 
 BOARD_DO_NOT_STRIP_VENDOR_RAMDISK_MODULES := true
@@ -197,7 +194,6 @@ else
     WITH_LIBPLAYER_MODULE := false
 endif
 
-$(warning BOARD_COMPILE_ATV is $(BOARD_COMPILE_ATV))
 ifeq ($(BOARD_COMPILE_ATV), false)
 ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \

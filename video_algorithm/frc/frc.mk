@@ -17,12 +17,7 @@
 #======================================================================================
 # 1.for frc_alg ko file copy
 #======================================================================================
-$(warning frc.mk)
-$(warning TARGET_BUILD_KERNEL_VERSION=$(TARGET_BUILD_KERNEL_VERSION))
-$(warning TARGET_PRODUCT=$(TARGET_PRODUCT))
-$(warning PLATFORM_SUPPORT_MEMC_CHIP=$(PLATFORM_SUPPORT_MEMC_CHIP))
 ifeq ($(strip $(FRC_FW_MODULE)),true)
-    $(warning FRC_FW_MODULE is $(FRC_FW_MODULE))
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.4)
         ifneq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
@@ -33,7 +28,6 @@ ifeq ($(strip $(FRC_FW_MODULE)),true)
 		ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
 			ifneq ($(KERNEL_A32_SUPPORT),true)
 				ifeq ($(TARGET_PRODUCT), T5M)
-					$(warning copy frc_fw_t5m.ko)
 					PRODUCT_COPY_FILES += \
 						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
 						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
@@ -42,7 +36,6 @@ ifeq ($(strip $(FRC_FW_MODULE)),true)
 		else
 			ifneq ($(KERNEL_A32_SUPPORT),true)
 				ifeq ($(TARGET_PRODUCT), T5M)
-					$(warning copy frc_fw_t5m.ko)
 					PRODUCT_COPY_FILES += \
 						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
 						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
