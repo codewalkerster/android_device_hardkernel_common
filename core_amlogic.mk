@@ -675,8 +675,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     fastbootd \
-    android.hardware.fastboot@1.1 \
-    android.hardware.fastboot@1.1-impl-amlogic
+    android.hardware.fastboot-service.amlogic_recovery
+    #android.hardware.fastboot@1.1-impl-amlogic
 
 # install  audio_effects.xml and audio_policy_configuration.xml soft link to oem file.
 PRODUCT_PACKAGES += \
