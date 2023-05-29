@@ -120,3 +120,12 @@ else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 endif  ###end TARGET_BUILD_OEM_WITH_LICENSE_FILES
+#########################################################################
+#
+# tunerhal
+#
+#########################################################################
+ifeq ($(SUPPORT_TUNERHAL), true)
+PRODUCT_COPY_FILES += \
+    $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
+endif

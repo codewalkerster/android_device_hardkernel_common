@@ -51,6 +51,10 @@ soong_config_string_variable {
         "sabrina",
         "sc2",
         "s4",
+        "s4d",
+        "s5",
+        "t7",
+        "t7c",
         "t5m",
     ],
 }

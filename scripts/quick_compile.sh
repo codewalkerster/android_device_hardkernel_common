@@ -642,7 +642,7 @@ lunch_env() {
 
 compile_kernel() {
     if [ $kernel_type -eq 1 ]; then
-        kernel_version="5.15"
+        kernel_version="common14-5.15"
     elif [ $kernel_type -eq 2 ]; then
         kernel_version="5.4"
     elif [ $kernel_type -eq 3 ]; then
@@ -655,7 +655,7 @@ compile_kernel() {
     ${kernel_addr[platform_type]}
     if [ $# -eq 1 ]; then usermode="$1"; fi
     echo "${kernel_exec[platform_type]} ${kernel_version} -t ${usermode}"
-    ${kernel_exec[platform_type]} ${kernel_version} -t ${usermode}
+    ${kernel_exec[platform_type]} ${kernel_version} -t ${usermode} --sp --gki_20 --bazel
     if [ $? != 0 ]; then echo " Error : Build Kernel error, exit!!!"; exit; fi
 }
 
