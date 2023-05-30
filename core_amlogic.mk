@@ -63,9 +63,9 @@ PRODUCT_PACKAGES += \
 
 endif
 
-KERNEL_AUTO_PATCH := $(shell ls common*/mk.sh)
+KERNEL_AUTO_PATCH := $(shell ls common/common*/mk.sh)
 KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
-    $(shell $(patch_shell) --patch ))
+    $(shell $(patch_shell) --patch lunch))
 ifeq ($(filter Error,$(KERNEL_AUTO_PATCH_RESULT)), Error)
 $(error end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
 endif
