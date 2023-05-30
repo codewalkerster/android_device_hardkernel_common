@@ -325,4 +325,9 @@
     <bool name="config_supportsMicToggle">true</bool>
     <!-- Whether this device is supporting the camera toggle -->
     <bool name="config_supportsCamToggle">true</bool>
+
+    <!-- If the display smallest screen width is greater or equal to this value, we will treat it
+         as a large screen device, which will have some multi window features enabled by default.
+    -->
+    <integer name="config_largeScreenSmallestScreenWidthDp">800</integer>
 </resources>
