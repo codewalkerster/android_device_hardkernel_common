@@ -14,7 +14,7 @@ allow dtvkitserver self:capability sys_nice;
 allow dtvkitserver hwservicemanager:binder { call transfer };
 allow dtvkitserver system_control:binder { call transfer };
 allow dtvkitserver sysfs_video:dir { search };
-allow dtvkitserver dtvkit_data_file:dir{ create write read add_name remove_name open search };
+allow dtvkitserver dtvkit_data_file:dir{ create write read getattr add_name remove_name open search };
 allow dtvkitserver dtvkit_data_file:file { ioctl getattr read write open create lock setattr unlink append map};
 allow dtvkitserver dtvkit_data_file:chr_file{ ioctl };
 allow dtvkitserver hal_hidlimw_file:dir create_dir_perms;
