@@ -224,3 +224,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hwc.aisr_check_interlace=1
 
+#t3x 8k support
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.resolution.limit.32bit=8192
