@@ -22,7 +22,7 @@
 
 
 key 116   TV_POWER      WAKE
-key 217   ASSIST        WAKE
+key 217   PAIRING       WAKE
 
 
 key 103   DPAD_UP
