@@ -23,7 +23,7 @@ module[1]="ohm_gtv"
 uboot_path[1]="device/amlogic/ohm"
 uboot_exec_aosp[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[1]="./mk ohm -v "
+kernel_exec[1]="./mk ohm --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -35,7 +35,7 @@ module[2]="ohm_hybrid"
 uboot_path[2]="device/amlogic/ohm"
 uboot_exec_aosp[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[2]="./mk ohm -v "
+kernel_exec[2]="./mk ohm --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -47,7 +47,7 @@ module[3]="ohm_cbs"
 uboot_path[3]="device/amlogic/ohm"
 uboot_exec_aosp[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[3]="./mk ohm -v "
+kernel_exec[3]="./mk ohm --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -59,7 +59,7 @@ module[4]="ohm"
 uboot_path[4]="device/amlogic/ohm"
 uboot_exec_aosp[4]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[4]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[4]="./mk ohm -v "
+kernel_exec[4]="./mk ohm --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -71,7 +71,7 @@ module[5]="ohm_mxl258c"
 uboot_path[5]="device/amlogic/ohm"
 uboot_exec_aosp[5]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[5]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[5]="./mk ohm --fccpip -v"
+kernel_exec[5]="./mk ohm --gki_image --fccpip -v"
 ###########################################################################################
 
 ###########################################################################################
@@ -83,7 +83,7 @@ module[6]="ohmcas_gtv"
 uboot_path[6]="device/amlogic/ohmcas"
 uboot_exec_aosp[6]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[6]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
-kernel_exec[6]="./mk ohmcas -v "
+kernel_exec[6]="./mk ohmcas --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -95,7 +95,7 @@ module[7]="ohmcas"
 uboot_path[7]="device/amlogic/ohmcas"
 uboot_exec_aosp[7]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
 uboot_exec_drm[7]="./mk sc2_ah232  --vab --avb2 --fastboot-write"
-kernel_exec[7]="./mk ohmcas -v "
+kernel_exec[7]="./mk ohmcas --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -376,7 +376,7 @@ module[30]="ohmcas2_gtv"
 uboot_path[30]="device/amlogic/ohmcas2"
 uboot_exec_aosp[30]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
 uboot_exec_drm[30]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
-kernel_exec[30]="./mk ohmcas2 -v "
+kernel_exec[30]="./mk ohmcas2 --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -388,7 +388,7 @@ module[31]="ohmcas2"
 uboot_path[31]="device/amlogic/ohmcas2"
 uboot_exec_aosp[31]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
 uboot_exec_drm[31]="./mk sc2_ah221  --vab --avb2 --fastboot-write"
-kernel_exec[31]="./mk ohmcas2 -v "
+kernel_exec[31]="./mk ohmcas2 --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -498,7 +498,7 @@ read_android_type() {
 
 
 ########################################################################################################################################################################
-# Get Kernel Type: 5.15/5.4/4.9
+# Get Kernel Type: common14-5.15/5.4/4.9
 ########################################################################################################################################################################
 read_kernel_type() {
     while true :
@@ -506,7 +506,7 @@ read_kernel_type() {
         echo -e \
         "Select kernel version type lists:\n"\
         "[NUM]   [Kernel Version]\n" \
-        "[  1]   [5.15]\n" \
+        "[  1]   [common14-5.15]\n" \
         "[  2]   [5.4 ]\n" \
         "[  3]   [4.9 ]\n" \
         "--------------------------------------------\n"
@@ -655,7 +655,7 @@ compile_kernel() {
     ${kernel_addr[platform_type]}
     if [ $# -eq 1 ]; then usermode="$1"; fi
     echo "${kernel_exec[platform_type]} ${kernel_version} -t ${usermode}"
-    ${kernel_exec[platform_type]} ${kernel_version} -t ${usermode} --sp --gki_20 --bazel
+    ${kernel_exec[platform_type]} ${kernel_version} -t ${usermode}
     if [ $? != 0 ]; then echo " Error : Build Kernel error, exit!!!"; exit; fi
 }
 
@@ -769,7 +769,7 @@ if [ $# -eq 4 ]; then
     elif [[ $@ == *"4.9"* ]]; then
         kernel_type="3"
     else
-        echo -e "please add params:Kernel version 5.15/5.4/4.9\n"
+        echo -e "please add params:Kernel version common14-5.15/5.4/4.9\n"
         exit
     fi
 
