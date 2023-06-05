@@ -183,7 +183,6 @@ include device/amlogic/common/video_algorithm/dnlp/dnlp_modules.mk
 include device/amlogic/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
 include device/amlogic/common/video_algorithm/frc/frc_modules.mk
 include device/amlogic/common/soft_afbc/soft_afbc_modules.mk
-include device/amlogic/common/video_algorithm/algorithm/algorithm_modules.mk
 include device/amlogic/common/video_algorithm/gdc/gdc_modules.mk
 
 BOARD_VENDOR_KERNEL_MODULES ?= $(VENDOR_KERNEL_MODULES)
