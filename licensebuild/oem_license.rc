@@ -32,5 +32,5 @@ on init
     chown audioserver mediadrm /dev/dolby_fw
     chmod 440 /dev/dolby_fw
 
-    # Let the partition be read-only
-    mount tmpfs tmpfs /odm/lib/ms12 remount ro
+    # Make the partition readable and writable
+    mount tmpfs tmpfs /odm/lib/ms12 remount rw
