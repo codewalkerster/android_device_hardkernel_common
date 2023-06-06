@@ -191,7 +191,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.omx2.nr.enable=true \
     vendor.omx2.di.localbuf.enable=true \
     vendor.media.omx.secure.prealloc=true\
-    vendor.omx2.avc.size_level=1
+    vendor.omx2.avc.size_level=1\
+    vendor.media.omx.usemetadata=false
 
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \

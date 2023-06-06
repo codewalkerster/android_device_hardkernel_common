@@ -165,7 +165,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #unsupport 4k
 #PRODUCT_PRODUCT_PROPERTIES += \
-#	media.amplayer.videolimiter=true \
+#   media.amplayer.videolimiter=true \
 #        ro.vendor.platform.support.4k=false
 
 #used for controlling reference board's preview window,
@@ -201,7 +201,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.omx2.di.localbuf.enable=true \
     vendor.media.omx2.1080p_buffer=true \
     vendor.media.omx2.hithBitrate_mbps=45 \
-    vendor.media.omx.dec.enable_h264_4k_mmu=true
+    vendor.media.omx.dec.enable_h264_4k_mmu=true\
+    vendor.omx2.avc.size_level=2\
+    vendor.media.omx.usemetadata=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.locale=en-US
