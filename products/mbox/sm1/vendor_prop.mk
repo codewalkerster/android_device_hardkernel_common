@@ -113,6 +113,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1
 
+#adb
+PRODUCT_PROPERTY_OVERRIDES += \
+    service.adb.tcp.port=5555
+
 # low memory for 1G
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.config.low_ram=true

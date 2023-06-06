@@ -75,6 +75,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.fake_pid=0x2fff
 
+#adb
+PRODUCT_PROPERTY_OVERRIDES += \
+    service.adb.tcp.port=5555
+
 # low memory for 1G
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.config.low_ram=true
