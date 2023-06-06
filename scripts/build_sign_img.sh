@@ -12,69 +12,82 @@ function clean() {
 }
 
 function build() {
-	#TARGET_DIR=$1_target
 	KEY_DIR=$2
-	BOARD_NAME=$3
+	TOOLS_ZIP=$3
+	#BOARD_NAME=$4
 	CUR_DIR=$(pwd)
 
-	./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR $1 signed-target.zip
+	cd $CUR_DIR
+	unzip -o -q $TOOLS_ZIP
+
+	chmod +x $CUR_DIR/prebuilts/jdk/jdk17/linux-x86/bin/*
+	export PATH=$CUR_DIR/:$CUR_DIR/bin/:$CUR_DIR/prebuilts/jdk/jdk17/linux-x86/bin/:$PATH
+	export LD_LIBRARY_PATH=$CUR_DIR/lib64:$LD_LIBRARY_PATH
+
+	echo $PATH
+	echo $LD_LIBRARY_PATH
+
+	./bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR $1 signed-target.zip
 
 	if [ $? -ne 0 ]; then
 		echo "sign ERROR"
 		exit 1
 	fi
 
-	./out/host/linux-x86/bin/ota_from_target_files signed-target.zip signed-ota.zip
+	./bin/ota_from_target_files signed-target.zip signed-ota.zip
 
 	if [ $? -ne 0 ]; then
 		echo "build ota zip ERROR"
 		exit 1
 	fi
 
-	./out/host/linux-x86/bin/img_from_target_files signed-target.zip signed-img.zip
+	./bin/img_from_target_files signed-target.zip signed-img.zip
 
 	if [ $? -ne 0 ]; then
 		echo "build img zip ERROR"
 		exit 1
 	fi
 
-	unzip -o -q signed-img.zip -d signed-img
-	rm signed-img.zip
-	cp -a out/target/product/$3/fastboot_auto/gpt.bin signed-img/
-	cp -a out/target/product/$3/fastboot_auto/flash-all.bat signed-img/
-	cp -a out/target/product/$3/fastboot_auto/flash-all.sh signed-img/
+	if [ -f flash-all.bat ]; then
+		unzip -o -q signed-img.zip -d signed-img
+		rm signed-img.zip
+		cp -a flash-all.bat flash-all.sh signed-img/
 
-	cd signed-img
-	zip -1 -r ../signed-fastboot.zip *
+		cd signed-img
+		zip -1 -r ../signed-fastboot.zip *
 
-	if [ $? -ne 0 ]; then
-		echo "build fastboot zip ERROR"
-		exit 1
+		if [ $? -ne 0 ]; then
+			echo "build fastboot zip ERROR"
+			exit 1
+		fi
+
+		cd ../
+		rm -rf signed.zip
 	fi
 
-	cd ../
-	rm -rf signed.zip
+	if [ -d upgrade ]; then
+		cp -a upgrade/aml_sdc_burn.ini signed-img/
+		cp -a upgrade/aml_upgrade_package_* signed-img/aml_upgrade_package.conf
+		cp -a upgrade/dt.img signed-img/
+		cp -a upgrade/platform.conf signed-img/
+		cp -a upgrade/u-boot.bin.* signed-img/
+		cp -a upgrade/usb_flow.aml signed-img/
+		cp -a upgrade/gpt.bin signed-img/
 
-	cp -a out/target/product/$3/upgrade/aml_sdc_burn.ini signed-img/
-	cp -a out/target/product/$3/upgrade/aml_upgrade_package_* signed-img/
-	cp -a out/target/product/$3/upgrade/dt.img signed-img/
-	cp -a out/target/product/$3/upgrade/platform.conf signed-img/
-	cp -a out/target/product/$3/upgrade/u-boot.bin.* signed-img/
-	cp -a out/target/product/$3/upgrade/usb_flow.aml signed-img/
+		unzip -o -q signed-target.zip -d signed-target
+		./bin/build_super_image -v signed-target signed-img/super.img
 
-	unzip -o -q signed-target.zip -d signed-target
-	./out/host/linux-x86/bin/build_super_image -v signed-target signed-img/super.img
+		if [ $? -ne 0 ]; then
+			echo "build super.img ERROR"
+			exit 1
+		fi
 
-	if [ $? -ne 0 ]; then
-		echo "build super.img ERROR"
-		exit 1
-	fi
+		vendor/amlogic/common/tools/aml_upgrade/aml_image_v2_packer -r signed-img/aml_upgrade_package.conf signed-img aml_upgrade_package_sign.img
 
-	vendor/amlogic/common/tools/aml_upgrade/aml_image_v2_packer -r out/target/product/$3/upgrade/aml_upgrade_package_AB_vendor_boot.conf signed-img aml_upgrade_package_sign.img
-
-	if [ $? -ne 0 ]; then
-		echo "build usb burn fw ERROR"
-		exit 1
+		if [ $? -ne 0 ]; then
+			echo "build usb burn fw ERROR"
+			exit 1
+		fi
 	fi
 
 	rm -rf signed-img
@@ -93,7 +106,7 @@ $(basename $0) --help
 command list:
 ./build_sign_img.sh clean   ### clean intermediate file
 ./build_sign_img.sh -v   ### show version
-./build_sign_img.sh target.zip keys board_name
+./build_sign_img.sh target.zip keys otatools.zip
 
 EOF
 	exit 1
