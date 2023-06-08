@@ -65,7 +65,7 @@ endif
 
 KERNEL_AUTO_PATCH := $(shell ls common/common*/mk.sh)
 KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
-    $(shell $(patch_shell) --patch lunch))
+    $(shell cd $(shell dirname $(patch_shell)); ./mk.sh --patch lunch))
 ifeq ($(filter Error,$(KERNEL_AUTO_PATCH_RESULT)), Error)
 $(error end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
 endif
