@@ -40,26 +40,6 @@
 	<!-- Bellow must removed when full new device feature finished -->
 	<!-- Bellow must removed when full new device feature finished -->
 	<!-- Bellow must removed when full new device feature finished -->
-
-    <hal format="hidl" optional="true">
-        <name>android.hardware.boot</name>
-        <version>1.2</version>
-        <interface>
-            <name>IBootControl</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl" optional="true">
-        <name>android.hardware.camera.provider</name>
-        <version>2.4-7</version>
-        <interface>
-            <name>ICameraProvider</name>
-            <regex-instance>[^/]+/[0-9]+</regex-instance>
-        </interface>
-    </hal>
-
-
 	 <hal format="hidl" optional="true">
 		 <name>android.hardware.graphics.allocator</name>
 		 <!-- New, non-Go devices should use 4.0 or the AIDL hal. -->
@@ -84,20 +64,11 @@
             <instance>default</instance>
         </interface>
     </hal>
-
-     <hal format="aidl" optional="true">
+    <hal format="aidl" optional="true">
          <name>android.hardware.tetheroffload</name>
          <version>1</version>
          <interface>
              <name>IOffload</name>
-             <instance>default</instance>
-         </interface>
-     </hal>
-     <hal format="aidl" optional="true">
-         <name>android.hardware.thermal</name>
-         <version>1</version>
-         <interface>
-             <name>IThermal</name>
              <instance>default</instance>
          </interface>
      </hal>
@@ -125,14 +96,6 @@
              <instance>default</instance>
          </interface>
      </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.thermal</name>
-        <version>2.0</version>
-        <interface>
-            <name>IThermal</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.tv.cec</name>
         <version>1.0-1</version>
@@ -176,12 +139,4 @@
         </interface>
     </hal>
 
-    <hal format="hidl" optional="true">
-        <name>android.hardware.wifi</name>
-        <version>1.3-6</version>
-        <interface>
-            <name>IWifi</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </compatibility-matrix>
