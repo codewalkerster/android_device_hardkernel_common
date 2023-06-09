@@ -9,6 +9,16 @@ allow bootanim system_data_file:file { open read };
 allow bootanim system_data_file:dir { open read };
 allow bootanim mediaserver_service:service_manager { find };
 allow bootanim mediaserver:binder { call transfer };
+
+allow bootanim audio_service:service_manager { find };
+
+allow bootanim audioserver_service:service_manager { find };
+allow bootanim audioserver:binder { call transfer };
+allow bootanim mediametrics_service:service_manager { find };
+allow bootanim mediametrics:binder { call transfer };
+allow bootanim system_server:binder { call transfer };
+
+
 allow bootanim hal_graphics_allocator_default_tmpfs:file rw_file_perms;
 set_prop(bootanim, system_prop)
 get_prop(bootanim, vendor_media_prop)
