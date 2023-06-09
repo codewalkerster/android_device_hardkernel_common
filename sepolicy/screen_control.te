@@ -14,6 +14,7 @@ hal_client_domain(screen_control, hal_graphics_allocator)
 hal_client_domain(screen_control, hal_omx);
 
 get_prop(screen_control, vendor_default_prop)
+get_prop(screen_control, vendor_persist_prop)
 add_hwservice(screen_control, screencontrol_hwservice)
 
 allow screen_control hidl_memory_hwservice:hwservice_manager find;
