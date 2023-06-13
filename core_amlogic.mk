@@ -326,23 +326,6 @@ PRODUCT_PACKAGES += \
 
 endif
 
-PRODUCT_PACKAGES += \
-    libOmxCore \
-    libOmxVideo \
-    libOmxAudio \
-    libHwAudio_dcvdec_passthrough \
-    libHwAudio_dtshd_passthrough \
-    libthreadworker_alt \
-    libdatachunkqueue_alt \
-    libOmxBase \
-    libomx_av_core_alt \
-    libomx_framework_alt \
-    libomx_worker_peer_alt \
-    libfpscalculator_alt \
-    libomx_clock_utils_alt \
-    libomx_timed_task_queue_alt \
-    libstagefrighthw
-
 ifeq ($(BOARD_COMPILE_CTS),true)
 PRODUCT_PACKAGES += \
     libsecmem \
@@ -509,9 +492,6 @@ PRODUCT_PACKAGES += \
      android.hardware.camera.provider@2.5-service-droidlogic
 endif
 
-PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-service
-
 #Power HAL
 PRODUCT_PACKAGES += \
     android.hardware.power.aidl-service.droidlogic
@@ -650,6 +630,32 @@ ifeq ($(TARGET_WITH_SWCODEC_EXT), true)
 PRODUCT_PACKAGES += \
     libcodec2_aml_soft_video_decoder
 endif
+endif
+
+#omx HAL
+ifeq ($(VENDOR_MEDIA_OMX_SUPPORT),true)
+
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-service
+
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVideo \
+    libOmxAudio \
+    libHwAudio_dcvdec_passthrough \
+    libHwAudio_dtshd_passthrough \
+    libthreadworker_alt \
+    libdatachunkqueue_alt \
+    libOmxBase \
+    libomx_av_core_alt \
+    libomx_framework_alt \
+    libomx_worker_peer_alt \
+    libfpscalculator_alt \
+    libomx_clock_utils_alt \
+    libomx_timed_task_queue_alt \
+    libstagefrighthw
+
+
 endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_HCODEC),true)

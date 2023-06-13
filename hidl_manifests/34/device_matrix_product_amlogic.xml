@@ -52,19 +52,8 @@
 		 </interface>
 	 </hal>
 
-    <hal format="hidl" optional="true">
-        <name>android.hardware.media.omx</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOmx</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IOmxStore</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
+
+     <hal format="aidl" optional="true">
          <name>android.hardware.tetheroffload</name>
          <version>1</version>
          <interface>
