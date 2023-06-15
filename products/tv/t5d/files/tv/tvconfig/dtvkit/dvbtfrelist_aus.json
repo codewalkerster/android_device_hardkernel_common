@@ -49,9 +49,15 @@
             "cofdmmode": "udef"
         },
         {
+            "name": "ch27",
+            "bandwidth": "7MHZ",
+            "frequency": "522500000",
+            "cofdmmode": "udef"
+        },
+        {
             "name": "ch28",
             "bandwidth": "7MHZ",
-            "frequency": "5295000000",
+            "frequency": "529500000",
             "cofdmmode": "udef"
         },
         {
