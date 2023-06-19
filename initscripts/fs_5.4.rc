@@ -16,7 +16,7 @@ on post-fs-data
     mkdir /data/vendor/wifi 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     # we will remap this as /storage/sdcard0 with the sdcard fuse tool
-    mkdir /data/media 0770 media_rw media_rw
+    mkdir /data/media 0770 media_rw media_rw encryption=None
     mkdir /data/vendor/cas 0700 root root
     #for wvcas
     mkdir /data/vendor/mediacas 0770 media mediadrm
