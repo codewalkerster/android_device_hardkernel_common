@@ -106,3 +106,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #for early suspend
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.earlysuspend=false
+
+#for apexd ,the property value is from cpu cores num
+PRODUCT_PROPERTY_OVERRIDES += \
+    apexd.config.boot_activation.threads=4
