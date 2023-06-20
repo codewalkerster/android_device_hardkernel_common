@@ -113,7 +113,11 @@ endif
 ifneq ($(filter T U,$(LAUNCH_VERSION)),)
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_newlaunch.fstab
 else
+ifneq ($(AB_OTA_UPDATER),true)
+TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery.fstab
+else
 TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_upgrade.fstab
+endif
 endif
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/amlogic/common/scripts
@@ -936,7 +940,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 else ifeq ($(LAUNCH_VERSION),R)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 else
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 41943040
 endif
 endif
 
