@@ -541,7 +541,7 @@
 /vendor/lib(64)?/libuva\.so                             u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libvewdcore\.so                        u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libhbbtv_backend_jni\.so               u:object_r:vendor_app_file:s0
-/vendor/lib(64)?/libfmq_vendor\.so                      u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libfmq.vendor\.so                      u:object_r:vendor_app_file:s0
 
 /dev/hidraw[0-9]*	u:object_r:hidraw_audio_device:s0
 #The final space is necessary. Please don't delete it.
