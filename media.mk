@@ -285,6 +285,7 @@ PRODUCT_PACKAGES += \
   00d1ca22-1764-4e35-90aa-5b8c12630764 \
   libtee-hal \
   NfxTokenManager
+include vendor/amlogic/common/prebuilt/libmediadrm/netflix/netflix.mk
 endif
 
 #for OMX
