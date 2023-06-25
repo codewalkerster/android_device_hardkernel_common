@@ -462,6 +462,43 @@ TARGET_USB_BURNING_V2_DEPEND_MODULES := $(AML_TARGET).zip #copy xx.img to $(AML_
 INTERNAL_SUPERIMAGE_DIST_TARGET := $(PRODUCT_OUT)/obj/PACKAGING/super.img_intermediates/super.img
 INSTALLED_SUPERIMAGE_EMPTY_TARGET := $(PRODUCT_OUT)/super_empty.img
 
+PREPARE_AML_FILES := $(PRODUCT_OUT)/upgrade/platform.conf
+.PHONY:aml_prepare
+aml_prepare: $(PREPARE_AML_FILES)
+$(PREPARE_AML_FILES): \
+	$(addprefix $(PRODUCT_OUT)/,$(BUILT_IMAGES)) \
+	$(INSTALLED_BOARDDTB_TARGET) \
+	$(UPGRADE_FILES) \
+	$(INSTALLED_AML_USER_IMAGES) \
+	$(INSTALLED_AML_LOGO) \
+	$(INSTALLED_MANIFEST_XML) \
+	$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) \
+	$(INTERNAL_SUPERIMAGE_DIST_TARGET) \
+	$(TARGET_USB_BURNING_V2_DEPEND_MODULES)
+	mkdir -p $(PRODUCT_UPGRADE_OUT)
+	$(hide) $(foreach file,$(UPGRADE_FILES), \
+		echo cp $(file) $(PRODUCT_UPGRADE_OUT)/$(notdir $(file)); \
+		cp -f $(file) $(PRODUCT_UPGRADE_OUT)/$(notdir $(file)); \
+		)
+ifneq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
+	echo "delete oem.img in $(PACKAGE_CONFIG_FILE)"
+	sed -i "/oem.img/d" $(PACKAGE_CONFIG_FILE)
+endif
+ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
+	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
+	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
+endif
+ifneq ($(TARGET_GPT_PART),true)
+	echo "don't need to burn bootloader_a in null gpt"
+	sed -i "/bootloader_a/d" $(PACKAGE_CONFIG_FILE)
+else
+	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
+endif
+	$(security_dm_verity_conf)
+	$(update-aml_upgrade-conf)
+	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
+		$(call aml-user-img-update-pkg,$(userPartName),$(PACKAGE_CONFIG_FILE)))
+
 .PHONY:aml_upgrade
 aml_upgrade:$(INSTALLED_AML_UPGRADE_PACKAGE_TARGET)
 $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET): \
@@ -729,6 +766,11 @@ endif
 
 droidcore: $(INSTALLED_MANIFEST_XML)
 #otapackage: otatools-package
+
+droidcore: $(PREPARE_AML_FILES) \
+	$(IMG_FROM_TARGET_FILES) $(OTA_FROM_TARGET_FILES) \
+	$(HOST_OUT_EXECUTABLES)/sign_target_files_apks$(HOST_EXECUTABLE_SUFFIX) \
+	$(BUILD_SUPER_IMAGE)
 
 ifneq ($(BUILD_AMLOGIC_FACTORY_ZIP), false)
 droidcore: $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_AML_FASTBOOT_ZIP)

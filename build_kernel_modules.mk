@@ -285,10 +285,12 @@ endif
 
 ifneq ($(KERNEL_A32_SUPPORT),true)
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
+target-files-package: $(AML_VENDOR_COPY_FILES)
 $(PRODUCT_OUT)/vendor_dlkm.img: $(AML_VENDOR_COPY_FILES)
 endif
 
 ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+target-files-package: $(AML_SYSTEM_DLKM_COPY_FILES)
 $(PRODUCT_OUT)/installed-files-system_dlkm.txt: $(AML_SYSTEM_DLKM_COPY_FILES)
 endif
 endif
