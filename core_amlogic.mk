@@ -747,6 +747,9 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
 
 PRODUCT_COPY_FILES += \
+    device/amlogic/common/silent_ota.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/silent_ota.xml
+
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
