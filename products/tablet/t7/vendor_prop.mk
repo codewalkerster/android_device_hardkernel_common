@@ -183,7 +183,8 @@ ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.codec2.support=true \
     vendor.media.codec2.disable_secure=false \
-    debug.c2.use_dmabufheaps=1
+    debug.c2.use_dmabufheaps=1 \
+    debug.stagefright.c2inputsurface=-1
 endif
 
 #usb controller

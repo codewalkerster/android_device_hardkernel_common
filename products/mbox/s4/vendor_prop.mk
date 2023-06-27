@@ -163,6 +163,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.codec2.disable_secure=false \
     debug.stagefright.c2-poolmask=458752 \
     debug.c2.use_dmabufheaps=1 \
+    debug.stagefright.c2inputsurface=-1 \
     debug.vendor.media.c2.vdec.support_10bit=false \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true \
     vendor.media.mediahal.videodec.media.c2_secure_prealloc=true
