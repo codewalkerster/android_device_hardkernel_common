@@ -67,15 +67,6 @@
         </interface>
     </hal>
     <hal>
-        <name>android.hardware.tv.cec</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IHdmiCec</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal>
         <name>vendor.amlogic.hardware.systemcontrol</name>
         <transport>hwbinder</transport>
         <version>1.1</version>

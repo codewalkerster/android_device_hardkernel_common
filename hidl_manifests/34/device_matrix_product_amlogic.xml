@@ -86,14 +86,6 @@
          </interface>
      </hal>
     <hal format="hidl" optional="true">
-        <name>android.hardware.tv.cec</name>
-        <version>1.0-1</version>
-        <interface>
-            <name>IHdmiCec</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>android.hardware.tv.input</name>
         <version>1.0</version>
         <interface>

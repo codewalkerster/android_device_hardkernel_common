@@ -555,11 +555,13 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.widevine
 endif
 
-# HDMITX CEC HAL
+# CEC HAL
 PRODUCT_PACKAGES += \
-    android.hardware.tv.cec@1.0-impl \
-    android.hardware.tv.cec@1.0-service \
-    hdmi_cec.amlogic
+    android.hardware.tv.hdmi.cec-service.droidlogic
+ 
+# Hdmi Connection Hal
+PRODUCT_PACKAGES += \
+    android.hardware.tv.hdmi.connection-service
 
 PRODUCT_PROPERTY_OVERRIDES += \
    log.tag.HDMI=DEBUG
