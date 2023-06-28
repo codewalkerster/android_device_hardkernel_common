@@ -1,1 +1,6 @@
 allow hal_keymint_default drm_device:chr_file { read open write ioctl };
+allow hal_keymint_default mnt_vendor_file:dir { search write add_name };
+allow hal_keymint_default mnt_vendor_file:file { read open write ioctl };
+allow hal_keymint_default vfat:dir { search write add_name };
+allow hal_keymint_default vfat:file { read open write ioctl getattr };
+allow hal_keymint_default serialno_prop:file { read open getattr map };
