@@ -134,3 +134,5 @@
 /dev/gpiomem    0666    system  system
 
 /dev/spidev0.0            0666    system    system
+
+/dev/usb/lp*    0666    system  system
