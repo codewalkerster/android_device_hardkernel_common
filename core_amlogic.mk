@@ -561,7 +561,7 @@ PRODUCT_PACKAGES += \
  
 # Hdmi Connection Hal
 PRODUCT_PACKAGES += \
-    android.hardware.tv.hdmi.connection-service
+    android.hardware.tv.hdmi.connection-service.droidlogic
 
 PRODUCT_PROPERTY_OVERRIDES += \
    log.tag.HDMI=DEBUG
