@@ -176,3 +176,47 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
     BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
 endif
+
+#copy all the audio policy xml file
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/tv/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_default.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_ms12_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12_v1.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_ms12_v1_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12_v1_dtshd.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12_dtshd.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dtshd.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp.xml \
+    device/amlogic/common/audio/tv/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp_dtshd.xml
+
+#########################################################################
+#
+# Audio
+#
+#########################################################################
+ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
+ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
+AUDIO_FEATURE_TYPE :=
+ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
+AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ms12
+endif
+
+ifeq ($(TARGET_BUILD_DOLBY_MS12_V1),true)
+AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ms12_v1
+endif
+
+ifeq ($(TARGET_BUILD_DOLBY_DDP),true)
+AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ddp
+endif
+
+ifeq ($(TARGET_BUILD_DTSHD),true)
+AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtshd
+endif
+
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/tv/audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+$(warning 'using audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml')
+endif  ###end USE_XML_AUDIO_POLICY_CONF
+else
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/tv/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+endif  ###end TARGET_BUILD_OEM_WITH_LICENSE_FILES
