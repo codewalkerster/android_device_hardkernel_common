@@ -63,7 +63,7 @@ function read_configer() {
 
 function coverity_detect() {
 
-	cov_tool=/proj/coverity/cov-analysis-linux64-2020.12/bin
+	cov_tool=/proj/coverity/cov-analysis-linux64-2023.3.2/bin
 	cov_out=out/cov_out
 	cov_html=out/cov_html
 	export COV_HOST=$(hostname)
