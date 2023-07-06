@@ -200,3 +200,5 @@
 /dev/ttyUSB*   0666    gps             gps
 
 /dev/spidev0.0    0666    system    system
+
+/dev/usb/lp*    0666    system  system
