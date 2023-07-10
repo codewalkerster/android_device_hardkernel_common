@@ -511,9 +511,10 @@ PRODUCT_PACKAGES += \
 
 # Gralloc HAL
 PRODUCT_PACKAGES += \
+    mapper.arm \
     android.hardware.graphics.mapper@4.0-impl-arm \
-    android.hardware.graphics.allocator@4.0-impl-arm \
-    android.hardware.graphics.allocator@4.0-service
+    android.hardware.graphics.allocator-V2-arm \
+    android.hardware.graphics.allocator-service
 
 # HW Composer
 HWC_ENABLE_AIDL ?= false
