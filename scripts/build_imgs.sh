@@ -172,7 +172,16 @@ function build() {
 		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR &
 
 		echo "need sign"
-		./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR normal_target.zip signed_target.zip
+		./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR \
+			--extra_apks com.android.ondevicepersonalization.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.scheduling.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.tethering.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.media.swcodec.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.media.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.conscrypt.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.resolv.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.tzdata.apex=$KEY_DIR/releasekey \
+			normal_target.zip signed_target.zip
 
 		if [ $? -ne 0 ]; then
 			echo "sign ERROR"
