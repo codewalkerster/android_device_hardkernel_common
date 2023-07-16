@@ -16,5 +16,32 @@ allow hal_dumpstate_default graphics_device:dir search;
 allow hal_dumpstate_default tmpfs:dir read;
 
 allow hal_dumpstate_default sysfs_audio_cap:file r_file_perms;
+allow hal_dumpstate_default sysfs:file r_file_perms;
+
+allow hal_dumpstate_default system_data_file:dir search;
+allow hal_dumpstate_default vendor_file:file execute_no_trans;
+allow hal_dumpstate_default sysfs_tee:dir search;
+allow hal_dumpstate_default sysfs_tee:file r_file_perms;
+allow hal_dumpstate_default mediametrics_service:service_manager find;
+allow hal_dumpstate_default su:file read;
+allow hal_dumpstate_default servicemanager:dir { getattr search };
+allow hal_dumpstate_default servicemanager:file { read open };
+allow hal_dumpstate_default hwservicemanager:dir { getattr search };
+allow hal_dumpstate_default hwservicemanager:file { read open };
+allow hal_dumpstate_default hal_gatekeeper_default:dir { read open };
+allow hal_dumpstate_default hal_gatekeeper_default:file { read open };
+allow hal_dumpstate_default hal_oemlock_default:dir { read open };
+allow hal_dumpstate_default hal_oemlock_default:file read;
+allow hal_dumpstate_default hal_tv_hdmi_cec_default:file read;
+allow hal_dumpstate_default hal_drm_widevine:binder call;
+allow hal_dumpstate_default hal_drm_clearkey_aidl:binder call;
+allow hal_dumpstate_default tee_exec:file execute_no_trans;
+allow hal_dumpstate_default drm_device:chr_file { read open write ioctl };
+allow hal_dumpstate_default proc_pid_max:file { open read };
+allow hal_dumpstate_default hal_tv_hdmi_connection_default:file { open read };
+allow hal_dumpstate_default hal_usb_default:file { open read };
+allow hal_dumpstate_default hal_light_default:file { open read };
+allow hal_dumpstate_default proc_modules:file { open read };
+
 # Access to vendor logging property
 set_prop(hal_dumpstate_default, vendor_logging_prop)

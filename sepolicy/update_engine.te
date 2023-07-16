@@ -40,3 +40,5 @@ allow update_engine system_server:binder transfer;
 allow update_engine sysfs:blk_file {read write getattr};
 allow update_engine rootfs:dir {getattr};
 allow update_engine system_block_fsck_device:blk_file { getattr ioctl open read write };
+allow update_engine dumpstate:fd { use };
+allow update_engine dumpstate:fifo_file { write };

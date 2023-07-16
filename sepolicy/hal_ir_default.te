@@ -1,2 +1,4 @@
 allow hal_ir_default sysfs_ir:dir { search };
 allow hal_ir_default sysfs_ir:file rw_file_perms;
+allow hal_ir_default dumpstate:fd { use };
+allow hal_ir_default dumpstate:fifo_file { write };

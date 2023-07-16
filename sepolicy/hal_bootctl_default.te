@@ -32,3 +32,6 @@ allow hal_bootctl_default cert_device:chr_file { open read write ioctl };
 
 allow hal_bootctl_default system_control:binder { call transfer };
 allow hal_bootctl_default systemcontrol_hwservice:hwservice_manager { find };
+allow hal_bootctl_default dumpstate:binder { call };
+allow hal_bootctl_default dumpstate:fd { use };
+allow hal_bootctl_default dumpstate:fifo_file { write };

@@ -518,7 +518,9 @@ endif
 
 # dumpstate binderized
 PRODUCT_PACKAGES += \
-   android.hardware.dumpstate-service.droidlogic
+   android.hardware.dumpstate-service.droidlogic \
+   dumpstate_display \
+   drminfo
 
 # Keymaster HAL
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)

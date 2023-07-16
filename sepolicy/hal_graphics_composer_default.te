@@ -66,3 +66,6 @@ set_prop(hal_graphics_composer_default, ctl_stop_prop)
 allow hal_graphics_composer_default adla_device:chr_file { open read write getattr ioctl };
 
 allow hal_graphics_composer_default vendor_data_file:file rw_file_perms;
+
+allow hal_graphics_composer_default dumpstate:fd use;
+allow hal_graphics_composer_default dumpstate:fifo_file write;

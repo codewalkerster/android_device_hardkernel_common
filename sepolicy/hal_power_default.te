@@ -1,6 +1,6 @@
 allow hal_power_default sysfs_mpgpu:file rw_file_perms;
 allow hal_power_default sysfs_mpgpu:dir search;
-allow hal_power_default { sysfs_power sysfs_wakeup }:file { read write open };
+allow hal_power_default { sysfs_power sysfs_wakeup }:file { read write open getattr };
 
 allow hal_power_default sysfs:file { write open };
 

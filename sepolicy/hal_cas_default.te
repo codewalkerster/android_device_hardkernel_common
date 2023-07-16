@@ -17,3 +17,6 @@ allow hal_cas_default sysfs_cec:dir { search };
 allow hal_cas_default sysfs_cec:file { getattr open read write };
 allow hal_cas_default sysfs_amhdmitx:dir { search };
 allow hal_cas_default sysfs_amhdmitx:file { getattr open read write };
+allow hal_cas_default dumpstate:binder { call };
+allow hal_cas_default dumpstate:fd { use };
+allow hal_cas_default dumpstate:fifo_file { write };
