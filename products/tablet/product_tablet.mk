@@ -34,10 +34,9 @@ PRODUCT_PACKAGES += \
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
 PRODUCT_PACKAGES += \
-    android.hardware.tv.input@1.0-impl \
-    android.hardware.tv.input@1.0-service \
+    tv_input.amlogic \
     vendor.amlogic.hardware.tvserver@1.0_vendor \
-    tv_input.amlogic
+    android.hardware.tv.input-service
 
 # TV
 PRODUCT_PACKAGES += \
