@@ -109,6 +109,12 @@ PRODUCT_PACKAGES += \
     LauncherCustomization
 endif
 
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+BOARD_ENABLE_A2DP_SINK := true
+PRODUCT_PROPERTY_OVERRIDES += ro.vendor.platform.support.soundbar=true
+PRODUCT_PROPERTY_OVERRIDES += ro.vendor.media.audio.hdmitx.control.mute=true
+endif
+
 #overlay config_wifi5ghzSupport #
 BOARD_ENABLE_WIFI_5G ?= true
 ifeq ($(BOARD_ENABLE_WIFI_5G),true)
