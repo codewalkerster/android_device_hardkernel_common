@@ -1,5 +1,6 @@
 allow vold tee_vendor_file:dir { open read ioctl };
-
+allow vold unlabeled:filesystem { mount unmount};
+allow vold unlabeled:dir { mounton };
 allow vold vold_block_device:blk_file { create write read open getattr ioctl unlink };
 
 allow vold param_tv_file:dir { ioctl open read };

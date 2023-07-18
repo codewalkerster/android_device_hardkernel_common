@@ -7,7 +7,7 @@ allow fsck_untrusted block_device:dir getattr;
 allow fsck_untrusted vold_block_device:blk_file lock;
 
 allow fsck_untrusted devpts:chr_file rw_file_perms;
-
+allow fsck_untrusted fuseblk:dir { mounton};
 allow fsck_untrusted block_device:dir { open read search getattr };
 allow fsck_untrusted sda_block_device:dir search;
 allow fsck_untrusted sda_block_device:blk_file rw_file_perms;
