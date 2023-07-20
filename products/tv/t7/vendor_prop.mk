@@ -194,7 +194,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.c2inputsurface=-1 \
     debug.vendor.media.c2.vdec.support_10bit=false \
     vendor.media.c2.disp.nr.enable=true \
-    vendor.media.c2.disp.di.loacalbuf_enable=true \
+    vendor.media.c2.disp.di.localbuf_enable=true \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true
 endif
 
