@@ -8,7 +8,7 @@ function clean() {
 	CUR_DIR=$(pwd)
 	cd $CUR_DIR
 	rm -rf signed-* whole_target* normal_* signed_* normal-*
-	rm -rf aml_upgrade_package*.img out_publish/
+	rm -rf aml_upgrade_package*.img out_publish/ out_tmp
 	echo "Clean OK"
 	return
 }
@@ -78,7 +78,13 @@ function build() {
 
 	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "false" ]; then
 		echo "copy boot.img & dtbo.img"
-		cp -a $KERNEL_DIR/gki/boot-gz.img $CUR_DIR/normal_target/PREBUILT_IMAGES/boot.img
+		cp -a $KERNEL_DIR/gki/boot-gz.img  PREBUILT_IMAGES/boot.img
+		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+	fi
+
+	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "true" ]; then
+		echo "copy dtbo.img"
+		cp -a $KERNEL_DIR/uImage $CUR_DIR/normal_target/BOOT/kernel
 		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
 	fi
 
@@ -92,11 +98,13 @@ function build() {
 		cp $DEVICE_DIR/bootloader.img $CUR_DIR/normal_target/RADIO/bootloader.img
 	fi
 
-	echo "copy $CUR_DIR/normal_target/SYSTEM_DLKM"
-	rm -rf $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/*
-	cp -a $KERNEL_DIR/gki/lib/modules/* $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
-	cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
-	cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
+	if [ "$KERNEL_A32_SUPPORT" = "false" ]; then
+		echo "copy $CUR_DIR/normal_target/SYSTEM_DLKM"
+		rm -rf $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/*
+		cp -a $KERNEL_DIR/gki/lib/modules/* $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
+		cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
+		cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
+	fi
 
 	echo "copy $CUR_DIR/normal_target/VENDOR_BOOT"
 	rm -rf $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko
