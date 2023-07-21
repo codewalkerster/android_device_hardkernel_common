@@ -403,6 +403,17 @@ uboot_exec_drm[32]="./mk s5_ax201  --vab --avb2 --fastboot-write"
 kernel_exec[32]="./mk tyson -v "
 ###########################################################################################
 
+###########################################################################################
+# BLUEBELL
+project[33]="BLUEBELL"
+soc[33]="A311D2"
+hardware[33]="BLUEBELL"
+module[33]="bluebell_arm64_gms"
+uboot_path[33]="device/amlogic/bluebell"
+uboot_exec_aosp[33]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
+uboot_exec_drm[33]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
+kernel_exec[33]="./mk bluebell -v "
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
@@ -643,10 +654,13 @@ lunch_env() {
 compile_kernel() {
     if [ $kernel_type -eq 1 ]; then
         kernel_version="common14-5.15"
+		android_kernel_version="5.15"
     elif [ $kernel_type -eq 2 ]; then
         kernel_version="5.4"
+		android_kernel_version="5.4"
     elif [ $kernel_type -eq 3 ]; then
         kernel_version="4.9"
+		android_kernel_version="4.9"
     else
         echo "Kernel Version is illegal\n"
         exit
@@ -720,7 +734,7 @@ if [ $# -eq 0 ]; then
     compile_uboot
     compile_kernel
     lunch_env
-    make otapackage "TARGET_BUILD_KERNEL_VERSION=${kernel_version}" -j8
+    make otapackage "TARGET_BUILD_KERNEL_VERSION=${android_kernel_version}" -j8
 fi
 
 if [ $# -eq 1 ]; then
@@ -788,6 +802,6 @@ if [ $# -eq 4 ]; then
     compile_uboot
     compile_kernel $usermode
     lunch_env $usermode
-    make otapackage "TARGET_BUILD_KERNEL_VERSION=${kernel_version}" -j8
+    make otapackage "TARGET_BUILD_KERNEL_VERSION=${android_kernel_version}" -j8
 fi
 
