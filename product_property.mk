@@ -88,6 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # for AAudio support
 PRODUCT_PROPERTY_OVERRIDES += \
+    aaudio.mmap_exclusive_policy=2 \
     aaudio.mmap_policy=2 \
     aaudio.mixer_bursts=1
 
