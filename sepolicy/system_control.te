@@ -36,7 +36,7 @@ allow system_control mnt_vendor_file:dir { add_name write };
 allow system_control mnt_vendor_file:file { create open read write };
 allow system_control sysfs_amvdec:file { open read write };
 
-allow system_control mnt_vendor_file:dir { search read open remove_name rmdir };
+allow system_control mnt_vendor_file:dir { search read open remove_name rmdir getattr };
 allow system_control mnt_vendor_file:file { setattr getattr lock unlink };
 
 allow system_control vendor_memc_prop:file { read open getattr map};
