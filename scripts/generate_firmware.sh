@@ -34,6 +34,15 @@ rm -rf $TARGET_NAME-fastboot/u-boot* $TARGET_NAME-fastboot/usb_flow* $TARGET_NAM
 
 cp -a $DEVICE_DIR/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
 cp -a out/target/product/$BOARD_NAME/upgrade/aml_upgrade_package*.conf $TARGET_NAME-img/aml_upgrade_package.conf
+
+dtb_size=`du $KERNEL_DIR/$BOARD_NAME.dtb | awk '{print $1}'`
+
+if [ $dtb_size -ge 180 ]; then
+    echo "gzip $KERNEL_DIR/$BOARD_NAME.dtb as >= 180k";
+    mv $KERNEL_DIR/$BOARD_NAME.dtb $KERNEL_DIR/$BOARD_NAME.dtb.orig
+    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$BOARD_NAME.dtb.orig > $KERNEL_DIR/$BOARD_NAME.dtb
+fi
+
 cp -a $KERNEL_DIR/$BOARD_NAME.dtb $TARGET_NAME-img/dt.img
 cp -a $DEVICE_DIR/upgrade/platform.conf $TARGET_NAME-img/
 cp -a $DEVICE_DIR/upgrade/u-boot.bin.* $TARGET_NAME-img/
