@@ -455,6 +455,7 @@
 /vendor/bin/hw/android\.hardware\.ir-service.droidlogic                  u:object_r:hal_ir_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate-service\.droidlogic          u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service\.widevine                  u:object_r:hal_drm_default_exec:s0
+/vendor/bin/hw/android\.hardware\.drm-service\.verimatrix                u:object_r:hal_drm_verimatrix_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.playready  u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.clearkey   u:object_r:hal_drm_clearkey_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.netflix    u:object_r:hal_drm_default_exec:s0
@@ -595,3 +596,6 @@
 
 /sys/class/smc_sc2-class/ctrl_5v3v  u:object_r:sysfs_stb:s0
 /sys/class/smc_sc2-class/pins_mode  u:object_r:sysfs_stb:s0
+
+/vendor/bin/hw/vmx_webclient      u:object_r:vmx_webclient_exec:s0
+

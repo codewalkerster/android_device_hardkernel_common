@@ -1,0 +1,27 @@
+type vmx_webclient, domain;
+type vmx_webclient_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vmx_webclient)
+net_domain(vmx_webclient)
+
+allow vmx_webclient servicemanager:binder { call transfer };
+allow vmx_webclient vmx_webclient_service:service_manager  { add };
+
+allow vmx_webclient tmpfs:dir { create open add_name write read };
+allow vmx_webclient drm_device:chr_file { read open write ioctl };
+allow vmx_webclient mediadrm_vendor_data_file:dir { read open getattr search write add_name create };
+allow vmx_webclient mediadrm_vendor_data_file:file { read open write getattr create unlink rename append };
+allow vmx_webclient vendor_data_file:dir { read open getattr search write add_name create };
+allow vmx_webclient vendor_data_file:file { read open write getattr create unlink rename append };
+allow vmx_webclient system_app:binder { transfer call };
+allow vmx_webclient vendor_media_prop:file { read getattr open map };
+allow vmx_webclient mediaserver:binder{ transfer call };
+
+allow vmx_webclient sysfs_stb:dir { search };
+allow vmx_webclient sysfs_stb:file { read open getattr };
+allow vmx_webclient self:netlink_kobject_uevent_socket { create read setopt bind };;
+
+allow vmx_webclient platform_app:fd  { use };
+allow vmx_webclient mediaserver:fd  { use };
+
+allow vmx_webclient self:process { ptrace };

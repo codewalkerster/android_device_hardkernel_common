@@ -1,0 +1,23 @@
+type hal_drm_verimatrix, domain;
+type hal_drm_verimatrix_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_drm_verimatrix)
+
+vndbinder_use(hal_drm_verimatrix);
+hal_server_domain(hal_drm_verimatrix, hal_drm)
+
+allow hal_drm_verimatrix hal_codec2_server:fd use;
+allow hal_drm_verimatrix hal_omx_server:fd use;
+
+allow hal_drm_verimatrix { appdomain -isolated_app }:fd use;
+allow hal_drm_verimatrix vndbinder_device:chr_file { read write open ioctl };
+
+allow hal_drm_verimatrix vmx_webclient:binder { call };
+allow hal_drm_verimatrix vmx_webclient_service:service_manager { find };
+
+allow hal_drm_verimatrix drm_device:chr_file { read open write ioctl };
+allow hal_drm_verimatrix mediadrm_vendor_data_file:file { read open write getattr create unlink rename };
+allow hal_drm_verimatrix mediadrm_vendor_data_file:dir { read open write getattr create search add_name remove_name rmdir};
+allow hal_drm_verimatrix self:capability sys_nice;
+
+get_prop(hal_drm_verimatrix, vendor_media_prop)
