@@ -78,7 +78,7 @@ function build() {
 
 	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "false" ]; then
 		echo "copy boot.img & dtbo.img"
-		cp -a $KERNEL_DIR/gki/boot-gz.img  PREBUILT_IMAGES/boot.img
+		cp -a $KERNEL_DIR/gki/boot-gz.img  $CUR_DIR/normal_target/PREBUILT_IMAGES/boot.img
 		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
 	fi
 
