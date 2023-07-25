@@ -566,7 +566,8 @@ PRODUCT_PACKAGES += \
     android.hardware.tv.hdmi.connection-service.droidlogic
 
 PRODUCT_PROPERTY_OVERRIDES += \
-   log.tag.HDMI=DEBUG
+   log.tag.HDMI=DEBUG \
+   ro.vendor.platform.hdmi.vendor_id=1877008
 
 #Android new device will use AIDL to instead of HIDL
 ifeq ($(BOARD_ENABLE_LIGHT_CONTROL),true)
