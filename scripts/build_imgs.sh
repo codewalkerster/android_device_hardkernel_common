@@ -189,6 +189,11 @@ function build() {
 			--extra_apks com.android.conscrypt.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.resolv.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.tzdata.apex=$KEY_DIR/releasekey \
+			--extra_apex_payload_key com.android.btservices.apex=$KEY_DIR/avb/amlogic.pem \
+			--extra_apex_payload_key com.android.runtime.apex=$KEY_DIR/avb/amlogic.pem \
+		        --extra_apex_payload_key com.android.i18n.apex=$KEY_DIR/avb/amlogic.pem \
+		        --extra_apex_payload_key com.android.tzdata.apex=$KEY_DIR/avb/amlogic.pem \
+			--extra_apex_payload_key com.android.sdkext.apex=$KEY_DIR/avb/amlogic.pem \
 			normal_target.zip signed_target.zip
 
 		if [ $? -ne 0 ]; then
