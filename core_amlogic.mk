@@ -277,7 +277,8 @@ PRODUCT_PACKAGES += \
     mkfs.exfat \
     mount.exfat \
     fsck.exfat \
-    libxml2
+    libxml2 \
+	meson_display_client
 
 #add camera feature
 PRODUCT_COPY_FILES += \
