@@ -222,6 +222,9 @@ on init
     chmod 0664 /sys/module/aml_media/parameters/sdr_mode
     chown system system /sys/module/aml_media/parameters/sdr_mode
 
+    chmod 0664 /sys/module/aml_media/parameters/use_low_latency
+    chown system system /sys/module/aml_media/parameters/use_low_latency
+
     chmod 0664 /sys/class/amhdmitx/amhdmitx0/attr
     chown system system /sys/class/amhdmitx/amhdmitx0/attr
 
