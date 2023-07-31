@@ -161,3 +161,4 @@ allow shell rootfs:file {execute_no_trans};
 allow recovery proc_vm_writable:file rw_file_perms;
 allow recovery exfat:dir { open read search };
 allow recovery exfat:file { getattr open read };
+allow recovery kernel:system { module_request };
