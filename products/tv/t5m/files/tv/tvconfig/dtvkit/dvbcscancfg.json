@@ -9,7 +9,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid",
+            "tidy-db": "0x00",
             "frequencylist": "dvbcfrelist_default.json"
         },
         {
@@ -21,7 +21,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "350",
             "LastUnallocatedLcn": "399",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "aut",
@@ -32,7 +32,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "bel",
@@ -43,7 +43,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "blr",
@@ -54,7 +54,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "chi",
@@ -65,7 +65,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "cmr",
@@ -76,7 +76,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid",
+            "tidy-db": "0x00",
             "frequencylist": "dvbcfrelist_default.json"
         },
         {
@@ -88,7 +88,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "cze",
@@ -99,7 +99,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "deu",
@@ -110,7 +110,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "dma",
@@ -121,7 +121,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "dnk",
@@ -132,7 +132,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "ecu",
@@ -143,7 +143,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "egy",
@@ -154,7 +154,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid",
+            "tidy-db": "0x00",
             "frequencylist": "dvbcfrelist_default.json"
         },
         {
@@ -166,7 +166,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "fin",
@@ -177,7 +177,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "fra",
@@ -188,7 +188,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "gbr",
@@ -199,7 +199,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "1000",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "hrv",
@@ -210,7 +210,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "isl",
@@ -221,7 +221,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "ita",
@@ -232,7 +232,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "850",
             "LastUnallocatedLcn": "999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "ken",
@@ -243,7 +243,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid",
+            "tidy-db": "0x00",
             "frequencylist": "dvbcfrelist_default.json"
         },
         {
@@ -255,7 +255,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "0",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "nzl",
@@ -266,7 +266,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "rus",
@@ -277,7 +277,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid",
+            "tidy-db": "0x00",
             "frequencylist": "dvbcfrelist_rus.json",
             "operatorlist": "rus_operators"
         },
@@ -290,7 +290,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "swe",
@@ -301,7 +301,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "tur",
@@ -312,7 +312,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "899",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         },
         {
             "countrycode": "ukr",
@@ -323,7 +323,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "800",
             "LastUnallocatedLcn": "9999",
-            "tidy-db": "tsid,onid"
+            "tidy-db": "0x00"
         }
     ],
     "rus_operators": [

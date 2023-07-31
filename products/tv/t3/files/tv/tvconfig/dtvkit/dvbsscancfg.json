@@ -53,7 +53,7 @@
             "LCN": "1",
             "FirstUnallocatedLcn": "3000",
             "LastUnallocatedLcn": "3999",
-            "tidy-db": "tsid,onid",
+            "tidy-db": "0x00",
             "operatorlist": "deu_operators"
         },
         {
