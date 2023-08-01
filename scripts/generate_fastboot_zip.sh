@@ -10,6 +10,13 @@ echo "start build $TARGET_NAME fastboot zip"
 
 cp -a device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $TARGET_NAME-fastboot/flash-all.bat
 cp -a device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.sh $TARGET_NAME-fastboot/flash-all.sh
+if [[ "$BOARD_NAME" = "adt4" ]]; then
+    DEVICE_DIR=device/sei/$BOARD_NAME
+else
+    DEVICE_DIR=device/amlogic/$BOARD_NAME
+fi
+
+cp -a $DEVICE_DIR/board-info.txt $TARGET_NAME-fastboot/android-info.txt
 
 if [ "$TARGET_NAME" = "signed" ]; then
 	(cd $TARGET_NAME-fastboot; zip -1 -r ../out_publish/$BOARD_NAME-fastboot-$TARGET_NAME *)
