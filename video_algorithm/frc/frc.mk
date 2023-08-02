@@ -31,6 +31,34 @@ ifeq ($(strip $(FRC_FW_MODULE)),true)
 					PRODUCT_COPY_FILES += \
 						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
 						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), calla)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), T3)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), smith)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), t982_ar301)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), t982_ar301_arm64)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), T3X)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+				else ifeq ($(TARGET_PRODUCT), anemone)
+					PRODUCT_COPY_FILES += \
+						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				endif
 			endif
 		else
