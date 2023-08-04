@@ -35,7 +35,8 @@ PRODUCT_PACKAGES += \
     libam_adp \
     libam_mw \
     libam_ver \
-    libam_sysfs
+    libam_sysfs \
+    libdmxresconf
 
 PRODUCT_PACKAGES += \
     busybox \
