@@ -28,6 +28,6 @@
     <network net_id_max="0xffff" orig_net_id_max="0xffff" usr_def_orig_net_id="0xffff" net_id_change_update="0"/>
     <sipsi pat_timeout="800" pmt_timeout="3000" sdt_timeout="15000" nit_timeout="10000" cat_timeout="2000" bat_timeout="12000" tot_timeout="32000" tdt_timeout="32000" eit_timeout="3000"/>
     <service_list service_without_sdt="no"/>
-    <dmc_mem level = "2" size="83886080"/>
+    <dmc_mem level = "2" size="69206016"/>
     <fcc_pip enable="yes"/>
 </dtvkit>
