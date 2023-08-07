@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ####################### INPUT PARAMS ######################
 
 #TARGET_PREBUILT_KERNEL
@@ -292,6 +291,5 @@ endif
 ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
 target-files-package: $(AML_SYSTEM_DLKM_COPY_FILES)
 $(PRODUCT_OUT)/installed-files-system_dlkm.txt: $(AML_SYSTEM_DLKM_COPY_FILES)
-endif
 endif
 endif

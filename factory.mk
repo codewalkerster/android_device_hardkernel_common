@@ -8,7 +8,6 @@ AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
 AML_PKG_ADD_USB_BIN := $(AML_UPGRADE_TOOL_DIR)/aml_pkg_add_usb_bin.app
 AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(TARGET_NO_RECOVERY),true)
 BUILT_IMAGES := boot.img
 else
@@ -22,15 +21,11 @@ endif
 ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 BUILT_IMAGES += init_boot.img
 endif
-endif
 
 VB_CHECK_IMAGES := vbmeta.img
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 VB_CHECK_IMAGES += boot.img dtbo.img
-endif
 VB_CHECK_IMAGES += vendor.img system.img product.img
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifneq ($(TARGET_NO_RECOVERY),true)
 VB_CHECK_IMAGES += recovery.img
 endif
@@ -41,7 +36,6 @@ endif
 
 ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 VB_CHECK_IMAGES += init_boot.img
-endif
 endif
 
 ifeq ($(BOARD_USES_ODMIMAGE),true)
@@ -66,10 +60,8 @@ ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 VB_CHECK_IMAGES += odm_dlkm.img
 endif
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifdef BOARD_PREBUILT_DTBOIMAGE
 BUILT_IMAGES += dtbo.img
-endif
 endif
 
 ifneq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
@@ -580,11 +572,9 @@ INSTALLED_AML_FASTBOOT_ZIP := $(PRODUCT_OUT)/$(TARGET_PRODUCT)-fastboot-flashall
 
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_FASTBOOT_ZIP))
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 FASTBOOT_IMAGES := boot.img
 ifneq ($(TARGET_NO_RECOVERY),true)
 	FASTBOOT_IMAGES += recovery.img
-endif
 endif
 
 ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
@@ -617,7 +607,6 @@ ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 FASTBOOT_IMAGES += odm_dlkm.img
 endif
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 FASTBOOT_IMAGES += vendor_boot.img
 endif
@@ -628,7 +617,6 @@ endif
 
 ifdef BOARD_PREBUILT_DTBOIMAGE
 FASTBOOT_IMAGES += dtbo.img
-endif
 endif
 
 ifeq ($(BUILD_WITH_AVB),true)

@@ -787,12 +787,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #
 #########################################################################
 ifeq ($(AB_OTA_UPDATER),true)
-
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 AB_OTA_PARTITIONS += \
     boot \
     dtbo
-endif
 
 AB_OTA_PARTITIONS += \
     system \
@@ -830,24 +827,19 @@ AB_OTA_PARTITIONS += \
     odm_dlkm
 endif
 
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 AB_OTA_PARTITIONS += \
     init_boot
-endif
 endif
 
 TARGET_BOOTLOADER_CONTROL_BLOCK := true
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 TARGET_NO_RECOVERY := false
 AB_OTA_PARTITIONS += recovery
-endif
 else
 AB_OTA_PARTITIONS += system_ext
-ifneq ($(TARGET_JENKINS_QUICKBUILD),true)
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 AB_OTA_PARTITIONS += vendor_boot
 TARGET_NO_RECOVERY := true
@@ -863,7 +855,6 @@ else
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 TARGET_NO_RECOVERY := false
 AB_OTA_PARTITIONS += recovery
-endif
 endif
 endif
 
