@@ -35,7 +35,7 @@ endif
 # gfx: mode policy config
 ifeq ($(HWC_ENABLE_AIDL), true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.hwc.default.config=true
+    ro.vendor.hwc.default.config?=true
 endif
 
 endif
