@@ -840,12 +840,15 @@ ifeq ($(TARGET_HAS_FRP_PARTITION), true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/by-name/frp
 endif
+
+ifneq ($(TARGET_OLD_DEVICE), true)
 #add project id and casefold attribute for data partition and external storage
 #PRODUCT_QUOTA_PROJID := 1
 #PRODUCT_VENDOR_PROPERTIES += external_storage.projid.enabled=true
 PRODUCT_PROPERTY_OVERRIDES += \
     external_storage.projid.enabled=true \
     external_storage.casefold.enabled=true
+endif
 endif
 
 # Android R and later, use lmkd new strategy, no need cma_shrinker workaround. which may introduce may CTS failure.
