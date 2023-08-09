@@ -177,7 +177,7 @@ volume index from 0 to 100.
                                         ref="FULL_SCALE_VOLUME_CURVE"/>
 
     <reference name="CUSTOM_VOLUME_CURVE">
-        <point>0,-10000</point>
+        <point>0,-100000</point>
         <point>1,-7200</point>
         <point>2,-6300</point>
         <point>3,-5800</point>
