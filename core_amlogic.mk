@@ -63,6 +63,14 @@ PRODUCT_PACKAGES += \
 
 endif
 
+#add ASPlayer library
+PRODUCT_PACKAGES += \
+    droidlogic.jasplayer \
+    droidlogic.jasplayer.xml \
+    droidlogic.jniasplayer \
+    libjniasplayer-jni \
+    droidlogic.jniasplayer.xml
+
 KERNEL_AUTO_PATCH := $(shell ls common/common*/mk.sh)
 KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
     $(shell cd $(shell dirname $(patch_shell)); ./mk.sh --patch lunch))
