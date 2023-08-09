@@ -99,12 +99,6 @@
                              samplingRates="8000 16000 48000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO"/>
                 </mixPort>
-                <mixPort name="tunnel a2dp" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
-                    <profile name=""/>
-                </mixPort>
-                <mixPort name="direct a2dp" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
-                    <profile name=""/>
-                </mixPort>
                 <mixPort name="echo reference" role="sink">
                     <profile name="echo_reference" format="AUDIO_FORMAT_PCM_32_BIT"
                              samplingRates="48000"
@@ -230,11 +224,11 @@
                 <route type="mix" sink="primary input"
                        sources="Built-In Mic,Wired Headset Mic,BT SCO Headset Mic,Tuner"/>
                 <route type="mix" sink="BT A2DP Out"
-                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
+                       sources="primary output,tunnel pcm,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Headphones"
-                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
+                       sources="primary output,tunnel pcm,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Speaker"
-                       sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
+                       sources="primary output,tunnel pcm,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="echo reference"
                        sources="Echo Reference"/>
                 <route type="mix" sink="built-in mic"
