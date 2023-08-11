@@ -125,8 +125,8 @@ ifeq ($(TARGET_WITH_CODEC_EXT), true)
 PRODUCT_PACKAGES += \
    libavenhancements \
    libavenhancements_vendor \
-   libamextractor \
-   libamffmpegadapter
+   libamffmpegadapter \
+   com.amlogic.mediaextractor
 
 endif
 
