@@ -28,9 +28,9 @@ allow hal_dumpstate_default servicemanager:dir { getattr search };
 allow hal_dumpstate_default servicemanager:file { read open };
 allow hal_dumpstate_default hwservicemanager:dir { getattr search };
 allow hal_dumpstate_default hwservicemanager:file { read open };
-allow hal_dumpstate_default hal_gatekeeper_default:dir { read open };
-allow hal_dumpstate_default hal_gatekeeper_default:file { read open };
-allow hal_dumpstate_default hal_oemlock_default:dir { read open };
+allow hal_dumpstate_default hal_gatekeeper_default:dir { read open getattr search };
+allow hal_dumpstate_default hal_gatekeeper_default:file { read open getattr };
+allow hal_dumpstate_default hal_oemlock_default:dir { read open getattr search };
 allow hal_dumpstate_default hal_oemlock_default:file read;
 allow hal_dumpstate_default hal_tv_hdmi_cec_default:file read;
 allow hal_dumpstate_default hal_drm_widevine:binder call;
@@ -41,7 +41,14 @@ allow hal_dumpstate_default proc_pid_max:file { open read };
 allow hal_dumpstate_default hal_tv_hdmi_connection_default:file { open read };
 allow hal_dumpstate_default hal_usb_default:file { open read };
 allow hal_dumpstate_default hal_light_default:file { open read };
-allow hal_dumpstate_default proc_modules:file { open read };
+allow hal_dumpstate_default proc_modules:file { open read getattr };
+allow hal_dumpstate_default hidl_manager_hwservice:hwservice_manager { find };
+
+allow hal_dumpstate_default hal_tv_hdmi_cec_default:dir { getattr search };
+allow hal_dumpstate_default hal_tv_hdmi_connection_default:dir { getattr search };
+allow hal_dumpstate_default hal_usb_default:dir { getattr search };
+allow hal_dumpstate_default hal_light_default:dir { getattr search };
+
 
 # Access to vendor logging property
 set_prop(hal_dumpstate_default, vendor_logging_prop)
