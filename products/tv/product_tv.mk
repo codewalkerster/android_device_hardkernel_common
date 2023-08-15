@@ -202,7 +202,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.min.duration.secs=5
 
 #TV project, need use 8 ch 32 bit output.
-TARGET_WITH_TV_AUDIO_MODE := false
+TARGET_WITH_TV_AUDIO_MODE := true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.hdmi.keep_awake=false
