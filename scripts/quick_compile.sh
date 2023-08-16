@@ -410,8 +410,8 @@ soc[33]="A311D2"
 hardware[33]="AN400"
 module[33]="bluebell_arm64"
 uboot_path[33]="device/amlogic/bluebell"
-uboot_exec_aosp[33]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
-uboot_exec_drm[33]="./mk t7_an400_lpddr4x --vab --avb2 --fastboot-write"
+uboot_exec_aosp[33]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
+uboot_exec_drm[33]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 kernel_exec[33]="./mk bluebell -v "
 ###########################################################################################
 usage() {
