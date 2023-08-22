@@ -7,6 +7,8 @@ TARGET_NAME=$1
 BOARD_NAME=$2
 DEVICE_DIR=$3
 KERNEL_DIR=$4
+ANDROID_OUTPUT_PATH=$5
+REAL_BOARD=$6
 
 echo "start build $TARGET_NAME firmware"
 
@@ -30,24 +32,24 @@ cp -a $TARGET_NAME-img $TARGET_NAME-fastboot
 rm -rf $TARGET_NAME-fastboot/aml* $TARGET_NAME-fastboot/dt.img $TARGET_NAME-fastboot/platform.conf $TARGET_NAME-fastboot/super.img
 rm -rf $TARGET_NAME-fastboot/u-boot* $TARGET_NAME-fastboot/usb_flow* $TARGET_NAME-fastboot/userdata.img
 
-./device/amlogic/common/scripts/generate_fastboot_zip.sh $TARGET_NAME $BOARD_NAME &
+./device/amlogic/common/scripts/generate_fastboot_zip.sh $TARGET_NAME $BOARD_NAME $ANDROID_OUTPUT_PATH $REAL_BOARD &
 
 cp -a $DEVICE_DIR/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
-cp -a out/target/product/$BOARD_NAME/upgrade/aml_upgrade_package*.conf $TARGET_NAME-img/aml_upgrade_package.conf
+cp -a $ANDROID_OUTPUT_PATH/upgrade/aml_upgrade_package*.conf $TARGET_NAME-img/aml_upgrade_package.conf
 
-dtb_size=`du $KERNEL_DIR/$BOARD_NAME.dtb | awk '{print $1}'`
+dtb_size=`du $KERNEL_DIR/$REAL_BOARD.dtb | awk '{print $1}'`
 
 if [ $dtb_size -ge 180 ]; then
-    echo "gzip $KERNEL_DIR/$BOARD_NAME.dtb as >= 180k";
-    mv $KERNEL_DIR/$BOARD_NAME.dtb $KERNEL_DIR/$BOARD_NAME.dtb.orig
-    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$BOARD_NAME.dtb.orig > $KERNEL_DIR/$BOARD_NAME.dtb
+    echo "gzip $KERNEL_DIR/$REAL_BOARD.dtb as >= 180k";
+    mv $KERNEL_DIR/$REAL_BOARD.dtb $KERNEL_DIR/$REAL_BOARD.dtb.orig
+    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$REAL_BOARD.dtb.orig > $KERNEL_DIR/$REAL_BOARD.dtb
 fi
 
-cp -a $KERNEL_DIR/$BOARD_NAME.dtb $TARGET_NAME-img/dt.img
+cp -a $KERNEL_DIR/$REAL_BOARD.dtb $TARGET_NAME-img/dt.img
 cp -a $DEVICE_DIR/upgrade/platform.conf $TARGET_NAME-img/
 cp -a $DEVICE_DIR/upgrade/u-boot.bin.* $TARGET_NAME-img/
 cp -a $DEVICE_DIR/upgrade/usb_flow.aml $TARGET_NAME-img/
-cp -a out/target/product/$BOARD_NAME/gpt.bin $TARGET_NAME-img/
+cp -a $ANDROID_OUTPUT_PATH/gpt.bin $TARGET_NAME-img/
 
 ./out/host/linux-x86/bin/build_super_image -v ${TARGET_NAME}_target $TARGET_NAME-img/super.img
 

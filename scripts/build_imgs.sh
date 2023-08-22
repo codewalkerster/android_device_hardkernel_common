@@ -16,10 +16,8 @@ function clean() {
 function build() {
 	TARGET_ZIP=$1
 	KERNEL_DIR=$2
-	BOARD_NAME=$3
+	BOARD=$3
 	KEY_DIR=$4
-	#TOOLS_ZIP=$3
-	#BOARD_NAME=$4
 	CUR_DIR=$(pwd)
 	BOARD_AML_SOC_TYPE=false
 
@@ -37,6 +35,31 @@ function build() {
 	else
 		KERNEL_A32_SUPPORT=false
 	fi
+
+	if [[ $BOARD =~ t7_an400|t982_ar301|smith|t950s_be311|bluebell ]]; then
+		ORIGINAL_BOARD=$BOARD
+		REAL_BOARD=$BOARD
+		BOARD_NAME=${ORIGINAL_BOARD%_arm64*}
+	elif [[ $BOARD =~ _hybrid_|ohm_mxl258c_vmx|ohm_cbs_ ]]; then
+		ORIGINAL_BOARD=$BOARD
+		REAL_BOARD=${ORIGINAL_BOARD%_*}
+		BOARD_NAME=${ORIGINAL_BOARD%%_*}
+	else
+		ORIGINAL_BOARD=$BOARD
+		REAL_BOARD=$ORIGINAL_BOARD
+		BOARD_NAME=${ORIGINAL_BOARD%%_*}
+	fi
+
+	if [[ $REAL_BOARD =~ ohm_mxl258c|franklin_hybrid|newton_hybrid ]]; then
+		ANDROID_OUTPUT_PATH="out/target/product/$REAL_BOARD"
+	else
+		ANDROID_OUTPUT_PATH="out/target/product/$BOARD_NAME"
+	fi
+
+	echo "ORIGINAL_BOARD: $ORIGINAL_BOARD"
+	echo "REAL_BOARD: $REAL_BOARD"
+	echo "BOARD_NAME: $BOARD_NAME"
+	echo "ANDROID_OUTPUT_PATH: $ANDROID_OUTPUT_PATH"
 
 	if [[ "$BOARD_NAME" = "ohm" ]]; then
 		BOARD_AML_SOC_TYPE=S905X4
@@ -58,6 +81,8 @@ function build() {
 		BOARD_AML_SOC_TYPE=S905Y4
 	elif [[ "$BOARD_NAME" = "boreal" ]]; then
 		BOARD_AML_SOC_TYPE=S805X2G
+	elif [[ "$BOARD_NAME" = "t7_an400" ]]; then
+		BOARD_AML_SOC_TYPE=A311D2
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"
@@ -89,10 +114,10 @@ function build() {
 	fi
 
 	rm -rf $CUR_DIR/normal_target/RADIO/bootloader.img
-	if [ -f out/target/product/$BOARD_NAME/gpt.bin ]; then
+	if [ -f $ANDROID_OUTPUT_PATH/gpt.bin ]; then
 		echo "patch gbt to bootloader"
 		dd if=$DEVICE_DIR/bootloader.img of=$CUR_DIR/normal_target/RADIO/bootloader.img
-		dd if=out/target/product/$BOARD_NAME/gpt.bin of=$CUR_DIR/normal_target/RADIO/bootloader.img bs=512 seek=7935
+		dd if=$ANDROID_OUTPUT_PATH/gpt.bin of=$CUR_DIR/normal_target/RADIO/bootloader.img bs=512 seek=7935
 	else
 		echo "cp $DEVICE_DIR/bootloader.img $CUR_DIR/normal_target/RADIO/bootloader.img"
 		cp $DEVICE_DIR/bootloader.img $CUR_DIR/normal_target/RADIO/bootloader.img
@@ -176,8 +201,8 @@ function build() {
 	mkdir -p out_publish
 
 	if [ $CONFIG_SIGN ]; then
-		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME &
-		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR &
+		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD &
 
 		echo "need sign"
 		./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR \
@@ -202,11 +227,11 @@ function build() {
 		fi
 		echo "sign OK"
 
-		./device/amlogic/common/scripts/generate_ota_zip.sh signed $BOARD_NAME &
-		./device/amlogic/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR &
+		./device/amlogic/common/scripts/generate_ota_zip.sh signed $BOARD_NAME $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD &
 	else
-		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME &
-		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR &
+		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD &
 	fi
 
 	echo "build zip OK"
