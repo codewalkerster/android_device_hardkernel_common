@@ -250,6 +250,7 @@ endif
 
 PRODUCT_PACKAGES += \
     SystemUIOverlay \
+    TvProviderOverlay \
     TetheringOverlay \
     libufdt
 
