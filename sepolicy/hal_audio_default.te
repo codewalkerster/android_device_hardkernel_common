@@ -58,3 +58,7 @@ allow hal_audio_default audio_utils_device:chr_file { open ioctl read write geta
 allow hal_audio_default tmpfs:dir { read };
 allow hal_audio_default tmpfs:file { read open getattr map };
 allow hal_audio_default vendor_persist_prop:file { read };
+get_prop(hal_audio_default, ptsserver_device)
+set_prop(hal_audio_default, ptsserver_device)
+allow hal_audio_default ptsserver_device:chr_file rw_file_perms;
+

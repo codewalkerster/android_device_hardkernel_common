@@ -92,6 +92,7 @@
 /dev/virtmem              0666   system       system
 /dev/ptsserver            0666   mediacodec   system
 /dev/hdmirx0              0660   system       system
+/dev/ptsserver            0666   system       mediadrm
 
 # Mali
 /dev/ump                  0666   system       graphics

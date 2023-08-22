@@ -18,9 +18,9 @@ on fs
     insmod /vendor/lib/modules/media_clock.ko
     write /sys/module/firmware_class/parameters/path "/vendor/lib/firmware/"
     insmod /vendor/lib/modules/firmware.ko
+    insmod /vendor/lib/modules/pts_server.ko
     insmod /vendor/lib/modules/decoder_common.ko
     insmod /vendor/lib/modules/stream_input.ko
-    insmod /vendor/lib/modules/pts_server.ko
 
 on early-boot
     insmod /vendor/lib/modules/amvdec_mh264.ko
