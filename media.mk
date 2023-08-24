@@ -314,7 +314,8 @@ PRODUCT_PROPERTY_OVERRIDES += vendor.media.omx.out_buffer2_osd=8
 #for Widevine CAS
 ifeq ($(BUILD_WITH_WIDEVINECAS),true)
 PRODUCT_PACKAGES += libwvmediacas \
-                    libdec_ca_wvcas
+                    libdec_ca_wvcas \
+                    e043cde0-61d0-11e5-9c26-0002a5d5c5ca
 endif
 
 #for drm widevine.
