@@ -227,8 +227,7 @@ PRODUCT_PACKAGES += \
 ifeq ($(PRODUCT_SUPPORT_ATK_UI),true)
     PRODUCT_PACKAGES += \
         TVLauncher \
-        FileBrowser2 \
-        SetupWizard
+        FileBrowser2
 else
     PRODUCT_PACKAGES += \
         MboxLauncher \
