@@ -37,15 +37,28 @@ rm -rf $TARGET_NAME-fastboot/u-boot* $TARGET_NAME-fastboot/usb_flow* $TARGET_NAM
 cp -a $DEVICE_DIR/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
 cp -a $ANDROID_OUTPUT_PATH/upgrade/aml_upgrade_package*.conf $TARGET_NAME-img/aml_upgrade_package.conf
 
-dtb_size=`du $KERNEL_DIR/$REAL_BOARD.dtb | awk '{print $1}'`
 
-if [ $dtb_size -ge 180 ]; then
-    echo "gzip $KERNEL_DIR/$REAL_BOARD.dtb as >= 180k";
-    mv $KERNEL_DIR/$REAL_BOARD.dtb $KERNEL_DIR/$REAL_BOARD.dtb.orig
-    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$REAL_BOARD.dtb.orig > $KERNEL_DIR/$REAL_BOARD.dtb
+if [[ "$REAL_BOARD" = "ohm_mxl258c" ]]; then
+	LOCAL_DTB=$REAL_BOARD
+elif [[ "$BOARD_NAME" = "oppen_mxl258c" ]]; then
+	LOCAL_DTB=$REAL_BOARD
+elif [[ "$BOARD_NAME" = "oppencas_mxl258c" ]]; then
+	LOCAL_DTB=$REAL_BOARD
+elif [[ "$BOARD_NAME" = "ohm_1gb" ]]; then
+	LOCAL_DTB=$REAL_BOARD
+else
+	LOCAL_DTB=$BOARD_NAME
 fi
 
-cp -a $KERNEL_DIR/$REAL_BOARD.dtb $TARGET_NAME-img/dt.img
+dtb_size=`du $KERNEL_DIR/$LOCAL_DTB.dtb | awk '{print $1}'`
+
+if [ $dtb_size -ge 180 ]; then
+    echo "gzip $KERNEL_DIR/$LOCAL_DTB.dtb as >= 180k";
+    mv $KERNEL_DIR/$LOCAL_DTB.dtb $KERNEL_DIR/$LOCAL_DTB.dtb.orig
+    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$LOCAL_DTB.dtb.orig > $KERNEL_DIR/$LOCAL_DTB.dtb
+fi
+
+cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $TARGET_NAME-img/dt.img
 cp -a $DEVICE_DIR/upgrade/platform.conf $TARGET_NAME-img/
 cp -a $DEVICE_DIR/upgrade/u-boot.bin.* $TARGET_NAME-img/
 cp -a $DEVICE_DIR/upgrade/usb_flow.aml $TARGET_NAME-img/
