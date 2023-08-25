@@ -165,7 +165,6 @@ UPGRADE_FILES += $(TOOL_ITEMS)
 
 ifeq ($(TARGET_GPT_PART),true)
 	TOOL_ITEMS += gpt.bin
-	BUILT_IMAGES += gpt.bin
 endif #ifeq ($(TARGET_GPT_PART),true)
 
 ifneq ($(TARGET_USE_SECURITY_MODE),true)
@@ -522,6 +521,7 @@ ifneq ($(TARGET_GPT_PART),true)
 	ln -sf $(shell readlink -f $(PRODUCT_OUT)/dt.img) $(PRODUCT_UPGRADE_OUT)/dt.img;
 else
 	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
+	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
 endif
 # package dt.img into bootloader.  b/228873222
 ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
