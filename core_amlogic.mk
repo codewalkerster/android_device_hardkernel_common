@@ -490,6 +490,8 @@ PRODUCT_PACKAGES += \
 endif
 
 #Camera HAL
+ifneq ($(ANDROID_BUILD_TYPE), 64)
+
 ifneq ($(filter U,$(LAUNCH_VERSION)),)
 PRODUCT_PACKAGES += \
     camera.amlogic \
@@ -500,6 +502,22 @@ PRODUCT_PACKAGES += \
      camera.amlogic \
      android.hardware.camera.provider@2.5-legacy-droidlogic \
      android.hardware.camera.provider@2.5-service-droidlogic
+endif
+
+else
+
+ifneq ($(filter U,$(LAUNCH_VERSION)),)
+PRODUCT_PACKAGES += \
+    camera.amlogic \
+    android.hardware.camera.provider-V1-amlogic-service_64 \
+    android.hardware.camera.provider-V1-amlogic-impl
+else
+PRODUCT_PACKAGES += \
+     camera.amlogic \
+     android.hardware.camera.provider@2.5-legacy-droidlogic \
+     android.hardware.camera.provider@2.5-service_64-droidlogic
+endif
+
 endif
 
 #Power HAL
