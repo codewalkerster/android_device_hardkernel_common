@@ -54,6 +54,12 @@ BUILD_WITH_DEC_INFO_TEST := true
 #                     media ext
 #
 #########################################################################
+MEDIAEXTRACTOR_FILECONTEXTS := system/sepolicy/apex/com.amlogic.mediaextractor-file_contexts
+HAVE_FILECONTEXTS := $(shell test -f $(MEDIAEXTRACTOR_FILECONTEXTS) && echo yes)
+ifneq ($(HAVE_FILECONTEXTS), yes)
+    $(shell rm vendor/amlogic/common/prebuilt/libmedia/libavenhancements/apex/com.amlogic.mediaextractor/Android.bp)
+endif
+
 ifeq ($(TARGET_WITH_MEDIA_EXT_LEVEL), 1)
     TARGET_WITH_MEDIA_EXT :=true
     TARGET_WITH_SWCODEC_EXT := true
