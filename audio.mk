@@ -58,7 +58,10 @@ PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     $(configurable_audiopolicy_xmls)hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration.xml \
     $(configurable_audiopolicy_xmls)msd_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/msd_audio_policy_configuration.xml \
-    $(configurable_audiopolicy_xmls)default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
+    $(configurable_audiopolicy_xmls)default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    $(configurable_audiopolicy_xmls)audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
+    $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_product_strategies.xml \
+    $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_stream_volumes.xml
 
 #    $(configurable_audiopolicy_xmls)audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
 #    $(configurable_audiopolicy_xmls)audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
