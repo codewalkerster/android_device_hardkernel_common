@@ -7,7 +7,7 @@
         //            0x10000-layer_error, 0x20000-mer, 0x40000-feq_offset,
         //            0x80000-hierarchy, 0x100000-rf_lock, 0x200000-atsc3_plp
         {
-            "id":0, "minFreq": 42000000, "maxFreq":1002000000, "minSymbol":0, "maxSymbol":0,
+            "id":0, "ts_input":32, "minFreq": 42000000, "maxFreq":1002000000, "minSymbol":0, "maxSymbol":0,
             "acquireRange":848, "statusCap":1957414
         }
     ],
@@ -80,6 +80,5 @@
         //{"hwid":0, "type":2, "modulationCap":7},
     ],
 
-    "dmxsetting":{"ts_input":32},
     "dvrsetting":{"encrypt_pvr":1}
 }

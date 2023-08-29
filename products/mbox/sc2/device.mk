@@ -116,6 +116,11 @@ endif
 #
 #########################################################################
 ifeq ($(SUPPORT_TUNERHAL), true)
+ifeq ($(TUNER_MODULE),mxl258c)
+PRODUCT_COPY_FILES += \
+    $(CHIP_DIR)/files/tunerhal/frontendinfos_fcc.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
+else
 PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
+endif
 endif
