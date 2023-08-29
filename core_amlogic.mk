@@ -832,11 +832,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 endif
 
+TARGET_HAS_FRP_PARTITION ?= true
+
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
+ifeq ($(TARGET_HAS_FRP_PARTITION), true)
 #Factory Reset Protection
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/by-name/frp
-
+endif
 #add project id and casefold attribute for data partition and external storage
 #PRODUCT_QUOTA_PROJID := 1
 #PRODUCT_VENDOR_PROPERTIES += external_storage.projid.enabled=true
