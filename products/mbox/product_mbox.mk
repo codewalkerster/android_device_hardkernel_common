@@ -59,12 +59,21 @@ ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
 PRODUCT_PACKAGES += \
     inputsource \
     libdtvkit_jni \
+    droidlogic-dtvkit \
+    droidlogic.dtvkit.software.core.xml \
+
+ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
+PRODUCT_PACKAGES += \
+    libdtvkitserver \
+    libdtvkit_tuner_jni
+else
+PRODUCT_PACKAGES += \
     dtvkitserver \
     isdb_server \
     dvb_server \
-    dtvkitserver_releaseinfo.txt \
-    droidlogic-dtvkit \
-    droidlogic.dtvkit.software.core.xml
+    dtvkitserver_releaseinfo.txt
+endif
+
 SUPPORT_CAS = true
 endif
 
@@ -73,6 +82,16 @@ PRODUCT_PACKAGES += \
     cas_hal_test \
     libdmx_client \
     b472711b-3ada-4c37-8c2a-7c64d8af0223
+endif
+
+#HbbTV
+ifeq ($(PRODUCT_SUPPORT_HBBTV), true)
+PRODUCT_PACKAGES += \
+    amlogic-vewd-service \
+    tias
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.dtv.hbbtv.enable = false \
+    vendor.tv.dtv.hbbtv.keyremap = true
 endif
 
 PRODUCT_PACKAGES += \
@@ -245,4 +264,24 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/mbox/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp.xml \
     device/amlogic/common/audio/mbox/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp_dtshd.xml
 
+ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
+#DEBUG FOR TUNER SDK JNI
+# jasplayer
+#add jasplayer library
+PRODUCT_PACKAGES += \
+    droidlogic.jasplayer \
+    droidlogic.jasplayer.xml \
+    droidlogic.jniasplayer \
+    libjniasplayer-jni \
+    droidlogic.jniasplayer.xml
 
+# JDvrLib core packages
+PRODUCT_PACKAGES += \
+    JDvrLib \
+    libjdvrlib-jni
+
+# JDvrLib test app related packages
+PRODUCT_PACKAGES += \
+    JDvrLibTest \
+    libjdvrlib-ref-native-client
+endif

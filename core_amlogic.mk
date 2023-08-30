@@ -21,6 +21,10 @@ endif
 # Get the TTS language packs
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 
+#dtvkit config
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+$(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/dtvkit.mk)
+endif
 
 # Get IRDETO middleware framework.
 ifeq ($(TARGET_BUILD_IRDETO), true)
