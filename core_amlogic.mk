@@ -686,9 +686,12 @@ endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_WAVE521),true)
 PRODUCT_PACKAGES += \
+    lib_amvenc \
+    lib_encoder_media_process \
     libvpcodec \
     libamvenc_api
 endif
+
 
 #Atrace HAL
 #PRODUCT_PACKAGES += \
