@@ -36,6 +36,8 @@ function build() {
 		KERNEL_A32_SUPPORT=false
 	fi
 
+	echo "BOARD in build_imgs.sh: $BOARD"
+
 	if [[ $BOARD =~ t7_an400|t982_ar301|smith|t950s_be311|bluebell ]]; then
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=$BOARD
@@ -131,12 +133,34 @@ function build() {
 		cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
 	fi
 
+	if [[ "$REAL_BOARD" = "ohm_mxl258c" ]]; then
+		LOCAL_DTB=$REAL_BOARD
+	elif [[ "$BOARD_NAME" = "oppen_mxl258c" ]]; then
+		LOCAL_DTB=$REAL_BOARD
+	elif [[ "$BOARD_NAME" = "oppencas_mxl258c" ]]; then
+		LOCAL_DTB=$REAL_BOARD
+	elif [[ "$BOARD_NAME" = "ohm_1gb" ]]; then
+		LOCAL_DTB=$REAL_BOARD
+	else
+		LOCAL_DTB=$BOARD_NAME
+	fi
+
+	dtb_size=`du $KERNEL_DIR/$LOCAL_DTB.dtb | awk '{print $1}'`
+
+	if [ $dtb_size -ge 180 ]; then
+	    echo "gzip $KERNEL_DIR/$LOCAL_DTB.dtb as >= 180k";
+	    mv $KERNEL_DIR/$LOCAL_DTB.dtb $KERNEL_DIR/$LOCAL_DTB.dtb.orig
+	    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$LOCAL_DTB.dtb.orig > $KERNEL_DIR/$LOCAL_DTB.dtb
+	fi
+
+	echo "LOCAL_DTB: $LOCAL_DTB"
+
 	echo "copy $CUR_DIR/normal_target/VENDOR_BOOT"
 	rm -rf $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko
 	cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
 	cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load
 	cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load.recovery
-	cp -a $KERNEL_DIR/$BOARD_NAME.dtb $CUR_DIR/normal_target/VENDOR_BOOT/dtb
+	cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/VENDOR_BOOT/dtb
 	cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/VENDOR_BOOT/recovery_dtbo
 
 	rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
@@ -202,7 +226,7 @@ function build() {
 
 	if [ $CONFIG_SIGN ]; then
 		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD &
-		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 
 		echo "need sign"
 		./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR \
@@ -228,10 +252,10 @@ function build() {
 		echo "sign OK"
 
 		./device/amlogic/common/scripts/generate_ota_zip.sh signed $BOARD_NAME $REAL_BOARD &
-		./device/amlogic/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 	else
 		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD &
-		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 	fi
 
 	echo "build zip OK"
