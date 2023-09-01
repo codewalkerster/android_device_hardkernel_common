@@ -46,7 +46,7 @@
         <!-- Primary Audio HAL -->
         <module name="primary" halVersion="3.0">
             <attachedDevices>
-                <item>Earpiece</item>
+                <item>Mute Device</item>
                 <item>Speaker</item>
                 <item>Built-In Mic</item>
                 <item>Echo Reference</item>
@@ -139,7 +139,7 @@
             </mixPorts>
             <devicePorts>
                 <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
-                <devicePort tagName="Earpiece" role="sink" type="AUDIO_DEVICE_OUT_EARPIECE">
+                <devicePort tagName="Mute Device" role="sink" type="AUDIO_DEVICE_OUT_FM">
                 </devicePort>
                 <devicePort tagName="Speaker" role="sink" type="AUDIO_DEVICE_OUT_SPEAKER">
                     <gains>
@@ -230,7 +230,7 @@
             <routes>
                 <route type="mix" sink="HDMI Out"
                        sources="primary output,tunnel pcm,direct output,Tuner,mmap_no_irq_out_dynamic,compress offload,tunnel compress offload,tunnel direct output"/>
-                <route type="mix" sink="Earpiece"
+                <route type="mix" sink="Mute Device"
                        sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
                 <route type="mix" sink="Speaker"
                        sources="primary output,tunnel pcm,direct pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
