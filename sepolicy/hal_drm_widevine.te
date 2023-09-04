@@ -7,3 +7,4 @@ allow hal_drm_widevine mediadrm_vendor_data_file:file create_file_perms;
 allow hal_drm_widevine mediadrm_vendor_data_file:dir create_dir_perms;
 allow hal_drm_widevine drm_device:chr_file { read open write ioctl };
 allow hal_drm_widevine self:capability sys_nice;
+get_prop(hal_drm_widevine, vendor_media_prop)
