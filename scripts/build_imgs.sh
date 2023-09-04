@@ -145,9 +145,9 @@ function build() {
 		LOCAL_DTB=$BOARD_NAME
 	fi
 
-	dtb_size=`du $KERNEL_DIR/$LOCAL_DTB.dtb | awk '{print $1}'`
+	dtb_size=`du -b $KERNEL_DIR/$LOCAL_DTB.dtb | awk '{print $1}'`
 
-	if [ $dtb_size -ge 180 ]; then
+	if [ $dtb_size -ge 184320  ]; then
 	    echo "gzip $KERNEL_DIR/$LOCAL_DTB.dtb as >= 180k";
 	    mv $KERNEL_DIR/$LOCAL_DTB.dtb $KERNEL_DIR/$LOCAL_DTB.dtb.orig
 	    ./out/host/linux-x86/bin/minigzip -c $KERNEL_DIR/$LOCAL_DTB.dtb.orig > $KERNEL_DIR/$LOCAL_DTB.dtb
