@@ -156,6 +156,9 @@ echo "done."
 if [ -f $UBOOT_PATH/uboot.img ]
 then
 	echo -n "create uboot.img..."
+	if [ "$TARGET_BOARD_HARDWARE" == "odroid" ]; then
+		cp -a $UBOOT_PATH/idblock.bin $IMAGE_PATH/idbloader.img
+	fi
 	cp -a $UBOOT_PATH/uboot.img $IMAGE_PATH/uboot.img
 	echo "done."
 else
