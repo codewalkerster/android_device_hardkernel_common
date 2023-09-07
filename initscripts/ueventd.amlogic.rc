@@ -156,8 +156,8 @@
 
 /dev/cec                  0666   system       system
 /dev/v4l2_frontend        0666   system       system
-/dev/opteearmtz00         0666   system       system
-/dev/tee0                 0666   system       system
+/dev/teepriv0	          0600   root         root
+/dev/tee0                 0660   system       drmrpc
 
 /dev/block/by-name/frp    0660   system       system
 /dev/block/by-name/env    0660   system       system
