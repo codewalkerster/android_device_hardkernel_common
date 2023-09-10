@@ -418,6 +418,7 @@ ifeq ($(TARGET_USE_OPTEEOS),true)
 PRODUCT_PACKAGES += \
 	tee-supplicant \
 	libteec \
+	libckteec \
 	tee_stest \
 	tee_helloworld \
 	tee_crypto \
@@ -447,6 +448,15 @@ PRODUCT_PACKAGES += \
 	tee_hdcp_ta \
 	tee_ciplus_ta
 
+#$(warning "TDK Version is $(PLATFORM_TDK_VERSION)")
+ifeq ($(PLATFORM_TDK_VERSION), 38)
+PLATFORM_TDK_PATH := $(BOARD_AML_VENDOR_PATH)/tdk/v3.8.0
+else ifeq ($(PLATFORM_TDK_VERSION), 318)
+PLATFORM_TDK_PATH := $(BOARD_AML_VENDOR_PATH)/tdk/v3.18.0
+else
+PLATFORM_TDK_PATH := $(BOARD_AML_VENDOR_PATH)/tdk/v2.4.4
+endif
+#$(warning "TDK Path is $(PLATFORM_TDK_PATH)")
 endif
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
