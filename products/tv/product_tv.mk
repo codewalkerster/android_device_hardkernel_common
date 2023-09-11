@@ -216,6 +216,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=tv \
     ro.hdmi.device_type=0
 
+# EArc Hal
+PRODUCT_PACKAGES += \
+    android.hardware.tv.hdmi.earc-service.droidlogic
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.hdmi.arc_port=2
+
 #userdebug, eng, AOSP version default disable AVB
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
     BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
