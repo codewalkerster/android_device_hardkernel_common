@@ -35,14 +35,17 @@ if bcb load $$devnum misc; then
 	# valid BCB found
 	if bcb test command = bootonce-bootloader; then
 		# Bootloader boot
+		echo "  bootloader boot"
 		bcb clear command; bcb store;
 		fastboot usb 0
 	elif bcb test command = boot-recovery; then
 		# Recovery boot
+		echo "  recovery boot"
 		setenv partnum ${_recovery_part}
 		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init"
 	else
 		# Normal boot
+		echo "  Normal boot"
 		setenv partnum ${_boot_part}
 		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init rootwait ro"
 	fi
@@ -61,13 +64,13 @@ if bcb load $$devnum misc; then
 	ini generic $$ini_addr_r
 
 	echo "  Load Device Tree"
-	load $$devtype $$devnum:1 $$fdt_addr_r rockchip/rk3568-odroid-m1.dtb
+	load $$devtype $$devnum:1 $$fdt_addr_r rockchip/${_target_dtb}.dtb
 
 	fdt addr $$fdt_addr_r
 	fdt resize $$overlays_resize
 
 	for overlay in $$overlays; do
-		load $$devtype $$devnum:1 $$dtbo_addr_r rockchip/overlays/odroidm1/$$overlay.dtbo
+		load $$devtype $$devnum:1 $$dtbo_addr_r rockchip/overlays/${_target_board}/$$overlay.dtbo
 		fdt apply $$dtbo_addr_r
 
 		ini $$overlay $$ini_addr_r
@@ -80,7 +83,11 @@ if bcb load $$devnum misc; then
 	echo "  Set booting arguments"
 	setenv secure_args "androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.verifiedbootstate=orange"
 	setenv io_args "androidboot.baseband=N/A androidboot.wificountrycode=${_wifi_country} console=ttyFIQ0 androidboot.console=ttyFIQ0 pci=nomsi"
-	setenv mtd_args "mtdparts=${_mtd}"
+	if test $$board = "odroid-m1"; then
+		setenv mtd_args "mtdparts=${_mtd}"
+	else
+		setenv mtd_args ""
+	fi
 
 	setenv android_args "androidboot.lcd_density=$$lcd_density"
 

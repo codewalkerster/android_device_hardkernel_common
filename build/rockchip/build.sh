@@ -151,6 +151,7 @@ pushd kernel
 make $ADDON_ARGS ARCH=$KERNEL_ARCH distclean
 make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG
 cp ../device/hardkernel/rk356x/odroidm1/.rk3568-odroid-m1.dtb.dts.tmp.domain ./arch/arm64/boot/dts/rockchip/
+cp ../device/hardkernel/rk356x/odroidm1s/.rk3566-odroid-m1s.dtb.dts.tmp.domain ./arch/arm64/boot/dts/rockchip/
 make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS
 make $ADDON_ARGS ARCH=$KERNEL_ARCH dtbs -j$BUILD_JOBS
 echo "compile rtl8821cu wifi driver"

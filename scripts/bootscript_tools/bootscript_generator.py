@@ -4,7 +4,7 @@ import getopt
 import os
 from string import Template
 
-usage = 'Invalid arguments. Example:\nbootscript_generator --variant userdebug --boot-part 6 --recovery-part 7 --wifi-country US --mtd flash.0:flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware) --output boot.scr'
+usage = 'Invalid arguments. Example:\nbootscript_generator --variant userdebug --boot-part 6 --recovery-part 7 --wifi-country US --mtd flash.0:flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware) --target-dtb rk3568-odroid-m1 --target-board odroidm1 --output boot.scr'
 
 def main(argv):
     infile = 'bootscript.in'
@@ -13,8 +13,10 @@ def main(argv):
     wifi_country = 'US'
     outfile = 'boot.cmd'
     mtd = "flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware)"
+    target_dtb = 'rk3568-odroid-m1'
+    target_board = 'odroidm1'
     try:
-        opts, args = getopt.getopt(argv, "h", ["input=","variant=","boot-part=","recovery-part=","wifi-country=","output=","mtd="])
+        opts, args = getopt.getopt(argv, "h", ["input=","variant=","boot-part=","recovery-part=","wifi-country=","output=","mtd=","target-dtb=","target-board="])
     except getopt.GetoptError:
         print(usage)
         sys.exit(2)
@@ -36,6 +38,10 @@ def main(argv):
             outfile = arg
         elif opt == "--mtd":
             mtd = arg
+        elif opt == "--target-dtb":
+            target_dtb = arg
+        elif opt == "--target-board":
+            target_board = arg
         else:
             print (usage)
             sys.exit(2)
@@ -52,7 +58,7 @@ def main(argv):
     template_bootscript_in = file_bootscript_in.read()
     template_in_t = Template(template_bootscript_in)
 
-    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _mtd=mtd)
+    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _mtd=mtd, _target_dtb=target_dtb, _target_board=target_board)
 
     if outfile != '':
         with open (outfile,"w") as f:
