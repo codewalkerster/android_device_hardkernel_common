@@ -9,6 +9,8 @@ TARGET_IMAGE=$TARGET_PATH/selfinstall.img
 HOST_OUT=`get_build_var HOST_OUT_EXECUTABLES`
 SGDISK_HOST=$HOST_OUT/sgdisk
 
+PRODUCT_OUT=`get_build_var PRODUCT_OUT`
+
 if [ -f $TARGET_PATH/uboot.img ]; then
 dd if=$TARGET_PATH/idbloader.img of=$TARGET_IMAGE bs=512 seek=64
 fi
@@ -20,6 +22,7 @@ dd if=$TARGET_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=53248
 dd if=$TARGET_PATH/vbmeta.img of=$TARGET_IMAGE bs=512 seek=61440
 dd if=$TARGET_PATH/boot.img of=$TARGET_IMAGE bs=512 seek=63488
 dd if=$TARGET_PATH/recovery.img of=$TARGET_IMAGE bs=512 seek=145408
+dd if=$PRODUCT_OUT/cache.img of=$TARGET_IMAGE bs=512 seek=342016
 dd if=$TARGET_PATH/baseparameter.img of=$TARGET_IMAGE bs=512 seek=2471936
 dd if=$TARGET_PATH/super.img of=$TARGET_IMAGE bs=512 seek=2473984
 dd if=/dev/zero of=$TARGET_IMAGE bs=512 seek=8847360 count=34
