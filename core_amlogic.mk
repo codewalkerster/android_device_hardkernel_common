@@ -140,6 +140,8 @@ endif
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
     USE_OEM_TV_APP := true
+else
+    BOARD_DISABLE_DVB_AUDIO := true
 endif
 
 ifneq ($(TARGET_BUILD_GMS), true)
