@@ -93,6 +93,8 @@ function build() {
 		BOARD_AML_SOC_TYPE=T982
 	elif [[ "$BOARD_NAME" = "dalton" ]]; then
 		BOARD_AML_SOC_TYPE=T962E2
+	elif [[ "$BOARD_NAME" =~ newton ]]; then
+		LAUNCH_VERSION=Q
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"
@@ -113,16 +115,30 @@ function build() {
 
 	cd $CUR_DIR
 
-	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "false" ]; then
-		echo "copy boot.img & dtbo.img"
-		cp -a $KERNEL_DIR/gki/boot-gz.img  $CUR_DIR/normal_target/PREBUILT_IMAGES/boot.img
+	echo "LAUNCH_VERSION: $LAUNCH_VERSION"
+	if [ "$LAUNCH_VERSION" = "S" -o "$LAUNCH_VERSION" = "R" ]; then
+		echo "launch on S, copy Image.gz & dtbo.img"
+		cp -a $KERNEL_DIR/Image.gz $CUR_DIR/normal_target/BOOT/kernel
 		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
-	fi
+	elif [ "$LAUNCH_VERSION" = "Q" ]; then
+		echo "***** copy kernel"
+		cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/BOOT/kernel
+		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+		if [ -f $CUR_DIR/normal_target/RECOVERY/kernel ]; then
+			cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/RECOVERY/kernel
+		fi
+	else
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "false" ]; then
+			echo "copy boot.img & dtbo.img"
+			cp -a $KERNEL_DIR/gki/boot-gz.img  $CUR_DIR/normal_target/PREBUILT_IMAGES/boot.img
+			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+		fi
 
-	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "true" ]; then
-		echo "copy dtbo.img"
-		cp -a $KERNEL_DIR/uImage $CUR_DIR/normal_target/BOOT/kernel
-		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "true" ]; then
+			echo "copy dtbo.img"
+			cp -a $KERNEL_DIR/uImage $CUR_DIR/normal_target/BOOT/kernel
+			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+		fi
 	fi
 
 	rm -rf $CUR_DIR/normal_target/RADIO/bootloader.img
@@ -140,7 +156,11 @@ function build() {
 		rm -rf $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/*
 		cp -a $KERNEL_DIR/gki/lib/modules/* $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
 		cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
-		cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
+		if [ -d $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/ ]; then
+			cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
+		else
+			cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR/lib/modules/
+		fi
 	fi
 
 	if [[ "$REAL_BOARD" == *"mxl258c"* ]]; then
@@ -161,32 +181,86 @@ function build() {
 
 	echo "LOCAL_DTB: $LOCAL_DTB"
 
-	echo "copy $CUR_DIR/normal_target/VENDOR_BOOT"
-	rm -rf $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko
-	cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
-	cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load
-	cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load.recovery
-	cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/VENDOR_BOOT/dtb
-	cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/VENDOR_BOOT/recovery_dtbo
+	if [ -d $CUR_DIR/normal_target/VENDOR_BOOT ]; then
+		echo "copy $CUR_DIR/normal_target/VENDOR_BOOT"
+		rm -rf $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko
+		cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
+		cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load
+		cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load.recovery
+		cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/VENDOR_BOOT/dtb
+		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/VENDOR_BOOT/recovery_dtbo
 
-	rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
-	mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules
-	cp -a $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules/
-	./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
-	sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.dep
-	cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
-	rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules
+		cp -a $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules/
+		./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
+		sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.dep
+		cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+	else
+		echo "copy $CUR_DIR/normal_target/BOOT"
+		rm -rf $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/*.ko
+		cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/
+		cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/modules.load
 
-	echo "copy $CUR_DIR/normal_target/VENDOR_DLKM"
-	cp -a $KERNEL_DIR/lib/modules/* $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
-	cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/modules.load
+		cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/BOOT/dtb
+		if [ -f $CUR_DIR/normal_target/BOOT/second ]; then
+			cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/BOOT/second
+		fi
 
-	mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules
-	cp -a $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules/
-	./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
-	sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/modules.dep
-	cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
-	rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules
+		cp -a $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules/
+		./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
+		sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/modules.dep
+		cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+	fi
+
+	if [ -d $CUR_DIR/normal_target/RECOVERY ]; then
+		echo "copy $CUR_DIR/normal_target/RECOVERY"
+		rm -rf $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/*.ko
+		cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/
+		cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/modules.load.recovery
+
+		cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/RECOVERY/dtb
+		if [ -f $CUR_DIR/normal_target/RECOVERY/second ]; then
+			cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/RECOVERY/second
+		fi
+		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/RECOVERY/recovery_dtbo
+
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules
+		cp -a $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/lib/modules/
+		./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
+		sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/modules.dep
+		cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+	fi
+
+	if [ -d $CUR_DIR/normal_target/VENDOR_DLKM ]; then
+		echo "copy $CUR_DIR/normal_target/VENDOR_DLKM"
+		cp -a $KERNEL_DIR/lib/modules/* $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
+		cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/modules.load
+
+		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules
+		cp -a $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules/
+		./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
+		sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/modules.dep
+		cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+	else
+		echo "copy $CUR_DIR/normal_target/VENDOR"
+		cp -a $KERNEL_DIR/lib/modules/* $CUR_DIR/normal_target/VENDOR/lib/modules/
+		cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR/lib/modules/modules.load
+
+		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules
+		cp -a $CUR_DIR/normal_target/VENDOR/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules/
+		./out/host/linux-x86/bin/depmod -b $CUR_DIR/out_tmp/depmod_vendor_intermediates 0.0
+		sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.dep > $CUR_DIR/normal_target/VENDOR/lib/modules/modules.dep
+		cp $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/modules.alias $CUR_DIR/normal_target/VENDOR/lib/modules/
+		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
+	fi
 
 	echo "copy $CUR_DIR/normal_target/VENDOR"
 	rm -rf $CUR_DIR/normal_target/VENDOR/lib/firmware/video/*
@@ -199,11 +273,23 @@ function build() {
 
 	cd $CUR_DIR
 
+	if [ -f $CUR_DIR/normal_target/BOOT/RAMDISK ]; then
+		(cd  normal_target/BOOT/RAMDISK; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R '' >  normal_target/META/boot_filesystem_config.txt
+	fi
+
+	if [ -f $CUR_DIR/normal_target/RECOVERY/RAMDISK ]; then
+		(cd  normal_target/RECOVERY/RAMDISK; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R '' >  normal_target/META/recovery_filesystem_config.txt
+	fi
+
 	(cd  normal_target/VENDOR; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,vendor/,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R vendor/ >  normal_target/META/vendor_filesystem_config.txt
 
+	if [ -d normal_target/VENDOR_BOOT ]; then
 	(cd  normal_target/VENDOR_BOOT/RAMDISK; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R '' >  normal_target/META/vendor_boot_filesystem_config.txt
+	fi
 
+	if [ -d normal_target/VENDOR_DLKM ]; then
 	(cd  normal_target/VENDOR_DLKM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,vendor_dlkm/,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R vendor_dlkm/ >  normal_target/META/vendor_dlkm_filesystem_config.txt
+	fi
 
 	(cd  normal_target/SYSTEM_DLKM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,system_dlkm/,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R system_dlkm/ >  normal_target/META/system_dlkm_filesystem_config.txt
 
