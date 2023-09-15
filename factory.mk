@@ -114,8 +114,6 @@ ifeq ($(TARGET_BUILD_TYPE),debug)
   name_aml := $(name_aml)_debug
 endif
 
-INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name_aml)-ota-$(FILE_NAME_TAG).zip
-
 AML_TARGET := $(PRODUCT_OUT)/obj/PACKAGING/target_files_intermediates/$(name_aml)-target_files-$(FILE_NAME)
 
 AML_TARGET_ZIP := $(PRODUCT_OUT)/super_empty_all.img
@@ -684,40 +682,6 @@ endif
 	cp -f $(PRODUCT_OUT)/super_empty_all.img $(PRODUCT_OUT)/fastboot_auto/super_empty_all.img
 	cd $(PRODUCT_OUT)/fastboot_auto; zip -1 -r ../$(TARGET_PRODUCT)-fastboot-flashall-$(FILE_NAME).zip *
 
-name := $(TARGET_PRODUCT)
-ifeq ($(TARGET_BUILD_TYPE),debug)
-  name := $(name)_debug
-endif
-name := $(name)-ota-amlogic-$(FILE_NAME)
-
-AMLOGIC_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
-
-$(AMLOGIC_OTA_PACKAGE_TARGET): KEY_CERT_PAIR := $(DEFAULT_KEY_CERT_PAIR)
-
-ifeq ($(AB_OTA_UPDATER),true)
-$(AMLOGIC_OTA_PACKAGE_TARGET): $(BRILLO_UPDATE_PAYLOAD)
-else
-$(AMLOGIC_OTA_PACKAGE_TARGET): $(BRO)
-endif
-
-EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/amlogic/common/recovery/updater-script
-
-$(AMLOGIC_OTA_PACKAGE_TARGET): $(AML_TARGET).zip $(BUILT_ODMIMAGE_TARGET)
-	@echo "Package OTA2: $@"
-	mkdir -p $(AML_TARGET)/IMAGES/
-	cp $(PRODUCT_OUT)/super_empty_all.img $(AML_TARGET)/IMAGES/
-	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
-	   ./device/amlogic/common/scripts/ota_amlogic.py -v \
-	   --block \
-	   --extracted_input_target_files $(patsubst %.zip,%,$(BUILT_TARGET_FILES_PACKAGE)) \
-	   -p $(HOST_OUT) \
-	   -k $(DEFAULT_KEY_CERT_PAIR) \
-	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
-	   $(BUILT_TARGET_FILES_PACKAGE) $@
-
-.PHONY: ota_amlogic
-ota_amlogic: $(AMLOGIC_OTA_PACKAGE_TARGET)
-
 ifeq ($(TARGET_SUPPORT_USB_BURNING_V2),true)
 INSTALLED_AML_EMMC_BIN := $(PRODUCT_OUT)/aml_emmc_mirror.bin.gz
 AML_EMMC_BIN_GENERATOR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/aml_emmc_bin_maker.app
@@ -764,9 +728,47 @@ ifneq ($(BUILD_AMLOGIC_FACTORY_ZIP), false)
 droidcore: $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_AML_FASTBOOT_ZIP)
 endif
 
-$(INTERNAL_OTA_PACKAGE_TARGET): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(AML_TARGET_ZIP) $(INSTALLED_MANIFEST_XML) $(INSTALLED_AML_FASTBOOT_ZIP)
-
 .PHONY: aml_factory_zip
 aml_factory_zip: $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_MANIFEST_XML) $(INSTALLED_AML_FASTBOOT_ZIP)
 
+ifeq ($(build_ota_package),true)
+INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name_aml)-ota-$(FILE_NAME_TAG).zip
+$(INTERNAL_OTA_PACKAGE_TARGET): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(AML_TARGET_ZIP) $(INSTALLED_MANIFEST_XML) $(INSTALLED_AML_FASTBOOT_ZIP)
+
+name := $(TARGET_PRODUCT)
+ifeq ($(TARGET_BUILD_TYPE),debug)
+  name := $(name)_debug
+endif
+name := $(name)-ota-amlogic-$(FILE_NAME)
+
+AMLOGIC_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
+
+$(AMLOGIC_OTA_PACKAGE_TARGET): KEY_CERT_PAIR := $(DEFAULT_KEY_CERT_PAIR)
+
+ifeq ($(AB_OTA_UPDATER),true)
+$(AMLOGIC_OTA_PACKAGE_TARGET): $(BRILLO_UPDATE_PAYLOAD)
+else
+$(AMLOGIC_OTA_PACKAGE_TARGET): $(BRO)
+endif
+
+EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/amlogic/common/recovery/updater-script
+
+$(AMLOGIC_OTA_PACKAGE_TARGET): $(AML_TARGET).zip $(BUILT_ODMIMAGE_TARGET)
+	@echo "Package OTA2: $@"
+	mkdir -p $(AML_TARGET)/IMAGES/
+	cp $(PRODUCT_OUT)/super_empty_all.img $(AML_TARGET)/IMAGES/
+	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
+	   ./device/amlogic/common/scripts/ota_amlogic.py -v \
+	   --block \
+	   --extracted_input_target_files $(patsubst %.zip,%,$(BUILT_TARGET_FILES_PACKAGE)) \
+	   -p $(HOST_OUT) \
+	   -k $(DEFAULT_KEY_CERT_PAIR) \
+	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
+	   $(BUILT_TARGET_FILES_PACKAGE) $@
+
+.PHONY: ota_amlogic
+ota_amlogic: $(AMLOGIC_OTA_PACKAGE_TARGET)
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_MANIFEST_XML) $(AML_TARGET_ZIP) $(INSTALLED_AML_FASTBOOT_ZIP) $(INTERNAL_OTA_PACKAGE_TARGET)
+
+endif #build_ota_package
+
