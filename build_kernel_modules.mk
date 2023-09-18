@@ -252,11 +252,16 @@ $(INSTALLED_DTBIMAGE_TARGET): $(LOCAL_DTB)
 	$(transform-prebuilt-to-target)
 
 ifneq ($(KERNEL_A32_SUPPORT),true)
+LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 AML_VENDOR_COPY_FILES := $(PRODUCT_OUT)/vendor_dlkm/lib/modules/system_dlkm.modules.load
-LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
 $(AML_VENDOR_COPY_FILES): $(LOCAL_SYSTEM_PROP)
 	mkdir -p $(PRODUCT_OUT)/vendor_dlkm/lib/modules/
+	$(transform-prebuilt-to-target)
+else
+AML_VENDOR_COPY_FILES := $(PRODUCT_OUT)/vendor/lib/modules/system_dlkm.modules.load
+$(AML_VENDOR_COPY_FILES): $(LOCAL_SYSTEM_PROP)
+	mkdir -p $(PRODUCT_OUT)/vendor/lib/modules/
 	$(transform-prebuilt-to-target)
 endif
 
@@ -283,9 +288,11 @@ $(PRODUCT_OUT)/vendor.img: $(AML_VENDOR_COPY_MODULES) $(INSTALLED_BOARDDTB_TARGE
 endif
 
 ifneq ($(KERNEL_A32_SUPPORT),true)
-ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 target-files-package: $(AML_VENDOR_COPY_FILES)
+ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
 $(PRODUCT_OUT)/vendor_dlkm.img: $(AML_VENDOR_COPY_FILES)
+else
+$(PRODUCT_OUT)/vendor.img: $(AML_VENDOR_COPY_FILES)
 endif
 
 ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
