@@ -266,7 +266,17 @@ $(INSTALLED_AML_GPT): $(AML_GPT_TOOL)
 	@echo "Installed $@"
 
 else
+ifeq ($(LAUNCH_VERSION),R)
+INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
+AML_GPT_TOOL := out/host/linux-x86/bin/makegpt
+$(INSTALLED_AML_GPT): $(AML_GPT_TOOL)
+	@echo "generate $(INSTALLED_AML_GPT)"
+	$(hide) mkdir -p $(PRODUCT_UPGRADE_OUT)
+	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -s $(AML_EMMC_SIZE) -v 2 --partitions $(AML_GPT_PART)
+	@echo "Installed $@"
+else
 INSTALLED_AML_GPT :=
+endif
 endif
 
 .PHONY: gptbin
@@ -388,7 +398,12 @@ ifeq ($(TARGET_GPT_PART),true)
 	dd if=$< of=$@
 	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
 else
+ifeq ($(LAUNCH_VERSION),R)
+	dd if=$< of=$@
+	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
+else
 	$(hide) cp $< $@
+endif
 # package dt.img into bootloader.  b/228873222
 ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
 	@echo "Package dt.img into bootloader.img"

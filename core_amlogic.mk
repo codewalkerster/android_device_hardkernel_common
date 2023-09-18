@@ -906,8 +906,10 @@ PRODUCT_PACKAGES += \
     update_verifier
 
 ifneq ($(TARGET_GPT_PART),true)
+ifneq ($(LAUNCH_VERSION),R)
 PRODUCT_PACKAGES += \
     android.hardware.boot-bootloader.rc
+endif
 endif
 
 PRODUCT_PACKAGES += \
