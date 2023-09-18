@@ -227,7 +227,7 @@ endif
 $(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL) $(LOCAL_DTB) $(MINIGZIP) $(INSTALLED_FIRMWARE_TARGET) $(INSTALLED_OPTEE_TARGET) | $(ACP)
 	@echo "dtb installed"
 	cp $(LOCAL_DTB) $@
-	if [ -n "$(shell find $@ -size +180)" ]; then \
+	if [ -n "$(shell find $@ -size +180k)" ]; then \
 		echo "gzip $@ as > 180k"; \
 		mv $@ $@.orig && $(MINIGZIP) -c $@.orig > $@; \
 	fi;
