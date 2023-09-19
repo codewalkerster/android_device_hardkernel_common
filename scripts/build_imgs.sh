@@ -83,7 +83,7 @@ function build() {
 		BOARD_AML_SOC_TYPE=S905Y4
 	elif [[ "$BOARD_NAME" = "boreal" ]]; then
 		BOARD_AML_SOC_TYPE=S805X2G
-	elif [[ "$BOARD_NAME" =~ t7_an400|bluebell ]]; then
+	elif [[ "$BOARD_NAME" =~ t7_an400|bluebell|mercury ]]; then
 		BOARD_AML_SOC_TYPE=A311D2
 	fi
 
