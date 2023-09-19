@@ -2,7 +2,7 @@
   "audiocaps": {
     "continuousAudio": true,
     "aaudio":true,
-    "uiAudioBufferDelayOffset":90,
+    "uiAudioBufferDelayOffset":70,
     "pcm": {
       "mixing": true,
       "transition": ease,
