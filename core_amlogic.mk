@@ -591,7 +591,7 @@ endif
 # CEC HAL
 PRODUCT_PACKAGES += \
     android.hardware.tv.hdmi.cec-service.droidlogic
- 
+
 # Hdmi Connection Hal
 PRODUCT_PACKAGES += \
     android.hardware.tv.hdmi.connection-service.droidlogic
@@ -600,16 +600,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
    log.tag.HDMI=DEBUG \
    ro.vendor.platform.hdmi.vendor_id=1877008
 
-#Android new device will use AIDL to instead of HIDL
+#Please enable it when the device has lights
 ifeq ($(BOARD_ENABLE_LIGHT_CONTROL),true)
     PRODUCT_PACKAGES += \
         lights
-else
-#ifneq ($(CONFIG_DEVICE_LOW_RAM_OTT_1G),true)
-PRODUCT_PACKAGES += \
-        android.hardware.light@2.0-impl \
-        android.hardware.light@2.0-service
-#endif
 endif
 
 #usb hal
