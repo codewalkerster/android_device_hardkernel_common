@@ -9,7 +9,6 @@ import /vendor/etc/init/hw/init.amlogic.bluetooth.rc
 import /vendor/etc/init/hw/init.dtvstack.rc
 
 on early-init
-    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
     mount proc proc /proc remount hidepid=2,gid=3009
 
 on init
