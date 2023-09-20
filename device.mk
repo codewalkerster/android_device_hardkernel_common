@@ -1510,3 +1510,7 @@ PRODUCT_PACKAGES += \
     odroidThings \
     com.google.android.things.xml \
     vendor.hardkernel.hardware.odroidthings@1.0-service
+
+PRODUCT_PACKAGES += \
+    mkfs.exfat \
+    fsck.exfat
