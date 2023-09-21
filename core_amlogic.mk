@@ -53,7 +53,8 @@ PRODUCT_PACKAGES += \
     libsubtitlebinder \
     vendor.amlogic.hardware.subtitleserver@1.0 \
     libsubtitlemanager_jni \
-    libsubtitlemanagerproduct_jni
+    libsubtitlemanagerproduct_jni \
+    libsubtitle_depend
 
 #add tv library
 PRODUCT_PACKAGES += \
