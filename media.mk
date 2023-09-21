@@ -127,6 +127,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmediahal_passthrough\
 
+#mediahal_hwdemux
+PRODUCT_PACKAGES += \
+    libmediahal_hardware_demux\
+
 #codec ext related.
 #
 ifeq ($(TARGET_WITH_CODEC_EXT), true)
