@@ -678,13 +678,8 @@ endif
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)
-ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
-else
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab-4.9.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab-4.9.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
-endif
 endif
 	cp $(PRODUCT_OUT)/super_empty.img $(PRODUCT_OUT)/fastboot_auto/
 ifneq ($(BUILDING_SYSTEM_EXT_IMAGE),true)

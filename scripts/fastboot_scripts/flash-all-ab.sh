@@ -61,8 +61,6 @@ function flash_with_retry() {
 
 fastboot $sern flashing unlock
 fastboot $sern flash bootloader bootloader.img
-fastboot $sern flash bootloader-boot0 bootloader.img
-fastboot $sern flash bootloader-boot1 bootloader.img
 
 if [ -f dt.img ]
 then
@@ -132,6 +130,9 @@ flash_with_retry vendor vendor.img
 flash_with_retry product product.img
 fastboot $sern reboot-bootloader
 sleep 5
+
+fastboot $sern flash bootloader-boot0 bootloader.img
+fastboot $sern flash bootloader-boot1 bootloader.img
 
 if [ "$lflag" = "lock" ]
 then
