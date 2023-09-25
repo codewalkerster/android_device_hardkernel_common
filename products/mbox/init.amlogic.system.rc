@@ -16,7 +16,8 @@ on init
     symlink /sdcard /mnt/sdcard
     #start console
     #30 means reserve 3% memory using for high water mark, 1GB DDR x 3% = 30MB
-    #write /proc/sys/vm/watermark_scale_factor 30
+    write /proc/sys/vm/watermark_scale_factor 80
+    write /proc/sys/vm/swappiness 150
     write /proc/sys/vm/watermark_boost_factor 0
     #12288KB
     write /proc/sys/vm/min_free_kbytes 12288
@@ -140,7 +141,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
 on property:sys.boot_completed=1
     start factoryreset
     #30 means reserve 3% memory using for high water mark, 1GB DDR x 3% = 30MB
-    write /proc/sys/vm/watermark_scale_factor 30
 
     write /dev/cpuctl/background/cpu.uclamp.max 50
     write /dev/cpuctl/system-background/cpu.uclamp.max 50
