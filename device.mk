@@ -1467,6 +1467,9 @@ endif
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
 
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/hardkernel-720.bmp.gz:$(TARGET_OUT)/boot-logo.bmp.gz
+
 # build libmpimmz for rknn
 PRODUCT_PACKAGES += \
 	libmpimmz
