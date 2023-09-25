@@ -85,6 +85,8 @@ function build() {
 		BOARD_AML_SOC_TYPE=S805X2G
 	elif [[ "$BOARD_NAME" =~ t7_an400|bluebell|mercury ]]; then
 		BOARD_AML_SOC_TYPE=A311D2
+	elif [[ "$BOARD_NAME" =~ t982_ar301 ]]; then
+		BOARD_AML_SOC_TYPE=T982
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"
