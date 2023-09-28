@@ -18,6 +18,7 @@ adb reboot bootloader
 fastboot flashing unlock
 fastboot flash bootloader bootloader.img
 fastboot flash dts dt.img
+fastboot erase env
 fastboot erase misc
 fastboot reboot-bootloader
 ping -n 5 127.0.0.1 >nul
@@ -26,7 +27,6 @@ fastboot flash dtbo dtbo.img
 fastboot -w
 fastboot erase param
 fastboot erase tee
-fastboot erase env
 fastboot flash vbmeta vbmeta.img
 fastboot flash logo logo.img
 if exist odm_ext.img (

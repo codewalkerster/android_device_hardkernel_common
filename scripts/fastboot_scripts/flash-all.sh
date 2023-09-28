@@ -62,6 +62,7 @@ function flash_with_retry() {
 fastboot $sern flashing unlock
 fastboot $sern flash bootloader bootloader.img
 fastboot $sern flash dts dt.img
+fastboot $sern erase env
 fastboot $sern erase misc
 fastboot $sern reboot-bootloader
 
@@ -76,7 +77,6 @@ fi
 
 fastboot $sern erase param
 fastboot $sern erase tee
-fastboot $sern erase env
 
 flash_with_retry vbmeta vbmeta.img
 if [ -f vbmeta_system.img ]
