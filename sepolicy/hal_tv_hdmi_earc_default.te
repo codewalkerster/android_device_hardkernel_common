@@ -1,6 +1,8 @@
 get_prop(hal_tv_hdmi_earc_default, vendor_platform_prop)
 get_prop(hal_tv_hdmi_earc_default, vendor_media_prop)
 set_prop(hal_tv_hdmi_earc_default, vendor_persist_prop)
+allow hal_tv_hdmi_earc_default dumpstate:fd { use };
+allow hal_tv_hdmi_earc_default dumpstate:fifo_file { write };
 allow hal_tv_hdmi_earc_default hal_tv_hdmi_earc_default:netlink_kobject_uevent_socket { create setopt getopt bind read shutdown };
 allow hal_tv_hdmi_earc_default property_socket:sock_file { write };
 allow hal_tv_hdmi_earc_default init:unix_stream_socket { connectto };

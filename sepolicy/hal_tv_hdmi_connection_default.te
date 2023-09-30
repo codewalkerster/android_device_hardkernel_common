@@ -7,3 +7,5 @@ allow hal_tv_hdmi_connection_default hal_tv_hdmi_connection_default:netlink_kobj
 allow hal_tv_hdmi_connection_default property_socket:sock_file { write };
 allow hal_tv_hdmi_connection_default init:unix_stream_socket { connectto };
 allow hal_tv_hdmi_connection_default hdmirx0_device:chr_file { read write open ioctl getattr };
+allow hal_tv_hdmi_connection_default dumpstate:fd { use };
+allow hal_tv_hdmi_connection_default dumpstate:fifo_file { write };

@@ -84,6 +84,8 @@ allow system_app miracast_hdcp2_hwservice:hwservice_manager { find };
 allow system_app miracast_hdcp2:binder { call transfer };
 allow system_app vendor_miracast_prop:file { read open getattr map };
 
+allow system_app hal_tv_hdmi_cec_default:binder { call transfer };
+
 #add for white board to access meson display
 allow system_app meson_display_ipc_hwservice:hwservice_manager { find };
 allow system_app hal_graphics_composer_default:binder call;
