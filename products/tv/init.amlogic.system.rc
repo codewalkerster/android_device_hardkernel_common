@@ -170,3 +170,10 @@ service pppoe_wrapper /system/bin/pppoe_wrapper
     disabled
     oneshot
     seclabel u:r:pppoe_wrapper:s0
+
+service logcat_grow_memory /system/bin/logcat -b main -b system -G 4M
+oneshot
+class late_start
+
+on property:ro.debuggable=1
+    start logcat_grow_memory
