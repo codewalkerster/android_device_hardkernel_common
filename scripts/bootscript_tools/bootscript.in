@@ -91,7 +91,7 @@ if bcb load $$devnum misc; then
 
 	setenv android_args "androidboot.lcd_density=$$lcd_density"
 
-	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.boot_devices=$$boot_device androidboot.hardware=odroid loop.max_part=7 buildvariant=${_variant} $${secure_args} $${io_args} $${init_args} $${mtd_args} $${android_args} $${user_def_args}"
+	setenv bootargs "storagemedia=$$media androidboot.storagemedia=$$media androidboot.mode=normal androidboot.dtb_idx=0 androidboot.slot_suffix= androidboot.boot_devices=$$boot_device androidboot.hardware=odroid loop.max_part=7 buildvariant=${_variant} $${secure_args} $${io_args} $${init_args} $${mtd_args} $${android_args} $${user_def_args} vendor.serialno=$${serial#}"
 
 	bootm $$loadaddr
 else
