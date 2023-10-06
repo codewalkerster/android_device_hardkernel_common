@@ -11,11 +11,8 @@ type sysfs_xbmc, fs_type, sysfs_type;
 #type fs_type, sysfs_type, debugfs_type;
 # Update
 type update_data_file, file_type, data_file_type, core_data_file_type;
-#optee
-type drm_device, fs_type,sysfs_type;
+
 type tee_vendor_file, file_type;
-#nagra cert
-type cert_device, fs_type,sysfs_type;
 
 #dig_socket
 type dig_socket, file_type;
@@ -23,9 +20,6 @@ type dig_socket, file_type;
 #TV param
 type param_tv_file, file_type;
 #type param_tv_file, fs_type, contextmount_type;
-
-#fastboot
-type fastboot_aml_file, file_type;
 
 #boot
 type boot_data_file, file_type;
@@ -111,6 +105,3 @@ type irdeto_data_file, file_type, data_file_type;
 type mediadrm_vendor_data_file, file_type, data_file_type;
 
 type sysfs_tee, fs_type, sysfs_type;
-
-# /dev/aml_dsm
-type aml_dsm_device, fs_type,sysfs_type;

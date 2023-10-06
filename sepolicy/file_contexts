@@ -382,8 +382,8 @@
 /sys/devices/platform/vout/extcon/setmode/state                 u:object_r:sysfs_display:s0
 /sys/devices/platform/meson-fb/graphics(/.*)?                   u:object_r:sysfs_display:s0
 /sys/devices/platform/fb/graphics(/.*)?                         u:object_r:sysfs_display:s0
-/dev/graphics/fb0                                               u:object_r:sysfs_display:s0
-/dev/graphics/fb1                                               u:object_r:sysfs_display:s0
+/dev/graphics/fb0                                               u:object_r:sysfs_display_device:s0
+/dev/graphics/fb1                                               u:object_r:sysfs_display_device:s0
 /dev/dri/card0                                                  u:object_r:graphics_device:s0
 
 

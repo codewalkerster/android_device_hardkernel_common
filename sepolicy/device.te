@@ -73,3 +73,17 @@ type wifi_power_device, dev_type;
 type isp_device, dev_type;
 type audio_utils_device, dev_type;
 type audio_device_earc, dev_type;
+
+# /dev/aml_dsm
+type aml_dsm_device, dev_type;
+
+#nagra cert
+type cert_device, dev_type;
+
+#optee
+type drm_device, dev_type;
+
+#fastboot
+type fastboot_aml_file, dev_type;
+
+type sysfs_display_device, dev_type;
