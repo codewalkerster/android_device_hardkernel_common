@@ -134,6 +134,7 @@
 /dev/timerirq             0666   system       system
 
 
+/dev/aml_btusb            0666   bluetooth    bluetooth
 /dev/rtk_btusb            0660   bluetooth    bluetooth
 #mtkbt
 /dev/stpbt                0664   bluetooth    bluetooth
