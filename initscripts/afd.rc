@@ -1,0 +1,6 @@
+on post-fs-data
+    insmod /vendor/lib/modules/afd_module.ko
+
+on boot
+    chmod 0666 /dev/aml_afd
+    chown media system /dev/aml_afd

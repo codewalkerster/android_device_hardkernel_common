@@ -115,3 +115,5 @@ allow dtvkitserver dtvkitserver:tcp_socket {setopt getattr};
 allow dtvkitserver tmpfs:dir { create write read add_name remove_name open};
 allow dtvkitserver tmpfs:file {create write read open getattr};
 allow dtvkitserver proc_version:file { read open getattr };
+allow dtvkitserver afd_device:chr_file { getattr open read write ioctl };
+

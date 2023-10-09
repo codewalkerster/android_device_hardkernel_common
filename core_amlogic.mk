@@ -619,6 +619,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.droidlogic
 
+#afd
+ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/initscripts/afd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/afd.rc
+endif
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_COPY_FILES += \

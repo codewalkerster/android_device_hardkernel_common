@@ -87,3 +87,4 @@ type drm_device, dev_type;
 type fastboot_aml_file, dev_type;
 
 type sysfs_display_device, dev_type;
+type afd_device, dev_type, mlstrustedobject;
