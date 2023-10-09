@@ -734,7 +734,7 @@ if [ $# -eq 0 ]; then
     compile_uboot
     compile_kernel
     lunch_env
-    make otapackage "TARGET_BUILD_KERNEL_VERSION=${android_kernel_version}" -j8
+    make "TARGET_BUILD_KERNEL_VERSION=${android_kernel_version}" -j8
 fi
 
 if [ $# -eq 1 ]; then
@@ -802,6 +802,5 @@ if [ $# -eq 4 ]; then
     compile_uboot
     compile_kernel $usermode
     lunch_env $usermode
-    make otapackage "TARGET_BUILD_KERNEL_VERSION=${android_kernel_version}" -j8
+    make "TARGET_BUILD_KERNEL_VERSION=${android_kernel_version}" -j8
 fi
-
