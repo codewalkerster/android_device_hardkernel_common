@@ -18,6 +18,8 @@ allow hal_graphics_composer_default amvecm_device:chr_file rw_file_perms;
 allow hal_graphics_composer_default sysfs_video:file rw_file_perms;
 allow hal_graphics_composer_default sysfs:file rw_file_perms;
 
+allow hal_graphics_composer_default surfaceflinger:file r_file_perms;
+allow hal_graphics_composer_default surfaceflinger:dir r_dir_perms;
 allow hal_graphics_composer_default sysfs_display:dir search;
 allow hal_graphics_composer_default sysfs_display:lnk_file { open read write ioctl };
 allow hal_graphics_composer_default sysfs_display:file { read write open getattr };
