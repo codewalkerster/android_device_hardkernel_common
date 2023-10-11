@@ -1506,7 +1506,7 @@ PRODUCT_PACKAGES += \
     gpio
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/fw_env/fw_env.config:system/etc/fw_env.config
+    device/hardkernel/$(TARGET_BOARD_PLATFORM)/$(TARGET_PRODUCT)/fw_env/fw_env.config:system/etc/fw_env.config
 
 PRODUCT_PACKAGES += \
     Things \
