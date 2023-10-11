@@ -566,6 +566,8 @@
 /vendor/lib(64)?/libjniasplayer-jni\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjdvrlib-jni\.so                u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjdvrlib-ref-native-client\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libjcas_jni\.so                   u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libjcas_native_client\.so         u:object_r:vendor_app_file:s0
 #For HbbTV
 /vendor/lib(64)?/libffmpeg\.so                          u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libnetview\.so                         u:object_r:vendor_app_file:s0
