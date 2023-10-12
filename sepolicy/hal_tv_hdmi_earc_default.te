@@ -9,4 +9,5 @@ allow hal_tv_hdmi_earc_default init:unix_stream_socket { connectto };
 allow hal_tv_hdmi_earc_default proc_asound:dir { search read };
 allow hal_tv_hdmi_earc_default proc_asound:file { read open getattr };
 allow hal_tv_hdmi_earc_default audio_device:dir { search read };
-#allow hal_tv_hdmi_earc_default audio_device:chr_file { open read write ioctl };
+allow hal_tv_hdmi_earc_default audio_device_earc:dir { search read };
+allow hal_tv_hdmi_earc_default audio_device_earc:chr_file { open read write ioctl };

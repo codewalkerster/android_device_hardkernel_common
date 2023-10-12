@@ -9,6 +9,7 @@
 /data/vendor/oad(/.*)?               u:object_r:oad_data_file:s0
 /data/vendor/irdeto                     u:object_r:irdeto_data_file:s0
 
+/dev/snd/controlC0                      u:object_r:audio_device_earc:s0
 /dev/amaudio_.*     			u:object_r:audio_device:s0
 /dev/amaudio2_out       		u:object_r:audio_device:s0
 /dev/amdolby_vision             u:object_r:amdolbyvision_device:s0

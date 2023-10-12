@@ -72,3 +72,4 @@ type wifi_power_device, dev_type;
 
 type isp_device, dev_type;
 type audio_utils_device, dev_type;
+type audio_device_earc, dev_type;
