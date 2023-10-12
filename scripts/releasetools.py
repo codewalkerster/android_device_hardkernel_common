@@ -146,7 +146,7 @@ def AddCustomerImage(info, tmpdir):
     if os.path.splitext(file)[1] == '.map':
       of = file.rfind('.')
       name = file[:of]
-      if name not in ["system", "vendor", "odm", "product", "system_ext", "vendor_dlkm", "odm_dlkm"]:
+      if name not in ["system", "vendor", "odm", "product", "system_ext", "vendor_dlkm", "odm_dlkm", "system_dlkm"]:
           tmp_tgt = GetImage(name, OPTIONS.input_tmp)
           tmp_tgt.ResetFileMap()
           tmp_diff = common.BlockDifference(name, tmp_tgt)
@@ -197,12 +197,12 @@ def FullOTA_Assertions(info):
     info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
     info.script.WriteRawImage("/recovery", "recovery.img")
     if OPTIONS.ota_vendor_boot:
-      info.script.AppendExtra('if package_extract_file("vendor_boot.img", "/dev/block/vendor_boot") == "" then')
+      info.script.AppendExtra('if package_extract_file("vendor_boot.img", "/dev/block/by-name/vendor_boot") == "" then')
       info.script.AppendExtra('ui_print("update vendor_boot.img to super");')
-      info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/super");')
+      info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/by-name/super");')
       info.script.AppendExtra('endif;')
     if OPTIONS.backup_zip:
-      info.script.AppendExtra('backup_update_package("/dev/block/mmcblk0", "1894");')
+      info.script.AppendExtra('backup_update_package("/dev/block/by-name/mmcblk0", "1894");')
     info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
     info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
     if OPTIONS.ota_vendor_boot:
@@ -235,6 +235,8 @@ def FullOTA_InstallEnd(info):
   ZipOtherImage("dt", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("dtbo", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("vbmeta", OPTIONS.input_tmp, info.output_zip)
+  ZipOtherImage("init_boot", OPTIONS.input_tmp, info.output_zip)
+
   if not OPTIONS.two_step:
     ZipOtherImage("recovery", OPTIONS.input_tmp, info.output_zip)
 
@@ -276,19 +278,29 @@ package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
     print("no vbmeta_system.img in target_files; skipping install")
   else:
     info.script.AppendExtra('ui_print("update vbmeta_system.img...");')
-    info.script.AppendExtra('package_extract_file("vbmeta_system.img", "/dev/block/vbmeta_system");')
+    info.script.AppendExtra('package_extract_file("vbmeta_system.img", "/dev/block/by-name/vbmeta_system");')
 
   if OPTIONS.ota_vendor_boot:
     info.script.AppendExtra('ui_print("update vendor_boot.img...");')
-    info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/vendor_boot");')
+    info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/by-name/vendor_boot");')
     info.script.AppendExtra('delete_file("/cache/recovery/vendor_boot.img");')
 
   info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
   info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
 
+  try:
+    init_boot_img = info.input_zip.read("IMAGES/init_boot.img")
+  except KeyError:
+    print("no init_boot.img in target_files; skipping install")
+  else:
+    info.script.AppendExtra('ui_print("update init_boot.img...");')
+    info.script.AppendExtra('package_extract_file("init_boot.img", "/dev/block/by-name/init_boot");')
+
   if OPTIONS.ota_partition_change:
-    info.script.AppendExtra('ui_print("update bootloader.img...");')
-    info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+    info.script.AppendExtra('ui_print("update bootloader.img.........");')
+    info.script.AppendExtra('package_extract_file("bootloader.img", "/dev/block/by-name/bootloader_up");')
+    SetBootloaderEnv(info.script, "write_boot", "1")
+    SetBootloaderEnv(info.script, "upgrade_step", "2")
 
   info.script.AppendExtra('if get_update_stage() == "2" then')
   #info.script.FormatPartition("/tee")
