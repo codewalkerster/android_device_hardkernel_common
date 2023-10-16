@@ -31,7 +31,7 @@ allow tvserver vendor_tv_prop:file { read open getattr };
 
 allow tvserver proc:file { read write open ioctl getattr };
 
-allow tvserver param_tv_file:dir  { search read write open add_name remove_name rmdir getattr};
+allow tvserver param_tv_file:dir  { search read write open add_name remove_name rmdir getattr setattr};
 allow tvserver param_tv_file:file { create open read write setattr getattr lock unlink ioctl };
 allow param_tv_file labeledfs:filesystem { associate };
 
@@ -59,7 +59,7 @@ allow tvserver sysfs_unifykey:file { write read open };
 
 allow tvserver sysfs_cec:dir { search };
 
-allow tvserver mnt_vendor_file:dir { add_name write create remove_name search read open rmdir ioctl };
+allow tvserver mnt_vendor_file:dir { add_name write create remove_name search read open rmdir ioctl getattr};
 allow tvserver mnt_vendor_file:file { create open write setattr getattr lock read rename unlink link ioctl };
 
 allow tvserver platform_app:binder { call };
