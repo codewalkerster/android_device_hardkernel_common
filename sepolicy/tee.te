@@ -19,6 +19,11 @@ allow tee mnt_vendor_file:dir { add_name create remove_name write };
 allow tee mnt_vendor_file:file { create open read rename write unlink link getattr };
 allow tee mnt_vendor_file:dir { search ioctl open read rmdir getattr };
 
+allow tee tee:capability { dac_read_search };
+allow tee mnt_user_file:dir { search };
+allow tee fuse:dir { search open read write add_name };
+allow tee fuse:file { create open read write };
+
 allow tee unlabeled:dir { add_name write remove_name };
 allow tee unlabeled:file { open read rename write };
 

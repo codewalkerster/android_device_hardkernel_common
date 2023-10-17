@@ -514,7 +514,9 @@ PRODUCT_PACKAGES += \
 	tee_fvp_ta \
 	tee_hdcp \
 	tee_hdcp_ta \
-	tee_ciplus_ta
+	tee_ciplus_ta \
+	tee_attest \
+	tee_attest_ta
 
 #$(warning "TDK Version is $(PLATFORM_TDK_VERSION)")
 ifeq ($(PLATFORM_TDK_VERSION), 38)

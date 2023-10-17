@@ -485,6 +485,7 @@
 /vendor/bin/droidvold         u:object_r:droidvold_exec:s0
 /vendor/bin/tee-supplicant    u:object_r:tee_exec:s0
 /vendor/bin/tee_hdcp          u:object_r:tee_exec:s0
+/vendor/bin/tee_attest        u:object_r:tee_exec:s0
 /vendor/bin/tee_preload_fw    u:object_r:firmload_exec:s0
 /vendor/bin/tee_key_inject    u:object_r:tee_exec:s0
 /vendor/bin/tee_provision     u:object_r:tee_exec:s0
