@@ -12,3 +12,4 @@ allow shell sysfs_audio_cap:file getattr;
 allow shell hdcptx_device:chr_file { open read write getattr ioctl };
 allow shell hal_oemlock_default:binder { call transfer };
 allow shell vendor_file:file {read getattr open map execute};
+allow shell hal_dumpstate_default:binder { call };

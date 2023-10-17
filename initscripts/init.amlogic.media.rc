@@ -14,6 +14,9 @@ on boot
     write /sys/module/stream_input/parameters/def_4k_vstreambuf_sizeM 15
     write /sys/devices/platform/ffe40000.bifrost/dvfs_period 50
 
+    chmod 666 /sys/class/resource_mgr/res_sys_debug
+    chmod 666 /sys/class/dec_report/debug_level
+
 on fs
     insmod /vendor/lib/modules/media_clock.ko
     write /sys/module/firmware_class/parameters/path "/vendor/lib/firmware/"
@@ -74,3 +77,4 @@ on property:vendor.media.c2.vdec.game_low_latency=0
 
     chmod 666 /sys/class/amstream/vcodec_feature
     chown media system /sys/class/amstream/vcodec_feature
+

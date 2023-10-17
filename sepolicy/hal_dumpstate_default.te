@@ -52,3 +52,7 @@ allow hal_dumpstate_default hal_tv_hdmi_cec_default:file { open read getattr };
 
 # Access to vendor logging property
 set_prop(hal_dumpstate_default, vendor_logging_prop)
+allow hal_dumpstate_default shell:fd { use };
+allow hal_dumpstate_default shell:fifo_file { write };
+allow hal_dumpstate_default sysfs:file { write };
+allow hal_dumpstate_default debugfs:file { getattr };
