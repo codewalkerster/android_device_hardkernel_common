@@ -165,6 +165,10 @@ on property:sys.boot_completed=1
 
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 400
 
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 1
+
 service pppoe_wrapper /system/bin/pppoe_wrapper
     class main
     group system inet
