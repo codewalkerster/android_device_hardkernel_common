@@ -1517,3 +1517,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     mkfs.exfat \
     fsck.exfat
+
+PRODUCT_PACKAGES += \
+    KIOSK_Demo
