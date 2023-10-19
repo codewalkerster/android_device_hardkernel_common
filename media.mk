@@ -108,7 +108,7 @@ endif
 #mediahal_videodec
 PRODUCT_PACKAGES += libmediahal_videodec
 
-ifneq ($(BOARD_BUILD_DRMPLAYER), true)
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_videodec.system
 endif
 
@@ -116,7 +116,7 @@ endif
 PRODUCT_PACKAGES += \
     libmediahal_mediasync
 
-ifneq ($(BOARD_BUILD_DRMPLAYER), true)
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_mediasync.system
 endif
 #mediahal_tunnelrenderer
@@ -148,7 +148,7 @@ endif
 #resource manage
 PRODUCT_PACKAGES += libmediahal_resman
 
-ifneq ($(BOARD_BUILD_DRMPLAYER), true)
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_resman.system
 endif
 
@@ -160,7 +160,7 @@ PRODUCT_PACKAGES += EsVideoDecPlayer
 #dmabuf manage
 PRODUCT_PACKAGES += libmediahal_dmabufmanage
 
-ifneq ($(BOARD_BUILD_DRMPLAYER), true)
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_dmabufmanage.system
 endif
 
@@ -245,7 +245,7 @@ endif
 #########################################################################
 PRODUCT_PACKAGES += libmediahal_tsplayer
 
-ifneq ($(BOARD_BUILD_DRMPLAYER), true)
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_tsplayer.system
 endif
 
