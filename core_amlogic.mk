@@ -592,14 +592,9 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
     move_widevine_data.sh
 
-ifneq ($(BOARD_COMPILE_ATV), false)
 TARGET_BUILD_WIDEVINE := nonupdatable
 TARGET_BUILD_WIDEVINE_USE_PREBUILT := true
 -include vendor/widevine/libwvdrmengine/apex/device/device.mk
-else
-PRODUCT_PACKAGES += \
-    android.hardware.drm-service.widevine
-endif
 
 # CEC HAL
 PRODUCT_PACKAGES += \

@@ -340,11 +340,6 @@ ifeq ($(TARGET_USE_SECUREOS), true)
 endif
 endif
 
-ifeq ($(BOARD_COMPILE_ATV), false)
-PRODUCT_PACKAGES += \
-    libwvaidl
-endif
-
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
 PRODUCT_PACKAGES += \
     liboemcrypto \
