@@ -256,6 +256,7 @@ PRODUCT_PACKAGES += \
     TetheringOverlay \
     libufdt
 
+PRODUCT_IS_ATV_MAINLINE := true
 ifeq ($(PRODUCT_IS_ATV_MAINLINE), true)
 PRODUCT_PACKAGES += \
     GoogleTetheringOverlay
