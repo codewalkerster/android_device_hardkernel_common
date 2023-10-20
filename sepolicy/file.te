@@ -54,6 +54,7 @@ type sysfs_rdma, fs_type, sysfs_type;
 type sysfs_am_vecm, fs_type, sysfs_type;
 type sysfs_di, fs_type, sysfs_type;
 type sysfs_wifi, fs_type, sysfs_type;
+type sysfs_drm, fs_type, sysfs_type;
 
 type sysfs_store, fs_type, sysfs_type;
 type sysfs_defendkey, fs_type, sysfs_type;
