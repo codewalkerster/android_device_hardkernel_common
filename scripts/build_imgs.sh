@@ -42,7 +42,7 @@ function build() {
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=$BOARD
 		BOARD_NAME=${ORIGINAL_BOARD%_arm64*}
-	elif [[ $BOARD =~ _hybrid_|ohm_mxl258c_vmx|ohm_cbs_ ]]; then
+	elif [[ $BOARD =~ _hybrid_|_mxl258c_|ohm_cbs_ ]]; then
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=${ORIGINAL_BOARD%_*}
 		BOARD_NAME=${ORIGINAL_BOARD%%_*}
@@ -91,6 +91,8 @@ function build() {
 		BOARD_AML_SOC_TYPE=A311D2
 	elif [[ "$BOARD_NAME" =~ t982_ar301 ]]; then
 		BOARD_AML_SOC_TYPE=T982
+	elif [[ "$BOARD_NAME" = "dalton" ]]; then
+		BOARD_AML_SOC_TYPE=T962E2
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"
