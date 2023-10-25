@@ -17,6 +17,8 @@ PATH=%PATH%;"%SYSTEMROOT%\System32"
 adb reboot bootloader
 fastboot flashing unlock
 fastboot flash bootloader bootloader.img
+fastboot flash bootloader-boot0 bootloader.img
+fastboot flash bootloader-boot1 bootloader.img
 fastboot flash dts dt.img
 fastboot erase env
 fastboot erase misc
@@ -64,8 +66,6 @@ fastboot flash vendor vendor.img
 fastboot flash product product.img
 fastboot reboot-bootloader
 ping -n 5 127.0.0.1 >nul
-fastboot flash bootloader-boot0 bootloader.img
-fastboot flash bootloader-boot1 bootloader.img
 fastboot flashing lock
 fastboot reboot
 

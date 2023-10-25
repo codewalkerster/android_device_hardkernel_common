@@ -61,6 +61,8 @@ function flash_with_retry() {
 
 fastboot $sern flashing unlock
 fastboot $sern flash bootloader bootloader.img
+fastboot $sern flash bootloader-boot0 bootloader.img
+fastboot $sern flash bootloader-boot1 bootloader.img
 fastboot $sern flash dts dt.img
 fastboot $sern erase env
 fastboot $sern erase misc

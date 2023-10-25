@@ -682,10 +682,6 @@ ifeq ($(AB_OTA_UPDATER),true)
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
 endif
 	cp $(PRODUCT_OUT)/super_empty.img $(PRODUCT_OUT)/fastboot_auto/
-ifneq ($(BUILDING_SYSTEM_EXT_IMAGE),true)
-	sed -i '/system_ext.img/d' $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
-	sed -i '/system_ext.img/d' $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
-endif
 	$(hide) $(foreach file,$(VB_CHECK_IMAGES), \
 		cp -f $(AML_TARGET)/IMAGES/$(file) $(PRODUCT_OUT)/fastboot_auto/$(file); \
 		)
