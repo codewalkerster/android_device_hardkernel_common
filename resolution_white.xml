@@ -432,4 +432,36 @@
 		<flags>5</flags>
 		<vic>102</vic>
 	</resolution>
+	<resolution> <!-- 1280x800P60 -->
+		<clock>83500</clock>
+		<hdisplay>1280</hdisplay>
+		<hsync_start>1350</hsync_start>
+		<hsync_end>1480</hsync_end>
+		<htotal>1860</htotal>
+		<hskew>0</hskew>
+		<vdisplay>800</vdisplay>
+		<vsync_start>803</vsync_start>
+		<vsync_end>809</vsync_end>
+		<vtotal>831</vtotal>
+		<vscan>0</vscan>
+		<vrefresh>60</vrefresh>
+		<flags>5</flags>
+		<vic>103</vic>
+	</resolution>
+	<resolution> <!-- 1920x1200P60 -->
+		<clock>193250</clock>
+		<hdisplay>1920</hdisplay>
+		<hsync_start>2056</hsync_start>
+		<hsync_end>2256</hsync_end>
+		<htotal>2592</htotal>
+		<hskew>0</hskew>
+		<vdisplay>1200</vdisplay>
+		<vsync_start>1203</vsync_start>
+		<vsync_end>1209</vsync_end>
+		<vtotal>1245</vtotal>
+		<vscan>0</vscan>
+		<vrefresh>60</vrefresh>
+		<flags>5</flags>
+		<vic>104</vic>
+	</resolution>
 </resolutions>
