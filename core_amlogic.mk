@@ -959,7 +959,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Disable Prime Shader Cache in SurfaceFlinger to make it available faster
 PRODUCT_PROPERTY_OVERRIDES += \
     service.sf.prime_shader_cache=0
-
-###########################AtvAxel########################################
-PRODUCT_PACKAGES += \
-     AtvAxel

@@ -285,3 +285,8 @@ PRODUCT_PACKAGES += \
     JDvrLibTest \
     libjdvrlib-ref-native-client
 endif
+
+
+###########################AtvAxel########################################
+PRODUCT_PACKAGES += \
+     AtvAxel
