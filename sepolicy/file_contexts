@@ -313,9 +313,9 @@
 /sys/devices/platform/soc/[0-9a-z]*\.sdio/mmc_host/mmc[0-9]/mmc[0-9]:000[0-9]/mmc[0-9]:000[0-9]:[0-9]/net/ap[0-1](/.*)?  u:object_r:sysfs_net:s0
 
 #for VTS case NetdSELinuxTest#CheckProperMTULabels
-/sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/p2p[0-1](/.*)?     u:object_r:sysfs_net:s0
-/sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/wlan[0-1](/.*)?    u:object_r:sysfs_net:s0
-/sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/ap[0-1](/.*)?      u:object_r:sysfs_net:s0
+/sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd(-meson)?.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/p2p[0-1](/.*)?     u:object_r:sysfs_net:s0
+/sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd(-meson)?.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/wlan[0-1](/.*)?    u:object_r:sysfs_net:s0
+/sys/devices/platform/[0-9a-z]*\.crg/xhci-hcd(-meson)?.[0-9].auto/usb[0-9]/1-3/1-3:1.2/net/ap[0-1](/.*)?      u:object_r:sysfs_net:s0
 
 /sys/devices/virtual/net(/.*)?                                  u:object_r:sysfs_net:s0
 /sys/class/hdmirx/hdmirx0/edid                                  u:object_r:sysfs_cec:s0
