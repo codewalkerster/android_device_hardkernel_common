@@ -294,6 +294,10 @@ PRODUCT_PACKAGES += \
     libjdvrlib-ref-native-client
 endif
 
+# JCas libs
+ifneq ($(wildcard vendor/amlogic/common/prebuilt/libmediadrm/jcas),)
+$(call inherit-product-if-exists,vendor/amlogic/common/prebuilt/libmediadrm/jcas/droidlogic-jcas.mk)
+endif
 
 ###########################AtvAxel########################################
 PRODUCT_PACKAGES += \
