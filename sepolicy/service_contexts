@@ -13,6 +13,7 @@ android.hardware.drm.IDrmFactory/widevine                          u:object_r:ha
 android.hardware.drm.ICryptoFactory/widevine                       u:object_r:hal_drm_service:s0
 android.hardware.drm.IDrmFactory/verimatrix                        u:object_r:hal_drm_service:s0
 android.hardware.drm.ICryptoFactory/verimatrix                     u:object_r:hal_drm_service:s0
+android.hardware.neuralnetworks.IDevice/nnapi-adla_all             u:object_r:hal_adla_service:s0
 vendor.amlogic.hardware.vmx_webclient.IVmxWebClient/default        u:object_r:vmx_webclient_service:s0
 android.hardware.drm.IDrmFactory/playready                         u:object_r:hal_drm_service:s0
 

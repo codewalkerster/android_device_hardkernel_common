@@ -2,6 +2,7 @@ type hal_neuralnetworks_adla,domain;
 hal_server_domain(hal_neuralnetworks_adla,hal_neuralnetworks)
 type hal_neuralnetworks_adla_exec,exec_type,vendor_file_type,file_type;
 init_daemon_domain(hal_neuralnetworks_adla)
+add_service(hal_neuralnetworks_adla, hal_adla_service)
 
 allow hal_neuralnetworks_adla adla_device:chr_file {open read write getattr ioctl };
 allow hal_neuralnetworks_adla system_data_file:file { getattr read map };

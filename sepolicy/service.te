@@ -8,5 +8,6 @@ type tee_service,               service_manager_type;
 type droidmount_service,        service_manager_type;
 type bcmdl_service,            service_manager_type;
 type screen_control_service,    service_manager_type;
+type hal_adla_service,       service_manager_type;
 
 type vmx_webclient_service, hal_service_type, service_manager_type;
