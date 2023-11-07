@@ -184,6 +184,11 @@
                         samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
                         channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
                 </mixPort>
+                <mixPort name="bt sco input" role="sink">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000 16000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO"/>
+                </mixPort>
             </mixPorts>
             <devicePorts>
                 <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
@@ -373,8 +378,6 @@
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
                 <route type="mix" sink="Wired Headphones"
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
-                <route type="mix" sink="primary input"
-                       sources="Built-In Mic,Wired Headset Mic,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner"/>
                 <route type="mix" sink="HDMI ARC"
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
                 <route type="mix" sink="BT A2DP Out"
@@ -383,6 +386,10 @@
                        sources="primary output,tunnel pcm,tunnel a2dp,direct a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Speaker"
                        sources="primary output,tunnel pcm,tunnel a2dp,direct a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload"/>
+                <route type="mix" sink="primary input"
+                       sources="Built-In Mic,Wired Headset Mic,Spdif In,HDMI In,Line In,Tuner"/>
+                <route type="mix" sink="bt sco input"
+                       sources="BT SCO Headset Mic"/>
                 <route type="mix" sink="built-in mic"
                        sources="Built-In Mic"/>
                 <route type="mix" sink="ble_in"

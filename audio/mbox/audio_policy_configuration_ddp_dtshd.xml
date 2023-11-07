@@ -179,11 +179,16 @@
                         samplingRates="16000 22050 24000 32000 44100 48000"
                         channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_TRI_BACK AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
                     <profile name="dts raw" format="AUDIO_FORMAT_DTS"
-                             samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                        samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
+                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
                     <profile name="dtshd raw" format="AUDIO_FORMAT_DTS_HD"
-                             samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                        samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
+                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                </mixPort>
+                <mixPort name="bt sco input" role="sink">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000 16000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO"/>
                 </mixPort>
             </mixPorts>
             <devicePorts>
@@ -299,14 +304,16 @@
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
                 <route type="mix" sink="Wired Headphones"
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload"/>
-                <route type="mix" sink="primary input"
-                       sources="Built-In Mic,Wired Headset Mic,BT SCO Headset Mic,Tuner"/>
                 <route type="mix" sink="BT A2DP Out"
                        sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Headphones"
                        sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="BT A2DP Speaker"
                        sources="primary output,tunnel a2dp,direct a2dp,Tuner,mmap_no_irq_out,compress offload"/>
+                <route type="mix" sink="primary input"
+                       sources="Built-In Mic,Wired Headset Mic,Tuner"/>
+                <route type="mix" sink="bt sco input"
+                       sources="BT SCO Headset Mic"/>
                 <route type="mix" sink="echo reference"
                        sources="Echo Reference"/>
                 <route type="mix" sink="built-in mic"
