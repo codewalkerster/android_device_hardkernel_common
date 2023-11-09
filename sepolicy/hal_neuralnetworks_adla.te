@@ -12,3 +12,4 @@ allow hal_neuralnetworks_adla hal_graphics_allocator_default_tmpfs:file {read wr
 allow hal_neuralnetworks_adla nn_data_file:dir{ create write read add_name remove_name open search };
 allow hal_neuralnetworks_adla nn_data_file:file { ioctl getattr read write open create lock setattr unlink append map};
 allow hal_neuralnetworks_adla nn_data_file:chr_file{ ioctl };
+allow hal_neuralnetworks_adla gpu_device:chr_file {open read write getattr ioctl map};
