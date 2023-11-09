@@ -180,10 +180,16 @@ ifeq ($(BOARD_PLAYREADY_LEVEL),1)
 endif
 
 ifeq ($(BUILD_WITH_PLAYREADY_DRM),true)
+
+ifeq ($(LAUNCH_VERSION),U)
 PRODUCT_PACKAGES += \
-  android.hardware.drm@1.4-service.playready \
-  libplayreadymediadrmplugin \
-  libplayready \
+  android.hardware.drm-service.playready
+else
+PRODUCT_PACKAGES += \
+  android.hardware.drm@1.4-service.playready
+endif
+
+PRODUCT_PACKAGES += \
   9a04f079-9840-4286-ab92-e65be0885f95
 endif
 
