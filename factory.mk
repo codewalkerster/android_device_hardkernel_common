@@ -166,6 +166,10 @@ endif # ifeq ($(TARGET_USE_USB_FLOW_AML),true)
 
 ifeq ($(TARGET_GPT_PART),true)
 	TOOL_ITEMS += gpt.bin
+else
+ifeq ($(LAUNCH_VERSION),R)
+	TOOL_ITEMS += gpt.bin
+endif
 endif #ifeq ($(TARGET_GPT_PART),true)
 
 ifneq ($(TARGET_USE_SECURITY_MODE),true)
@@ -500,8 +504,12 @@ ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
 	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
 endif
 ifneq ($(TARGET_GPT_PART),true)
+ifeq ($(LAUNCH_VERSION),R)
+	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
+else
 	echo "don't need to burn bootloader_a in null gpt"
 	sed -i "/bootloader_a/d" $(PACKAGE_CONFIG_FILE)
+endif
 else
 	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
 endif
@@ -538,7 +546,12 @@ endif
 		ln -sf $(shell readlink -f $(PRODUCT_OUT)/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file); \
 		)
 ifneq ($(TARGET_GPT_PART),true)
+ifeq ($(LAUNCH_VERSION),R)
+	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
+	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
+else
 	ln -sf $(shell readlink -f $(PRODUCT_OUT)/dt.img) $(PRODUCT_UPGRADE_OUT)/dt.img;
+endif
 else
 	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
 	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
@@ -565,8 +578,10 @@ ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
 	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
 endif
 ifneq ($(TARGET_GPT_PART),true)
+ifneq ($(LAUNCH_VERSION),R)
 	echo "don't need to burn bootloader_a in null gpt"
 	sed -i "/bootloader_a/d" $(PACKAGE_CONFIG_FILE)
+endif
 endif
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
@@ -671,6 +686,10 @@ $(INSTALLED_AML_FASTBOOT_ZIP): $(addprefix $(PRODUCT_OUT)/,$(FASTBOOT_IMAGES)) \
 	cd $(PRODUCT_OUT); cp $(FASTBOOT_IMAGES) fastboot_auto/
 ifeq ($(TARGET_GPT_PART),true)
 	cp $(INSTALLED_AML_GPT) $(PRODUCT_OUT)/fastboot_auto/
+else
+ifeq ($(LAUNCH_VERSION),R)
+	cp $(INSTALLED_AML_GPT) $(PRODUCT_OUT)/fastboot_auto/
+endif
 endif
 #ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 #	cp $(PRODUCT_OUT)/bootloader.img.encrypt $(PRODUCT_OUT)/fastboot_auto/
@@ -678,7 +697,9 @@ endif
 #else
 	cp $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) $(PRODUCT_OUT)/fastboot_auto/bootloader.img
 ifneq ($(TARGET_GPT_PART),true)
+ifneq ($(LAUNCH_VERSION),R)
 	cp $(PRODUCT_OUT)/dt.img $(PRODUCT_OUT)/fastboot_auto/
+endif
 endif
 #endif
 	cp $(PRODUCT_OUT)/logo.img $(PRODUCT_OUT)/fastboot_auto/
