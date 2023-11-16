@@ -68,7 +68,7 @@ typeattribute system_block_fsck_device super_block_device_type;
 
 type galcore_device, dev_type, mlstrustedobject;
 type dolby_fw_device, dev_type;
-type key_device, dev_type;
+type key_device, dev_type, mlstrustedobject;
 type wifi_power_device, dev_type;
 type wifi_mac_device, dev_type;
 
@@ -77,13 +77,13 @@ type audio_utils_device, dev_type;
 type audio_device_earc, dev_type;
 
 # /dev/aml_dsm
-type aml_dsm_device, dev_type;
+type aml_dsm_device, dev_type, mlstrustedobject;
 
 #nagra cert
 type cert_device, dev_type;
 
 #optee
-type drm_device, dev_type;
+type drm_device, dev_type, mlstrustedobject;
 
 #fastboot
 type fastboot_aml_file, dev_type;
