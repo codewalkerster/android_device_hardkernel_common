@@ -35,3 +35,5 @@ allow dumpstate hal_tv_hdmi_connection_default:fd { use };
 allow dumpstate hal_tv_hdmi_connection_default:fifo_file { write };
 allow dumpstate sysfs_cec:file read;
 allow dumpstate sysfs_drm:file read;
+allow dumpstate sysfs_display:file read;
+allow dumpstate sysfs_amhdmitx:file read;

@@ -355,6 +355,9 @@
 /sys/class/amhdmitx/amhdmitx0/avmute                            u:object_r:sysfs_amhdmitx:s0
 /sys/class/amhdmitx/amhdmitx0/disp_cap                          u:object_r:sysfs_amhdmitx:s0
 /sys/class/amhdmitx/amhdmitx0/hdr_cap                           u:object_r:sysfs_amhdmitx:s0
+/sys/class/amhdmitx/amhdmitx0/hdmitx_cur_status                 u:object_r:sysfs_amhdmitx:s0
+/sys/class/amhdmitx/amhdmitx0/hdmirx_info                       u:object_r:sysfs_amhdmitx:s0
+/sys/class/amhdmitx/amhdmitx0/clkmsr                            u:object_r:sysfs_amhdmitx:s0
 /sys/module/amvdec_h265/parameters/double_write_mode            u:object_r:sysfs_amvdec:s0
 
 /sys/class/drm/card0/state					u:object_r:sysfs_drm:s0
@@ -379,6 +382,8 @@
 /vendor/etc/mesondisplay.cfg                                    u:object_r:vendor_app_file:s0
 /sys/class/display2/mode                                        u:object_r:sysfs_display:s0
 /sys/class/display/mode                                         u:object_r:sysfs_display:s0
+/sys/class/videotunnel/instance                                 u:object_r:sysfs_display:s0
+/sys/class/videotunnel/state                                    u:object_r:sysfs_display:s0
 
 /sys/class/video/video_layer1_state                             u:object_r:sysfs_display:s0
 /sys/class/graphics(/.*)?                                       u:object_r:sysfs_display:s0
