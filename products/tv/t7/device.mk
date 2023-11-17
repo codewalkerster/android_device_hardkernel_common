@@ -20,10 +20,6 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/products/tv/Vendor_1b8e_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1b8e_Product_0001.kl \
     device/amlogic/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
-# recovery
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/busybox:recovery/root/sbin/busybox \
-    $(CHIP_DIR)/recovery/sh:recovery/root/sbin/sh
 
 #########################################################################
 #

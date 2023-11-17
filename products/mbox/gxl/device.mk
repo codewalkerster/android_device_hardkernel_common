@@ -28,9 +28,6 @@ else
        device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 endif
 
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/busybox:recovery/root/sbin/busybox \
-    device/amlogic/common/products/mbox/gxl/recovery/sh:recovery/root/sbin/sh
 
 #########################################################################
 #

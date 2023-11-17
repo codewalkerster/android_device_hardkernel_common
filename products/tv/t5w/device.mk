@@ -31,12 +31,10 @@ PRODUCT_COPY_FILES += \
 
 # recovery
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/busybox:recovery/root/sbin/busybox \
     $(CHIP_DIR)/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
     $(CHIP_DIR)/recovery/remotecfg:recovery/root/system/bin/remotecfg \
     $(CHIP_DIR)/files/remote.cfg:recovery/root/sbin/remote.cfg \
-    $(CHIP_DIR)/files/remote.tab:recovery/root/sbin/remote.tab \
-    $(CHIP_DIR)/recovery/sh:recovery/root/sbin/sh
+    $(CHIP_DIR)/files/remote.tab:recovery/root/sbin/remote.tab
 
 #########################################################################
 #
