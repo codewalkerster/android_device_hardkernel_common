@@ -46,6 +46,10 @@ function build() {
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=${ORIGINAL_BOARD%_*}
 		BOARD_NAME=${ORIGINAL_BOARD%%_*}
+	elif [[ $BOARD =~ _wv4 ]]; then
+                ORIGINAL_BOARD=$BOARD
+                REAL_BOARD=$BOARD
+                BOARD_NAME=${ORIGINAL_BOARD}
 	else
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=$ORIGINAL_BOARD
