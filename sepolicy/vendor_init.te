@@ -74,3 +74,6 @@ allow vendor_init adla_device:chr_file { open getattr read write ioctl };
 allow vendor_init audio_utils_device:chr_file { open ioctl read write getattr map execute };
 
 allow vendor_init galcore_device:chr_file getattr;
+
+# allow vendor_init access /proc/sys/kernel/sched_util_clamp_min_rt_default
+allow vendor_init proc_sched:file w_file_perms;
