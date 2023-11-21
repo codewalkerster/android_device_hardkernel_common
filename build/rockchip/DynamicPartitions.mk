@@ -16,3 +16,7 @@ BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE ?= ext4
 BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
 BOARD_SUPER_PARTITION_GROUPS := rockchip_dynamic_partitions
 BOARD_ROCKCHIP_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm
+
+ifeq ("$(wildcard vendor/opengapps/build/opengapps-packages.mk)","")
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1373741824
+endif
