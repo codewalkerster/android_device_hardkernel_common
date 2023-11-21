@@ -183,7 +183,7 @@
                 <mixPort name="usb_direct_all" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
                     <profile name=""/>
                 </mixPort>
-                <mixPort name="offload usb" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT|AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
+                <mixPort name="offload usb" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
                     <profile name="ac3 raw" format="AUDIO_FORMAT_AC3"
                         samplingRates="32000 44100 48000"
                         channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_TRI_BACK AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1"/>
