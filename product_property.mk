@@ -116,3 +116,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #for apexd ,the property value is from cpu cores num
 PRODUCT_PROPERTY_OVERRIDES += \
     apexd.config.boot_activation.threads=4
+
+#Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
