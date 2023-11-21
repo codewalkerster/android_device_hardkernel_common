@@ -145,8 +145,8 @@
                              channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO"/>
                 </mixPort>
                 <mixPort name="built-in mic" role="sink">
-                    <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
-                             samplingRates="16000"
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000 16000 32000 48000 64000 96000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO"/>
                 </mixPort>
                 <mixPort name="ble_in" role="sink">
@@ -301,11 +301,10 @@
                              samplingRates="44100"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </devicePort>
-
                 <devicePort tagName="Built-In Mic" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source" address="top">
-                    <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
-                             samplingRates="8000 16000 48000"
-                             channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO AUDIO_CHANNEL_IN_FRONT_BACK"/>
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000 16000 32000 48000 64000 96000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO"/>
                 </devicePort>
                 <devicePort tagName="Wired Headset Mic" type="AUDIO_DEVICE_IN_WIRED_HEADSET" role="source">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
@@ -352,7 +351,7 @@
                 <route type="mix" sink="BT A2DP Speaker"
                        sources="primary output,tunnel a2dp,direct a2dp,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload"/>
                 <route type="mix" sink="primary input"
-                       sources="Built-In Mic,Wired Headset Mic,Spdif In,HDMI In,Line In,Tuner"/>
+                       sources="Wired Headset Mic,Spdif In,HDMI In,Line In,Tuner"/>
                 <route type="mix" sink="bt sco input"
                        sources="BT SCO Headset Mic"/>
                 <route type="mix" sink="built-in mic"
