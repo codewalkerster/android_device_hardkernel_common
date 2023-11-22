@@ -23,6 +23,9 @@ PRODUCT_COPY_FILES += \
 ifeq ($(TARGET_BUILD_LIVETV), true)
     PRODUCT_COPY_FILES += \
        device/amlogic/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+else ifeq ($(SUPPORT_CBS), true)
+    PRODUCT_COPY_FILES += \
+       device/amlogic/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 else
     PRODUCT_COPY_FILES += \
        device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl

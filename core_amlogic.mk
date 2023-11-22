@@ -43,6 +43,10 @@ endif
 
 PRODUCT_PACKAGES += \
     droidlogic-res
+
+ifeq ($(SUPPORT_CBS),true)
+include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner.mk
+endif
 # 1p device without vendor/amlogic/reference code
 # reference device with vendor/amlogic/reference code
 ifneq ($(wildcard vendor/amlogic/reference/tv),)
@@ -145,6 +149,8 @@ endif
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
     USE_OEM_TV_APP := true
+else ifeq ($(SUPPORT_CBS),true)
+    BOARD_DISABLE_DVB_AUDIO := false
 else
     BOARD_DISABLE_DVB_AUDIO := true
 endif
