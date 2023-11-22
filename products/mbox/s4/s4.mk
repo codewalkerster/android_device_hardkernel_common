@@ -99,7 +99,7 @@ endif #ifeq ($(PRODUCT_USE_PREBUILD_SECURE_BOOTLOADER),true)
 BOARD_AVB_ROLLBACK_INDEX := 0
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --prop dovi_hash:3cd93647bdd864b4ae1712d57a7de3153e3ee4a4dfcfae5af8b1b7d999b93c5a
 ifeq ($(BOARD_AVB_KEY_PATH),)
-	$(error BOARD_AVB_KEY_PATH undefined or null)
+$(error BOARD_AVB_KEY_PATH undefined or null)
 endif
 
 ifneq ($(AB_OTA_UPDATER),true)

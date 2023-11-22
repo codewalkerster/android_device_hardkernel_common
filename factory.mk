@@ -1,5 +1,5 @@
 include device/amlogic/common/odm_ext.mk
-
+TARGET_USE_USB_FLOW_AML ?= true
 
 IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
@@ -158,8 +158,11 @@ UPGRADE_FILES := \
         u-boot.bin.sd.bin  u-boot.bin.usb.bl2 u-boot.bin.usb.tpl \
         u-boot.bin.sd.bin.signed  u-boot.bin.usb.signed
 
+#modify ${PACKAGE_CONFIG_FILE} if exist in out dir
 TOOL_ITEMS := usb_flow.aml keys.conf
+ifeq ($(TARGET_USE_USB_FLOW_AML),true)
 UPGRADE_FILES += $(TOOL_ITEMS)
+endif # ifeq ($(TARGET_USE_USB_FLOW_AML),true)
 
 ifeq ($(TARGET_GPT_PART),true)
 	TOOL_ITEMS += gpt.bin
@@ -174,8 +177,12 @@ UPGRADE_FILES += \
         platform_enc.conf
 endif
 
-UPGRADE_FILES := $(addprefix $(TARGET_DEVICE_DIR)/upgrade/,$(UPGRADE_FILES))
-UPGRADE_FILES := $(wildcard $(UPGRADE_FILES)) #extract only existing files for burnning
+#UPGRADE_FILES := $(addprefix $(TARGET_DEVICE_DIR)/upgrade/,$(UPGRADE_FILES))
+#UPGRADE_FILES := $(wildcard $(UPGRADE_FILES)) #extract only existing files for burnning
+#use first use device/amlogic/xxx/upgrade/ if exist, else use device/amlogic/common/upgrade/
+UPGRADE_FILES := $(foreach f,$(UPGRADE_FILES),\
+		 $(word 1, $(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(f)) $(wildcard device/amlogic/common/upgrade/$(f))))
+$(warning UPGRADE_FILES $(UPGRADE_FILES))
 
 PACKAGE_CONFIG_FILE := aml_upgrade_package
 
@@ -198,7 +205,7 @@ endif
 endif
 
 ifeq ($(wildcard $(PACKAGE_CONFIG_FILE)),)
-	PACKAGE_CONFIG_FILE := $(PRODUCT_COMMON_DIR)/upgrade_4.9/$(notdir $(PACKAGE_CONFIG_FILE))
+	PACKAGE_CONFIG_FILE := device/amlogic/common/upgrade/$(notdir $(PACKAGE_CONFIG_FILE))
 endif ## ifeq ($(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(PACKAGE_CONFIG_FILE)))
 UPGRADE_FILES += $(PACKAGE_CONFIG_FILE)
 
