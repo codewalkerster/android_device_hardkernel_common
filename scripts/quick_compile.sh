@@ -404,15 +404,52 @@ kernel_exec[32]="./mk tyson -v "
 
 ###########################################################################################
 # Bluebell
-project[33]="Bluebell"
+project[33]="Bluebell-GTV"
 soc[33]="A311D2"
 hardware[33]="AN400"
-module[33]="bluebell_arm64"
+module[33]="bluebell"
 uboot_path[33]="device/amlogic/bluebell"
 uboot_exec_aosp[33]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 uboot_exec_drm[33]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 kernel_exec[33]="./mk bluebell -v "
 ###########################################################################################
+
+###########################################################################################
+# calla
+project[34]="Calla"
+soc[34]="T963D4"
+hardware[34]="AY301"
+module[34]="calla"
+uboot_path[34]="device/amlogic/calla"
+uboot_exec_aosp[34]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+uboot_exec_drm[34]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+kernel_exec[34]="./mk calla -v "
+
+###########################################################################################
+# T3x bc302 AOSP
+project[35]="Anemone"
+soc[35]="T968D4"
+hardware[35]="BC302"
+module[35]="anemone"
+uboot_path[35]="device/amlogic/anemone"
+uboot_exec_aosp[35]="./mk t3x_bc302 --vab --avb2 --fastboot-write"
+uboot_exec_drm[35]="./mk t3x_bc302  --vab --avb2 --fastboot-write"
+kernel_exec[35]="./mk anemone -v"
+
+###########################################################################################
+
+###########################################################################################
+# Bluebell
+project[35]="Bluebell-ATV"
+soc[35]="A311D2"
+hardware[35]="AN400"
+module[35]="bluebell_atv"
+uboot_path[35]="device/amlogic/bluebell"
+uboot_exec_aosp[35]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
+uboot_exec_drm[35]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
+kernel_exec[35]="./mk bluebell -v "
+###########################################################################################
+
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
