@@ -36,6 +36,10 @@ on boot
     setprop sys.usb.controller ${vendor.usb.controller}
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
     write sys/class/unifykeys/attach     1
+    symlink /dev/block/bootloader0 /dev/block/by-name/bootloader_a
+    symlink /dev/block/bootloader1 /dev/block/by-name/bootloader_b
+    symlink /dev/dtb /dev/block/by-name/dt_a
+    symlink /dev/dtb /dev/block/by-name/dt_b
 
 service systemcontrol /bin/systemcontrol_static /sbin/mesondisplay.cfg
     oneshot
