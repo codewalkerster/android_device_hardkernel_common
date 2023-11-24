@@ -440,14 +440,14 @@ kernel_exec[35]="./mk anemone -v"
 
 ###########################################################################################
 # Bluebell
-project[35]="Bluebell-ATV"
-soc[35]="A311D2"
-hardware[35]="AN400"
-module[35]="bluebell_atv"
-uboot_path[35]="device/amlogic/bluebell"
-uboot_exec_aosp[35]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
-uboot_exec_drm[35]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
-kernel_exec[35]="./mk bluebell -v "
+project[36]="Bluebell-ATV"
+soc[36]="A311D2"
+hardware[36]="AN400"
+module[36]="bluebell_atv"
+uboot_path[36]="device/amlogic/bluebell"
+uboot_exec_aosp[36]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
+uboot_exec_drm[36]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
+kernel_exec[36]="./mk bluebell -v "
 ###########################################################################################
 
 usage() {
