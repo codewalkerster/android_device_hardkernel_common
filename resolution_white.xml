@@ -433,16 +433,16 @@
 		<vic>102</vic>
 	</resolution>
 	<resolution> <!-- 1280x800P60 -->
-		<clock>83500</clock>
+		<clock>71000</clock>
 		<hdisplay>1280</hdisplay>
-		<hsync_start>1350</hsync_start>
-		<hsync_end>1480</hsync_end>
-		<htotal>1860</htotal>
+		<hsync_start>1328</hsync_start>
+		<hsync_end>1360</hsync_end>
+		<htotal>1440</htotal>
 		<hskew>0</hskew>
 		<vdisplay>800</vdisplay>
 		<vsync_start>803</vsync_start>
 		<vsync_end>809</vsync_end>
-		<vtotal>831</vtotal>
+		<vtotal>823</vtotal>
 		<vscan>0</vscan>
 		<vrefresh>60</vrefresh>
 		<flags>5</flags>
