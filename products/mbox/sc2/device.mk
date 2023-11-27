@@ -76,7 +76,7 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/PQ/pq.db:$(TARGET_COPY_OUT_ODM)/etc/tvconfig/pq/pq.db \
     $(CHIP_DIR)/files/PQ/pq_default.ini:$(TARGET_COPY_OUT_ODM)/etc/tvconfig/pq/pq_default.ini
 
-ifeq ($(TARGET_PRODUCT),ohm_mxl258c)
+ifeq ($(TARGET_PRODUCT),$(PRODUCT_DIR)_mxl258c)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(CHIP_DIR)/files/tv/tvconfig_fccpip/,/$(TARGET_COPY_OUT_ODM)/etc/tvconfig)
 else
@@ -84,7 +84,7 @@ PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(CHIP_DIR)/files/tv/tvconfig/,/$(TARGET_COPY_OUT_ODM)/etc/tvconfig)
 endif
 else
-ifeq ($(TARGET_PRODUCT),ohm_mxl258c)
+ifeq ($(TARGET_PRODUCT),$(PRODUCT_DIR)_mxl258c)
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig_fccpip/*
 else

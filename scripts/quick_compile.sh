@@ -19,11 +19,11 @@
 project[1]="Ohm-GTV-OTT"
 soc[1]="S905X4"
 hardware[1]="AH212"
-module[1]="ohm_gtv"
-uboot_path[1]="device/amlogic/ohm"
+module[1]="ohm_wv4"
+uboot_path[1]="device/amlogic/ohm_wv4"
 uboot_exec_aosp[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[1]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[1]="./mk ohm --gki_image -v "
+kernel_exec[1]="./mk ohm_wv4 --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -31,11 +31,11 @@ kernel_exec[1]="./mk ohm --gki_image -v "
 project[2]="Ohm-GTV-DVB"
 soc[2]="S905X4"
 hardware[2]="AH212"
-module[2]="ohm_hybrid"
-uboot_path[2]="device/amlogic/ohm"
+module[2]="ohm_wv4_hybrid"
+uboot_path[2]="device/amlogic/ohm_wv4"
 uboot_exec_aosp[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[2]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[2]="./mk ohm --gki_image -v "
+kernel_exec[2]="./mk ohm_wv4 --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -43,11 +43,11 @@ kernel_exec[2]="./mk ohm --gki_image -v "
 project[3]="Ohm-GTV-CBS"
 soc[3]="S905X4"
 hardware[3]="AH212"
-module[3]="ohm_cbs"
-uboot_path[3]="device/amlogic/ohm"
+module[3]="ohm_wv4_cbs"
+uboot_path[3]="device/amlogic/ohm_wv4"
 uboot_exec_aosp[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[3]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[3]="./mk ohm --gki_image -v "
+kernel_exec[3]="./mk ohm_wv4 --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -55,11 +55,11 @@ kernel_exec[3]="./mk ohm --gki_image -v "
 project[4]="Ohm-ATV"
 soc[4]="S905X4"
 hardware[4]="AH212"
-module[4]="ohm"
-uboot_path[4]="device/amlogic/ohm"
+module[4]="ohm_wv4_atv"
+uboot_path[4]="device/amlogic/ohm_wv4"
 uboot_exec_aosp[4]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[4]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[4]="./mk ohm --gki_image -v "
+kernel_exec[4]="./mk ohm_wv4 --gki_image -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -67,11 +67,11 @@ kernel_exec[4]="./mk ohm --gki_image -v "
 project[5]="Ohm-mxl258c"
 soc[5]="S905X4"
 hardware[5]="AH212"
-module[5]="ohm_mxl258c"
-uboot_path[5]="device/amlogic/ohm"
+module[5]="ohm_wv4_mxl258c"
+uboot_path[5]="device/amlogic/ohm_wv4"
 uboot_exec_aosp[5]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
 uboot_exec_drm[5]="./mk sc2_ah212  --vab --avb2 --fastboot-write"
-kernel_exec[5]="./mk ohm --gki_image --fccpip -v"
+kernel_exec[5]="./mk ohm_wv4 --gki_image --fccpip -v"
 ###########################################################################################
 
 ###########################################################################################
@@ -103,11 +103,11 @@ kernel_exec[7]="./mk ohmcas --gki_image -v "
 project[8]="Oppen-GTV-OTT"
 soc[8]="S905Y4"
 hardware[8]="AP222"
-module[8]="oppen_gtv"
-uboot_path[8]="device/amlogic/oppen"
+module[8]="oppen_wv4"
+uboot_path[8]="device/amlogic/oppen_wv4"
 uboot_exec_aosp[8]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[8]="./mk s4_ap222  --vab --avb2 --fastboot-write"
-kernel_exec[8]="./mk oppen -v "
+kernel_exec[8]="./mk oppen_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -115,11 +115,11 @@ kernel_exec[8]="./mk oppen -v "
 project[9]="Oppen-GTV-DVB"
 soc[9]="S905Y4"
 hardware[9]="AP222"
-module[9]="oppen_hybrid"
-uboot_path[9]="device/amlogic/oppen"
+module[9]="oppen_wv4_hybrid"
+uboot_path[9]="device/amlogic/oppen_wv4"
 uboot_exec_aosp[9]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[9]="./mk s4_ap222  --vab --avb2 --fastboot-write"
-kernel_exec[9]="./mk oppen -v "
+kernel_exec[9]="./mk oppen_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -127,11 +127,11 @@ kernel_exec[9]="./mk oppen -v "
 project[10]="Oppen-GTV-CBS"
 soc[10]="S905Y4"
 hardware[10]="AP222"
-module[10]="oppen_cbs"
-uboot_path[10]="device/amlogic/oppen"
+module[10]="oppen_wv4_cbs"
+uboot_path[10]="device/amlogic/oppen_wv4"
 uboot_exec_aosp[10]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[10]="./mk s4_ap222  --vab --avb2 --fastboot-write"
-kernel_exec[10]="./mk oppen -v "
+kernel_exec[10]="./mk oppen_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -139,11 +139,11 @@ kernel_exec[10]="./mk oppen -v "
 project[11]="Oppen-ATV"
 soc[11]="S905Y4"
 hardware[11]="AP222"
-module[11]="oppen"
-uboot_path[11]="device/amlogic/oppen"
+module[11]="oppen_wv4_atv"
+uboot_path[11]="device/amlogic/oppen_wv4"
 uboot_exec_aosp[11]="./mk s4_ap222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[11]="./mk s4_ap222  --vab --avb2 --fastboot-write"
-kernel_exec[11]="./mk oppen -v "
+kernel_exec[11]="./mk oppen_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -151,12 +151,11 @@ kernel_exec[11]="./mk oppen -v "
 project[12]="Oppen-GTV"
 soc[12]="S905Y4"
 hardware[12]="AP223"
-module[12]="oppen"
-uboot_path[12]="device/amlogic/oppen"
-uboot_path[12]="device/amlogic/oppen"
+module[12]="oppen_wv4"
+uboot_path[12]="device/amlogic/oppen_wv4"
 uboot_exec_aosp[12]="./mk s4_ap223  --vab --avb2 --fastboot-write"
 uboot_exec_drm[12]="./mk s4_ap223  --vab --avb2 --fastboot-write"
-kernel_exec[12]="./mk oppen -v "
+kernel_exec[12]="./mk oppen_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -201,11 +200,11 @@ kernel_exec[15]="./mk oppencas --fccpip -v"
 project[16]="Planck-GTV"
 soc[16]="S805X2"
 hardware[16]="AQ222"
-module[16]="planck_gtv"
-uboot_path[16]="device/amlogic/planck"
+module[16]="planck_wv4"
+uboot_path[16]="device/amlogic/planck_wv4"
 uboot_exec_aosp[16]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[16]="./mk s4_aq222  --vab --avb2 --fastboot-write"
-kernel_exec[16]="./mk planck -v "
+kernel_exec[16]="./mk planck_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -213,11 +212,11 @@ kernel_exec[16]="./mk planck -v "
 project[17]="Planck-ATV"
 soc[17]="S805X2"
 hardware[17]="AQ222"
-module[17]="planck"
-uboot_path[17]="device/amlogic/planck"
+module[17]="planck_atv_wv4"
+uboot_path[17]="device/amlogic/planck_wv4"
 uboot_exec_aosp[17]="./mk s4_aq222  --vab --avb2 --fastboot-write"
 uboot_exec_drm[17]="./mk s4_aq222  --vab --avb2 --fastboot-write"
-kernel_exec[17]="./mk planck -v "
+kernel_exec[17]="./mk planck_wv4 -v "
 kernel_addr[17]="export KERNEL_A32_SUPPORT=true"
 ###########################################################################################
 
