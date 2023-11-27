@@ -35,13 +35,25 @@ rm -rf $TARGET_NAME-fastboot/u-boot* $TARGET_NAME-fastboot/usb_flow* $TARGET_NAM
 
 ./device/amlogic/common/scripts/generate_fastboot_zip.sh $TARGET_NAME $BOARD_NAME $ANDROID_OUTPUT_PATH $REAL_BOARD &
 
-cp -a $DEVICE_DIR/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
+if [ -f $DEVICE_DIR/upgrade/aml_sdc_burn.ini ];then
+    cp -a $DEVICE_DIR/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
+else
+    cp -a device/amlogic/common/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
+fi
 cp -a $ANDROID_OUTPUT_PATH/upgrade/aml_upgrade_package*.conf $TARGET_NAME-img/aml_upgrade_package.conf
 
 cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $TARGET_NAME-img/dt.img
-cp -a $DEVICE_DIR/upgrade/platform.conf $TARGET_NAME-img/
+if [ -f $DEVICE_DIR/upgrade/platform.conf ];then
+    cp -a $DEVICE_DIR/upgrade/platform.conf $TARGET_NAME-img/
+else
+    cp -a device/amlogic/common/upgrade/platform.conf $TARGET_NAME-img/
+fi
 cp -a $DEVICE_DIR/upgrade/u-boot.bin.* $TARGET_NAME-img/
-cp -a $DEVICE_DIR/upgrade/usb_flow.aml $TARGET_NAME-img/
+if [ -f $DEVICE_DIR/upgrade/usb_flow.aml ];then
+    cp -a $DEVICE_DIR/upgrade/usb_flow.aml $TARGET_NAME-img/
+else
+    cp -a device/amlogic/common/upgrade/usb_flow.aml $TARGET_NAME-img/
+fi
 cp -a $ANDROID_OUTPUT_PATH/gpt.bin $TARGET_NAME-img/
 
 ./out/host/linux-x86/bin/build_super_image -v ${TARGET_NAME}_target $TARGET_NAME-img/super.img
