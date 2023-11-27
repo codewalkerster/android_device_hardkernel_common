@@ -17,4 +17,4 @@ android.hardware.neuralnetworks.IDevice/nnapi-adla_all             u:object_r:ha
 vendor.amlogic.hardware.vmx_webclient.IVmxWebClient/default        u:object_r:vmx_webclient_service:s0
 android.hardware.drm.IDrmFactory/playready                         u:object_r:hal_drm_service:s0
 vendor.amlogic.hardware.droidmdnsoffload.IDroidMdnsOffload/default u:object_r:hal_mdnsoffload_service:s0
-
+vendor.amlogic.hardware.mediahalserver.IMediaHalServer/default     u:object_r:mediahalserver_service:s0

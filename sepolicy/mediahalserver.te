@@ -1,0 +1,20 @@
+type mediahalserver, domain;
+type mediahalserver_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(mediahalserver)
+
+binder_use(mediahalserver)
+
+add_service(mediahalserver, mediahalserver_service)
+
+get_prop(mediahalserver, vendor_platform_prop)
+get_prop(mediahalserver, vendor_media_prop);
+
+allow mediahalserver servicemanager:binder { call transfer };
+allow mediahalserver mediahalserver_service:service_manager  { add };
+
+allow mediahalserver system_app:binder { call };
+allow mediahalserver platform_app:binder { call transfer };
+
+allow mediahalserver codec_device:chr_file rw_file_perms;
+allow mediahalserver mediasync_device:chr_file rw_file_perms;

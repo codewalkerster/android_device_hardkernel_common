@@ -81,3 +81,7 @@ allow platform_app exfat:file { write create open unlink link read getattr appen
 allow platform_app drm_device:chr_file { open read write ioctl getattr};
 allow platform_app aml_dsm_device:chr_file { open read write ioctl getattr};
 allow platform_app key_device:chr_file { open read write ioctl getattr};
+
+allow platform_app mediahalserver_service:service_manager { find };
+allow platform_app mediahalserver_service:binder { call transfer };
+allow platform_app mediahalserver:binder { call transfer };

@@ -293,6 +293,12 @@ PRODUCT_PACKAGES += \
     libjniasplayer-jni \
     droidlogic.jniasplayer.xml
 
+#add mediahalserver
+PRODUCT_PACKAGES += \
+    mediahalserver \
+    libamlmediahal-jni \
+    droidlogic.mediahal
+
 # JDvrLib core packages
 PRODUCT_PACKAGES += \
     JDvrLib \

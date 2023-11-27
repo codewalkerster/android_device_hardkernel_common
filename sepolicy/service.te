@@ -12,3 +12,4 @@ type hal_adla_service,       service_manager_type;
 
 type vmx_webclient_service, hal_service_type, service_manager_type;
 type hal_mdnsoffload_service,   service_manager_type;
+type mediahalserver_service, hal_service_type, service_manager_type;
