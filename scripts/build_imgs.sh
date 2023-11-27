@@ -231,7 +231,7 @@ function build() {
 	mkdir -p out_publish
 
 	if [ $CONFIG_SIGN ]; then
-		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD $DEVICE_DIR &
 		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 
 		echo "need sign"
@@ -276,10 +276,13 @@ function build() {
 		fi
 		echo "sign OK"
 
-		./device/amlogic/common/scripts/generate_ota_zip.sh signed $BOARD_NAME $REAL_BOARD &
+		echo "unzip -o -q ${TARGET_NAME}_target.zip -d ${TARGET_NAME}_target"
+		unzip -o -q signed_target.zip -d signed_target
+
+		./device/amlogic/common/scripts/generate_ota_zip.sh signed $BOARD_NAME $REAL_BOARD $DEVICE_DIR &
 		./device/amlogic/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 	else
-		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD &
+		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD $DEVICE_DIR &
 		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 	fi
 

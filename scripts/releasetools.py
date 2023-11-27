@@ -306,7 +306,7 @@ package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
     SetBootloaderEnv(info.script, "upgrade_step", "2")
 
   info.script.AppendExtra('if get_update_stage() == "2" then')
-  #info.script.FormatPartition("/tee")
+  info.script.FormatPartition("/param")
   #info.script.AppendExtra('wipe_cache();')
   #info.script.FormatPartition("/data")
   info.script.AppendExtra('set_update_stage("0");')

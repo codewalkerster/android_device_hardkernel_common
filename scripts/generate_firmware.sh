@@ -32,11 +32,6 @@ echo "build $TARGET_NAME img zip OK"
 unzip -o -q $TARGET_NAME-img.zip -d $TARGET_NAME-img
 rm $TARGET_NAME-img.zip
 
-if [ "$TARGET_NAME" = "signed" ]; then
-	echo "unzip -o -q ${TARGET_NAME}_target.zip -d ${TARGET_NAME}_target"
-	unzip -o -q ${TARGET_NAME}_target.zip -d ${TARGET_NAME}_target
-fi
-
 cp -a $TARGET_NAME-img $TARGET_NAME-fastboot
 rm -rf $TARGET_NAME-fastboot/aml* $TARGET_NAME-fastboot/dt.img $TARGET_NAME-fastboot/platform.conf $TARGET_NAME-fastboot/super.img
 rm -rf $TARGET_NAME-fastboot/u-boot* $TARGET_NAME-fastboot/usb_flow* $TARGET_NAME-fastboot/userdata.img

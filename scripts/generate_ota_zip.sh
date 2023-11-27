@@ -6,13 +6,24 @@
 TARGET_NAME=$1
 BOARD_NAME=$2
 REAL_BOARD=$3
+DEVICE_DIR=$4
 
 echo "start build $TARGET_NAME ota zip"
 
 if [ "$TARGET_NAME" = "signed" ]; then
-	./out/host/linux-x86/bin/ota_from_target_files ${TARGET_NAME}_target.zip out_publish/$REAL_BOARD-ota-$TARGET_NAME.zip
+	./out/host/linux-x86/bin/ota_from_target_files \
+	--extracted_input_target_files ${TARGET_NAME}_target \
+	--path out/host/linux-x86 \
+	--oem_settings $DEVICE_DIR/oem/oem.prop \
+	${TARGET_NAME}_target.zip \
+	out_publish/$REAL_BOARD-ota-$TARGET_NAME.zip
 else
-	./out/host/linux-x86/bin/ota_from_target_files ${TARGET_NAME}_target.zip out_publish/$REAL_BOARD-ota.zip
+	./out/host/linux-x86/bin/ota_from_target_files \
+	--extracted_input_target_files ${TARGET_NAME}_target \
+	--path out/host/linux-x86 \
+	--oem_settings $DEVICE_DIR/oem/oem.prop \
+	${TARGET_NAME}_target.zip \
+	out_publish/$REAL_BOARD-ota.zip
 fi
 
 if [ $? -ne 0 ]; then
