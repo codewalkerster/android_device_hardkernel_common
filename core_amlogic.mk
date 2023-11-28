@@ -749,7 +749,7 @@ endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_WAVE420),true)
 PRODUCT_PACKAGES += \
-    libvp_hevc_codec
+    libvp_hevc_codec_new
 endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_WAVE521),true)
