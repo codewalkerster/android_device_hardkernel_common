@@ -54,4 +54,5 @@ on early-boot
     insmod /vendor/lib/modules/media_sync.ko
     insmod /vendor/lib/modules/video_framerate_adapter.ko
     insmod /vendor/lib/modules/amvdec_avs3.ko
+    insmod /vendor/lib/modules/amvdec_avs3_v4l.ko
 
