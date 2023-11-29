@@ -170,6 +170,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.c2.use_dmabufheaps=1 \
     debug.stagefright.c2inputsurface=-1 \
     debug.vendor.media.c2.vdec.support_10bit=false \
+    vendor.media.c2.disp.nr.enable=true \
+    vendor.media.c2.disp.di.localbuf_enable=true \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true \
     ro.vendor.platform.support.8k=true
 endif
