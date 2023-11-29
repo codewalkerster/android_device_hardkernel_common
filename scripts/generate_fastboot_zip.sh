@@ -44,19 +44,51 @@ if [ -d ${TARGET_NAME}_target/VENDOR_BOOT ]; then
 		exit 1
 	fi
 
-	if [ "$TARGET_NAME" = "signed" ]; then
-		./out/host/linux-x86/bin/mkbootimg --dtb ${TARGET_NAME}_target/VENDOR_BOOT/dtb --base 0x0 --vendor_cmdline "bootconfig bootconfig" --vendor_bootconfig ${TARGET_NAME}_target/VENDOR_BOOT/vendor_bootconfig --kernel_offset 0x2080000 --header_version 4 --vendor_ramdisk ${TARGET_NAME}_target/vendor_ramdisk-debug.cpio.lz4 --ramdisk_type RECOVERY --ramdisk_name recovery --vendor_ramdisk_fragment $ANDROID_OUTPUT_PATH/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4 --vendor_boot out_publish/vendor_boot-debug-signed.img
+	if [ -f ${TARGET_NAME}_target/VENDOR_BOOT/vendor_bootconfig ]; then
+		if [ "$TARGET_NAME" = "signed" ]; then
+			./out/host/linux-x86/bin/mkbootimg --dtb ${TARGET_NAME}_target/VENDOR_BOOT/dtb --base 0x0 --vendor_cmdline "bootconfig bootconfig" --vendor_bootconfig ${TARGET_NAME}_target/VENDOR_BOOT/vendor_bootconfig --kernel_offset 0x2080000 --header_version 4 --vendor_ramdisk ${TARGET_NAME}_target/vendor_ramdisk-debug.cpio.lz4 --ramdisk_type RECOVERY --ramdisk_name recovery --vendor_ramdisk_fragment $ANDROID_OUTPUT_PATH/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4 --vendor_boot out_publish/vendor_boot-debug-signed.img
 
-		if [ $? -ne 0 ]; then
-			echo "build $TARGET_NAME vendor_boot-debug.img ERROR"
-			exit 1
+			if [ $? -ne 0 ]; then
+				echo "build $TARGET_NAME vendor_boot-debug.img ERROR"
+				exit 1
+			fi
+		else
+			./out/host/linux-x86/bin/mkbootimg --dtb ${TARGET_NAME}_target/VENDOR_BOOT/dtb --base 0x0 --vendor_cmdline "bootconfig bootconfig" --vendor_bootconfig ${TARGET_NAME}_target/VENDOR_BOOT/vendor_bootconfig --kernel_offset 0x2080000 --header_version 4 --vendor_ramdisk ${TARGET_NAME}_target/vendor_ramdisk-debug.cpio.lz4 --ramdisk_type RECOVERY --ramdisk_name recovery --vendor_ramdisk_fragment $ANDROID_OUTPUT_PATH/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4 --vendor_boot out_publish/vendor_boot-debug.img
+
+			if [ $? -ne 0 ]; then
+				echo "build $TARGET_NAME vendor_boot-debug.img ERROR"
+				exit 1
+			fi
 		fi
 	else
-		./out/host/linux-x86/bin/mkbootimg --dtb ${TARGET_NAME}_target/VENDOR_BOOT/dtb --base 0x0 --vendor_cmdline "bootconfig bootconfig" --vendor_bootconfig ${TARGET_NAME}_target/VENDOR_BOOT/vendor_bootconfig --kernel_offset 0x2080000 --header_version 4 --vendor_ramdisk ${TARGET_NAME}_target/vendor_ramdisk-debug.cpio.lz4 --ramdisk_type RECOVERY --ramdisk_name recovery --vendor_ramdisk_fragment $ANDROID_OUTPUT_PATH/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4 --vendor_boot out_publish/vendor_boot-debug.img
+		if [ "$TARGET_NAME" = "signed" ]; then
+			./out/host/linux-x86/bin/mkbootimg \
+			--dtb ${TARGET_NAME}_target/VENDOR_BOOT/dtb \
+			--base 0x0 --vendor_cmdline "androidboot.dynamic_partitions=true androidboot.dtbo_idx=0 androidboot.boot_devices=soc/ffe07000.mmc otg_device=1 use_uvm=1" \
+			--kernel_offset 0x2080000 --header_version 4 \
+			--vendor_ramdisk ${TARGET_NAME}_target/vendor_ramdisk-debug.cpio.lz4 \
+			--ramdisk_type RECOVERY --ramdisk_name recovery \
+			--vendor_ramdisk_fragment $ANDROID_OUTPUT_PATH/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4 \
+			--vendor_boot out_publish/vendor_boot-debug-signed.img
 
-		if [ $? -ne 0 ]; then
-			echo "build $TARGET_NAME vendor_boot-debug.img ERROR"
-			exit 1
+			if [ $? -ne 0 ]; then
+				echo "build $TARGET_NAME vendor_boot-debug.img ERROR"
+				exit 1
+			fi
+		else
+			./out/host/linux-x86/bin/mkbootimg \
+			--dtb ${TARGET_NAME}_target/VENDOR_BOOT/dtb \
+			--base 0x0 --vendor_cmdline "androidboot.dynamic_partitions=true androidboot.dtbo_idx=0 androidboot.boot_devices=soc/ffe07000.mmc otg_device=1 use_uvm=1" \
+			--kernel_offset 0x2080000 --header_version 4 \
+			--vendor_ramdisk ${TARGET_NAME}_target/vendor_ramdisk-debug.cpio.lz4 \
+			--ramdisk_type RECOVERY --ramdisk_name recovery \
+			--vendor_ramdisk_fragment $ANDROID_OUTPUT_PATH/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4 \
+			--vendor_boot out_publish/vendor_boot-debug.img
+
+			if [ $? -ne 0 ]; then
+				echo "build $TARGET_NAME vendor_boot-debug.img ERROR"
+				exit 1
+			fi
 		fi
 	fi
 else

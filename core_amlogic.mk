@@ -84,10 +84,12 @@ ifeq ($(filter Error,$(KERNEL_AUTO_PATCH_RESULT)), Error)
 $(error end to am kernel patches, the result: $(KERNEL_AUTO_PATCH_RESULT))
 endif
 
+ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 BOARD_DO_NOT_STRIP_VENDOR_RAMDISK_MODULES := true
 BOARD_DO_NOT_STRIP_VENDOR_MODULES := true
 BOARD_DO_NOT_STRIP_RECOVERY_MODULES := true
 BOARD_DO_NOT_STRIP_VENDOR_KERNEL_RAMDISK_MODULES := true
+endif
 
 # Net:
 #   Vendors can use the platform-provided network configuration utilities (ip,

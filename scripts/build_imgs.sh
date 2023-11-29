@@ -91,8 +91,8 @@ function build() {
 		BOARD_AML_SOC_TYPE=A311D2
 	elif [[ "$BOARD_NAME" =~ t982_ar301 ]]; then
 		BOARD_AML_SOC_TYPE=T982
-	elif [[ "$BOARD_NAME" = "dalton" ]]; then
-		BOARD_AML_SOC_TYPE=T962E2
+	elif [[ "$BOARD_NAME" = "soddy" ]]; then
+		BOARD_AML_SOC_TYPE=T962D4
 	elif [[ "$BOARD_NAME" =~ newton ]]; then
 		LAUNCH_VERSION=Q
 	fi
@@ -116,29 +116,35 @@ function build() {
 	cd $CUR_DIR
 
 	echo "LAUNCH_VERSION: $LAUNCH_VERSION"
-	if [ "$LAUNCH_VERSION" = "S" -o "$LAUNCH_VERSION" = "R" ]; then
-		echo "launch on S, copy Image.gz & dtbo.img"
-		cp -a $KERNEL_DIR/Image.gz $CUR_DIR/normal_target/BOOT/kernel
-		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
-	elif [ "$LAUNCH_VERSION" = "Q" ]; then
-		echo "***** copy kernel"
-		cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/BOOT/kernel
-		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
-		if [ -f $CUR_DIR/normal_target/RECOVERY/kernel ]; then
-			cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/RECOVERY/kernel
+	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" ]; then
+		if [ "$LAUNCH_VERSION" = "S" -o "$LAUNCH_VERSION" = "R" ]; then
+			echo "launch on S, copy Image.gz & dtbo.img"
+			cp -a $KERNEL_DIR/Image.gz $CUR_DIR/normal_target/BOOT/kernel
+			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+		elif [ "$LAUNCH_VERSION" = "Q" ]; then
+			echo "***** copy kernel"
+			cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/BOOT/kernel
+			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+			if [ -f $CUR_DIR/normal_target/RECOVERY/kernel ]; then
+				cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/RECOVERY/kernel
+			fi
+		else
+			if [ "$KERNEL_A32_SUPPORT" = "false" ]; then
+				echo "copy boot.img & dtbo.img"
+				cp -a $KERNEL_DIR/gki/boot-gz.img  $CUR_DIR/normal_target/PREBUILT_IMAGES/boot.img
+				cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+			fi
+
+			if [ "$KERNEL_A32_SUPPORT" = "true" ]; then
+				echo "copy dtbo.img"
+				cp -a $KERNEL_DIR/uImage $CUR_DIR/normal_target/BOOT/kernel
+				cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
+			fi
 		fi
 	else
-		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "false" ]; then
-			echo "copy boot.img & dtbo.img"
-			cp -a $KERNEL_DIR/gki/boot-gz.img  $CUR_DIR/normal_target/PREBUILT_IMAGES/boot.img
-			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
-		fi
-
-		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "true" ]; then
-			echo "copy dtbo.img"
-			cp -a $KERNEL_DIR/uImage $CUR_DIR/normal_target/BOOT/kernel
-			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
-		fi
+		echo "kernel 5.4"
+		cp -a $KERNEL_DIR/Image.gz $CUR_DIR/normal_target/BOOT/kernel
+		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
 	fi
 
 	rm -rf $CUR_DIR/normal_target/RADIO/bootloader.img
@@ -151,7 +157,7 @@ function build() {
 		cp $DEVICE_DIR/bootloader.img $CUR_DIR/normal_target/RADIO/bootloader.img
 	fi
 
-	if [ "$KERNEL_A32_SUPPORT" = "false" ]; then
+	if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" -a "$KERNEL_A32_SUPPORT" = "false" ]; then
 		echo "copy $CUR_DIR/normal_target/SYSTEM_DLKM"
 		rm -rf $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/*
 		cp -a $KERNEL_DIR/gki/lib/modules/* $CUR_DIR/normal_target/SYSTEM_DLKM/lib/modules/
@@ -184,9 +190,20 @@ function build() {
 	if [ -d $CUR_DIR/normal_target/VENDOR_BOOT ]; then
 		echo "copy $CUR_DIR/normal_target/VENDOR_BOOT"
 		rm -rf $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/*.ko
-		cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
-		cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load
-		cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load.recovery
+
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" ]; then
+			cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/
+			cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load
+			cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/modules.load.recovery
+		else
+			for file in $KERNEL_DIR/ramdisk/lib/modules/*.ko; do
+				file=$(basename "$file")
+				./prebuilts/clang/host/linux-x86/clang-r487747c/bin/llvm-strip \
+				-o $CUR_DIR/normal_target/VENDOR_BOOT/RAMDISK/lib/modules/$file \
+				--strip-debug $KERNEL_DIR/ramdisk/lib/modules/$file
+			done
+		fi
+
 		cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/VENDOR_BOOT/dtb
 		cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/VENDOR_BOOT/recovery_dtbo
 
@@ -200,8 +217,18 @@ function build() {
 	else
 		echo "copy $CUR_DIR/normal_target/BOOT"
 		rm -rf $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/*.ko
-		cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/
-		cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/modules.load
+
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" ]; then
+			cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/
+			cp -a $KERNEL_DIR/vendor_boot.modules.load $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/modules.load
+		else
+			for file in $KERNEL_DIR/ramdisk/lib/modules/*.ko; do
+				file=$(basename "$file")
+				./prebuilts/clang/host/linux-x86/clang-r487747c/bin/llvm-strip \
+				-o $CUR_DIR/normal_target/BOOT/RAMDISK/lib/modules/$file \
+				--strip-debug $KERNEL_DIR/ramdisk/lib/modules/$file
+			done
+		fi
 
 		cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/BOOT/dtb
 		if [ -f $CUR_DIR/normal_target/BOOT/second ]; then
@@ -220,8 +247,18 @@ function build() {
 	if [ -d $CUR_DIR/normal_target/RECOVERY ]; then
 		echo "copy $CUR_DIR/normal_target/RECOVERY"
 		rm -rf $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/*.ko
-		cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/
-		cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/modules.load.recovery
+
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" ]; then
+			cp -a $KERNEL_DIR/ramdisk/lib/modules/* $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/
+			cp -a $KERNEL_DIR/vendor_recovery.modules.load $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/modules.load.recovery
+		else
+			for file in $KERNEL_DIR/ramdisk/lib/modules/*.ko; do
+				file=$(basename "$file")
+				./prebuilts/clang/host/linux-x86/clang-r487747c/bin/llvm-strip \
+				-o $CUR_DIR/normal_target/RECOVERY/RAMDISK/lib/modules/$file \
+				--strip-debug $KERNEL_DIR/ramdisk/lib/modules/$file
+			done
+		fi
 
 		cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $CUR_DIR/normal_target/RECOVERY/dtb
 		if [ -f $CUR_DIR/normal_target/RECOVERY/second ]; then
@@ -241,7 +278,10 @@ function build() {
 	if [ -d $CUR_DIR/normal_target/VENDOR_DLKM ]; then
 		echo "copy $CUR_DIR/normal_target/VENDOR_DLKM"
 		cp -a $KERNEL_DIR/lib/modules/* $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
-		cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/modules.load
+
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" ]; then
+			cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/modules.load
+		fi
 
 		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules
 		cp -a $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules/
@@ -251,8 +291,18 @@ function build() {
 		rm -rf $CUR_DIR/out_tmp/depmod_vendor_intermediates
 	else
 		echo "copy $CUR_DIR/normal_target/VENDOR"
-		cp -a $KERNEL_DIR/lib/modules/* $CUR_DIR/normal_target/VENDOR/lib/modules/
-		cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR/lib/modules/modules.load
+
+		if [ "$TARGET_BUILD_KERNEL_VERSION" = "5.15" ]; then
+			cp -a $KERNEL_DIR/lib/modules/* $CUR_DIR/normal_target/VENDOR/lib/modules/
+			cp -a $KERNEL_DIR/vendor_dlkm.modules.load $CUR_DIR/normal_target/VENDOR/lib/modules/modules.load
+		else
+			for file in $KERNEL_DIR/lib/modules/*.ko; do
+				file=$(basename "$file")
+				./prebuilts/clang/host/linux-x86/clang-r487747c/bin/llvm-strip \
+				-o $CUR_DIR/normal_target/VENDOR/lib/modules/$file \
+				--strip-debug $KERNEL_DIR/lib/modules/$file
+			done
+		fi
 
 		mkdir -p $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules
 		cp -a $CUR_DIR/normal_target/VENDOR/lib/modules/*.ko $CUR_DIR/out_tmp/depmod_vendor_intermediates/lib/modules/0.0/vendor/lib/modules/
@@ -291,7 +341,9 @@ function build() {
 	(cd  normal_target/VENDOR_DLKM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,vendor_dlkm/,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R vendor_dlkm/ >  normal_target/META/vendor_dlkm_filesystem_config.txt
 	fi
 
+	if [ -d normal_target/SYSTEM_DLKM ]; then
 	(cd  normal_target/SYSTEM_DLKM; find . -type d | sed 's,$,/,'; find . \! -type d) | cut -c 3- | sort | sed 's,^,system_dlkm/,' | out/host/linux-x86/bin/fs_config -C -D  normal_target/SYSTEM -S  normal_target/META/file_contexts.bin -R system_dlkm/ >  normal_target/META/system_dlkm_filesystem_config.txt
+	fi
 
 	echo "mkbootimg..."
 	MKBOOTIMG=out/host/linux-x86/bin/mkbootimg ./out/host/linux-x86/bin/add_img_to_target_files -a -r -v normal_target
