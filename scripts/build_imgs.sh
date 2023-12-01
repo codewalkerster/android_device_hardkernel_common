@@ -67,7 +67,7 @@ function build() {
 	echo "BOARD_NAME: $BOARD_NAME"
 	echo "ANDROID_OUTPUT_PATH: $ANDROID_OUTPUT_PATH"
 
-	if [[ "$BOARD_NAME" = "ohm" ]]; then
+	if [[ "$BOARD_NAME" = "ohm" ]] || [[ "$BOARD_NAME" = "ohm_wv4" ]]; then
 		BOARD_AML_SOC_TYPE=S905X4
 	elif [[ "$BOARD_NAME" = "adt4" ]]; then
 		BOARD_AML_SOC_TYPE=S905X4
@@ -77,13 +77,13 @@ function build() {
 		BOARD_AML_SOC_TYPE=S905C2
 	elif [[ "$BOARD_NAME" = "ohmcas2" ]]; then
 		BOARD_AML_SOC_TYPE=S905C2L
-	elif [[ "$BOARD_NAME" = "planck" ]]; then
+	elif [[ "$BOARD_NAME" = "planck" ]] || [[ "$BOARD_NAME" = "planck_wv4" ]]; then
 		BOARD_AML_SOC_TYPE=S805X2
 	elif [[ "$BOARD_NAME" = "oppencas" ]]; then
 		BOARD_AML_SOC_TYPE=S905C3
 	elif [[ "$BOARD_NAME" = "tyson" ]]; then
 		BOARD_AML_SOC_TYPE=S928X
-	elif [[ "$BOARD_NAME" = "oppen" ]]; then
+	elif [[ "$BOARD_NAME" = "oppen" ]] || [[ "$BOARD_NAME" = "oppen_wv4" ]]; then
 		BOARD_AML_SOC_TYPE=S905Y4
 	elif [[ "$BOARD_NAME" = "boreal" ]]; then
 		BOARD_AML_SOC_TYPE=S805X2G
