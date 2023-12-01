@@ -38,25 +38,25 @@ function build() {
 
 	echo "BOARD in build_imgs.sh: $BOARD"
 
-	if [[ $BOARD =~ t7_an400|t982_ar301|smith|t950s_be311|bluebell ]]; then
+	if [[ $BOARD =~ t7_an400|t982_ar301|t950s_be311|bluebell|^anemone_arm64$|mercury ]]; then
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=$BOARD
 		BOARD_NAME=${ORIGINAL_BOARD%_arm64*}
+	elif [[ $BOARD =~ _wv4 ]]; then
+		ORIGINAL_BOARD=$BOARD
+		[[ $BOARD =~ _hybrid_|_mxl258c_|ohm_wv4_cbs_ ]] && REAL_BOARD=${ORIGINAL_BOARD%_*} || REAL_BOARD=${BOARD}
+		BOARD_NAME=${ORIGINAL_BOARD%%_*}_wv4
 	elif [[ $BOARD =~ _hybrid_|_mxl258c_|ohm_cbs_ ]]; then
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=${ORIGINAL_BOARD%_*}
 		BOARD_NAME=${ORIGINAL_BOARD%%_*}
-	elif [[ $BOARD =~ _wv4 ]]; then
-                ORIGINAL_BOARD=$BOARD
-                REAL_BOARD=$BOARD
-                BOARD_NAME=${ORIGINAL_BOARD}
 	else
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=$ORIGINAL_BOARD
 		BOARD_NAME=${ORIGINAL_BOARD%%_*}
 	fi
 
-	if [[ $REAL_BOARD =~ ohm_mxl258c|franklin_hybrid|newton_hybrid ]]; then
+	if [[ $REAL_BOARD =~ _mxl258c|franklin_hybrid|newton_hybrid ]]; then
 		ANDROID_OUTPUT_PATH="out/target/product/$REAL_BOARD"
 	else
 		ANDROID_OUTPUT_PATH="out/target/product/$BOARD_NAME"
