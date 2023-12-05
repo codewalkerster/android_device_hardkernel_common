@@ -11,6 +11,9 @@ allow hal_bootctl_default proc_cmdline:file read;
 allow hal_bootctl_default env_device:blk_file rw_file_perms;
 allow hal_bootctl_default kmsg_device:chr_file rw_file_perms;
 
+get_prop(hal_bootctl_default, vendor_default_prop)
+get_prop(hal_bootctl_default, usb_control_prop)
+
 allow hal_bootctl_default { boot_block_device sda_block_device }:blk_file rw_file_perms;
 
 allow hal_bootctl_default bootloader_device:blk_file rw_file_perms;
