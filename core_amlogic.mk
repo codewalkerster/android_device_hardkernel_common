@@ -21,6 +21,8 @@ endif
 # Get the TTS language packs
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 
+$(call inherit-product-if-exists, vendor/amlogic/restricted_libs/hdcp_tx22.mk)
+
 #dtvkit config
 ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
 $(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/dtvkit.mk)
