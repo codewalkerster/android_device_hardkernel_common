@@ -303,11 +303,11 @@
                 <route type="mix" sink="ble_in"
                        sources="BLE-In"/>
                 <route type="mix" sink="USB Host Out"
-                    sources="usb_accessory output"/>
+                    sources="usb_accessory output,tunnel pcm,mmap_no_irq_out"/>
                 <route type="mix" sink="USB Device Out"
-                    sources="usb_device output,offload usb,usb_direct_all"/>
+                    sources="usb_device output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,tunnel direct output,mmap_no_irq_out"/>
                 <route type="mix" sink="USB Headset Out"
-                    sources="usb_device output,offload usb,usb_direct_all"/>
+                    sources="usb_device output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,tunnel direct output,mmap_no_irq_out"/>
             </routes>
 
         </module>
