@@ -141,13 +141,9 @@ function build() {
 		cp -a $KERNEL_DIR/system_dlkm.modules.load $CUR_DIR/normal_target/VENDOR_DLKM/lib/modules/
 	fi
 
-	if [[ "$REAL_BOARD" = "ohm_mxl258c" ]]; then
+	if [[ "$REAL_BOARD" == *"mxl258c"* ]]; then
 		LOCAL_DTB=$REAL_BOARD
-	elif [[ "$BOARD_NAME" = "oppen_mxl258c" ]]; then
-		LOCAL_DTB=$REAL_BOARD
-	elif [[ "$BOARD_NAME" = "oppencas_mxl258c" ]]; then
-		LOCAL_DTB=$REAL_BOARD
-	elif [[ "$BOARD_NAME" = "ohm_1gb" ]]; then
+	elif [[ "$BOARD_NAME" == *"1gb"* ]]; then
 		LOCAL_DTB=$REAL_BOARD
 	else
 		LOCAL_DTB=$BOARD_NAME
