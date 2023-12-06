@@ -33,6 +33,20 @@ cp -a $TARGET_NAME-img $TARGET_NAME-fastboot
 rm -rf $TARGET_NAME-fastboot/aml* $TARGET_NAME-fastboot/dt.img $TARGET_NAME-fastboot/platform.conf $TARGET_NAME-fastboot/super.img
 rm -rf $TARGET_NAME-fastboot/u-boot* $TARGET_NAME-fastboot/usb_flow* $TARGET_NAME-fastboot/userdata.img
 
+if [ -f $TARGET_NAME-fastboot/cache.img ];then
+	rm -rf $TARGET_NAME-fastboot/cache.img
+fi
+
+if [ -f $ANDROID_OUTPUT_PATH/gpt.bin ];then
+	cp -a $ANDROID_OUTPUT_PATH/gpt.bin $TARGET_NAME-fastboot/
+else
+	if [ -f ${TARGET_NAME}_target/VENDOR_BOOT/dtb ];then
+		cp -a ${TARGET_NAME}_target/VENDOR_BOOT/dtb $TARGET_NAME-fastboot/dt.img
+	elif [ -f ${TARGET_NAME}_target/BOOT/dtb ];then
+		cp -a ${TARGET_NAME}_target/BOOT/dtb $TARGET_NAME-fastboot/dt.img
+	fi
+fi
+
 ./device/amlogic/common/scripts/generate_fastboot_zip.sh $TARGET_NAME $BOARD_NAME $ANDROID_OUTPUT_PATH $REAL_BOARD &
 
 if [ -f $DEVICE_DIR/upgrade/aml_sdc_burn.ini ];then

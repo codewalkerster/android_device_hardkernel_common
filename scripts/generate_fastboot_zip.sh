@@ -10,8 +10,13 @@ REAL_BOARD=$4
 
 echo "start build $TARGET_NAME fastboot zip"
 
+if [[ "$BOARD_NAME" =~ newton|franklin ]]; then
+cp -a device/amlogic/common/scripts/fastboot_scripts/flash-all.bat $TARGET_NAME-fastboot/flash-all.bat
+cp -a device/amlogic/common/scripts/fastboot_scripts/flash-all.sh $TARGET_NAME-fastboot/flash-all.sh
+else
 cp -a device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $TARGET_NAME-fastboot/flash-all.bat
 cp -a device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.sh $TARGET_NAME-fastboot/flash-all.sh
+fi
 if [[ "$BOARD_NAME" = "adt4" ]]; then
     DEVICE_DIR=device/sei/$BOARD_NAME
 else
