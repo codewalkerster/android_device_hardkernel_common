@@ -425,10 +425,12 @@ endif
 #
 #######################################################################
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
+ifneq ($(TARGET_OLD_DEVICE), true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.dm_default_key.options_format.version=2 \
     ro.crypto.volume.options=::v2
+endif
 endif
 
 #########################################################################
@@ -921,7 +923,7 @@ TARGET_NO_RECOVERY := false
 
 BOARD_CACHEIMAGE_PARTITION_SIZE := 69206016
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
+ifeq ($(LAUNCH_VERSION),Q)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 else
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
