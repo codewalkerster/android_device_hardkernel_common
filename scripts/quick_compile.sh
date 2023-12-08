@@ -392,7 +392,7 @@ kernel_exec[31]="./mk ohmcas2 --gki_image -v "
 
 ###########################################################################################
 # Tyson
-project[32]="Tyson"
+project[32]="Tyson-GTV"
 soc[32]="S928X"
 hardware[32]="AX201"
 module[32]="tyson"
@@ -448,6 +448,18 @@ uboot_path[36]="device/amlogic/bluebell"
 uboot_exec_aosp[36]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 uboot_exec_drm[36]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 kernel_exec[36]="./mk bluebell -v "
+###########################################################################################
+
+###########################################################################################
+# Tyson
+project[37]="Tyson-ATV"
+soc[37]="S928X"
+hardware[37]="AX201"
+module[37]="tyson_atv"
+uboot_path[37]="device/amlogic/tyson"
+uboot_exec_aosp[37]="./mk s5_ax201  --vab --avb2 --fastboot-write"
+uboot_exec_drm[37]="./mk s5_ax201  --vab --avb2 --fastboot-write"
+kernel_exec[37]="./mk tyson -v "
 ###########################################################################################
 
 usage() {
