@@ -123,10 +123,10 @@ function build() {
 			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
 		elif [ "$LAUNCH_VERSION" = "Q" ]; then
 			echo "***** copy kernel"
-			cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/BOOT/kernel
+			cp -a $KERNEL_DIR/gki/Image.lzma $CUR_DIR/normal_target/BOOT/kernel
 			cp -a $KERNEL_DIR/dtbo.img $CUR_DIR/normal_target/PREBUILT_IMAGES/dtbo.img
 			if [ -f $CUR_DIR/normal_target/RECOVERY/kernel ]; then
-				cp -a $KERNEL_DIR/gki/Image.gz $CUR_DIR/normal_target/RECOVERY/kernel
+				cp -a $KERNEL_DIR/gki/Image.lzma $CUR_DIR/normal_target/RECOVERY/kernel
 			fi
 		else
 			if [ "$KERNEL_A32_SUPPORT" = "false" ]; then
