@@ -38,7 +38,7 @@ function build() {
 
 	echo "BOARD in build_imgs.sh: $BOARD"
 
-	if [[ $BOARD =~ t7_an400|t982_ar301|t950s_be311|bluebell|^anemone_arm64$|mercury ]]; then
+	if [[ $BOARD =~ t7_an400|t982_ar301|t950s_be311|^anemone_arm64$|mercury ]]; then
 		ORIGINAL_BOARD=$BOARD
 		REAL_BOARD=$BOARD
 		BOARD_NAME=${ORIGINAL_BOARD%_arm64*}
