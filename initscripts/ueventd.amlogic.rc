@@ -133,6 +133,7 @@
 /dev/accelirq             0666   system       system
 /dev/timerirq             0666   system       system
 
+/dev/ree2aocpu            0666   system       bluetooth
 
 /dev/aml_btusb            0666   bluetooth    bluetooth
 /dev/rtk_btusb            0660   bluetooth    bluetooth
