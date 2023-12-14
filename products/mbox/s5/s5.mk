@@ -258,3 +258,16 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/products/mbox/s5/files/nn/SRNetx2_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_i_e8.nb \
     device/amlogic/common/products/mbox/s5/files/nn/SRNetx3_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_i_e8.nb \
     device/amlogic/common/products/mbox/s5/files/nn/SRNetx4_960_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_i_e8.nb
+
+#########################################################################
+#
+#  DTVKIT Config
+#
+#########################################################################
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+DTVKIT_HW_CONFIG_SOC := s5
+ifeq ($(TUNER_MODULE),mxl258c)
+DTVKIT_HW_CONFIG_SOC := s5-fccpip
+endif
+$(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
+endif

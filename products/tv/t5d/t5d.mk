@@ -192,5 +192,15 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/t5d/files/tv/dec:$(TARGET_COPY_OUT_VENDOR)/bin/dec
+#PRODUCT_COPY_FILES += \
+#    device/amlogic/common/products/tv/t5d/files/tv/dec:$(TARGET_COPY_OUT_VENDOR)/bin/dec
+
+#########################################################################
+#
+#  DTVKIT Config
+#
+#########################################################################
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+DTVKIT_HW_CONFIG_SOC := t5d
+$(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
+endif

@@ -215,4 +215,12 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 
-
+#########################################################################
+#
+#  DTVKIT Config
+#
+#########################################################################
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+DTVKIT_HW_CONFIG_SOC := t5w
+$(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
+endif

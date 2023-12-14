@@ -202,3 +202,12 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/amlogic/common/products/mbox/g12a/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
     device/amlogic/common/products/mbox/g12a/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
 
+#########################################################################
+#
+#  DTVKIT Config
+#
+#########################################################################
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+DTVKIT_HW_CONFIG_SOC := g12a
+$(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
+endif

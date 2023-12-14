@@ -230,3 +230,15 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/amlogic/common/products/mbox/s4/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
     device/amlogic/common/products/mbox/s4/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
 
+#########################################################################
+#
+#  DTVKIT Config
+#
+#########################################################################
+ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
+DTVKIT_HW_CONFIG_SOC := s4
+ifeq ($(TUNER_MODULE),mxl258c)
+DTVKIT_HW_CONFIG_SOC := s4-fccpip
+endif
+$(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
+endif
