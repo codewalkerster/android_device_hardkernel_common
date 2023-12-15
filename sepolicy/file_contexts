@@ -693,3 +693,10 @@
 /dev/i2c-2                   u:object_r:i2c_device:s0
 /dev/i2c-3                   u:object_r:i2c_device:s0
 /dev/i2c-5                   u:object_r:i2c_device:s0
+
+#error monitor
+/vendor/bin/errormonitor     u:object_r:error_monitor_exec:s0
+/vendor/lib(64)?/liberrormonitor_jni\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.amlogic\.hardware\.errormonitor@1\.0\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/liberrormonitorclient\.so        u:object_r:vendor_app_file:s0
+

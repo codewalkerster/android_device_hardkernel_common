@@ -1,0 +1,48 @@
+type error_monitor, domain;
+
+type error_monitor_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(error_monitor)
+
+vndbinder_use(error_monitor)
+hwbinder_use(error_monitor)
+binder_use(error_monitor)
+
+hal_client_domain(error_monitor, hal_codec2);
+hal_client_domain(error_monitor, hal_allocator)
+hal_client_domain(error_monitor, hal_graphics_allocator)
+hal_client_domain(error_monitor, hal_omx);
+
+get_prop(error_monitor, vendor_default_prop)
+get_prop(error_monitor, vendor_persist_prop)
+add_hwservice(error_monitor, errormonitor_hwservice)
+
+allow error_monitor hidl_memory_hwservice:hwservice_manager find;
+allow error_monitor mediaserver:binder { call transfer };
+allow error_monitor mediaserver_service:service_manager { find };
+allow error_monitor video_device:chr_file rw_file_perms;
+allow error_monitor servicemanager:dir { search };
+allow error_monitor storage_file:dir rw_dir_perms;
+allow error_monitor storage_file:file rw_file_perms;
+allow error_monitor hal_omx_hwservice:hwservice_manager { find };
+allow error_monitor mediametrics:binder { call };
+allow error_monitor mediametrics_service:service_manager { find };
+
+allow error_monitor sdcardfs:dir rw_dir_perms;
+allow error_monitor sdcardfs:file create_file_perms;
+allow error_monitor system_file:dir r_dir_perms;
+
+allow error_monitor fuse:dir w_dir_perms;
+allow error_monitor fuse:file create_file_perms;
+
+allow error_monitor mnt_vendor_file:file create_file_perms;
+allow error_monitor mnt_vendor_file:dir create_dir_perms;
+allow error_monitor mnt_user_file:dir rw_dir_perms;
+allow error_monitor mnt_user_file:file rw_file_perms;
+allow error_monitor vendor_shell_exec:file execute_no_trans;
+allow error_monitor vendor_toolbox_exec:file execute_no_trans;
+allow error_monitor vendor_file:file execute_no_trans;
+allow error_monitor tmpfs:dir read;
+allow error_monitor sysfs:file  { open read write };
+allow error_monitor system_app:binder { call };
+allow error_monitor codec_device:chr_file rw_file_perms;

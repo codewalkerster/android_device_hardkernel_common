@@ -84,3 +84,11 @@ allow hal_graphics_composer_default mediacodec:fd { use };
 allow hal_graphics_composer_default nn_data_file:dir{ create write read add_name remove_name open search };
 allow hal_graphics_composer_default nn_data_file:file { rw_file_perms create setattr unlink map rename };
 allow hal_graphics_composer_default nn_data_file:chr_file{ ioctl };
+
+allow hal_graphics_composer_default sysfs_lcd:dir search;
+allow hal_graphics_composer_default sysfs_lcd:lnk_file { open read write ioctl };
+allow hal_graphics_composer_default sysfs_lcd:file { read write open getattr };
+allow hal_graphics_composer_default sysfs_lcd:chr_file { ioctl read write open };
+
+allow hal_graphics_composer_default errormonitor_hwservice:hwservice_manager { find };
+allow hal_graphics_composer_default error_monitor:binder {call transfer};

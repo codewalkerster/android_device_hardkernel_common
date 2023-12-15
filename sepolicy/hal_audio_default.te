@@ -65,6 +65,8 @@ allow hal_audio_default audio_device_earc:dir { search read };
 allow hal_audio_default audio_device_earc:chr_file { open read write ioctl };
 get_prop(hal_audio_default, ptsserver_device)
 set_prop(hal_audio_default, ptsserver_device)
+allow hal_audio_default errormonitor_hwservice:hwservice_manager { find };
+allow hal_audio_default error_monitor:binder {call transfer};
 allow hal_audio_default droidaudio:binder { call };
 allow hal_audio_default droidaudio_service:service_manager { find };
 allow hal_audio_default ptsserver_device:chr_file rw_file_perms;

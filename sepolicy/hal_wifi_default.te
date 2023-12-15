@@ -14,6 +14,10 @@ allow hal_wifi_default vendor_data_file:file  { open setattr create read write g
 allow hal_wifi_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 allow hal_wifi_default { system_file vendor_file }:system module_load;
 
+allow hal_wifi_default errormonitor_hwservice:hwservice_manager { find };
+allow hal_wifi_default error_monitor:binder {call transfer};
+allow hal_wifi_default pstorefs:dir { search };
+
 #allow hal_wifi_default hal_wifi_default:capability chown;
 allow hal_wifi_default kernel:system module_request;
 

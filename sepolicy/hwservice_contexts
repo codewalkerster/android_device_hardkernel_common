@@ -5,6 +5,7 @@ vendor.amlogic.display.meson_display_ipc::IMesonDisplayIPC         u:object_r:me
 vendor.amlogic.hardware.subtitleserver::ISubtitleServer            u:object_r:subtitleserver_hwservice:s0
 vendor.amlogic.hardware.dtvkitserver::IDTVKitServer                u:object_r:dtvkitserver_hwservice:s0
 vendor.amlogic.hardware.screencontrol::IScreenControl              u:object_r:screencontrol_hwservice:s0
+vendor.amlogic.hardware.errormonitor::IErrorMonitor                u:object_r:errormonitor_hwservice:s0
 
 #Irdeto hidlimw
 vendor.irdeto.hal.hidlimw.common::IMonitor                         u:object_r:hal_hidlimw_hwservice:s0

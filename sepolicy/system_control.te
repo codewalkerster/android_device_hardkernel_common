@@ -189,3 +189,6 @@ allow system_control sysfs_di:lnk_file { read open write getattr };
 
 allow system_control vendor_persist_prop:property_service { set };
 allow system_control sysfs_lru_gen_enabled:file { read write open };
+
+allow system_control errormonitor_hwservice:hwservice_manager { find };
+allow system_control error_monitor:binder {call transfer};

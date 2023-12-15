@@ -6,6 +6,7 @@ type meson_display_ipc_hwservice, hwservice_manager_type;
 type dtvkitserver_hwservice, hwservice_manager_type;
 type screencontrol_hwservice, hwservice_manager_type;
 type droidaudio_hwservice, hwservice_manager_type;
+type errormonitor_hwservice, hwservice_manager_type;
 
 #Irdeto hidlimw
 type hal_hidlimw_hwservice, hwservice_manager_type;

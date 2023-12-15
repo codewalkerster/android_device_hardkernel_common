@@ -1121,3 +1121,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifeq ($(PRODUCT_SUPPORT_AMSTREAMING_TIS),true)
 include vendor/amlogic/reference/apps/AmStreamingInputService/inputservice.mk
 endif
+
+#Enable ErrorMonitor
+PRODUCT_SUPPORT_ERRORMONITOR := true
+
+#errormonitor
+ifeq ($(PRODUCT_SUPPORT_ERRORMONITOR),true)
+PRODUCT_PACKAGES += \
+    errormonitor \
+    liberrormonitorservice \
+    liberrormonitorclient \
+    liberrormonitor_jni \
+    errormonitor_test
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.mediahal.videodec.send_userdata=true \
+    vendor.media.mediahal.videodec.statisticdata_interval=5000
+
+ifeq ($(PLATFORM_VERSION), 14)
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/34/device_matrix_product_amlogic_errormonitor.xml
+endif
+endif

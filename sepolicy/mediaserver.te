@@ -60,3 +60,6 @@ hal_client_domain(mediaserver, hal_tv_tuner)
 allow mediaserver hal_tv_tuner_default:binder { call };
 allow mediaserver aml_dsm_device:chr_file rw_file_perms;
 allow mediaserver miracast_hdcp2_service:service_manager { find };
+
+allow mediaserver errormonitor_hwservice:hwservice_manager { find };
+allow mediaserver error_monitor:binder {call transfer};

@@ -59,3 +59,5 @@ allow mediacodec tmpfs:file {read open getattr};
 allow mediacodec vendor_netflix_prop:file {read open getattr map};
 allow mediacodec build_bootimage_prop:file {read open getattr map};
 allow mediacodec vendor_tv_prop:file { read };
+
+allow mediacodec errormonitor_hwservice:hwservice_manager find;
