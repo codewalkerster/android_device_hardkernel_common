@@ -97,6 +97,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     tv.dtv.tf.disable=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.dtv.tsplayer.enable=true
+
 # crypto volume
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
