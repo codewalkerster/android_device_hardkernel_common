@@ -227,8 +227,8 @@ soc[18]="T950D4/T950X4"
 hardware[18]="AM301/AM311"
 module[18]="redi"
 uboot_path[18]="device/amlogic/redi"
-uboot_exec_aosp[18]="./mk t5d_am301_v1 --vab --fastboot-write"
-uboot_exec_drm[18]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/t5d/bl32.img --vab --avb2 --fastboot-write"
+uboot_exec_aosp[18]="./mk t5d_am301_v1 --vab --avb2 --fastboot-write  --gpt"
+uboot_exec_drm[18]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/t5d/bl32.img --vab --avb2 --fastboot-write  --gpt"
 kernel_exec[18]="./mk redi -v "
 kernel_addr[18]="export KERNEL_A32_SUPPORT=true"
 ###########################################################################################
@@ -265,8 +265,8 @@ soc[21]="T962X2"
 hardware[21]="X301"
 module[21]="marconi"
 uboot_path[21]="device/amlogic/marconi"
-uboot_exec_aosp[21]="./mk tl1_x301_v1  --vab --fastboot-write"
-uboot_exec_drm[21]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tl1/bl32.img --vab --avb2 --fastboot-write"
+uboot_exec_aosp[21]="./mk tl1_x301_v1 --vab --avb2 --fastboot-write"
+uboot_exec_drm[21]="./mk tl1_x301_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/tl1/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[21]="./mk marconi -v "
 ###########################################################################################
 
@@ -278,7 +278,7 @@ hardware[22]="AB311"
 module[22]="dalton"
 uboot_path[22]="device/amlogic/marconi"
 uboot_exec_aosp[22]="./mk tm2_t962e2_ab311_v1  --vab --fastboot-write"
-uboot_exec_drm[22]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/tm2/bl32.img --vab --avb2 --fastboot-write"
+uboot_exec_drm[22]="./mk tm2_t962e2_ab311_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/tm2/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[22]="./mk dalton -v "
 ###########################################################################################
 
@@ -290,7 +290,7 @@ hardware[23]="U212"
 module[23]="franklin"
 uboot_path[23]="device/amlogic/franklin"
 uboot_exec_aosp[23]="./mk g12a_u212_v1  --vab --avb2 --fastboot-write"
-uboot_exec_drm[23]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
+uboot_exec_drm[23]="./mk g12a_u212_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[23]="./mk franklin -v "
 ###########################################################################################
 
@@ -302,7 +302,7 @@ hardware[24]="AC215"
 module[24]="newton"
 uboot_path[24]="device/amlogic/newton"
 uboot_exec_aosp[24]="./mk sm1_ac215_v1  --vab --avb2 --fastboot-write"
-uboot_exec_drm[24]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
+uboot_exec_drm[24]="./mk sm1_ac215_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[24]="./mk newton -v "
 ###########################################################################################
 
@@ -314,7 +314,7 @@ hardware[25]="U215"
 module[25]="franklin_hybrid"
 uboot_path[25]="device/amlogic/franklin/franklin_hybrid"
 uboot_exec_aosp[25]="./mk g12a_u215_v1  --vab --avb2 --fastboot-write"
-uboot_exec_drm[25]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
+uboot_exec_drm[25]="./mk g12a_u215_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/g12a/bl32.img --vab --avb2 --fastboot-write"
 kernel_exec[25]="./mk franklin -v "
 ###########################################################################################
 
