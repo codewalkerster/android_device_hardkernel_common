@@ -300,8 +300,13 @@ PRODUCT_PACKAGES += \
 	meson_display_client
 
 #add camera feature
+ifeq ($(CONFIG_CAMERA_FEATURE), back)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml
+else
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
+endif
 
 ifeq ($(ATV_LAUNCHER), amati)
 # Keymaster configuration
