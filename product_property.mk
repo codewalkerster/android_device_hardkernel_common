@@ -11,11 +11,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.enable_frame_rate_override=false
 
-# config of bootanimation
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bootanimation_optimal_display_width=1920 \
-    ro.bootanimation_optimal_display_height=1080
-
 # config of surfaceflinger
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
 PRODUCT_PRODUCT_PROPERTIES += \
