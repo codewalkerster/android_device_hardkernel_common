@@ -19,12 +19,20 @@ fastboot flashing unlock
 fastboot flash bootloader bootloader.img
 fastboot flash bootloader-boot0 bootloader.img
 fastboot flash bootloader-boot1 bootloader.img
-fastboot flash dts dt.img
-fastboot erase env
-fastboot erase misc
+if exist gpt.bin (
 fastboot reboot-bootloader
 ping -n 5 127.0.0.1 >nul
 fastboot flashing unlock
+fastboot flash gpt gpt.bin
+)
+if exist dt.img (
+fastboot flash dts dt.img
+)
+fastboot erase env
+fastboot reboot-bootloader
+ping -n 5 127.0.0.1 >nul
+fastboot flashing unlock
+fastboot erase misc
 fastboot flash dtbo dtbo.img
 fastboot -w
 fastboot erase param
@@ -45,6 +53,9 @@ fastboot flash init_boot init_boot.img
 )
 fastboot flash boot boot.img
 fastboot flash recovery recovery.img
+if exist vendor_boot.img (
+fastboot flash vendor_boot vendor_boot.img
+)
 fastboot flash super super_empty_all.img
 fastboot reboot-fastboot
 ping -n 10 127.0.0.1 >nul

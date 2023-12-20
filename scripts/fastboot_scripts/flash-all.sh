@@ -63,13 +63,26 @@ fastboot $sern flashing unlock
 fastboot $sern flash bootloader bootloader.img
 fastboot $sern flash bootloader-boot0 bootloader.img
 fastboot $sern flash bootloader-boot1 bootloader.img
+
+if [ -f dt.img ]
+then
 fastboot $sern flash dts dt.img
+fi
+
+if [ -f gpt.bin ]
+then
+    fastboot $sern reboot-bootloader
+    sleep 5
+    fastboot $sern flashing unlock
+    fastboot $sern flash gpt gpt.bin
+fi
+
 fastboot $sern erase env
-fastboot $sern erase misc
 fastboot $sern reboot-bootloader
 
 sleep 5
 fastboot $sern flashing unlock
+fastboot $sern erase misc
 fastboot $sern flash dtbo dtbo.img
 
 if [ "$wipedata" == "wipe" ]
@@ -99,7 +112,14 @@ then
 	flash_with_retry init_boot init_boot.img
 fi
 flash_with_retry boot boot.img
+if [ -f recovery.img ]
+then
 flash_with_retry recovery recovery.img
+fi
+if [ -f vendor_boot.img ]
+then
+flash_with_retry vendor_boot vendor_boot.img
+fi
 flash_with_retry super super_empty_all.img
 fastboot $sern reboot-fastboot
 sleep 10

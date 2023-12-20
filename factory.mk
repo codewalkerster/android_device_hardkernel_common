@@ -146,6 +146,13 @@ BOARD_PACK_RADIOIMAGES += bootloader.img
 INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/super_empty_all.img
 BOARD_PACK_RADIOIMAGES += super_empty_all.img
 
+ifeq ($(TARGET_GPT_PART),true)
+ifneq ($(AB_OTA_UPDATER),true)
+INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/gpt.bin
+BOARD_PACK_RADIOIMAGES += gpt.bin
+endif
+endif
+
 ifeq ($(TARGET_UPDATE_IDATTESTATION),true)
 INSTALLED_RADIOIMAGE_TARGET += device/amlogic/common/id_attestation.xml
 BOARD_PACK_RADIOIMAGES += id_attestation.xml

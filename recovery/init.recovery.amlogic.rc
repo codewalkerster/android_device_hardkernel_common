@@ -37,6 +37,7 @@ on boot
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
     symlink /dev/block/by-name/userdata /dev/block/userdata
     write sys/class/unifykeys/attach     1
+    symlink /dev/block/by-name/userdata /dev/block/userdata
 
 service systemcontrol /bin/systemcontrol_static /sbin/mesondisplay.cfg
     oneshot

@@ -180,36 +180,54 @@ def FullOTA_Assertions(info):
   else:
     OPTIONS.ota_vendor_boot = True
 
-  if OPTIONS.ota_zip_check:
-    info.script.AppendExtra('if ota_zip_check() == "1" then')
-    info.script.AppendExtra('ui_print("ota_zip_check() == 1");')
-    info.script.AppendExtra('if recovery_backup_exist() == "0" then')
-    info.script.AppendExtra('package_extract_file("dt.img", "/cache/recovery/dtb.img");')
-    info.script.AppendExtra('package_extract_file("recovery.img", "/cache/recovery/recovery.img");')
-    if OPTIONS.ota_vendor_boot:
-      info.script.AppendExtra('package_extract_file("vendor_boot.img", "/cache/recovery/vendor_boot.img");')
-    info.script.AppendExtra('endif;')
+  try:
+    gpt_bin = info.input_zip.read("IMAGES/gpt.bin")
+  except KeyError:
+    OPTIONS.gpt_bin = False
+    print("no gpt.bin in target_files;")
+  else:
+    OPTIONS.gpt_bin = True
+
+  if OPTIONS.gpt_bin:
+    print("gpt_mode;")
+    info.script.AppendExtra('if ota_part_check() == "1" then')
+    info.script.AppendExtra('ui_print("ota_part_check() == 1");')
     info.script.AppendExtra('set_bootloader_env("upgrade_step", "3");')
-    if OPTIONS.ota_partition_change:
-      info.script.AppendExtra('ui_print("update bootloader.img...");')
-      info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
-      info.script.AppendExtra('set_bootloader_env("recovery_from_flash", "defenv_reserv;saveenv;reset");')
-    info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
-    info.script.WriteRawImage("/recovery", "recovery.img")
-    if OPTIONS.ota_vendor_boot:
-      info.script.AppendExtra('if package_extract_file("vendor_boot.img", "/dev/block/by-name/vendor_boot") == "" then')
-      info.script.AppendExtra('ui_print("update vendor_boot.img to super");')
-      info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/by-name/super");')
-      info.script.AppendExtra('endif;')
-    if OPTIONS.backup_zip:
-      info.script.AppendExtra('backup_update_package("/dev/block/by-name/mmcblk0", "1894");')
-    info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
-    info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
-    if OPTIONS.ota_vendor_boot:
-      info.script.AppendExtra('delete_file("/cache/recovery/vendor_boot.img");')
     info.script.AppendExtra('reboot_recovery();')
     info.script.AppendExtra('else')
-    info.script.AppendExtra('ui_print("else case, ota_zip_check() != 1");')
+    info.script.AppendExtra('ui_print("else case, ota_part_check() != 1");')
+  else:
+    print("dts mode;")
+    if OPTIONS.ota_zip_check:
+      info.script.AppendExtra('if ota_zip_check() == "1" then')
+      info.script.AppendExtra('ui_print("ota_zip_check() == 1");')
+      info.script.AppendExtra('if recovery_backup_exist() == "0" then')
+      info.script.AppendExtra('package_extract_file("dt.img", "/cache/recovery/dtb.img");')
+      info.script.AppendExtra('package_extract_file("recovery.img", "/cache/recovery/recovery.img");')
+      if OPTIONS.ota_vendor_boot:
+        info.script.AppendExtra('package_extract_file("vendor_boot.img", "/cache/recovery/vendor_boot.img");')
+      info.script.AppendExtra('endif;')
+      info.script.AppendExtra('set_bootloader_env("upgrade_step", "3");')
+      if OPTIONS.ota_partition_change:
+        info.script.AppendExtra('ui_print("update bootloader.img...");')
+        info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+        info.script.AppendExtra('set_bootloader_env("recovery_from_flash", "defenv_reserv;saveenv;reset");')
+      info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
+      info.script.WriteRawImage("/recovery", "recovery.img")
+      if OPTIONS.ota_vendor_boot:
+        info.script.AppendExtra('if package_extract_file("vendor_boot.img", "/dev/block/by-name/vendor_boot") == "" then')
+        info.script.AppendExtra('ui_print("update vendor_boot.img to super");')
+        info.script.AppendExtra('package_extract_file("vendor_boot.img", "/dev/block/by-name/super");')
+        info.script.AppendExtra('endif;')
+      if OPTIONS.backup_zip:
+        info.script.AppendExtra('backup_update_package("/dev/block/by-name/mmcblk0", "1894");')
+      info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
+      info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
+      if OPTIONS.ota_vendor_boot:
+        info.script.AppendExtra('delete_file("/cache/recovery/vendor_boot.img");')
+      info.script.AppendExtra('reboot_recovery();')
+      info.script.AppendExtra('else')
+      info.script.AppendExtra('ui_print("else case, ota_zip_check() != 1");')
 
 def FullOTA_InstallBegin(info):
   print("amlogic extensions:FullOTA_InstallBegin")
@@ -219,10 +237,10 @@ def FullOTA_InstallBegin(info):
   #info.script.FormatPartition("/metadata")
   ZipOtherImage("super_empty_all", OPTIONS.input_tmp, info.output_zip)
   info.script.AppendExtra('if get_update_stage() == "2" then')
-  info.script.AppendExtra('ui_print("DTB changed => writing super_empty_all.img to super block...");')
+  info.script.AppendExtra('ui_print("partition table changed => writing super_empty_all.img to super block...");')
   info.script.AppendExtra('package_extract_file("super_empty_all.img", "/dev/block/by-name/super");')
   info.script.AppendExtra('else')
-  info.script.AppendExtra('ui_print("DTB NOT changed...");')
+  info.script.AppendExtra('ui_print("partition table NOT changed...");')
   info.script.AppendExtra('endif;')
   info.script.AppendExtra('delete_file("/cache/recovery/dynamic_partition_metadata.UPDATED");')
 
@@ -232,7 +250,10 @@ def FullOTA_InstallEnd(info):
   AddCustomerImage(info, OPTIONS.input_tmp)
 
   ZipOtherImage("logo", OPTIONS.input_tmp, info.output_zip)
-  ZipOtherImage("dt", OPTIONS.input_tmp, info.output_zip)
+  if OPTIONS.gpt_bin:
+    print("gpt_mode;")
+  else:
+    ZipOtherImage("dt", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("dtbo", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("vbmeta", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("init_boot", OPTIONS.input_tmp, info.output_zip)
@@ -261,19 +282,28 @@ package_extract_file("dtbo.img", "/dev/block/by-name/dtbo");
 ui_print("update odm_ext.img...");
 package_extract_file("odm_ext.img", "/dev/block/by-name/odm_ext");
 if recovery_backup_exist() == "0" then
-backup_data_cache(dtb, /cache/recovery/);
 backup_data_cache(recovery, /cache/recovery/);""")
+
+  if OPTIONS.gpt_bin:
+    print("gpt_mode;")
+  else:
+    info.script.AppendExtra("""if recovery_backup_exist() == "0" then
+backup_data_cache(dtb, /cache/recovery/);""")
 
   if OPTIONS.ota_vendor_boot:
     info.script.AppendExtra('backup_data_cache(vendor_boot, /cache/recovery/);')
 
   info.script.AppendExtra("""endif;
-ui_print("update dtb.img...");
-write_dtb_image(package_extract_file("dt.img"));
 ui_print("update recovery.img...");
 package_extract_file("recovery.img", "/dev/block/by-name/recovery");
 ui_print("update vbmeta.img...");
 package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
+
+  if OPTIONS.gpt_bin:
+    print("gpt_mode;")
+  else:
+    info.script.AppendExtra("""ui_print("update dtb.img...");
+write_dtb_image(package_extract_file("dt.img"));""")
 
   try:
     vbmeta_system_img = info.input_zip.read("IMAGES/vbmeta_system.img")
@@ -300,15 +330,17 @@ package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
     info.script.AppendExtra('package_extract_file("init_boot.img", "/dev/block/by-name/init_boot");')
 
   if OPTIONS.ota_partition_change:
-    info.script.AppendExtra('ui_print("update bootloader.img.........");')
-    info.script.AppendExtra('package_extract_file("bootloader.img", "/dev/block/by-name/bootloader_up");')
-    SetBootloaderEnv(info.script, "write_boot", "1")
-    SetBootloaderEnv(info.script, "upgrade_step", "2")
+    info.script.AppendExtra('ui_print("update bootloader.img...");')
+    if OPTIONS.gpt_bin:
+      info.script.AppendExtra('package_extract_file("bootloader.img", "/dev/block/by-name/bootloader_up");')
+      SetBootloaderEnv(info.script, "write_boot", "1")
+      SetBootloaderEnv(info.script, "upgrade_step", "2")
+    else:
+      info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+      SetBootloaderEnv(info.script, "upgrade_step", "1")
 
   info.script.AppendExtra('if get_update_stage() == "2" then')
   info.script.FormatPartition("/param")
-  #info.script.AppendExtra('wipe_cache();')
-  #info.script.FormatPartition("/data")
   info.script.AppendExtra('set_update_stage("0");')
   info.script.AppendExtra('endif;')
 
