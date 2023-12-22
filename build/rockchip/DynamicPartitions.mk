@@ -18,5 +18,5 @@ BOARD_SUPER_PARTITION_GROUPS := rockchip_dynamic_partitions
 BOARD_ROCKCHIP_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm
 
 ifeq ("$(wildcard vendor/opengapps/build/opengapps-packages.mk)","")
-BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1373741824
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1368741824
 endif
