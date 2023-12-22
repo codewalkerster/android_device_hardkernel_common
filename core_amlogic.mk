@@ -969,6 +969,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.pan.nap.enabled=true \
     bluetooth.profile.pan.panu.enabled=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.core.le.connection_scan_interval_slow=512
 # Disable Prime Shader Cache in SurfaceFlinger to make it available faster
 PRODUCT_PROPERTY_OVERRIDES += \
     service.sf.prime_shader_cache=0
