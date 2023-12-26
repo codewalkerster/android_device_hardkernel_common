@@ -128,6 +128,7 @@ allow system_control { system_app platform_app }:binder { call };
 
 allow system_control { video_device amvecm_device }:chr_file  { read write open ioctl getattr };
 allow system_control di0_device:chr_file { read write open ioctl };
+allow system_control aml_ldim_device:chr_file { read write open ioctl getattr};
 allow system_control lcd0_device:chr_file { read write open ioctl getattr};
 allow system_control param_tv_file:dir { write search add_name create };
 allow system_control param_tv_file:file { create read write open getattr ioctl};
