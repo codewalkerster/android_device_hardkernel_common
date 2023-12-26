@@ -99,6 +99,8 @@ function build() {
 
 	if [[ "$BOARD_NAME" = "adt4" ]]; then
 		DEVICE_DIR=device/sei/$BOARD_NAME
+	elif [ "$REAL_BOARD" = "franklin_hybrid" ];then
+		DEVICE_DIR=device/amlogic/$BOARD_NAME/$REAL_BOARD
 	else
 		DEVICE_DIR=device/amlogic/$BOARD_NAME
 	fi
