@@ -462,6 +462,31 @@ uboot_exec_drm[37]="./mk s5_ax201  --vab --avb2 --fastboot-write"
 kernel_exec[37]="./mk tyson -v "
 ###########################################################################################
 
+###########################################################################################
+# REDI-ATV
+project[38]="Redi-ATV"
+soc[38]="T950D4/T950X4"
+hardware[38]="AM301/AM311"
+module[38]="redi_atv"
+uboot_path[38]="device/amlogic/redi"
+uboot_exec_aosp[38]="./mk t5d_am301_v1 --vab --avb2 --fastboot-write  --gpt"
+uboot_exec_drm[38]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/t5d/bl32.img --vab --avb2 --fastboot-write  --gpt"
+kernel_exec[38]="./mk redi -v "
+kernel_addr[38]="export KERNEL_A32_SUPPORT=true"
+###########################################################################################
+
+###########################################################################################
+# Qurra
+project[39]="Qurra-ATV"
+soc[39]="S905Y5"
+hardware[39]="AX201"
+module[39]="qurra"
+uboot_path[39]="device/amlogic/qurra"
+uboot_exec_aosp[39]="./mk s7_bh201"
+uboot_exec_drm[39]="./mk s7_bh201"
+kernel_exec[39]="./mk qurra -v "
+###########################################################################################
+
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
