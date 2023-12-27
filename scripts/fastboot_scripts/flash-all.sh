@@ -124,9 +124,6 @@ flash_with_retry product product.img
 fastboot $sern reboot-bootloader
 sleep 5
 
-fastboot $sern flash bootloader-boot0 bootloader.img
-fastboot $sern flash bootloader-boot1 bootloader.img
-
 if [ "$lflag" = "lock" ]
 then
     fastboot $sern flashing lock
