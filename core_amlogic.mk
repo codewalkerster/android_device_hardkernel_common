@@ -297,7 +297,7 @@ PRODUCT_PACKAGES += \
     mount.exfat \
     fsck.exfat \
     libxml2 \
-	meson_display_client
+    meson_display_client
 
 #add camera feature
 ifeq ($(CONFIG_CAMERA_FEATURE), back)

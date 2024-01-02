@@ -4,7 +4,6 @@ type hal_hidlimw_file, data_file_type, file_type;
 type hidlimw_1_0_service, service_manager_type;
 type irdeto_device, dev_type;
 
-#permissive hal_hidlimw;
 hwbinder_use(hal_hidlimw);
 init_daemon_domain(hal_hidlimw)
 add_hwservice(hal_hidlimw, hal_hidlimw_hwservice)

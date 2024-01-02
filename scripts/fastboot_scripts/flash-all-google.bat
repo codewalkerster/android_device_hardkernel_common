@@ -17,17 +17,18 @@ PATH=%PATH%;"%SYSTEMROOT%\System32"
 adb reboot bootloader
 ping -n 5 127.0.0.1 >nul
 fastboot flashing unlock
+fastboot -w
 fastboot flash bootloader bootloader.img
 fastboot reboot-bootloader
 
 ping -n 5 127.0.0.1 >nul
 fastboot flashing unlock
+
 fastboot flash logo logo.img
 fastboot flash odm_ext odm_ext.img
-fastboot flash oem_a oem.img
-fastboot flash oem_b oem.img
+fastboot flash oem oem.img
 
-fastboot -w --skip-reboot update ***.zip
+fastboot --skip-reboot update ***.zip
 
 fastboot reboot-bootloader
 ping -n 5 127.0.0.1 >nul

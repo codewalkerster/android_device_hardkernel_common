@@ -60,17 +60,18 @@ function flash_with_retry() {
 }
 
 fastboot $sern flashing unlock
+fastboot $sern -w
 fastboot $sern flash bootloader bootloader.img
 fastboot $sern reboot-bootloader
 
 sleep 5
 fastboot $sern flashing unlock
+
 flash_with_retry logo logo.img
 flash_with_retry odm_ext odm_ext.img
-flash_with_retry oem_a oem.img
-flash_with_retry oem_b oem.img
+flash_with_retry oem oem.img
 
-fastboot $sern -w --skip-reboot update $target_zip
+fastboot $sern --skip-reboot update $target_zip
 
 fastboot $sern reboot-bootloader
 sleep 5
