@@ -149,7 +149,7 @@ PRODUCT_PACKAGES += \
 endif
 
 ifeq ($(SUPPORT_TUNERHAL), true)
-$(call inherit-product, hardware/amlogic/tuner/1.1/droidlogic_tuner_hal.mk)
+$(call inherit-product, hardware/amlogic/tuner/aidl/droidlogic_tuner_hal.mk)
 endif
 
 PRODUCT_COPY_FILES += \
