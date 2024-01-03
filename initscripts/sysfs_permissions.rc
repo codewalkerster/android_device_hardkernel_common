@@ -111,7 +111,7 @@ on init
     chown system mediadrm /sys/class/amaudio/debug
 
     chmod 0660 /sys/class/amaudio/codec_report_info
-    chown audioserver mediadrm  /sys/class/amaudio/codec_report_info
+    chown audioserver mediadrm system /sys/class/amaudio/codec_report_info
 
     #audio dsp
     chmod 0664 /sys/class/audiodsp/codec_fatal_err
