@@ -145,14 +145,6 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="16000" channelMasks="AUDIO_CHANNEL_IN_MONO"/>
                 </mixPort>
-                <mixPort name="usb_accessory output" role="source">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                        samplingRates="44100" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </mixPort>
-                <mixPort name="usb_device output" role="source">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                        samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </mixPort>
                 <mixPort name="usb_direct_all" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
                     <profile name=""/>
                 </mixPort>
@@ -303,11 +295,11 @@
                 <route type="mix" sink="ble_in"
                        sources="BLE-In"/>
                 <route type="mix" sink="USB Host Out"
-                    sources="usb_accessory output,tunnel pcm,mmap_no_irq_out"/>
+                    sources="primary output,tunnel pcm,mmap_no_irq_out,Tuner"/>
                 <route type="mix" sink="USB Device Out"
-                    sources="usb_device output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,tunnel direct output,mmap_no_irq_out"/>
+                    sources="primary output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,tunnel direct output,mmap_no_irq_out,Tuner"/>
                 <route type="mix" sink="USB Headset Out"
-                    sources="usb_device output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,tunnel direct output,mmap_no_irq_out"/>
+                    sources="primary output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,tunnel direct output,mmap_no_irq_out,Tuner"/>
             </routes>
 
         </module>
