@@ -263,7 +263,32 @@ PRODUCT_PACKAGES += \
     TetheringOverlay \
     libufdt
 
-PRODUCT_IS_ATV_MAINLINE := true
+
+ifneq ($(BOARD_COMPILE_ATV), false)
+	# code block for ATV
+	PRODUCT_IS_ATV_MAINLINE := true
+else
+    # code block for AOSP
+    $(call inherit-product, device/google/atv/products/atv_mainline_system.mk)
+    # Mainline modules
+    PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+        system/apex/com.android.apex.cts.shim.apex \
+        system/apex/com.android.extservices.gms.apex \
+        system/apex/com.android.extservices.gms/% \
+        system/apex/com.android.permission.gms.apex \
+        system/apex/com.android.permission.gms/% \
+        system/apex/com.android.tethering.inprocess/% \
+        system/app/PlatformCaptivePortalLogin/PlatformCaptivePortalLogin.apk \
+        system/etc/permissions/GoogleExtServices_permissions.xml \
+        system/etc/permissions/GooglePermissionController_permissions.xml \
+        system/priv-app/InProcessNetworkStack/InProcessNetworkStack.apk \
+        system/priv-app/PlatformNetworkPermissionConfig/PlatformNetworkPermissionConfig.apk
+
+    # dexopt files are side-effects of already allowed files
+    PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += %.odex %.vdex %.art
+endif
+
+
 ifeq ($(PRODUCT_IS_ATV_MAINLINE), true)
 PRODUCT_PACKAGES += \
     GoogleTetheringOverlay
