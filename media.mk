@@ -450,3 +450,9 @@ else
 PRODUCT_COPY_FILES += \
 	device/amlogic/common/initscripts/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 endif
+
+ifeq ($(BOARD_COMPILE_CTS),true)
+ifeq ($(ANDROID_BUILD_TYPE), 64)
+PRODUCT_PACKAGES += libssl
+endif
+endif
