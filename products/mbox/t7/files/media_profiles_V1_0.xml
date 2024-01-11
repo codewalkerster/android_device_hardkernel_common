@@ -285,7 +285,7 @@
         minFrameRate="1" maxFrameRate="20" />
 
     <VideoEncoderCap name="h264" enabled="true"
-        minBitRate="192000" maxBitRate="6000000"
+        minBitRate="128000" maxBitRate="6000000"
         minFrameWidth="176" maxFrameWidth="3840"
         minFrameHeight="144" maxFrameHeight="2160"
         minFrameRate="5" maxFrameRate="30" />
