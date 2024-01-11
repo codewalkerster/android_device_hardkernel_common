@@ -477,16 +477,27 @@ kernel_addr[38]="export KERNEL_A32_SUPPORT=true"
 
 ###########################################################################################
 # Qurra
-project[39]="Qurra-ATV"
+project[39]="Qurra"
 soc[39]="S905Y5"
-hardware[39]="AX201"
+hardware[39]="BH201"
 module[39]="qurra"
 uboot_path[39]="device/amlogic/qurra"
-uboot_exec_aosp[39]="./mk s7_bh201"
-uboot_exec_drm[39]="./mk s7_bh201"
+uboot_exec_aosp[39]="./mk s7_bh201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[39]="./mk s7_bh201 --vab --avb2 --fastboot-write"
 kernel_exec[39]="./mk qurra -v "
 ###########################################################################################
 
+###########################################################################################
+# Qurra
+project[40]="Qurra-ATV"
+soc[40]="S905Y5"
+hardware[40]="BH201"
+module[40]="qurra_atv"
+uboot_path[40]="device/amlogic/qurra"
+uboot_exec_aosp[40]="./mk s7_bh201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[40]="./mk s7_bh201 --vab --avb2 --fastboot-write"
+kernel_exec[40]="./mk qurra -v "
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
