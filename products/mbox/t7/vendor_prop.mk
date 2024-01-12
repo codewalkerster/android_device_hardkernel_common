@@ -182,6 +182,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.omx.display_mode=3
 
+#enable di backend
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.hwc.di_channel_number=2 \
+    vendor.media.c2.vdec.di.post=true \
+    vendor.media.mediahal.tsplayer.vtbuffer_number_limit=1
 
 #omx2
 PRODUCT_PROPERTY_OVERRIDES += \
