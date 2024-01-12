@@ -179,6 +179,7 @@ VENDOR_KERNEL_MODULES += \
 include device/amlogic/common/tcon/tcon_modules.mk
 include device/amlogic/common/ldim/ldim_modules.mk
 include device/amlogic/common/video_algorithm/dnlp/dnlp_modules.mk
+include device/amlogic/common/video_algorithm/cuva/cuva_modules.mk
 include device/amlogic/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
 include device/amlogic/common/video_algorithm/frc/frc_modules.mk
 include device/amlogic/common/soft_afbc/soft_afbc_modules.mk
