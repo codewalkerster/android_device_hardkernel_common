@@ -528,6 +528,7 @@ endif
 .PHONY:aml_upgrade
 aml_upgrade:$(INSTALLED_AML_UPGRADE_PACKAGE_TARGET)
 $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET): \
+	$(PREPARE_AML_FILES) \
 	$(addprefix $(PRODUCT_OUT)/,$(BUILT_IMAGES)) \
 	$(INSTALLED_BOARDDTB_TARGET) \
 	$(UPGRADE_FILES) \
@@ -544,10 +545,6 @@ $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET): \
 ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 	ln -sf $(shell readlink -f $(INTERNAL_SUPERIMAGE_DIST_TARGET)) $(PRODUCT_UPGRADE_OUT)/super.img
 endif
-	$(hide) $(foreach file,$(UPGRADE_FILES), \
-		echo cp $(file) $(PRODUCT_UPGRADE_OUT)/$(notdir $(file)); \
-		cp -f $(file) $(PRODUCT_UPGRADE_OUT)/$(notdir $(file)); \
-		)
 	$(hide) $(foreach file,$(BUILT_IMAGES), \
 		echo "ln -sf $(shell readlink -f $(PRODUCT_OUT)/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file)"; \
 		ln -sf $(shell readlink -f $(PRODUCT_OUT)/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file); \
@@ -576,24 +573,6 @@ ifneq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 		ln -sf $(shell readlink -f $(AML_TARGET)/IMAGES/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file); \
 		)
 endif
-ifneq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
-	echo "delete oem.img in $(PACKAGE_CONFIG_FILE)"
-	sed -i "/oem.img/d" $(PACKAGE_CONFIG_FILE)
-endif
-ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
-	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
-	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
-endif
-ifneq ($(TARGET_GPT_PART),true)
-ifneq ($(LAUNCH_VERSION),R)
-	echo "don't need to burn bootloader_a in null gpt"
-	sed -i "/bootloader_a/d" $(PACKAGE_CONFIG_FILE)
-endif
-endif
-	$(security_dm_verity_conf)
-	$(update-aml_upgrade-conf)
-	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
-		$(call aml-user-img-update-pkg,$(userPartName),$(PACKAGE_CONFIG_FILE)))
 	@echo "Package: $@"
 ifneq ($(word 2,$(BOOTLOADER_INPUT)),)
 	@echo $(AML_PKG_ADD_USB_BIN) --unpackDir $(PRODUCT_UPGRADE_OUT) --bootloader $(word 2,$(BOOTLOADER_INPUT)) --output $@
