@@ -1148,3 +1148,12 @@ ifeq ($(PLATFORM_VERSION), 14)
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/34/device_matrix_product_amlogic_errormonitor.xml
 endif
 endif
+
+#################bluetooth 15.4 thread so ####################
+PRODUCT_PACKAGES += \
+    thread_ncp_aml \
+    libmnl  \
+    libnetfilter_queue \
+    thread_otbr_aml \
+    libprotobuf-cpp-lite_aml \
+    libnfnetlink
