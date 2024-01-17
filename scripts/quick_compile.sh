@@ -407,11 +407,11 @@ kernel_exec[32]="./mk tyson -v "
 project[33]="Bluebell-GTV"
 soc[33]="A311D2"
 hardware[33]="AN400"
-module[33]="bluebell"
-uboot_path[33]="device/amlogic/bluebell"
+module[33]="bluebell_wv4"
+uboot_path[33]="device/amlogic/bluebell_wv4"
 uboot_exec_aosp[33]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 uboot_exec_drm[33]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
-kernel_exec[33]="./mk bluebell -v "
+kernel_exec[33]="./mk bluebell_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
@@ -443,11 +443,11 @@ kernel_exec[35]="./mk anemone -v"
 project[36]="Bluebell-ATV"
 soc[36]="A311D2"
 hardware[36]="AN400"
-module[36]="bluebell_atv"
-uboot_path[36]="device/amlogic/bluebell"
+module[36]="bluebell_wv4_atv"
+uboot_path[36]="device/amlogic/bluebell_wv4"
 uboot_exec_aosp[36]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
 uboot_exec_drm[36]="./mk t7_an400_lpddr4x_bluebell --vab --avb2 --fastboot-write"
-kernel_exec[36]="./mk bluebell -v "
+kernel_exec[36]="./mk bluebell_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
