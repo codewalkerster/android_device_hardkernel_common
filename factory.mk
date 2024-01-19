@@ -522,6 +522,7 @@ endif
 else
 	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
 endif
+	cp $(OEM_OTA_CONFIG) $(PRODUCT_OUT)/oem.prop
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
 	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \

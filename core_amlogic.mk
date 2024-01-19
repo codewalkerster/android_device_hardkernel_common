@@ -116,12 +116,18 @@ PRODUCT_PACKAGES += \
 endif
 
 ifneq ($(filter T U,$(LAUNCH_VERSION)),)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_newlaunch.fstab
+TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_newlaunch.fstab
 else
 ifneq ($(AB_OTA_UPDATER),true)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery.fstab
+ifeq ($(TARGET_BUILD_KERNEL_5_4), true)
+TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_5.4.fstab
+endif
+TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery.fstab
 else
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_upgrade.fstab
+ifeq ($(TARGET_BUILD_KERNEL_5_4), true)
+TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_5.4_ab.fstab
+endif
+TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_upgrade.fstab
 endif
 endif
 
