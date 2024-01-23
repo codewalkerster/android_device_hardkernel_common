@@ -97,3 +97,6 @@ service console /system/bin/sh
 
 on property:ro.debuggable=1
     start console
+
+on init
+    setprop sys.usb.configfs 1
