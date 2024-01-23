@@ -40,16 +40,14 @@ ifeq ($(strip $(HDR10_TMO_MODULE)),true)
                 device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
         endif
     else
-	    ifneq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
-            ifeq ($(KERNEL_A32_SUPPORT),true)
-				PRODUCT_COPY_FILES += \
-					device/amlogic/common/video_algorithm/hdr10_tmo/32/hdr10_tmo_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
-					device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
-			else
-				PRODUCT_COPY_FILES += \
-					device/amlogic/common/video_algorithm/hdr10_tmo/64/hdr10_tmo_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
-					device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
-			endif
+		ifeq ($(KERNEL_A32_SUPPORT),true)
+			PRODUCT_COPY_FILES += \
+				device/amlogic/common/video_algorithm/hdr10_tmo/32/hdr10_tmo_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
+				device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
+		else
+			PRODUCT_COPY_FILES += \
+				device/amlogic/common/video_algorithm/hdr10_tmo/64/hdr10_tmo_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/hdr10_tmo_alg.ko \
+				device/amlogic/common/initscripts/hdr10_tmo.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdr10_tmo.rc
 		endif
-    endif
+	endif
 endif
