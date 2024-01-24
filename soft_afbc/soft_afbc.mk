@@ -21,23 +21,29 @@
 ifeq ($(strip $(SOFT_AFBC_MODULE)),true)
     ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
-			PRODUCT_COPY_FILES += \
-				device/amlogic/common/soft_afbc/14_5.15/32/amlogic_fbc_lib_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
-				device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
+            PRODUCT_COPY_FILES += \
+                device/amlogic/common/soft_afbc/14_5.15/32/amlogic_fbc_lib_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
+                device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
         else
-			PRODUCT_COPY_FILES += \
-				device/amlogic/common//soft_afbc/14_5.15/64/amlogic_fbc_lib_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
-				device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
+            ifeq ($(TARGET_OLD_DEVICE), true)
+                PRODUCT_COPY_FILES += \
+                    device/amlogic/common/soft_afbc/14_5.15/64_upgrade/amlogic_fbc_lib_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko
+            else
+                PRODUCT_COPY_FILES += \
+                    device/amlogic/common/soft_afbc/14_5.15/64/amlogic_fbc_lib_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko
+            endif
+            PRODUCT_COPY_FILES += \
+                device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
         endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
-			PRODUCT_COPY_FILES += \
-				device/amlogic/common/soft_afbc/13_5.15/32/amlogic_fbc_lib.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
-				device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
+            PRODUCT_COPY_FILES += \
+                device/amlogic/common/soft_afbc/13_5.15/32/amlogic_fbc_lib.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
+                device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
         else
-			PRODUCT_COPY_FILES += \
-				device/amlogic/common/soft_afbc/13_5.15/64/amlogic_fbc_lib.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
-				device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
+            PRODUCT_COPY_FILES += \
+                device/amlogic/common/soft_afbc/13_5.15/64/amlogic_fbc_lib.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
+                device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
         endif
     endif
 endif
