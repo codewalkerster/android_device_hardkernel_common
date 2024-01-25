@@ -217,3 +217,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1
 
+#need promote benchmark
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.need.bench.promote=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.usehwmjpeg=true \
+    vendor.media.camera.dec.mediahalsdk=true
+

@@ -23,6 +23,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.realoutputmode=true \
     ro.vendor.platform.need.display.hdmicec=true
 
+#camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.usehwh264=true \
+    vendor.media.camera.dec.mediahalsdk = true
+
 #the prop is used for enable or disable
 #DD+/DD force output when HDMI EDID is not supported
 #by default,the force output mode is enabled.

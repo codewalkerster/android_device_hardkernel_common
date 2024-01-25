@@ -222,6 +222,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
     ro.vendor.platform.usehwmjpeg=true \
     vendor.media.camera.dec.mediahalsdk=true
