@@ -54,6 +54,7 @@
                 <item>Line In</item>
                 <item>HDMI ARC In</item>
                 <item>Tuner</item>
+                <item>Echo Reference</item>
             </attachedDevices>
             <defaultOutputDevice>Speaker</defaultOutputDevice>
             <mixPorts>
@@ -142,7 +143,7 @@
                 <mixPort name="echo reference" role="sink">
                     <profile name="echo_reference" format="AUDIO_FORMAT_PCM_32_BIT"
                              samplingRates="48000"
-                             channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO"/>
+                             channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
                 </mixPort>
                 <mixPort name="built-in mic" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
@@ -307,6 +308,11 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000 16000" channelMasks="AUDIO_CHANNEL_IN_MONO"/>
                 </devicePort>
+                <devicePort tagName="Echo Reference" type="AUDIO_DEVICE_IN_ECHO_REFERENCE" role="source">
+                    <profile name="echo_reference" format="AUDIO_FORMAT_PCM_32_BIT"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+                </devicePort>
                 <devicePort tagName="BLE-In" type="AUDIO_DEVICE_IN_BLUETOOTH_BLE" role="source">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="16000" channelMasks="AUDIO_CHANNEL_IN_MONO"/>
@@ -348,6 +354,8 @@
                        sources="BT SCO Headset Mic"/>
                 <route type="mix" sink="built-in mic"
                        sources="Built-In Mic"/>
+                <route type="mix" sink="echo reference"
+                       sources="Echo Reference"/>
                 <route type="mix" sink="ble_in"
                        sources="BLE-In"/>
                 <route type="mix" sink="USB Host Out"
