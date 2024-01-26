@@ -29,7 +29,7 @@
 /dev/ionvideo   			u:object_r:video_device:s0
 /dev/v4lvideo   			u:object_r:video_device:s0
 /dev/video_composer.*   		u:object_r:vendor_display_device:s0
-/dev/di_process.*   	    	u:object_r:vendor_video_device:s0
+/dev/di_process.*       	    	u:object_r:vendor_video_device:s0
 /dev/amstream_.*    			u:object_r:codec_device:s0
 /dev/amstream_sub   			u:object_r:subtitle_device:s0
 /dev/amstream_sub_read			u:object_r:subtitle_device:s0
@@ -363,8 +363,8 @@
 /sys/class/amhdmitx/amhdmitx0/clkmsr                            u:object_r:sysfs_amhdmitx:s0
 /sys/module/amvdec_h265/parameters/double_write_mode            u:object_r:sysfs_amvdec:s0
 
-/sys/class/drm/card0/state					u:object_r:sysfs_drm:s0
-/sys/class/drm/card0/reg_dump					u:object_r:sysfs_drm:s0
+/sys/class/drm/card0/state                                      u:object_r:sysfs_drm:s0
+/sys/class/drm/card0/reg_dump                                   u:object_r:sysfs_drm:s0
 
 /sys/devices/virtual/remote/amremote(/.*)?                      u:object_r:sysfs_remote:s0
 /sys/class/stb(/.*)?                                            u:object_r:sysfs_stb:s0
