@@ -103,7 +103,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.tcp.port=5555
 
-
+#fake pid
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.tv.dtv.fake_pid=0x2fff
 
 #disable timeshift
 PRODUCT_PROPERTY_OVERRIDES += \
