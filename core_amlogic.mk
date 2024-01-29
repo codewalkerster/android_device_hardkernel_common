@@ -1013,3 +1013,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Disable Prime Shader Cache in SurfaceFlinger to make it available faster
 PRODUCT_PROPERTY_OVERRIDES += \
     service.sf.prime_shader_cache=0
+
+#add the timeout time, avoid create failed
+PRODUCT_PROPERTY_OVERRIDES += \
+    apexd.config.dm_create.timeout=5000
