@@ -95,6 +95,8 @@ function build() {
 		BOARD_AML_SOC_TYPE=T962D4
 	elif [[ "$BOARD_NAME" =~ newton ]]; then
 		LAUNCH_VERSION=Q
+	elif [[ "$BOARD_NAME" = "qurra" ]]; then
+		BOARD_AML_SOC_TYPE=S905Y5
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"
@@ -318,7 +320,11 @@ function build() {
 	if [ "$BOARD_AML_SOC_TYPE" = "false" ]; then
 		cp -a $KERNEL_DIR/lib/firmware/video/*.bin $CUR_DIR/normal_target/VENDOR/lib/firmware/video/
 	else
-		cp -a $KERNEL_DIR/lib/firmware/video/$BOARD_AML_SOC_TYPE/*.bin $CUR_DIR/normal_target/VENDOR/lib/firmware/video/
+		if [ -d $KERNEL_DIR/lib/firmware/video/$BOARD_AML_SOC_TYPE ]; then
+			cp -a $KERNEL_DIR/lib/firmware/video/$BOARD_AML_SOC_TYPE/*.bin $CUR_DIR/normal_target/VENDOR/lib/firmware/video/
+		else
+			cp -a $KERNEL_DIR/lib/firmware/video/*.bin $CUR_DIR/normal_target/VENDOR/lib/firmware/video/
+		fi
 	fi
 
 	cd $CUR_DIR
