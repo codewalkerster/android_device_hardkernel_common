@@ -57,7 +57,8 @@ soong_config_string_variable {
         "t7",
         "t7c",
         "t5m",
-        "s7"
+        "s7",
+        "s7d"
     ],
 }
 

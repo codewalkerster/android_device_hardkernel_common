@@ -99,6 +99,12 @@ function build() {
 		BOARD_AML_SOC_TYPE=S905Y5
 	elif [[ "$BOARD_NAME" = "pascal" ]]; then
 		BOARD_AML_SOC_TYPE=S805X3
+	elif [[ "$BOARD_NAME" = "t950s_be311" ]]; then
+		BOARD_AML_SOC_TYPE=T950S
+	elif [[ "$BOARD_NAME" = "ross" ]]; then
+		BOARD_AML_SOC_TYPE=S905X5M
+	elif [[ "$BOARD_NAME" = "raman" ]]; then
+		BOARD_AML_SOC_TYPE=S905X5
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"

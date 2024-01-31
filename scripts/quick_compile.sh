@@ -343,9 +343,9 @@ kernel_exec[27]="./mk t982_ar301 -v "
 ###########################################################################################
 
 ###########################################################################################
-# calla
-project[28]="Calla"
-soc[28]="t5m_ay301"
+# calla GTV
+project[28]="Calla-GTV"
+soc[28]="T63D4"
 hardware[28]="AY301"
 module[28]="calla_gtv"
 uboot_path[28]="device/amlogic/calla"
@@ -523,7 +523,58 @@ uboot_path[42]="device/amlogic/pascal"
 uboot_exec_aosp[42]="./mk s7_bp202  --vab --avb2 --fastboot-write"
 uboot_exec_drm[42]="./mk s7_bp202  --vab --avb2 --fastboot-write"
 kernel_exec[42]="./mk pascal -v "
+
 ###########################################################################################
+# REDI GTV_WV4
+project[43]="Redi_WV4_GTV"
+soc[43]="T950D4/T950X4"
+hardware[43]="AM301/AM311"
+module[43]="redi_wv4_gtv"
+uboot_path[43]="device/amlogic/redi_wv4"
+uboot_exec_aosp[43]="./mk t5d_am301_v1 --vab --avb2 --fastboot-write  --gpt"
+uboot_exec_drm[43]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/t5d/bl32.img --vab --avb2 --fastboot-write  --gpt"
+kernel_exec[43]="./mk redi_wv4 -v "
+kernel_addr[43]="export KERNEL_A32_SUPPORT=true"
+###########################################################################################
+
+###########################################################################################
+# REDI ATV_WV4
+project[44]="Redi_WV4_ATV"
+soc[44]="T950D4/T950X4"
+hardware[44]="AM301/AM311"
+module[44]="redi_wv4_atv"
+uboot_path[44]="device/amlogic/redi_wv4"
+uboot_exec_aosp[44]="./mk t5d_am301_v1 --vab --avb2 --fastboot-write  --gpt"
+uboot_exec_drm[44]="./mk t5d_am301_v1 --bl32 ../../vendor/amlogic/common/tdk/v2.4.4/secureos/t5d/bl32.img --vab --avb2 --fastboot-write  --gpt"
+kernel_exec[44]="./mk redi_wv4 -v "
+kernel_addr[44]="export KERNEL_A32_SUPPORT=true"
+###########################################################################################
+
+###########################################################################################
+# ROSS GTV
+project[45]="ROSS_GTV"
+soc[45]="S905X5M"
+hardware[45]="BM201"
+module[45]="ross"
+uboot_path[45]="device/amlogic/ross"
+uboot_exec_aosp[45]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[45]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+kernel_exec[45]="./mk ross -v "
+###########################################################################################
+
+###########################################################################################
+# ROSS Hybrid
+project[45]="ROSS_Hybrid"
+soc[45]="S905X5M"
+hardware[45]="BM201"
+module[45]="ross_hybrid"
+uboot_path[45]="device/amlogic/ross"
+uboot_exec_aosp[45]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[45]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+kernel_exec[45]="./mk ross -v "
+###########################################################################################
+
+
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
