@@ -498,6 +498,32 @@ uboot_exec_aosp[40]="./mk s7_bh201 --vab --avb2 --fastboot-write"
 uboot_exec_drm[40]="./mk s7_bh201 --vab --avb2 --fastboot-write"
 kernel_exec[40]="./mk qurra -v "
 ###########################################################################################
+
+###########################################################################################
+# TXHD2
+project[41]="t950s_be311"
+soc[41]="T950S"
+hardware[41]="BE311"
+module[41]="t950s_be311"
+uboot_path[41]="device/amlogic/t950s_be311"
+uboot_exec_aosp[41]="./mk txhd2_be311 --vab --avb2 --fastboot-write"
+uboot_exec_drm[41]="./mk txhd2_be311 --vab --avb2 --fastboot-write"
+kernel_exec[41]="./mk t950s_be311 -v"
+kernel_addr[41]="export KERNEL_A32_SUPPORT=true"
+
+###########################################################################################
+
+###########################################################################################
+# Pascal S805X3
+project[42]="Pascal"
+soc[42]="S805X3"
+hardware[42]="BP202"
+module[42]="pascal"
+uboot_path[42]="device/amlogic/pascal"
+uboot_exec_aosp[42]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+uboot_exec_drm[42]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+kernel_exec[42]="./mk pascal -v "
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
