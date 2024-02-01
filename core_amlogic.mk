@@ -12,6 +12,9 @@ DONT_DEXPREOPT_PREBUILTS := true
 endif
 endif
 
+#in order to save logcat compile logpersist
+include vendor/amlogic/common/frameworks/services/logging/UserBuildLogging.mk
+
 ifneq ($(wildcard vendor/google_gtvs),)
 ifneq ($(BOARD_COMPILE_ATV), false)
 include vendor/amlogic/common/gms/google/gms.mk
