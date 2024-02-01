@@ -149,26 +149,6 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="16000" channelMasks="AUDIO_CHANNEL_IN_MONO"/>
                 </mixPort>
-                <mixPort name="usb_direct_all" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
-                    <profile name=""/>
-                </mixPort>
-                <mixPort name="offload usb" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
-                    <profile name="ac3 raw" format="AUDIO_FORMAT_AC3"
-                        samplingRates="32000 44100 48000"
-                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_TRI_BACK AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1"/>
-                    <profile name="eac3 raw" format="AUDIO_FORMAT_E_AC3"
-                        samplingRates="16000 22050 24000 32000 44100 48000"
-                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_TRI_BACK AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                    <profile name="eac3-joc raw" format="AUDIO_FORMAT_E_AC3_JOC"
-                        samplingRates="16000 22050 24000 32000 44100 48000"
-                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_TRI_BACK AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                    <profile name="dts raw" format="AUDIO_FORMAT_DTS"
-                        samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
-                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                    <profile name="dtshd raw" format="AUDIO_FORMAT_DTS_HD"
-                        samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
-                        channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                </mixPort>
             </mixPorts>
             <devicePorts>
                 <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
@@ -340,10 +320,6 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="16000" channelMasks="AUDIO_CHANNEL_IN_MONO"/>
                 </devicePort>
-                <devicePort tagName="USB Host Out" type="AUDIO_DEVICE_OUT_USB_ACCESSORY" role="sink">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                        samplingRates="44100" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
                 <devicePort tagName="USB Device Out" type="AUDIO_DEVICE_OUT_USB_DEVICE" role="sink"/>
                 <devicePort tagName="USB Headset Out" type="AUDIO_DEVICE_OUT_USB_HEADSET" role="sink"/>
             </devicePorts>
@@ -379,12 +355,10 @@
                        sources="Echo Reference"/>
                 <route type="mix" sink="ble_in"
                        sources="BLE-In"/>
-                <route type="mix" sink="USB Host Out"
-                    sources="primary output,tunnel pcm,mmap_no_irq_out,Spdif In,HDMI In,Line In,Tuner"/>
                 <route type="mix" sink="USB Device Out"
-                    sources="primary output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,direct output,tunnel direct output,mmap_no_irq_out,Spdif In,HDMI In,Line In,Tuner"/>
+                       sources="primary output,tunnel pcm,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
                 <route type="mix" sink="USB Headset Out"
-                    sources="primary output,offload usb,usb_direct_all,tunnel pcm,tunnel compress offload,direct output,tunnel direct output,mmap_no_irq_out,Spdif In,HDMI In,Line In,Tuner"/>
+                       sources="primary output,tunnel pcm,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
             </routes>
 
         </module>
