@@ -55,3 +55,7 @@ allow mediacodec ptsserver_device:chr_file rw_file_perms;
 
 allow mediacodec audio_utils_device:chr_file { open ioctl read write getattr map execute };
 allow mediacodec tmpfs:file {read open getattr};
+
+allow mediacodec vendor_netflix_prop:file {read open getattr map};
+allow mediacodec build_bootimage_prop:file {read open getattr map};
+allow mediacodec vendor_tv_prop:file { read };
