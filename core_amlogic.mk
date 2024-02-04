@@ -809,6 +809,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
+# disable Katniss's behavior of muting/unmuting on standby/wakeup precisely because of timing issues
+ifneq ($(BOARD_COMPILE_ATV), false)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/permissions/com.google.android.feature.katniss.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.feature.katniss.xml
+endif
+
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 PRODUCT_COPY_FILES += \
 	device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
