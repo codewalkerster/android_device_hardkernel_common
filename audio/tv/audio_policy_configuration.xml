@@ -291,9 +291,9 @@
                 <route type="mix" sink="ble_in"
                        sources="BLE-In"/>
                 <route type="mix" sink="USB Device Out"
-                       sources="primary output,tunnel pcm,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
+                       sources="primary output,tunnel pcm,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,direct output,tunnel direct output"/>
                 <route type="mix" sink="USB Headset Out"
-                       sources="primary output,tunnel pcm,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output"/>
+                       sources="primary output,tunnel pcm,Spdif In,HDMI In,Line In,Tuner,mmap_no_irq_out,compress offload,direct output,tunnel direct output"/>
             </routes>
 
         </module>
