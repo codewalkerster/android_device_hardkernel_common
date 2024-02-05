@@ -46,6 +46,7 @@ on early-boot
     insmod /vendor/lib/modules/amvdec_avs2_v4l.ko
 
 
+    insmod /vendor/lib/modules/encoder_common.ko
     insmod /vendor/lib/modules/amlogic-encoder.ko
     insmod /vendor/lib/modules/amlogic-jpegenc.ko
     insmod /vendor/lib/modules/amlogic-vpu.ko
