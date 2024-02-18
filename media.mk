@@ -184,13 +184,29 @@ ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_dmabufmanage.system
 endif
 
+#mediaproxy_producer
+PRODUCT_PACKAGES += libmediaproxy_producer
+
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
+PRODUCT_PACKAGES += libmediaproxy_producer.system
+endif
+
+#mediaproxy_consumer
+PRODUCT_PACKAGES += libmediaproxy_consumer
+
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
+PRODUCT_PACKAGES += libmediaproxy_consumer.system
+endif
+
+#mediaproxytest bin
+PRODUCT_PACKAGES += mediaproxytest
+
 #mediametrics
 PRODUCT_PACKAGES += libmediahal_mediametrics
 
 ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_mediametrics.system
 endif
-
 #########################################################################
 #
 #                                                PlayReady DRM
