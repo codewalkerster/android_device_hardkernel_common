@@ -55,14 +55,7 @@ include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner.mk
 PRODUCT_PACKAGES += \
     amazon_av_target_permissions
 #subtitle related
-PRODUCT_PACKAGES += \
-    subtitleserver \
-    libSubtitleClient \
-    libsubtitlebinder \
-    vendor.amlogic.hardware.subtitleserver@1.0 \
-    libsubtitlemanager_jni \
-    libsubtitlemanagerproduct_jni \
-    libsubtitle_depend
+include vendor/amlogic/reference/subtitle/Subtitle.mk
 
 #add tv library
 PRODUCT_PACKAGES += \
