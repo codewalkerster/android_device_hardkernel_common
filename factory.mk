@@ -279,20 +279,20 @@ endif
 ifeq ($(TARGET_GPT_PART), true)
 INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
 AML_GPT_TOOL := out/host/linux-x86/bin/makegpt
-$(INSTALLED_AML_GPT): $(AML_GPT_TOOL)
+$(INSTALLED_AML_GPT): $(AML_GPT_TOOL) $(AML_GPT_PART)
 	@echo "generate $(INSTALLED_AML_GPT)"
 	$(hide) mkdir -p $(PRODUCT_UPGRADE_OUT)
-	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -s $(AML_EMMC_SIZE) -v 2 --partitions $(AML_GPT_PART)
+	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -v 2 --partitions $(AML_GPT_PART)
 	@echo "Installed $@"
 
 else
 ifeq ($(LAUNCH_VERSION),R)
 INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
 AML_GPT_TOOL := out/host/linux-x86/bin/makegpt
-$(INSTALLED_AML_GPT): $(AML_GPT_TOOL)
+$(INSTALLED_AML_GPT): $(AML_GPT_TOOL) $(AML_GPT_PART)
 	@echo "generate $(INSTALLED_AML_GPT)"
 	$(hide) mkdir -p $(PRODUCT_UPGRADE_OUT)
-	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -s $(AML_EMMC_SIZE) -v 2 --partitions $(AML_GPT_PART)
+	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -v 2 --partitions $(AML_GPT_PART)
 	@echo "Installed $@"
 else
 INSTALLED_AML_GPT :=
