@@ -23,3 +23,5 @@ r_dir_file(audioserver, oemfs)
 set_prop(audioserver, audio_prop)
 
 get_prop(audioserver, vendor_platform_prop)
+
+allow audioserver droidaudio:binder { call transfer };

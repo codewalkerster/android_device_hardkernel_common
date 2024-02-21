@@ -8,6 +8,11 @@ allow hwservicemanager droidvold:dir { search };
 allow hwservicemanager droidvold:file { read open };
 allow hwservicemanager droidvold:process { getattr };
 
+allow hwservicemanager droidaudio:binder { call transfer };
+allow hwservicemanager droidaudio:dir { search };
+allow hwservicemanager droidaudio:file { read open };
+allow hwservicemanager droidaudio:process { getattr };
+
 allow hwservicemanager tvserver:binder { call transfer };
 allow hwservicemanager tvserver:dir { search };
 allow hwservicemanager tvserver:file { read open };

@@ -9,12 +9,14 @@ tv_remote                                   u:object_r:tv_remote_service:s0
 droidmount                                  u:object_r:droidmount_service:s0
 bcmdl                                       u:object_r:bcmdl_service:s0
 screen_control                              u:object_r:screen_control_service:s0
+droidaudio                                  u:object_r:droidaudio_service:s0
 android.hardware.drm.IDrmFactory/widevine                          u:object_r:hal_drm_service:s0
 android.hardware.drm.ICryptoFactory/widevine                       u:object_r:hal_drm_service:s0
 android.hardware.drm.IDrmFactory/verimatrix                        u:object_r:hal_drm_service:s0
 android.hardware.drm.ICryptoFactory/verimatrix                     u:object_r:hal_drm_service:s0
 android.hardware.neuralnetworks.IDevice/nnapi-adla_all             u:object_r:hal_adla_service:s0
 vendor.amlogic.hardware.vmx_webclient.IVmxWebClient/default        u:object_r:vmx_webclient_service:s0
+vendor.amlogic.hardware.droidaudio.IDroidAudio/default             u:object_r:droidaudio_service:s0
 android.hardware.drm.IDrmFactory/playready                         u:object_r:hal_drm_service:s0
 vendor.amlogic.hardware.droidmdnsoffload.IDroidMdnsOffload/default u:object_r:hal_mdnsoffload_service:s0
 vendor.amlogic.hardware.mediahalserver.IMediaHalServer/default     u:object_r:mediahalserver_service:s0

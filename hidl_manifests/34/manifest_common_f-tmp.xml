@@ -87,4 +87,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.amlogic.hardware.droidaudio</name>
+        <version>1</version>
+        <interface>
+            <name>IDroidAudio</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </manifest>

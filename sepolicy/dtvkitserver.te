@@ -89,6 +89,8 @@ allow dtvkitserver param_tv_file:file { create open read write setattr getattr l
 allow dtvkitserver gpu_device:chr_file rw_file_perms;
 allow dtvkitserver mediasync_device:chr_file rw_file_perms;
 allow dtvkitserver hal_audio_hwservice:hwservice_manager find;
+allow dtvkitserver droidaudio:binder { call transfer };
+allow dtvkitserver droidaudio_service:service_manager { find };
 allow dtvkitserver hal_graphics_composer_default:fd use;
 allow dtvkitserver self:capability2 {wake_alarm  block_suspend};
 allow dtvkitserver sysfs_rtc:dir {read open search};

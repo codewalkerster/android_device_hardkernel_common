@@ -6,6 +6,7 @@ type pppoe_service,             service_manager_type;
 type screenmediasource_service, service_manager_type;
 type tee_service,               service_manager_type;
 type droidmount_service,        service_manager_type;
+type droidaudio_service,        service_manager_type;
 type bcmdl_service,            service_manager_type;
 type screen_control_service,    service_manager_type;
 type hal_adla_service,       service_manager_type;

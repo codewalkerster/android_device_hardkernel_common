@@ -1,0 +1,40 @@
+type droidaudio, coredomain, domain;
+type droidaudio_exec, exec_type, file_type, system_file_type;
+
+typeattribute droidaudio mlstrustedsubject;
+
+init_daemon_domain(droidaudio)
+
+allow droidaudio hwservicemanager:binder { call transfer };
+allow droidaudio { hidl_base_hwservice }:hwservice_manager { add };
+
+allow droidaudio tmpfs:dir { getattr search };
+allow droidaudio sysfs_video:file rw_file_perms;
+allow droidaudio { sysfs_video sysfs_cec sysfs_am_vecm }:dir { search };
+allow droidaudio fwmarkd_socket:sock_file { write };
+allow droidaudio droidaudio:capability { net_raw };
+allow droidaudio servicemanager:binder { call transfer };
+
+set_prop(droidaudio, hwservicemanager_prop)
+get_prop(droidaudio, hwservicemanager_prop)
+
+
+allow droidaudio audioserver_service:service_manager { find };
+allow droidaudio audioserver:binder { call transfer };
+
+allow droidaudio vendor_media_prop:file { read open getattr map };
+allow droidaudio mediametrics_service:service_manager { find };
+allow droidaudio mediametrics:binder { call };
+allow droidaudio audioserver:fd { use };
+allow droidaudio audioserver:capability { dac_override };
+
+
+add_service(droidaudio, droidaudio_service)
+allow droidaudio vendor_platform_prop:file { open read getattr map };
+allow droidaudio systemcontrol_hwservice:hwservice_manager { find };
+allow droidaudio system_control:binder { call transfer };
+allow droidaudio dtvkitserver:binder { call };
+allow droidaudio platform_app:binder { call };
+allow droidaudio system_app:binder { call };
+allow droidaudio mediaserver:binder { call };
+

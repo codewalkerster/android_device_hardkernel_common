@@ -62,6 +62,9 @@ allow platform_app nn_data_file:dir{ create write read add_name remove_name open
 allow platform_app nn_data_file:file { ioctl getattr read write open create lock setattr unlink append map};
 allow platform_app nn_data_file:chr_file{ ioctl };
 
+allow platform_app droidaudio_service:service_manager { find };
+allow platform_app droidaudio:binder { call transfer };
+
 allow platform_app proc_version:file r_file_perms;
 allow platform_app sysfs_power:file { read open getattr };
 allow platform_app sysfs_stb:dir { search };

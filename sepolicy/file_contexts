@@ -663,6 +663,7 @@
 /sys/class/tee_info(/.*)?					      u:object_r:sysfs_tee:s0
 
 /system/bin/kexec           u:object_r:init_exec:s0
+/system_ext/bin/hw/droidaudio        u:object_r:droidaudio_exec:s0
 
 /dev/aml_dsm                                      u:object_r:aml_dsm_device:s0
 /dev/ac_isp                  u:object_r:isp_device:s0

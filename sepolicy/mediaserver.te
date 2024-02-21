@@ -48,6 +48,9 @@ allow mediaserver dvb_device:chr_file rw_file_perms;
 allow mediaserver vendor_video_device:chr_file rw_file_perms;
 allow mediaserver media_device:chr_file rw_file_perms;
 
+allow mediaserver droidaudio_service:service_manager { find };
+allow mediaserver droidaudio:binder { call transfer };
+
 allow mediaserver proc_version:file r_file_perms;
 allow mediaserver sysfs_xbmc:file rw_file_perms;
 allow mediaserver sysfs_stb:file rw_file_perms;

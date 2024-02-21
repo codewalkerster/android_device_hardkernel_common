@@ -21,6 +21,10 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     acoustics.default \
     audio_firmware \
+    droidaudio \
+    droidaudio_tester \
+    libdroidaudioclient \
+    vendor.amlogic.hardware.droidaudio \
     libdroidaudiospdif \
     libparameter \
     libamadec_omx_api \
