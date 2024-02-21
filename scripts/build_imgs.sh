@@ -407,6 +407,7 @@ function build() {
 			--extra_apks com.android.art.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.vndk.current.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.configinfrastructure.apex=$KEY_DIR/releasekey \
+			--extra_apks com.android.sdkext.apex=$KEY_DIR/releasekey \
 			--extra_apex_payload_key com.android.btservices.apex=$KEY_DIR/avb/amlogic.pem \
 			--extra_apex_payload_key com.android.runtime.apex=$KEY_DIR/avb/amlogic.pem \
 		        --extra_apex_payload_key com.android.i18n.apex=$KEY_DIR/avb/amlogic.pem \
