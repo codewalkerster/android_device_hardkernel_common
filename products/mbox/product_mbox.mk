@@ -224,9 +224,11 @@ endif
 
 DISPLAY_BUILD_NUMBER := true
 
+ifeq ($(VENDOR_MEDIA_OMX_SUPPORT),true)
 #TV project,set omx to video layer,or PQ hasn't effect
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.display_mode=3
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.hdmi.keep_awake=false

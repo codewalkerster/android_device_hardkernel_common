@@ -326,9 +326,6 @@ PRODUCT_PACKAGES += \
 include vendor/amlogic/common/prebuilt/libmediadrm/netflix/netflix.mk
 endif
 
-#for OMX
-PRODUCT_PROPERTY_OVERRIDES += vendor.media.omx.out_buffer2_osd=8
-
 #for Widevine CAS
 ifeq ($(BUILD_WITH_WIDEVINECAS),true)
 PRODUCT_PACKAGES += libwvmediacas \

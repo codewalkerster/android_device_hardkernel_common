@@ -165,24 +165,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
     audio.offload.min.duration.secs=5
 
-# secure playback enable di
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.omx.enable_secure_di=1 \
-    vendor.media.omx.enable_tunnel_di=1 \
-    vendor.media.omx.fhd_di_size=0 \
-    vendor.media.omx.fhd_di_size=0
-
-#omx2
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.media.support.omx2=true \
-    vendor.media.omx.use.omx2=true \
-    vendor.media.omx2.in_buffer=5 \
-    vendor.media.omx2.support_mpeg=true \
-    vendor.ionvideo.enable=1 \
-    vendor.media.omx.dibypass.enable=false \
-    vendor.media.omx.videolayerrotation.enable=false \
-    vendor.media.omx.dec.enable_h264_4k_mmu=true
-
 #codec2
 ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -143,20 +143,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.c2.vdec.di.post=true \
     vendor.media.mediahal.tsplayer.vtbuffer_number_limit=1
 
-#omx2
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.media.support.omx2=true \
-    vendor.media.omx2.in_buffer=5 \
-    vendor.media.omx2.support_mpeg=true \
-    vendor.ionvideo.enable=1 \
-    vendor.media.omx.dibypass.enable=false \
-    vendor.media.omx.videolayerrotation.enable=false \
-    vendor.omx2.nr.enable=true \
-    vendor.omx2.di.localbuf.enable=true \
-    vendor.media.omx2.support_passthrough=true \
-    vendor.media.omx.secure.prealloc=true \
-    vendor.media.omx.dec.enable_h264_4k_mmu=true
-
 #codec2
 ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -168,10 +154,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true \
     vendor.media.mediahal.videodec.media.c2_secure_prealloc=true
 endif
-
-#use dv frame mode
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.omx.use_dv_frame=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.platform.is.dualspdif=true

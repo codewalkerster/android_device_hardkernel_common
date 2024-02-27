@@ -164,13 +164,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.support.mvc=true
 
-#omx2
+#codec2
+ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.media.support.omx2=true \
-    vendor.media.omx2.in_buffer=5 \
-    vendor.ionvideo.enable=1      \
-    vendor.media.omx.use.360omx2=false
-
+    vendor.media.codec2.support=true \
+    vendor.media.codec2.disable_secure=false \
+    debug.c2.use_dmabufheaps=1 \
+    debug.stagefright.c2inputsurface=-1 \
+    debug.vendor.media.c2.vdec.support_10bit=false \
+    vendor.media.c2.vdec.enable_h264_4k_mmu=true \
+    vendor.media.mediahal.videodec.media.c2_secure_prealloc=true
+endif
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=ff400000.dwc2_a

@@ -169,30 +169,30 @@ endif
 #endif
 
 
-# secure playback enable di
+#enable di backend
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.omx.enable_secure_di=1 \
-    vendor.media.omx.enable_tunnel_di=1 \
-    vendor.media.omx.fhd_di_size=0 \
-    vendor.media.omx.fhd_di_size=0
+    vendor.hwc.di_channel_number=2 \
+    vendor.media.c2.vdec.di.post=true \
+    vendor.media.mediahal.tsplayer.vtbuffer_number_limit=1 \
+    vendor.di_backend.enable=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.locale=en-US
 
-#omx2
+#codec2
+ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.media.support.omx2=true \
-    vendor.media.omx.use.omx2=true \
-    vendor.media.omx2.in_buffer=5 \
-    vendor.media.omx2.support_mpeg=true \
-    vendor.ionvideo.enable=1 \
-    vendor.media.omx.dibypass.enable=false \
-    vendor.media.omx.videolayerrotation.enable=false \
-    vendor.omx2.nr.enable=true \
-    vendor.omx2.di.localbuf.enable=true \
-    vendor.media.omx.secure.prealloc=true\
-    vendor.omx2.avc.size_level=1\
-    vendor.media.omx.usemetadata=false
+    vendor.media.codec2.support=true \
+    vendor.media.codec2.disable_secure=false \
+    debug.c2.use_dmabufheaps=1 \
+    debug.stagefright.c2inputsurface=-1 \
+    debug.vendor.media.c2.vdec.support_10bit=false \
+    vendor.media.c2.disp.nr.enable=true \
+    vendor.media.c2.disp.di.localbuf_enable=true \
+    vendor.media.c2.vdec.enable_h264_4k_mmu=true \
+    vendor.media.mediahal.videodec.media.c2_secure_prealloc=true \
+    ro.vendor.platform.omx=false
+endif
 
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \

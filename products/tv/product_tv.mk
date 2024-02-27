@@ -204,9 +204,11 @@ VERSION_ID=$(shell find device/*/$(TARGET_PRODUCT) -name version_id.mk)
 
 DISPLAY_BUILD_NUMBER := true
 
+ifeq ($(VENDOR_MEDIA_OMX_SUPPORT),true)
 #TV project,set omx to video layer,or PQ hasn't effect
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.omx.display_mode=3
+endif
 
 # for playback of audio offload
 PRODUCT_PROPERTY_OVERRIDES += \

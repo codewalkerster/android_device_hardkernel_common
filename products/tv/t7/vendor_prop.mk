@@ -172,22 +172,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=40.5f \
     ro.hwui.layer_cache_size=33.75f
 
-#support video_composer
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.omx.display_mode=3
-
-
-#omx2
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.media.support.omx2=true \
-    vendor.media.omx.use.omx2=true \
-    vendor.media.omx2.in_buffer=5 \
-    vendor.media.omx2.support_mpeg=true \
-    vendor.ionvideo.enable=1 \
-    vendor.media.omx.dibypass.enable=false \
-    vendor.media.omx.videolayerrotation.enable=false \
-    vendor.media.omx.dec.enable_h264_4k_mmu=true
-
 #codec2
 ifeq ($(VENDOR_MEDIA_CODEC2_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
