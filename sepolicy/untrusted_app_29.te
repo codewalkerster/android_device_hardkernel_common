@@ -6,3 +6,6 @@ allow untrusted_app_29 linkerconfig_file:dir getattr;
 
 get_prop(untrusted_app_29, vendor_media_prop)
 get_prop(untrusted_app_29, vendor_netflix_prop)
+
+allow untrusted_app_29 hal_neuralnetworks_adla:binder { call };
+allow untrusted_app_29 hal_adla_service:service_manager {find};

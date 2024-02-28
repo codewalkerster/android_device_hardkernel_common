@@ -18,3 +18,17 @@ allow untrusted_app systemcontrol_hwservice:hwservice_manager find;
 allow untrusted_app_32 systemcontrol_hwservice:hwservice_manager { find };
 
 allow untrusted_app_32 system_control:binder { call };
+
+allow untrusted_app hal_neuralnetworks_adla:binder { call };
+
+allow untrusted_app_30 hal_neuralnetworks_adla:binder { call };
+
+allow untrusted_app_32 hal_neuralnetworks_adla:binder { call };
+
+allow untrusted_app hal_adla_service:service_manager {find};
+
+allow untrusted_app_30 hal_adla_service:service_manager {find};
+
+allow untrusted_app_32 hal_adla_service:service_manager {find};
+
+
