@@ -97,6 +97,8 @@ function build() {
 		LAUNCH_VERSION=Q
 	elif [[ "$BOARD_NAME" = "qurra" ]]; then
 		BOARD_AML_SOC_TYPE=S905Y5
+	elif [[ "$BOARD_NAME" = "pascal" ]]; then
+		BOARD_AML_SOC_TYPE=S805X3
 	fi
 
 	echo "BOARD_AML_SOC_TYPE: $BOARD_AML_SOC_TYPE"
