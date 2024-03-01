@@ -67,7 +67,12 @@ PQ_FILES := \
 #
 #########################################################################
 
-
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/soundbar/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    device/amlogic/common/audio/soundbar/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+$(warning 'This platform use soundbar audio policy configuration!')
+else
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
 ifeq ($(TARGET_BUILD_DTSHD),true)
@@ -97,3 +102,4 @@ endif
 endif
 endif
 endif
+endif  #end TARGET_BUILD_TYPE_SOUNDBAR
