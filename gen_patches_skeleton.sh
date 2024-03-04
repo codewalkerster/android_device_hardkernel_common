@@ -13,4 +13,4 @@ mkdir -p $STUB_PATCH_PATH
 
 #Generate patches
 
-.repo/repo/repo forall -c "$BASEPATH/device/rockchip/common/gen_patches_body.sh"
+.repo/repo/repo forall -c "$BASEPATH/device/hardkernel/common/gen_patches_body.sh"

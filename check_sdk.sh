@@ -42,7 +42,7 @@ checkCode() {
 	cd - >> /dev/null
 }
 
-if [[ $PWD == *\/device\/rockchip\/common ]]
+if [[ $PWD == *\/device\/hardkernel\/common ]]
 then
 	cd ../../..
 	echo "Enter $PWD"

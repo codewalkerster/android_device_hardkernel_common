@@ -14,21 +14,21 @@
 # limitations under the License.
 #
 
-ROCKCHIP_ROOT_DIR_PATH := device/rockchip/common/rootdir
+ROCKCHIP_ROOT_DIR_PATH := device/hardkernel/common/rootdir
 
 PRODUCT_COPY_FILES += \
-    $(ROCKCHIP_ROOT_DIR_PATH)/init.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rockchip.rc \
+    $(ROCKCHIP_ROOT_DIR_PATH)/init.hardkernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.hardkernel.rc \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.mount_all_early.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mount_all.rc \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.tune_io.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.tune_io.rc \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
-    $(ROCKCHIP_ROOT_DIR_PATH)/init.rk30board.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).rc \
-    $(ROCKCHIP_ROOT_DIR_PATH)/init.rk30board.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).usb.rc \
-    $(ROCKCHIP_ROOT_DIR_PATH)/init.recovery.rk30board.rc:recovery/root/init.recovery.$(TARGET_BOARD_HARDWARE).rc \
-    $(ROCKCHIP_ROOT_DIR_PATH)/ueventd.rockchip.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
+    $(ROCKCHIP_ROOT_DIR_PATH)/init.odroid.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).rc \
+    $(ROCKCHIP_ROOT_DIR_PATH)/init.odroid.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(TARGET_BOARD_HARDWARE).usb.rc \
+    $(ROCKCHIP_ROOT_DIR_PATH)/init.recovery.odroid.rc:recovery/root/init.recovery.$(TARGET_BOARD_HARDWARE).rc \
+    $(ROCKCHIP_ROOT_DIR_PATH)/ueventd.hardkernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
 
 PRODUCT_COPY_FILES += \
-    $(ROCKCHIP_ROOT_DIR_PATH)/init.system.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.rockchip.rc
+    $(ROCKCHIP_ROOT_DIR_PATH)/init.system.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.hardkernel.rc
 
 # Default env for test.
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))

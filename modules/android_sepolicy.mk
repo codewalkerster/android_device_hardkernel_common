@@ -15,15 +15,15 @@
 #
 PRODUCT_SEPOLICY_SPLIT := true
 BOARD_SEPOLICY_DIRS := \
-    device/rockchip/common/sepolicy/vendor \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/sepolicy_vendor
+    device/hardkernel/common/sepolicy/vendor \
+    device/hardkernel/$(TARGET_BOARD_PLATFORM)/sepolicy_vendor
 
-#SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS ?= device/rockchip/common/sepolicy/public
+#SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS ?= device/hardkernel/common/sepolicy/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS ?= \
-    device/rockchip/common/sepolicy/private \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/sepolicy
+    device/hardkernel/common/sepolicy/private \
+    device/hardkernel/$(TARGET_BOARD_PLATFORM)/sepolicy
 
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),box)
     BOARD_SEPOLICY_DIRS += \
-        device/rockchip/common/box/sepolicy/vendor
+        device/hardkernel/common/box/sepolicy/vendor
 endif

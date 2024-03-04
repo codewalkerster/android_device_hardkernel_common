@@ -92,8 +92,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota_retrofit.mk)
 endif
 
 PRODUCT_PACKAGES += \
-  bootctrl.rk30board \
-  bootctrl.rk30board.recovery
+  bootctrl.odroid \
+  bootctrl.odroid.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
