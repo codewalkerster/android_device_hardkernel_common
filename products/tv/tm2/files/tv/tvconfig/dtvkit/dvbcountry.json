@@ -1,6 +1,13 @@
 {
     "countrylist": [
         {
+            "countrycode": "afg",
+            "description": "Afghanistan",
+            "languagelist": "language_default.json",
+            "primarylang": "pus",
+            "secondarylang": "eng"
+        },
+        {
             "countrycode": "alb",
             "description": "Albania",
             "languagelist": "language_default.json",
@@ -13,6 +20,14 @@
             "languagelist": "language_default.json",
             "primarylang": "ara",
             "secondarylang": "eng"
+        },
+        {
+            "countrycode": "ago",
+            "description": "Angola",
+            "languagelist": "language_default.json",
+            "primarylang": "por",
+            "secondarylang": "bnt",
+            "lcn": true
         },
         {
             "countrycode": "arg",
@@ -83,6 +98,20 @@
             "secondarylang": "eng"
         },
         {
+            "countrycode": "bih",
+            "description": "Bosnia and Herzegovina",
+            "languagelist": "language_default.json",
+            "primarylang": "srp",
+            "secondarylang": "hrv"
+        },
+        {
+            "countrycode": "bwa",
+            "description": "Botswana",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "tsn"
+        },
+        {
             "countrycode": "bra",
             "description": "Brazil",
             "languagelist": "language_default.json",
@@ -90,10 +119,25 @@
             "secondarylang": "eng"
         },
         {
+            "countrycode": "brn",
+            "description": "Brunei",
+            "languagelist": "language_default.json",
+            "primarylang": "may",
+            "secondarylang": "eng"
+        },
+        {
             "countrycode": "bgr",
             "description": "Bulgaria",
             "languagelist": "language_default.json",
             "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "bfa",
+            "description": "Burkina Faso",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
             "secondarylang": "eng",
             "lcn": true
         },
@@ -128,11 +172,27 @@
             "lcn": true
         },
         {
+            "countrycode": "cog",
+            "description": "Congo",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "fra",
+            "lcn": true
+        },
+        {
             "countrycode": "cri",
             "description": "Costarica",
             "languagelist": "language_default.json",
             "primarylang": "spa",
             "secondarylang": "eng"
+        },
+        {
+            "countrycode": "civ",
+            "description": "Cote d'Ivoire ",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "eng",
+            "lcn": true
         },
         {
             "countrycode": "hrv",
@@ -166,6 +226,14 @@
             "secondarylang": "eng"
         },
         {
+            "countrycode": "cod",
+            "description": "DR Congo",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "lin",
+            "lcn": true
+        },
+        {
             "countrycode": "ecu",
             "description": "Ecuador",
             "languagelist": "language_default.json",
@@ -192,6 +260,22 @@
             "description": "Estonia",
             "languagelist": "language_default.json",
             "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "eth",
+            "description": "Ethiopia",
+            "languagelist": "language_default.json",
+            "primarylang": "amh",
+            "secondarylang": "orm",
+            "lcn": true
+        },
+        {
+            "countrycode": "fji",
+            "description": "Fiji",
+            "languagelist": "language_default.json",
+            "primarylang": "fij",
             "secondarylang": "eng",
             "lcn": true
         },
@@ -248,6 +332,14 @@
             "languagelist": "language_default.json",
             "primarylang": "spa",
             "secondarylang": "eng"
+        },
+        {
+            "countrycode": "gin",
+            "description": "Guinea",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "cpe",
+            "lcn": true
         },
         {
             "countrycode": "hnd",
@@ -307,7 +399,7 @@
             "description": "Ireland",
             "languagelist": "language_default.json",
             "primarylang": "eng",
-            "secondarylang": "eng",
+            "secondarylang": "gle",
             "lcn": true
         },
         {
@@ -326,6 +418,14 @@
             "lcn": true
         },
         {
+            "countrycode": "jam",
+            "description": "Jamaica",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "cpe",
+            "lcn": true
+        },
+        {
             "countrycode": "jpn",
             "description": "Japan",
             "languagelist": "language_default.json",
@@ -338,6 +438,14 @@
             "languagelist": "language_default.json",
             "primarylang": "ara",
             "secondarylang": "eng"
+        },
+        {
+            "countrycode": "kaz",
+            "description": "Kazakhstan",
+            "languagelist": "language_default.json",
+            "primarylang": "kaz",
+            "secondarylang": "eng",
+            "lcn": true
         },
         {
             "countrycode": "ken",
@@ -359,8 +467,13 @@
             "countrycode": "kgz",
             "description": "kyrgyzstan",
             "languagelist": "language_default.json",
+<<<<<<< HEAD
             "primarylang": "eng",
             "secondarylang": "eng"
+=======
+            "primarylang": "kir",
+            "secondarylang": "rus"
+>>>>>>> 59496c24 (device\common: Fix sec language for Ireland(sync all) [1/1])
         },
         {
             "countrycode": "lva",
@@ -369,6 +482,21 @@
             "primarylang": "lav",
             "secondarylang": "eng",
             "lcn": true
+        },
+        {
+            "countrycode": "lbn",
+            "description": "Lebanon",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "lbr",
+            "description": "Liberia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "fra"
         },
         {
             "countrycode": "lby",
@@ -401,11 +529,27 @@
             "lcn": true
         },
         {
+            "countrycode": "mdg",
+            "description": "Madagascar",
+            "languagelist": "language_default.json",
+            "primarylang": "mlg",
+            "secondarylang": "fra",
+            "lcn": true
+        },
+        {
             "countrycode": "mys",
             "description": "Malaysia",
             "languagelist": "language_default.json",
             "primarylang": "may",
             "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "mli",
+            "description": "Mali",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "fra",
             "lcn": true
         },
         {
@@ -416,11 +560,34 @@
             "secondarylang": "eng"
         },
         {
+            "countrycode": "mda",
+            "description": "Moldova",
+            "languagelist": "language_default.json",
+            "primarylang": "ron",
+            "secondarylang": "rus"
+        },
+        {
+            "countrycode": "mng",
+            "description": "Mongolia",
+            "languagelist": "language_default.json",
+            "primarylang": "mon",
+            "secondarylang": "rus",
+            "lcn": true
+        },
+        {
             "countrycode": "mar",
             "description": "Morocco",
             "languagelist": "language_default.json",
             "primarylang": "ara",
             "secondarylang": "eng"
+        },
+        {
+            "countrycode": "moz",
+            "description": "Mozambique",
+            "languagelist": "language_default.json",
+            "primarylang": "por",
+            "secondarylang": "bnt",
+            "lcn": true
         },
         {
             "countrycode": "mmr",
@@ -454,6 +621,17 @@
             "secondarylang": "eng"
         },
         {
+<<<<<<< HEAD
+=======
+            "countrycode": "ner",
+            "description": "nigeria",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "fra",
+            "lcn": true
+        },
+        {
+>>>>>>> 59496c24 (device\common: Fix sec language for Ireland(sync all) [1/1])
             "countrycode": "nga",
             "description": "nigeria",
             "languagelist": "language_default.json",
@@ -480,6 +658,14 @@
             "description": "Pakistan",
             "languagelist": "language_default.json",
             "primarylang": "urd",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "pse",
+            "description": "Palestine",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
             "secondarylang": "eng",
             "lcn": true
         },
@@ -538,11 +724,27 @@
             "lcn": true
         },
         {
+            "countrycode": "rwa",
+            "description": "Rwanda",
+            "languagelist": "language_default.json",
+            "primarylang": "kin",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
             "countrycode": "sau",
             "description": "Saudi Arabia",
             "languagelist": "language_default.json",
             "primarylang": "ara",
             "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "sen",
+            "description": "Senegal",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "wol",
             "lcn": true
         },
         {
@@ -554,10 +756,25 @@
             "lcn": true
         },
         {
+<<<<<<< HEAD
             "countrycode": "sgp",
             "description": "Singapore",
             "languagelist": "language_singapore.json",
             "primarylang": "eng",
+=======
+            "countrycode": "sle",
+            "description": "Sierra Leone",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "cpe",
+            "lcn": true
+        },
+        {
+            "countrycode": "sgp",
+            "description": "Singapore",
+            "languagelist": "language_singapore.json",
+            "primarylang": "eng",
+>>>>>>> 59496c24 (device\common: Fix sec language for Ireland(sync all) [1/1])
             "secondarylang": "zho",
             "lcn": true
         },
@@ -594,6 +811,30 @@
             "lcn": true
         },
         {
+            "countrycode": "lka",
+            "description": "Sri Lanka",
+            "languagelist": "language_default.json",
+            "primarylang": "tam",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "sdn",
+            "description": "Sudan",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "sur",
+            "description": "Surinam",
+            "languagelist": "language_default.json",
+            "primarylang": "nld",
+            "secondarylang": "srn",
+            "lcn": true
+        },
+        {
             "countrycode": "swe",
             "description": "Sweden",
             "languagelist": "language_default.json",
@@ -610,6 +851,17 @@
             "lcn": true
         },
         {
+<<<<<<< HEAD
+=======
+            "countrycode": "syr",
+            "description": "Syria",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "kur",
+            "lcn": true
+        },
+        {
+>>>>>>> 59496c24 (device\common: Fix sec language for Ireland(sync all) [1/1])
             "countrycode": "tjk",
             "description": "Tajikistan",
             "languagelist": "language_default.json",
@@ -649,10 +901,25 @@
             "lcn": true
         },
         {
+<<<<<<< HEAD
             "countrycode": "tuk",
             "description": "Turkmenistan",
             "languagelist": "language_default.json",
             "primarylang": "eng",
+=======
+            "countrycode": "tgo",
+            "description": "Togo",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "ewe",
+            "lcn": true
+        },
+        {
+            "countrycode": "tkm",
+            "description": "Turkmenistan",
+            "languagelist": "language_default.json",
+            "primarylang": "tuk",
+>>>>>>> 59496c24 (device\common: Fix sec language for Ireland(sync all) [1/1])
             "secondarylang": "eng"
         },
         {
@@ -667,6 +934,14 @@
             "description": "United Arab Emirates",
             "languagelist": "language_default.json",
             "primarylang": "ara",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
+            "countrycode": "uga",
+            "description": "Uganda",
+            "languagelist": "language_default.json",
+            "primarylang": "swa",
             "secondarylang": "eng",
             "lcn": true
         },
@@ -687,6 +962,14 @@
             "lcn": true
         },
         {
+            "countrycode": "uzb",
+            "description": "Uzbekistan",
+            "languagelist": "language_default.json",
+            "primarylang": "uzb",
+            "secondarylang": "eng",
+            "lcn": true
+        },
+        {
             "countrycode": "ven",
             "description": "Venezuela",
             "languagelist": "language_default.json",
@@ -700,6 +983,62 @@
             "primarylang": "vie",
             "secondarylang": "eng",
             "lcn": true
+        },
+        {
+            "countrycode": "yem",
+            "description": "Yemen",
+            "languagelist": "language_default.json",
+            "primarylang": "ara",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "zmb",
+            "description": "Zambia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "zwe",
+            "description": "Zimbabwe",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "sna"
+        },
+        {
+            "countrycode": "bgd",
+            "description": "Bangladesh",
+            "languagelist": "language_default.json",
+            "primarylang": "ben",
+            "secondarylang": "eng"
+        },
+        {
+            "countrycode": "ben",
+            "description": "Benin",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "fon"
+        },
+        {
+            "countrycode": "gab",
+            "description": "Gabon",
+            "languagelist": "language_default.json",
+            "primarylang": "fra",
+            "secondarylang": "fan"
+        },
+        {
+            "countrycode": "gmb",
+            "description": "Gambia",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "wol"
+        },
+        {
+            "countrycode": "mwi",
+            "description": "Malawi	",
+            "languagelist": "language_default.json",
+            "primarylang": "eng",
+            "secondarylang": "nya"
         }
     ]
 }
