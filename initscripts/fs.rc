@@ -13,6 +13,7 @@ on late-fs
 on post-fs-data
     mkdir /data/vendor/wifi 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
     # we will remap this as /storage/sdcard0 with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     mkdir /data/vendor/cas 0700 root root
