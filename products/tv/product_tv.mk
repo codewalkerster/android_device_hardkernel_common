@@ -193,7 +193,8 @@ PRODUCT_COPY_FILES += \
 #bootvideo
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bootvideo.zip:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo.zip \
-    $(LOCAL_PATH)/tv.mp4:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo
+    $(LOCAL_PATH)/tv.mp4:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo \
+    $(LOCAL_PATH)/tv.ts:$(TARGET_COPY_OUT_SYSTEM)/etc/bootvideo.ts
 
 # copy fulldump
 PRODUCT_COPY_FILES += \

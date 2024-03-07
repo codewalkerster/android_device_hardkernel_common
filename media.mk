@@ -135,6 +135,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmediahal_hardware_demux\
 
+# tsplayer for bootvideo
+ifneq ($(BOARD_COMPILE_ATV),true)
+PRODUCT_PACKAGES += \
+    bootvideo \
+    libmediahal_tsplayer.system \
+    libmediahal_mediasync.system \
+    libmediahal_videodec.system \
+    libmediahal_resman.system \
+    libfaad_sys
+
+endif
+
 #codec ext related.
 #
 ifeq ($(TARGET_WITH_CODEC_EXT), true)

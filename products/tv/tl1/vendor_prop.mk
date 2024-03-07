@@ -128,7 +128,8 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
 #note that the high position 0 can not be omitted
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.media.bootvideo=3050
+    persist.vendor.media.bootvideo=3050 \
+    persist.vendor.media.bootvideo.tsplayer=1
 endif
 
 #vad wakeup support

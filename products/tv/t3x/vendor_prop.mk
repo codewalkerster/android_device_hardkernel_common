@@ -155,11 +155,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.need.droidlogic.preview_window=true
 endif
 
-#ifeq ($(BOARD_COMPILE_ATV), false)
+ifeq ($(BOARD_COMPILE_ATV), false)
 #USB wifi need to be disabled when suspending
-#PRODUCT_PROPERTY_OVERRIDES += \
-#   ro.vendor.platform.wifi.suspend=true
-#endif
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.wifi.suspend=false
+endif
 
 # for playback of audio offload
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -173,15 +173,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.codec2.disable_secure=false \
     debug.c2.use_dmabufheaps=1 \
     debug.stagefright.c2inputsurface=-1 \
-    debug.vendor.media.c2.vdec.support_10bit=false \
     vendor.media.c2.disp.nr.enable=true \
     vendor.media.c2.disp.di.localbuf_enable=true \
-    vendor.media.c2.vdec.enable_h264_4k_mmu=true
+    vendor.media.c2.vdec.enable_h264_4k_mmu=true \
+    ro.vendor.platform.omx=false \
+    ro.vendor.platform.support.8k=true \
+    vendor.media.c2.vdec.amdv_use_540p=true \
+    ro.vendor.platform.support.4k_fps_max=125
 endif
 
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.usb.controller=fe350000.crgudc3
+    vendor.usb.controller=fe3b0000.crgudc2
 #audio dual spdif setting
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.platform.is.dualspdif=true
@@ -189,25 +192,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.locale=en-US
 
-#support video_composer
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.omx.display_mode=3
-
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
 
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1
-
-#need promote benchmark
+#enable aisr
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.need.bench.promote=true
+    vendor.hwc.aisr_enable=1
+#aisr default config
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.aisr=true
+#aisr  check I/P input source
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.hwc.aisr_check_interlace=1
 
+#camera
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.usehwmjpeg=true \
     vendor.media.camera.dec.mediahalsdk=true
-
-# for SF performance
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.auto_latch_unsignaled=false

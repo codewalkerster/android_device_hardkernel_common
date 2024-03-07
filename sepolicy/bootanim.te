@@ -17,7 +17,20 @@ allow bootanim audioserver:binder { call transfer };
 allow bootanim mediametrics_service:service_manager { find };
 allow bootanim mediametrics:binder { call transfer };
 allow bootanim system_server:binder { call transfer };
-
+allow bootanim systemcontrol_hwservice:hwservice_manager { find };
+allow bootanim system_control:binder { call transfer };
+allow bootanim ptsserver_device:chr_file { open read write ioctl };
+allow bootanim dvb_device:chr_file { open read write ioctl };
+allow bootanim codec_device:chr_file { open read write ioctl };
+allow bootanim sysfs_stb:dir { search };
+allow bootanim sysfs_stb:file { open read write };
+allow bootanim vendor_video_device:chr_file { open read write ioctl };
+allow bootanim mediasync_device:chr_file { open read write ioctl };
+allow bootanim proc_asound:dir { search };
+allow bootanim proc_asound:file { read open getattr };
+allow bootanim uio_device:chr_file { open read write map };
+allow bootanim sysfs_astream:dir { search };
+allow bootanim sysfs_astream:file { open read write };
 
 allow bootanim hal_graphics_allocator_default_tmpfs:file rw_file_perms;
 set_prop(bootanim, system_prop)
