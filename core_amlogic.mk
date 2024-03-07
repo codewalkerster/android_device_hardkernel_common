@@ -753,6 +753,14 @@ PRODUCT_PACKAGES += \
     libamvenc_api
 endif
 
+ifeq ($(VENDOR_ENCODER_SUPPORT_VCCODEC),true)
+PRODUCT_PACKAGES += \
+    lib_amvenc \
+    lib_encoder_media_process \
+    libvc_codec \
+    libvcenc
+endif
+
 
 #Atrace HAL
 #PRODUCT_PACKAGES += \
