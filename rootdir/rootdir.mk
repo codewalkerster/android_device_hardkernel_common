@@ -17,6 +17,7 @@
 ROCKCHIP_ROOT_DIR_PATH := device/hardkernel/common/rootdir
 
 PRODUCT_COPY_FILES += \
+    $(ROCKCHIP_ROOT_DIR_PATH)/init.busybox.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.busybox.rc \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.hardkernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.hardkernel.rc \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.mount_all_early.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mount_all.rc \
     $(ROCKCHIP_ROOT_DIR_PATH)/init.tune_io.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.tune_io.rc \

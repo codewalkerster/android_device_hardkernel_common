@@ -32,6 +32,8 @@ TARGET_USERIMAGES_USE_EXT4 ?= true
 TARGET_USERIMAGES_USE_F2FS ?= false
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE ?= ext4
 
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+
 # use ext4 cache for OTA
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE ?= ext4
 # Add standalone metadata partition
@@ -50,7 +52,11 @@ ifeq ($(strip $(USE_DEFAULT_PARAMETER)), true)
   endif
   BOARD_CACHEIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt cache)
   BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt boot)
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
   BOARD_DTBOIMG_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtbo)
+else
+  BOARD_DTBIMG_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt dtb)
+endif
   BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell python device/hardkernel/common/get_partition_size.py $(TARGET_DEVICE_DIR)/parameter.txt recovery)
   # Header V3, add vendor_boot
   ifeq ($(BOARD_BUILD_GKI),true)
@@ -70,9 +76,17 @@ else
     BOARD_VENDORIMAGE_PARTITION_SIZE ?= 536870912
     BOARD_ODMIMAGE_PARTITION_SIZE ?= 134217728
   endif
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
   BOARD_CACHEIMAGE_PARTITION_SIZE ?= 402653184
+else
+  BOARD_CACHEIMAGE_PARTITION_SIZE ?= 1073741824
+endif
   BOARD_RECOVERYIMAGE_PARTITION_SIZE ?= 100663296
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
   BOARD_DTBOIMG_PARTITION_SIZE ?= 4194304
+else
+  BOARD_DTBIMG_PARTITION_SIZE ?= 4194304
+endif
   # Header V3, add vendor_boot
   ifeq ($(BOARD_BUILD_GKI),true)
     BOARD_BOOTIMAGE_PARTITION_SIZE ?= 67108864

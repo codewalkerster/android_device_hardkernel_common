@@ -1,0 +1,14 @@
+type usb_modeswitch, domain;
+type usb_modeswitch_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(usb_modeswitch)
+allow usb_modeswitch vendor_file:file { execute execute_no_trans getattr open read };
+allow usb_modeswitch self:capability net_admin;
+allow usb_modeswitch self:netlink_kobject_uevent_socket { create read setopt };
+allow usb_modeswitch usb_device:dir { open read };
+allow usb_modeswitch vendor_shell_exec:file execute_no_trans;
+allow usb_modeswitch self:netlink_kobject_uevent_socket { bind getopt };
+allow usb_modeswitch sysfs:dir { open read };
+allow usb_modeswitch sysfs:file { getattr open read };
+allow usb_modeswitch usb_device:chr_file { ioctl open read write };
+allow usb_modeswitch usb_device:dir search;

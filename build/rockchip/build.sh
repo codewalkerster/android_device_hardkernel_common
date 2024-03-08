@@ -14,6 +14,8 @@ usage()
     echo "       -d = huild kernel dts name    "
     echo "       -V = build version    "
     echo "       -J = build jobs    "
+    echo "       -S = build self install image    "
+    echo "       -r = package resource.img    "
     exit 1
 }
 
@@ -30,9 +32,11 @@ BUILD_VARIANT=`get_build_var TARGET_BUILD_VARIANT`
 KERNEL_DTS=""
 BUILD_VERSION=""
 BUILD_JOBS=16
+BUILD_SELF=false
+PACK_RES=false
 
 # check pass argument
-while getopts "UCKABpouv:d:V:J:" arg
+while getopts "UCKABSrpouv:d:V:J:" arg
 do
     case $arg in
         U)
@@ -55,6 +59,14 @@ do
         B)
             echo "will build AB Image"
             BUILD_AB_IMAGE=true
+            ;;
+        S)
+            echo "will build selfinstall iamge"
+            BUILD_SELF=true
+            ;;
+        r)
+            echo "will pack resource.img"
+            PACK_RES=true
             ;;
         p)
             echo "will build packaging in IMAGE"
@@ -103,6 +115,7 @@ UBOOT_DEFCONFIG=`get_build_var PRODUCT_UBOOT_CONFIG`
 KERNEL_VERSION=`get_build_var PRODUCT_KERNEL_VERSION`
 KERNEL_ARCH=`get_build_var PRODUCT_KERNEL_ARCH`
 KERNEL_DEFCONFIG=`get_build_var PRODUCT_KERNEL_CONFIG`
+PRODUCT_OUT=`get_build_var PRODUCT_OUT`
 if [ "$KERNEL_DTS" = "" ] ; then
 KERNEL_DTS=`get_build_var PRODUCT_KERNEL_DTS`
 fi
@@ -116,7 +129,7 @@ BUILD_KERNEL_WITH_CLANG=true
 fi
 
 PACK_TOOL_DIR=RKTools/linux/Linux_Pack_Firmware
-IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
+IMAGE_PATH=odroidev/Image-$TARGET_PRODUCT
 export PROJECT_TOP=`gettop`
 
 lunch $TARGET_PRODUCT-$BUILD_VARIANT
@@ -149,7 +162,16 @@ fi
 # build kernel
 if [ "$BUILD_KERNEL" = true ] ; then
 echo "Start build kernel"
-cd $LOCAL_KERNEL_PATH && make clean && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG && make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS && cd -
+pushd $LOCAL_KERNEL_PATH
+make $ADDON_ARGS ARCH=$KERNEL_ARCH distclean
+make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG
+# will copy .tmp.domain of each boards.
+make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS
+make $ADDON_ARGS ARCH=$KERNEL_ARCH dtbs -j$BUILD_JOBS
+# will build wifi/bt drivers
+
+popd
+
 if [ $? -eq 0 ]; then
     echo "Build kernel ok!"
 else
@@ -179,8 +201,10 @@ fi
 cp -rf $KERNEL_DEBUG $OUT/kernel
 fi
 
+if [ "$PACK_RES" = true ] ; then
 echo "package resoure.img with charger images"
 cd u-boot && ./scripts/pack_resource.sh ../$LOCAL_KERNEL_PATH/resource.img && cp resource.img ../$LOCAL_KERNEL_PATH/resource.img && cd -
+fi
 
 # build android
 if [ "$BUILD_ANDROID" = true ] ; then
@@ -332,4 +356,8 @@ echo "kernel:  make ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG && make ARCH=$KERNEL_ARC
 echo "android: lunch $TARGET_PRODUCT-$BUILD_VARIANT && make installclean && make"                    >> $STUB_PATH/build_cmd_info.txt
 echo "version: $SDK_VERSION"                                                                         >> $STUB_PATH/build_cmd_info.txt
 echo "finger:  $BUILD_ID/$BUILD_NUMBER/$BUILD_VARIANT"                                               >> $STUB_PATH/build_cmd_info.txt
+fi
+if [ "$BUILD_SELF" = true ] ; then
+echo "Start make self install image"
+$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH
 fi

@@ -64,9 +64,11 @@
             <Limit  width="2592" height="1944" fpsBound="15.0" />
             <Limit  width="2592" height="1944" fpsBound="10.0" />
             <Limit  width="2592" height="1944" fpsBound="5.0" />
+            <Limit  width="4056" height="3040" fpsBound="10.0" />
+            <Limit  width="4056" height="3040" fpsBound="5.0" />
             <!-- image size larger than the last entry will not be supported-->
         </FpsList>
         <!-- orientation -->
-        <Orientation  degree="90"/>
+        <Orientation  degree="0"/>
     </Device>
 </ExternalCamera>

@@ -1,0 +1,4 @@
+on boot
+	symlink /system/bin/busybox /system/bin/vi
+	symlink /system/bin/busybox /system/bin/hexdump
+	symlink /system/bin/busybox /system/bin/wget

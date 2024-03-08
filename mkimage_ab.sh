@@ -37,7 +37,7 @@ if [ "$1"x != ""x  ]; then
          TARGET=$1
 fi
 
-IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
+IMAGE_PATH=odroidev/Image-$TARGET_PRODUCT
 UBOOT_PATH=u-boot
 rm -rf $IMAGE_PATH
 mkdir -p $IMAGE_PATH
@@ -99,6 +99,12 @@ else
 fi
 }
 
+if [ "$TARGET_HARDWARE" == "odroid" ]; then
+echo "create fat.img.... "
+BOARD_FAT_IMG=$OUT/fat.img
+cp -a $BOARD_FAT_IMG $IMAGE_PATH/fat.img
+echo"done."
+else
 echo "create dtbo.img.... "
 if [ ! -f "$OUT/dtbo.img" ]; then
 BOARD_DTBO_IMG=$OUT/rebuild-dtbo.img
@@ -107,6 +113,7 @@ BOARD_DTBO_IMG=$OUT/dtbo.img
 fi
 cp -a $BOARD_DTBO_IMG $IMAGE_PATH/dtbo.img
 echo "done."
+fi
 
 copy_images $KERNEL_PATH/resource.img $IMAGE_PATH/resource.img
 copy_images_from_out init_boot.img
@@ -151,6 +158,9 @@ echo "done."
 if [ -f $UBOOT_PATH/uboot.img ]
 then
 	echo -n "create uboot.img..."
+	if [ "$TARGET_BOARD_HARDWARE" == "odroid" ]; then
+		cp -a $UBOOT_PATH/idblock.bin $IMAGE_PATH/idbloader.img
+	fi
 	cp -a $UBOOT_PATH/uboot.img $IMAGE_PATH/uboot.img
 	echo "done."
 else
@@ -177,6 +187,7 @@ else
         echo "$UBOOT_PATH/trust.img not fount! Please make it from $UBOOT_PATH first!"
 fi
 
+if [ "$TARGET_HARDWARE" != "odroid" ]; then
 if [ -f $UBOOT_PATH/*_loader_*.bin ]
 then
         echo -n "create loader..."
@@ -187,15 +198,11 @@ else
 		echo -n "create loader..."
 		cp -a $UBOOT_PATH/*loader*.bin $IMAGE_PATH/MiniLoaderAll.bin
 		echo "done."
-	elif [ "$TARGET_PRODUCT" == "px3" -a -f $UBOOT_PATH/RKPX3Loader_miniall.bin ]; then
-        echo -n "create loader..."
-        cp -a $UBOOT_PATH/RKPX3Loader_miniall.bin $IMAGE_PATH/MiniLoaderAll.bin
-        echo "done."
 	else
         echo "$UBOOT_PATH/*MiniLoaderAll_*.bin not fount! Please make it from $UBOOT_PATH first!"
 	fi
 fi
-
+fi
 
 if [ -f $FLASH_CONFIG_FILE ]
 then

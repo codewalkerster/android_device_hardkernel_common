@@ -2,11 +2,15 @@ ifdef PRODUCT_PARAMETER_TEMPLATE
 
 $(info build parameter.txt with $(PRODUCT_PARAMETER_TEMPLATE)....)
 
+ifeq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
+partition_list := fat:19M,security:4M,uboot:2M,misc:4M
+else
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
 partition_list := security:4M,uboot_a:4M,trust_a:4M,misc:4M
 else
 partition_list := security:4M,uboot:4M,trust:4M,misc:4M
 endif # BOARD_USES_AB_IMAGE
+endif # TARGET_BOARD_HARDWARE
 
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
 # Header V3, add vendor_boot and resource.
@@ -16,7 +20,11 @@ ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 4)))
 partition_list := $(partition_list),init_boot_a:$(BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE)
 endif # Header V4
 endif # Header V3
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 partition_list := $(partition_list),dtbo_a:$(BOARD_DTBOIMG_PARTITION_SIZE),vbmeta_a:1M,boot_a:$(BOARD_BOOTIMAGE_PARTITION_SIZE)
+else
+partition_list := $(partition_list),vbmeta_a:1M,boot_a:$(BOARD_BOOTIMAGE_PARTITION_SIZE)
+endif
 else # None-A/B
 # Header V3, add vendor_boot and resource.
 ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 3)))
@@ -25,10 +33,18 @@ ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \>= 4)))
 partition_list := $(partition_list),init_boot:$(BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE)
 endif # Header V4
 endif # Header V3
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 partition_list := $(partition_list),dtbo:$(BOARD_DTBOIMG_PARTITION_SIZE),vbmeta:1M,boot:$(BOARD_BOOTIMAGE_PARTITION_SIZE),recovery:$(BOARD_RECOVERYIMAGE_PARTITION_SIZE)
+else
+partition_list := $(partition_list),vbmeta:1M,boot:$(BOARD_BOOTIMAGE_PARTITION_SIZE),recovery:$(BOARD_RECOVERYIMAGE_PARTITION_SIZE)
+endif
 endif # BOARD_USES_AB_IMAGE
 
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 partition_list := $(partition_list),backup:384M,cache:$(BOARD_CACHEIMAGE_PARTITION_SIZE),metadata:16M
+else
+partition_list := $(partition_list),cache:$(BOARD_CACHEIMAGE_PARTITION_SIZE),metadata:16M
+endif
 
 ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
 partition_list := $(partition_list),frp:512K
@@ -56,7 +72,7 @@ ROCKCHIP_PARAMETER_TOOLS := $(SOONG_HOST_OUT_EXECUTABLES)/parameter_tools
 $(rebuild_parameter) : $(PRODUCT_PARAMETER_TEMPLATE) $(ROCKCHIP_PARAMETER_TOOLS)
 	@echo "Building parameter.txt $@."
 	$(ROCKCHIP_PARAMETER_TOOLS) --input $(PRODUCT_PARAMETER_TEMPLATE) \
-	--start-offset 8192 \
+	--start-offset 2048 \
 	--firmware-version $(BOARD_PLATFORM_VERSION) \
 	--machine-model "$(PRODUCT_MODEL)" \
 	--manufacturer "$(PRODUCT_MANUFACTURER)" \

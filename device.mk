@@ -33,6 +33,8 @@ PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
 
 PRODUCT_PACKAGES += \
     ExactCalculator \
+    OdroidSettings \
+    Updater \
     wakeup-alarmalign-whitelist.xml
 
 ifdef TARGET_PREBUILT_KERNEL
@@ -111,10 +113,8 @@ ifeq ($(strip $(BOARD_HDMI_IN_SUPPORT)), true)
     $(call inherit-product, device/hardkernel/common/modules/hdmi_in.mk)
 endif
 # For screen hw rotation
-ifneq ($(filter 90 180 270, $(strip $(SF_PRIMARY_DISPLAY_ORIENTATION))), )
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.surface_flinger.primary_display_orientation=ORIENTATION_$(SF_PRIMARY_DISPLAY_ORIENTATION)
-endif
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/rk29-keypad.kl:system/usr/keylayout/rk29-keypad.kl \
@@ -309,7 +309,7 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libjni_pinyinime
 
-ifeq ($(filter atv, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
+ifeq ($(filter tablet atv, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 # Sensor HAL
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
@@ -430,7 +430,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service
 
 # iep
-ifneq ($(filter rk3188 rk3190 rk3026 rk3288 rk312x rk3126c rk3128 px3se rk3368 rk3326 rk356x rk3328 rk3366 rk3399, $(strip $(TARGET_BOARD_PLATFORM))), )
+ifneq ($(filter rk3190 rk3026 rk3288 rk312x rk3126c rk3128 rk3368 rk3326 rk356x rk3328 rk3366 rk3399, $(strip $(TARGET_BOARD_PLATFORM))), )
 BUILD_IEP := true
 PRODUCT_PACKAGES += \
     libiep
@@ -961,10 +961,23 @@ ifeq ($(strip $(BOARD_HDMI_IN_SUPPORT))|$(strip $(BOARD_USES_LIBPQ)) ,true|true)
 endif
 
 PRODUCT_PACKAGES += \
-	libbaseparameter
+	libbaseparameter \
+	saveBaseParameter
+
+# base parameter adjust package
+BOARD_BASEPARAMETER_ADJUST ?= false
+
+ifeq ($(BOARD_BASEPARAMETER_ADJUST),true)
+PRODUCT_PACKAGES += \
+    libsave_baseparameter_util \
+    DisplayAdjust
+endif
 
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
+
+PRODUCT_COPY_FILES += \
+                      $(LOCAL_PATH)/hardkernel-720.bmp.gz:$(TARGET_OUT)/boot-logo.bmp.gz
 
 # build libmpimmz for rknn
 PRODUCT_PACKAGES += \
@@ -1006,3 +1019,16 @@ endif
 # Use FUSE passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
+
+# U-Boot Env Tools
+PRODUCT_PACKAGES += \
+    libubootenv \
+    fw_printenv \
+    fw_setenv
+
+PRODUCT_COPY_FILES += \
+    device/hardkernel/$(TARGET_BOARD_PLATFORM)/$(TARGET_PRODUCT)/fw_env/fw_env.config:system/etc/fw_env.config
+
+PRODUCT_PACKAGES += \
+    mkfs.exfat \
+    fsck.exfat

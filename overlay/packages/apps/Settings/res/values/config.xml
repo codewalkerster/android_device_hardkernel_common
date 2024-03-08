@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Whether top_level_battery should be shown or not. -->
+    <bool name="config_show_top_level_battery">false</bool>
+</resources>

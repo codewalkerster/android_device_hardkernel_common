@@ -4,6 +4,7 @@ set -e
 . build/envsetup.sh >/dev/null && setpaths
 
 export PATH=$ANDROID_BUILD_PATHS:$PATH
+TARGET_BOARD_HARDWARE=`get_build_var TARGET_BOARD_HARDWARE`
 TARGET_PRODUCT=`get_build_var TARGET_PRODUCT`
 TARGET_DEVICE_DIR=`get_build_var TARGET_DEVICE_DIR`
 PRODUCT_KERNEL_ARCH=`get_build_var PRODUCT_KERNEL_ARCH`
@@ -23,7 +24,7 @@ if [ "$1"x != ""x  ]; then
          TARGET=$1
 fi
 
-IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
+IMAGE_PATH=odroidev/Image-$TARGET_PRODUCT
 UBOOT_PATH=u-boot
 rm -rf $IMAGE_PATH
 mkdir -p $IMAGE_PATH
@@ -74,6 +75,12 @@ copy_images_from_out() {
     copy_images $OUT/$1 $IMAGE_PATH/$1
 }
 
+if [ "$TARGET_BOARD_HARDWARE" == "odroid" ]; then
+echo "create fat.img..."
+BOARD_FAT_IMG=$OUT/fat.img
+cp -a $BOARD_FAT_IMG $IMAGE_PATH/fat.img
+echo "done."
+else
 echo "create dtbo.img..."
 if [ ! -f "$OUT/dtbo.img" ]; then
 BOARD_DTBO_IMG=$OUT/rebuild-dtbo.img
@@ -82,6 +89,7 @@ BOARD_DTBO_IMG=$OUT/dtbo.img
 fi
 cp -a $BOARD_DTBO_IMG $IMAGE_PATH/dtbo.img
 echo "done."
+fi
 
 copy_images $KERNEL_PATH/resource.img $IMAGE_PATH/resource.img
 copy_images_from_out init_boot.img
@@ -118,33 +126,20 @@ echo "done."
 if [ -f $UBOOT_PATH/uboot.img ]
 then
 	echo "create uboot.img..."
+	if [ "$TARGET_BOARD_HARDWARE" == "odroid" ]; then
+		cp -a $UBOOT_PATH/idblock.bin $IMAGE_PATH/idbloader.img
+	fi
 	cp -a $UBOOT_PATH/uboot.img $IMAGE_PATH/uboot.img
 else
-	echo "$UBOOT_PATH/uboot.img not fount! Please make it from $UBOOT_PATH first!"
+	echo "$UBOOT_PATH/uboot.img not found! so uboot.img will not be included."
 fi
 
-if [ -f $UBOOT_PATH/trust_nand.img ]
-then
-        echo "create trust.img..."
-        cp -a $UBOOT_PATH/trust_nand.img $IMAGE_PATH/trust.img
-elif [ -f $UBOOT_PATH/trust_with_ta.img ]
-then
-        echo "create trust.img..."
-        cp -a $UBOOT_PATH/trust_with_ta.img $IMAGE_PATH/trust.img
-elif [ -f $UBOOT_PATH/trust.img ]
-then
-        echo "create trust.img..."
-        cp -a $UBOOT_PATH/trust.img $IMAGE_PATH/trust.img
-else    
-        echo "$UBOOT_PATH/trust.img not fount! Please make it from $UBOOT_PATH first!"
-fi
-
+if [ "$TARGET_BOARD_HARDWARE" != "odroid" ]; then
 if [ "$HIGH_RELIABLE_RECOVERY_OTA" = "true" ]; then
 	if [ -f $UBOOT_PATH/uboot_ro.img ]
 	then
 		echo -n "HIGH_RELIABLE_RECOVERY_OTA is true. create uboot_ro.img..."
 		cp -a $UBOOT_PATH/uboot_ro.img $IMAGE_PATH/uboot_ro.img
-		cp -a $IMAGE_PATH/trust.img $IMAGE_PATH/trust_ro.img
 		echo "done."
 	else
 		echo "$UBOOT_PATH/uboot_ro.img not fount! Please make it from $UBOOT_PATH first!"
@@ -159,12 +154,10 @@ else
 	if [ -f $UBOOT_PATH/*loader*.bin ]; then
 		echo "create loader..."
 		cp -a $UBOOT_PATH/*loader*.bin $IMAGE_PATH/MiniLoaderAll.bin
-	elif [ "$TARGET_PRODUCT" == "px3" -a -f $UBOOT_PATH/RKPX3Loader_miniall.bin ]; then
-        echo "create loader..."
-        cp -a $UBOOT_PATH/RKPX3Loader_miniall.bin $IMAGE_PATH/MiniLoaderAll.bin
 	else
         echo "$UBOOT_PATH/*MiniLoaderAll_*.bin not fount! Please make it from $UBOOT_PATH first!"
 	fi
+fi
 fi
 
 if [ -f $FLASH_CONFIG_FILE ]
@@ -199,6 +192,7 @@ else
     fi
 fi
 
+if [ "$TARGET_BOARD_HARDWARE" != "odroid" ]; then
 SHARED_LIBRARIES_DIR=out/host/linux-x86/lib64
 JAVA_LIBRARIES_DIR=out/host/linux-x86/framework
 OTA_KEY_DIR=device/hardkernel/common/security
@@ -209,6 +203,7 @@ if [ $TARGET == $BOOT_OTA ]; then
     java -Djava.library.path=$SHARED_LIBRARIES_DIR -jar $JAVA_LIBRARIES_DIR/signapk.jar -w $OTA_KEY_DIR/testkey.x509.pem $OTA_KEY_DIR/testkey.pk8 $IMAGE_PATH/update_loader_unsigned.zip $IMAGE_PATH/update_loader.zip
     rm $IMAGE_PATH/update_loader_unsigned.zip
     echo "done."
+fi
 fi
 
 if [ "$TARGET_BASE_PARAMETER_IMAGE"x != ""x ]

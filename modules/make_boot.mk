@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+# odroid doesn't use cmdline from boot.img and recovery.img. It is cared from boot.scr
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 ROCKCHIP_ANDROID_BOOT_CMDLINE ?= androidboot.console=ttyFIQ0 androidboot.wificountrycode=CN
 ROCKCHIP_ANDROID_BOOT_CMDLINE += androidboot.hardware=$(TARGET_BOARD_HARDWARE)
 ROCKCHIP_ANDROID_BOOT_CMDLINE += androidboot.boot_devices=$(PRODUCT_BOOT_DEVICE)
@@ -32,11 +34,18 @@ else # Boot header 4 requires bootconfig
 BOARD_BOOTCONFIG := $(ROCKCHIP_ANDROID_BOOT_CMDLINE)
 BOARD_KERNEL_CMDLINE += 8250.nr_uarts=10
 endif
+else
+BOARD_KERNEL_CMDLINE :=
+ROCKCHIP_ANDROID_BOOT_CMDLINE :=
+endif
 
+# odroid board doesn't use resource.img
 # For Header V2, set resource.img as second.
 # For Header V3, add vendor_boot and resource.
 ifeq (1,$(strip $(shell expr $(BOARD_BOOT_HEADER_VERSION) \<= 2)))
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_MKBOOTIMG_ARGS += --second $(TARGET_PREBUILT_RESOURCE)
+endif
 endif
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # Always use header v2 for recovery image,
@@ -45,14 +54,21 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # - header v2 used for the device with recovery;
 ifneq ($(BOARD_ROCKCHIP_VIRTUAL_AB_ENABLE), true)
 ifneq ($(BOARD_USES_AB_IMAGE), true)
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_RECOVERY_MKBOOTIMG_ARGS ?= --second $(TARGET_PREBUILT_RESOURCE) \
     --header_version 2 \
     --cmdline "$(BOARD_KERNEL_CMDLINE) $(ROCKCHIP_ANDROID_BOOT_CMDLINE)"
+else
+BOARD_RECOVERY_MKBOOTIMG_ARGS ?= --header_version 1
+endif
 ifeq ($(BOARD_AVB_ENABLE), true)
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 endif
 endif
 endif
 
+# odroid board doesn't use recovery dtbo & dtbo.img
+ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_INCLUDE_RECOVERY_DTBO ?= true
 BOARD_INCLUDE_DTB_IN_BOOTIMG ?= true
+endif

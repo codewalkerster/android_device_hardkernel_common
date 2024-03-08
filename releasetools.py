@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Emit commands needed for Rockchip devices during OTA installation
-(installing the RK30xxLoader.bin)."""
+"""Emit commands needed for ODROID devices during OTA installation."""
 
 import common
 import re
@@ -63,25 +62,16 @@ def Install_Parameter(parameter_bin, input_zip, info):
   except KeyError:
     print("no parameter.bin, ignore it.")
 
-def InstallRKLoader(loader_bin, input_zip, info):
+def InstallFat(loader_bin, input_zip, info):
   try:
-    print("wirte RKLoader.bin now...")
-    #info.script.Print("Writing rk loader bin...")
-    common.ZipWriteStr(info.output_zip, "RKLoader.bin", loader_bin)
-    #info.script.WriteRawLoaderImage()
-  except KeyError:
-    print("no RKLoader.bin, ignore it.")
-
+    common.ZipWriteStr(info.output_zip, "fat.img", fat_bin)
+    info.script.Print("Writing fat loader img...")
+    info.script.WriteRawImage("/fat", "fat.img")
 
 def InstallUboot(loader_bin, input_zip, info):
   common.ZipWriteStr(info.output_zip, "uboot.img", loader_bin)
   info.script.Print("Writing uboot loader img...")
   info.script.WriteRawImage("/uboot", "uboot.img")
-
-def InstallTrust(trust_bin, input_zip, info):
-  common.ZipWriteStr(info.output_zip, "trust.img", trust_bin)
-  info.script.Print("Writing trust img...")
-  info.script.WriteRawImage("/trust", "trust.img")
 
 def InstallVbmeta(vbmeta_bin, input_zip, info):
   common.ZipWriteStr(info.output_zip, "vbmeta.img",vbmeta_bin)
@@ -115,13 +105,6 @@ def InstallInitBoot(init_boot_bin, input_zip, info):
 
 def FullOTA_InstallEnd(info):
   try:
-    trust = info.input_zip.read("trust.img")
-    print("write trust now...")
-    InstallTrust(trust, info.input_zip, info)
-  except KeyError:
-    print("warning: no trust.img in input target_files; not flashing trust")
-
-  try:
     uboot = info.input_zip.read("uboot.img")
     print("write uboot now...")
     InstallUboot(uboot, info.input_zip, info)
@@ -129,22 +112,29 @@ def FullOTA_InstallEnd(info):
     print("warning: no uboot.img in input target_files; not flashing uboot")
 
   try:
+    fat = info.input_zip.read("fat.img")
+    print("write fat now...")
+    InstallFat(fat, info.input_zip, info)
+  except KeyError:
+    print("warning: no fat.img in input target_files; not flashing fat")
+
+  try:
     vbmeta = info.input_zip.read("IMAGES/vbmeta.img")
-    print("wirte vbmeta now...")
+    print("write vbmeta now...")
     InstallVbmeta(vbmeta, info.input_zip, info)
   except KeyError:
     print("warning: no vbmeta.img in input target_files; not flashing vbmeta")
 
   try:
     dtbo = info.input_zip.read("IMAGES/dtbo.img")
-    print("wirte dtbo now...")
+    print("write dtbo now...")
     InstallDtbo(dtbo, info.input_zip, info)
   except KeyError:
     print("warning: no dtbo.img in input target_files; not flashing dtbo")
 
   try:
     charge = info.input_zip.read("charge.img")
-    print("wirte charge now...")
+    print("write charge now...")
     InstallCharge(charge, info.input_zip, info)
   except KeyError:
     # print "info: no charge img; ignore it."
@@ -161,21 +151,6 @@ def FullOTA_InstallEnd(info):
   except KeyError:
     print("info: no resource image; ignore it.")
 
-#  try:
-#    loader_bin = info.input_zip.read("LOADER/RKLoader.img")
-#  except KeyError:
-#    # print "warning: no rk loader bin in input target_files; not flashing loader"
-#    print "no rk loader bin in input target_files; not flashing loader"
-#    print "to add clear misc command"
-#    info.script.ClearMiscCommand()
-#    return
-
-  try:
-    loader_bin = info.input_zip.read("RKLoader.bin")
-    InstallRKLoader(loader_bin, info.input_zip, info)
-  except KeyError:
-    print("no RKLoader.bin, ignore it.")
-
   try:
     vendor_boot = info.input_zip.read("IMAGES/vendor_boot.img")
     print("wirte vendor_boot now...")
@@ -191,22 +166,6 @@ def FullOTA_InstallEnd(info):
     print("info: no init_boot.img in input target_files; ignore it")
 
 def IncrementalOTA_InstallEnd(info):
-  try:
-    trust_target = info.target_zip.read("trust.img")
-  except KeyError:
-    trust_target = None
-
-  try:
-    trust_source = info.source_zip.read("trust.img")
-  except KeyError:
-    trust_source = None
-
-  if (trust_target != None) and (trust_target != trust_source):
-    print("write trust now...")
-    InstallTrust(trust_target, info.target_zip, info)
-  else:
-    print("trust unchanged; skipping")
-
   try:
     vbmeta_target = info.target_zip.read("IMAGES/vbmeta.img")
   except KeyError:
@@ -256,6 +215,22 @@ def IncrementalOTA_InstallEnd(info):
     print("uboot unchanged; skipping")
 
   try:
+    fat_target = info.target_zip.read("fat.img")
+  except KeyError:
+    fat_target = None
+
+  try:
+    fat_source = info.source_zip.read("fat.img")
+  except KeyError:
+    fat_source = None
+
+  if (fatt_target != None) and (fat_target != fat_source):
+    print("write fat now...")
+    InstallFat(fat_target, info.target_zip, info)
+  else:
+    print("fat unchanged; skipping")
+
+  try:
     charge_target = info.target_zip.read("charge.img")
   except KeyError:
     charge_target = None
@@ -289,24 +264,6 @@ def IncrementalOTA_InstallEnd(info):
     InstallResource(resource_target, info.target_zip, info)
   else:
     print("resource unchanged; skipping")
-
-  try:
-    target_loader = info.target_zip.read("RKLoader.bin")
-  except KeyError:
-    print("warning: rk loader bin missing from target; not flashing loader")
-    target_loader = None
-
-  try:
-    source_loader = info.source_zip.read("RKLoader.bin")
-  except KeyError:
-    print("warning: rk loader bin missing from source; not flashing loader")
-    source_loader = None
-
-  if (target_loader != None) and (source_loader != target_loader):
-    print("write loader now...")
-    InstallRKLoader(target_loader, info.target_zip, info)
-  else:
-    print("loader unchanged; skipping")
 
   try:
     vendor_boot_target = info.target_zip.read("IMAGES/vendor_boot.img")

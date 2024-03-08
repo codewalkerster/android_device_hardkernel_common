@@ -48,7 +48,11 @@ BOARD_PLATFORM_VERSION := 12.0
 
 # Enable android verified boot 2.0
 BOARD_AVB_ENABLE ?= false
+ifeq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
+BOARD_BOOT_HEADER_VERSION ?= 1
+else
 BOARD_BOOT_HEADER_VERSION ?= 2
+endif
 BOARD_MKBOOTIMG_ARGS :=
 ifneq ($(strip $(TARGET_BOARD_HARDWARE)), odroid)
 BOARD_PREBUILT_DTBOIMAGE ?= $(TARGET_DEVICE_DIR)/dtbo.img
@@ -72,10 +76,14 @@ include device/hardkernel/common/build/rockchip/Partitions.mk
 # Use the non-open-source parts, if they're present
 ifeq ($(PRODUCT_KERNEL_ARCH), arm)
 TARGET_PREBUILT_KERNEL ?= $(PRODUCT_KERNEL_PATH)/arch/arm/boot/zImage
+ifeq ($(strip $(BOARD_INCLUDE_DTB_IN_BOOTIMG)), true)
 BOARD_PREBUILT_DTBIMAGE_DIR ?= $(PRODUCT_KERNEL_PATH)/arch/arm/boot/dts
+endif
 else
 TARGET_PREBUILT_KERNEL ?= $(PRODUCT_KERNEL_PATH)/arch/arm64/boot/Image
+ifeq ($(strip $(BOARD_INCLUDE_DTB_IN_BOOTIMG)), true)
 BOARD_PREBUILT_DTBIMAGE_DIR ?= $(PRODUCT_KERNEL_PATH)/arch/arm64/boot/dts/rockchip
+endif
 endif
 
 TARGET_PREBUILT_RESOURCE ?= $(PRODUCT_KERNEL_PATH)/resource.img
@@ -312,7 +320,7 @@ BOARD_ENABLE_PMS_MULTI_THREAD_SCAN ?= false
 ENABLE_KEYBOX_PROVISION ?= false
 
 # product has follow sensors or not,if had override it in product's BoardConfig
-BOARD_HAS_GPS ?= false   
+BOARD_HAS_GPS ?= false
 BOARD_NFC_SUPPORT ?= false
 BOARD_GRAVITY_SENSOR_SUPPORT ?= false
 BOARD_GSENSOR_MXC6655XA_SUPPORT ?= false

@@ -14,11 +14,13 @@
 # limitations under the License.
 #
 
+ifeq (,$(filter eng,$(TARGET_BUILD_VARIANT)))
 # Flash Lock Status reporting,
 # GTS: com.google.android.gts.persistentdata.
 # PersistentDataHostTest#testTestGetFlashLockState
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
+endif
 
 # For FRP
 ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)

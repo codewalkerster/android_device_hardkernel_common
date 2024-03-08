@@ -114,6 +114,7 @@
 /dev/vpu-enc    0600    media   media
 /dev/vpu-dec    0660    media   graphics
 /dev/mem    0600    media   media
+/dev/gpiomem    0600    media   media
 /dev/ttyBT0 0660    bluetooth   bluetooth
 /dev/ttyGNSS0   0600    gps gps
 /dev/radio0     0660    audio   audio
@@ -199,3 +200,7 @@
 /dev/dma_heap/cma			0444   system     system
 /dev/dma_heap/system-dma32		0444   system     system
 /dev/dma_heap/system-uncached-dma32	0444   system     system
+
+/dev/spidev0.0    0666    system    system
+
+/dev/usb/lp*    0666    system    system

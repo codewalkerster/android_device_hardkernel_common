@@ -18,6 +18,7 @@ ro.wifi.sleep.power.down    u:object_r:debug_prop:s0
 persist.wifi.sleep.         u:object_r:debug_prop:s0
 persist.bt.sleep.flag       u:object_r:debug_prop:s0
 persist.bt.power.down       u:object_r:debug_prop:s0
+persist.bt.service.down       u:object_r:debug_prop:s0
 
 ro.factory.     u:object_r:debug_prop:s0
 ro.rk.          u:object_r:debug_prop:s0
@@ -46,3 +47,7 @@ persist.vendor.rk_vulkan                u:object_r:debug_prop:s0
 
 #For hdmiin tvinput
 tvinput.hdmiin.buff_type    u:object_r:debug_prop:s0
+
+# update server
+persist.update.server.custom            u:object_r:debug_prop:s0
+persist.update.server.current           u:object_r:debug_prop:s0

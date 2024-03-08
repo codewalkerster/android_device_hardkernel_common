@@ -23,7 +23,9 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     ExactCalculator \
     Gallery2 \
     Settings \
-    SoundRecorder
+    SoundRecorder \
+    Updater \
+    OdroidSettings
 
 ifneq ($(filter rk3368 rk3588, $(strip $(TARGET_BOARD_PLATFORM))), )
 PRODUCT_PROPERTY_OVERRIDES += \
