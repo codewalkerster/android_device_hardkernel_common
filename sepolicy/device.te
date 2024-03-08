@@ -59,6 +59,7 @@ type hidraw_audio_device, dev_type;
 type media_device, dev_type;
 type rpmb_device, dev_type;
 type adla_device, dev_type, mlstrustedobject;
+type usbci_device, dev_type, mlstrustedobject;
 
 typeattribute product_block_device super_block_device_type;
 typeattribute odm_block_device super_block_device_type;

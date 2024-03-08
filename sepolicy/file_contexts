@@ -166,6 +166,11 @@
 /dev/dtb            			u:object_r:dtb_device:s0
 /dev/dvb0.*         			u:object_r:dvb_device:s0
 /dev/smc0                   u:object_r:dvb_device:s0
+
+#usb ci device
+/dev/cimodule_command0                   u:object_r:usbci_device:s0
+/dev/cimodule_media0                     u:object_r:usbci_device:s0
+
 /dev/v4l2_frontend			u:object_r:frontend_device:s0
 /dev/esm            			u:object_r:hdcptx_device:s0
 /dev/esm_rx         			u:object_r:hdcprx_device:s0

@@ -121,6 +121,10 @@
 # sw_sync
 /dev/sw_sync              0666   system       graphics
 
+# usbci
+/dev/cimodule_command0    0666   system       system
+/dev/cimodule_media0      0666   system       system
+
 #possible serial
 /dev/ttyS1                0660   bluetooth    bluetooth
 /dev/ttyS2                0660   bluetooth    bluetooth
