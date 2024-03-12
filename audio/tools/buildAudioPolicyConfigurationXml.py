@@ -5,7 +5,8 @@ import argparse
 import xml.etree.ElementTree as ET
 
 
-AUDIO_POLICY_TOOLS_PATH = 'device/amlogic/common/audio/tools/'
+AUDIO_POLICY_TOOLS_PATH = ''
+ANDROID_CODE_ROOT_PATH = ''
 
 license = ET.Comment("""Copyright (C) 2024 The Android Open Source Project
 
@@ -49,30 +50,71 @@ def modifyProfile(baseXmlRoot, buildTypeXmlRoot):
                 baseXmlRoot.remove(profile)
                 break
         if not foundFormat:
-            # append profile
-            baseXmlRoot.append(buildTypeXml_profileRoot)
+            # insert first position, profile
+            baseXmlRoot.insert(0, buildTypeXml_profileRoot)
             logging.info('[buildAudioPolicyConfigurationXml:I] add new profile, format: ' + buildTypeXml_profileRoot.get('format'))
 
 def modifyRoute(ports, port, portName, routes, audioPolicyCommonRoutesXmlRoot, mixportPortArray, devicePortArray):
-    foundPortInRoutes = False
-    for audioPolicyCommonRoutesXml_routeRoot in audioPolicyCommonRoutesXmlRoot.findall('.//route'):
-        if portName == audioPolicyCommonRoutesXml_routeRoot.get('sink'):
-            foundPortInRoutes = True
-            sourcesArray = audioPolicyCommonRoutesXml_routeRoot.get('sources').split(',')
-            sourcesArray = [x for x in sourcesArray if x in mixportPortArray or x in devicePortArray]
-            if len(sourcesArray) == 0:
-                ports.remove(port)
-                logging.info('[buildAudioPolicyConfigurationXml:I] not find sources for portName:' + portName)
-            else:
-                sources = ','.join(sourcesArray)
-                route = ET.SubElement(routes, "route")
-                route.set("type", "mix")
-                route.set("sink", portName)
-                route.set("sources", sources)
+    if port.get('role')  == 'sink':
+        foundPortInRoutes = False
+        for audioPolicyCommonRoutesXml_routeRoot in audioPolicyCommonRoutesXmlRoot.findall('.//route'):
+            if portName == audioPolicyCommonRoutesXml_routeRoot.get('sink'):
+                foundPortInRoutes = True
+                sourcesArray = audioPolicyCommonRoutesXml_routeRoot.get('sources').split(',')
+                sourcesArray = [x for x in sourcesArray if x in mixportPortArray or x in devicePortArray]
+                if len(sourcesArray) == 0:
+                    # clear redundant port (sink port)
+                    ports.remove(port)
+                    logging.info('[buildAudioPolicyConfigurationXml:I] unused sink portName:' + portName)
+                else:
+                    sources = ','.join(sourcesArray)
+                    route = ET.SubElement(routes, "route")
+                    route.set("type", "mix")
+                    route.set("sink", portName)
+                    route.set("sources", sources)
+                break
+        if not foundPortInRoutes:
+            ports.remove(port)
+            logging.info('[buildAudioPolicyConfigurationXml:I] not find portName:' + portName + ', in audio_policy_common_routes.xml')
+    else:
+        foundPortInRoutesSource = False
+        for audioPolicyCommonRoutesXml_routeRoot in audioPolicyCommonRoutesXmlRoot.findall('.//route'):
+            sink = audioPolicyCommonRoutesXml_routeRoot.get('sink')
+            if sink in devicePortArray or sink in mixportPortArray:
+                sourcesArray = audioPolicyCommonRoutesXml_routeRoot.get('sources').split(',')
+                if portName in sourcesArray:
+                    foundPortInRoutesSource = True
+                    break
+        if not foundPortInRoutesSource:
+            # clear redundant port (source port)
+            ports.remove(port)
+            logging.info('[buildAudioPolicyConfigurationXml:I] unused source portName:' + portName)
+
+def genRoutes(routes, mixPorts, devicePorts, audioPolicyCommonRoutesXmlRoot):
+    mixportPortArray = []
+    devicePortArray = []
+    for devicePort in devicePorts.findall('devicePort'):
+        devicePortArray.append(devicePort.get('tagName'))
+    for mixPort in mixPorts.findall('mixPort'):
+        mixportPortArray.append(mixPort.get('name'))
+    # 1. routes for devicePort
+    for devicePort in devicePorts.findall('devicePort'):
+        devicePortName = devicePort.get('tagName')
+        modifyRoute(devicePorts, devicePort, devicePortName, routes, audioPolicyCommonRoutesXmlRoot, mixportPortArray, devicePortArray)
+    # 2. routes for mixPort
+    for mixPort in mixPorts.findall('mixPort'):
+        mixPortName = mixPort.get('name')
+        modifyRoute(mixPorts, mixPort, mixPortName, routes, audioPolicyCommonRoutesXmlRoot, mixportPortArray, devicePortArray)
+
+# TODO: add 32bit profile for primary output
+def modify32BitProfile(mixPorts, devicePorts):
+    for mixport in mixPorts.findall('.//mixPort'):
+        if mixport.get('name') in ['primary output']:
+            for profile in mixport.findall('.//profile'):
+                if profile.get('format') == 'AUDIO_FORMAT_PCM_16_BIT':
+                    profile.set('format', 'AUDIO_FORMAT_PCM_32_BIT')
+                    break
             break
-    if not foundPortInRoutes:
-        ports.remove(port)
-        logging.info('[buildAudioPolicyConfigurationXml:I] not find portName:' + portName + ', in audio_policy_common_routes.xml')
 
 def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version):
     if len(supportBuildTypes) == 0:
@@ -91,12 +133,10 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version):
             logging.debug('[buildAudioPolicyConfigurationXml:D] -- name:' + audioPolicyCommonBuildTypeXml_mixPortRoot.get('name'))
             foundMixPort = False
             for mixport in mixPorts.findall('.//mixPort'):
-                if mixport.get('name') == audioPolicyCommonBuildTypeXml_mixPortRoot.get('name'):
+                mixportName = mixport.get('name')
+                if mixportName == audioPolicyCommonBuildTypeXml_mixPortRoot.get('name'):
                     foundMixPort = True
-                    logging.debug('[buildAudioPolicyConfigurationXml:D] modifyProfile mixPort name:' + mixport.get('name'))
-                    # TODO: workaround, Google multichannel-PCM playback has a bug. For atv version.
-                    if version == 'atv' and (mixport.get('name') == 'direct pcm' or mixport.get('name') == 'tunnel pcm'):
-                        continue
+                    logging.debug('[buildAudioPolicyConfigurationXml:D] modifyProfile mixPort name:' + mixportName)
                     modifyProfile(mixport, audioPolicyCommonBuildTypeXml_mixPortRoot)
             if not foundMixPort:
                 # append mixport
@@ -116,15 +156,14 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version):
             if not foundDevicePort:
                 logging.info('[buildAudioPolicyConfigurationXml:W] not find devicePort, tagName: ' + audioPolicyCommonBuildTypeXml_deviceportRoot.get('tagName'))
 
-def genXmlFile(outputFilePath, chipDeviceType, audioBuildType, soundbarProduct, version):
+def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProduct, version):
     sbrSuffix = ''
     if soundbarProduct == 'true':
         sbrSuffix = '_sbr'
-    AUDIO_POLICY_DEVICES_XML_PATH = 'device/amlogic/' + chipDeviceType + '/files/audio_policy_devices' + sbrSuffix + '.xml'
+    AUDIO_POLICY_DEVICES_XML_PATH = ANDROID_CODE_ROOT_PATH + '/device/' + odm + '/'+ chipDeviceType + '/files/audio_policy_devices' + sbrSuffix + '.xml'
     supportBuildTypes = [i for i in audioBuildType.split("_") if i]
     logging.info('[buildAudioPolicyConfigurationXml:I] devices xml path:' + AUDIO_POLICY_DEVICES_XML_PATH)
     logging.info('[buildAudioPolicyConfigurationXml:I] audio buildType:' + str(supportBuildTypes))
-
     for type in supportBuildTypes:
         filepath = AUDIO_POLICY_TOOLS_PATH + 'audio_policy_common_build_type/audio_policy_common_' + type + '.xml'
         if os.path.exists(filepath) is False:
@@ -198,29 +237,29 @@ def genXmlFile(outputFilePath, chipDeviceType, audioBuildType, soundbarProduct, 
     # read build type xml(_dtshd, _ddp, _ms12...)
     replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version)
 
+    # TODO: workaround, Google multichannel-PCM playback has a bug. For atv version, delete multi-channel PCM.
+    for mixport in mixPorts.findall('.//mixPort'):
+        mixportName = mixport.get('name')
+        if version == 'atv' and (mixportName == 'direct pcm' or mixportName == 'tunnel pcm' or mixportName == 'compress offload'):
+            for profile in mixport.findall('.//profile'):
+                if profile.get('format') == 'AUDIO_FORMAT_PCM_16_BIT':
+                    profile.set('channelMasks', 'AUDIO_CHANNEL_OUT_STEREO')
+    for devicePort in devicePorts.findall('.//devicePort'):
+        devicePortName = devicePort.get('tagName')
+        if version == 'atv' and (devicePortName == 'Speaker' or devicePortName == 'HDMI ARC' or devicePortName == 'HDMI EARC'):
+            for profile in devicePort.findall('.//profile'):
+                if profile.get('format') == 'AUDIO_FORMAT_PCM_16_BIT':
+                    profile.set('channelMasks', 'AUDIO_CHANNEL_OUT_STEREO')
     # routes
     routes = module.find('routes')
     if routes != None:
         module.remove(routes)
     routes = ET.SubElement(module, "routes")
-    mixportPortArray = []
-    devicePortArray = []
-    for devicePort in devicePorts.findall('devicePort'):
-        devicePortArray.append(devicePort.get('tagName'))
-    for mixPort in mixPorts.findall('mixPort'):
-        mixportPortArray.append(mixPort.get('name'))
-    # 1. routes for devicePort
-    for devicePort in devicePorts.findall('devicePort'):
-        if devicePort.get('role')  != 'sink':
-            continue
-        devicePortName = devicePort.get('tagName')
-        modifyRoute(devicePorts, devicePort, devicePortName, routes, audioPolicyCommonRoutesXmlRoot, mixportPortArray, devicePortArray)
-    # 2. routes for mixPort
-    for mixPort in mixPorts.findall('mixPort'):
-        if mixPort.get('role')  != 'sink':
-            continue
-        mixPortName = mixPort.get('name')
-        modifyRoute(mixPorts, mixPort, mixPortName, routes, audioPolicyCommonRoutesXmlRoot, mixportPortArray, devicePortArray)
+    genRoutes(routes, mixPorts, devicePorts, audioPolicyCommonRoutesXmlRoot)
+
+    # TODO: add 32bit PCM profile
+    # if chipDeviceType in ['calla']:
+    #     modify32BitProfile(mixPorts, devicePorts)
 
     # write to XML file
     indent(audioPolicyCommonBaseXmlRoot)
@@ -228,10 +267,13 @@ def genXmlFile(outputFilePath, chipDeviceType, audioBuildType, soundbarProduct, 
     # audioPolicyCommonBaseXmlTree.write(outputFilePath, encoding='utf-8', xml_declaration=True)
 
 def parseArgs():
+
     argparser = argparse.ArgumentParser(description="build audio_policy_configuration.xml need some parameters.")
+    argparser.add_argument('--odmDirName',
+                           help="odm directory name (amlogic, zte, smdc...). Mandatory.",
+                           required=True)
     argparser.add_argument('--chipDeviceType',
                            help="chip device directory name (ohm, calla, oppen...). Mandatory.",
-                           metavar="audioBuildType",
                            required=True)
     argparser.add_argument('--audioBuildType',
                            help="audio build type (ms12, ddp, dtshd...). Mandatory.",
@@ -250,15 +292,27 @@ def main():
     # logging.basicConfig(level=logging.DEBUG, format='%(message)s')
     # logging.basicConfig(level=logging.INFO, format='%(message)s')
     logging.basicConfig(level=logging.WARN, format='%(message)s')
-
+    global AUDIO_POLICY_TOOLS_PATH, ANDROID_CODE_ROOT_PATH
+    AUDIO_POLICY_TOOLS_PATH = os.path.dirname(os.path.abspath(__file__)) + '/'
+    ANDROID_CODE_ROOT_PATH = AUDIO_POLICY_TOOLS_PATH
+    for _ in range(6):
+        ANDROID_CODE_ROOT_PATH = os.path.dirname(ANDROID_CODE_ROOT_PATH)
     if len(sys.argv) != 1:
         args = parseArgs()
-        logging.warning('[buildAudioPolicyConfigurationXml:W] device:' + args.chipDeviceType
+        logging.warning('[buildAudioPolicyConfigurationXml:W] odm:' + args.odmDirName + ' device:' + args.chipDeviceType
                     + ', audioBuildType:' + args.audioBuildType + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion)
-        outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'audio_policy_configuration.xml'
-        genXmlFile(outputFilePath, args.chipDeviceType, args.audioBuildType, args.soundbarProduct, args.atvVersion)
+        outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_xml/audio_policy_configuration.xml'
+        genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.soundbarProduct, args.atvVersion)
+        for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
+            for dts in ['_dtshd', '_dtsx', '']:
+                buildTypeName = dolby + dts
+                fileName = buildTypeName;
+                if fileName == '':
+                    fileName = '_default'
+                outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_xml/' + 'audio_policy_configuration' + fileName + '.xml'
+                genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, buildTypeName, args.soundbarProduct, args.atvVersion)
     else:
-        # cmd: python3 device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py
+        # cmd: python3 buildAudioPolicyConfigurationXml.py
         logging.warning('[buildAudioPolicyConfigurationXml:W] debug mode')
         ottName = 'ohm_wv4'
         tvName = 'calla'
@@ -266,10 +320,10 @@ def main():
             for dts in ['_dtshd', '_dtsx', '']:
                 outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + ottName + dolby + dts + '.xml'
                 logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
-                genXmlFile(outputFilePath, ottName, dolby + dts, 'false', 'aosp')
+                genXmlFile(outputFilePath, 'amlogic', ottName, dolby + dts, 'false', 'aosp')
                 outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + tvName + dolby + dts + '.xml'
                 logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
-                genXmlFile(outputFilePath, tvName, dolby + dts, 'false', 'aosp')
+                genXmlFile(outputFilePath, 'amlogic', tvName, dolby + dts, 'false', 'aosp')
 
 if __name__ == "__main__":
     sys.exit(main())

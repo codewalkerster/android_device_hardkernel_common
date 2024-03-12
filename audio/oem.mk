@@ -33,20 +33,27 @@ else
     AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := false
 endif
 
-ifneq ($(BOARD_COMPILE_ATV),false)
-    AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
-else
+ifeq ($(BOARD_COMPILE_ATV),false)
     AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := aosp
+else
+    AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
+endif
+
+ifeq ($(ODM_DIR),)
+    AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
+else
+    AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
 endif
 
 ifneq ($(AUDIO_FEATURE_TYPE),_)
 configurable_audiopolicy_xmls := device/amlogic/common/audio/
 # auto generate audio_policy_configuration.xml
     $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
+        --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
         --chipDeviceType $(PRODUCT_DIR) \
         --audioBuildType $(AUDIO_FEATURE_TYPE) \
         --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
         --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION))
-    CUSTOM_IMAGE_COPY_FILES += $(configurable_audiopolicy_xmls)/tools/audio_policy_configuration.xml:etc/audio_policy_configuration.xml
+    CUSTOM_IMAGE_COPY_FILES += $(configurable_audiopolicy_xmls)/tools/output_xml/audio_policy_configuration.xml:etc/audio_policy_configuration.xml
 endif
 endif # USE_XML_AUDIO_POLICY_CONF

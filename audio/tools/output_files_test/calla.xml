@@ -50,9 +50,6 @@
                 <mixPort name="tunnel direct output" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
                     <profile name="" />
                 </mixPort>
-                <mixPort name="mmap_no_irq_out_dynamic" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ" maxOpenCount="3" maxActiveCount="3">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="48000" />
-                </mixPort>
                 <mixPort name="mmap_no_irq_out" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ" maxOpenCount="3" maxActiveCount="3">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO" />
                 </mixPort>
@@ -181,9 +178,7 @@
             <format name="AUDIO_FORMAT_AC3" />
             <format name="AUDIO_FORMAT_E_AC3" />
             <format name="AUDIO_FORMAT_E_AC3_JOC" />
-            <format name="AUDIO_FORMAT_DOLBY_TRUEHD" />
             <format name="AUDIO_FORMAT_DTS" />
-            <format name="AUDIO_FORMAT_DTS_HD" />
         </formats>
     </surroundSound>
 </audioPolicyConfiguration>
