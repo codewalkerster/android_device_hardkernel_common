@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Copyright (C) 2024 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<audioPolicyConfiguration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <!-- route declaration, i.e. list all available sources for a given sink -->
+        <routes>
+            <route type="mix" sink="HDMI Out"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out_dynamic,compress offload,tunnel compress offload,direct output,tunnel direct output,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="Mute Device"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="Speaker"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,direct pcm,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="Spdif Out"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="BT SCO"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="BT SCO Headset"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="Wired Headset"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="Wired Headphones"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="HDMI ARC"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="HDMI EARC"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,direct output,tunnel direct output,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="BT A2DP Out"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="BT A2DP Headphones"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="BT A2DP Speaker"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="USB Device Out"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="USB Headset Out"
+                   sources="primary output,deep buffer output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="primary input"
+                   sources="Wired Headset Mic,Spdif In,HDMI In,HDMI ARC In,Line In,Tuner"/>
+            <route type="mix" sink="bt sco input"
+                   sources="BT SCO Headset Mic"/>
+            <route type="mix" sink="built-in mic"
+                   sources="Built-In Mic"/>
+            <route type="mix" sink="echo reference"
+                   sources="Echo Reference"/>
+            <route type="mix" sink="ble_in"
+                   sources="BLE-In"/>
+        </routes>
+</audioPolicyConfiguration>

@@ -73,32 +73,3 @@ PQ_FILES := \
     $(CHIP_DIR)/files/PQ/pq_default.ini
 endif
 
-#########################################################################
-#
-# Audio
-#
-#########################################################################
-
-ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
-AUDIO_FEATURE_TYPE :=
-ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
-AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ms12
-endif
-
-ifeq ($(TARGET_BUILD_DOLBY_MS12_V1),true)
-AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ms12_v1
-endif
-
-ifeq ($(TARGET_BUILD_DOLBY_DDP),true)
-AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ddp
-endif
-
-ifeq ($(TARGET_BUILD_DTSHD),true)
-AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtshd
-endif
-
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-
-endif  ###end USE_XML_AUDIO_POLICY_CONF
-

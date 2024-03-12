@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Copyright (C) 2024 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<audioPolicyConfiguration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <devicePorts>
+        <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
+        <devicePort tagName="Speaker" role="sink" type="AUDIO_DEVICE_OUT_SPEAKER">
+            <profile name="iec raw" format="AUDIO_FORMAT_IEC61937"
+                     samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+            <gains>
+                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
+                      minValueMB="-100000"
+                      maxValueMB="0"
+                      defaultValueMB="-6000"
+                      stepValueMB="100"/>
+            </gains>
+        </devicePort>
+    </devicePorts>
+    <mixPorts>
+        <mixPort name="compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
+           <profile name="multi pcm" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="32000 44100 48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="dts raw" format="AUDIO_FORMAT_DTS"
+                     samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+            <profile name="dtshd raw" format="AUDIO_FORMAT_DTS_HD"
+                     samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+            <profile name="iec raw" format="AUDIO_FORMAT_IEC61937"
+                     samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+            <profile name="aac latm raw" format="AUDIO_FORMAT_AAC_HE_V1"
+                     samplingRates="48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="aac adts raw" format="AUDIO_FORMAT_AAC_HE_V2"
+                     samplingRates="48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="mpeg raw" format="AUDIO_FORMAT_MP3"
+                     samplingRates="48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>
+        </mixPort>
+        <mixPort name="tunnel compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
+            <profile name="dts raw" format="AUDIO_FORMAT_DTS"
+                     samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+            <profile name="dtshd raw" format="AUDIO_FORMAT_DTS_HD"
+                     samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+            <profile name="iec raw" format="AUDIO_FORMAT_IEC61937"
+                     samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+        </mixPort>
+    </mixPorts>
+</audioPolicyConfiguration>

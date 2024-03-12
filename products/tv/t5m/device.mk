@@ -1,4 +1,4 @@
-#
+
 # Copyright (C) 2013 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -87,37 +87,10 @@ endif
 
 #########################################################################
 #
-# Audio
+# tunerhal
 #
 #########################################################################
-
-
-ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
-ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
-ifeq ($(TARGET_BUILD_DTSHD),true)
+ifeq ($(SUPPORT_TUNERHAL), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-else
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-endif
-else
-ifeq ($(TARGET_BUILD_DOLBY_DDP),true)
-ifeq ($(TARGET_BUILD_DTSHD),true)
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-else
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-endif
-else
-ifeq ($(TARGET_BUILD_DTSHD),true)
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-else
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
-endif
-endif
-endif
+    $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
 endif

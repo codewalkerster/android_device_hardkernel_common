@@ -46,12 +46,48 @@ endif
 ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
 PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
 endif
-
 #configurable audio policy
 USE_XML_AUDIO_POLICY_CONF := 1
-
 ifeq ($(USE_XML_AUDIO_POLICY_CONF),1)
+AUDIO_FEATURE_TYPE := _
+ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
+else ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12v1_
+else ifeq ($(TARGET_DOLBY_VERSION), ddp_only)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ddp_
+endif
+
+TARGET_DTS_VERSION ?= non_dts
+ifeq ($(TARGET_DTS_VERSION), dtsx)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtsx_
+else ifeq ($(TARGET_DTS_VERSION), dtshd)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtshd_
+endif
+
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+    AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := true
+else
+    AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := false
+endif
+
+ifneq ($(BOARD_COMPILE_ATV),false)
+    AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
+else
+    AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := aosp
+endif
+
 configurable_audiopolicy_xmls := device/amlogic/common/audio/
+# auto generate audio_policy_configuration.xml
+$(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
+    --chipDeviceType $(PRODUCT_DIR) \
+    --audioBuildType $(AUDIO_FEATURE_TYPE) \
+    --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
+    --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION))
+
+PRODUCT_COPY_FILES += \
+    $(configurable_audiopolicy_xmls)tools/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+
 PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
     $(configurable_audiopolicy_xmls)a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
@@ -63,9 +99,6 @@ PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_product_strategies.xml \
     $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_stream_volumes.xml \
     $(configurable_audiopolicy_xmls)bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml
-
-#    $(configurable_audiopolicy_xmls)audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-#    $(configurable_audiopolicy_xmls)audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
 
 endif
 ################################################################################## alsa

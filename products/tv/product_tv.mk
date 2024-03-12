@@ -255,17 +255,6 @@ else
 #    endif
 endif
 
-#copy all the audio policy xml file
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/tv/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_default.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_ms12_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12_v1.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_ms12_v1_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12_v1_dtshd.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ms12_dtshd.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dtshd.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp.xml \
-    device/amlogic/common/audio/tv/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp_dtshd.xml
-
 ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
 #DEBUG FOR TUNER SDK JNI
 # jasplayer
