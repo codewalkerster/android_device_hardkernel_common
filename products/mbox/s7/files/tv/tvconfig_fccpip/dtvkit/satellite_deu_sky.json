@@ -1,0 +1,124 @@
+{
+   "satellitelist" : [
+      {
+         "bound_lnb" : "2",
+         "east" : true,
+         "long_pos" : 192,
+         "name" : "Astra 19.2E",
+         "dish_pos" : 27,
+         "transponderlist" : [
+            {
+               "name" : "69",
+               "TSID" : 2,
+               "frequency" : 11798,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "65",
+               "TSID" : 3,
+               "frequency" : 11720,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "81",
+               "TSID" : 4,
+               "frequency" : 12032,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "67",
+               "TSID" : 17,
+               "frequency" : 11758,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "83",
+               "TSID" : 1,
+               "frequency" : 12070,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "75",
+               "TSID" : 6,
+               "frequency" : 11914,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "79",
+               "TSID" : 13,
+               "frequency" : 11992,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "95",
+               "TSID" : 12,
+               "frequency" : 12304,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "99",
+               "TSID" : 11,
+               "frequency" : 12382,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            },
+            {
+               "name" : "73",
+               "TSID" : 14,
+               "frequency" : 11875,
+               "inner_fec" : "AUTO",
+               "inversion" : "AUTO",
+               "modulation" : "AUTO",
+               "polarity" : "H",
+               "symbol_rate" : 27500,
+               "system" : "AUTO"
+            }
+		]
+	  }
+	]
+}
+			
