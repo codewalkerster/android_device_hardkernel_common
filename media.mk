@@ -345,6 +345,7 @@ PRODUCT_PACKAGES += libwvmediacas \
 endif
 
 #for drm widevine.
+
 PRODUCT_PROPERTY_OVERRIDES += vendor.drm.service.enable=true
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
     TARGET_USE_SECUREOS := true
@@ -360,10 +361,12 @@ ifeq ($(TARGET_USE_SECUREOS), true)
 endif
 endif
 
+ifneq ($(BUILD_WITHOUT_WIDEVINE), true)
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
 PRODUCT_PACKAGES += \
     liboemcrypto \
     e043cde0-61d0-11e5-9c26-0002a5d5c51b
+endif
 endif
 
 ifeq ($(TARGET_WITH_AMLOGIC_PLAYERS), true)
