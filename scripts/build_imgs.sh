@@ -417,6 +417,8 @@ function build() {
 			--extra_apks ServiceUwbResources.apk=$KEY_DIR/releasekey \
 			--extra_apks WifiDialog.apk=$KEY_DIR/releasekey \
 			--extra_apks ServiceWifiResources.apk=$KEY_DIR/releasekey \
+                        --extra_apks Bluetooth.apk=$KEY_DIR/releasekey \
+                        --key_mapping packages/modules/Bluetooth/android/app/certs/com.android.bluetooth=$KEY_DIR/releasekey \
 			--extra_apex_payload_key com.android.btservices.apex=$KEY_DIR/avb/amlogic.pem \
 			--extra_apex_payload_key com.android.runtime.apex=$KEY_DIR/avb/amlogic.pem \
 			--extra_apex_payload_key com.android.i18n.apex=$KEY_DIR/avb/amlogic.pem \
