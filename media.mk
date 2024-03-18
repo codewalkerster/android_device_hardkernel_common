@@ -410,6 +410,23 @@ ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
 PRODUCT_PACKAGES += \
     liboemcrypto \
     e043cde0-61d0-11e5-9c26-0002a5d5c51b
+
+ifeq ($(BOARD_WIDEVINE_ATSC_GROUP_ENABLE), true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.widevine.atsc.group.enable=true
+
+PRODUCT_PACKAGES += \
+    liboemcrypto_atsc
+
+WIDEVINE_ATSC_COPY_DIR := \
+    $(BOARD_AML_VENDOR_PATH)/prebuilt/libmediadrm/wvcenc/atsc
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.lic,$(WIDEVINE_ATSC_COPY_DIR)/,$(TARGET_COPY_OUT_VENDOR)/etc/atsc)
+
+PRODUCT_COPY_FILES += \
+    $(WIDEVINE_ATSC_COPY_DIR)/atsc_drm_cert.bin:$(TARGET_COPY_OUT_VENDOR)/etc/atsc/atsc_drm_cert.bin
+endif
 endif
 endif
 
