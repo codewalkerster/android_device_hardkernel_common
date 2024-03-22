@@ -35,6 +35,7 @@ on early-boot
     insmod /vendor/lib/modules/amvdec_mmpeg4.ko
     insmod /vendor/lib/modules/amvdec_mmpeg4_v4l.ko
     insmod /vendor/lib/modules/amvdec_vc1.ko
+    insmod /vendor/lib/modules/amvdec_vc1_v4l.ko
     insmod /vendor/lib/modules/amvdec_vp9_fb.ko
     insmod /vendor/lib/modules/amvdec_vp9_fb_v4l.ko
     insmod /vendor/lib/modules/amvdec_avs2_fb.ko
