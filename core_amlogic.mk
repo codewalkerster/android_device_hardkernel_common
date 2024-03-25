@@ -737,7 +737,8 @@ endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_HCODEC),true)
 PRODUCT_PACKAGES += \
-    lib_avc_vpcodec
+    lib_avc_vpcodec \
+    libjpegenc_api
 endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_WAVE420),true)
@@ -750,7 +751,8 @@ PRODUCT_PACKAGES += \
     lib_amvenc \
     lib_encoder_media_process \
     libvpcodec \
-    libamvenc_api
+    libamvenc_api \
+    libjpegenc_api
 endif
 
 ifeq ($(VENDOR_ENCODER_SUPPORT_VCCODEC),true)
