@@ -252,3 +252,39 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/tv/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dtshd.xml \
     device/amlogic/common/audio/tv/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp.xml \
     device/amlogic/common/audio/tv/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_ddp_dtshd.xml
+
+ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
+#DEBUG FOR TUNER SDK JNI
+# jasplayer
+#add jasplayer library
+PRODUCT_PACKAGES += \
+    droidlogic.jasplayer \
+    droidlogic.jasplayer.xml \
+    droidlogic.jniasplayer \
+    droidlogic.jniasplayer.xml
+
+# JDvrLib core packages
+PRODUCT_PACKAGES += \
+    JDvrLib
+
+# JDvrLib test app related packages
+PRODUCT_PACKAGES += \
+    JDvrLibTest \
+    libjdvrlib-ref-native-client
+endif
+
+########################################################################
+#
+##  overlay for panel TV
+#
+#########################################################################
+ifeq ($(ATV_LAUNCHER), amati)
+DEVICE_PACKAGE_OVERLAYS := \
+    device/amlogic/common/products/tv/FrameworkOverlay
+endif
+
+#TV project, enable hwc uvm dettach
+HWC_UVM_DETTACH := true
+
+#TV project, enable hwc pre display calibrate
+HWC_ENABLE_PRE_DISPLAY_CALIBRATE := true

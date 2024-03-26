@@ -80,6 +80,14 @@ PRODUCT_PACKAGES += \
     libjniasplayer-jni \
     droidlogic.jniasplayer.xml
 
+ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
+TARGET_BUILD_JCAS := true
+endif
+
+ifeq ($(TARGET_BUILD_JCAS),true)
+$(call inherit-product-if-exists, vendor/amlogic/common/prebuilt/libmediadrm/jcas/droidlogic-jcas.mk)
+endif
+
 KERNEL_AUTO_PATCH := $(shell ls common/common*/mk.sh)
 KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
     $(shell cd $(shell dirname $(patch_shell)); ./mk.sh --patch lunch))
