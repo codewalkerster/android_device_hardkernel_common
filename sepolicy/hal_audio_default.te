@@ -49,6 +49,8 @@ allow hal_audio_default mediasync_device:chr_file rw_file_perms;
 #allow hal_audio_default default_prop:file{ read };
 #[SEI-zhaopf-2018-12-18]add for hbg remote }
 allow hal_audio_default sysfs_astream:file { open read };
+allow hal_audio_default mailbox_device:chr_file { ioctl open read write getattr map execute };
+allow hal_audio_default hifi4dsp_device:chr_file { ioctl open read write getattr map execute };
 allow hal_audio_default sysfs_astream:dir { search };
 allow hal_audio_default sysfs_audio:file { read write open };
 allow hal_audio_default param_tv_file:dir { search read open getattr };
