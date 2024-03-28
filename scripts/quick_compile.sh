@@ -564,17 +564,27 @@ kernel_exec[45]="./mk ross -v "
 
 ###########################################################################################
 # ROSS Hybrid
-project[45]="ROSS_Hybrid"
-soc[45]="S905X5M"
-hardware[45]="BM201"
-module[45]="ross_hybrid"
-uboot_path[45]="device/amlogic/ross"
-uboot_exec_aosp[45]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
-uboot_exec_drm[45]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
-kernel_exec[45]="./mk ross -v "
+project[46]="ROSS_Hybrid"
+soc[46]="S905X5M"
+hardware[46]="BM201"
+module[46]="ross_hybrid"
+uboot_path[46]="device/amlogic/ross"
+uboot_exec_aosp[46]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[46]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+kernel_exec[46]="./mk ross -v "
 ###########################################################################################
 
-
+###########################################################################################
+# ROSS ATV
+project[47]="ROSS_ATV"
+soc[47]="S905X5M"
+hardware[47]="BM201"
+module[47]="ross_atv"
+uboot_path[47]="device/amlogic/ross"
+uboot_exec_aosp[47]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[47]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
+kernel_exec[47]="./mk ross -v "
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
