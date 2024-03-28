@@ -85,6 +85,122 @@ ro.vendor.arm.egl.configs.r16_g16_b16_a16_64bit_float.framebuffer_target   u:obj
 ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.hal_format         u:object_r:vendor_arm_egl_configs_prop:s0 exact int
 ro.vendor.arm.egl.configs.r8_g8_b8_a0_24bit_yuv_special.framebuffer_target u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
 
+vendor.mali.base_max_nr_instances                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_base_internal                                u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_buf                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cblend_hmem                                  u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cdeps_hmem                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cframe_discard                               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cframe_hmem                                  u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cframe_sample_pos                            u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cframe_tess_geom                             u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cinstr                                       u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cl_hmem                                      u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cl_payload                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cl_protected                                 u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cl_svm                                       u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cl_wlm_tls                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmar_flush_chain                             u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmar_hmem                                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmar_metadata_list                           u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmar_prof_dump                               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmar_signal                                  u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmem_hoard                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmem_registry                                u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cmem_suballoc                                u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cobj_hmem                                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cpom_hmem                                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cpom_mbs2                                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cpom_rsd                                     u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_cpom_static                                  u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_crc                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_default_heap                                 u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_egl_color_plane                              u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_egl_color_plane_imported                     u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_framepool                                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_command_allocator                        u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_command_allocator_host                   u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_command_allocator_protected              u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_descriptor_pool                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_external                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_external_swapchain                u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_internal                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_internal_host                     u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_internal_protected                u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_internal_tls                      u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_internal_transient                u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_memory_cpu_cached                 u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_memory_cpu_uncached               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_memory_protected                  u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_device_memory_transient                  u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_graph_internal_device                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_graph_internal_device_transient          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gfx_graph_internal_host                      u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gles_hmem                                    u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gles_multiview                               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gles_query                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_gles_query_host                              u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_img                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_internal_surface                             u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_jit                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_mmu                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_program                                      u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_tiler                                        u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_unnamed                                      u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_vao                                          u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_vk_bound_buffer                              u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.cctx_memory_class_vk_bound_image                               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+vendor.mali.debug.config                                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+vendor.mali.hal_dump_dir                                                   u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+vendor.mali.osu_ion_protected_memory_heap_name                             u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+vendor.mali.osu_protected_memory_heap_name                                 u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+vendor.mali.platform.config                                                u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+vendor.mali.platform_agt_frequency_khz                                     u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+# yuyv
+ro.vendor.arm.egl.configs.yuyv.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.yuyv.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.yuyv.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# nv12
+ro.vendor.arm.egl.configs.nv12.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.nv12.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.nv12.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# nv21
+ro.vendor.arm.egl.configs.nv21.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.nv21.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.nv21.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# nv16
+ro.vendor.arm.egl.configs.nv16.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.nv16.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.nv16.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# yuv420
+ro.vendor.arm.egl.configs.yuv420.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.yuv420.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.yuv420.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# yvu420
+ro.vendor.arm.egl.configs.yvu420.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.yvu420.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.yvu420.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# y410
+ro.vendor.arm.egl.configs.y410.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.y410.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.y410.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# y210
+ro.vendor.arm.egl.configs.y210.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.y210.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.y210.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# y0l2
+ro.vendor.arm.egl.configs.y0l2.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.y0l2.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.y0l2.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# p210
+ro.vendor.arm.egl.configs.p210.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.p210.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.p210.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+# p010
+ro.vendor.arm.egl.configs.p010.hal_format u:object_r:vendor_arm_egl_configs_prop:s0 exact int
+ro.vendor.arm.egl.configs.p010.recordable u:object_r:vendor_arm_egl_configs_prop:s0 exact bool
+ro.vendor.arm.egl.configs.p010.dataspaces_to_exclude u:object_r:vendor_arm_egl_configs_prop:s0 exact string
+
 # Usage properties for the Arm reference Gralloc
 # No AFBC Vendor usage bit
 ro.vendor.arm.gralloc.no_afbc_usage_flags           u:object_r:vendor_arm_gralloc_prop:s0 exact uint
