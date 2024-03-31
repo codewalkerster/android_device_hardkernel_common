@@ -435,8 +435,7 @@
 #/vendor/bin/dv_config        u:object_r:dv_config_exec:s0
 
 # Kernel modules related
-/vendor/bin/init\.insmod\.sh    u:object_r:init-insmod-sh_exec:s0
-
+/vendor/bin/modules_load       u:object_r:modules_load_exec:s0
 #/system/bin/mke2fs       --   u:object_r:fsck_exec:s0
 #/system/bin/e2fsdroid    --	  u:object_r:fsck_exec:s0
 #/vendor/bin/pppoe_wrapper    u:object_r:pppoe_wrapper_exec:s0
