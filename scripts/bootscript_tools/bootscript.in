@@ -61,14 +61,6 @@ if bcb load $$devnum misc; then
 
 	mmc read $$loadaddr $$boot_start $$boot_size
 
-	load $$devtype $$devnum:1 $$ini_addr_r config.ini
-	ini generic $$ini_addr_r
-
-	echo "  Load Device Tree"
-	load $$devtype $$devnum:1 $$fdt_addr_r rockchip/${_target_dtb}.dtb
-
-	fdt addr $$fdt_addr_r
-
 	if test $$heartbeat = "0"; then
 		fdt set /leds/work linux,default-trigger "none";
 	fi
