@@ -65,3 +65,4 @@ set_prop(hal_audio_default, ptsserver_device)
 allow hal_audio_default ptsserver_device:chr_file rw_file_perms;
 allow hal_audio_default dmabuf_system_heap_device:chr_file r_file_perms;
 get_prop(hal_audio_default, vendor_media_prop)
+allow hal_audio_default video_device:chr_file rw_file_perms;
