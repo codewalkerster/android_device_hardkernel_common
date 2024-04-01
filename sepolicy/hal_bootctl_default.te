@@ -21,6 +21,9 @@ allow hal_bootctl_default bootloader_device:blk_file rw_file_perms;
 allow hal_bootctl_default sysfs:dir { open read };
 #allow hal_bootctl_default sysfs:file { getattr open read };
 
+allow hal_bootctl_default ota_metadata_file:dir rw_dir_perms;
+allow hal_bootctl_default ota_metadata_file:file rw_file_perms;
+
 allow hal_bootctl_default sysfs_tee:dir { search open read };
 allow hal_bootctl_default sysfs_tee:file rw_file_perms;
 allow hal_bootctl_default property_socket:sock_file write;
