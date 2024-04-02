@@ -42,10 +42,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=100
 
-#if need pppoe
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.net.pppoe=true
-
 #the prop is used for enable or disable
 #DD+/DD force output when HDMI EDID is not supported
 #by default,the force output mode is enabled.
@@ -90,14 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1
 
-#set memory upper limit for extractor process
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.media.maxmem=629145600
-
-#map volume
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.audio.mapvalue=0,0,0,0
-
 #adb
 PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.tcp.port=5555
@@ -105,10 +93,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #fake pid
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.fake_pid=0x2fff
-
-#disable timeshift
-PRODUCT_PROPERTY_OVERRIDES += \
-    tv.dtv.tf.disable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.tsplayer.enable=true
@@ -151,16 +135,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #support 4k
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.amplayer.videolimiter=true \
     ro.vendor.platform.support.4k=true
-
-
-#used for controlling reference board's preview window,
-#project's need disable it or can refer its implementation method.
-ifneq ($(TARGET_BUILD_GOOGLE_ATV), true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    tv.need.droidlogic.preview_window=true
-endif
 
 #ifeq ($(TARGET_BUILD_GOOGLE_ATV), false)
 #USB wifi need to be disabled when suspending
@@ -172,11 +147,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
     audio.offload.min.duration.secs=5
-
-# hwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=40.5f \
-    ro.hwui.layer_cache_size=33.75f
 
 #enable di backend
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -206,10 +176,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
-
-
-
-PRODUCT_PROPERTY_OVERRIDES += ro.llk.enable=false
 
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \
