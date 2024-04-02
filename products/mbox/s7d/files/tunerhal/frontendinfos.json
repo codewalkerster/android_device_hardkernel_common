@@ -40,7 +40,7 @@
         //                     0x100-16apsk, 0x200-32apsk, 0x400-64apsk,
         //                     0x800-128apsk, 0x1000-256apsk, 0x2000-reserved
         // feccap: 0-undefined, 0x1-auto, BIT2...BIT35
-        // stdCap: 1-auto, 2-s, 4-s4, 8-s2x
+        // stdCap: 1-auto, 2-s, 4-s7d, 8-s2x
 
         {"hwid":0, "type":5, "modulationCap":15, "fecCap":1, "stdCap":7, "minFreq":950000000, "maxFreq":2147000000, "minSymbol":1000, "maxSymbol":45000},
 

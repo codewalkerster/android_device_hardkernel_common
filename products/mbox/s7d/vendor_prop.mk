@@ -76,7 +76,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1
 
-#s4 invalid pid
+#s7d invalid pid
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.fake_pid=0x2fff
 
@@ -183,3 +183,5 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.global.settingskey=settings
 endif
+
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1

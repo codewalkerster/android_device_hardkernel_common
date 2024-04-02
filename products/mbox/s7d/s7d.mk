@@ -232,8 +232,8 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/amlogic/common/products/mbox/s4/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
-    device/amlogic/common/products/mbox/s4/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
+    $(call find-copy-subdir-files,*,device/amlogic/common/products/mbox/s7d/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
+    device/amlogic/common/products/mbox/s7d/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
 
 #########################################################################
 #
@@ -241,9 +241,9 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
-DTVKIT_HW_CONFIG_SOC := s4
+DTVKIT_HW_CONFIG_SOC := s7d
 ifeq ($(TUNER_MODULE),mxl258c)
-DTVKIT_HW_CONFIG_SOC := s4-fccpip
+DTVKIT_HW_CONFIG_SOC := s7d-fccpip
 endif
 $(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
 endif

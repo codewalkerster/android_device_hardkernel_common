@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/mbox/s4
+CHIP_DIR := device/amlogic/common/products/mbox/s7d
 
 PRODUCT_COPY_FILES += \
     device/amlogic/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
