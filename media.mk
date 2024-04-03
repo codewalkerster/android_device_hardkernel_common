@@ -49,7 +49,6 @@ endif
 #TARGET_WITH_AMLOGIC_RETRIEVER :=true
 #TARGET_WITH_AMLOGIC_PLAYERS :=true
 #move TARGET_WITH_MEDIA_EXT_LEVEL to platform mk
-$(warning TARGET_WITH_MEDIA_EXT_LEVEL $(TARGET_WITH_MEDIA_EXT_LEVEL))
 #set on some products,used libplayer.
 BUILD_WITH_BOOT_PLAYER :=true
 BUILD_WITH_ES_PLAYER := true
@@ -61,8 +60,7 @@ BUILD_WITH_DEC_INFO_TEST := true
 #
 #########################################################################
 MEDIAEXTRACTOR_FILECONTEXTS := system/sepolicy/apex/com.amlogic.mediaextractor-file_contexts
-HAVE_FILECONTEXTS := $(shell test -f $(MEDIAEXTRACTOR_FILECONTEXTS) && echo yes)
-ifneq ($(HAVE_FILECONTEXTS), yes)
+ifneq (,$(wildcard $(MEDIAEXTRACTOR_FILECONTEXTS)))
     $(shell rm vendor/amlogic/common/prebuilt/libmedia/libavenhancements/apex/com.amlogic.mediaextractor/Android.bp)
 endif
 
