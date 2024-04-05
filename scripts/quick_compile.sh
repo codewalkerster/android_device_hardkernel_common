@@ -585,6 +585,18 @@ uboot_exec_aosp[47]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
 uboot_exec_drm[47]="./mk s7d_bm201 --vab --avb2 --fastboot-write"
 kernel_exec[47]="./mk ross -v "
 ###########################################################################################
+
+###########################################################################################
+# ROSS SKT
+project[48]="ROSS_SKT"
+soc[48]="S905X5M"
+hardware[48]="BM201"
+module[48]="ross_skt"
+uboot_path[48]="device/amlogic/ross"
+uboot_exec_aosp[48]="./mk s7d_bm209 --vab --avb2 --fastboot-write"
+uboot_exec_drm[48]="./mk s7d_bm209 --vab --avb2 --fastboot-write"
+kernel_exec[48]="./mk ross -v "
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
