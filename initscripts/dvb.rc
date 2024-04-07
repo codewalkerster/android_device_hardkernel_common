@@ -1,6 +1,10 @@
 on post-fs-data
     insmod /vendor/lib/modules/aml_hardware_dmx.ko
 
+on init
+    chmod 0666 /sys/class/dmx/dmx_source
+    chown media system /sys/class/dmx/dmx_source
+
 on boot
     # DVB
     chmod 0666 /dev/dvb0.frontend0
