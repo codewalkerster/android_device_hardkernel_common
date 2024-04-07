@@ -531,6 +531,8 @@ else
 PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
 endif
 
+include vendor/amlogic/common/apps/DroidMdnsOffloadService/mdns.mk
+
 #
 # Bluetooth Audio AIDL HAL
 #

@@ -9,4 +9,6 @@ type screencontrol_hwservice, hwservice_manager_type;
 #Irdeto hidlimw
 type hal_hidlimw_hwservice, hwservice_manager_type;
 
+#type mdnsoffload_aidl_hwservice, hwservice_manager_type;
+
 type miracast_hdcp2_hwservice, hwservice_manager_type;

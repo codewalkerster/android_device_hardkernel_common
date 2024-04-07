@@ -648,6 +648,8 @@
 /system_ext/lib/libtee-hal.so             u:object_r:nfx_tee_hal_lib:s0
 
 
+/vendor/bin/hw/droidmdnsoffload-service        u:object_r:hal_droid_mdns_default_exec:s0
+
 /sys/class/smc_sc2-class/ctrl_5v3v  u:object_r:sysfs_stb:s0
 /sys/class/smc_sc2-class/pins_mode  u:object_r:sysfs_stb:s0
 
