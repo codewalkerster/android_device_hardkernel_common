@@ -153,7 +153,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.c2.disp.nr.enable=true \
     vendor.media.c2.disp.di.localbuf_enable=true \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true \
-    ro.vendor.platform.support.8k=true
+    ro.vendor.platform.support.8k=true \
+    ro.vendor.platform.support.4k=true \
+    ro.vendor.platform.support.4k_fps_max=125
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
