@@ -451,6 +451,22 @@ ifeq ($(TARGET_WITH_FB_MEDIA_MODULES),true)
 # for media modules
 PRODUCT_COPY_FILES += \
 	device/amlogic/common/initscripts/init.amlogic.media.s5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else ifeq ($(TARGET_PRODUCT),raman)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s6.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else ifeq ($(TARGET_PRODUCT),raman_atv)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s6.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else ifeq ($(TARGET_PRODUCT),raman_hybrid)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s6.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+else ifeq ($(TARGET_PRODUCT),raman_multidisplay)
+# for media modules
+PRODUCT_COPY_FILES += \
+	device/amlogic/common/initscripts/init.amlogic.media.s6.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 else
 # for media modules
 PRODUCT_COPY_FILES += \
