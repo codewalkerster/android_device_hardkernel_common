@@ -273,8 +273,14 @@ PRODUCT_PACKAGES += \
 ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \
     DroidOverlay \
-    ABUpdater\
     ExoPlayer
+ifeq ($(AB_OTA_UPDATER),true)
+PRODUCT_PACKAGES += \
+    ABUpdater
+else
+PRODUCT_PACKAGES += \
+    OTAUpgrade
+endif
 endif
 
 PRODUCT_PACKAGES += \
