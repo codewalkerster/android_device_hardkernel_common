@@ -56,13 +56,12 @@ PRODUCT_COPY_FILES += \
 endif
 ifneq ($(wildcard hardware/amlogic/gralloc/gpu.xml),)
 PRODUCT_COPY_FILES += \
-		hardware/amlogic/gralloc/gpu.xml:vendor/etc/gralloc/gpu.xml \
-		hardware/amlogic/gralloc/dpu.xml:vendor/etc/gralloc/dpu.xml \
-		hardware/amlogic/gralloc/dpu_aeu.xml:vendor/etc/gralloc/dpu_aeu.xml \
-		hardware/amlogic/gralloc/vpu.xml:vendor/etc/gralloc/vpu.xml \
-		hardware/amlogic/gralloc/cam.xml:vendor/etc/gralloc/cam.xml
+		hardware/amlogic/gralloc/vale/gpu.xml:vendor/etc/gralloc/gpu.xml \
+		hardware/amlogic/gralloc/vale/dpu.xml:vendor/etc/gralloc/dpu.xml \
+		hardware/amlogic/gralloc/vale/dpu_aeu.xml:vendor/etc/gralloc/dpu_aeu.xml \
+		hardware/amlogic/gralloc/vale/vpu.xml:vendor/etc/gralloc/vpu.xml \
+		hardware/amlogic/gralloc/vale/cam.xml:vendor/etc/gralloc/cam.xml
 endif
 
 PRODUCT_COPY_FILES += device/amlogic/common/gpu/mali_csffw_vale.bin:vendor/lib/firmware/mali_csffw.bin
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_csf_supported.xml
-DEVICE_MANIFEST_FILE += device/amlogic/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_csf_supported.xml
+
