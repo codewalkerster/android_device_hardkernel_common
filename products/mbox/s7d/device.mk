@@ -91,6 +91,12 @@ endif
 # Audio
 #
 #########################################################################
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/soundbar/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    device/amlogic/common/audio/soundbar/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+$(warning 'This platform use soundbar audio policy configuration!')
+else
 ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 AUDIO_FEATURE_TYPE :=
@@ -117,6 +123,7 @@ else
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 endif  ###end TARGET_BUILD_OEM_WITH_LICENSE_FILES
+endif  #end TARGET_BUILD_TYPE_SOUNDBAR
 #########################################################################
 #
 # tunerhal
