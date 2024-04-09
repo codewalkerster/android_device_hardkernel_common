@@ -185,3 +185,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.tf.save_dmx=false
 endif
 
+# for SF performance
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.auto_latch_unsignaled=false

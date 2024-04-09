@@ -158,3 +158,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=ff400000.dwc2_a
+
+# for SF performance
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.auto_latch_unsignaled=false

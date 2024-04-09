@@ -212,3 +212,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.fixed_tunnel=1
+
+# for SF performance
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.auto_latch_unsignaled=false

@@ -183,3 +183,7 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.global.settingskey=settings
 endif
+
+# for SF performance
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.auto_latch_unsignaled=false

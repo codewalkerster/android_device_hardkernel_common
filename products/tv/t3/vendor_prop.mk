@@ -211,4 +211,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.usehwmjpeg=true \
     vendor.media.camera.dec.mediahalsdk=true \
-    ro.vendor.camera_usb.faceback=true
+
+# for SF performance
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.auto_latch_unsignaled=false
