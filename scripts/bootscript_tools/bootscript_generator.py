@@ -4,20 +4,23 @@ import getopt
 import os
 from string import Template
 
-usage = 'Invalid arguments. Example:\nbootscript_generator --variant userdebug --boot-part 6 --recovery-part 7 --wifi-country US --mtd flash.0:flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware) --target-board odroidm1 --output boot.scr --emmc-boot-device fe2e0000.mmc --sd-boot-device fe2c0000.mmc'
+usage = 'Invalid arguments. Example:\nbootscript_generator --input bootscript.in --input_subscript bootscript_dtb_ini.in --variant userdebug --boot-part 6 --recovery-part 7 --wifi-country US --mtd flash.0:flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware) --target-board odroidm1 --target-dtb rk3568-odroid-m1 --output boot.scr --emmc-boot-device fe2e0000.mmc --sd-boot-device fe2c0000.mmc'
 
 def main(argv):
     infile = 'bootscript.in'
+    in_subscript_file = 'bootscript_dtb_ini.in'
     boot_part = '6'
     recovery_part = '7'
     wifi_country = 'US'
     outfile = 'boot.cmd'
     mtd = "flash.0:0x1000@0x800(uboot),0x800@0x1800(splash),0x6000@0x2000(firmware)"
     target_board = 'odroidm1'
+    target_dtb = 'rk3568-odroid-m1'
     emmc_boot_device = 'fe310000.sdhci'
     sd_boot_device = 'fe2b0000.dwmmc'
+    load_dtb = ''
     try:
-        opts, args = getopt.getopt(argv, "h", ["input=","variant=","boot-part=","recovery-part=","wifi-country=","output=","mtd=","target-dtb=","target-board=","emmc-boot-device=","sd-boot-device="])
+        opts, args = getopt.getopt(argv, "h", ["input=","input_subscript=","variant=","boot-part=","recovery-part=","wifi-country=","output=","mtd=","target-dtb=","target-board=","emmc-boot-device=","sd-boot-device="])
     except getopt.GetoptError:
         print(usage)
         sys.exit(2)
@@ -27,6 +30,8 @@ def main(argv):
             sys.exit(2)
         elif opt == "--input":
             infile = arg;
+        elif opt == "--input_subscript":
+            in_subscript_file = arg;
         elif opt == "--variant":
             variant= arg;
         elif opt == "--boot-part":
@@ -41,6 +46,8 @@ def main(argv):
             mtd = arg
         elif opt == "--target-board":
             target_board = arg
+        elif opt == "--target-dtb":
+            target_dtb = arg
         elif opt == "--emmc-boot-device":
             emmc_boot_device = arg
         elif opt == "--sd-boot-device":
@@ -57,11 +64,17 @@ def main(argv):
         print (usage)
         sys.exit(2)
 
+    if target_board == 'odroidm1':
+        file_subscript_in = open(in_subscript_file)
+        template_subscript_in =  file_subscript_in.read()
+        template_dtb_ini_in_t = Template(template_subscript_in)
+        load_dtb = template_dtb_ini_in_t.substitute(_target_dtb=target_dtb)
+
     file_bootscript_in = open(infile)
     template_bootscript_in = file_bootscript_in.read()
     template_in_t = Template(template_bootscript_in)
 
-    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _mtd=mtd, _target_board=target_board, _emmc_boot_device=emmc_boot_device, _sd_boot_device=sd_boot_device)
+    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _load_dtb=load_dtb, _mtd=mtd, _target_board=target_board, _emmc_boot_device=emmc_boot_device, _sd_boot_device=sd_boot_device)
 
     if outfile != '':
         with open (outfile,"w") as f:

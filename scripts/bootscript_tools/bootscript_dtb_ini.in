@@ -1,0 +1,10 @@
+
+	load $$devtype $$devnum:1 $$ini_addr_r config.ini
+	ini generic $$ini_addr_r
+
+	setenv fdt_addr_r 0x0A100000
+
+	echo "  Load Device Tree"
+	load $$devtype $$devnum:1 $$fdt_addr_r rockchip/${_target_dtb}.dtb
+
+	fdt addr $$fdt_addr_r

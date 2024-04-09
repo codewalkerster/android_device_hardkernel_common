@@ -89,6 +89,7 @@ endif
 TARGET_PREBUILT_RESOURCE ?= $(PRODUCT_KERNEL_PATH)/resource.img
 PRODUCT_PARAMETER_TEMPLATE ?= device/hardkernel/common/scripts/parameter_tools/parameter.in
 PRODUCT_BOOTSCRIPT_TEMPLATE ?= device/hardkernel/common/scripts/bootscript_tools/bootscript.in
+PRODUCT_BOOTSCRIPT_INI_DTB_TEMPLATE := device/hardkernel/common/scripts/bootscript_tools/bootscript_dtb_ini.in
 TARGET_BOARD_HARDWARE_EGL ?= mali
 
 #Android GO configuration
@@ -264,7 +265,7 @@ BOARD_CODEC_WM8994 ?= false
 BOARD_CODEC_RT5625_SPK_FROM_SPKOUT ?= false
 BOARD_CODEC_RT5625_SPK_FROM_HPOUT ?= false
 BOARD_CODEC_RT3261 ?= false
-BOARD_CODEC_RT3224 ?= true
+BOARD_CODEC_RT3224 ?= false
 BOARD_CODEC_RT5631 ?= false
 BOARD_CODEC_RK616 ?= false
 
