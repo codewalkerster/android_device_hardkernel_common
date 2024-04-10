@@ -85,11 +85,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
 
-# hwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=40.5f \
-    ro.hwui.layer_cache_size=33.75f
-
 # default enable sdr to hdr
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sdr2hdr.enable=true

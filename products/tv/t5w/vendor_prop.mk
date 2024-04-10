@@ -38,10 +38,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     #ro.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28
 
 #camera max to 1080p
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.media.camera_preview.maxsize=1920x1080 \
-    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
-    ro.media.camera_preview.usemjpeg=1
+#PRODUCT_PRODUCT_PROPERTIES += \
+#    ro.media.camera_preview.maxsize=1920x1080 \
+#    ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
+#    ro.media.camera_preview.usemjpeg=1
 
 
 
