@@ -60,7 +60,7 @@ BUILD_WITH_DEC_INFO_TEST := true
 #
 #########################################################################
 MEDIAEXTRACTOR_FILECONTEXTS := system/sepolicy/apex/com.amlogic.mediaextractor-file_contexts
-ifneq (,$(wildcard $(MEDIAEXTRACTOR_FILECONTEXTS)))
+ifeq (,$(wildcard $(MEDIAEXTRACTOR_FILECONTEXTS)))
     $(shell rm vendor/amlogic/common/prebuilt/libmedia/libavenhancements/apex/com.amlogic.mediaextractor/Android.bp)
 endif
 
