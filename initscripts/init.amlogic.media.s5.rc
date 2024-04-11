@@ -81,3 +81,26 @@ on property:vendor.media.c2.vdec.game_low_latency=0
     write /proc/sys/kernel/sched_energy_aware 1
     write /sys/module/amlogic_debug/parameters/sched_interactive_task_util 150
 
+on init && property:vendor.hwc.di_channel_number=2
+    setprop vendor.bootvideo.dipost 1
+
+on post-fs-data && property:persist.vendor.media.bootvideo.tsplayer=1
+    write /sys/module/decoder_common/parameters/max_di_instance 0
+    write /sys/module/decoder_common/parameters/v4lvideo_add_di 0
+
+on post-fs-data && property:persist.vendor.media.bootvideo.tsplayer=1 && property:vendor.bootvideo.dipost=1
+    write /sys/class/di_process/di_proc_enable 0
+    setprop vendor.hwc.di_channel_number 0
+    setprop vendor.media.mediahal.tsplayer.vtbuffer_number_limit 4
+
+on property:persist.vendor.media.bootvideo.tsplayer=1 && property:service.bootvideo.exit=0
+    write /sys/module/decoder_common/parameters/max_di_instance 2
+    write /sys/module/decoder_common/parameters/v4lvideo_add_di 1
+
+on property:persist.vendor.media.bootvideo.tsplayer=1 && property:service.bootvideo.exit=0 && property:vendor.bootvideo.dipost=1
+    write /sys/module/decoder_common/parameters/v4lvideo_add_di 0
+    write /sys/class/di_process/di_proc_enable 1
+    setprop vendor.hwc.di_channel_number 2
+    setprop vendor.media.mediahal.tsplayer.vtbuffer_number_limit 1
+
+
