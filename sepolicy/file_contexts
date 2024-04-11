@@ -679,3 +679,7 @@
 
 /vendor/bin/hw/vmx_webclient      u:object_r:vmx_webclient_exec:s0
 
+/dev/i2c-1                   u:object_r:i2c_device:s0
+/dev/i2c-2                   u:object_r:i2c_device:s0
+/dev/i2c-3                   u:object_r:i2c_device:s0
+/dev/i2c-5                   u:object_r:i2c_device:s0

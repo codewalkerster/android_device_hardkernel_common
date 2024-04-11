@@ -36,7 +36,9 @@ allow hal_camera_default sysfs:file  { open read write };
 #allow hal_camera_default audio_device:chr_file { setattr open read write };
 #allow hal_camera_default sysfs_xbmc:file  { open read write};
 #allow hal_camera_default audioserver_service:service_manager find;
-get_prop(hal_camera_default, vendor_media_prop)
+get_prop(hal_camera_default, vendor_tv_prop);
+get_prop(hal_camera_default, vendor_media_prop);
+set_prop(hal_camera_default, vendor_media_prop);
 allow hal_camera_default vendor_default_prop:file { read open getattr map };
 
 allow hal_camera_default kernel:system module_request;
@@ -71,3 +73,4 @@ allow hal_camera_default hal_graphics_composer_default:binder call;
 allow hal_camera_default system_control:binder { call };
 allow hal_camera_default isp_device:chr_file rw_file_perms;
 hal_client_domain(hal_camera_default, hal_graphics_allocator)
+allow hal_camera_default i2c_device:chr_file { read write open ioctl };

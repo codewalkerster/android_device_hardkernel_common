@@ -98,3 +98,4 @@ type hifi4dsp_device, dev_type;
 type sysfs_display_device, dev_type;
 type afd_device, dev_type, mlstrustedobject;
 type vicp_device, dev_type;
+type i2c_device, dev_type;

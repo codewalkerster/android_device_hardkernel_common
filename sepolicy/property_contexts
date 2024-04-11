@@ -56,6 +56,10 @@ persist.vendor.sys.memc             u:object_r:vendor_memc_prop:s0
 persist.vendor.tvconfig.path             u:object_r:vendor_platform_prop:s0
 vendor.vmx.indiv.server.ip               u:object_r:vendor_platform_prop:s0
 
+#camera use
+vendor.camhal.                      u:object_r:vendor_default_prop:s0
+vendor.camera.                      u:object_r:vendor_default_prop:s0
+
 # EGL config properties
 # r8_g8_b8_a8_32bit_fixed
 ro.vendor.arm.egl.configs.r8_g8_b8_a8_32bit_fixed.hal_format               u:object_r:vendor_arm_egl_configs_prop:s0 exact int
