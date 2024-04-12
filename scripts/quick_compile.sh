@@ -597,6 +597,18 @@ uboot_exec_aosp[48]="./mk s7d_bm209 --vab --avb2 --fastboot-write"
 uboot_exec_drm[48]="./mk s7d_bm209 --vab --avb2 --fastboot-write"
 kernel_exec[48]="./mk ross -v "
 ###########################################################################################
+
+###########################################################################################
+# ROSS DONGLE
+project[49]="ROSS_DONGLE"
+soc[49]="S905X5M"
+hardware[49]="BM202"
+module[49]="ross"
+uboot_path[49]="device/amlogic/ross"
+uboot_exec_aosp[49]="./mk s7d_bm202 --vab --avb2 --fastboot-write"
+uboot_exec_drm[49]="./mk s7d_bm202 --vab --avb2 --fastboot-write"
+kernel_exec[49]="./mk ross -v "
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
