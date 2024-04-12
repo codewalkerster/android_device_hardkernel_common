@@ -185,7 +185,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-
-# for drm widevine provision 2.0
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.widevine.provision20=1
