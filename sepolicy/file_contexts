@@ -575,6 +575,9 @@
 /vendor/lib(64)?/libdtvkit_tuner_jni\.so           u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkit_tuner_jni_wrapper\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkitserver\.so               u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libdvbserver\.so                  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libisdbserver\.so                 u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libatscserver\.so                 u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkit_platform\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkit_platform_ATF\.so        u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdsm\.so                       u:object_r:vendor_app_file:s0
