@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     libmediahal_hardware_demux\
 
 # tsplayer for bootvideo
-ifneq ($(BOARD_COMPILE_ATV),true)
+ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     bootvideo \
     libmediahal_tsplayer.system \

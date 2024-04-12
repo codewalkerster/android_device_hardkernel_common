@@ -26,6 +26,8 @@ on fs
     insmod /vendor/lib/modules/pts_server.ko
     insmod /vendor/lib/modules/decoder_common.ko
     insmod /vendor/lib/modules/stream_input.ko
+
+on post-fs-data
     insmod /vendor/lib/modules/media_sync.ko
     insmod /vendor/lib/modules/amvdec_ports.ko
     insmod /vendor/lib/modules/amvdec_mh264.ko

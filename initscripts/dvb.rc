@@ -1,4 +1,4 @@
-on post-fs-data
+on late-fs
     insmod /vendor/lib/modules/aml_hardware_dmx.ko
 
 #bootvideo play with demux1, so should set permission before post-fs-data
