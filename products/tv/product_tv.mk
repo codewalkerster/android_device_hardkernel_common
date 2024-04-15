@@ -66,6 +66,19 @@ SUPPORT_CAS = true
 PRODUCT_PACKAGES += \
     inputsource \
     libdtvkit_jni \
+    libicuuc_vendor \
+    libicui18n_vendor \
+    droidlogic-dtvkit \
+    droidlogic.dtvkit.software.core.xml \
+
+ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
+PRODUCT_PACKAGES += \
+    libdtvkitserver \
+    libdvbserver \
+    libisdbserver \
+    dtvkitserver_releaseinfo.txt
+else
+PRODUCT_PACKAGES += \
     dtvkitserver \
     isdb_server \
     dvb_server \

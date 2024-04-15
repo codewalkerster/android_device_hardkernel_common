@@ -73,7 +73,10 @@ PRODUCT_PACKAGES += \
 ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
 PRODUCT_PACKAGES += \
     libdtvkitserver \
-    libdtvkit_tuner_jni
+    libdvbserver \
+    libisdbserver \
+    libdtvkit_tuner_jni \
+    dtvkitserver_releaseinfo.txt
 else
 PRODUCT_PACKAGES += \
     dtvkitserver \
