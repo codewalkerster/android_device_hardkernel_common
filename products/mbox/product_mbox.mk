@@ -236,12 +236,11 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.hdmi.keep_awake=false
 
-ifneq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),false)
 # cec device types
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=playback_device \
     ro.hdmi.device_type=4
-$(warning 'This platform use playback cec device type')
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
