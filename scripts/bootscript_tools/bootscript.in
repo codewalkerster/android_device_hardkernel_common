@@ -35,12 +35,12 @@ if bcb load $$devnum misc; then
 		# Recovery boot
 		echo "  recovery boot"
 		setenv partnum ${_recovery_part}
-		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init"
+		setenv init_args "firmware_class.path=/vendor/firmware init=/init"
 	else
 		# Normal boot
 		echo "  Normal boot"
 		setenv partnum ${_boot_part}
-		setenv init_args "firmware_class.path=/vendor/etc/firmware init=/init rootwait ro"
+		setenv init_args "firmware_class.path=/vendor/firmware init=/init rootwait ro"
 	fi
 
 	echo "  Load booting image"

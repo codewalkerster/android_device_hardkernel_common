@@ -171,6 +171,11 @@ make $ADDON_ARGS ARCH=$KERNEL_ARCH dtbs -j$BUILD_JOBS
 # will build wifi/bt drivers
 echo "cp rtl8821cu wifi driver"
 cp drivers/net/wireless/rtl8821cu/8821cu.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/8821cu.ko
+echo "cp bt drivers"
+cp drivers/bluetooth/btbcm.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/btbcm.ko
+cp drivers/bluetooth/btrtl.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/btrtl.ko
+cp drivers/bluetooth/btusb.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/btusb.ko
+
 echo "compile rtl8812au wifi driver"
 make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au clean
 make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au -j$BUILD_JOBS
