@@ -92,7 +92,7 @@ else
 endif
 
 # PCBA tools
-$(call inherit-product, device/hardkernel/common/modules/pcba.mk)
+#$(call inherit-product, device/hardkernel/common/modules/pcba.mk)
 # Optee
 $(call inherit-product, device/hardkernel/common/modules/optee.mk)
 # Sepolicy

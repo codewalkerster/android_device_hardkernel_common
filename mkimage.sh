@@ -119,8 +119,6 @@ fi
 
 echo -n "create misc.img.... "
 cp -a rkst/Image/misc.img $IMAGE_PATH/misc.img
-cp -a rkst/Image/pcba_small_misc.img $IMAGE_PATH/pcba_small_misc.img
-cp -a rkst/Image/pcba_whole_misc.img $IMAGE_PATH/pcba_whole_misc.img
 echo "done."
 
 if [ -f $UBOOT_PATH/uboot.img ]
