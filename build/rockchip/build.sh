@@ -169,6 +169,13 @@ make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG
 make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS
 make $ADDON_ARGS ARCH=$KERNEL_ARCH dtbs -j$BUILD_JOBS
 # will build wifi/bt drivers
+echo "cp rtl8821cu wifi driver"
+cp drivers/net/wireless/rtl8821cu/8821cu.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/8821cu.ko
+echo "compile rtl8812au wifi driver"
+make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au clean
+make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au -j$BUILD_JOBS
+echo "cp rtl8812au wifi driver"
+cp ../hardware/wifi/realtek/drivers/rtl8812au/8812au.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/
 
 popd
 
@@ -179,7 +186,7 @@ else
     exit 1
 fi
 # build exteranl wifi driver
-LOCAL_EXT_WIFI_DRIVER_PATH=external/wifi_driver
+#LOCAL_EXT_WIFI_DRIVER_PATH=external/wifi_driver
 if [ -d $LOCAL_EXT_WIFI_DRIVER_PATH ]; then
 source $LOCAL_EXT_WIFI_DRIVER_PATH/set_android_version.sh $LOCAL_EXT_WIFI_DRIVER_PATH
 echo "Start build exteranl wifi driver"
