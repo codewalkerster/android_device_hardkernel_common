@@ -580,14 +580,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service
 
 # HW Composer
-HWC_ENABLE_AIDL ?= false
-ifeq ($(HWC_ENABLE_AIDL),true)
+HWC_ENABLE_AIDL := true
 PRODUCT_PACKAGES += \
    android.hardware.graphics.composer@3.2-service.droidlogic
-else
-PRODUCT_PACKAGES += \
-   android.hardware.graphics.composer@2.4-service.droidlogic
-endif
 
 # dumpstate binderized
 PRODUCT_PACKAGES += \
