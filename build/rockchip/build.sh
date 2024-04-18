@@ -168,19 +168,23 @@ make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DEFCONFIG
 # will copy .tmp.domain of each boards.
 make $ADDON_ARGS ARCH=$KERNEL_ARCH $KERNEL_DTS.img -j$BUILD_JOBS
 make $ADDON_ARGS ARCH=$KERNEL_ARCH dtbs -j$BUILD_JOBS
+TARGET_MODULE_PATH=../device/hardkernel/$TARGET_BOARD_PLATFORM/modules
+if [ ! -d $TARGET_MODULE_PATH ]; then
+mkdir $TARGET_MODULE_PATH
+fi
 # will build wifi/bt drivers
 echo "cp rtl8821cu wifi driver"
-cp drivers/net/wireless/rtl8821cu/8821cu.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/8821cu.ko
+cp drivers/net/wireless/rtl8821cu/8821cu.ko $TARGET_MODULE_PATH/8821cu.ko
 echo "cp bt drivers"
-cp drivers/bluetooth/btbcm.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/btbcm.ko
-cp drivers/bluetooth/btrtl.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/btrtl.ko
-cp drivers/bluetooth/btusb.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/btusb.ko
+cp drivers/bluetooth/btbcm.ko $TARGET_MODULE_PATH/btbcm.ko
+cp drivers/bluetooth/btrtl.ko $TARGET_MODULE_PATH/btrtl.ko
+cp drivers/bluetooth/btusb.ko $TARGET_MODULE_PATH/btusb.ko
 
 echo "compile rtl8812au wifi driver"
 make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au clean
 make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au -j$BUILD_JOBS
 echo "cp rtl8812au wifi driver"
-cp ../hardware/wifi/realtek/drivers/rtl8812au/8812au.ko ../device/hardkernel/$TARGET_BOARD_PLATFORM/modules/
+cp ../hardware/wifi/realtek/drivers/rtl8812au/8812au.ko $TARGET_MODULE_PATH/8812au.ko
 
 popd
 
