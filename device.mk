@@ -1032,3 +1032,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     mkfs.exfat \
     fsck.exfat
+
+# GPS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy \
+    gps.$(TARGET_BOOTLOADER_BOARD_NAME)
