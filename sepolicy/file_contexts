@@ -306,6 +306,7 @@
 /sys/module/tvin_hdmirx/parameters(/.*)?                        u:object_r:sysfs_cec:s0
 /sys/module/dhd/parameters/firmware_path                        u:object_r:sysfs_wifi:s0
 /sys/module/bcmdhd/parameters/firmware_path                     u:object_r:sysfs_wifi:s0
+/sys/module/amlogic_dvb_ci/parameters/cammcu_usleep             u:object_r:sysfs_dvbci:s0
 
 #for kernel 4.9
 /sys/devices/platform/[0-9a-z]*\.ethernet/net/eth0(/.*)?                                            u:object_r:sysfs_net:s0
