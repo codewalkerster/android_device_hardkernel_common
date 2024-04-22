@@ -121,6 +121,9 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
     if len(supportBuildTypes) == 0:
         logging.info('[buildAudioPolicyConfigurationXml:I] build type size is 0, do nothing')
         return
+    modifyValueByStrIfExistInBuildType = lambda buildTypeport, port, tags: \
+        [port.set(tag, buildTypeport.get(tag)) if buildTypeport.get(tag) != None else None for tag in tags]
+
     for type in supportBuildTypes:
         buildTypeXmlPath = AUDIO_POLICY_TOOLS_PATH + 'audio_policy_common_build_type/audio_policy_common_' + type + '.xml'
         logging.debug('[buildAudioPolicyConfigurationXml:D] process file:' + buildTypeXmlPath + ' <----------------------')
@@ -131,18 +134,28 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
         # mixPorts
         logging.debug('[buildAudioPolicyConfigurationXml:D] replaceBuildTypeXml: mixport process >>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         for audioPolicyCommonBuildTypeXml_mixPortRoot in audioPolicyCommonBuildTypeXmlRoot.findall('.//mixPort'):
-            logging.debug('[buildAudioPolicyConfigurationXml:D] -- name:' + audioPolicyCommonBuildTypeXml_mixPortRoot.get('name'))
+            buildTypeMixPortName = audioPolicyCommonBuildTypeXml_mixPortRoot.get('name')
+            logging.debug('[buildAudioPolicyConfigurationXml:D] -- name:' + buildTypeMixPortName)
             foundMixPort = False
+            compressOffloadMixport = None
             for mixport in mixPorts.findall('.//mixPort'):
                 mixportName = mixport.get('name')
-                if mixportName == audioPolicyCommonBuildTypeXml_mixPortRoot.get('name'):
+                if mixportName == 'compress offload':
+                    compressOffloadMixport = mixport
+                if mixportName == buildTypeMixPortName:
                     foundMixPort = True
                     logging.debug('[buildAudioPolicyConfigurationXml:D] modifyProfile mixPort name:' + mixportName)
+                    modifyValueByStrIfExistInBuildType(audioPolicyCommonBuildTypeXml_mixPortRoot, mixport, ['flags', 'maxOpenCount', 'maxActiveCount'])
                     modifyProfile(mixport, audioPolicyCommonBuildTypeXml_mixPortRoot)
             if not foundMixPort:
                 # append mixport
-                mixPorts.append(audioPolicyCommonBuildTypeXml_mixPortRoot)
-                logging.info('[buildAudioPolicyConfigurationXml:I] add new mixport, profile name: ' + audioPolicyCommonBuildTypeXml_mixPortRoot.get('name'))
+                if (buildTypeMixPortName == 'ms12 direct') and (compressOffloadMixport != None):
+                    # TODO: workaround for ADSK. Put 'ms12 direct' profile before 'compress offload' profile.
+                    compressOffloadIndex = list(mixPorts).index(compressOffloadMixport)
+                    mixPorts.insert(compressOffloadIndex, audioPolicyCommonBuildTypeXml_mixPortRoot)
+                else:
+                    mixPorts.append(audioPolicyCommonBuildTypeXml_mixPortRoot)
+                logging.info('[buildAudioPolicyConfigurationXml:I] add new mixport, profile name: ' + buildTypeMixPortName)
 
         # devicePorts
         logging.debug('[buildAudioPolicyConfigurationXml:D] replaceBuildTypeXml: devicePort process >>>>>>>>>>>>>>>>>>>>>>>>>>>>>')

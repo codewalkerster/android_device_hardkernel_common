@@ -223,3 +223,25 @@ endif
 # reduce ms12 schedule run's frequence
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.audio.ms12.dynamic_sleep=true
+
+#########################################################################################
+###                          Dolby MS12 ASDK control
+#########################################################################################
+OPTION_AUTO_PATCH_SHELL_FILE_ASDK := vendor/amlogic/restricted_libs/dolby/enable_asdk.mk
+HAVE_OPTION_WRITE_SHELL_FILE_ASDK := $(shell test -f $(OPTION_AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
+AUTO_PATCH_SHELL_FILE_ASDK := vendor/dolby/enable_asdk.mk
+HAVE_WRITE_SHELL_FILE_ASDK := $(shell test -f $(AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
+ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
+    ifeq ($(HAVE_OPTION_WRITE_SHELL_FILE_ASDK),yes)
+        DOLBY_ASDK_PATH := vendor/amlogic/restricted_libs/dolby
+        $(warning 'Dolby ASDK(vendor/amlogic/restricted_libs/dolby) will be installed')
+        $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
+    else
+        ifeq ($(HAVE_WRITE_SHELL_FILE_ASDK),yes)
+            DOLBY_ASDK_PATH := vendor/dolby
+            $(warning 'Dolby ASDK(vendor/dolby) will be installed')
+            $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
+        endif
+    endif
+endif
+######################################################################
