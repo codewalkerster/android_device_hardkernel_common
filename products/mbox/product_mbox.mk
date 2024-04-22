@@ -263,6 +263,12 @@ ifeq ($(BOARD_COMPILE_ATV), false)
     endif
 endif
 
+#AOSP density config
+ifeq ($(BOARD_COMPILE_ATV), false)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/products/mbox/display_config_aosp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/default.xml
+endif
+
 # for playback of audio offload
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
