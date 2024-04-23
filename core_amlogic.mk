@@ -634,6 +634,11 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper-service.amlogic
 endif
 
+#RKP HAL
+ifeq ($(TARGET_OLD_DEVICE), true)
+    NO_RKP_HAL ?= true
+endif
+
 #DRM HAL
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_PACKAGES += \
