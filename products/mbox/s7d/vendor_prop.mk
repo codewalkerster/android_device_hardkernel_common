@@ -184,4 +184,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.global.settingskey=settings
 endif
 
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
