@@ -68,13 +68,13 @@ def main(argv):
         file_subscript_in = open(in_subscript_file)
         template_subscript_in =  file_subscript_in.read()
         template_dtb_ini_in_t = Template(template_subscript_in)
-        load_dtb = template_dtb_ini_in_t.substitute(_target_dtb=target_dtb)
+        load_dtb = template_dtb_ini_in_t.substitute(_target_dtb=target_dtb, _target_board=target_board)
 
     file_bootscript_in = open(infile)
     template_bootscript_in = file_bootscript_in.read()
     template_in_t = Template(template_bootscript_in)
 
-    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _load_dtb=load_dtb, _mtd=mtd, _target_board=target_board, _emmc_boot_device=emmc_boot_device, _sd_boot_device=sd_boot_device)
+    line = template_in_t.substitute(_variant=variant,_boot_part=boot_part,_recovery_part=recovery_part,_wifi_country=wifi_country, _load_dtb=load_dtb, _mtd=mtd, _emmc_boot_device=emmc_boot_device, _sd_boot_device=sd_boot_device)
 
     if outfile != '':
         with open (outfile,"w") as f:
