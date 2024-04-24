@@ -37,3 +37,4 @@ allow dumpstate sysfs_cec:file read;
 allow dumpstate sysfs_drm:file read;
 allow dumpstate sysfs_display:file read;
 allow dumpstate sysfs_amhdmitx:file read;
+allow dumpstate hal_droid_mdns_default:binder { call };
