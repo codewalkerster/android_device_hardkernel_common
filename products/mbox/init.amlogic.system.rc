@@ -84,6 +84,10 @@ on boot
     #1: only root user can read
     write /proc/sys/kernel/dmesg_restrict 0
 
+    # default set dolby mode to RF
+    write /sys/class/audiodsp/ac3_drc_control "drchighcutscale 0"
+    write /sys/class/audiodsp/ac3_drc_control "drclowboostscale 0"
+    write /sys/class/audiodsp/ac3_drc_control "drcmode 3"
 
 on fs
     start resmanload
