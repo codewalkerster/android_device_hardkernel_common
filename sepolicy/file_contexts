@@ -334,6 +334,12 @@
 /sys/devices/platform/[0-9a-z]*\.sd[0-9a-z]*/mmc_host/mmc[0-9]/mmc[0-9]:000[0-9]/mmc[0-9]:000[0-9]:[0-9]/net/ap[0-1](/.*)? u:object_r:sysfs_net:s0
 /sys/devices/platform/[0-9a-z]*\.sd[0-9a-z]*/mmc_host/mmc[0-9]/mmc[0-9]:000[0-9]/mmc[0-9]:000[0-9]:[0-9]/net/wlan[0-1](/.*)? u:object_r:sysfs_net:s0
 
+
+#for kernel 5.15 VTS case NetdSELinuxTest#CheckProperMTULabels
+/sys/devices/platform/soc/[0-9a-z]*\.pcie/pci000[0-9]:0[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/net/wlan[0-1](/.*)? u:object_r:sysfs_net:s0
+/sys/devices/platform/soc/[0-9a-z]*\.pcie/pci000[0-9]:0[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/net/p2p[0-1](/.*)?  u:object_r:sysfs_net:s0
+/sys/devices/platform/soc/[0-9a-z]*\.pcie/pci000[0-9]:0[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/net/ap[0-1](/.*)?   u:object_r:sysfs_net:s0
+
 /sys/devices/virtual/net(/.*)?                                  u:object_r:sysfs_net:s0
 /sys/class/hdmirx/hdmirx0/edid                                  u:object_r:sysfs_cec:s0
 /sys/devices/platform/ffd26000.hdmirx/hdmirx/hdmirx0/edid       u:object_r:sysfs_cec:s0
