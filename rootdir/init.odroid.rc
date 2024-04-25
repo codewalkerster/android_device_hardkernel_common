@@ -253,6 +253,10 @@ on boot
     chmod 0666 /sys/devices/platform/rkcif-mipi-lvds2/compact_test
     chmod 0666 /sys/devices/platform/rkcif-mipi-lvds3/compact_test
 
+    #for android things
+    symlink /dev/gpiomem /dev/mem
+    chmod 0666 /dev/mem
+
 on property:sys.boot_completed=1
     # if data is encrypt, when start gps too early, gpsd crashed
     start gpsd
