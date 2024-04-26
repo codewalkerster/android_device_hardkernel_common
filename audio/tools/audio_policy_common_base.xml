@@ -161,9 +161,7 @@
             <format name="AUDIO_FORMAT_AC3" />
             <format name="AUDIO_FORMAT_E_AC3" />
             <format name="AUDIO_FORMAT_E_AC3_JOC" />
-            <format name="AUDIO_FORMAT_DOLBY_TRUEHD" />
             <format name="AUDIO_FORMAT_DTS" />
-            <format name="AUDIO_FORMAT_DTS_HD" />
         </formats>
     </surroundSound>
 
