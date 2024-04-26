@@ -101,7 +101,32 @@ PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml
 
 endif
-################################################################################## alsa
+##################################################################################
+
+configurable_audio_mediacodecs_xmls := device/amlogic/common/audio/media_codecs_xml/
+PRODUCT_COPY_FILES += \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio.xml
+
+ifneq ($(TARGET_DOLBY_VERSION), non_dolby)
+PRODUCT_COPY_FILES += \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ddp.xml
+endif
+
+ifeq ($(TARGET_DTS_VERSION), dtshd)
+PRODUCT_COPY_FILES += \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_dts.xml
+else ifeq ($(TARGET_DTS_VERSION), dtsx)
+PRODUCT_COPY_FILES += \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_dtsx.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_dts.xml
+endif
+
+ifeq ($(TARGET_WITH_MEDIA_EXT), true)
+PRODUCT_COPY_FILES += \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ffmpeg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ffmpeg.xml \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ddp.xml \
+    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_dtsx.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_dts.xml
+endif
+##################################################################################
 
 ifeq ($(BOARD_ALSA_AUDIO),legacy)
 

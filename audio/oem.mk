@@ -5,7 +5,7 @@ ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
     CUSTOM_IMAGE_COPY_FILES += \
         device/amlogic/common/dolby_ms12/install/encrypted_lib/libdolbyms12.so:lib/ms12/libdolbyms12.so \
-        device/amlogic/$(PRODUCT_DIR)/files/audio/media_codecs_amlogic_audio_ac4.xml:/etc/media_codecs_amlogic_audio_ac4.xml
+        device/amlogic/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ac4.xml:/etc/media_codecs_amlogic_audio_ac4.xml
 else ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12v1_
     CUSTOM_IMAGE_COPY_FILES += \
