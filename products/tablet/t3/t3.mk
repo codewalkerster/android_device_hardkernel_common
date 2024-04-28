@@ -144,21 +144,6 @@ PRODUCT_PACKAGES += \
 
 #########################################################################
 #
-#                      ConsumerIr
-#
-#########################################################################
-PRODUCT_PACKAGES += \
-    consumerir.amlogic
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
-
-#consumerir hal
-PRODUCT_PACKAGES += \
-    android.hardware.ir-service.droidlogic
-
-#########################################################################
-#
 #                      HDMIIN
 #
 #########################################################################

@@ -487,7 +487,6 @@
 
 /vendor/bin/hw/android\.hardware\.health-service.droidlogic              u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.health@2\.1-service.droidlogic         u:object_r:hal_health_default_exec:s0
-/vendor/bin/hw/android\.hardware\.ir-service.droidlogic                  u:object_r:hal_ir_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate-service\.droidlogic          u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service\.widevine                  u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service\.verimatrix                u:object_r:hal_drm_verimatrix_exec:s0
