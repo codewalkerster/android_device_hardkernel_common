@@ -1050,3 +1050,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl.legacy \
     android.hardware.gnss@1.0-service.legacy \
     gps.$(TARGET_BOOTLOADER_BOARD_NAME)
+
+PRODUCT_PACKAGES += \
+    KIOSK_Demo
