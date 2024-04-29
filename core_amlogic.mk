@@ -242,7 +242,6 @@ PRODUCT_PACKAGES += \
     imageserver \
     DLNA \
     BluetoothRemote \
-    OTAUpgrade \
     Gallery2 \
     MusicFX \
     Music \
