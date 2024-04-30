@@ -1021,14 +1021,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.avrcp.target.enabled=true \
     bluetooth.profile.hfp.ag.enabled=true
 endif
+
+ifeq ($(BOARD_ENABLE_LE_AUDIO),true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    bluetooth.profile.asha.central.enabled=true \
-    bluetooth.profile.gatt.enabled=true \
-    bluetooth.profile.hid.host.enabled=true \
-    bluetooth.profile.mcp.server.enabled=true \
-    bluetooth.profile.opp.enabled=true \
-    bluetooth.profile.pan.nap.enabled=true \
-    bluetooth.profile.pan.panu.enabled=true \
     bluetooth.profile.csip.set_coordinator.enabled=true \
     bluetooth.profile.hap.client.enabled=true \
     bluetooth.profile.bap.unicast.client.enabled=true \
@@ -1038,6 +1033,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.bap.broadcast.assist.enabled=true \
     bluetooth.profile.bap.broadcast.source.enabled=true \
     ro.bluetooth.leaudio_allow_list.supported=true
+endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.profile.asha.central.enabled=true \
+    bluetooth.profile.gatt.enabled=true \
+    bluetooth.profile.hid.host.enabled=true \
+    bluetooth.profile.mcp.server.enabled=true \
+    bluetooth.profile.opp.enabled=true \
+    bluetooth.profile.pan.nap.enabled=true \
+    bluetooth.profile.pan.panu.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.core.le.connection_scan_interval_slow=512
