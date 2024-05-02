@@ -62,11 +62,13 @@ def Install_Parameter(parameter_bin, input_zip, info):
   except KeyError:
     print("no parameter.bin, ignore it.")
 
-def InstallFat(loader_bin, input_zip, info):
+def InstallFat(fat_bin, input_zip, info):
   try:
     common.ZipWriteStr(info.output_zip, "fat.img", fat_bin)
     info.script.Print("Writing fat loader img...")
     info.script.WriteRawImage("/fat", "fat.img")
+  except KeyError:
+    print("no parameter.bin, ignore it.")
 
 def InstallUboot(loader_bin, input_zip, info):
   common.ZipWriteStr(info.output_zip, "uboot.img", loader_bin)
