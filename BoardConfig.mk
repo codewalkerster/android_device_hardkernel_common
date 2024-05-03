@@ -406,3 +406,8 @@ ifeq ($(strip $(BOARD_BASEPARAMETER_SUPPORT)), true)
     endif
         BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M
 endif
+
+ifneq ("$(wildcard vendor/gapps/arm64/arm64-vendor.mk)","")
+#PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+    $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+endif
