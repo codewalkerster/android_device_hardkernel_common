@@ -15,7 +15,7 @@ allow hal_audio_default init:unix_stream_socket { connectto };
 allow hal_audio_default sysfs_video:file { read open };
 allow hal_audio_default sysfs_video:dir search;
 allow hal_audio_default vendor_video_device:chr_file rw_file_perms;
-allow hal_audio_default self:netlink_kobject_uevent_socket { bind create read setopt };
+allow hal_audio_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 allow hal_audio_default sysfs_avsync:file rw_file_perms;
 allow hal_audio_default sysfs_cec:file { read open getattr};
 
