@@ -187,6 +187,8 @@
 /sys/devices/bt-dev.*/rfkill/rfkill0          type    0660    bluetooth   bluetooth
 /sys/devices/platform/mtty.0/rfkill/rfkill1    state   0660    bluetooth   bluetooth
 /sys/devices/platform/mtty.0/rfkill/rfkill1    type    0660    bluetooth   bluetooth
+/sys/devices/platform/soc/soc*aml_bt/rfkill/rfkill0    state   0660    bluetooth   bluetooth
+/sys/devices/platform/soc/soc*aml_bt/rfkill/rfkill0    type    0660    bluetooth   bluetooth
 
 #hdmi cec
 /sys/class/amhdmitx/amhdmitx0       hpd_state               0664      system      system

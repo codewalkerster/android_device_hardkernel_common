@@ -227,6 +227,8 @@
 /sys/devices/platform/aml_bt/rfkill/rfkill0/type                u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bt-dev.*/rfkill/rfkill0/state		        u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bt-dev.*/rfkill/rfkill0/type			u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/soc/soc*aml_bt/rfkill/rfkill0/state	u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/soc/soc*aml_bt/rfkill/rfkill0/type	u:object_r:sysfs_bluetooth_writable:s0
 
 /sys/devices/platform/0.hdmirx/hdmirx/hdmirx0(/.*)?             u:object_r:sysfs_cec:s0
 /sys/module/rdma_mgr/parameters(/.*)?                           u:object_r:sysfs_display:s0
