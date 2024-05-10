@@ -31,20 +31,20 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO" />
                 </mixPort>
                 <mixPort name="tunnel pcm" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO" />
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
                 </mixPort>
                 <mixPort name="compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD">
                     <profile name="iec raw" format="AUDIO_FORMAT_IEC61937" samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
                     <profile name="dtsuhd raw" format="AUDIO_FORMAT_DTS_UHD_P2" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT4" />
                     <profile name="dtshd raw" format="AUDIO_FORMAT_DTS_HD" samplingRates="22050 24000 32000 44100 48000 88200 96000 192000" channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
                     <profile name="dts raw" format="AUDIO_FORMAT_DTS" samplingRates="22050 24000 32000 44100 48000 88200 96000 192000" channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_TRI AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
-                    <profile name="multi pcm" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO" />
+                    <profile name="multi pcm" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
                     <profile name="aac latm raw" format="AUDIO_FORMAT_AAC_HE_V1" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO" />
                     <profile name="aac adts raw" format="AUDIO_FORMAT_AAC_HE_V2" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO" />
                     <profile name="mpeg raw" format="AUDIO_FORMAT_MP3" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO" />
                 </mixPort>
                 <mixPort name="direct pcm" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO" />
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
                 </mixPort>
                 <mixPort name="direct output" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
                     <profile name="" />
@@ -55,9 +55,13 @@
                 <mixPort name="mmap_no_irq_out_dynamic" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ" maxOpenCount="3" maxActiveCount="3">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="48000" />
                 </mixPort>
+                <mixPort name="mmap_no_irq_out_multi_ch" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ" maxOpenCount="3" maxActiveCount="3">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
+                </mixPort>
                 <mixPort name="mmap_no_irq_out" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ" maxOpenCount="3" maxActiveCount="3">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO" />
                 </mixPort>
+                <mixPort name="usb_device output" role="source" />
                 <mixPort name="primary input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="8000 16000 48000" channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO" />
                 </mixPort>
@@ -105,6 +109,7 @@
                 </devicePort>
                 <devicePort tagName="Speaker" role="sink" type="AUDIO_DEVICE_OUT_SPEAKER">
                     <profile name="iec raw" format="AUDIO_FORMAT_IEC61937" samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT" samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1" />
                     <gains>
                         <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT" minValueMB="-100000" maxValueMB="0" defaultValueMB="-6000" stepValueMB="100" />
                     </gains>
@@ -138,9 +143,9 @@
                 <route type="mix" sink="HDMI Out" sources="primary output,tunnel pcm,mmap_no_irq_out_dynamic,compress offload,tunnel compress offload,direct output,tunnel direct output,Tuner" />
                 <route type="mix" sink="Mute Device" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Tuner" />
                 <route type="mix" sink="Spdif Out" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Tuner" />
-                <route type="mix" sink="Speaker" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,direct pcm,Tuner" />
-                <route type="mix" sink="USB Device Out" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Tuner" />
-                <route type="mix" sink="USB Headset Out" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,Tuner" />
+                <route type="mix" sink="Speaker" sources="primary output,tunnel pcm,mmap_no_irq_out_multi_ch,compress offload,tunnel compress offload,direct pcm,Tuner" />
+                <route type="mix" sink="USB Device Out" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,usb_device output,Tuner" />
+                <route type="mix" sink="USB Headset Out" sources="primary output,tunnel pcm,mmap_no_irq_out,compress offload,tunnel compress offload,usb_device output,Tuner" />
                 <route type="mix" sink="primary input" sources="Tuner" />
                 <route type="mix" sink="echo reference" sources="Echo Reference" />
                 <route type="mix" sink="built-in mic" sources="Built-In Mic" />
