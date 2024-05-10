@@ -123,8 +123,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.media.bootvideo=0050
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.hdmi.device_type=4
 #disable timeshift
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.tv.dtv.tf.disable=false

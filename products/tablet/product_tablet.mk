@@ -171,7 +171,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # cec device types
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=tv \
-    ro.hdmi.device_type=0
+    ro.hdmi.device_type=0 \
+    ro.vendor.platform.hdmi.device_type=0
 
 #userdebug, eng, AOSP version default disable AVB
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))

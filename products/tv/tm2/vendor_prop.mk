@@ -146,6 +146,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.vendor.platform.vadwake=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.dv.standalone.component=true
+
 #mvc support
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.support.mvc=true

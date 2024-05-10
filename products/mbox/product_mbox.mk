@@ -234,13 +234,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hdmi.set_menu_language=false \
     persist.sys.hdmi.keep_awake=false
 
 ifneq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 # cec device types
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=playback_device \
-    ro.hdmi.device_type=4
+    ro.hdmi.device_type=4 \
+    ro.vendor.hdmi.auto_otp=true
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hdmi.cec_device_types=audio_system,playback_device \
+    ro.hdmi.device_type=5,4 \
+    ro.vendor.platform.hdmi.device_type=5,4 \
+    ro.hdmi.property_is_device_hdmi_cec_switch=true
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
