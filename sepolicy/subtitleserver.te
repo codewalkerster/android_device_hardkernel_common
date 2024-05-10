@@ -25,6 +25,7 @@ allow subtitleserver vbi_device:chr_file rw_file_perms;
 allow subtitleserver system_app:binder { call };
 allow subtitleserver mediaserver:binder { call };
 allow subtitleserver platform_app:binder { call };
+allow subtitleserver dtvkitserver:binder { call };
 
 allow subtitleserver hidl_memory_hwservice:hwservice_manager find;
 
