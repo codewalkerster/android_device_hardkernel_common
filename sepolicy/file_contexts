@@ -521,6 +521,7 @@
 /vendor/bin/hw/android\.hardware\.wifi-service\.droidlogic               u:object_r:hal_wifi_default_exec:s0
 /vendor/bin/hw/android\.hardware\.tv\.tuner@1\.0-service\.droidlogic     u:object_r:hal_tv_tuner_default_exec:s0
 /vendor/bin/hw/android\.hardware\.bluetooth@1\.0-service-droidlogic      u:object_r:hal_bluetooth_default_exec:s0
+/vendor/bin/hw/android\.hardware\.bluetooth@1\.1-service-droidlogic      u:object_r:hal_bluetooth_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks-service-aidl-driver    u:object_r:hal_neuralnetworks_adla_exec:s0
 /vendor/bin/hw/android\.hardware\.tv\.tuner-service\.droidlogic          u:object_r:hal_tv_tuner_default_exec:s0
 /vendor/bin/hw/android\.hardware\.tv\.tuner-service\.droidlogic-lazy          u:object_r:hal_tv_tuner_default_exec:s0

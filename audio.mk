@@ -97,7 +97,8 @@ PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     $(configurable_audiopolicy_xmls)audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
     $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_product_strategies.xml \
-    $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_stream_volumes.xml
+    $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_stream_volumes.xml \
+    $(configurable_audiopolicy_xmls)bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml
 
 endif
 ################################################################################## alsa

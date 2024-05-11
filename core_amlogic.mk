@@ -1028,7 +1028,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.mcp.server.enabled=true \
     bluetooth.profile.opp.enabled=true \
     bluetooth.profile.pan.nap.enabled=true \
-    bluetooth.profile.pan.panu.enabled=true
+    bluetooth.profile.pan.panu.enabled=true \
+    bluetooth.profile.csip.set_coordinator.enabled=true \
+    bluetooth.profile.hap.client.enabled=true \
+    bluetooth.profile.bap.unicast.client.enabled=true \
+    bluetooth.profile.ccp.server.enabled=true \
+    bluetooth.profile.mcp.server.enabled=true \
+    bluetooth.profile.vcp.controller.enabled=true \
+    bluetooth.profile.bap.broadcast.assist.enabled=true \
+    bluetooth.profile.bap.broadcast.source.enabled=true \
+    ro.bluetooth.leaudio_allow_list.supported=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.core.le.connection_scan_interval_slow=512
