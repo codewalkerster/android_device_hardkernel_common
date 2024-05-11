@@ -42,3 +42,6 @@ allow update_engine rootfs:dir {getattr};
 allow update_engine system_block_fsck_device:blk_file { getattr ioctl open read write };
 allow update_engine dumpstate:fd { use };
 allow update_engine dumpstate:fifo_file { write };
+
+allow update_engine rsv_log_file:dir { search write add_name };
+allow update_engine rsv_log_file:file { create getattr open write };

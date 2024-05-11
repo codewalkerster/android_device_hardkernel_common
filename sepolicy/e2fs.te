@@ -17,8 +17,9 @@ allow e2fs vendor_block_device:blk_file getattr;
 allow e2fs oem_block_device:blk_file getattr;
 allow e2fs sysfs_fs_ext4_features:dir search;
 allow e2fs param_block_device:blk_file { getattr ioctl open read write };
+allow e2fs rsv_block_device:blk_file { getattr ioctl open read write };
 
 allow e2fs sysfs_devices_block:dir search;
 allow e2fs sysfs_devices_block:file rw_file_perms;
 
-allowxperm e2fs { tee_block_device param_block_device sda_block_device }:blk_file ioctl { BLKPBSZGET BLKDISCARDZEROES BLKROGET BLKDISCARD };
+allowxperm e2fs { tee_block_device param_block_device rsv_block_device sda_block_device }:blk_file ioctl { BLKPBSZGET BLKDISCARDZEROES BLKROGET BLKDISCARD };

@@ -30,6 +30,7 @@ type product_block_device, dev_type;
 type dtbo_block_device, dev_type;
 
 type param_block_device, dev_type;
+type rsv_block_device, dev_type;
 type cri_block_device, dev_type;
 type sda_block_device, dev_type;
 type vold_block_device, dev_type;

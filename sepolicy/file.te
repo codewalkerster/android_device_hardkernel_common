@@ -21,6 +21,9 @@ type dig_socket, file_type;
 type param_tv_file, file_type;
 #type param_tv_file, fs_type, contextmount_type;
 
+#Rsv log
+type rsv_log_file, file_type;
+
 #boot
 type boot_data_file, file_type;
 type misc_data_file, file_type;
