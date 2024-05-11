@@ -217,3 +217,9 @@ else
             hardware/amlogic/audio/amlpmu3_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
     endif
 endif
+
+
+##################################################################################
+# reduce ms12 schedule run's frequence
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.audio.ms12.dynamic_sleep=true
