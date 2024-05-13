@@ -66,7 +66,8 @@ TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig/*
 PQ_FILES := \
     $(CHIP_DIR)/files/PQ/overscan.db \
-    $(CHIP_DIR)/files/PQ/pq_default.ini
+    $(CHIP_DIR)/files/PQ/pq_default.ini \
+    $(CHIP_DIR)/files/PQ/UI_PQSetting.bin
 
 ifneq ($(PRODUCT_SUPPORT_COMPRESS_DB),true)
 PQ_FILES += $(CHIP_DIR)/files/PQ/pq.db

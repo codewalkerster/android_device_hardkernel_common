@@ -1,0 +1,1 @@
+../../../../../../../../vendor/amlogic/common/frameworks/services/systemcontrol/PQ/CPQDataBase/LibTableOSD/Default/s7d/AML_PQ_OSD_Table_Public.cpp

@@ -74,7 +74,8 @@ endif
 
 PQ_FILES := \
     $(CHIP_DIR)/files/PQ/pq.db \
-    $(CHIP_DIR)/files/PQ/pq_default.ini
+    $(CHIP_DIR)/files/PQ/pq_default.ini \
+    $(CHIP_DIR)/files/PQ/UI_PQSetting.bin
 
 
 #thermal 2.0 config file
