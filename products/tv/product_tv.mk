@@ -76,6 +76,7 @@ PRODUCT_PACKAGES += \
     libdtvkitserver \
     libdvbserver \
     libisdbserver \
+    libatscserver \
     dtvkitserver_releaseinfo.txt
 else
 PRODUCT_PACKAGES += \

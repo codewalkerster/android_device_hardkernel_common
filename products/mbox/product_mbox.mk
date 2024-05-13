@@ -75,6 +75,7 @@ PRODUCT_PACKAGES += \
     libdtvkitserver \
     libdvbserver \
     libisdbserver \
+    libatscserver \
     libdtvkit_tuner_jni \
     dtvkitserver_releaseinfo.txt
 else
@@ -82,6 +83,7 @@ PRODUCT_PACKAGES += \
     dtvkitserver \
     isdb_server \
     dvb_server \
+    atsc_server \
     dtvkitserver_releaseinfo.txt
 endif
 
