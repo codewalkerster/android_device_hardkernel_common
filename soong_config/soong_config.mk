@@ -59,4 +59,8 @@ ifeq ($(BOARD_COMPILE_ATV),false)
 else
     BOARD_COMPILE_VERSION := atv
 endif
+
+# for low power hotword based on dsp
+$(call soong_config_set,amlogic_vendorconfig,enable_lowpower_hotword,$(BOARD_ENABLE_DSP_FFV))
+
 $(call soong_config_set,amlogic_vendorconfig,board_compile_version,$(BOARD_COMPILE_VERSION))

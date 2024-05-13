@@ -173,6 +173,11 @@
 /dev/block/by-name/frp    0660   system       system
 /dev/block/by-name/env    0660   system       system
 
+#low power hotword
+/sys/class/meson_pm        suspend_mode    0664        system        audio
+/dev/dsp_dev                               0660        system        audio
+/dev/hifi4dsp0                             0660        root          audio
+
 #dma buf
 /dev/dma_heap/system-secure-*	0444	system system
 

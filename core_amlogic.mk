@@ -1050,6 +1050,21 @@ PRODUCT_PACKAGES += \
     MicToggleProvider
 endif
 
+######### add for FFM + DSP ###############
+#    Please enable it if :
+#        1. Device has DSP
+#        2. Need support FFM in deep sleep
+#    Default : OFF
+###########################################
+ifeq ($(BOARD_ENABLE_DSP_FFV), true)
+PRODUCT_PACKAGES += \
+    HotwordEnrollmentOKGoogleHIFI4_WIDEBAND \
+    com.android.hotwordenrollment.common.util
+
+##tell katniss to release wakelock when dut goes to suspend
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/permissions/android.software.farfield.dsp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.farfield.dsp.xml
+endif
 #########################################################################
 PRODUCT_PACKAGES += \
     MtpService

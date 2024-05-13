@@ -33,6 +33,7 @@ soong_config_module_type {
         "support_pq_compress_db",
         "systemcontrol_display_type",
         "systemcontrol_ui_type",
+        "enable_lowpower_hotword",
     ],
     properties: [
         "cflags", "srcs"
@@ -180,4 +181,7 @@ soong_config_bool_variable {
 }
 soong_config_bool_variable {
     name: "support_pq_compress_db",
+}
+soong_config_bool_variable {
+    name: "enable_lowpower_hotword",
 }
