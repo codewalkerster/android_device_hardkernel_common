@@ -25,7 +25,7 @@ PRODUCT_KERNEL_CONFIG += android-13.config
 endif
 
 # Odroid configs
-PRODUCT_KERNEL_CONFIG += wifi_bt.config
+PRODUCT_KERNEL_CONFIG += odroid_common.config
 
 ifeq ($(TARGET_BUILD_VARIANT), user)
 PRODUCT_KERNEL_CONFIG += non_debuggable.config
