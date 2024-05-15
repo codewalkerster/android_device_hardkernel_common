@@ -158,7 +158,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.c2inputsurface=-1 \
     debug.vendor.media.c2.vdec.support_10bit=false \
     vendor.media.c2.vdec.enable_h264_4k_mmu=true \
-    vendor.media.mediahal.videodec.media.c2_secure_prealloc=true
+    vendor.media.mediahal.videodec.media.c2_secure_prealloc=true \
+    vendor.media.c2.vdec.h264_mmu_width=1920\
+    vendor.media.c2.vdec.h264_mmu_height=1080
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
