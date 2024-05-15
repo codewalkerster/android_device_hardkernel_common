@@ -17,3 +17,4 @@ allow zygote ashmem_device:chr_file execute;
 allow zygote servicemanager:binder call;
 allow zygote system_server:binder { call transfer };
 allow zygote user_profile_data_file:file getattr;
+allow zygote device:dir { open write add_name read create setattr };
