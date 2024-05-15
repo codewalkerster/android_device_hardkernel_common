@@ -517,11 +517,11 @@ kernel_addr[41]="export KERNEL_A32_SUPPORT=true"
 # Pascal S805X3
 project[42]="Pascal"
 soc[42]="S805X3"
-hardware[42]="BP202"
+hardware[42]="bp201"
 module[42]="pascal"
 uboot_path[42]="device/amlogic/pascal"
-uboot_exec_aosp[42]="./mk s7_bp202  --vab --avb2 --fastboot-write"
-uboot_exec_drm[42]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+uboot_exec_aosp[42]="./mk s7_bp201  --vab --avb2 --fastboot-write"
+uboot_exec_drm[42]="./mk s7_bp201  --vab --avb2 --fastboot-write"
 kernel_exec[42]="./mk pascal -v "
 
 ###########################################################################################
@@ -614,13 +614,25 @@ kernel_exec[49]="./mk ross -v "
 # Pascal S805X3 ATV
 project[50]="Pascal-ATV"
 soc[50]="S805X3"
-hardware[50]="BP202"
+hardware[50]="bp201"
 module[50]="pascal_atv"
 uboot_path[50]="device/amlogic/pascal"
-uboot_exec_aosp[50]="./mk s7_bp202  --vab --avb2 --fastboot-write"
-uboot_exec_drm[50]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+uboot_exec_aosp[50]="./mk s7_bp201  --vab --avb2 --fastboot-write"
+uboot_exec_drm[50]="./mk s7_bp201  --vab --avb2 --fastboot-write"
 kernel_exec[50]="./mk pascal -v "
 kernel_addr[50]="export KERNEL_A32_SUPPORT=true"
+###########################################################################################
+
+###########################################################################################
+# Pascal S805X3 DONGLE
+project[51]="Pascal-DONGLE"
+soc[51]="S805X3"
+hardware[51]="bp202"
+module[51]="pascal"
+uboot_path[51]="device/amlogic/pascal"
+uboot_exec_aosp[51]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+uboot_exec_drm[51]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+kernel_exec[51]="./mk pascal -v "
 ###########################################################################################
 usage() {
     echo -e \
