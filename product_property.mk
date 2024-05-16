@@ -13,8 +13,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # config of surfaceflinger
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.sf.disable_triple_buffer=0
 
 ifneq ($(TARGET_BUILD_GMS), true)
 ifeq ($(PRODUCT_SUPPORT_4K_UI), true)
