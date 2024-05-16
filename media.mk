@@ -39,8 +39,8 @@ endif
 #media related config for amlogic &
 #some dynamic shared libraries
 #
-ifeq ($(BOARD_COMPILE_ATV),false)
-TARGET_WITH_MEDIA_EXT_LEVEL := 4
+ifneq ($(wildcard vendor/amlogic/common/auto_patch/),)
+TARGET_WITH_MEDIA_EXT_LEVEL ?= 4
 endif
 
 #for amlogicplayer& liblayer related.
