@@ -39,6 +39,13 @@ else
     AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
 endif
 
+ifeq ($(PRODUCT_TYPE),)
+    AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := tv
+$(warning "PRODUCT_TYPE is null, set default param: tv")
+else
+    AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := $(PRODUCT_TYPE)
+endif
+
 ifeq ($(ODM_DIR),)
     AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
 else
@@ -53,7 +60,8 @@ configurable_audiopolicy_xmls := device/amlogic/common/audio/
         --chipDeviceType $(PRODUCT_DIR) \
         --audioBuildType $(AUDIO_FEATURE_TYPE) \
         --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
-        --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION))
+        --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \
+        --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
     CUSTOM_IMAGE_COPY_FILES += $(configurable_audiopolicy_xmls)/tools/output_xml/audio_policy_configuration.xml:etc/audio_policy_configuration.xml
 endif
 endif # USE_XML_AUDIO_POLICY_CONF

@@ -77,6 +77,12 @@ else
     AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
 endif
 
+ifeq ($(PRODUCT_TYPE),)
+    AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := tv
+$(warning "PRODUCT_TYPE is null, set default param: tv")
+else
+    AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := $(PRODUCT_TYPE)
+endif
 ifeq ($(ODM_DIR),)
     AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
 else
@@ -90,7 +96,8 @@ $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXm
     --chipDeviceType $(PRODUCT_DIR) \
     --audioBuildType $(AUDIO_FEATURE_TYPE) \
     --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
-    --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION))
+    --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \
+    --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,audio_policy_configuration*,$(configurable_audiopolicy_xmls)tools/output_xml/,$(TARGET_COPY_OUT_VENDOR)/etc)

@@ -4,6 +4,7 @@ import argparse
 
 import xml.etree.ElementTree as ET
 
+AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = ''
 
 AUDIO_POLICY_TOOLS_PATH = ''
 ANDROID_CODE_ROOT_PATH = ''
@@ -116,7 +117,7 @@ def modify32BitProfile(mixPorts, devicePorts):
                     break
             break
 
-def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version):
+def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
     if len(supportBuildTypes) == 0:
         logging.info('[buildAudioPolicyConfigurationXml:I] build type size is 0, do nothing')
         return
@@ -235,7 +236,7 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
                 break
 
     # read build type xml(_dtshd, _ddp, _ms12...)
-    replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version)
+    replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts)
 
     # TODO: workaround, Google multichannel-PCM playback has a bug. For atv version, delete multi-channel PCM.
     for mixport in mixPorts.findall('.//mixPort'):
@@ -257,9 +258,9 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
     routes = ET.SubElement(module, "routes")
     genRoutes(routes, mixPorts, devicePorts, audioPolicyCommonRoutesXmlRoot)
 
-    # TODO: add 32bit PCM profile
-    # if chipDeviceType in ['calla']:
-    #     modify32BitProfile(mixPorts, devicePorts)
+    # TODO: add 32bit PCM profile for tv product. In the future, all products will support 32bit.
+    if AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'tv':
+        modify32BitProfile(mixPorts, devicePorts)
 
     # write to XML file
     indent(audioPolicyCommonBaseXmlRoot)
@@ -286,13 +287,16 @@ def parseArgs():
     argparser.add_argument('--atvVersion',
                            help="atvVersion(atv, aosp).",
                            required=True)
+    argparser.add_argument('--productType',
+                           help="productType(tv, mbox).",
+                           required=True)
     return argparser.parse_args()
 
 def main():
     # logging.basicConfig(level=logging.DEBUG, format='%(message)s')
     # logging.basicConfig(level=logging.INFO, format='%(message)s')
     logging.basicConfig(level=logging.WARN, format='%(message)s')
-    global AUDIO_POLICY_TOOLS_PATH, ANDROID_CODE_ROOT_PATH
+    global AUDIO_POLICY_TOOLS_PATH, ANDROID_CODE_ROOT_PATH, AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE
     AUDIO_POLICY_TOOLS_PATH = os.path.dirname(os.path.abspath(__file__)) + '/'
     ANDROID_CODE_ROOT_PATH = AUDIO_POLICY_TOOLS_PATH
     for _ in range(6):
@@ -300,7 +304,8 @@ def main():
     if len(sys.argv) != 1:
         args = parseArgs()
         logging.warning('[buildAudioPolicyConfigurationXml:W] odm:' + args.odmDirName + ' device:' + args.chipDeviceType
-                    + ', audioBuildType:' + args.audioBuildType + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion)
+                    + ', audioBuildType:' + args.audioBuildType + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion + ', product:' + args.productType)
+        AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = args.productType
         outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_xml/audio_policy_configuration.xml'
         genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.soundbarProduct, args.atvVersion)
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
@@ -319,9 +324,11 @@ def main():
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
                 outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + ottName + dolby + dts + '.xml'
+                AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'mbox'
                 logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
                 genXmlFile(outputFilePath, 'amlogic', ottName, dolby + dts, 'false', 'aosp')
                 outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + tvName + dolby + dts + '.xml'
+                AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'tv'
                 logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
                 genXmlFile(outputFilePath, 'amlogic', tvName, dolby + dts, 'false', 'aosp')
 
