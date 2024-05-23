@@ -156,7 +156,7 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, version):
             if not foundDevicePort:
                 logging.info('[buildAudioPolicyConfigurationXml:W] not find devicePort, tagName: ' + audioPolicyCommonBuildTypeXml_deviceportRoot.get('tagName'))
 
-def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProduct, version):
+def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProduct, version, supportDtvkit = 'true'):
     sbrSuffix = ''
     if soundbarProduct == 'true':
         sbrSuffix = '_sbr'
@@ -202,11 +202,15 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
     if audioPolicyDevicesXml_attachedDevicesRoot is not None:
         attachedDevices.clear()
     for audioPolicyDevicesXml_attachedDevices_itemRoot in audioPolicyDevicesXml_attachedDevicesRoot.findall('item'):
+        if audioPolicyDevicesXml_attachedDevices_itemRoot.text == 'Tuner' and supportDtvkit == 'false':
+            # If DVB is not supported, the tuner_in device needs to be deleted.
+            continue
         found = False
         for audioPolicyDevicesXml_devicePorts_itemRoot in audioPolicyDevicesXml_devicePortsRoot.findall('item'):
             if audioPolicyDevicesXml_devicePorts_itemRoot.text == audioPolicyDevicesXml_attachedDevices_itemRoot.text:
                 found = True
                 break
+        # If attachedDevices is not defined in devicePorts, an error exception will be reported.
         if not found:
             logging.error('[buildAudioPolicyConfigurationXml:E] invalid attachedDevices:' +
                          audioPolicyDevicesXml_attachedDevices_itemRoot.text + ' in devicePorts define')
@@ -227,6 +231,9 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
     devicePorts.clear()
     for audioPolicyDevicesXml_devicePorts_itemRoot in audioPolicyDevicesXml_devicePortsRoot.findall('item'):
         logging.debug('[buildAudioPolicyConfigurationXml:D] audioPolicyDevicesXml_devicePorts_itemRoot:' + audioPolicyDevicesXml_devicePorts_itemRoot.text)
+        if audioPolicyDevicesXml_devicePorts_itemRoot.text == 'Tuner' and supportDtvkit == 'false':
+            # If DVB is not supported, the tuner_in device needs to be deleted.
+            continue
         for devicePortInTableXml in audioPolicyCommonDevicePortsXml_devicePortsRoot:
             # logging.debug('[buildAudioPolicyConfigurationXml:D] audioPolicyDevicesXml_devicePorts_itemRoot:' + audioPolicyDevicesXml_devicePorts_itemRoot.text + ', common:' + devicePortInTableXml.get('tagName'))
             if audioPolicyDevicesXml_devicePorts_itemRoot.text == devicePortInTableXml.get('tagName'):
@@ -275,6 +282,9 @@ def parseArgs():
     argparser.add_argument('--chipDeviceType',
                            help="chip device directory name (ohm, calla, oppen...). Mandatory.",
                            required=True)
+    argparser.add_argument('--supportDtvkit',
+                            help="Does it support dvb? (true, false). Mandatory.",
+                            required=True)
     argparser.add_argument('--audioBuildType',
                            help="audio build type (ms12, ddp, dtshd...). Mandatory.",
                            metavar="audioBuildType",
@@ -302,7 +312,7 @@ def main():
         logging.warning('[buildAudioPolicyConfigurationXml:W] odm:' + args.odmDirName + ' device:' + args.chipDeviceType
                     + ', audioBuildType:' + args.audioBuildType + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion)
         outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_xml/audio_policy_configuration.xml'
-        genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.soundbarProduct, args.atvVersion)
+        genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.soundbarProduct, args.atvVersion, args.supportDtvkit)
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
                 buildTypeName = dolby + dts
