@@ -226,5 +226,6 @@
 #led
 /sys/devices/platform/gpioleds/leds/yellow_led    trigger   0666  root root
 /sys/devices/platform/gpioleds/leds/sys_led       brightness   0666  root root
+/sys/class/leds/i2c_leds            single_colors   0666  system system
 
 parallel_restorecon enabled
