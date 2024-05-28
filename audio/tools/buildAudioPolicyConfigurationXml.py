@@ -292,8 +292,9 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
 
     # write to XML file
     indent(audioPolicyCommonBaseXmlRoot)
-    audioPolicyCommonBaseXmlTree.write(outputFilePath, encoding='unicode', xml_declaration=True)
-    # audioPolicyCommonBaseXmlTree.write(outputFilePath, encoding='utf-8', xml_declaration=True)
+    # Versions below python3.0 do not support unicode encoding, use utf-8.
+    encoding = 'utf-8' if sys.version_info < (3, 0) else 'unicode'
+    audioPolicyCommonBaseXmlTree.write(outputFilePath, encoding, xml_declaration=True)
 
 def parseArgs():
 

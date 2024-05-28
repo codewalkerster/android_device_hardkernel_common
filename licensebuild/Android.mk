@@ -24,6 +24,7 @@ LOCAL_POST_INSTALL_CMD += \
     ln -sf /oem/etc/audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/audio_policy_configuration.xml; \
     ln -sf /vendor/etc/usb_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/usb_audio_policy_configuration.xml; \
     ln -sf /vendor/etc/a2dp_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/a2dp_audio_policy_configuration.xml; \
+    ln -sf /vendor/etc/bluetooth_audio_policy_configuration_7_0.xml $(TARGET_OUT_ODM)/etc/bluetooth_audio_policy_configuration_7_0.xml; \
     ln -sf /vendor/etc/r_submix_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/r_submix_audio_policy_configuration.xml;  \
     ln -sf /vendor/etc/hearing_aid_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/hearing_aid_audio_policy_configuration.xml; \
     ln -sf /vendor/etc/msd_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/msd_audio_policy_configuration.xml; \
