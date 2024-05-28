@@ -341,6 +341,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 endif
 
+#in order to build usb power service
+ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/usb_power/power_config.json))
+PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/usb_power/power_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/power_config.json
+PRODUCT_PACKAGES += \
+    current_service
+endif
+
 ifeq ($(ATV_LAUNCHER), amati)
 # Keymaster configuration
 PRODUCT_COPY_FILES += \

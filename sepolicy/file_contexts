@@ -479,6 +479,7 @@
 /vendor/bin/hw/dtvkitserver      u:object_r:dtvkitserver_exec:s0
 #/vendor/bin/vmx_indiv         u:object_r:vmx_indiv_exec:s0
 /vendor/bin/resmanload       u:object_r:resmanload_exec:s0
+/vendor/bin/current_service		u:object_r:current_service_exec:s0
 
 /vendor/bin/hw/mediahalserver u:object_r:mediahalserver_exec:s0
 
