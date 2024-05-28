@@ -169,6 +169,14 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
                     modifyProfile(devicePort, audioPolicyCommonBuildTypeXml_deviceportRoot)
             if not foundDevicePort:
                 logging.info('[buildAudioPolicyConfigurationXml:W] not find devicePort, tagName: ' + audioPolicyCommonBuildTypeXml_deviceportRoot.get('tagName'))
+        # TODO: Workaround: Speakers on the OTT platform do not need to support non-stereo PCM format(DD, DDP...) playback. For NTS
+        for devicePort in devicePorts.findall('.//devicePort'):
+            if devicePort.get('tagName') == 'Speaker':
+                if AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox':
+                    for profile in devicePort.findall('.//profile'):
+                        devicePort.remove(profile)
+                else:
+                    break
 
 def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProduct, version):
     sbrSuffix = ''
