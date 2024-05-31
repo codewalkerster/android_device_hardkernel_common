@@ -12,7 +12,7 @@ allow hal_drm_verimatrix hal_omx_server:fd use;
 allow hal_drm_verimatrix { appdomain -isolated_app }:fd use;
 allow hal_drm_verimatrix vndbinder_device:chr_file { read write open ioctl };
 
-allow hal_drm_verimatrix vmx_webclient:binder { call };
+allow hal_drm_verimatrix vmx_webclient:binder { call transfer };
 allow hal_drm_verimatrix vmx_webclient_service:service_manager { find };
 
 allow hal_drm_verimatrix drm_device:chr_file { read open write ioctl };

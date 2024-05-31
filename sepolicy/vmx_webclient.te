@@ -22,6 +22,8 @@ allow vmx_webclient sysfs_stb:file { read open getattr };
 allow vmx_webclient self:netlink_kobject_uevent_socket { create read setopt bind };;
 
 allow vmx_webclient platform_app:fd  { use };
+allow vmx_webclient system_app:fd  { use };
 allow vmx_webclient mediaserver:fd  { use };
 
 allow vmx_webclient self:process { ptrace };
+allow vmx_webclient hal_drm_verimatrix:binder { call };
