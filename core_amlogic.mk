@@ -352,6 +352,10 @@ ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/usb_power/power_config.js
 PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/usb_power/power_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/power_config.json
 PRODUCT_PACKAGES += \
     current_service
+
+ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/usb_power/lowpower_disbale.sh))
+PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/usb_power/lowpower_disbale.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/lowpower_disbale.sh
+endif
 endif
 
 ifeq ($(ATV_LAUNCHER), amati)
