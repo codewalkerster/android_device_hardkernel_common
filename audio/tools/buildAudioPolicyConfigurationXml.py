@@ -262,7 +262,7 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
     # TODO: workaround, Google multichannel-PCM playback has a bug. For atv version, delete multi-channel PCM.
     for mixport in mixPorts.findall('.//mixPort'):
         mixportName = mixport.get('name')
-        if version == 'atv' and (mixportName == 'direct pcm' or mixportName == 'tunnel pcm' or mixportName == 'compress offload'):
+        if version == 'atv' and (mixportName == 'compress offload'):
             for profile in mixport.findall('.//profile'):
                 if profile.get('format') == 'AUDIO_FORMAT_PCM_16_BIT':
                     profile.set('channelMasks', 'AUDIO_CHANNEL_OUT_STEREO')
@@ -351,7 +351,7 @@ def main():
                 outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + tvName + dolby + dts + '.xml'
                 AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'tv'
                 logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
-                genXmlFile(outputFilePath, 'amlogic', tvName, dolby + dts, 'false', 'aosp')
+                genXmlFile(outputFilePath, 'amlogic', tvName, dolby + dts, 'false', 'atv')
 
 if __name__ == "__main__":
     sys.exit(main())
