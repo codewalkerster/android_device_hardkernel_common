@@ -621,18 +621,97 @@ uboot_exec_aosp[50]="./mk s7_bp201  --vab --avb2 --fastboot-write"
 uboot_exec_drm[50]="./mk s7_bp201  --vab --avb2 --fastboot-write"
 kernel_exec[50]="./mk pascal -v "
 kernel_addr[50]="export KERNEL_A32_SUPPORT=true"
+
+###########################################################################################
+
+###########################################################################################
+# calla_wv4
+project[51]="Calla_wv4"
+soc[51]="T963D4"
+hardware[51]="AY301"
+module[51]="calla_wv4"
+uboot_path[51]="device/amlogic/calla_wv4"
+uboot_exec_aosp[51]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+uboot_exec_drm[51]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+kernel_exec[51]="./mk calla_wv4 -v "
+
+###########################################################################################
+
+###########################################################################################
+# calla_wv4_gtv
+project[52]="Calla_wv4_GTV"
+soc[52]="T963D4"
+hardware[52]="AY301"
+module[52]="calla_wv4_gtv"
+uboot_path[52]="device/amlogic/calla_wv4"
+uboot_exec_aosp[52]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+uboot_exec_drm[52]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+kernel_exec[52]="./mk calla_wv4 -v "
 ###########################################################################################
 
 ###########################################################################################
 # Pascal S805X3 DONGLE
-project[51]="Pascal-DONGLE"
-soc[51]="S805X3"
-hardware[51]="bp202"
-module[51]="pascal"
-uboot_path[51]="device/amlogic/pascal"
-uboot_exec_aosp[51]="./mk s7_bp202  --vab --avb2 --fastboot-write"
-uboot_exec_drm[51]="./mk s7_bp202  --vab --avb2 --fastboot-write"
-kernel_exec[51]="./mk pascal -v "
+project[53]="Pascal-DONGLE"
+soc[53]="S805X3"
+hardware[53]="bp202"
+module[53]="pascal"
+uboot_path[53]="device/amlogic/pascal"
+uboot_exec_aosp[53]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+uboot_exec_drm[53]="./mk s7_bp202  --vab --avb2 --fastboot-write"
+kernel_exec[53]="./mk pascal -v "
+
+###########################################################################################
+# calla
+project[54]="Calla_32bit"
+soc[54]="T963D4"
+hardware[54]="AY301"
+module[54]="calla"
+uboot_path[54]="device/amlogic/calla"
+uboot_exec_aosp[54]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+uboot_exec_drm[54]="./mk t5m_ay301 --vab --avb2 --fastboot-write"
+kernel_exec[54]="./mk calla -v "
+kernel_addr[54]="export KERNEL_A32_SUPPORT=true"
+
+###########################################################################################
+
+###########################################################################################
+# RAMAN GTV
+project[55]="RAMAN_GTV"
+soc[55]="S905X5"
+hardware[55]="BL201"
+module[55]="raman"
+uboot_path[55]="device/amlogic/raman"
+uboot_exec_aosp[55]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[55]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+kernel_exec[55]="./mk raman -v "
+
+###########################################################################################
+
+###########################################################################################
+# RAMAN HYBRID
+project[56]="RAMAN_HYBRID"
+soc[56]="S905X5"
+hardware[56]="BL201"
+module[56]="raman_hybrid"
+uboot_path[56]="device/amlogic/raman"
+uboot_exec_aosp[56]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[56]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+kernel_exec[56]="./mk raman -v "
+
+###########################################################################################
+
+###########################################################################################
+# RAMAN ATV
+project[57]="RAMAN_ATV"
+soc[57]="S905X5"
+hardware[57]="BL201"
+module[57]="raman_atv"
+uboot_path[57]="device/amlogic/raman"
+uboot_exec_aosp[57]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[57]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+kernel_exec[57]="./mk raman -v "
+
+
 ###########################################################################################
 usage() {
     echo -e \
