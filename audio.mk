@@ -38,6 +38,30 @@ PRODUCT_PACKAGES += \
     AudioEffectTool \
     libAmlAudioOutPort \
 
+#########################################################################################
+###                          Dolby MS12 ASDK control
+#########################################################################################
+OPTION_AUTO_PATCH_SHELL_FILE_ASDK := vendor/amlogic/restricted_libs/dolby/enable_asdk.mk
+HAVE_OPTION_WRITE_SHELL_FILE_ASDK := $(shell test -f $(OPTION_AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
+AUTO_PATCH_SHELL_FILE_ASDK := vendor/dolby/enable_asdk.mk
+HAVE_WRITE_SHELL_FILE_ASDK := $(shell test -f $(AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
+ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
+    ifeq ($(HAVE_OPTION_WRITE_SHELL_FILE_ASDK),yes)
+        DOLBY_ASDK_PATH := vendor/amlogic/restricted_libs/dolby
+        TARGET_BUILD_DOLBY_ASDK :=true
+        $(warning 'Dolby ASDK(vendor/amlogic/restricted_libs/dolby) will be installed')
+        $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
+    else
+        ifeq ($(HAVE_WRITE_SHELL_FILE_ASDK),yes)
+            DOLBY_ASDK_PATH := vendor/dolby
+            TARGET_BUILD_DOLBY_ASDK :=true
+            $(warning 'Dolby ASDK(vendor/dolby) will be installed')
+            $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
+        endif
+    endif
+endif
+########################################################################################
+
 ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
 PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
 endif
@@ -109,10 +133,14 @@ PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration.xml \
     $(configurable_audiopolicy_xmls)msd_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/msd_audio_policy_configuration.xml \
     $(configurable_audiopolicy_xmls)default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    $(configurable_audiopolicy_xmls)audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
     $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_product_strategies.xml \
     $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_stream_volumes.xml \
     $(configurable_audiopolicy_xmls)bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml
+
+ifneq ($(TARGET_BUILD_DOLBY_ASDK),true)
+    PRODUCT_COPY_FILES += \
+        $(configurable_audiopolicy_xmls)audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml
+endif
 
 endif
 ##################################################################################
@@ -224,24 +252,4 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.audio.ms12.dynamic_sleep=true
 
-#########################################################################################
-###                          Dolby MS12 ASDK control
-#########################################################################################
-OPTION_AUTO_PATCH_SHELL_FILE_ASDK := vendor/amlogic/restricted_libs/dolby/enable_asdk.mk
-HAVE_OPTION_WRITE_SHELL_FILE_ASDK := $(shell test -f $(OPTION_AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
-AUTO_PATCH_SHELL_FILE_ASDK := vendor/dolby/enable_asdk.mk
-HAVE_WRITE_SHELL_FILE_ASDK := $(shell test -f $(AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
-ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
-    ifeq ($(HAVE_OPTION_WRITE_SHELL_FILE_ASDK),yes)
-        DOLBY_ASDK_PATH := vendor/amlogic/restricted_libs/dolby
-        $(warning 'Dolby ASDK(vendor/amlogic/restricted_libs/dolby) will be installed')
-        $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
-    else
-        ifeq ($(HAVE_WRITE_SHELL_FILE_ASDK),yes)
-            DOLBY_ASDK_PATH := vendor/dolby
-            $(warning 'Dolby ASDK(vendor/dolby) will be installed')
-            $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
-        endif
-    endif
-endif
-######################################################################
+
