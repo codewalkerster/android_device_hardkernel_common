@@ -29,18 +29,24 @@ on boot
     chmod 0666 /dev/dvb0.demux3
     chmod 0666 /dev/dvb0.demux4
     chmod 0666 /dev/dvb0.demux5
+    chmod 0666 /dev/dvb0.demux6
+    chmod 0666 /dev/dvb0.demux7
     chmod 0666 /dev/dvb0.dvr0
     chmod 0666 /dev/dvb0.dvr1
     chmod 0666 /dev/dvb0.dvr2
     chmod 0666 /dev/dvb0.dvr3
     chmod 0666 /dev/dvb0.dvr4
     chmod 0666 /dev/dvb0.dvr5
+    chmod 0666 /dev/dvb0.dvr6
+    chmod 0666 /dev/dvb0.dvr7
     chmod 0666 /dev/dvb0.ca0
     chmod 0666 /dev/dvb0.ca1
     chmod 0666 /dev/dvb0.ca2
     chmod 0666 /dev/dvb0.ca3
     chmod 0666 /dev/dvb0.ca4
     chmod 0666 /dev/dvb0.ca5
+    chmod 0666 /dev/dvb0.ca6
+    chmod 0666 /dev/dvb0.ca7
     chmod 0666 /dev/dvb0.ca17
     chmod 0666 /dev/key
     chmod 0666 /dev/aml_dsm
@@ -61,18 +67,24 @@ on boot
     chown media system /dev/dvb0.demux3
     chown media system /dev/dvb0.demux4
     chown media system /dev/dvb0.demux5
+    chown media system /dev/dvb0.demux6
+    chown media system /dev/dvb0.demux7
     chown media system /dev/dvb0.dvr0
     chown media system /dev/dvb0.dvr1
     chown media system /dev/dvb0.dvr2
     chown media system /dev/dvb0.dvr3
     chown media system /dev/dvb0.dvr4
     chown media system /dev/dvb0.dvr5
+    chown media system /dev/dvb0.dvr6
+    chown media system /dev/dvb0.dvr7
     chown media system /dev/dvb0.ca0
     chown media system /dev/dvb0.ca1
     chown media system /dev/dvb0.ca2
     chown media system /dev/dvb0.ca3
     chown media system /dev/dvb0.ca4
     chown media system /dev/dvb0.ca5
+    chown media system /dev/dvb0.ca6
+    chown media system /dev/dvb0.ca7
     chown media system /dev/dvb0.ca17
     chown media system /dev/key
     chown media system /dev/aml_dsm
