@@ -114,6 +114,7 @@
 
 # uvm
 /dev/uvm                  0666   system       graphics
+/dev/dmaheap              0666   system       graphics
 
 # video tunnel
 /dev/videotunnel          0666   system       graphics
