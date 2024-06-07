@@ -193,6 +193,7 @@
 /dev/tee0               		u:object_r:drm_device:s0
 /dev/teepriv0           		u:object_r:drm_device:s0
 /dev/tee_comm_hdcp			u:object_r:drm_device:s0
+/dev/aml_watermark			u:object_r:drm_device:s0
 /dev/amlsec-mkl0    			u:object_r:cert_device:s0
 /dev/nocs-ca-cert0    			u:object_r:cert_device:s0
 /dev/socdata    			    u:object_r:cert_device:s0
