@@ -224,8 +224,8 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
     if audioPolicyDevicesXml_attachedDevicesRoot is not None:
         attachedDevices.clear()
     for audioPolicyDevicesXml_attachedDevices_itemRoot in audioPolicyDevicesXml_attachedDevicesRoot.findall('item'):
-        if audioPolicyDevicesXml_attachedDevices_itemRoot.text == 'Tuner' and supportDtvkit == 'false':
-            # If DVB is not supported, the tuner_in device needs to be deleted.
+        if audioPolicyDevicesXml_attachedDevices_itemRoot.text == 'Tuner' and supportDtvkit == 'false' and AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox':
+            # If DVB is not supported, the tuner_in device needs to be deleted on OTT.
             continue
         found = False
         for audioPolicyDevicesXml_devicePorts_itemRoot in audioPolicyDevicesXml_devicePortsRoot.findall('item'):
@@ -253,8 +253,8 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, soundbarProd
     devicePorts.clear()
     for audioPolicyDevicesXml_devicePorts_itemRoot in audioPolicyDevicesXml_devicePortsRoot.findall('item'):
         logging.debug('[buildAudioPolicyConfigurationXml:D] audioPolicyDevicesXml_devicePorts_itemRoot:' + audioPolicyDevicesXml_devicePorts_itemRoot.text)
-        if audioPolicyDevicesXml_devicePorts_itemRoot.text == 'Tuner' and supportDtvkit == 'false':
-            # If DVB is not supported, the tuner_in device needs to be deleted.
+        if audioPolicyDevicesXml_devicePorts_itemRoot.text == 'Tuner' and supportDtvkit == 'false' and AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox':
+            # If DVB is not supported, the tuner_in device needs to be deleted on OTT.
             continue
         for devicePortInTableXml in audioPolicyCommonDevicePortsXml_devicePortsRoot:
             # logging.debug('[buildAudioPolicyConfigurationXml:D] audioPolicyDevicesXml_devicePorts_itemRoot:' + audioPolicyDevicesXml_devicePorts_itemRoot.text + ', common:' + devicePortInTableXml.get('tagName'))
