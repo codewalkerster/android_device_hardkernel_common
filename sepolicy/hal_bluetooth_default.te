@@ -13,8 +13,8 @@ allow hal_bluetooth_default proc_modules:file rw_file_perms;
 allow hal_bluetooth_default device:dir rw_file_perms;
 allow hal_bluetooth_default usb_device:dir rw_file_perms;
 
-allow hal_bluetooth_default vendor_data_file:dir  { search add_name rw_file_perms};
-allow hal_bluetooth_default vendor_data_file:file  { open setattr create read write getattr };
+allow hal_bluetooth_default vendor_data_file:dir  { search add_name rw_file_perms remove_name};
+allow hal_bluetooth_default vendor_data_file:file  { open setattr create read write getattr rename unlink};
 
 get_prop(hal_bluetooth_default, bluetooth_prop);
 get_prop(hal_bluetooth_default, vendor_bluetooth_prop);
