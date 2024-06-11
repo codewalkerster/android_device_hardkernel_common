@@ -1,14 +1,5 @@
 $(call inherit-product, device/amlogic/common/core_amlogic.mk)
 
-#TvExtras
-ifeq ($(ATV_LAUNCHER),amati)
-PRODUCT_PACKAGES += \
-    DroidTvExtrasTwoPanel
-else
-PRODUCT_PACKAGES += \
-    DroidTvExtras
-endif
-
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
 PRODUCT_PACKAGES += \
@@ -56,6 +47,15 @@ endif
 # LiveTv
 PRODUCT_PACKAGES += \
     DroidLogicLiveTv
+
+#TvExtras
+ifeq ($(ATV_LAUNCHER),amati)
+    PRODUCT_PACKAGES += \
+        DroidTvExtrasTwoPanel
+else
+    PRODUCT_PACKAGES += \
+        DroidTvExtras
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.build.livetv=true
