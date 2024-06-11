@@ -398,9 +398,14 @@ PRODUCT_DEFAULT_DEV_CERTIFICATE := device/hardkernel/common/security/testkey
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
 BOARD_BASEPARAMETER_SUPPORT ?= true
+BOARD_BASEPARAMETER_AUTO ?= true
 ifeq ($(strip $(BOARD_BASEPARAMETER_SUPPORT)), true)
     ifneq ($(filter rk356x rk3588, $(strip $(TARGET_BOARD_PLATFORM))), )
-        TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/v2.0/baseparameter.img
+        ifeq ($(strip $(BOARD_BASEPARAMETER_AUTO)), true)
+            TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/v2.0/baseparameter_auto.img
+        else
+            TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/v2.0/baseparameter.img
+        endif
     else
         TARGET_BASE_PARAMETER_IMAGE ?= device/hardkernel/common/baseparameter/v1.0/baseparameter.img
     endif
