@@ -4,11 +4,10 @@ echo "Start boot.scr booting."
 
 echo "  Init default values"
 
-setenv heartbeat 1
-#setenv overlays "uart0"
+test -n "$$heartbeat" || setenv heartbeat 1
+test -n "$$lcd_density" || setenv lcd_density 240
 setenv overlays ""
 setenv overlays_resize 16384
-setenv lcd_density 240
 
 echo "  Boot sequence"
 if test "$${devnum}" = 0 ; then
