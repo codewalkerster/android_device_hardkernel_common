@@ -22,6 +22,7 @@ soong_config_module_type {
         "build_livetv_from_source",
         "netflix_mgkid",
         "tdk_version",
+        "aml_soc_type",
         "enable_ta_sign",
         "enable_ta_encrypt",
         "omx_with_optee_tvp",
@@ -77,6 +78,31 @@ soong_config_string_variable {
         "TDK24",
         "TDK38",
         "TDK318",
+    ],
+}
+
+soong_config_string_variable {
+    name: "aml_soc_type",
+    values: [
+        "A311D2",
+        "S805X2",
+        "S805X2G",
+        "S805X3",
+        "S905C2",
+        "S905C2L",
+        "S905C3",
+        "S905X4",
+        "S905X5",
+        "S905X5M",
+        "S905Y4",
+        "S905Y5",
+        "S928X",
+        "T950S",
+        "T962D4",
+        "T963D4",
+        "T965D4",
+        "T968D4",
+        "T982",
     ],
 }
 

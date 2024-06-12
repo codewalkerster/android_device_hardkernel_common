@@ -27,6 +27,8 @@ PLATFORM_TDK_VERSION := 24
 endif
 $(call soong_config_set,amlogic_vendorconfig,tdk_version,TDK$(PLATFORM_TDK_VERSION))
 
+$(call soong_config_set,amlogic_vendorconfig,aml_soc_type,$(BOARD_AML_SOC_TYPE))
+
 $(call soong_config_set,amlogic_vendorconfig,enable_ta_sign,$(TARGET_ENABLE_TA_SIGN))
 
 $(call soong_config_set,amlogic_vendorconfig,enable_ta_encrypt,$(TARGET_ENABLE_TA_ENCRYPT))
