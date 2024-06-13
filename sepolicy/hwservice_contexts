@@ -18,5 +18,3 @@ vendor.irdeto.hal.hidlimw.v34_0.base::IimwFZB                      u:object_r:ha
 vendor.irdeto.hal.hidlimw.v34_0.base::IimwCOPYCONTROL              u:object_r:hal_hidlimw_hwservice:s0
 vendor.irdeto.hal.hidlimw.v34_0.pvr::IimwPVR                       u:object_r:hal_hidlimw_hwservice:s0
 
-vendor.amlogic.hardware.miracast_hdcp2::IHDCPService               u:object_r:miracast_hdcp2_hwservice:s0
-miracast_hdcp2                                                     u:object_r:miracast_hdcp2_hwservice:s0

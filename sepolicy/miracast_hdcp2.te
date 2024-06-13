@@ -10,11 +10,6 @@ allow miracast_hdcp2 sysfs_unifykey:file { read write open getattr };
 
 allow miracast_hdcp2 drm_device:chr_file { read open write ioctl };
 
-allow miracast_hdcp2 hwservicemanager:binder { call transfer };
-allow miracast_hdcp2 hwservicemanager_prop:file { open read getattr map };
-allow miracast_hdcp2 { miracast_hdcp2_hwservice  hidl_base_hwservice }:hwservice_manager { add };
-allow miracast_hdcp2 miracast_hdcp2_hwservice:hwservice_manager find;
-
 allow miracast_hdcp2 miracast_hdcp2:tcp_socket { create read write setopt bind listen connect };
 allow miracast_hdcp2 port:tcp_socket { name_bind name_connect };
 allow miracast_hdcp2 node:tcp_socket { node_bind };
@@ -27,3 +22,5 @@ allow miracast_hdcp2 vendor_data_file:file { read open write getattr create unli
 allow miracast_hdcp2 system_app:binder { transfer call };
 allow miracast_hdcp2 vendor_media_prop:file { read getattr open };
 allow miracast_hdcp2 mediaserver:binder{ transfer call };
+allow miracast_hdcp2 servicemanager:binder { call transfer };
+allow miracast_hdcp2 miracast_hdcp2_service:service_manager  { add };

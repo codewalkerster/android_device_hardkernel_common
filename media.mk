@@ -311,6 +311,8 @@ endif
 #
 #                                Miracast Application
 ##########################################################################
+BUILD_WITH_MIRACAST := true
+
 ifeq ($(BUILD_WITH_MIRACAST), true)
 PRODUCT_PACKAGES += \
     Miracast
@@ -320,7 +322,7 @@ PRODUCT_PACKAGES += \
     807798e0-f011-11e5-a5fe-0002a5d5c51b
 PRODUCT_PACKAGES += \
     libwfd_hdcp_adaptor \
-    vendor.amlogic.hardware.miracast_hdcp2@1.0 \
+    vendor.amlogic.hardware.miracast_hdcp2-V1-ndk \
     miracast_hdcp2
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.miracast.hdcp2=true
