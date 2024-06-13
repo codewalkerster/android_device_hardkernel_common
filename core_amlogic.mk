@@ -1071,3 +1071,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #add the timeout time, avoid create failed
 PRODUCT_PROPERTY_OVERRIDES += \
     apexd.config.dm_create.timeout=5000
+
+# AmStreamingTIS
+ifeq ($(PRODUCT_SUPPORT_AMSTREAMING_TIS),true)
+include vendor/amlogic/reference/apps/AmStreamingInputService/inputservice.mk
+endif
