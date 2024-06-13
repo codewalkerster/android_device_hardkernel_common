@@ -45,7 +45,9 @@ OPTION_AUTO_PATCH_SHELL_FILE_ASDK := vendor/amlogic/restricted_libs/dolby/enable
 HAVE_OPTION_WRITE_SHELL_FILE_ASDK := $(shell test -f $(OPTION_AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
 AUTO_PATCH_SHELL_FILE_ASDK := vendor/dolby/enable_asdk.mk
 HAVE_WRITE_SHELL_FILE_ASDK := $(shell test -f $(AUTO_PATCH_SHELL_FILE_ASDK) && echo yes)
-ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
+#No matter ms12_v2 is built or not,
+#Only if the $DOLBY_ASDK_PATH file exist, project builds the Dolby ASDK.
+#ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
     ifeq ($(HAVE_OPTION_WRITE_SHELL_FILE_ASDK),yes)
         DOLBY_ASDK_PATH := vendor/amlogic/restricted_libs/dolby
         TARGET_BUILD_DOLBY_ASDK :=true
@@ -59,7 +61,7 @@ ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
             $(call inherit-product, $(DOLBY_ASDK_PATH)/enable_asdk.mk)
         endif
     endif
-endif
+#endif
 ########################################################################################
 
 ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
