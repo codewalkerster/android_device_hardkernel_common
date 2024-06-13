@@ -403,6 +403,7 @@ function build() {
 			--extra_apks com.android.appsearch.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.wifi.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.healthfitness.apex=$KEY_DIR/releasekey \
+			--extra_apks com.dolby.android.audio.service=$KEY_DIR/releasekey \
 			--extra_apks com.android.adservices.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.ipsec.apex=$KEY_DIR/releasekey \
 			--extra_apks com.android.btservices.apex=$KEY_DIR/releasekey \
