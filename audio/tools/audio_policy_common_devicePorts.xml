@@ -83,7 +83,7 @@
         </devicePort>
         <devicePort tagName="Speaker" type="AUDIO_DEVICE_OUT_SPEAKER" role="sink">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000"
+                     samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 96000"
                      channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
             <gains>
                 <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
