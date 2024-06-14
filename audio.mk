@@ -76,9 +76,8 @@ endif
 USE_XML_AUDIO_POLICY_CONF := 1
 ifeq ($(USE_XML_AUDIO_POLICY_CONF),1)
 AUDIO_FEATURE_TYPE := _
-ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
-else ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
+#for ms12 v2 case, it should use default one in /vendor/etc
+ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12v1_
 else ifeq ($(TARGET_DOLBY_VERSION), ddp_only)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ddp_
