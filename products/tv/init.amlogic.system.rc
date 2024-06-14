@@ -90,6 +90,10 @@ on boot
     #1: only root user can read
     write /proc/sys/kernel/dmesg_restrict 0
 
+    #for demux cache
+    chown root system /sys/module/amlogic_dvb_demux/parameters/cache_clear_time
+    chmod 664 /sys/module/amlogic_dvb_demux/parameters/cache_clear_time
+
 on fs
     start resmanload
 

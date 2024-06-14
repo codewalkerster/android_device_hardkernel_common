@@ -89,6 +89,10 @@ on boot
     write /sys/class/audiodsp/ac3_drc_control "drclowboostscale 0"
     write /sys/class/audiodsp/ac3_drc_control "drcmode 3"
 
+    #for demux cache
+    chown root system /sys/module/amlogic_dvb_demux/parameters/cache_clear_time
+    chmod 664 /sys/module/amlogic_dvb_demux/parameters/cache_clear_time
+
 on fs
     start resmanload
 
