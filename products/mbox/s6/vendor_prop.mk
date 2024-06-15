@@ -174,7 +174,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.usb.controller=fe350000.crgudc
+    vendor.usb.controller=fe340000.crgudc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.locale=en-US
