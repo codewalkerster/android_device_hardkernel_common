@@ -713,6 +713,19 @@ kernel_exec[57]="./mk raman -v "
 
 
 ###########################################################################################
+
+###########################################################################################
+# RAMAN SKT
+project[58]="RAMAN_SKT"
+soc[58]="S905X5"
+hardware[58]="BL208"
+module[58]="raman"
+uboot_path[58]="device/amlogic/raman"
+uboot_exec_aosp[58]="./mk s6_bl208 --vab --avb2 --fastboot-write"
+uboot_exec_drm[58]="./mk s6_bl208 --vab --avb2 --fastboot-write"
+kernel_exec[58]="./mk raman -v "
+
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
