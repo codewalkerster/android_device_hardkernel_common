@@ -99,13 +99,16 @@ endif
 
 #########################################################################
 #
-# Audio
+# Soundbar
 #
 #########################################################################
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
-$(warning 'This platform use soundbar audio policy configuration!')
+
+TVCONFIG_FILES := \
+    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
+$(warning 'This platform use soundbar audio config and tv config!')
 endif
 #########################################################################
 #

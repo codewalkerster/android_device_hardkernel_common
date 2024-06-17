@@ -95,3 +95,17 @@ ifeq ($(SUPPORT_TUNERHAL), true)
 PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
 endif
+
+#########################################################################
+#
+# Soundbar
+#
+#########################################################################
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+
+TVCONFIG_FILES := \
+    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
+$(warning 'This platform use soundbar audio config and tv config!')
+endif
