@@ -93,5 +93,6 @@
         {"hwid":0, "type":3, "modulationCap":1, "bandwidthCap":7, "timeInterleaveModeCap":1, "codeRateCap":1, "fecCap":1, "demodOutputFormatCap":1}
     ],
 
-    "dmxsetting":{"ts_input":32}
+    "dmxsetting":{"ts_input":32},
+    "dvrsetting":{"encrypt_pvr":1}
 }

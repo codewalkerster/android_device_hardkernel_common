@@ -80,5 +80,6 @@
         //{"hwid":0, "type":2, "modulationCap":7},
     ],
 
-    "dmxsetting":{"ts_input":32}
+    "dmxsetting":{"ts_input":32},
+    "dvrsetting":{"encrypt_pvr":1}
 }
