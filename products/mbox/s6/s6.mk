@@ -237,6 +237,15 @@ PRODUCT_COPY_FILES += \
 
 #########################################################################
 #
+#                                    AI
+#
+#########################################################################
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/products/mbox/s6/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
+    device/amlogic/common/products/mbox/s6/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt
+
+#########################################################################
+#
 #  DTVKIT Config
 #
 #########################################################################
