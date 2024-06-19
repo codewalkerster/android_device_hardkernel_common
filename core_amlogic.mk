@@ -623,15 +623,12 @@ PRODUCT_PACKAGES += \
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint-service.amlogic
-else
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint-service
-endif
-
-ifneq ($(TARGET_BUILD_GMS), true)
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper-service.amlogic
+else
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint-service
 endif
 
 #RKP HAL
