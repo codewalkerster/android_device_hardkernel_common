@@ -38,6 +38,12 @@ PRODUCT_PACKAGES += \
     libam_sysfs \
     libdmxresconf
 
+# Window Extensions
+$(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
+# Disable Settings large-screen optimization enabled by Window Extensions
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.settings.large_screen_opt.enabled=false
+
 #IRDETO need
 ifeq ($(TARGET_BUILD_IRDETO), true)
 PRODUCT_PACKAGES += \
