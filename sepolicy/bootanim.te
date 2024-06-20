@@ -1,3 +1,5 @@
+hal_client_domain(bootanim, hal_audio)
+
 allow bootanim sysfs_video:dir { search };
 allow bootanim sysfs_video:file { open read write getattr };
 allow bootanim input_device:dir {open read write search watch };
@@ -31,6 +33,8 @@ allow bootanim proc_asound:file { read open getattr };
 allow bootanim uio_device:chr_file { open read write map };
 allow bootanim sysfs_astream:dir { search };
 allow bootanim sysfs_astream:file { open read write };
+allow bootanim hal_audio_hwservice:hwservice_manager { find };
+allow bootanim hal_audio_default:binder { call transfer };
 
 allow bootanim hal_graphics_allocator_default_tmpfs:file rw_file_perms;
 set_prop(bootanim, system_prop)
