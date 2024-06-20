@@ -368,7 +368,8 @@ endif
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
-    hardware/amlogic/keymaster/keymint/rkp_extract.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rkp_extract.rc
+    hardware/amlogic/keymaster/keymint/rkp_extract.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rkp_extract.rc \
+    hardware/amlogic/keymaster/keymint/rkp_extract.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/rkp_extract.sh
 
 PRODUCT_PRODUCT_PROPERTIES += \
     remote_provisioning.hostname=remoteprovisioning.googleapis.com
