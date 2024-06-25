@@ -275,12 +275,8 @@ PRODUCT_PACKAGES += \
 
 # JDvrLib core packages
 PRODUCT_PACKAGES += \
-    JDvrLib
-
-# JDvrLib test app related packages
-PRODUCT_PACKAGES += \
-    JDvrLibTest \
-    libjdvrlib-ref-native-client
+    JDvrLib \
+    libjdvrlib-jni
 endif
 
 ########################################################################

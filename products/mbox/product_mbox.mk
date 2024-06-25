@@ -312,11 +312,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     JDvrLib \
     libjdvrlib-jni
-
-# JDvrLib test app related packages
-PRODUCT_PACKAGES += \
-    JDvrLibTest \
-    libjdvrlib-ref-native-client
 endif
 
 ###########################AtvAxel########################################
