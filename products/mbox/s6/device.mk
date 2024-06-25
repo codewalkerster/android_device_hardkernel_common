@@ -74,9 +74,7 @@ endif
 
 PQ_FILES := \
     $(CHIP_DIR)/files/PQ/pq.db \
-    $(CHIP_DIR)/files/PQ/pq_default.ini \
-    $(CHIP_DIR)/files/PQ/UI_PQSetting.bin
-
+    $(CHIP_DIR)/files/PQ/pq_default.ini
 
 #thermal 2.0 config file
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
