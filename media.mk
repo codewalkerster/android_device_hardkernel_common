@@ -311,7 +311,6 @@ endif
 #
 #                                Miracast Application
 ##########################################################################
-BUILD_WITH_MIRACAST := true
 
 ifeq ($(BUILD_WITH_MIRACAST), true)
 PRODUCT_PACKAGES += \
