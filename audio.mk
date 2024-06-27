@@ -38,6 +38,7 @@ PRODUCT_PACKAGES += \
     libvirtualsurround \
     libvirtualx \
     libdpe\
+    libaudiopolicymanagercustom \
     param_set \
     AudioEffectTool \
     libAmlAudioOutPort \
