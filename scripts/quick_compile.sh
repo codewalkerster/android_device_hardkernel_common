@@ -728,11 +728,11 @@ kernel_exec[58]="./mk raman -v "
 ###########################################################################################
 
 ###########################################################################################
-# RAMAN S905D5 GTV
+# RAMAN MULTI DISPLAY GTV
 project[59]="RAMAN_S905D5_GTV"
 soc[59]="S905D5"
 hardware[59]="BQ201"
-module[59]="raman"
+module[59]="raman_multidisplay"
 uboot_path[59]="device/amlogic/raman"
 uboot_exec_aosp[59]="./mk s6_bq201 --vab --avb2 --fastboot-write"
 uboot_exec_drm[59]="./mk s6_bq201 --vab --avb2 --fastboot-write"
@@ -741,11 +741,11 @@ kernel_exec[59]="./mk raman -v "
 ###########################################################################################
 
 ###########################################################################################
-# RAMAN S905D5 SKT
+# RAMAN MULTI DISPLAY SKT
 project[60]="RAMAN_S905D5_SKT"
 soc[60]="S905D5"
 hardware[60]="BQ208"
-module[60]="raman"
+module[60]="raman_multidisplay"
 uboot_path[60]="device/amlogic/raman"
 uboot_exec_aosp[60]="./mk s6_bq208 --vab --avb2 --fastboot-write"
 uboot_exec_drm[60]="./mk s6_bq208 --vab --avb2 --fastboot-write"
