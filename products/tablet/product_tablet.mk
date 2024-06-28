@@ -175,7 +175,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.hdmi.device_type=0
 
 #userdebug, eng, AOSP version default disable AVB
-ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
-    BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-endif
+#ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
+#    BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
+#endif
 

@@ -245,17 +245,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     android.hardware.tv.hdmi.earc-service.droidlogic
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.hdmi.arc_port=2
-
-#userdebug, eng, AOSP version default disable AVB
-ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
-    BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-else
-#    ifeq ($(BOARD_COMPILE_ATV), false)
+#AOSP userdebug and eng version default disable AVB
+#ifeq ($(BOARD_COMPILE_ATV), false)
+#    ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 #        BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
 #    endif
-endif
+#endif
 
 ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
 #DEBUG FOR TUNER SDK JNI

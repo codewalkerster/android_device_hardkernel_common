@@ -266,11 +266,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 
 #AOSP userdebug and eng version default disable AVB
-ifeq ($(BOARD_COMPILE_ATV), false)
-    ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
-        BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
-    endif
-endif
+#ifeq ($(BOARD_COMPILE_ATV), false)
+#    ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
+#        BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 1
+#    endif
+#endif
 
 #AOSP density config
 ifeq ($(BOARD_COMPILE_ATV), false)
