@@ -154,7 +154,7 @@
         </devicePort>
         <devicePort tagName="Built-In Mic" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source" address="top">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="8000 16000 32000 48000 64000 96000"
+                     samplingRates="8000 16000 48000"
                      channelMasks="AUDIO_CHANNEL_IN_MONO AUDIO_CHANNEL_IN_STEREO"/>
         </devicePort>
         <devicePort tagName="Echo Reference" type="AUDIO_DEVICE_IN_ECHO_REFERENCE" role="source">
