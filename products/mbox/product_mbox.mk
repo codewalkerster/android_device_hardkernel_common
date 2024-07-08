@@ -251,17 +251,18 @@ ifneq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=playback_device \
     ro.hdmi.device_type=4 \
-    ro.vendor.hdmi.auto_otp=true
+    ro.vendor.hdmi.auto_otp=true \
+    ro.config.media_vol_steps=25
 else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=audio_system,playback_device \
     ro.hdmi.device_type=5,4 \
     ro.vendor.platform.hdmi.device_type=5,4 \
-    ro.hdmi.property_is_device_hdmi_cec_switch=true
+    ro.hdmi.property_is_device_hdmi_cec_switch=true \
+    ro.config.media_vol_steps=100
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.media_vol_steps=25 \
     ro.config.media_vol_default=20
 
 
