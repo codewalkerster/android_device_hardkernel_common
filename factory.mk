@@ -486,6 +486,47 @@ TARGET_USB_BURNING_V2_DEPEND_MODULES := $(AML_TARGET).zip #copy xx.img to $(AML_
 INTERNAL_SUPERIMAGE_DIST_TARGET := $(PRODUCT_OUT)/obj/PACKAGING/super.img_intermediates/super.img
 INSTALLED_SUPERIMAGE_EMPTY_TARGET := $(PRODUCT_OUT)/super_empty.img
 
+ifeq ($(TARGET_USE_AML_EROFS_TOOL),true)
+AML_EROFS_TOOL := $(PRODUCT_OUT)/mkfs.erofs
+AML_EROFS_SRC := \
+	device/amlogic/common/tools/mkfs.erofs \
+	device/amlogic/common/tools/dump.erofs \
+	device/amlogic/common/tools/fsck.erofs
+AML_STRIP_EROFS_SRC := \
+	device/amlogic/common/tools/strip/mkfs.erofs \
+	device/amlogic/common/tools/strip/dump.erofs \
+	device/amlogic/common/tools/strip/fsck.erofs
+
+$(AML_EROFS_TOOL): \
+	$(AML_EROFS_SRC) \
+	$(AML_STRIP_EROFS_SRC) \
+	out/host/linux-x86/bin/mkfs.erofs \
+	out/host/linux-x86/bin/dump.erofs \
+	out/host/linux-x86/bin/fsck.erofs \
+	$(PRODUCT_OUT)/system/bin/mkfs.erofs \
+	$(PRODUCT_OUT)/system/bin/dump.erofs \
+	$(PRODUCT_OUT)/system/bin/fsck.erofs \
+	$(PRODUCT_OUT)/recovery/root/system/bin/mkfs.erofs \
+	$(PRODUCT_OUT)/recovery/root/system/bin/dump.erofs \
+	$(PRODUCT_OUT)/recovery/root/system/bin/fsck.erofs
+	cp $(AML_EROFS_SRC) out/host/linux-x86/bin/
+	cp $(AML_STRIP_EROFS_SRC) $(PRODUCT_OUT)/system/bin/
+	cp $(AML_STRIP_EROFS_SRC) $(PRODUCT_OUT)/recovery/root/system/bin/
+	cp device/amlogic/common/tools/mkfs.erofs $(AML_EROFS_TOOL)
+else
+AML_EROFS_TOOL :=
+endif
+
+$(PRODUCT_OUT)/system.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/system_ext.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/system_dlkm.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/vendor.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/vendor_dlkm.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/product.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/odm.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/odm_dlkm.img: $(AML_EROFS_TOOL)
+$(PRODUCT_OUT)/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4: $(AML_EROFS_TOOL)
+
 PREPARE_AML_FILES := $(PRODUCT_OUT)/upgrade/platform.conf
 .PHONY:aml_prepare
 aml_prepare: $(PREPARE_AML_FILES)
