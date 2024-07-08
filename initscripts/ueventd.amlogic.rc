@@ -230,4 +230,19 @@
 /sys/devices/platform/gpioleds/leds/sys_led       brightness   0666  root root
 /sys/class/leds/i2c_leds            single_colors   0666  system system
 
+
+#amaudio
+/sys/class/amaudio                  audio_channels_mask   0664         media        system
+/sys/class/amaudio                  enable_resample       0664         media        system
+/sys/class/amaudio                  resample_type         0664         media        system
+/sys/class/amaudio                  debug                 0664         system       mediadrm
+/sys/class/amaudio                  codec_report_info     0664         audioserver      mediadrm
+
+#audio dsp
+/sys/class/audiodsp                 codec_fatal_err       0664         media        system
+/sys/class/audiodsp                 digital_codec         0664         media        system
+/sys/class/audiodsp                 digital_raw           0664         system       system
+/sys/class/audiodsp                 ac3_drc_control       0664         system       system
+/sys/class/audiodsp                 dts_dec_control       0664         media       system
+
 parallel_restorecon enabled

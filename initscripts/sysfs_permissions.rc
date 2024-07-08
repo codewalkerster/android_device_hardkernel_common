@@ -97,38 +97,6 @@ on init
 
     chmod 666 /sys/class/tsync/apts_lookup
 
-    #amaudio
-    chmod 0664 /sys/class/amaudio/audio_channels_mask
-    chown media system /sys/class/amaudio/audio_channels_mask
-
-    chmod 0664 /sys/class/amaudio/enable_resample
-    chown media system /sys/class/amaudio/enable_resample
-
-    chmod 0664 /sys/class/amaudio/resample_type
-    chown media system /sys/class/amaudio/resample_type
-
-    chmod 0664 /sys/class/amaudio/debug
-    chown system mediadrm /sys/class/amaudio/debug
-
-    chmod 0664 /sys/class/amaudio/codec_report_info
-    chown audioserver mediadrm /sys/class/amaudio/codec_report_info
-
-    #audio dsp
-    chmod 0664 /sys/class/audiodsp/codec_fatal_err
-    chown media system /sys/class/audiodsp/codec_fatal_err
-
-    chmod 0664 /sys/class/audiodsp/digital_codec
-    chown media system /sys/class/audiodsp/digital_codec
-
-    chmod 0664 /sys/class/audiodsp/digital_raw
-    chown system system /sys/class/audiodsp/digital_raw
-
-    chmod 0664 /sys/class/audiodsp/ac3_drc_control
-    chown system system /sys/class/audiodsp/ac3_drc_control
-
-    chmod 0664 /sys/class/audiodsp/dts_dec_control
-    chown media system /sys/class/audiodsp/dts_dec_control
-
     #di
     chmod 0664 /sys/module/di/parameters/det3d_en
     chown root system /sys/module/di/parameters/det3d_en
