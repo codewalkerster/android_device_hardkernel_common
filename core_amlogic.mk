@@ -105,8 +105,14 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
-    PlayAutoInstallStub \
+    PlayAutoInstallStub
+ifeq ($(PRODUCT_SUPPORT_4K_UI), true)
+PRODUCT_PACKAGES += \
+    LauncherCustomization4k
+else
+PRODUCT_PACKAGES += \
     LauncherCustomization
+endif
 endif
 
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
