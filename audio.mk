@@ -96,12 +96,6 @@ else ifeq ($(TARGET_DTS_VERSION), dtshd)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtshd_
 endif
 
-ifeq ($(PRODUCT_SUPPORT_DTVKIT),true)
-    AUDIO_POLICY_BUILD_PARAM_SUPPORT_DTVKIT := true
-else
-    AUDIO_POLICY_BUILD_PARAM_SUPPORT_DTVKIT := false
-endif
-
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
     AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := true
 else
@@ -133,7 +127,6 @@ configurable_audiopolicy_xmls := device/amlogic/common/audio/
 $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
     --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
     --chipDeviceType $(PRODUCT_DIR) \
-    --supportDtvkit $(AUDIO_POLICY_BUILD_PARAM_SUPPORT_DTVKIT) \
     --audioBuildType $(AUDIO_FEATURE_TYPE) \
     --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
     --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \

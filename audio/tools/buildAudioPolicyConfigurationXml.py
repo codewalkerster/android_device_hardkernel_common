@@ -179,7 +179,7 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
                 else:
                     break
 
-def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version, supportDtvkit = 'true'):
+def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version):
     sbrSuffix = ''
     if AUDIO_POLICY_BUILD_PARAM_SOUNDBAR == 'true':
         sbrSuffix = '_sbr'
@@ -225,9 +225,6 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version, sup
     if audioPolicyDevicesXml_attachedDevicesRoot is not None:
         attachedDevices.clear()
     for audioPolicyDevicesXml_attachedDevices_itemRoot in audioPolicyDevicesXml_attachedDevicesRoot.findall('item'):
-        if audioPolicyDevicesXml_attachedDevices_itemRoot.text == 'Tuner' and supportDtvkit == 'false' and AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox':
-            # If DVB is not supported, the tuner_in device needs to be deleted on OTT.
-            continue
         found = False
         for audioPolicyDevicesXml_devicePorts_itemRoot in audioPolicyDevicesXml_devicePortsRoot.findall('item'):
             if audioPolicyDevicesXml_devicePorts_itemRoot.text == audioPolicyDevicesXml_attachedDevices_itemRoot.text:
@@ -254,9 +251,6 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version, sup
     devicePorts.clear()
     for audioPolicyDevicesXml_devicePorts_itemRoot in audioPolicyDevicesXml_devicePortsRoot.findall('item'):
         logging.debug('[buildAudioPolicyConfigurationXml:D] audioPolicyDevicesXml_devicePorts_itemRoot:' + audioPolicyDevicesXml_devicePorts_itemRoot.text)
-        if audioPolicyDevicesXml_devicePorts_itemRoot.text == 'Tuner' and supportDtvkit == 'false' and AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox':
-            # If DVB is not supported, the tuner_in device needs to be deleted on OTT.
-            continue
         for devicePortInTableXml in audioPolicyCommonDevicePortsXml_devicePortsRoot:
             # logging.debug('[buildAudioPolicyConfigurationXml:D] audioPolicyDevicesXml_devicePorts_itemRoot:' + audioPolicyDevicesXml_devicePorts_itemRoot.text + ', common:' + devicePortInTableXml.get('tagName'))
             if audioPolicyDevicesXml_devicePorts_itemRoot.text == devicePortInTableXml.get('tagName'):
@@ -304,9 +298,6 @@ def parseArgs():
     argparser.add_argument('--chipDeviceType',
                            help="chip device directory name (ohm, calla, oppen...). Mandatory.",
                            required=True)
-    argparser.add_argument('--supportDtvkit',
-                            help="Does it support dvb? (true, false). Mandatory.",
-                            required=True)
     argparser.add_argument('--audioBuildType',
                            help="audio build type (ms12, ddp, dtshd...). Mandatory.",
                            metavar="audioBuildType",
@@ -341,7 +332,7 @@ def main():
         outDirPath = ANDROID_CODE_ROOT_PATH + "/out/aml/audio"
         logging.info('[buildAudioPolicyConfigurationXml:W] outDirPath: ' + outDirPath)
         outputFilePath = outDirPath + '/audio_policy_configuration.xml'
-        genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.atvVersion, args.supportDtvkit)
+        genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.atvVersion)
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
                 buildTypeName = dolby + dts
