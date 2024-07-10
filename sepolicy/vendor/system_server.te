@@ -28,4 +28,4 @@ get_prop(system_server, vendor_base_prop)
 
 #odroid things
 allow system_server odroid_thing:file write;
-allow system_server odroid_thing:binder call;
+allow system_server odroid_thing:binder { call transfer };
