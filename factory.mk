@@ -507,6 +507,8 @@ $(PREPARE_AML_FILES): \
 ifneq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 	echo "delete oem.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/oem.img/d" $(PACKAGE_CONFIG_FILE)
+else
+	cp $(OEM_OTA_CONFIG) $(PRODUCT_OUT)/oem.prop
 endif
 ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
 	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
@@ -522,7 +524,6 @@ endif
 else
 	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
 endif
-	cp $(OEM_OTA_CONFIG) $(PRODUCT_OUT)/oem.prop
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
 	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \

@@ -11,6 +11,7 @@ ANDROID_OUTPUT_PATH=$5
 
 echo "start build $TARGET_NAME ota zip"
 
+if [ -f $ANDROID_OUTPUT_PATH/oem.prop ]; then
 if [ "$TARGET_NAME" = "signed" ]; then
 	./out/host/linux-x86/bin/ota_from_target_files \
 	--extracted_input_target_files ${TARGET_NAME}_target \
@@ -25,6 +26,21 @@ else
 	--oem_settings $ANDROID_OUTPUT_PATH/oem.prop \
 	${TARGET_NAME}_target.zip \
 	out_publish/$REAL_BOARD-ota.zip
+fi
+else
+if [ "$TARGET_NAME" = "signed" ]; then
+	./out/host/linux-x86/bin/ota_from_target_files \
+	--extracted_input_target_files ${TARGET_NAME}_target \
+	--path out/host/linux-x86 \
+	${TARGET_NAME}_target.zip \
+	out_publish/$REAL_BOARD-ota-$TARGET_NAME.zip
+else
+	./out/host/linux-x86/bin/ota_from_target_files \
+	--extracted_input_target_files ${TARGET_NAME}_target \
+	--path out/host/linux-x86 \
+	${TARGET_NAME}_target.zip \
+	out_publish/$REAL_BOARD-ota.zip
+fi
 fi
 
 if [ $? -ne 0 ]; then
