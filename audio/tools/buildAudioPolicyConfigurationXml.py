@@ -278,12 +278,6 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version, sup
         if AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE != 'mbox' and mixportName == 'deep buffer output':
             mixPorts.remove(mixport)
 
-    for devicePort in devicePorts.findall('.//devicePort'):
-        devicePortName = devicePort.get('tagName')
-        if version == 'atv' and (devicePortName == 'Speaker' or devicePortName == 'HDMI ARC' or devicePortName == 'HDMI EARC'):
-            for profile in devicePort.findall('.//profile'):
-                if profile.get('format') == 'AUDIO_FORMAT_PCM_16_BIT':
-                    profile.set('channelMasks', 'AUDIO_CHANNEL_OUT_STEREO')
     # routes
     routes = module.find('routes')
     if routes != None:
