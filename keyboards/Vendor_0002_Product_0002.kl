@@ -75,7 +75,18 @@ key 187   BUTTON_4     WAKE #Netflix
 key 189   BUTTON_6     WAKE
 key 190   BUTTON_7     WAKE
 ###########################
-
-
+key  470   MEDIA_RECORD
+key  164   MEDIA_PLAY_PAUSE
+key  472   MEDIA_SKIP_FORWARD
+key  473   PROFILE_SWITCH
+key  474   ALL_APPS
+key  475   NOTIFICATION
+key  476   TV
+#key 477  bugreport
+#key 464    talkback
+key  467  TV_TELETEXT
+key  468  PERIOD
+key  469  MEDIA_SKIP_BACKWARD
+###########################
 
 
