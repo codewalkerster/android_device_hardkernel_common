@@ -176,6 +176,9 @@ INSTALLED_AVB_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb-avb.img
 
 VENDOR_KERNEL_MODULES += \
     $(wildcard $(PREBUILT_KERNEL_PATH)/lib/modules/*.ko)
+ifneq ($(TARGET_VENDOR_MEDIA_VVC_SUPPORT), true)
+     VENDOR_KERNEL_MODULES := $(filter-out $(PREBUILT_KERNEL_PATH)/lib/modules/amvdec_h266.ko $(PREBUILT_KERNEL_PATH)/lib/modules/amvdec_h266_v4l.ko, $(VENDOR_KERNEL_MODULES))
+endif
 
 -include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner_modules.mk
 include device/amlogic/common/tcon/tcon_modules.mk
