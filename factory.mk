@@ -122,6 +122,7 @@ AML_TARGET_ZIP := $(PRODUCT_OUT)/super_empty_all.img
 
 ifeq ($(BUILD_WITH_AVB),true)
 ifneq ($(TARGET_GPT_PART),true)
+ifneq ($(AB_OTA_UPDATER),true)
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += \
     --include_descriptors_from_image $(INSTALLED_BOARDDTB_TARGET)
 
@@ -131,6 +132,7 @@ $(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL)
 # Add a dependency of dtb.img to vbmeta.img
 $(INSTALLED_VBMETAIMAGE_TARGET): $(INSTALLED_BOARDDTB_TARGET)
 vbmetaimage: $(INSTALLED_BOARDDTB_TARGET)
+endif
 endif
 endif
 
@@ -554,6 +556,10 @@ endif
 ifneq ($(BUILDING_INIT_BOOT_IMAGE),true)
 	echo "delete init_boot.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/init_boot.img/d" $(PACKAGE_CONFIG_FILE)
+endif
+ifneq ($(BOARD_USES_VBMETA_SYSTEM),true)
+	echo "delete vbmeta_system.img in $(PACKAGE_CONFIG_FILE)"
+	sed -i "/vbmeta_system.img/d" $(PACKAGE_CONFIG_FILE)
 endif
 ifneq ($(TARGET_GPT_PART),true)
 ifeq ($(LAUNCH_VERSION),R)

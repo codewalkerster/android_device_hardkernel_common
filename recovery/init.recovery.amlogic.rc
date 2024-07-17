@@ -38,6 +38,8 @@ on boot
     symlink /dev/block/by-name/userdata /dev/block/userdata
     write sys/class/unifykeys/attach     1
     symlink /dev/block/by-name/userdata /dev/block/userdata
+    symlink /dev/block/by-name/userdata /dev/block/data
+    symlink /dev/block/by-name/userdata /dev/block/by-name/data
 
 service systemcontrol /bin/systemcontrol_static /sbin/mesondisplay.cfg
     oneshot
