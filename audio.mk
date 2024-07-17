@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
     libvirtualx \
     libdpe\
     libaudiopolicymanagercustom \
+    libaudiopolicyengine_amlogic \
     param_set \
     AudioEffectTool \
     libAmlAudioOutPort \

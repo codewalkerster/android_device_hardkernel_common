@@ -53,3 +53,10 @@ $(call soong_config_set,amlogic_vendorconfig,enable_vendor_media_c2_vvc_support,
 # for pq compress db
 $(call soong_config_set,amlogic_vendorconfig,support_pq_compress_db,$(PRODUCT_SUPPORT_COMPRESS_DB))
 
+#for atv/aosp
+ifeq ($(BOARD_COMPILE_ATV),false)
+    BOARD_COMPILE_VERSION := aosp
+else
+    BOARD_COMPILE_VERSION := atv
+endif
+$(call soong_config_set,amlogic_vendorconfig,board_compile_version,$(BOARD_COMPILE_VERSION))
