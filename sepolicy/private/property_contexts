@@ -51,3 +51,6 @@ tvinput.hdmiin.buff_type    u:object_r:debug_prop:s0
 # update server
 persist.update.server.custom            u:object_r:debug_prop:s0
 persist.update.server.current           u:object_r:debug_prop:s0
+
+# CSR bluetooth dongle
+bluetooth.core.le.vendor_capabilities.enabled        u:object_r:bluetooth_config_prop:s0 exact bool
