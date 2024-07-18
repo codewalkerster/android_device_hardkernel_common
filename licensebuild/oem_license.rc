@@ -14,7 +14,7 @@
 
 on init
     # Mount tmpfs
-    wait /dev/audio_utils  2
+    wait /dev/audio_utils
     wait /dev/dolby_fw 2
     wait /odm/lib/ms12 2
     mount tmpfs tmpfs /odm/lib/ms12 size=10240K,context=u:object_r:dolbyms12:s0 rw
