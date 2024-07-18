@@ -26,3 +26,4 @@ allow hal_droid_mdns_default hal_droid_mdns_default:udp_socket { create ioctl };
 allow hal_droid_mdns_default hal_droid_mdns_default:netlink_generic_socket { create write read bind setopt bind getattr };
 allow hal_droid_mdns_default hal_droid_mdns_default:capability { net_admin };
 allow hal_droid_mdns_default hal_mdnsoffload_service:service_manager { add };
+allow hal_droid_mdns_default dumpstate:fd { use };

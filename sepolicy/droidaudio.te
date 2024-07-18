@@ -37,4 +37,5 @@ allow droidaudio dtvkitserver:binder { call };
 allow droidaudio platform_app:binder { call };
 allow droidaudio system_app:binder { call };
 allow droidaudio mediaserver:binder { call };
+allow droidaudio dumpstate:fd { use };
 

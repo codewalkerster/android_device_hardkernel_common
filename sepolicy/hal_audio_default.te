@@ -73,3 +73,4 @@ get_prop(hal_audio_default, vendor_media_prop)
 allow hal_audio_default video_device:chr_file rw_file_perms;
 
 allow hal_audio_default sysfs_amhdmitx:file r_file_perms;
+allow hal_audio_default oemfs:dir { search };
