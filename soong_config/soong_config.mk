@@ -48,7 +48,7 @@ $(call soong_config_set,amlogic_vendorconfig,enable_swcodec,$(TARGET_WITH_SWCODE
 $(call soong_config_set,amlogic_vendorconfig,enable_hwcodec,$(TARGET_WITH_CODEC_EXT))
 
 # for vvc media
-$(call soong_config_set,amlogic_vendorconfig,enable_vendor_media_vvc_support,$(TARGET_VENDOR_MEDIA_VVC_SUPPORT))
+$(call soong_config_set,amlogic_vendorconfig,enable_vendor_media_c2_vvc_support,$(TARGET_VENDOR_VVC_C2_SUPPORT))
 
 # for pq compress db
 $(call soong_config_set,amlogic_vendorconfig,support_pq_compress_db,$(PRODUCT_SUPPORT_COMPRESS_DB))
