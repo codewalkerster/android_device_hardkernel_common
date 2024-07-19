@@ -553,6 +553,11 @@ else
 PRODUCT_PACKAGES += android.hardware.health@2.1-service.droidlogic
 endif
 
+ifneq ($(TARGET_ENABLE_ENERGYMODE), true)
+PRODUCT_PACKAGES += \
+    TvDisableLowPowerStandbyOverlay
+TARGET_BUILD_MDNS := false
+endif
 include vendor/amlogic/common/apps/DroidMdnsOffloadService/mdns.mk
 
 #

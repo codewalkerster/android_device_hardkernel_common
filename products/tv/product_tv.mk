@@ -60,6 +60,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 endif  #endof TARGET_BUILD_LIVETV
 
+
 # DTVKit
 ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
 SUPPORT_CAS = true
@@ -145,6 +146,13 @@ ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     OTAUpgrade
 endif
+
+
+#only panel tv need feature:energy mode
+ifeq ($(ATV_LAUNCHER), amati)
+TARGET_ENABLE_ENERGYMODE := true
+endif
+
 
 ifeq ($(SUPPORT_TUNERHAL), true)
 $(call inherit-product, hardware/amlogic/tuner/aidl/droidlogic_tuner_hal_lazy.mk)
