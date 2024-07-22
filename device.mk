@@ -911,6 +911,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rt_audio_config.xml:/system/etc/rt_audio_config.xml
 
 PRODUCT_COPY_FILES += \
+    device/hardkernel/common/permissions/rockchip.software.audio.xml:system/etc/permissions/rockchip.software.audio.xml
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rt_video_config.xml:/system/etc/rt_video_config.xml
 
 #Build with Flash IMG
