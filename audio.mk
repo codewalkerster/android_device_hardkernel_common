@@ -124,6 +124,8 @@ else
     AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
 endif
 
+AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
+$(shell mkdir -p $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR))
 configurable_audiopolicy_xmls := device/amlogic/common/audio/
 # auto generate audio_policy_configuration.xml
 $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
@@ -136,7 +138,7 @@ $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXm
     --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,audio_policy_configuration*,$(configurable_audiopolicy_xmls)tools/output_xml/,$(TARGET_COPY_OUT_VENDOR)/etc)
+    $(call find-copy-subdir-files,audio_policy_configuration*,$(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR),$(TARGET_COPY_OUT_VENDOR)/etc)
 
 PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \

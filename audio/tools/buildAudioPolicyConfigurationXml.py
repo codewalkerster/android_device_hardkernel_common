@@ -338,7 +338,9 @@ def main():
                     + ', audioBuildType:' + args.audioBuildType + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion + ', product:' + args.productType)
         AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = args.productType
         AUDIO_POLICY_BUILD_PARAM_SOUNDBAR = args.soundbarProduct
-        outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_xml/audio_policy_configuration.xml'
+        outDirPath = ANDROID_CODE_ROOT_PATH + "/out/aml/audio"
+        logging.info('[buildAudioPolicyConfigurationXml:W] outDirPath: ' + outDirPath)
+        outputFilePath = outDirPath + '/audio_policy_configuration.xml'
         genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.atvVersion, args.supportDtvkit)
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
@@ -346,7 +348,7 @@ def main():
                 fileName = buildTypeName;
                 if fileName == '':
                     fileName = '_default'
-                outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_xml/' + 'audio_policy_configuration' + fileName + '.xml'
+                outputFilePath = outDirPath + '/audio_policy_configuration' + fileName + '.xml'
                 genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, buildTypeName, args.atvVersion)
     else:
         # cmd: python3 buildAudioPolicyConfigurationXml.py

@@ -59,6 +59,8 @@ else
 endif
 
 ifneq ($(AUDIO_FEATURE_TYPE),_)
+AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
+$(shell mkdir -p AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)
 configurable_audiopolicy_xmls := device/amlogic/common/audio/
 # auto generate audio_policy_configuration.xml
     $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
@@ -69,6 +71,6 @@ configurable_audiopolicy_xmls := device/amlogic/common/audio/
         --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
         --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \
         --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
-    CUSTOM_IMAGE_COPY_FILES += $(configurable_audiopolicy_xmls)/tools/output_xml/audio_policy_configuration.xml:etc/audio_policy_configuration.xml
+    CUSTOM_IMAGE_COPY_FILES += $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)audio_policy_configuration.xml:etc/audio_policy_configuration.xml
 endif
 endif # USE_XML_AUDIO_POLICY_CONF
