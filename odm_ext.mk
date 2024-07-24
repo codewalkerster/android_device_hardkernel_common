@@ -26,6 +26,7 @@ $(INSTALLED_FILES_FILE_ODM_EXT) : $(INTERNAL_ODM_EXTIMAGE_FILES) $(FILESLIST) $(
 	cp $(TARGET_AMLOGIC_RES_PACKAGE)/* $(TARGET_OUT_ODM_EXT)/logo_files/
 	mkdir -p $(TARGET_OUT_ODM_EXT)/etc/tvconfig
 	-cp -rf $(TVCONFIG_FILES) $(TARGET_OUT_ODM_EXT)/etc/tvconfig/
+	-cp -rf $(TARGET_OUT_ODM_EXT)/etc/tvconfig/dtvkit/* $(TARGET_OUT_VENDOR)/etc/dtvkit/
 	mkdir -p $(TARGET_OUT_ODM_EXT)/etc/tvconfig/pq
 	cp -rf $(PQ_FILES) $(TARGET_OUT_ODM_EXT)/etc/tvconfig/pq/
 	@mkdir -p $(dir $@)
