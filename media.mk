@@ -291,16 +291,16 @@ PRODUCT_PACKAGES += \
 
 endif
 
-#support vcc
+#support vvc
 ifeq ($(TARGET_VENDOR_MEDIA_VVC_SUPPORT),true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.mediahal.tsplayer.support_vcc=1
+    vendor.media.mediahal.tsplayer.vvc_support=1
 else ifeq ($(TARGET_VENDOR_MEDIA_VVC_SUPPORT), false)
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.mediahal.tsplayer.support_vcc=0
+    vendor.media.mediahal.tsplayer.vvc_support=0
 else
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.media.mediahal.tsplayer.support_vcc=1
+    vendor.media.mediahal.tsplayer.vvc_support=1
 endif
 
 #########################################################################
