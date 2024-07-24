@@ -1,4 +1,5 @@
 get_prop(hal_tv_hdmi_connection_default, vendor_platform_prop)
+set_prop(hal_tv_hdmi_connection_default, vendor_platform_prop)
 get_prop(hal_tv_hdmi_connection_default, hdmi_config_prop)
 get_prop(hal_tv_hdmi_connection_default, vendor_media_prop)
 set_prop(hal_tv_hdmi_connection_default, vendor_persist_prop)
