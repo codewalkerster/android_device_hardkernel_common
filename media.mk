@@ -184,6 +184,13 @@ ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_dmabufmanage.system
 endif
 
+#mediametrics
+PRODUCT_PACKAGES += libmediahal_mediametrics
+
+ifeq ($(BOARD_BUILD_DRMPLAYER), true)
+PRODUCT_PACKAGES += libmediahal_mediametrics.system
+endif
+
 #########################################################################
 #
 #                                                PlayReady DRM
