@@ -1055,6 +1055,7 @@ PRODUCT_PACKAGES += \
     MtpService
 
 # Set supported Bluetooth profiles to enabled
+ifeq ($(BOARD_COMPILE_ATV),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.a2dp.sink.enabled=true \
     bluetooth.profile.avrcp.controller.enabled=true \
@@ -1062,6 +1063,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.avrcp.target.enabled=true \
     bluetooth.profile.hfp.hf.enabled=true \
     bluetooth.profile.hfp.ag.enabled=true
+else
+ifeq ($(BOARD_ENABLE_A2DP_SINK),true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.profile.a2dp.sink.enabled=true \
+    bluetooth.profile.avrcp.controller.enabled=true \
+    bluetooth.profile.hfp.hf.enabled=true
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.profile.a2dp.source.enabled=true \
+    bluetooth.profile.avrcp.target.enabled=true \
+    bluetooth.profile.hfp.ag.enabled=true
+endif
+endif
 
 ifeq ($(BOARD_ENABLE_LE_AUDIO),true)
 PRODUCT_PROPERTY_OVERRIDES += \
