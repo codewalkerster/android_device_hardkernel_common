@@ -779,6 +779,19 @@ kernel_exec[62]="./mk raman -v "
 ###########################################################################################
 
 ###########################################################################################
+# RAMAN MULTI DISPLAY GTV ARM64
+project[63]="RAMAN_S905D5_ARM64"
+soc[63]="S905D5"
+hardware[63]="BQ201"
+module[63]="raman_multidisplay_arm64"
+uboot_path[63]="device/amlogic/raman"
+uboot_exec_aosp[63]="./mk s6_bq201 --vab --avb2 --fastboot-write"
+uboot_exec_drm[63]="./mk s6_bq201 --vab --avb2 --fastboot-write"
+kernel_exec[63]="./mk raman -v "
+
+###########################################################################################
+
+###########################################################################################
 usage() {
     echo -e \
     "Usage: Build Android image or sub-modules.\n" \
