@@ -1,4 +1,4 @@
-allow hal_bluetooth_default device_stpbt:chr_file { read open write };
+allow hal_bluetooth_default device_stpbt:chr_file { read open write ioctl };
 allow hal_bluetooth_default sysfs:file { read open write };
 allow hal_bluetooth_default vendor_platform_prop:property_service { set };
 allow hal_bluetooth_default vendor_platform_prop:file { read open getattr };
@@ -15,6 +15,8 @@ allow hal_bluetooth_default usb_device:dir rw_file_perms;
 
 allow hal_bluetooth_default vendor_data_file:dir  { search add_name rw_file_perms remove_name};
 allow hal_bluetooth_default vendor_data_file:file  { open setattr create read write getattr rename unlink};
+
+allow hal_bluetooth_default vendor_data_file:sock_file { create unlink read write };
 
 get_prop(hal_bluetooth_default, bluetooth_prop);
 get_prop(hal_bluetooth_default, vendor_bluetooth_prop);

@@ -1,5 +1,7 @@
 type device_stpbt, dev_type,fs_type;
+type zigbee_socket, file_type,data_file_type;
 allow bluetooth system_control_service:service_manager find;
 allow bluetooth mediametrics_service:service_manager find;
-allow bluetooth device_stpbt:chr_file { open read write };
+allow bluetooth device_stpbt:chr_file { open read write ioctl };
+allow bluetooth zigbee_socket:sock_file { write read };
 allow system_server vendor_platform_prop:file { open read getattr map};
