@@ -53,9 +53,10 @@ else
 endif
 
 ifneq ($(AUDIO_FEATURE_TYPE),_)
+# prioritize use the xml in the device directory
+ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
 $(shell mkdir -p AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)
-configurable_audiopolicy_xmls := device/amlogic/common/audio/
 # auto generate audio_policy_configuration.xml
     $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
         --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
@@ -65,5 +66,11 @@ configurable_audiopolicy_xmls := device/amlogic/common/audio/
         --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \
         --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
     CUSTOM_IMAGE_COPY_FILES += $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)audio_policy_configuration.xml:etc/audio_policy_configuration.xml
+else
+ifeq (,$(wildcard device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml))
+    $(error "the static audio_policy_configuration.xml file not found in the device directory")
+endif
+CUSTOM_IMAGE_COPY_FILES += device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:etc/audio_policy_configuration.xml
+endif
 endif
 endif # USE_XML_AUDIO_POLICY_CONF

@@ -125,9 +125,10 @@ else
     AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
 endif
 
+# prioritize use the xml in the device directory
+ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
 $(shell mkdir -p $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR))
-configurable_audiopolicy_xmls := device/amlogic/common/audio/
 # auto generate audio_policy_configuration.xml
 $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
     --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
@@ -139,7 +140,15 @@ $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXm
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,audio_policy_configuration*,$(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR),$(TARGET_COPY_OUT_VENDOR)/etc)
+else
+ifeq (,$(wildcard device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml))
+    $(error "the static audio_policy_configuration.xml file not found in the device directory")
+endif
+PRODUCT_COPY_FILES += \
+    device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+endif
 
+configurable_audiopolicy_xmls := device/amlogic/common/audio/
 PRODUCT_COPY_FILES += \
     $(configurable_audiopolicy_xmls)usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
     $(configurable_audiopolicy_xmls)a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
