@@ -30,6 +30,9 @@ allow hal_bootctl_default property_socket:sock_file write;
 allow hal_bootctl_default init:unix_stream_socket connectto;
 allow hal_bootctl_default powerctl_prop:property_service set;
 
+get_prop(hal_bootctl_default, boot_status_prop)
+get_prop(hal_bootctl_default, vendor_platform_prop)
+
 allow hal_bootctl_default tmpfs:dir { write add_name };
 allow hal_bootctl_default tmpfs:file { create write open read };
 allow hal_bootctl_default block_device:dir { write remove_name add_name };
