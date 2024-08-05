@@ -1055,7 +1055,7 @@ PRODUCT_PACKAGES += \
     MtpService
 
 # Set supported Bluetooth profiles to enabled
-ifeq ($(BOARD_COMPILE_ATV),true)
+ifneq ($(BOARD_COMPILE_ATV),false)
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.a2dp.sink.enabled=true \
     bluetooth.profile.avrcp.controller.enabled=true \
