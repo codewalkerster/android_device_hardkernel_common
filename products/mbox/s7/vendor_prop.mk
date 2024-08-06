@@ -144,7 +144,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #enable di backend
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.hwc.di_channel_number=2 \
+    vendor.hwc.di_channel_number=1 \
     vendor.media.c2.vdec.di.post=true \
     vendor.media.mediahal.tsplayer.vtbuffer_number_limit=1
 
