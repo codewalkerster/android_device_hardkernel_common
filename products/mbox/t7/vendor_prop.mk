@@ -39,9 +39,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=false
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.media_vol_steps=100
-
 #the prop is used for enable or disable
 #DD+/DD force output when HDMI EDID is not supported
 #by default,the force output mode is enabled.
