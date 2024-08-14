@@ -134,12 +134,11 @@ ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \
     TvSettingsTwoPanel \
     DroidTvSettingsTwoPanel \
-    DroidGTVTvSettingsResOverlay
+    GTVSettingsResOverlay_PanelTv
 else
 PRODUCT_PACKAGES += \
     TvSettings \
-    DroidTvSettings \
-    DroidATVTvSettingsResOverlay
+    DroidTvSettings
 endif
 
 ifneq ($(BOARD_COMPILE_ATV), false)

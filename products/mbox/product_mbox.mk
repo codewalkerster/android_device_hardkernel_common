@@ -150,13 +150,18 @@ endif
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \
     TvSettingsTwoPanel \
-    DroidTvSettingsTwoPanel \
-    DroidGTVTvSettingsResOverlay
+    DroidTvSettingsTwoPanel
+    ifeq ($(TARGET_BUILD_LIVETV),true)
+        PRODUCT_PACKAGES += \
+            GTVSettingsResOverlay_PanelTv
+    else
+        PRODUCT_PACKAGES += \
+            GTVSettingsResOverlay
+    endif
 else
 PRODUCT_PACKAGES += \
     TvSettings \
-    DroidTvSettings \
-    DroidATVTvSettingsResOverlay
+    DroidTvSettings
 endif
 
 ifeq ($(SUPPORT_TUNERHAL), true)
