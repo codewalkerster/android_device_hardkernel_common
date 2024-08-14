@@ -52,9 +52,6 @@ if bcb load $$devnum misc; then
 
 	mmc read 0x20000000 $$boot_start $$boot_size
 ${_load_dtb}
-	if test $$heartbeat = "0"; then
-		fdt set /leds/work linux,default-trigger "none";
-	fi
 
 	echo "  Set booting arguments"
 	setenv secure_args "androidboot.selinux=permissive androidboot.veritymode=enforcing androidboot.verifiedbootstate=orange"
