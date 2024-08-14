@@ -118,7 +118,7 @@ def modify32BitProfile(mixPorts, devicePorts):
                     break
             break
 
-def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
+def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, surroundSounds):
     if len(supportBuildTypes) == 0:
         logging.info('[buildAudioPolicyConfigurationXml:I] build type size is 0, do nothing')
         return
@@ -179,6 +179,21 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts):
                 else:
                     break
 
+        # surroundSound
+        logging.debug('[buildAudioPolicyConfigurationXml:D] replaceBuildTypeXml: surroundSound process >>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        for audioPolicyCommonBuildTypeXml_surroundSoundPortRoot in audioPolicyCommonBuildTypeXmlRoot.findall('.//format'):
+            foundsurroundSound = False
+            for surroundSound in surroundSounds.findall('.//format'):
+                if surroundSound.get('name') == audioPolicyCommonBuildTypeXml_surroundSoundPortRoot.get('name'):
+                    foundsurroundSound = True
+            if not foundsurroundSound:
+                formats_element = surroundSounds.find('.//formats')
+                if formats_element is not None:
+                    new_format = ET.SubElement(formats_element, 'format')
+                    new_format.set('name', audioPolicyCommonBuildTypeXml_surroundSoundPortRoot.get('name'))
+                else:
+                    pass
+
 def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version):
     sbrSuffix = ''
     if AUDIO_POLICY_BUILD_PARAM_SOUNDBAR == 'true':
@@ -200,6 +215,7 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version):
     mixPorts = audioPolicyCommonBaseXmlRoot.find('.//mixPorts')
     devicePorts = audioPolicyCommonBaseXmlRoot.find('.//devicePorts')
     attachedDevices = audioPolicyCommonBaseXmlRoot.find('.//attachedDevices')
+    surroundSounds = audioPolicyCommonBaseXmlRoot.find('.//surroundSound')
 
     audioPolicyDevicesXmlTree = ET.parse(AUDIO_POLICY_DEVICES_XML_PATH)
     audioPolicyDevicesXmlRoot = audioPolicyDevicesXmlTree.getroot()
@@ -259,7 +275,7 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version):
                 break
 
     # read build type xml(_dtshd, _ddp, _ms12...)
-    replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts)
+    replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, surroundSounds)
 
     # TODO: workaround, Google multichannel-PCM playback has a bug. For atv version, delete multi-channel PCM.
     for mixport in mixPorts.findall('.//mixPort'):
@@ -336,7 +352,7 @@ def main():
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
                 buildTypeName = dolby + dts
-                fileName = buildTypeName;
+                fileName = buildTypeName
                 if fileName == '':
                     fileName = '_default'
                 outputFilePath = outDirPath + '/audio_policy_configuration' + fileName + '.xml'
