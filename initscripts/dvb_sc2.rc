@@ -57,6 +57,8 @@ on boot
     chmod 0666 /dev/cimodule_command0
     chmod 0666 /dev/cimodule_media0
 
+    chmod 0666 /dev/dummy_fe
+
     chown media system /dev/dvb0.frontend0
     chown media system /dev/dvb0.frontend1
     chown media system /dev/dvb0.frontend2
