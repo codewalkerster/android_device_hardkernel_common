@@ -83,7 +83,12 @@ USE_XML_AUDIO_POLICY_CONF := 1
 ifeq ($(USE_XML_AUDIO_POLICY_CONF),1)
 AUDIO_FEATURE_TYPE := _
 #for ms12 v2 case, it should use default one in /vendor/etc
-ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
+ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
+    # without oem, is should use ms12 policy xml in /vendor/etc/
+    ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), false)
+        AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
+    endif
+else ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12v1_
 else ifeq ($(TARGET_DOLBY_VERSION), ddp_only)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ddp_
@@ -164,6 +169,14 @@ PRODUCT_COPY_FILES += \
 ifneq ($(TARGET_DOLBY_VERSION), non_dolby)
 PRODUCT_COPY_FILES += \
     $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ddp.xml
+endif
+
+ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
+    # without oem, it should ues ac4 xml in /vendor/etc/
+    ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), false)
+    PRODUCT_COPY_FILES += \
+        $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ac4.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ac4.xml
+    endif
 endif
 
 ifeq ($(TARGET_DTS_VERSION), dtshd)
