@@ -783,6 +783,19 @@ ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 	cat $(PRODUCT_OUT)/empty_1.bin $(PRODUCT_OUT)/empty_2.bin $(PRODUCT_OUT)/empty_1.bin $(PRODUCT_OUT)/empty_3.bin > $(PRODUCT_OUT)/super_empty_all.img
 endif
 
+ifneq ($(TARGET_BUILD_KERNEL_5_4), true)
+$(AML_TARGET).zip: $(AML_VENDOR_MODULES_LOAD)
+ifneq ($(KERNEL_A32_SUPPORT),true)
+ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)
+$(AML_TARGET).zip: $(AML_VENDOR_COPY_FILES)
+endif
+
+ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
+$(AML_TARGET).zip: $(AML_SYSTEM_DLKM_COPY_FILES)
+endif
+endif
+endif
+
 droidcore: $(INSTALLED_MANIFEST_XML)
 #otapackage: otatools-package
 
