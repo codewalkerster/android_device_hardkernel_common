@@ -170,14 +170,6 @@ def replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, surroundSounds
                     modifyProfile(devicePort, audioPolicyCommonBuildTypeXml_deviceportRoot)
             if not foundDevicePort:
                 logging.info('[buildAudioPolicyConfigurationXml:W] not find devicePort, tagName: ' + audioPolicyCommonBuildTypeXml_deviceportRoot.get('tagName'))
-        # TODO: Workaround: Speakers on the OTT platform do not need to support non-stereo PCM format(DD, DDP...) playback. For NTS
-        for devicePort in devicePorts.findall('.//devicePort'):
-            if devicePort.get('tagName') == 'Speaker':
-                if AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox' and AUDIO_POLICY_BUILD_PARAM_SOUNDBAR == 'false':
-                    for profile in devicePort.findall('.//profile'):
-                        devicePort.remove(profile)
-                else:
-                    break
 
         # surroundSound
         logging.debug('[buildAudioPolicyConfigurationXml:D] replaceBuildTypeXml: surroundSound process >>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
@@ -277,6 +269,14 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version):
     # read build type xml(_dtshd, _ddp, _ms12...)
     replaceBuildTypeXml(supportBuildTypes, mixPorts, devicePorts, surroundSounds)
 
+    # TODO: Workaround: Speakers on the OTT platform do not need to support non-stereo PCM format(DD, DDP...) playback. For NTS
+    for devicePort in devicePorts.findall('.//devicePort'):
+        if devicePort.get('tagName') == 'Speaker':
+            if AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE == 'mbox' and AUDIO_POLICY_BUILD_PARAM_SOUNDBAR == 'false':
+                for profile in devicePort.findall('.//profile'):
+                    devicePort.remove(profile)
+            else:
+                break
     # TODO: workaround, Google multichannel-PCM playback has a bug. For atv version, delete multi-channel PCM.
     for mixport in mixPorts.findall('.//mixPort'):
         mixportName = mixport.get('name')
