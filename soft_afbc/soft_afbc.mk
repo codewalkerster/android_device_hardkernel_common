@@ -25,7 +25,7 @@ ifeq ($(strip $(SOFT_AFBC_MODULE)),true)
                 device/amlogic/common/soft_afbc/14_5.15/32/amlogic_fbc_lib_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko \
                 device/amlogic/common/initscripts/amlogic-fbc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/amlogic-fbc.rc
         else
-            ifeq ($(TARGET_OLD_DEVICE), true)
+            ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
                 PRODUCT_COPY_FILES += \
                     device/amlogic/common/soft_afbc/14_5.15/64_upgrade/amlogic_fbc_lib_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/amlogic_fbc_lib.ko
             else
