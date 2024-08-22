@@ -35,9 +35,15 @@ ifeq ($(strip $(TCON_FW_MODULE)),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
 
         else
-            PRODUCT_COPY_FILES += \
-                device/amlogic/common/tcon/A64_5_15/tcon_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/tcon_fw.ko \
-                device/amlogic/common/initscripts/tcon.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tcon.rc
+            ifeq ($(filter $(LAUNCH_VERSION),S R Q P),$(LAUNCH_VERSION))
+                PRODUCT_COPY_FILES += \
+                    device/amlogic/common/tcon/A64_5_15_upgrade/tcon_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/tcon_fw.ko \
+                    device/amlogic/common/initscripts/tcon.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tcon.rc
+            else
+                PRODUCT_COPY_FILES += \
+                    device/amlogic/common/tcon/A64_5_15/tcon_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/tcon_fw.ko \
+                    device/amlogic/common/initscripts/tcon.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tcon.rc
+            endif
         endif
     endif
 endif
