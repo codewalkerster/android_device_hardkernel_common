@@ -691,11 +691,11 @@ kernel_exec[55]="./mk raman -v "
 # RAMAN HYBRID
 project[56]="RAMAN_HYBRID"
 soc[56]="S905X5"
-hardware[56]="BL201"
+hardware[56]="BL204"
 module[56]="raman_hybrid"
 uboot_path[56]="device/amlogic/raman"
-uboot_exec_aosp[56]="./mk s6_bl201 --vab --avb2 --fastboot-write"
-uboot_exec_drm[56]="./mk s6_bl201 --vab --avb2 --fastboot-write"
+uboot_exec_aosp[56]="./mk s6_bl204 --vab --avb2 --fastboot-write"
+uboot_exec_drm[56]="./mk s6_bl204 --vab --avb2 --fastboot-write"
 kernel_exec[56]="./mk raman -v "
 
 ###########################################################################################
