@@ -1,0 +1,101 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "device_amlogic_common_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["device_amlogic_common_license"],
+}
+
+filegroup {
+    name: "audio_policy_engine_product_strategies",
+    srcs: ["audio_policy_engine_product_strategies.xml"],
+}
+prebuilt_etc {
+    name: "audio_policy_engine_product_strategies.xml",
+    vendor: true,
+    src: ":audio_policy_engine_product_strategies",
+}
+
+filegroup {
+    name: "audio_policy_engine_stream_volumes",
+    srcs: ["audio_policy_engine_stream_volumes.xml"],
+}
+prebuilt_etc {
+    name: "audio_policy_engine_stream_volumes.xml",
+    vendor: true,
+    src: ":audio_policy_engine_stream_volumes",
+}
+
+filegroup {
+    name: "audio_policy_engine_configuration",
+    srcs: ["audio_policy_engine_configuration.xml"],
+}
+prebuilt_etc {
+    name: "audio_policy_engine_configuration.xml",
+    vendor: true,
+    src: ":audio_policy_engine_configuration",
+    required: [
+        "audio_policy_engine_criterion_types.xml",
+        "audio_policy_engine_criteria.xml",
+        "audio_policy_engine_product_strategies.xml",
+        "audio_policy_engine_stream_volumes.xml",
+        "audio_policy_engine_default_stream_volumes.xml",
+    ],
+}
+
+filegroup {
+    name: "audio_policy_engine_default_stream_volumes",
+    srcs: ["audio_policy_engine_default_stream_volumes.xml"],
+}
+prebuilt_etc {
+    name: "audio_policy_engine_default_stream_volumes.xml",
+    vendor: true,
+    src: ":audio_policy_engine_default_stream_volumes",
+}
+
+filegroup {
+    name : "audio_policy_configuration_top_file",
+    srcs: [":audio_policy_configuration"],
+}
+
+filegroup {
+    name: "audio_policy_configuration_files",
+    srcs: [
+        ":usb_audio_policy_configuration.xml",
+        ":r_submix_audio_policy_configuration.xml",
+        ":hearing_aid_audio_policy_configuration.xml",
+        ":bluetooth_audio_policy_configuration_7_0.xml",
+        ":msd_audio_policy_configuration.xml",
+    ],
+}
+
+filegroup {
+    name: "audio_policy_engine_configuration_files",
+    srcs: [
+        ":audio_policy_engine_configuration",
+        ":audio_policy_engine_product_strategies",
+        ":audio_policy_engine_stream_volumes",
+        ":audio_policy_engine_default_stream_volumes",
+        ":audio_policy_engine_criterion_types",
+        ":audio_policy_engine_criteria",
+    ],
+}
+
+//
+// Generate audio_policy_engine criterion type file => provides device addresses criterion type
+//
+genrule {
+    name: "audio_policy_engine_criterion_types",
+    defaults: ["buildpolicycriteriontypesrule"],
+    srcs: [
+        ":audio_policy_configuration_top_file",
+        ":audio_policy_configuration_files",
+    ],
+}
+
+prebuilt_etc {
+    name: "audio_policy_engine_criterion_types.xml",
+    vendor: true,
+    src: ":audio_policy_engine_criterion_types",
+}

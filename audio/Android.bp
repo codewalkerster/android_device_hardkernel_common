@@ -1,0 +1,69 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "device_amlogic_common_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["device_amlogic_common_license"],
+}
+
+filegroup {
+    name: "audio_policy_configuration",
+    srcs: ["audio_policy_configuration_temp.xml"],
+}
+prebuilt_etc {
+    name: "audio_policy_configuration.xml",
+    vendor: true,
+    src: ":audio_policy_configuration",
+}
+
+filegroup {
+    name: "usb_audio_policy_configuration",
+    srcs: ["usb_audio_policy_configuration.xml"],
+}
+prebuilt_etc {
+    name: "usb_audio_policy_configuration.xml",
+    vendor: true,
+    src: ":usb_audio_policy_configuration",
+}
+
+filegroup {
+    name: "r_submix_audio_policy_configuration",
+    srcs: ["r_submix_audio_policy_configuration.xml"],
+}
+prebuilt_etc {
+    name: "r_submix_audio_policy_configuration.xml",
+    vendor: true,
+    src: ":r_submix_audio_policy_configuration",
+}
+
+filegroup {
+    name: "hearing_aid_audio_policy_configuration",
+    srcs: ["hearing_aid_audio_policy_configuration.xml"],
+}
+prebuilt_etc {
+    name: "hearing_aid_audio_policy_configuration.xml",
+    vendor: true,
+    src: ":hearing_aid_audio_policy_configuration",
+}
+
+filegroup {
+    name: "msd_audio_policy_configuration",
+    srcs: ["msd_audio_policy_configuration.xml"],
+}
+prebuilt_etc {
+    name: "msd_audio_policy_configuration.xml",
+    vendor: true,
+    src: ":msd_audio_policy_configuration",
+}
+
+filegroup {
+    name: "bluetooth_audio_policy_configuration_7_0",
+    srcs: ["bluetooth_audio_policy_configuration_7_0.xml"],
+}
+prebuilt_etc {
+    name: "bluetooth_audio_policy_configuration_7_0.xml",
+    vendor: true,
+    src: ":bluetooth_audio_policy_configuration_7_0",
+}
+

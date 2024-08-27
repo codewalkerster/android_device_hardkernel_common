@@ -13,6 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Use parameter-framework
+PRODUCT_SOONG_NAMESPACES += \
+    device/amlogic/common/audio/audio_policy
+PRODUCT_PACKAGES += \
+    parameter-framework.policy
 
 PRODUCT_PACKAGES += \
     audio_policy.default \
@@ -39,7 +44,6 @@ PRODUCT_PACKAGES += \
     libvirtualx \
     libdpe\
     libaudiopolicymanagercustom \
-    libaudiopolicyengine_amlogic \
     param_set \
     AudioEffectTool \
     libAmlAudioOutPort \
@@ -125,7 +129,7 @@ else
     AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
 endif
 
-# prioritize use the xml in the device directory
+$(shell rm -rf device/amlogic/common/audio/audio_policy_configuration_temp.xml)
 ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
 $(shell mkdir -p $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR))
@@ -139,33 +143,16 @@ $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXm
     --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,audio_policy_configuration*,$(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR),$(TARGET_COPY_OUT_VENDOR)/etc)
+    $(call find-copy-subdir-files,audio_policy_configuration_*,$(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR),$(TARGET_COPY_OUT_VENDOR)/etc)
+$(shell cp $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)/audio_policy_configuration.xml device/amlogic/common/audio/audio_policy_configuration_temp.xml)
 else
 ifeq (,$(wildcard device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml))
     $(error "the static audio_policy_configuration.xml file not found in the device directory")
 endif
-PRODUCT_COPY_FILES += \
-    device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+$(shell cp device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml device/amlogic/common/audio/audio_policy_configuration_temp.xml)
+endif
 endif
 
-configurable_audiopolicy_xmls := device/amlogic/common/audio/
-PRODUCT_COPY_FILES += \
-    $(configurable_audiopolicy_xmls)usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
-    $(configurable_audiopolicy_xmls)a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
-    $(configurable_audiopolicy_xmls)r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
-    $(configurable_audiopolicy_xmls)hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration.xml \
-    $(configurable_audiopolicy_xmls)msd_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/msd_audio_policy_configuration.xml \
-    $(configurable_audiopolicy_xmls)default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_product_strategies.xml \
-    $(configurable_audiopolicy_xmls)audio_engine/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_engine/audio_policy_engine_stream_volumes.xml \
-    $(configurable_audiopolicy_xmls)bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml
-
-ifneq ($(TARGET_BUILD_DOLBY_ASDK),true)
-    PRODUCT_COPY_FILES += \
-        $(configurable_audiopolicy_xmls)audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml
-endif
-
-endif
 ##################################################################################
 ifneq ($(wildcard vendor/amlogic/common/auto_patch/),)
 TARGET_WITH_MEDIA_EXT ?= true

@@ -118,7 +118,6 @@ endif
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 BOARD_ENABLE_A2DP_SINK := true
 PRODUCT_PROPERTY_OVERRIDES += ro.vendor.platform.support.soundbar=true
-PRODUCT_PROPERTY_OVERRIDES += ro.vendor.media.audio.hdmitx.control.mute=true
 endif
 
 #overlay config_wifi5ghzSupport #
@@ -834,11 +833,6 @@ PRODUCT_PACKAGES += \
 # install  audio_effects.xml and audio_policy_configuration.xml soft link to oem file.
 PRODUCT_PACKAGES += \
     audio_effects.xml
-
-ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
-PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
-endif
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += \

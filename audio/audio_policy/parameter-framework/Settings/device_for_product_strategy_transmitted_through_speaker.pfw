@@ -1,0 +1,13 @@
+supDomain: DeviceForProductStrategy
+	supDomain: TransmittedThroughSpeaker
+		domain: Speaker
+			conf: Selected
+				AvailableOutputDevices Includes Speaker
+
+				component: /Policy/policy/product_strategies/transmitted_through_speaker/selected_output_devices/mask
+					speaker = 1
+
+			conf: NotSelected
+				component: /Policy/policy/product_strategies/transmitted_through_speaker/selected_output_devices/mask
+					speaker = 0
+

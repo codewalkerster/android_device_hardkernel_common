@@ -1,0 +1,808 @@
+supDomain: DeviceForProductStrategy
+	supDomain: Dtmf
+		domain: Device
+			conf: RemoteSubmix
+				AvailableOutputDevices Includes RemoteSubmix
+				AvailableOutputDevicesAddresses Includes 0
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 1
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseSpeaker
+				AvailableOutputDevices Includes Speaker
+				ForceUseForMedia Is ForceSpeaker
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 1
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseWiredHeadphone
+				AvailableOutputDevices Includes WiredHeadphone
+				ForceUseForMedia Is ForceHeadphones
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 1
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseWiredHeadset
+				AvailableOutputDevices Includes WiredHeadset
+				ForceUseForMedia Is ForceHeadphones
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 1
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseBtA2dp
+				AvailableOutputDevices Includes BluetoothA2dp
+				ForceUseForMedia Is ForceBtA2dp
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 1
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseBtA2dpHeadphone
+				AvailableOutputDevices Includes BluetoothA2dpHeadphones
+				ForceUseForMedia Is ForceBtA2dp
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 1
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseBtA2dpSpeaker
+				AvailableOutputDevices Includes BluetoothA2dpSpeaker
+				ForceUseForMedia Is ForceBtA2dp
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 1
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseUsbHeadSet
+				AvailableOutputDevices Includes UsbHeadset
+				ForceUseForMedia Is ForceWiredAccessory
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 1
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseUsbDevice
+				AvailableOutputDevices Includes UsbDevice
+				ForceUseForMedia Is ForceWiredAccessory
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 1
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseUsbAccessory
+				AvailableOutputDevices Includes UsbAccessory
+				ForceUseForMedia Is ForceWiredAccessory
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 1
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseSpdif
+				AvailableOutputDevices Includes Spdif
+				ForceUseForMedia Is ForceAnalogDock
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 1
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseHdmiEarc
+				AvailableOutputDevices Includes HdmiEarc
+				ForceUseForMedia Is ForceDigitalDock
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 1
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseHdmiArc
+				AvailableOutputDevices Includes HdmiArc
+				ForceUseForMedia Is ForceDigitalDock
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 1
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: ForceUseHdmiOut
+				AvailableOutputDevices Includes Hdmi
+				ForceUseForMedia Is ForceDigitalDock
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 1
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: BluetoothA2dp
+				AvailableOutputDevices Includes BluetoothA2dp
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 1
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: BluetoothA2dpHeadphone
+				AvailableOutputDevices Includes BluetoothA2dpHeadphones
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 1
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: BluetoothA2dpSpeaker
+				AvailableOutputDevices Includes BluetoothA2dpSpeaker
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 1
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: UsbAccessory
+				AvailableOutputDevices Includes UsbAccessory
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 1
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: UsbHeadset
+				AvailableOutputDevices Includes UsbHeadset
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 1
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: UsbDevice
+				AvailableOutputDevices Includes UsbDevice
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 1
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: WiredHeadphone
+				AvailableOutputDevices Includes WiredHeadphone
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 1
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: WiredHeadset
+				AvailableOutputDevices Includes WiredHeadset
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 1
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: HdmiEarc
+				AvailableOutputDevices Includes HdmiEarc
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 1
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: HdmiArc
+				AvailableOutputDevices Includes HdmiArc
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 1
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: Hdmi
+				AvailableOutputDevices Includes Hdmi
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 1
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: Line
+				AvailableOutputDevices Includes Line
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 1
+					aux_line = 0
+
+			conf: HearingAid
+				AvailableOutputDevices Includes HearingAid
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 1
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: DgtlDockHeadset
+				AvailableOutputDevices Includes DgtlDockHeadset
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 1
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: AnlgDockHeadset
+				AvailableOutputDevices Includes AnlgDockHeadset
+				ForceUseForDock Is ForceAnalogDock
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 1
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+
+			conf: Speaker
+				AvailableOutputDevices Includes Speaker
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 1
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: Spdif
+				AvailableOutputDevices Includes Spdif
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 1
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+
+			conf: AuxLine
+				AvailableOutputDevices Includes AuxLine
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 1
+
+			conf: Default
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0

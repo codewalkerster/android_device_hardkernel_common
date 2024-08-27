@@ -16,7 +16,7 @@
 <!-- Volume section defines a volume curve for a given use case and device category.
 It contains a list of points of this curve expressing the attenuation in Millibels for a given
 volume index from 0 to 100.
-<volume deviceCategory=””>
+<volume deviceCategory="">
 <point>0,-9600</point>
 <point>100,0</point>
 </volume>

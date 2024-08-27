@@ -18,7 +18,7 @@
     <!-- version section contains a “version” tag in the form “major.minor” e.g version=”1.0” -->
 
     <!-- Global configuration declaration -->
-    <globalConfiguration speaker_drc_enabled="false"/>
+    <globalConfiguration speaker_drc_enabled="false" engine_library="configurable"/>
 
     <!-- Modules section:
         There is one section per audio HW module present on the platform.
@@ -129,9 +129,6 @@
             </routes>
         </module>
 
-        <!-- A2dp Audio HAL -->
-        <xi:include href="a2dp_audio_policy_configuration.xml"/>
-
         <!-- Usb Audio HAL -->
         <xi:include href="usb_audio_policy_configuration.xml"/>
 
@@ -147,16 +144,8 @@
 
     </modules>
     <!-- End of Modules section -->
-
-    <!-- Volume section -->
-
-    <xi:include href="audio_policy_volumes.xml"/>
-    <xi:include href="default_volume_tables.xml"/>
-
-    <!-- End of Volume section -->
-
+    <volumes />
     <!-- Surround Sound configuration -->
-
     <surroundSound>
     <!-- Each of the listed formats gets an entry in Surround Settings dialog on TV devices.
         There must be a corresponding Java ENCODING_... contant defined in AudioFormat.java,
