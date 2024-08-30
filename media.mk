@@ -207,6 +207,15 @@ PRODUCT_PACKAGES += libmediahal_mediametrics
 ifeq ($(BOARD_BUILD_DRMPLAYER), true)
 PRODUCT_PACKAGES += libmediahal_mediametrics.system
 endif
+
+# AOSP Youtube Sign
+ifeq ($(TARGET_BUILD_YOUTUBE_SIGN),true)
+PRODUCT_PACKAGES += \
+  libyoutubeplugin_aidl\
+  android.hardware.drm-service.youtube \
+  b8ad1df9-90b5-4468-92b8-f0a9f0a66623
+endif
+
 #########################################################################
 #
 #                                                PlayReady DRM
