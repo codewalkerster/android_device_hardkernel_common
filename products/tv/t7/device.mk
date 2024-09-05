@@ -69,5 +69,7 @@ PQ_FILES := \
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
-$(warning 'This platform use soundbar audio policy configuration!')
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.support_earc=true
+$(warning 'This platform supports EARC and uses soundbar audio policy configuration!')
 endif  #end TARGET_BUILD_TYPE_SOUNDBAR

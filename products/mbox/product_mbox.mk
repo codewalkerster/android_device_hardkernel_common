@@ -247,6 +247,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hdmi.auto_otp=true \
     ro.config.media_vol_steps=25
 else
+PRODUCT_SUPPORT_CEC_EARC?=true
+ifeq ($(PRODUCT_SUPPORT_CEC_EARC), true)
+$(warning "cec supported")
+PRODUCT_PACKAGES += \
+    android.hardware.tv.hdmi.earc-service.droidlogic
+endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=audio_system,playback_device \
     ro.hdmi.device_type=5,4 \

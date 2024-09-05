@@ -105,10 +105,12 @@ endif
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.support_earc=true
 
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
-$(warning 'This platform use soundbar audio config and tv config!')
+$(warning 'This platform supports EARC and uses soundbar audio config and tv config!')
 endif
 #########################################################################
 #

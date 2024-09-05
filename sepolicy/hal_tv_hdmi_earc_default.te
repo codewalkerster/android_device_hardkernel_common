@@ -1,5 +1,6 @@
 get_prop(hal_tv_hdmi_earc_default, vendor_platform_prop)
 get_prop(hal_tv_hdmi_earc_default, vendor_media_prop)
+get_prop(hal_tv_hdmi_earc_default, hdmi_config_prop)
 set_prop(hal_tv_hdmi_earc_default, vendor_persist_prop)
 allow hal_tv_hdmi_earc_default dumpstate:fd { use };
 allow hal_tv_hdmi_earc_default dumpstate:fifo_file { write };
