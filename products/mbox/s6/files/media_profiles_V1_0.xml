@@ -280,7 +280,7 @@
         minBitRate="192000" maxBitRate="420000"
         minFrameWidth="176" maxFrameWidth="352"
         minFrameHeight="144" maxFrameHeight="288"
-        minFrameRate="1" maxFrameRate="20" />
+        minFrameRate="1" maxFrameRate="30" />
     <VideoEncoderCap name="h264" enabled="true"
         minBitRate="192000" maxBitRate="20000000"
         minFrameWidth="176" maxFrameWidth="3840"
@@ -294,9 +294,9 @@
 
     <VideoEncoderCap name="m4v" enabled="true"
         minBitRate="192000" maxBitRate="1440000"
-        minFrameWidth="176" maxFrameWidth="640"
-        minFrameHeight="144" maxFrameHeight="480"
-        minFrameRate="1" maxFrameRate="15" />
+        minFrameWidth="176" maxFrameWidth="352"
+        minFrameHeight="144" maxFrameHeight="288"
+        minFrameRate="1" maxFrameRate="30" />
 
     <AudioEncoderCap name="amrwb" enabled="true"
         minBitRate="6600" maxBitRate="23050"
