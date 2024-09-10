@@ -12,7 +12,7 @@ PRODUCT_PACKAGES += \
     Netflix
 
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.vendor.hailstorm.version=6.2.0
+   ro.vendor.hailstorm.version=6.3.0
 
 
 PRODUCT_COPY_FILES += \
