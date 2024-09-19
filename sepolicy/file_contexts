@@ -710,3 +710,4 @@
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.errormonitor@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/liberrormonitorclient\.so        u:object_r:vendor_app_file:s0
 
+/system/bin/ethtool                              u:object_r:ethtool_exec:s0

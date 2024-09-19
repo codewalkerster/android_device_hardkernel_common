@@ -186,3 +186,22 @@ service pppoe_wrapper /system/bin/pppoe_wrapper
     disabled
     oneshot
     seclabel u:r:pppoe_wrapper:s0
+
+service logcat_grow_memory /system/bin/logcat -b main -b system -G 4M
+oneshot
+class late_start
+
+service ethspeed10 /system/bin/ethtool -s eth0 duplex full autoneg on speed 10
+    class main
+    disabled
+    oneshot
+
+service ethspeed100 /system/bin/ethtool -s eth0 duplex full autoneg on speed 100
+    class main
+    disabled
+    oneshot
+
+service ethspeed1000 /system/bin/ethtool -s eth0 duplex full autoneg on speed 1000
+    class main
+    disabled
+    oneshot

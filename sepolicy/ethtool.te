@@ -1,0 +1,12 @@
+# ethtool service
+type ethtool, domain, coredomain;
+type ethtool_exec, exec_type, system_file_type, file_type;
+
+init_daemon_domain(ethtool)
+
+allow ethtool ethtool_exec:file { read getattr map execute open entrypoint };
+allow ethtool ethtool_exec:file { execute entrypoint };
+allow ethtool self:udp_socket { create };
+allowxperm ethtool self:udp_socket ioctl { UNKNOWN_CMD };
+allow ethtool self:udp_socket ioctl;
+allow ethtool self:capability net_admin;

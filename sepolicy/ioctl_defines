@@ -1,2 +1,3 @@
 define(`MMC_IOC_MULTI_CMD', `0xc048b301')
 define(`CI_IOC_DTVKITSER_NET_CMD', `0x00008927')
+define(`UNKNOWN_CMD', `0x00008946')

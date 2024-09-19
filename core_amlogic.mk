@@ -1189,3 +1189,6 @@ PRODUCT_PACKAGES += \
     thread_otbr_aml \
     libprotobuf-cpp-lite_aml \
     libnfnetlink
+
+PRODUCT_PACKAGES += \
+    ethtool
