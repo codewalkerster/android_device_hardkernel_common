@@ -95,6 +95,7 @@ on boot
 
 on fs
     start resmanload
+    start bootanim
 
 service resmanload /vendor/bin/resmanload
     disabled
