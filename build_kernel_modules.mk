@@ -291,8 +291,10 @@ endif
 ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
 AML_SYSTEM_DLKM_COPY_FILES := $(PRODUCT_OUT)/system_dlkm/lib/modules/system_dlkm.modules.load
 LOCAL_SYSTEM_PROP := $(PREBUILT_KERNEL_PATH)/system_dlkm.modules.load
-$(AML_SYSTEM_DLKM_COPY_FILES): $(LOCAL_SYSTEM_PROP)
+SYSTEM_DLKM_KERNEL_MODULES := $(shell find $(DEVICE_PRODUCT_PATH)-kernel/$(TARGET_KERNEL_DIR)/gki/lib/modules/ -name '*.ko')
+$(AML_SYSTEM_DLKM_COPY_FILES): $(LOCAL_SYSTEM_PROP) $(SYSTEM_DLKM_KERNEL_MODULES)
 	mkdir -p $(PRODUCT_OUT)/system_dlkm/lib/modules/
+	rm -rf $(PRODUCT_OUT)/system_dlkm/lib/modules/*
 	cp -a $(PREBUILT_KERNEL_PATH)/gki/lib/modules/* $(PRODUCT_OUT)/system_dlkm/lib/modules/
 	$(transform-prebuilt-to-target)
 endif
