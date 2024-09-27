@@ -212,7 +212,7 @@ ifeq ($(BOARD_AML_SOC_TYPE),)
 	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/video/$(BOARD_AML_SOC_TYPE)/*.bin $(PRODUCT_OUT)/vendor/lib/firmware/video/
 endif
 ifneq ($(wildcard $(PREBUILT_KERNEL_PATH)/lib/firmware/wifi/),)
-	cp $(PREBUILT_KERNEL_PATH)/lib/firmware/wifi/* $(PRODUCT_OUT)/vendor/lib/firmware/
+	cp -r $(PREBUILT_KERNEL_PATH)/lib/firmware/wifi/* $(PRODUCT_OUT)/vendor/lib/firmware/
 endif
 
 ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
