@@ -22,6 +22,6 @@
     <device type="VX_AUDIO_DEVICE_IN_HDMI_ARC">
         <supportedFormat format="AUDIO_FORMAT_LPCM" descriptor="097F05"/>
         <supportedFormat format="AUDIO_FORMAT_DD" descriptor="150750"/>
-        <supportedFormat format="AUDIO_FORMAT_DDP" descriptor="570701"/>
+        <supportedFormat format="AUDIO_FORMAT_DDP" descriptor="570401"/>
     </device>
 </config>
