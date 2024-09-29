@@ -143,7 +143,6 @@
             </gains>
         </devicePort>
 
-
         <devicePort tagName="BLE-In" type="AUDIO_DEVICE_IN_BLUETOOTH_BLE" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                      samplingRates="16000" channelMasks="AUDIO_CHANNEL_IN_MONO"/>
@@ -162,60 +161,12 @@
                      samplingRates="48000"
                      channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
         </devicePort>
-        <devicePort tagName="HDMI ARC In" type="AUDIO_DEVICE_IN_HDMI_ARC" role="source">
-            <gains>
-                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
-                      minValueMB="-100000"
-                      maxValueMB="0"
-                      defaultValueMB="-6000"
-                      stepValueMB="100"/>
-            </gains>
-        </devicePort>
-          <devicePort tagName="HDMI EARC In" type="AUDIO_DEVICE_IN_HDMI_EARC" role="source">
-            <gains>
-                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
-                      minValueMB="-100000"
-                      maxValueMB="0"
-                      defaultValueMB="-6000"
-                      stepValueMB="100"/>
-            </gains>
-        </devicePort>
-        <devicePort tagName="HDMI In" type="AUDIO_DEVICE_IN_HDMI" role="source">
-            <gains>
-                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
-                      minValueMB="-100000"
-                      maxValueMB="0"
-                      defaultValueMB="-6000"
-                      stepValueMB="100"/>
-            </gains>
-        </devicePort>
-        <devicePort tagName="Line In" type="AUDIO_DEVICE_IN_LINE" role="source">
-            <gains>
-                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
-                      minValueMB="-100000"
-                      maxValueMB="0"
-                      defaultValueMB="-6000"
-                      stepValueMB="100"/>
-            </gains>
-        </devicePort>
-        <devicePort tagName="Spdif In" type="AUDIO_DEVICE_IN_SPDIF" role="source">
-            <gains>
-                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
-                      minValueMB="-100000"
-                      maxValueMB="0"
-                      defaultValueMB="-6000"
-                      stepValueMB="100"/>
-            </gains>
-        </devicePort>
-        <devicePort tagName="Tuner" type="AUDIO_DEVICE_IN_TV_TUNER" role="source">
-            <gains>
-                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
-                      minValueMB="-100000"
-                      maxValueMB="0"
-                      defaultValueMB="-6000"
-                      stepValueMB="100"/>
-            </gains>
-        </devicePort>
+        <devicePort tagName="HDMI ARC In" type="AUDIO_DEVICE_IN_HDMI_ARC" role="source"/>
+        <devicePort tagName="HDMI EARC In" type="AUDIO_DEVICE_IN_HDMI_EARC" role="source"/>
+        <devicePort tagName="HDMI In" type="AUDIO_DEVICE_IN_HDMI" role="source"/>
+        <devicePort tagName="Line In" type="AUDIO_DEVICE_IN_LINE" role="source"/>
+        <devicePort tagName="Spdif In" type="AUDIO_DEVICE_IN_SPDIF" role="source"/>
+        <devicePort tagName="Tuner" type="AUDIO_DEVICE_IN_TV_TUNER" role="source"/>
         <devicePort tagName="Wired Headset Mic" type="AUDIO_DEVICE_IN_WIRED_HEADSET" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                      samplingRates="8000 16000 48000"
