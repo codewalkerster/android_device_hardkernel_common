@@ -23,7 +23,7 @@ endif
 # Inherit from those products. Most specific first.
 # Get the TTS language packs
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
-$(call inherit-product, build/target/product/core_minimal.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product-if-exists, vendor/amlogic/restricted_libs/hdcp_tx22.mk)
 
 # Get IRDETO middleware framework.
@@ -173,6 +173,9 @@ endif
 
 ifneq ($(TARGET_BUILD_GMS), true)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
+else
+# To enable access to /dev/dvb*
+BOARD_SEPOLICY_DIRS += device/google/atv/sepolicy/vendor
 endif
 
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioTv.mk)
@@ -282,11 +285,9 @@ endif
 endif
 
 PRODUCT_PACKAGES += \
-    SystemUIOverlay \
     TvProviderOverlay \
     TetheringOverlay \
     libufdt
-
 
 ifneq ($(BOARD_COMPILE_ATV), false)
 	# code block for ATV
