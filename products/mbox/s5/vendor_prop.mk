@@ -191,3 +191,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # for SF performance
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.auto_latch_unsignaled=false
+
+#enable di backend
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.hwc.di_channel_number=2 \
+    vendor.media.c2.vdec.di.post=true \
+    vendor.media.mediahal.tsplayer.vtbuffer_number_limit=1 \
+    vendor.di_backend.enable=1
