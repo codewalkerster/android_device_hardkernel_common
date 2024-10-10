@@ -1,5 +1,5 @@
 <compatibility-matrix version="1.0" type="framework">
-    <hal format="aidl" optional="true">
+    <hal format="aidl">
         <name>vendor.amlogic.hardware.vmx_webclient</name>
         <version>1</version>
         <interface>

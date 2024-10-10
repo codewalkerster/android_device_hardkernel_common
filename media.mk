@@ -263,7 +263,7 @@ ifeq ($(BUILD_WITH_VERIMATRIX_DRM),true)
        libverimatrixplugin_aidl \
        android.hardware.drm-service.verimatrix \
        libverimatrixadaptor \
-       vendor.amlogic.hardware.vmx_webclient-ndk \
+       vendor.amlogic.hardware.vmx_webclient-V1-ndk \
        vmx_webclient
 
  PRODUCT_COPY_FILES += \
