@@ -250,7 +250,7 @@ PRODUCT_PACKAGES += \
     DeskClock \
     FileBrower \
 
-ifeq ($(PRODUCT_SUPPORT_ATK_UI),true)
+ifneq ($(PRODUCT_SUPPORT_ATK_UI),false)
     PRODUCT_PACKAGES += \
         TVLauncher \
         FileBrowser2
