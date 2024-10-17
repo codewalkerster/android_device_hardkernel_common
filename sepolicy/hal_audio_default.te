@@ -23,6 +23,7 @@ allow hal_audio_default sysfs_cec:file { read open getattr};
 #  product_shipping_api_level=28
 #--------------------------------------------------------------------#
 get_prop(hal_audio_default, vendor_platform_prop)
+get_prop(hal_audio_amlogic, vendor_persist_prop)
 allow hal_audio_default self:capability { sys_nice ipc_lock };
 allow hal_audio_default sysfs_aud_output_chs:file { open read write };
 allow hal_audio_default sysfs_aud_output_chs:file { read write open };
@@ -60,7 +61,7 @@ allow hal_audio_default mnt_vendor_file:dir { search read open getattr };
 allow hal_audio_default audio_utils_device:chr_file { open ioctl read write getattr map execute };
 allow hal_audio_default tmpfs:dir { read };
 allow hal_audio_default tmpfs:file { read open getattr map };
-allow hal_audio_default vendor_persist_prop:file { read };
+allow hal_audio_default vendor_persist_prop:file { open read getattr map };
 allow hal_audio_default audio_device_earc:dir { search read };
 allow hal_audio_default audio_device_earc:chr_file { open read write ioctl };
 get_prop(hal_audio_default, ptsserver_device)

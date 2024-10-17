@@ -258,7 +258,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.device_type=5,4 \
     ro.vendor.platform.hdmi.device_type=5,4 \
     ro.hdmi.property_is_device_hdmi_cec_switch=true \
-    ro.config.media_vol_steps=100
+    ro.config.media_vol_steps=100 \
+    persist.vendor.sys.soundbar_mode=1
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \

@@ -32,6 +32,8 @@ allow hal_audio_amlogic dolby_fw_device:chr_file {read open ioctl};
 #  product_shipping_api_level=28
 #--------------------------------------------------------------------#
 get_prop(hal_audio_amlogic, vendor_platform_prop)
+get_prop(hal_audio_amlogic, vendor_persist_prop)
+allow hal_audio_amlogic vendor_persist_prop:file { open read getattr map };
 allow hal_audio_amlogic self:capability sys_nice;
 allow hal_audio_amlogic sysfs_aud_output_chs:file { open read write };
 allow hal_audio_amlogic sysfs_aud_output_chs:file { read write open };
