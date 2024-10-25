@@ -163,8 +163,10 @@ PRODUCT_COPY_FILES += \
     $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio.xml
 
 ifneq ($(TARGET_DOLBY_VERSION), non_dolby)
-PRODUCT_COPY_FILES += \
-    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ddp.xml
+    ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), false)
+    PRODUCT_COPY_FILES += \
+        $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ddp.xml
+    endif
 endif
 
 ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
@@ -186,7 +188,6 @@ endif
 ifeq ($(TARGET_WITH_MEDIA_EXT), true)
 PRODUCT_COPY_FILES += \
     $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ffmpeg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ffmpeg.xml \
-    $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ddp.xml \
     $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio_dtsx.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio_dts.xml
 endif
 ##################################################################################
