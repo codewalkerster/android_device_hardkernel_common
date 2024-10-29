@@ -1,0 +1,2 @@
+#airplay utility
+vendor.airplay.hardware.utility::IUtility                           u:object_r:hal_utility_hwservice:s0

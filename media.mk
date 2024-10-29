@@ -513,3 +513,23 @@ ifeq ($(ANDROID_BUILD_TYPE), 64)
 PRODUCT_PACKAGES += libssl
 endif
 endif
+
+
+#for Airplay
+ifeq ($(BUILD_WITH_APPLE_AIRPLAY), true)
+TARGET_USE_OPTEEOS := true
+TARGET_ENABLE_TA_SIGN := true
+endif
+
+ifeq ($(BUILD_WITH_APPLE_AIRPLAY),true)
+  PRODUCT_PACKAGES += libmfi
+  PRODUCT_PACKAGES += a4a47edb-fdb0-4f76-836a-d730f9a2db64
+  PRODUCT_PACKAGES += 94ce86fb-07ff-4f43-adb8-93d2fa968ca2
+  PRODUCT_PACKAGES += android.hardware.drm-service.fairplay
+  PRODUCT_PACKAGES += AirplayHome
+  PRODUCT_PACKAGES += mdnsd_airplay
+  PRODUCT_PACKAGES += libTAFps
+  PRODUCT_PACKAGES += libFPS
+  PRODUCT_PACKAGES += vendor.airplay.hardware.utility-V1-ndk
+  PRODUCT_PACKAGES += amlogic.airplay.app.utility-service
+endif

@@ -1,0 +1,33 @@
+type hal_utility, domain, mlstrustedsubject;
+type hal_utility_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_utility)
+net_domain(hal_utility)
+
+vndbinder_use(hal_utility)
+binder_call(hal_utility, servicemanager)
+binder_call(hal_utility_service, servicemanager)
+
+allow hal_utility hal_utility_service:service_manager { find add };
+
+allow hal_utility hwservicemanager:binder { call transfer };
+allow hal_utility hwservicemanager_prop:file { open read getattr map };
+allow hal_utility hidl_base_hwservice:hwservice_manager { add };
+allow hal_utility hal_utility_hwservice:hwservice_manager { find add };
+allow hal_utility vendor_data_file:dir { read open getattr search write add_name create };
+allow hal_utility vendor_data_file:file { read open write getattr create unlink rename append };
+
+allow hal_utility vndbinder_device:chr_file { read write open ioctl map };
+allow hal_utility platform_app:udp_socket { bind ioctl read write };
+allowxperm hal_utility platform_app:udp_socket ioctl { SIOCETHTOOL SIOCGIFHWADDR };
+allow hal_utility_service platform_app:udp_socket { bind ioctl };
+allowxperm hal_utility_service platform_app:udp_socket ioctl { SIOCETHTOOL SIOCGIFHWADDR };
+allow hal_utility_service self:global_capability_class_set { net_admin net_bind_service net_raw };
+allow hal_utility self:global_capability_class_set { net_admin net_bind_service net_raw };
+allow hal_utility platform_app:fd  { use };
+allow hal_utility drm_device:chr_file { read write open ioctl };
+allow hal_utility tmpfs:file {read open write getattr create unlink rename};
+allow hal_utility tmpfs:dir {read open write getattr create search add_name remove_name rmdir};
+allow hal_utility hidl_memory_hwservice:hwservice_manager { find };
+allow platform_app hal_utility_hwservice:hwservice_manager { find add };
+allow platform_app hal_utility:binder { call transfer };

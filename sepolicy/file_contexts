@@ -512,6 +512,7 @@
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.clearkey   u:object_r:hal_drm_clearkey_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service\.clearkey\.secure          u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm-service\.youtube                   u:object_r:hal_drm_default_exec:s0
+/vendor/bin/hw/android\.hardware\.drm-service\.fairplay                   u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.netflix    u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power\.aidl-service.droidlogic         u:object_r:hal_power_default_exec:s0
 /vendor/bin/hw/android\.hardware\.tv\.hdmi\.cec-service.droidlogic       u:object_r:hal_tv_hdmi_cec_default_exec:s0

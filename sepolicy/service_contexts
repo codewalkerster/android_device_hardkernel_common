@@ -19,6 +19,7 @@ vendor.amlogic.hardware.vmx_webclient.IVmxWebClient/default        u:object_r:vm
 vendor.amlogic.hardware.droidaudio.IDroidAudio/default             u:object_r:droidaudio_service:s0
 android.hardware.drm.IDrmFactory/playready                         u:object_r:hal_drm_service:s0
 android.hardware.drm.IDrmFactory/youtube                           u:object_r:hal_drm_service:s0
+android.hardware.drm.IDrmFactory/fairplay                          u:object_r:hal_drm_service:s0
 vendor.amlogic.hardware.droidmdnsoffload.IDroidMdnsOffload/default u:object_r:hal_mdnsoffload_service:s0
 vendor.amlogic.hardware.mediahalserver.IMediaHalServer/default     u:object_r:mediahalserver_service:s0
 vendor.amlogic.hardware.miracast_hdcp2.IHDCPService/default        u:object_r:miracast_hdcp2_service:s0

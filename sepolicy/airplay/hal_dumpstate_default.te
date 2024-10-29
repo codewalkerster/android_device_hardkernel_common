@@ -1,0 +1,2 @@
+allow hal_dumpstate_default hal_utility:binder call;
+allow dumpstate hal_utility:binder call;

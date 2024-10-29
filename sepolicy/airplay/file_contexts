@@ -1,0 +1,6 @@
+# For Airplay to reach for MFI TA through libmfi vendor lib
+/vendor/bin/hw/amlogic\.airplay\.app\.utility-service             u:object_r:hal_utility_exec:s0
+# For Airplay to reach for fairplay TA
+/vendor/lib(64)?/vendor\.airplay\.hardware\.utility-V1-ndk\.so         u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libairplaydaemon\.so                                    u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libjniairplay\.so                                       u:object_r:vendor_app_file:s0

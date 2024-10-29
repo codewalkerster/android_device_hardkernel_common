@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compatibility-matrix version="1.0" type="framework">
+    <hal format="aidl" optional="true">
+       <name>vendor.airplay.hardware.utility</name>
+        <version>1</version>
+        <interface>
+            <name>IUtility</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>
