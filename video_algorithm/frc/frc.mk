@@ -21,52 +21,52 @@ ifeq ($(strip $(FRC_FW_MODULE)),true)
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.4)
         ifneq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/frc/64_5_4/frc_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-                device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                device/hardkernel/common/video_algorithm/frc/64_5_4/frc_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
         endif
     else
 		ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
 			ifneq ($(KERNEL_A32_SUPPORT),true)
 				ifeq ($(TARGET_PRODUCT), T5M)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), calla)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), T3)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), smith)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), t982_ar301)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), t982_ar301_arm64)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), T3X)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				else ifeq ($(TARGET_PRODUCT), anemone)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				endif
 			endif
 		else
 			ifneq ($(KERNEL_A32_SUPPORT),true)
 				ifeq ($(TARGET_PRODUCT), T5M)
 					PRODUCT_COPY_FILES += \
-						device/amlogic/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/amlogic/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
 				endif
 			endif
 		endif

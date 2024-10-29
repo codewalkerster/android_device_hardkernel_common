@@ -1,4 +1,4 @@
-$(call inherit-product, device/amlogic/common/core_amlogic.mk)
+$(call inherit-product, device/hardkernel/common/core_amlogic.mk)
 
 BOARD_SEPOLICY_DIRS += device/google/atv/sepolicy/vendor
 
@@ -12,7 +12,7 @@ PRODUCT_PACKAGES += \
     ThemePicker
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tablet/permissions/com.android.wallpaper.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.wallpaper.xml
+    device/hardkernel/common/products/tablet/permissions/com.android.wallpaper.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.wallpaper.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/base/core/res/res/drawable-nodpi/default_wallpaper.png:$(TARGET_COPY_OUT_VENDOR)/etc/default_wallpaper.png
@@ -127,9 +127,9 @@ endif
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
-	device/amlogic/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
-	device/amlogic/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
+	device/hardkernel/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
+	device/hardkernel/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
+	device/hardkernel/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
 endif
 
 # USB

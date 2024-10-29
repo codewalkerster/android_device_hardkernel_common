@@ -25,9 +25,9 @@
 #Netflix
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 TARGET_WITH_VP9_NETFLIX:= true
-$(call inherit-product-if-exists, device/amlogic/common/netflix/nts.mk)
+$(call inherit-product-if-exists, device/hardkernel/common/netflix/nts.mk)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
+    device/hardkernel/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
 endif
 
 
@@ -190,8 +190,8 @@ endif
 #########################################################################
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/dvb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
-    device/amlogic/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
+    device/hardkernel/common/initscripts/dvb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
+    device/hardkernel/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
 
 #########################################################################
 #

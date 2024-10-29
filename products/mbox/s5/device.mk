@@ -14,18 +14,18 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/mbox/s5
+CHIP_DIR := device/hardkernel/common/products/mbox/s5
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
+    device/hardkernel/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 #use tv remote layout for mbox if livetv is built
 ifeq ($(TARGET_BUILD_LIVETV), true)
     PRODUCT_COPY_FILES += \
-       device/amlogic/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+       device/hardkernel/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 else
     PRODUCT_COPY_FILES += \
-       device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+       device/hardkernel/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 endif
 
 
@@ -35,14 +35,14 @@ endif
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+    device/hardkernel/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic.rc:recovery/root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic.rc:recovery/root/init.recovery.amlogic.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic_ab.rc:recovery/root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic_ab.rc:recovery/root/init.recovery.amlogic.rc
 endif
 
 #########################################################################
@@ -98,7 +98,7 @@ endif
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/amazon/prime.xml:system/etc/permissions/prime.xml
+    device/hardkernel/common/amazon/prime.xml:system/etc/permissions/prime.xml
 
 #########################################################################
 #
@@ -117,7 +117,7 @@ endif
 #########################################################################
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+    device/hardkernel/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.support_earc=true
 

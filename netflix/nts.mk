@@ -16,22 +16,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/netflix.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/netflix.xml \
-    device/amlogic/common/netflix/etc/nrdp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/nrdp.xml \
-    device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities_ms12.json:vendor/etc/nrdp_audio_platform_capabilities_ms12.json \
-    device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities.json:vendor/etc/nrdp_audio_platform_capabilities.json
+    device/hardkernel/common/netflix/etc/netflix.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/netflix.xml \
+    device/hardkernel/common/netflix/etc/nrdp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/nrdp.xml \
+    device/hardkernel/common/netflix/etc/nrdp_audio_platform_capabilities_ms12.json:vendor/etc/nrdp_audio_platform_capabilities_ms12.json \
+    device/hardkernel/common/netflix/etc/nrdp_audio_platform_capabilities.json:vendor/etc/nrdp_audio_platform_capabilities.json
 
 
 ifeq ($(TARGET_HDR_OUT_PUT_TYPE_NOT_APPLICABLE)_$(TARGET_WITH_VP9_NETFLIX), true_true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities_vp9_hdr_not_applicable.json:vendor/etc/nrdp_platform_capabilities.json
+    device/hardkernel/common/netflix/etc/nrdp_platform_capabilities_vp9_hdr_not_applicable.json:vendor/etc/nrdp_platform_capabilities.json
 else ifeq ($(TARGET_WITH_VP9_NETFLIX), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities_vp9.json:vendor/etc/nrdp_platform_capabilities.json
+    device/hardkernel/common/netflix/etc/nrdp_platform_capabilities_vp9.json:vendor/etc/nrdp_platform_capabilities.json
 else ifeq ($(TARGET_WITH_HDR_PLAYBACK), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities_hdr_playback.json:vendor/etc/nrdp_platform_capabilities.json
+    device/hardkernel/common/netflix/etc/nrdp_platform_capabilities_hdr_playback.json:vendor/etc/nrdp_platform_capabilities.json
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities.json:vendor/etc/nrdp_platform_capabilities.json
+    device/hardkernel/common/netflix/etc/nrdp_platform_capabilities.json:vendor/etc/nrdp_platform_capabilities.json
 endif

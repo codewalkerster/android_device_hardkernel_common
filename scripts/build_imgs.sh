@@ -112,9 +112,9 @@ function build() {
 	if [[ "$BOARD_NAME" = "adt4" ]]; then
 		DEVICE_DIR=device/sei/$BOARD_NAME
 	elif [ "$REAL_BOARD" = "franklin_hybrid" ];then
-		DEVICE_DIR=device/amlogic/$BOARD_NAME/$REAL_BOARD
+		DEVICE_DIR=device/hardkernel/$BOARD_NAME/$REAL_BOARD
 	else
-		DEVICE_DIR=device/amlogic/$BOARD_NAME
+		DEVICE_DIR=device/hardkernel/$BOARD_NAME
 	fi
 
 	cd $CUR_DIR/normal_target/IMAGES/
@@ -383,8 +383,8 @@ function build() {
 	mkdir -p out_publish
 
 	if [ $CONFIG_SIGN ]; then
-		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD $DEVICE_DIR $ANDROID_OUTPUT_PATH &
-		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
+		./device/hardkernel/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD $DEVICE_DIR $ANDROID_OUTPUT_PATH &
+		./device/hardkernel/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 
 		echo "need sign"
 		./out/host/linux-x86/bin/sign_target_files_apks -o --default_key_mappings $KEY_DIR \
@@ -461,11 +461,11 @@ function build() {
 		echo "unzip -o -q ${TARGET_NAME}_target.zip -d ${TARGET_NAME}_target"
 		unzip -o -q signed_target.zip -d signed_target
 
-		./device/amlogic/common/scripts/generate_ota_zip.sh signed $BOARD_NAME $REAL_BOARD $DEVICE_DIR $ANDROID_OUTPUT_PATH &
-		./device/amlogic/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
+		./device/hardkernel/common/scripts/generate_ota_zip.sh signed $BOARD_NAME $REAL_BOARD $DEVICE_DIR $ANDROID_OUTPUT_PATH &
+		./device/hardkernel/common/scripts/generate_firmware.sh signed $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 	else
-		./device/amlogic/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD $DEVICE_DIR $ANDROID_OUTPUT_PATH &
-		./device/amlogic/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
+		./device/hardkernel/common/scripts/generate_ota_zip.sh normal $BOARD_NAME $REAL_BOARD $DEVICE_DIR $ANDROID_OUTPUT_PATH &
+		./device/hardkernel/common/scripts/generate_firmware.sh normal $BOARD_NAME $DEVICE_DIR $KERNEL_DIR $ANDROID_OUTPUT_PATH $REAL_BOARD $LOCAL_DTB &
 	fi
 
 	echo "build zip OK"

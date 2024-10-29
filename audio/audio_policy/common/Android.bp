@@ -1,7 +1,7 @@
 soong_namespace {
     imports: [
-        "device/amlogic/common",
-        "device/amlogic/common/audio",
+        "device/hardkernel/common",
+        "device/hardkernel/common/audio",
     ],
 }
 

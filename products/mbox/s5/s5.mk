@@ -25,9 +25,9 @@
 #Netflix
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 TARGET_WITH_VP9_NETFLIX:= true
-$(call inherit-product-if-exists, device/amlogic/common/netflix/nts.mk)
+$(call inherit-product-if-exists, device/hardkernel/common/netflix/nts.mk)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
+    device/hardkernel/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
 endif
 
 
@@ -223,8 +223,8 @@ endif
 #########################################################################
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/dvb_sc2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
-    device/amlogic/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
+    device/hardkernel/common/initscripts/dvb_sc2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
+    device/hardkernel/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
 
 #########################################################################
 #
@@ -232,8 +232,8 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/amlogic/common/products/mbox/s5/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
-    device/amlogic/common/products/mbox/s5/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
+    $(call find-copy-subdir-files,*,device/hardkernel/common/products/mbox/s5/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
+    device/hardkernel/common/products/mbox/s5/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
 
 #########################################################################
 #
@@ -241,14 +241,14 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/s5/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
-    device/amlogic/common/products/mbox/s5/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt \
-    device/amlogic/common/products/mbox/s5/files/nn/SRNetx2_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_e8.nb \
-    device/amlogic/common/products/mbox/s5/files/nn/SRNetx3_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_e8.nb \
-    device/amlogic/common/products/mbox/s5/files/nn/SRNetx4_960_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_e8.nb \
-    device/amlogic/common/products/mbox/s5/files/nn/SRNetx2_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_i_e8.nb \
-    device/amlogic/common/products/mbox/s5/files/nn/SRNetx3_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_i_e8.nb \
-    device/amlogic/common/products/mbox/s5/files/nn/SRNetx4_960_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_i_e8.nb
+    device/hardkernel/common/products/mbox/s5/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
+    device/hardkernel/common/products/mbox/s5/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt \
+    device/hardkernel/common/products/mbox/s5/files/nn/SRNetx2_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_e8.nb \
+    device/hardkernel/common/products/mbox/s5/files/nn/SRNetx3_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_e8.nb \
+    device/hardkernel/common/products/mbox/s5/files/nn/SRNetx4_960_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_e8.nb \
+    device/hardkernel/common/products/mbox/s5/files/nn/SRNetx2_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx2_i_e8.nb \
+    device/hardkernel/common/products/mbox/s5/files/nn/SRNetx3_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx3_i_e8.nb \
+    device/hardkernel/common/products/mbox/s5/files/nn/SRNetx4_960_i_e8.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/SRNetx4_960_i_e8.nb
 
 #########################################################################
 #

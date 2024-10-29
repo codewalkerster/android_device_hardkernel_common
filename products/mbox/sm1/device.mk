@@ -14,18 +14,18 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/mbox/sm1
+CHIP_DIR := device/hardkernel/common/products/mbox/sm1
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
+    device/hardkernel/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 #use tv remote layout for mbox if livetv is built
 ifeq ($(TARGET_BUILD_LIVETV), true)
     PRODUCT_COPY_FILES += \
-       device/amlogic/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+       device/hardkernel/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 else
     PRODUCT_COPY_FILES += \
-       device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+       device/hardkernel/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 endif
 
 
@@ -35,14 +35,14 @@ endif
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+    device/hardkernel/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic.rc:recovery/root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic.rc:recovery/root/init.recovery.amlogic.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic_ab.rc:recovery/root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic_ab.rc:recovery/root/init.recovery.amlogic.rc
 endif
 
 #########################################################################
@@ -51,8 +51,8 @@ endif
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/sm1/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-    device/amlogic/common/products/mbox/sm1/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    device/hardkernel/common/products/mbox/sm1/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    device/hardkernel/common/products/mbox/sm1/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 
 #########################################################################
@@ -79,6 +79,6 @@ endif
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
-    device/amlogic/common/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json
+    device/hardkernel/common/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
+    device/hardkernel/common/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json
 

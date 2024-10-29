@@ -22,27 +22,27 @@ ifeq ($(strip $(CUVA_MODULE)),true)
     ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \
-               device/amlogic/common/video_algorithm/cuva/32_4_9/cuva_hdr_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
-               device/amlogic/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
+               device/hardkernel/common/video_algorithm/cuva/32_4_9/cuva_hdr_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
+               device/hardkernel/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
         else
            PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/cuva/64_4_9/cuva_hdr_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
-                device/amlogic/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
+                device/hardkernel/common/video_algorithm/cuva/64_4_9/cuva_hdr_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
+                device/hardkernel/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
         endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/cuva/32/cuva_hdr_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
-                device/amlogic/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
+                device/hardkernel/common/video_algorithm/cuva/32/cuva_hdr_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
+                device/hardkernel/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
         else
             ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
                 PRODUCT_COPY_FILES += \
-                    device/amlogic/common/video_algorithm/cuva/64_upgrade/cuva_hdr_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
-                    device/amlogic/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
+                    device/hardkernel/common/video_algorithm/cuva/64_upgrade/cuva_hdr_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
+                    device/hardkernel/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
             else
                 PRODUCT_COPY_FILES += \
-                    device/amlogic/common/video_algorithm/cuva/64/cuva_hdr_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
-                    device/amlogic/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
+                    device/hardkernel/common/video_algorithm/cuva/64/cuva_hdr_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cuva_hdr_alg.ko \
+                    device/hardkernel/common/initscripts/cuva.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cuva.rc
             endif
         endif
     endif

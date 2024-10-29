@@ -138,7 +138,7 @@ if [ $CONFIG_KERNEL_FCC_PIP ]; then
 	export KERNEL_DEVICETREE=${KERNEL_DEVICETREE_FCC_PIP}
 fi
 
-DTBTOOL_DIR=device/amlogic/common/kernelbuild
+DTBTOOL_DIR=device/hardkernel/common/kernelbuild
 dtb_files_count=0
 mkdir -p ${OUT_AMLOGIC_DIR}/dtb
 for dtb_file in ${KERNEL_DEVICETREE}; do

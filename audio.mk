@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 #define ODM_DIR, which is amlogic in reference.
+ODM_DIR := hardkernel
 ifeq ($(ODM_DIR),)
     ODM_DIR := amlogic
     AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
@@ -25,16 +26,16 @@ $(warning " setting ODM_DIR:$(ODM_DIR)")
 # Use parameter-framework
 ifeq ($(AUDIO_POLICY_CUSTOM_PFW_DIR_NAME),)
 PRODUCT_SOONG_NAMESPACES += \
-    device/amlogic/common/audio/audio_policy/parameter-framework/amlogic
+    device/hardkernel/common/audio/audio_policy/parameter-framework/amlogic
 else
 PRODUCT_SOONG_NAMESPACES += \
-    device/amlogic/common/audio/audio_policy/parameter-framework/$(AUDIO_POLICY_CUSTOM_PFW_DIR_NAME)
+    device/hardkernel/common/audio/audio_policy/parameter-framework/$(AUDIO_POLICY_CUSTOM_PFW_DIR_NAME)
 PRODUCT_PACKAGES += \
     audio.stub.default
 endif
 PRODUCT_SOONG_NAMESPACES += \
-    device/amlogic/common/audio/audio_policy/common \
-    device/amlogic/common/audio
+    device/hardkernel/common/audio/audio_policy/common \
+    device/hardkernel/common/audio
 
 PRODUCT_PACKAGES += \
     parameter-framework.policy
@@ -151,12 +152,12 @@ else
     AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := $(PRODUCT_TYPE)
 endif
 
-$(shell rm -rf device/amlogic/common/audio/audio_policy_configuration_temp.xml)
+$(shell rm -rf device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
 ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
 $(shell mkdir -p $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR))
 # auto generate audio_policy_configuration.xml
-$(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
+$(shell python device/hardkernel/common/audio/tools/buildAudioPolicyConfigurationXml.py \
     --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
     --chipDeviceType $(PRODUCT_DIR) \
     --audioBuildType $(AUDIO_FEATURE_TYPE) \
@@ -166,12 +167,12 @@ $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXm
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,audio_policy_configuration_*,$(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR),$(TARGET_COPY_OUT_VENDOR)/etc)
-$(shell cp $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)/audio_policy_configuration.xml device/amlogic/common/audio/audio_policy_configuration_temp.xml)
+$(shell cp $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)/audio_policy_configuration.xml device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
 else
 ifeq (,$(wildcard device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml))
     $(error "the static audio_policy_configuration.xml file not found in the device directory")
 endif
-$(shell cp device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml device/amlogic/common/audio/audio_policy_configuration_temp.xml)
+$(shell cp device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
 endif
 endif
 
@@ -180,7 +181,7 @@ ifneq ($(wildcard vendor/amlogic/common/auto_patch/),)
 TARGET_WITH_MEDIA_EXT ?= true
 endif
 
-configurable_audio_mediacodecs_xmls := device/amlogic/common/audio/media_codecs_xml/
+configurable_audio_mediacodecs_xmls := device/hardkernel/common/audio/media_codecs_xml/
 PRODUCT_COPY_FILES += \
     $(configurable_audio_mediacodecs_xmls)media_codecs_amlogic_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_amlogic_audio.xml
 

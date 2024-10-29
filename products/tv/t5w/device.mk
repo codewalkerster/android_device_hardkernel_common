@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/tv/t5w
+CHIP_DIR := device/hardkernel/common/products/tv/t5w
 
 #########################################################################
 #
@@ -26,8 +26,8 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/remote.tab:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab \
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
-    device/amlogic/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
+    device/hardkernel/common/products/tv/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
+    device/hardkernel/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 # recovery
 PRODUCT_COPY_FILES += \
@@ -42,14 +42,14 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+    device/hardkernel/common/products/tv/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic_ab.rc:root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic_ab.rc:root/init.recovery.amlogic.rc
 endif
 
 #########################################################################

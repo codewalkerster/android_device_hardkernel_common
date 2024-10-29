@@ -1,4 +1,4 @@
-$(call inherit-product, device/amlogic/common/core_amlogic.mk)
+$(call inherit-product, device/hardkernel/common/core_amlogic.mk)
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
@@ -184,9 +184,9 @@ endif
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
-	device/amlogic/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
-	device/amlogic/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
+	device/hardkernel/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
+	device/hardkernel/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
+	device/hardkernel/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
 endif
 
 # USB
@@ -205,7 +205,7 @@ PRODUCT_COPY_FILES += \
 
 # copy fulldump
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/fulldump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/fulldump.sh
+    device/hardkernel/common/fulldump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/fulldump.sh
 
 # Save memory
 # dumpsys SurfaceFlinger | grep com.android.systemui.ImageWallpaper
@@ -251,7 +251,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.hdmi.device_type=0
 else
 PRODUCT_PACKAGE_OVERLAYS += \
-    device/amlogic/common/soundbar/overlay
+    device/hardkernel/common/soundbar/overlay
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=audio_system,playback_device \
     ro.hdmi.device_type=5,4 \
@@ -300,7 +300,7 @@ endif
 #########################################################################
 ifeq ($(ATV_LAUNCHER), amati)
 DEVICE_PACKAGE_OVERLAYS := \
-    device/amlogic/common/products/tv/FrameworkOverlay
+    device/hardkernel/common/products/tv/FrameworkOverlay
 endif
 
 #TV project, enable hwc uvm dettach

@@ -4,18 +4,18 @@ AUDIO_FEATURE_TYPE := _
 ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
     CUSTOM_IMAGE_COPY_FILES += \
-        device/amlogic/common/dolby_ms12/install/encrypted_lib/libdolbyms12.so:lib/ms12/libdolbyms12.so \
-        device/amlogic/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ac4.xml:/etc/media_codecs_amlogic_audio_ac4.xml \
-        device/amlogic/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ddp.xml:/etc/media_codecs_amlogic_audio_ddp.xml
+        device/hardkernel/common/dolby_ms12/install/encrypted_lib/libdolbyms12.so:lib/ms12/libdolbyms12.so \
+        device/hardkernel/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ac4.xml:/etc/media_codecs_amlogic_audio_ac4.xml \
+        device/hardkernel/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ddp.xml:/etc/media_codecs_amlogic_audio_ddp.xml
 else ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12v1_
     CUSTOM_IMAGE_COPY_FILES += \
-        device/amlogic/common/dolby_ms12/install/encrypted_lib/ms12v1/libdolbyms12.so:lib/libdolbyms12.so
+        device/hardkernel/common/dolby_ms12/install/encrypted_lib/ms12v1/libdolbyms12.so:lib/libdolbyms12.so
 else ifeq ($(TARGET_DOLBY_VERSION), ddp_only)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ddp_
     CUSTOM_IMAGE_COPY_FILES += \
         vendor/amlogic/common/prebuilt/libstagefrighthw/lib/libHwAudio_dcvdec.so:lib/libHwAudio_dcvdec.so \
-        device/amlogic/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ddp.xml:/etc/media_codecs_amlogic_audio_ddp.xml
+        device/hardkernel/common/audio/media_codecs_xml/media_codecs_amlogic_audio_ddp.xml:/etc/media_codecs_amlogic_audio_ddp.xml
 endif
 
 TARGET_DTS_VERSION ?= non_dts
@@ -60,7 +60,7 @@ ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
 $(shell mkdir -p AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)
 # auto generate audio_policy_configuration.xml
-    $(shell python device/amlogic/common/audio/tools/buildAudioPolicyConfigurationXml.py \
+    $(shell python device/hardkernel/common/audio/tools/buildAudioPolicyConfigurationXml.py \
         --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
         --chipDeviceType $(PRODUCT_DIR) \
         --audioBuildType $(AUDIO_FEATURE_TYPE) \

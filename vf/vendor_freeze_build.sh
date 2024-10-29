@@ -46,10 +46,10 @@ function build() {
 
 	cd $CUR_DIR
 	EXTRA_FLAGS=""
-	if [ -d "device/amlogic/common/vf" ]; then
-		EXTRA_FLAGS+=" --framework-item-list device/amlogic/common/vf/framework_item_list.txt \
-		--framework-misc-info-keys device/amlogic/common/vf/framework_misc_info_keys.txt \
-		--vendor-item-list device/amlogic/common/vf/vendor_item_list.txt"
+	if [ -d "device/hardkernel/common/vf" ]; then
+		EXTRA_FLAGS+=" --framework-item-list device/hardkernel/common/vf/framework_item_list.txt \
+		--framework-misc-info-keys device/hardkernel/common/vf/framework_misc_info_keys.txt \
+		--vendor-item-list device/hardkernel/common/vf/vendor_item_list.txt"
 	fi
 
 	cd $CUR_DIR

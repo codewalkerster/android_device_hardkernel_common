@@ -1,4 +1,4 @@
-$(call inherit-product, device/amlogic/common/core_amlogic.mk)
+$(call inherit-product, device/hardkernel/common/core_amlogic.mk)
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
@@ -178,14 +178,14 @@ endif
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
-	device/amlogic/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
-	device/amlogic/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
+	device/hardkernel/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
+	device/hardkernel/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
+	device/hardkernel/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
 endif
 
 #DDR LOG
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/scripts/ddrtest.sh:$(TARGET_COPY_OUT_VENDOR)/bin/ddrtest.sh
+    device/hardkernel/common/scripts/ddrtest.sh:$(TARGET_COPY_OUT_VENDOR)/bin/ddrtest.sh
 
 # USB
 PRODUCT_COPY_FILES += \
@@ -203,7 +203,7 @@ PRODUCT_COPY_FILES += \
 
 # copy fulldump
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/fulldump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/fulldump.sh
+    device/hardkernel/common/fulldump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/fulldump.sh
 
 # Save memory
 # dumpsys SurfaceFlinger | grep com.android.systemui.ImageWallpaper
@@ -248,7 +248,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=25
 else
 PRODUCT_PACKAGE_OVERLAYS += \
-    device/amlogic/common/soundbar/overlay
+    device/hardkernel/common/soundbar/overlay
 PRODUCT_SUPPORT_CEC_EARC?=true
 ifeq ($(PRODUCT_SUPPORT_CEC_EARC), true)
 $(warning "cec supported")
@@ -278,7 +278,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #AOSP density config
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/display_config_aosp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/default.xml
+    device/hardkernel/common/products/mbox/display_config_aosp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/default.xml
 endif
 
 # for playback of audio offload
@@ -288,10 +288,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/hdcp_tx22_oem.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
+    device/hardkernel/common/products/mbox/hdcp_tx22_oem.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/hdcp_tx22.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
+    device/hardkernel/common/products/mbox/hdcp_tx22.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
 endif
 
 ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)

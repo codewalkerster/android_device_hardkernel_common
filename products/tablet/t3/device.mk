@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/tablet/t3
+CHIP_DIR := device/hardkernel/common/products/tablet/t3
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tablet/Vendor_1b8e_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1b8e_Product_0001.kl \
-    device/amlogic/common/products/tablet/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
+    device/hardkernel/common/products/tablet/Vendor_1b8e_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1b8e_Product_0001.kl \
+    device/hardkernel/common/products/tablet/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 
 #########################################################################
@@ -27,10 +27,10 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+    device/hardkernel/common/products/tv/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic_ab.rc:recovery/root/init.recovery.amlogic.rc
+    device/hardkernel/common/recovery/init.recovery.amlogic_ab.rc:recovery/root/init.recovery.amlogic.rc
 
 #########################################################################
 #

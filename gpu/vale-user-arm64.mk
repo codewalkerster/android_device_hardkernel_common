@@ -63,5 +63,5 @@ PRODUCT_COPY_FILES += \
 		hardware/amlogic/gralloc/vale/cam.xml:vendor/etc/gralloc/cam.xml
 endif
 
-PRODUCT_COPY_FILES += device/amlogic/common/gpu/mali_csffw_vale.bin:vendor/lib/firmware/mali_csffw.bin
+PRODUCT_COPY_FILES += device/hardkernel/common/gpu/mali_csffw_vale.bin:vendor/lib/firmware/mali_csffw.bin
 

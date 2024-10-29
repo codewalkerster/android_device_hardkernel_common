@@ -22,37 +22,37 @@ ifeq ($(strip $(DNLP_MODULE)),true)
     ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \
-               device/amlogic/common/video_algorithm/dnlp/32_4_9/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-               device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+               device/hardkernel/common/video_algorithm/dnlp/32_4_9/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+               device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         else
            PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/dnlp/64_4_9/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                device/hardkernel/common/video_algorithm/dnlp/64_4_9/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         endif
     else ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.4)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \
-               device/amlogic/common/video_algorithm/dnlp/32_5_4/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-               device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+               device/hardkernel/common/video_algorithm/dnlp/32_5_4/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+               device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         else
            PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/dnlp/64_5_4/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                device/hardkernel/common/video_algorithm/dnlp/64_5_4/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/dnlp/32/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                device/hardkernel/common/video_algorithm/dnlp/32/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         else
             ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
                 PRODUCT_COPY_FILES += \
-                    device/amlogic/common/video_algorithm/dnlp/64_upgrade/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                    device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                    device/hardkernel/common/video_algorithm/dnlp/64_upgrade/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                    device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
             else
                 PRODUCT_COPY_FILES += \
-                    device/amlogic/common/video_algorithm/dnlp/64/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                    device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                    device/hardkernel/common/video_algorithm/dnlp/64/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                    device/hardkernel/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
             endif
         endif
     endif

@@ -103,7 +103,7 @@ function coverity_detect() {
 		cov_strip=${HOME_DIR}
 	else
 	    echo -e "Cov-debug: sub dir is ${COMP_PATH}, build it now !"
-		${cov_tool}/cov-build --dir  ${cov_out} ./device/amlogic/common/scripts/cov_build-subdir.sh ${MODE_NAME}-userdebug ${COMP_PATH}
+		${cov_tool}/cov-build --dir  ${cov_out} ./device/hardkernel/common/scripts/cov_build-subdir.sh ${MODE_NAME}-userdebug ${COMP_PATH}
 		[ $? -ne 0 ] && echo -e "Cov-debug: build dir(${COMP_PATH})  failure " && exit
 		cov_strip=${COMP_PATH}
 	fi

@@ -128,22 +128,22 @@ PRODUCT_PACKAGES += \
 endif
 
 ifneq ($(filter T U,$(LAUNCH_VERSION)),)
-TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_newlaunch.fstab
+TARGET_RECOVERY_FSTAB ?= device/hardkernel/common/recovery/recovery_newlaunch.fstab
 else
 ifneq ($(AB_OTA_UPDATER),true)
 ifeq ($(TARGET_BUILD_KERNEL_5_4), true)
-TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_5.4.fstab
+TARGET_RECOVERY_FSTAB ?= device/hardkernel/common/recovery/recovery_5.4.fstab
 endif
-TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB ?= device/hardkernel/common/recovery/recovery.fstab
 else
 ifeq ($(TARGET_BUILD_KERNEL_5_4), true)
-TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_5.4_ab.fstab
+TARGET_RECOVERY_FSTAB ?= device/hardkernel/common/recovery/recovery_5.4_ab.fstab
 endif
-TARGET_RECOVERY_FSTAB ?= device/amlogic/common/recovery/recovery_upgrade.fstab
+TARGET_RECOVERY_FSTAB ?= device/hardkernel/common/recovery/recovery_upgrade.fstab
 endif
 endif
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/amlogic/common/scripts
+TARGET_RELEASETOOLS_EXTENSIONS := device/hardkernel/common/scripts
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_UI_LIB += libamlogic_ui librecovery_amlogic
 TARGET_RECOVERY_UI_LIB += \
@@ -212,7 +212,7 @@ PRODUCT_PACKAGES += \
     gsid
 
 #Get some property
-$(call inherit-product, device/amlogic/common/product_property.mk)
+$(call inherit-product, device/hardkernel/common/product_property.mk)
 
 PRODUCT_HOST_PACKAGES += \
     dtc \
@@ -359,13 +359,13 @@ PRODUCT_COPY_FILES += \
 endif
 
 #in order to build usb power service
-ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/usb_power/power_config.json))
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/usb_power/power_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/power_config.json
+ifneq (,$(wildcard device/hardkernel/$(PRODUCT_DIR)/files/usb_power/power_config.json))
+PRODUCT_COPY_FILES += device/hardkernel/$(PRODUCT_DIR)/files/usb_power/power_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/power_config.json
 PRODUCT_PACKAGES += \
     current_service
 
-ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/usb_power/lowpower_disbale.sh))
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/usb_power/lowpower_disbale.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/lowpower_disbale.sh
+ifneq (,$(wildcard device/hardkernel/$(PRODUCT_DIR)/files/usb_power/lowpower_disbale.sh))
+PRODUCT_COPY_FILES += device/hardkernel/$(PRODUCT_DIR)/files/usb_power/lowpower_disbale.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/lowpower_disbale.sh
 endif
 endif
 
@@ -423,19 +423,19 @@ endif
 
 #Bluetooth idc config file
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
-    device/amlogic/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
-    device/amlogic/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
-    device/amlogic/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
+    device/hardkernel/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
+    device/hardkernel/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
+    device/hardkernel/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
+    device/hardkernel/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
 
 ### custom keylayouts
-custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
+custom_keylayouts := $(wildcard device/hardkernel/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
 
 # AOSP can use modified generic.kl
 ifeq ($(BOARD_COMPILE_ATV), false)
-PRODUCT_COPY_FILES += device/amlogic/common/keyboards/Generic.kl.aosp:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
+PRODUCT_COPY_FILES += device/hardkernel/common/keyboards/Generic.kl.aosp:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
 endif
 
 
@@ -452,15 +452,15 @@ PRODUCT_VENDOR_PROPERTIES += \
 ifeq ($(BUILD_WITH_APP_OPTIMIZATION),true)
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/optimization/liboptimization_32.so:$(TARGET_COPY_OUT_VENDOR)/lib/liboptimization.so \
-    device/amlogic/common/optimization/config:$(TARGET_COPY_OUT_VENDOR)/package_config/config
+    device/hardkernel/common/optimization/liboptimization_32.so:$(TARGET_COPY_OUT_VENDOR)/lib/liboptimization.so \
+    device/hardkernel/common/optimization/config:$(TARGET_COPY_OUT_VENDOR)/package_config/config
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.app.optimization=true
 
 ifeq ($(ANDROID_BUILD_TYPE), 64)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/optimization/liboptimization_64.so:$(TARGET_COPY_OUT_VENDOR)/lib64/liboptimization.so
+    device/hardkernel/common/optimization/liboptimization_64.so:$(TARGET_COPY_OUT_VENDOR)/lib64/liboptimization.so
 endif
 endif
 
@@ -534,8 +534,8 @@ endif
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += \
-       device/amlogic/common/kexec/kernel54_arm64/Image2:$(TARGET_COPY_OUT_SYSTEM)/etc/Image2 \
-       device/amlogic/common/kexec/kernel54_arm64/init.amlogic.kexec.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.amlogic.kexec.rc
+       device/hardkernel/common/kexec/kernel54_arm64/Image2:$(TARGET_COPY_OUT_SYSTEM)/etc/Image2 \
+       device/hardkernel/common/kexec/kernel54_arm64/init.amlogic.kexec.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.amlogic.kexec.rc
 PRODUCT_PACKAGES += kexec
 endif
 
@@ -720,7 +720,7 @@ PRODUCT_PACKAGES += \
 #afd
 ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/afd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/afd.rc
+    device/hardkernel/common/initscripts/afd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/afd.rc
 endif
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
@@ -728,16 +728,16 @@ PRODUCT_PACKAGES += \
     modules_load
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/modules_load.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/modules_load.rc
+    device/hardkernel/common/initscripts/modules_load.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/modules_load.rc
 endif
 
 #normally, every device need a config file, currently all chips are the same
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/thermal_info_config_5_15.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+    device/hardkernel/common/thermal_info_config_5_15.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+    device/hardkernel/common/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 endif
 
 #PRODUCT_PACKAGES += \
@@ -851,29 +851,29 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/fs_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
-    device/amlogic/common/initscripts/power_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
-    device/amlogic/common/powerhint5.4.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    device/hardkernel/common/initscripts/fs_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
+    device/hardkernel/common/initscripts/power_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
+    device/hardkernel/common/powerhint5.4.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/fs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
-    device/amlogic/common/initscripts/power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
-    device/amlogic/common/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    device/hardkernel/common/initscripts/fs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
+    device/hardkernel/common/initscripts/power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
+    device/hardkernel/common/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 endif
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
-    device/amlogic/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
-    device/amlogic/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
-    device/amlogic/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
-    device/amlogic/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc
+    device/hardkernel/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
+    device/hardkernel/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
+    device/hardkernel/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
+    device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
+    device/hardkernel/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
+    device/hardkernel/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/com.google.android.feature.SILENT_OTA.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.android.feature.SILENT_OTA.xml
+    device/hardkernel/common/com.google.android.feature.SILENT_OTA.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.android.feature.SILENT_OTA.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
@@ -882,12 +882,12 @@ PRODUCT_COPY_FILES += \
 # disable Katniss's behavior of muting/unmuting on standby/wakeup precisely because of timing issues
 ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/permissions/com.google.android.feature.katniss.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.feature.katniss.xml
+    device/hardkernel/common/permissions/com.google.android.feature.katniss.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.feature.katniss.xml
 endif
 
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
+	device/hardkernel/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
 endif
 
 ifeq ($(BOARD_AVB_ENABLE), true)
@@ -916,7 +916,7 @@ endif
 
 # Android R and later, use lmkd new strategy, no need cma_shrinker workaround. which may introduce may CTS failure.
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/memory_common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/memory_common.rc
+    device/hardkernel/common/initscripts/memory_common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/memory_common.rc
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.lmk.use_new_strategy=true
 
@@ -1072,7 +1072,7 @@ PRODUCT_PACKAGES += \
 
 ##tell katniss to release wakelock when dut goes to suspend
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/permissions/android.software.farfield.dsp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.farfield.dsp.xml
+    device/hardkernel/common/permissions/android.software.farfield.dsp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.farfield.dsp.xml
 endif
 #########################################################################
 PRODUCT_PACKAGES += \
@@ -1179,7 +1179,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.mediahal.videodec.send_userdata=true \
     vendor.media.mediahal.videodec.statisticdata_interval=5000
 
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_errormonitor.xml
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_errormonitor.xml
 endif
 
 #################bluetooth 15.4 thread so ####################

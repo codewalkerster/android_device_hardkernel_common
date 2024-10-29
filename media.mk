@@ -351,7 +351,7 @@ ifeq ($(BUILD_WITH_RESMAN_JSON), true)
 
 PRODUCT_PACKAGES += resmanload
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/resman.json:$(TARGET_COPY_OUT_VENDOR)/etc/resman.json
+    device/hardkernel/common/resman.json:$(TARGET_COPY_OUT_VENDOR)/etc/resman.json
 
 endif
 
@@ -502,11 +502,11 @@ PRODUCT_PACKAGES += \
     tee_preload_fw \
     526fc4fc-7ee6-4a12-96e3-83da9565bce8
 endif
-#BOARD_SECCOMP_POLICY := device/amlogic/common/seccomp
+#BOARD_SECCOMP_POLICY := device/hardkernel/common/seccomp
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
-    device/amlogic/common/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    device/amlogic/common/seccomp/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy
+    device/hardkernel/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
+    device/hardkernel/common/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    device/hardkernel/common/seccomp/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy
 
 
 BOARD_AML_MEDIAHAL_PATH := hardware/amlogic/media/
@@ -518,15 +518,15 @@ BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 ifeq ($(TARGET_WITH_FB_MEDIA_MODULES),true)
 # for media modules
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/initscripts/init.amlogic.media.s5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+	device/hardkernel/common/initscripts/init.amlogic.media.s5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 else ifeq ($(TARGET_WITH_S6_MEDIA_MODULES),true)
 # for media modules
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/initscripts/init.amlogic.media.s6.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+	device/hardkernel/common/initscripts/init.amlogic.media.s6.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 else
 # for media modules
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/initscripts/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
+	device/hardkernel/common/initscripts/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 endif
 
 ifeq ($(BOARD_COMPILE_CTS),true)
@@ -536,7 +536,7 @@ endif
 endif
 
 ifeq ($(BUILD_WITH_APPLE_AIRPLAY),true)
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_airplay.xml
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_airplay.xml
 endif
 
 #for Airplay

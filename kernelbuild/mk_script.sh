@@ -38,7 +38,7 @@ function build_deadpool() {
 	fi
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build_kernel_4.9.sh
+	./device/hardkernel/common/kernelbuild/build_kernel_4.9.sh
 }
 
 function build_boreal() {
@@ -68,20 +68,20 @@ function build_boreal() {
 	echo "================================="
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build.sh
+	./device/hardkernel/common/kernelbuild/build.sh
 }
 function build_anning() {
 	if [ $KERNEL_A32_SUPPORT ]; then
-		echo "------device/amlogic/ampere/anning/build.config.meson.arm.trunk_4.9-----"
+		echo "------device/hardkernel/ampere/anning/build.config.meson.arm.trunk_4.9-----"
 	else
-		echo "------device/amlogic/ampere/anning/build.config.meson.arm64.trunk_4.9-----"
+		echo "------device/hardkernel/ampere/anning/build.config.meson.arm64.trunk_4.9-----"
 	fi
 
 	cd ${MAIN_FOLDER}
 	if [ $KERNEL_A32_SUPPORT ]; then
-		export BUILD_CONFIG=device/amlogic/ampere/anning/build.config.meson.arm.trunk_4.9
+		export BUILD_CONFIG=device/hardkernel/ampere/anning/build.config.meson.arm.trunk_4.9
 	else
-		export BUILD_CONFIG=device/amlogic/ampere/anning/build.config.meson.arm64.trunk_4.9
+		export BUILD_CONFIG=device/hardkernel/ampere/anning/build.config.meson.arm64.trunk_4.9
 	fi
 
 	export TARGET_BUILD_KERNEL_VERSION=4.9
@@ -111,7 +111,7 @@ function build_anning() {
 	echo "================================="
     echo "KERNEL_DEVICETREE === ${KERNEL_DEVICETREE}"
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build_kernel_4.9.sh
+	./device/hardkernel/common/kernelbuild/build_kernel_4.9.sh
 }
 function build_common_4.9() {
 	if [ $KERNEL_A32_SUPPORT ]; then
@@ -153,7 +153,7 @@ function build_common_4.9() {
 	echo "================================="
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build_kernel_4.9.sh
+	./device/hardkernel/common/kernelbuild/build_kernel_4.9.sh
 }
 
 function build_common_5.4() {
@@ -206,7 +206,7 @@ function build_common_5.4() {
 	echo "================================="
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build.sh
+	./device/hardkernel/common/kernelbuild/build.sh
 }
 
 function build_config_to_bzl() {
@@ -285,7 +285,7 @@ function build_common_5.15() {
 	export COMMON_DRIVERS_DIR=common_drivers
 	export BOARD_DEVICENAME=$1
 	export BOARD_MANUFACTURER=${device_project}
-	export PRODUCT_DIRNAME=device/amlogic/${BOARD_DEVICENAME}
+	export PRODUCT_DIRNAME=device/hardkernel/${BOARD_DEVICENAME}
 
 	if [ ${SKIP_MRPROPER} = "true" ]; then
 		SKIP_MRPROPER=1
@@ -342,7 +342,7 @@ function build_common_5.15() {
 		build_config_to_build_config
 	fi
 
-	./device/amlogic/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
+	./device/hardkernel/common/kernelbuild/build_kernel_5.15.sh $sub_parameters
 }
 
 function build_common() {
@@ -459,12 +459,12 @@ function build() {
 		else
 			KERNEL_FILE=device/${device_project}/$1-kernel/${CONFIG_KERNEL_VERSION}/Image.gz
 		fi
-		./device/amlogic/common/kernelbuild/mkbootimg --kernel ${KERNEL_FILE} \
+		./device/hardkernel/common/kernelbuild/mkbootimg --kernel ${KERNEL_FILE} \
 		--ramdisk ${CONFIG_Ramdisk} \
 		--os_version 12 --kernel_offset ${KERNEL_OFFSET} \
 		--header_version ${BOOT_HEADER_VERSION} \
 		--output out/$1_boot.img
-		./device/amlogic/common/kernelbuild/avbtool add_hash_footer --image out/$1_boot.img \
+		./device/hardkernel/common/kernelbuild/avbtool add_hash_footer --image out/$1_boot.img \
 		--partition_size ${BOOT_IMGSIZE} --partition_name boot  \
 		--prop com.android.build.boot.os_version:12
 	fi
@@ -477,7 +477,7 @@ function build() {
 		VENDOR_CMDLINE="$VENDOR_CMDLINE use_uvm=1 buildvariant=userdebug"
 		echo "VENDOR_CMDLINE: $VENDOR_CMDLINE"
 
-		./device/amlogic/common/kernelbuild/mkbootimg \
+		./device/hardkernel/common/kernelbuild/mkbootimg \
 		--dtb device/${device_project}/$1-kernel/${CONFIG_KERNEL_VERSION}/$1.dtb --base 0x0 \
 		--vendor_cmdline "$VENDOR_CMDLINE" \
 		--kernel_offset ${KERNEL_OFFSET} --header_version ${BOOT_HEADER_VERSION} \
@@ -485,7 +485,7 @@ function build() {
 		--ramdisk_type RECOVERY --ramdisk_name recovery \
 		--vendor_ramdisk_fragment  ${CONFIG_RECOVERY_Ramdisk} \
 		--vendor_boot out/$1_vendor_boot.img
-		./device/amlogic/common/kernelbuild/avbtool add_hash_footer \
+		./device/hardkernel/common/kernelbuild/avbtool add_hash_footer \
 		--image out/$1_vendor_boot.img \
 		--partition_size 25165824 --partition_name vendor_boot
 	fi

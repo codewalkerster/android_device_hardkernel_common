@@ -765,9 +765,9 @@ fi
 
 echo "========================================================"
 echo " Files copied to device dir"
-DTBTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/dtbTool
-DTCTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/dtc
-DTIMGTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/mkdtimg
+DTBTOOL=${ROOT_DIR}/device/hardkernel/common/kernelbuild/dtbTool
+DTCTOOL=${ROOT_DIR}/device/hardkernel/common/kernelbuild/dtc
+DTIMGTOOL=${ROOT_DIR}/device/hardkernel/common/kernelbuild/mkdtimg
 
 if [ $KERNEL_A32_SUPPORT ]; then
     rm -rf ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/32/5.4/lib/*

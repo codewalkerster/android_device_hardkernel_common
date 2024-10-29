@@ -1,9 +1,9 @@
-include device/amlogic/common/odm_ext.mk
+include device/hardkernel/common/odm_ext.mk
 TARGET_USE_USB_FLOW_AML ?= true
 
 IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
-PRODUCT_COMMON_DIR := device/amlogic/common/products/$(PRODUCT_TYPE)
+PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
 AML_PKG_ADD_USB_BIN := $(AML_UPGRADE_TOOL_DIR)/aml_pkg_add_usb_bin.app
 AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
@@ -158,7 +158,7 @@ endif
 endif
 
 ifeq ($(TARGET_UPDATE_IDATTESTATION),true)
-INSTALLED_RADIOIMAGE_TARGET += device/amlogic/common/id_attestation.xml
+INSTALLED_RADIOIMAGE_TARGET += device/hardkernel/common/id_attestation.xml
 BOARD_PACK_RADIOIMAGES += id_attestation.xml
 endif
 
@@ -194,9 +194,9 @@ endif
 
 #UPGRADE_FILES := $(addprefix $(TARGET_DEVICE_DIR)/upgrade/,$(UPGRADE_FILES))
 #UPGRADE_FILES := $(wildcard $(UPGRADE_FILES)) #extract only existing files for burnning
-#use first use device/amlogic/xxx/upgrade/ if exist, else use device/amlogic/common/upgrade/
+#use first use device/hardkernel/xxx/upgrade/ if exist, else use device/hardkernel/common/upgrade/
 UPGRADE_FILES := $(foreach f,$(UPGRADE_FILES),\
-		 $(word 1, $(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(f)) $(wildcard device/amlogic/common/upgrade/$(f))))
+		 $(word 1, $(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(f)) $(wildcard device/hardkernel/common/upgrade/$(f))))
 $(warning UPGRADE_FILES $(UPGRADE_FILES))
 
 PACKAGE_CONFIG_FILE := aml_upgrade_package
@@ -220,7 +220,7 @@ endif
 endif
 
 ifeq ($(wildcard $(PACKAGE_CONFIG_FILE)),)
-	PACKAGE_CONFIG_FILE := device/amlogic/common/upgrade/$(notdir $(PACKAGE_CONFIG_FILE))
+	PACKAGE_CONFIG_FILE := device/hardkernel/common/upgrade/$(notdir $(PACKAGE_CONFIG_FILE))
 endif ## ifeq ($(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(PACKAGE_CONFIG_FILE)))
 UPGRADE_FILES += $(PACKAGE_CONFIG_FILE)
 
@@ -501,13 +501,13 @@ INSTALLED_SUPERIMAGE_EMPTY_TARGET := $(PRODUCT_OUT)/super_empty.img
 ifeq ($(TARGET_USE_AML_EROFS_TOOL),true)
 AML_EROFS_TOOL := $(PRODUCT_OUT)/mkfs.erofs
 AML_EROFS_SRC := \
-	device/amlogic/common/tools/mkfs.erofs \
-	device/amlogic/common/tools/dump.erofs \
-	device/amlogic/common/tools/fsck.erofs
+	device/hardkernel/common/tools/mkfs.erofs \
+	device/hardkernel/common/tools/dump.erofs \
+	device/hardkernel/common/tools/fsck.erofs
 AML_STRIP_EROFS_SRC := \
-	device/amlogic/common/tools/strip/mkfs.erofs \
-	device/amlogic/common/tools/strip/dump.erofs \
-	device/amlogic/common/tools/strip/fsck.erofs
+	device/hardkernel/common/tools/strip/mkfs.erofs \
+	device/hardkernel/common/tools/strip/dump.erofs \
+	device/hardkernel/common/tools/strip/fsck.erofs
 
 $(AML_EROFS_TOOL): \
 	$(AML_EROFS_SRC) \
@@ -524,7 +524,7 @@ $(AML_EROFS_TOOL): \
 	cp $(AML_EROFS_SRC) out/host/linux-x86/bin/
 	cp $(AML_STRIP_EROFS_SRC) $(PRODUCT_OUT)/system/bin/
 	cp $(AML_STRIP_EROFS_SRC) $(PRODUCT_OUT)/recovery/root/system/bin/
-	cp device/amlogic/common/tools/mkfs.erofs $(AML_EROFS_TOOL)
+	cp device/hardkernel/common/tools/mkfs.erofs $(AML_EROFS_TOOL)
 else
 AML_EROFS_TOOL :=
 endif
@@ -752,13 +752,13 @@ endif
 endif
 #endif
 	cp $(PRODUCT_OUT)/logo.img $(PRODUCT_OUT)/fastboot_auto/
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
+	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
+	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-nowipe.bat $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.bat
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-nowipe.sh $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.sh
+	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
+	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
+	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all-nowipe.bat $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.bat
+	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all-nowipe.sh $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.sh
 endif
 	cp $(PRODUCT_OUT)/super_empty.img $(PRODUCT_OUT)/fastboot_auto/
 	$(hide) $(foreach file,$(VB_CHECK_IMAGES), \
@@ -849,14 +849,14 @@ else
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(BRO)
 endif
 
-EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/amlogic/common/recovery/updater-script
+EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/hardkernel/common/recovery/updater-script
 
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(AML_TARGET).zip $(BUILT_ODMIMAGE_TARGET)
 	@echo "Package OTA2: $@"
 	mkdir -p $(AML_TARGET)/IMAGES/
 	cp $(PRODUCT_OUT)/super_empty_all.img $(AML_TARGET)/IMAGES/
 	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
-	   ./device/amlogic/common/scripts/ota_amlogic.py -v \
+	   ./device/hardkernel/common/scripts/ota_amlogic.py -v \
 	   --block \
 	   --extracted_input_target_files $(patsubst %.zip,%,$(BUILT_TARGET_FILES_PACKAGE)) \
 	   -p $(HOST_OUT) \

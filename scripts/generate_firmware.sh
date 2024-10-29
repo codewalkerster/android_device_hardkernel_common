@@ -16,7 +16,7 @@ if [[ "$BOARD_NAME" = "adt4" ]]; then
 elif [ "$BOARD_NAME" = "mercury" ];then
 	DEVICE_ANDL_DIR=device/amlogic_car/$BOARD_NAME
 else
-	DEVICE_ANDL_DIR=device/amlogic/$BOARD_NAME
+	DEVICE_ANDL_DIR=device/hardkernel/$BOARD_NAME
 fi
 
 echo "start build $TARGET_NAME firmware"
@@ -50,12 +50,12 @@ else
 	fi
 fi
 
-./device/amlogic/common/scripts/generate_fastboot_zip.sh $TARGET_NAME $BOARD_NAME $ANDROID_OUTPUT_PATH $REAL_BOARD &
+./device/hardkernel/common/scripts/generate_fastboot_zip.sh $TARGET_NAME $BOARD_NAME $ANDROID_OUTPUT_PATH $REAL_BOARD &
 
 if [ -f $DEVICE_ANDL_DIR/upgrade/aml_sdc_burn.ini ];then
     cp -a $DEVICE_ANDL_DIR/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
 else
-    cp -a device/amlogic/common/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
+    cp -a device/hardkernel/common/upgrade/aml_sdc_burn.ini $TARGET_NAME-img/
 fi
 cp -a $ANDROID_OUTPUT_PATH/upgrade/aml_upgrade_package*.conf $TARGET_NAME-img/aml_upgrade_package.conf
 
@@ -63,13 +63,13 @@ cp -a $KERNEL_DIR/$LOCAL_DTB.dtb $TARGET_NAME-img/dt.img
 if [ -f $DEVICE_ANDL_DIR/upgrade/platform.conf ];then
     cp -a $DEVICE_ANDL_DIR/upgrade/platform.conf $TARGET_NAME-img/
 else
-    cp -a device/amlogic/common/upgrade/platform.conf $TARGET_NAME-img/
+    cp -a device/hardkernel/common/upgrade/platform.conf $TARGET_NAME-img/
 fi
 cp -a $DEVICE_DIR/upgrade/u-boot.bin.* $TARGET_NAME-img/
 if [ -f $DEVICE_ANDL_DIR/upgrade/usb_flow.aml ];then
     cp -a $DEVICE_ANDL_DIR/upgrade/usb_flow.aml $TARGET_NAME-img/
 else
-    cp -a device/amlogic/common/upgrade/usb_flow.aml $TARGET_NAME-img/
+    cp -a device/hardkernel/common/upgrade/usb_flow.aml $TARGET_NAME-img/
 fi
 cp -a $ANDROID_OUTPUT_PATH/gpt.bin $TARGET_NAME-img/
 
