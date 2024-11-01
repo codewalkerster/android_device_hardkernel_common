@@ -110,3 +110,5 @@ type irdeto_data_file, file_type, data_file_type;
 type mediadrm_vendor_data_file, file_type, data_file_type;
 
 type sysfs_tee, fs_type, sysfs_type;
+
+type sysfs_aml_btusb, fs_type, sysfs_type;

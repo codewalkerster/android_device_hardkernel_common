@@ -689,6 +689,8 @@
 /sys/class/smc_sc2-class/ctrl_5v3v  u:object_r:sysfs_stb:s0
 /sys/class/smc_sc2-class/pins_mode  u:object_r:sysfs_stb:s0
 
+/sys/devices/virtual/aml_btusb/aml_btusb/aml_rclist  u:object_r:sysfs_aml_btusb:s0
+
 /vendor/bin/hw/vmx_webclient      u:object_r:vmx_webclient_exec:s0
 
 /dev/i2c-1                   u:object_r:i2c_device:s0

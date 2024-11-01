@@ -96,3 +96,5 @@ allow system_app hal_graphics_composer_default:binder call;
 
 allow system_app hal_tv_input_default:fd { use };
 allow system_app hal_droid_mdns_default:binder { call };
+
+allow system_app sysfs_aml_btusb:file { write open getattr read };
