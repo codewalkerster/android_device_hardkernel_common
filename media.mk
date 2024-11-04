@@ -31,7 +31,7 @@ TARGET_ENABLE_TA_SIGN := true
 TARGET_USE_HW_KEYMASTER := true
 endif
 
-ifeq ($(BOARD_COMPILE_CTS), false)
+ifneq ($(BOARD_COMPILE_CTS), true)
 TARGET_USE_HW_KEYMASTER := false
 endif
 
