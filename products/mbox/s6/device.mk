@@ -94,3 +94,19 @@ ifeq ($(SUPPORT_TUNERHAL), true)
 PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
 endif
+
+#########################################################################
+#
+# Soundbar
+#
+#########################################################################
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.support_earc=true
+
+TVCONFIG_FILES := \
+    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
+$(warning 'This platform supports EARC and uses soundbar audio config and tv config!')
+endif
