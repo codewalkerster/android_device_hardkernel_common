@@ -192,11 +192,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
 # bootanimation
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 
 #bootvideo
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bootvideo.zip:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo.zip \
     $(LOCAL_PATH)/mbox.mp4:$(TARGET_COPY_OUT_VENDOR)/etc/bootvideo \
     $(LOCAL_PATH)/mbox.ts:$(TARGET_COPY_OUT_SYSTEM)/etc/bootvideo.ts
@@ -208,10 +208,10 @@ PRODUCT_COPY_FILES += \
 # Save memory
 # dumpsys SurfaceFlinger | grep com.android.systemui.ImageWallpaper
 # 16.00 KiB |   64 (  64) x   64 |    1 |       2B | 0x40000000000b00 | com.android.systemui.ImageWallpaper#0
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/default_wallpaper.png:$(TARGET_COPY_OUT_VENDOR)/etc/default_wallpaper.png
 
-PRODUCT_PRODUCT_PROPERTIES += \
+#PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.wallpaper=vendor/etc/default_wallpaper.png
 
 # Include BUILD_NUMBER if defined
