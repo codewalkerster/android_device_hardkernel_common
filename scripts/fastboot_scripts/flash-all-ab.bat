@@ -26,6 +26,9 @@ fastboot flash gpt gpt.bin
 if exist dt.img (
 fastboot flash dts dt.img
 )
+fastboot reboot-bootloader
+ping -n 5 127.0.0.1 >nul
+fastboot flashing unlock
 fastboot erase env
 fastboot reboot-bootloader
 ping -n 5 127.0.0.1 >nul

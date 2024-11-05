@@ -74,6 +74,9 @@ then
     fastboot $sern flashing unlock
     fastboot $sern flash gpt gpt.bin
 fi
+fastboot $sern reboot-bootloader
+sleep 5
+fastboot $sern flashing unlock
 
 fastboot $sern erase env
 fastboot $sern reboot-bootloader
