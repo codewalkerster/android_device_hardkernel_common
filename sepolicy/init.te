@@ -54,3 +54,5 @@ allow init firmload_exec:file {getattr};
 allow init param_tv_file:dir mounton;
 allow init vfat:dir mounton;
 allow init sysfs_unifykey:file { open write };
+
+allow init gpu_device:chr_file {getattr};
