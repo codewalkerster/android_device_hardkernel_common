@@ -63,3 +63,4 @@ allow mediaserver miracast_hdcp2_service:service_manager { find };
 
 allow mediaserver errormonitor_hwservice:hwservice_manager { find };
 allow mediaserver error_monitor:binder {call transfer};
+allow mediaserver unlabeled:file { read open getattr map };
