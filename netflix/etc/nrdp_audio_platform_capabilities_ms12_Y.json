@@ -15,7 +15,7 @@
       "continuous" : true
     },
     "atmos": {
-      "enabled": true,
+      "enabled": false,
       "mixing": true,
       "transition": ease,
       "continuous" : true

@@ -8,6 +8,7 @@
       "transition": ease
     },
     "ddplus": {
+      "enabled": true,
       "mixing": false,
       "transition": mute
     },
