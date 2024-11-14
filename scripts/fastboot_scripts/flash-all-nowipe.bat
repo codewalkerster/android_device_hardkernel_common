@@ -13,6 +13,12 @@
 :: See the License for the specific language governing permissions and
 :: limitations under the License.
 
+::This script (nowipe) is not normally used, only flash-all is used.
+::Sometimes when debugging, you only need to burn the img without
+::erasing the data and other partitions. This will save you from re-logging
+::in to your Google account and other operations.
+::Then you can use this script at this time.
+
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 adb reboot bootloader
 for /f "delims=" %%a in ('fastboot --version') do (
@@ -33,12 +39,10 @@ for /f "tokens=1 delims=." %%a in ("%version%") do (
 
 if %num% geq 35 (
 
-	fastboot flashing unlock
 	fastboot flash bootloader bootloader.img
 	if exist gpt.bin (
 	fastboot reboot-bootloader
 	ping -n 5 127.0.0.1 >nul
-	fastboot flashing unlock
 	fastboot flash gpt gpt.bin
 	)
 	if exist dt.img (
@@ -46,17 +50,7 @@ if %num% geq 35 (
 	)
 	fastboot reboot-bootloader
 	ping -n 5 127.0.0.1 >nul
-	fastboot flashing unlock
-	fastboot erase env
-	fastboot reboot-bootloader
-	ping -n 5 127.0.0.1 >nul
-	fastboot flashing unlock
-	fastboot erase misc
 	fastboot flash dtbo dtbo.img
-	fastboot -w
-	fastboot erase param
-	fastboot erase tee
-	fastboot erase frp
 	fastboot flash vbmeta vbmeta.img
 	fastboot flash logo logo.img
 	if exist odm_ext.img (
@@ -97,7 +91,6 @@ if %num% geq 35 (
 	ping -n 5 127.0.0.1 >nul
 	fastboot flash bootloader-boot0 bootloader.img
 	fastboot flash bootloader-boot1 bootloader.img
-	fastboot flashing lock
 	fastboot reboot
 ) else (
 	echo fastboot tool version is lower and needs to be updated

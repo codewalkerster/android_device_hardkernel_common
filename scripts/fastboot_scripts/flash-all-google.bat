@@ -16,25 +16,48 @@
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 adb reboot bootloader
 ping -n 5 127.0.0.1 >nul
-fastboot flashing unlock
-fastboot -w
-fastboot flash bootloader bootloader.img
-fastboot reboot-bootloader
 
-ping -n 5 127.0.0.1 >nul
-fastboot flashing unlock
+for /f "delims=" %%a in ('fastboot --version') do (
+    set firstline=%%a
+    goto :breakloop
+)
+:breakloop
+echo %firstline%
+for /f "tokens=3 delims= " %%a in ("%firstline%") do (
+  set version=%%a
+)
+::echo %version%
 
-fastboot flash logo logo.img
-fastboot flash odm_ext odm_ext.img
-fastboot flash oem oem.img
+for /f "tokens=1 delims=." %%a in ("%version%") do (
+  set num=%%a
+)
+::echo %num%
 
-fastboot --skip-reboot update ***.zip
+if %num% geq 35 (
 
-fastboot reboot-bootloader
-ping -n 5 127.0.0.1 >nul
+	fastboot flashing unlock
+	fastboot -w
+	fastboot flash bootloader bootloader.img
+	fastboot reboot-bootloader
 
-fastboot flashing lock
-fastboot reboot
+	ping -n 5 127.0.0.1 >nul
+	fastboot flashing unlock
+
+	fastboot flash logo logo.img
+	fastboot flash odm_ext odm_ext.img
+	fastboot flash oem oem.img
+
+	fastboot --skip-reboot update ***.zip
+
+	fastboot reboot-bootloader
+	ping -n 5 127.0.0.1 >nul
+
+	fastboot flashing lock
+	fastboot reboot
+) else (
+	echo fastboot tool version is lower and needs to be updated
+	echo Download URL : https://developer.android.com/tools/releases/platform-tools?hl=zh-cn
+)
 
 echo Press any key to exit...
 pause >nul

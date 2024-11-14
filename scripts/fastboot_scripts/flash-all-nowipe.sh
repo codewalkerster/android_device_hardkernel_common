@@ -14,6 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#This script (nowipe) is not normally used, only flash-all is used.
+#Sometimes when debugging, you only need to burn the img without
+#erasing the data and other partitions. This will save you from re-logging
+#in to your Google account and other operations.
+#Then you can use this script at this time.
+
 set -e
 cd $(dirname $0)
 
@@ -70,7 +76,6 @@ echo $(fastboot $sern --version | head -n 1)
 if [[ "$fastboot_version" -ge 35 ]]; then
 	echo "version >= 35"
 
-	fastboot $sern flashing unlock
 	fastboot $sern flash bootloader bootloader.img
 
 	if [ -f dt.img ]
@@ -82,29 +87,12 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	then
 		fastboot $sern reboot-bootloader
 		sleep 5
-		fastboot $sern flashing unlock
 		fastboot $sern flash gpt gpt.bin
 	fi
+
 	fastboot $sern reboot-bootloader
 	sleep 5
-	fastboot $sern flashing unlock
-
-	fastboot $sern erase env
-	fastboot $sern reboot-bootloader
-
-	sleep 5
-	fastboot $sern flashing unlock
-	fastboot $sern erase misc
 	fastboot $sern flash dtbo dtbo.img
-
-	if [ "$wipedata" == "wipe" ]
-	then
-		fastboot $sern -w
-	fi
-
-	fastboot $sern erase param
-	fastboot $sern erase tee
-	fastboot $sern erase frp
 
 	flash_with_retry vbmeta vbmeta.img
 	flash_with_retry logo logo.img
@@ -155,7 +143,8 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 
 	fastboot $sern reboot
 else
-	echo "fastboot tool version is lower and needs to be updated"
-	echo "Download URL : https://developer.android.com/tools/releases/platform-tools?hl=zh-cn"
-	exit 1
+
+    echo "fastboot tool version is lower and needs to be updated"
+    echo "Download URL : https://developer.android.com/tools/releases/platform-tools?hl=zh-cn"
+    exit 1
 fi

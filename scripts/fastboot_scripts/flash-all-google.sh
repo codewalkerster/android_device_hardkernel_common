@@ -59,27 +59,44 @@ function flash_with_retry() {
   fi
 }
 
-fastboot $sern flashing unlock
-fastboot $sern -w
-fastboot $sern flash bootloader bootloader.img
-fastboot $sern reboot-bootloader
-
-sleep 5
-fastboot $sern flashing unlock
-
-flash_with_retry logo logo.img
-flash_with_retry odm_ext odm_ext.img
-flash_with_retry oem oem.img
-
-fastboot $sern --skip-reboot update $target_zip
-
-fastboot $sern reboot-bootloader
-sleep 5
-
-if [ $lflag = "lock" ]
-then
-	echo "fastboot $sern flashing lock"
-    fastboot $sern flashing lock
+fastboot_version=$(fastboot $sern --version | head -n 1 | awk '{print $3}' | cut -d. -f1)
+ 
+if [[ -z "$fastboot_version" ]]; then
+    echo "fail to get version num"
+    exit 1
 fi
+echo $(fastboot $sern --version | head -n 1)
 
-fastboot $sern reboot
+if [[ "$fastboot_version" -ge 35 ]]; then
+	echo "version >= 35"
+
+	fastboot $sern flashing unlock
+	fastboot $sern -w
+	fastboot $sern flash bootloader bootloader.img
+	fastboot $sern reboot-bootloader
+
+	sleep 5
+	fastboot $sern flashing unlock
+
+	flash_with_retry logo logo.img
+	flash_with_retry odm_ext odm_ext.img
+	flash_with_retry oem oem.img
+
+	fastboot $sern --skip-reboot update $target_zip
+
+	fastboot $sern reboot-bootloader
+	sleep 5
+
+	if [ $lflag = "lock" ]
+	then
+		echo "fastboot $sern flashing lock"
+		fastboot $sern flashing lock
+	fi
+
+	fastboot $sern reboot
+else
+
+    echo "fastboot tool version is lower and needs to be updated"
+    echo "Download URL : https://developer.android.com/tools/releases/platform-tools?hl=zh-cn"
+    exit 1
+fi

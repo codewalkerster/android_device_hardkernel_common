@@ -59,94 +59,110 @@ function flash_with_retry() {
   fi
 }
 
-fastboot $sern flashing unlock
-fastboot $sern flash bootloader bootloader.img
-fastboot $sern flash bootloader-boot0 bootloader.img
-fastboot $sern flash bootloader-boot1 bootloader.img
+fastboot_version=$(fastboot $sern --version | head -n 1 | awk '{print $3}' | cut -d. -f1)
+ 
+if [[ -z "$fastboot_version" ]]; then
+    echo "fail to get version num"
+    exit 1
+fi
+echo $(fastboot $sern --version | head -n 1)
 
-if [ -f dt.img ]
-then
-fastboot $sern flash dts dt.img
-fi
+if [[ "$fastboot_version" -ge 35 ]]; then
+	echo "version >= 35"
 
-if [ -f gpt.bin ]
-then
-    fastboot $sern reboot-bootloader
-    sleep 5
-    fastboot $sern flashing unlock
-    fastboot $sern flash gpt gpt.bin
-fi
+	fastboot $sern flashing unlock
+	fastboot $sern flash bootloader bootloader.img
+	fastboot $sern flash bootloader-boot0 bootloader.img
+	fastboot $sern flash bootloader-boot1 bootloader.img
 
-fastboot $sern erase env
-fastboot $sern reboot-bootloader
+	if [ -f dt.img ]
+	then
+	fastboot $sern flash dts dt.img
+	fi
 
-sleep 5
-fastboot $sern flashing unlock
-fastboot $sern erase misc
-fastboot $sern flash dtbo dtbo.img
+	if [ -f gpt.bin ]
+	then
+		fastboot $sern reboot-bootloader
+		sleep 5
+		fastboot $sern flashing unlock
+		fastboot $sern flash gpt gpt.bin
+	fi
 
-if [ "$wipedata" == "wipe" ]
-then
-    fastboot $sern -w
-fi
+	fastboot $sern erase env
+	fastboot $sern reboot-bootloader
 
-fastboot $sern erase param
-fastboot $sern erase tee
+	sleep 5
+	fastboot $sern flashing unlock
+	fastboot $sern erase misc
+	fastboot $sern flash dtbo dtbo.img
 
-flash_with_retry vbmeta vbmeta.img
-if [ -f vbmeta_system.img ]
-then
-flash_with_retry vbmeta_system vbmeta_system.img
-fi
-flash_with_retry logo logo.img
-if [ -f odm_ext.img ]
-then
-flash_with_retry odm_ext odm_ext.img
-fi
-if [ -f oem.img ]
-then
-flash_with_retry oem oem.img
-fi
-if [ -f init_boot.img ]
-then
-	flash_with_retry init_boot init_boot.img
-fi
-flash_with_retry boot boot.img
-if [ -f recovery.img ]
-then
-flash_with_retry recovery recovery.img
-fi
-if [ -f vendor_boot.img ]
-then
-flash_with_retry vendor_boot vendor_boot.img
-fi
-flash_with_retry super super_empty_all.img
-fastboot $sern reboot-fastboot
-sleep 10
+	if [ "$wipedata" == "wipe" ]
+	then
+		fastboot $sern -w
+	fi
 
-flash_with_retry odm odm.img
-flash_with_retry system system.img
-flash_with_retry system_ext system_ext.img
-if [ -f vendor_dlkm.img ]
-then
-	flash_with_retry vendor_dlkm vendor_dlkm.img
-fi
-if [ -f system_dlkm.img ]
-then
-	flash_with_retry system_dlkm system_dlkm.img
-fi
-if [ -f odm_dlkm.img ]
-then
-	flash_with_retry odm_dlkm odm_dlkm.img
-fi
-flash_with_retry vendor vendor.img
-flash_with_retry product product.img
-fastboot $sern reboot-bootloader
-sleep 5
+	fastboot $sern erase param
+	fastboot $sern erase tee
 
-if [ "$lflag" = "lock" ]
-then
-    fastboot $sern flashing lock
-fi
+	flash_with_retry vbmeta vbmeta.img
+	if [ -f vbmeta_system.img ]
+	then
+	flash_with_retry vbmeta_system vbmeta_system.img
+	fi
+	flash_with_retry logo logo.img
+	if [ -f odm_ext.img ]
+	then
+	flash_with_retry odm_ext odm_ext.img
+	fi
+	if [ -f oem.img ]
+	then
+	flash_with_retry oem oem.img
+	fi
+	if [ -f init_boot.img ]
+	then
+		flash_with_retry init_boot init_boot.img
+	fi
+	flash_with_retry boot boot.img
+	if [ -f recovery.img ]
+	then
+	flash_with_retry recovery recovery.img
+	fi
+	if [ -f vendor_boot.img ]
+	then
+	flash_with_retry vendor_boot vendor_boot.img
+	fi
+	flash_with_retry super super_empty_all.img
+	fastboot $sern reboot-fastboot
+	sleep 10
 
-fastboot $sern reboot
+	flash_with_retry odm odm.img
+	flash_with_retry system system.img
+	flash_with_retry system_ext system_ext.img
+	if [ -f vendor_dlkm.img ]
+	then
+		flash_with_retry vendor_dlkm vendor_dlkm.img
+	fi
+	if [ -f system_dlkm.img ]
+	then
+		flash_with_retry system_dlkm system_dlkm.img
+	fi
+	if [ -f odm_dlkm.img ]
+	then
+		flash_with_retry odm_dlkm odm_dlkm.img
+	fi
+	flash_with_retry vendor vendor.img
+	flash_with_retry product product.img
+	fastboot $sern reboot-bootloader
+	sleep 5
+
+	if [ "$lflag" = "lock" ]
+	then
+		fastboot $sern flashing lock
+	fi
+
+	fastboot $sern reboot
+else 
+	echo "fastboot tool version is lower and needs to be updated"
+	echo "Download URL : https://developer.android.com/tools/releases/platform-tools?hl=zh-cn"
+	exit 1
+fi

@@ -747,6 +747,8 @@ endif
 ifeq ($(AB_OTA_UPDATER),true)
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
 	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
+	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-nowipe.bat $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.bat
+	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-nowipe.sh $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.sh
 endif
 	cp $(PRODUCT_OUT)/super_empty.img $(PRODUCT_OUT)/fastboot_auto/
 	$(hide) $(foreach file,$(VB_CHECK_IMAGES), \
