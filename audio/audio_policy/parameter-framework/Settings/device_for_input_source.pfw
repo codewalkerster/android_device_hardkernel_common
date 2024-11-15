@@ -830,6 +830,7 @@ supDomain: DeviceForInputSource
 
 	domain: VoiceCommunication
 		conf: ScoHeadset
+			ForceUseForCommunication Is ForceBtSco
 			AvailableInputDevices Includes BluetoothScoHeadset
 
 			component: /Policy/policy/input_sources/voice_communication/applicable_input_device/mask
@@ -842,7 +843,6 @@ supDomain: DeviceForInputSource
 				stub = 0
 
 		conf: WiredHeadset
-			ForceUseForCommunication Is ForceNone
 			AvailableInputDevices Includes WiredHeadset
 
 			component: /Policy/policy/input_sources/voice_communication/applicable_input_device/mask
@@ -855,7 +855,6 @@ supDomain: DeviceForInputSource
 				stub = 0
 
 		conf: UsbHeadset
-			ForceUseForCommunication Is ForceNone
 			AvailableInputDevices Includes UsbHeadset
 
 			component: /Policy/policy/input_sources/voice_communication/applicable_input_device/mask
@@ -868,7 +867,6 @@ supDomain: DeviceForInputSource
 				stub = 0
 
 		conf: UsbDevice
-			ForceUseForCommunication Is ForceNone
 			AvailableInputDevices Includes UsbDevice
 
 			component: /Policy/policy/input_sources/voice_communication/applicable_input_device/mask

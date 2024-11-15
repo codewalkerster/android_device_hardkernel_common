@@ -252,18 +252,6 @@ supDomain: DeviceForProductStrategy
 				# or FORCE_NONE
 				#
 				AvailableOutputDevices Includes UsbHeadset
-				ANY
-					ForceUseForCommunication Is ForceBtSco
-					ForceUseForCommunication Is ForceNone
-					ALL
-						ForceUseForCommunication Is ForceSpeaker
-						#
-						# In case of Force Speaker, priority between device and accessory are
-						# inverted compared to Force None or Bt Sco
-						#
-						AvailableOutputDevices Excludes UsbAccessory
-						TelephonyMode IsNot InCall
-						TelephonyMode IsNot InCommunication
 
 				component: /Policy/policy/product_strategies/phone/selected_output_devices/mask
 					earpiece = 0
@@ -291,18 +279,6 @@ supDomain: DeviceForProductStrategy
 				# or FORCE_NONE
 				#
 				AvailableOutputDevices Includes UsbDevice
-				ANY
-					ForceUseForCommunication Is ForceBtSco
-					ForceUseForCommunication Is ForceNone
-					ALL
-						ForceUseForCommunication Is ForceSpeaker
-						#
-						# In case of Force Speaker, priority between device and accessory are
-						# inverted compared to Force None or Bt Sco
-						#
-						AvailableOutputDevices Excludes UsbAccessory
-						TelephonyMode IsNot InCall
-						TelephonyMode IsNot InCommunication
 
 				component: /Policy/policy/product_strategies/phone/selected_output_devices/mask
 					earpiece = 0
@@ -359,8 +335,6 @@ supDomain: DeviceForProductStrategy
 				# or FORCE_NONE
 				#
 				AvailableOutputDevices Includes DgtlDockHeadset
-				TelephonyMode IsNot InCall
-				TelephonyMode IsNot InCommunication
 
 				component: /Policy/policy/product_strategies/phone/selected_output_devices/mask
 					earpiece = 0
@@ -388,8 +362,6 @@ supDomain: DeviceForProductStrategy
 				# or FORCE_NONE
 				#
 				AvailableOutputDevices Includes Hdmi
-				TelephonyMode IsNot InCall
-				TelephonyMode IsNot InCommunication
 
 				component: /Policy/policy/product_strategies/phone/selected_output_devices/mask
 					earpiece = 0
@@ -417,8 +389,6 @@ supDomain: DeviceForProductStrategy
 				# or FORCE_NONE
 				#
 				AvailableOutputDevices Includes AnlgDockHeadset
-				TelephonyMode IsNot InCall
-				TelephonyMode IsNot InCommunication
 
 				component: /Policy/policy/product_strategies/phone/selected_output_devices/mask
 					earpiece = 0
