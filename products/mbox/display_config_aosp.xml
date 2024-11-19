@@ -3,17 +3,17 @@
          <density>
             <height>480</height>
             <width>720</width>
-            <density>120</density>
+            <density>126</density>
          </density>
          <density>
             <height>720</height>
             <width>1280</width>
-            <density>160</density>
+            <density>213</density>
          </density>
          <density>
             <height>1080</height>
             <width>1920</width>
-            <density>240</density>
+            <density>320</density>
          </density>
          <density>
             <height>2160</height>
@@ -23,7 +23,7 @@
          <density>
             <height>2160</height>
             <width>4096</width>
-            <density>480</density>
+            <density>504</density>
          </density>
     </densityMapping>
 </displayConfiguration>
