@@ -617,6 +617,7 @@
 /vendor/lib(64)?/libatscserver\.so                 u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkit_platform\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdtvkit_platform_ATF\.so        u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/libxds\.so                        u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libdsm\.so                       u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libteec\.so                       u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libft2-aml\.so                    u:object_r:vendor_app_file:s0
