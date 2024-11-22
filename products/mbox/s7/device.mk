@@ -64,7 +64,7 @@ PRODUCT_COPY_FILES += \
 # PQ
 #
 #########################################################################
-ifeq ($(TARGET_PRODUCT),oppen_mxl258c)
+ifeq ($(TARGET_PRODUCT),$(PRODUCT_DIR)_mxl258c)
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig_fccpip/*
 else

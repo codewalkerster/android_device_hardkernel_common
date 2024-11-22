@@ -73,9 +73,12 @@ PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(CHIP_DIR)/files/tv/tvconfig/,/$(TARGET_COPY_OUT_ODM)/etc/tvconfig)
 endif
 else
-ifeq ($(TARGET_PRODUCT),tyson_mxl258c)
+ifeq ($(TARGET_PRODUCT),$(PRODUCT_DIR)_mxl258c)
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig_fccpip/*
+else ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR), true)
+TVCONFIG_FILES := \
+    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
 else
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig/*
@@ -105,4 +108,18 @@ PRODUCT_COPY_FILES += \
 ifeq ($(SUPPORT_TUNERHAL), true)
 PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
+endif
+
+#########################################################################
+#
+# Soundbar
+#
+#########################################################################
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.media.support_earc=true
+
+$(warning 'This platform supports EARC and uses soundbar audio config and tv config!')
 endif

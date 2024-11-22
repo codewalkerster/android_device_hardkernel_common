@@ -51,8 +51,15 @@ PRODUCT_COPY_FILES += \
 #    $(CHIP_DIR)/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
 
 # tv config file
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR), true)
+TVCONFIG_FILES := \
+    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
+else
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig/*
+endif
+
+
 PQ_FILES := \
     $(CHIP_DIR)/files/PQ/pq.db \
     $(CHIP_DIR)/files/PQ/overscan.db \
@@ -86,7 +93,5 @@ PRODUCT_COPY_FILES += \
     device/amlogic/common/audio/sadConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sadConfig.xml
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.support_earc=true
-TVCONFIG_FILES := \
-    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
 $(warning 'This platform supports EARC and uses soundbar audio config and tv config!')
 endif

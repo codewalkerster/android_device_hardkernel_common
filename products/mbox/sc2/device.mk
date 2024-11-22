@@ -79,6 +79,9 @@ else
 ifeq ($(TARGET_PRODUCT),$(PRODUCT_DIR)_mxl258c)
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig_fccpip/*
+else ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR), true)
+TVCONFIG_FILES := \
+    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
 else
 TVCONFIG_FILES := \
     $(CHIP_DIR)/files/tv/tvconfig/*
@@ -108,8 +111,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.support_earc=true
 
-TVCONFIG_FILES := \
-    $(CHIP_DIR)/files/tv/tvconfig_soundbar/*
 $(warning 'This platform supports EARC and uses soundbar audio config and tv config!')
 endif
 #########################################################################
