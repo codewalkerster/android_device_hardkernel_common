@@ -1128,9 +1128,8 @@ ifeq ($(PRODUCT_SUPPORT_AMSTREAMING_TIS),true)
 include vendor/amlogic/reference/apps/AmStreamingInputService/inputservice.mk
 endif
 
-
-PRODUCT_SUPPORT_ERRORMONITOR := false
-
+#Enable ErrorMonitor
+PRODUCT_SUPPORT_ERRORMONITOR := true
 
 #errormonitor
 ifeq ($(PRODUCT_SUPPORT_ERRORMONITOR),true)
