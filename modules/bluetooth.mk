@@ -76,10 +76,30 @@ endif
 ifeq ($(strip $(BOARD_HAVE_BLUETOOTH_RTK)), true)
 include hardware/realtek/rtkbt/rtkbt.mk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/../bluetooth/rtl8821c_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821c_fw.bin \
-    $(LOCAL_PATH)/../bluetooth/rtl8821c_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821c_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8192ee_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8192ee_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8192eu_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8192eu_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8723a_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8723a_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8723b_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8723b_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8723bs_config-OBDA8723.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8723bs_config-OBDA8723.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8723bs_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8723bs_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8723d_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8723d_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8723d_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8723d_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8761a_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8761a_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8761b_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8761b_config.bin \
     $(LOCAL_PATH)/../bluetooth/rtl8761b_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8761b_fw.bin \
-    $(LOCAL_PATH)/../bluetooth/rtl8761b_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8761b_config.bin
+    $(LOCAL_PATH)/../bluetooth/rtl8812ae_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8812ae_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8821a_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821a_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8821a_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821a_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8821c_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821c_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8821c_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821c_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8822b_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8822b_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8822b_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8822b_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8822cs_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8822cs_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8822cs_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8822cs_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8822cu_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8822cu_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8822cu_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8822cu_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8852au_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8852au_config.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8852au_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8852au_fw.bin
 endif
 
 ifeq ($(strip $(BOARD_HAVE_BLUETOOTH_AIC)), true)
