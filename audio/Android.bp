@@ -1,3 +1,9 @@
+soong_namespace {
+    imports: [
+        "device/amlogic/common",
+    ],
+}
+
 package {
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
@@ -65,5 +71,15 @@ prebuilt_etc {
     name: "bluetooth_audio_policy_configuration_7_0.xml",
     vendor: true,
     src: ":bluetooth_audio_policy_configuration_7_0",
+}
+
+filegroup {
+    name: "stub_audio_policy_configuration",
+    srcs: ["stub_audio_policy_configuration.xml"],
+}
+prebuilt_etc {
+    name: "stub_audio_policy_configuration.xml",
+    vendor: true,
+    src: ":stub_audio_policy_configuration",
 }
 

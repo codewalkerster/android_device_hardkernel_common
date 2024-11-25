@@ -1,3 +1,8 @@
+soong_namespace {
+    imports: [
+        "device/amlogic/common",
+    ],
+}
 package {
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
@@ -5,101 +10,4 @@ package {
     // to get the below license kinds:
     //   SPDX-license-identifier-Apache-2.0
     default_applicable_licenses: ["device_amlogic_common_license"],
-}
-
-prebuilt_etc {
-    name: "ParameterFrameworkConfigurationPolicy.xml",
-    vendor: true,
-    src: ":audio_policy_pfw_toplevel",
-    sub_dir: "parameter-framework",
-}
-
-//
-// Generate Audio Policy Parameter Framework Product Strategies Structure file from template
-//
-prebuilt_etc {
-    name: "ProductStrategies.xml",
-    vendor: true,
-    src: ":buildstrategiesstructure_gen",
-    sub_dir: "parameter-framework/Structure/Policy",
-    required: ["libpolicy-subsystem"],
-}
-genrule {
-    name: "buildstrategiesstructure_gen",
-    defaults: ["buildstrategiesstructurerule"],
-    srcs: [
-        ":audio_policy_engine_configuration_files",
-    ],
-}
-
-//
-// Generate Audio Policy Parameter Framework Configurable Domains
-//
-prebuilt_etc {
-    name: "parameter-framework.policy",
-    filename_from_src: true,
-    vendor: true,
-    src: ":domaingeneratorpolicyrule_gen",
-    sub_dir: "parameter-framework/Settings/Policy",
-    required: [
-        "ProductStrategies.xml",
-        "PolicyClass.xml",
-        "PolicySubsystem.xml",
-        "PolicySubsystem-CommonTypes.xml",
-        "ParameterFrameworkConfigurationPolicy.xml",
-        // Add all xml dependency.
-        "audio_policy_engine_configuration.xml",
-        "audio_policy_configuration.xml",
-        "usb_audio_policy_configuration.xml",
-        "r_submix_audio_policy_configuration.xml",
-        "hearing_aid_audio_policy_configuration.xml",
-        "msd_audio_policy_configuration.xml",
-        "bluetooth_audio_policy_configuration_7_0.xml",
-    ],
-}
-genrule {
-    name: "domaingeneratorpolicyrule_gen",
-    defaults: ["domaingeneratorpolicyrule"],
-    srcs: [
-        ":audio_policy_pfw_toplevel",
-        ":audio_policy_pfw_structure_files",
-        ":audio_policy_engine_criterion_types",
-        ":edd_files",
-    ],
-}
-filegroup {
-    name: "edd_files",
-    srcs: [
-        "Settings/device_for_input_source.pfw",
-        "Settings/volumes.pfw",
-        "Settings/device_for_product_strategy_media.pfw",
-        "Settings/device_for_product_strategy_assistant.pfw",
-        "Settings/device_for_product_strategy_accessibility.pfw",
-        "Settings/device_for_product_strategy_dtmf.pfw",
-        "Settings/device_for_product_strategy_enforced_audible.pfw",
-        "Settings/device_for_product_strategy_phone.pfw",
-        "Settings/device_for_product_strategy_sonification.pfw",
-        "Settings/device_for_product_strategy_sonification_respectful.pfw",
-        "Settings/device_for_product_strategy_transmitted_through_speaker.pfw",
-        "Settings/device_for_product_strategy_patch.pfw",
-    ],
-}
-// This is for Settings generation, must use socket port, so userdebug version is required
-filegroup {
-    name: "audio_policy_pfw_toplevel",
-    srcs: [":ParameterFrameworkConfigurationPolicy.userdebug.old.xml"],
-}
-filegroup {
-    name: "audio_policy_pfw_structure_files",
-    srcs: [
-        ":PolicyClass",
-        ":PolicySubsystem",
-        ":buildcommontypesstructure_gen",
-        ":buildstrategiesstructure_gen",
-    ],
-}
-// FIXME: Replace AOSP file if sepolicy problem has been resolved.
-filegroup {
-    name: "ParameterFrameworkConfigurationPolicy.userdebug.old.xml",
-    srcs: ["ParameterFrameworkConfigurationPolicy.userdebug.old.xml"],
 }

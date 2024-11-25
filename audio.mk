@@ -14,8 +14,19 @@
 # limitations under the License.
 #
 # Use parameter-framework
+ifeq ($(AUDIO_POLICY_CUSTOM_PFW_DIR_NAME),)
 PRODUCT_SOONG_NAMESPACES += \
-    device/amlogic/common/audio/audio_policy
+    device/amlogic/common/audio/audio_policy/parameter-framework/amlogic
+else
+PRODUCT_SOONG_NAMESPACES += \
+    device/amlogic/common/audio/audio_policy/parameter-framework/$(AUDIO_POLICY_CUSTOM_PFW_DIR_NAME)
+PRODUCT_PACKAGES += \
+    audio.stub.default
+endif
+PRODUCT_SOONG_NAMESPACES += \
+    device/amlogic/common/audio/audio_policy/common \
+    device/amlogic/common/audio
+
 PRODUCT_PACKAGES += \
     parameter-framework.policy
 
