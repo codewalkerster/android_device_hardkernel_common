@@ -178,6 +178,11 @@
 /dev/dsp_dev                               0660        system        audio
 /dev/hifi4dsp0                             0660        root          audio
 
+# for GPS
+/dev/gps                  0660   system       system
+/dev/ttyACM*              0660   system       system
+/dev/ttyUSB*              0660   system       system
+
 #dma buf
 /dev/dma_heap/system-secure-*	0444	system system
 

@@ -1193,3 +1193,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     ethtool
+
+# GPS HAL$
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy \
+    gps.amlogic
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.gps.node=ttyACM
