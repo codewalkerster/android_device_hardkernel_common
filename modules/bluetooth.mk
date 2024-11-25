@@ -78,6 +78,8 @@ include hardware/realtek/rtkbt/rtkbt.mk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/../bluetooth/rtl8821c_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821c_fw.bin \
     $(LOCAL_PATH)/../bluetooth/rtl8821c_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8821c_config.bin
+    $(LOCAL_PATH)/../bluetooth/rtl8761b_fw.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8761b_fw.bin \
+    $(LOCAL_PATH)/../bluetooth/rtl8761b_config.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl_bt/rtl8761b_config.bin
 endif
 
 ifeq ($(strip $(BOARD_HAVE_BLUETOOTH_AIC)), true)
