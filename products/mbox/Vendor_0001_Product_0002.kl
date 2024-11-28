@@ -120,4 +120,4 @@ key 219      TV_INPUT_COMPOSITE_2 # for TV_SLEEP
 key 70       EXPLORER             # for TV_BROWSER
 
 key 600    PAIRING
-key 133    STEM_1
+key 133   F2  WAKE
