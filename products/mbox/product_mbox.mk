@@ -247,6 +247,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hdmi.auto_otp=true \
     ro.config.media_vol_steps=25
 else
+PRODUCT_PACKAGE_OVERLAYS += \
+    device/amlogic/common/soundbar/overlay
 PRODUCT_SUPPORT_CEC_EARC?=true
 ifeq ($(PRODUCT_SUPPORT_CEC_EARC), true)
 $(warning "cec supported")

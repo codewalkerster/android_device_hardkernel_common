@@ -244,9 +244,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.hdmi.keep_awake=false
 
 # cec device types
+ifneq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.cec_device_types=tv \
-    ro.hdmi.device_type=0
+    ro.hdmi.device_type=0 \
+    ro.vendor.platform.hdmi.device_type=0
+else
+PRODUCT_PACKAGE_OVERLAYS += \
+    device/amlogic/common/soundbar/overlay
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hdmi.cec_device_types=audio_system,playback_device \
+    ro.hdmi.device_type=5,4 \
+    ro.vendor.platform.hdmi.device_type=5,4 \
+    ro.hdmi.property_is_device_hdmi_cec_switch=true \
+    persist.vendor.sys.soundbar_mode=1
+endif
 
 # EArc Hal
 PRODUCT_PACKAGES += \
