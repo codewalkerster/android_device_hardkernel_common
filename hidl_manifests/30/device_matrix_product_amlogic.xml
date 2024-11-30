@@ -45,13 +45,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.amlogic.hardware.errormonitor</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IErrorMonitor</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </compatibility-matrix>

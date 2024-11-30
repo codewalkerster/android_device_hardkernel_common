@@ -1145,6 +1145,18 @@ endif
 
 PRODUCT_SUPPORT_ERRORMONITOR := false
 
+ifeq ($(LAUNCH_VERSION),U)
+PRODUCT_SHIPPING_API_LEVEL := 34
+else ifeq ($(LAUNCH_VERSION),T)
+PRODUCT_SHIPPING_API_LEVEL := 33
+else ifeq ($(LAUNCH_VERSION),S)
+PRODUCT_SHIPPING_API_LEVEL := 31
+else ifeq ($(LAUNCH_VERSION),R)
+PRODUCT_SHIPPING_API_LEVEL := 30
+else ifeq ($(LAUNCH_VERSION),Q)
+PRODUCT_SHIPPING_API_LEVEL := 29
+endif
+
 #errormonitor
 ifeq ($(PRODUCT_SUPPORT_ERRORMONITOR),true)
 PRODUCT_PACKAGES += \
@@ -1158,9 +1170,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.mediahal.videodec.send_userdata=true \
     vendor.media.mediahal.videodec.statisticdata_interval=5000
 
-ifeq ($(PLATFORM_VERSION), 14)
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/34/device_matrix_product_amlogic_errormonitor.xml
-endif
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_errormonitor.xml
 endif
 
 #################bluetooth 15.4 thread so ####################
