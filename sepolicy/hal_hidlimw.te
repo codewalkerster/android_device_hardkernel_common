@@ -62,4 +62,7 @@ allow hal_hidlimw vendor_tv_prop:file { map };
 allow hal_hidlimw hal_graphics_composer_default:fd { use };
 allow hal_hidlimw hal_graphics_composer_default:binder call;
 allow hal_hidlimw meson_display_ipc_hwservice:hwservice_manager { find };
+allow hal_hidlimw droidaudio_service:service_manager { find };
+allow hal_hidlimw droidaudio:binder { call };
+allow hal_hidlimw servicemanager:binder { call };
 
