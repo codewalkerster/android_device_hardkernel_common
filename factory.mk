@@ -417,8 +417,18 @@ endif
 	# 0x3DFE00 ~ end  gpt.bin
 	# 512 * 7925 = 0x3DFE00
 ifeq ($(TARGET_GPT_PART),true)
+ifeq ($(UPTATE_Q_S_U),true)
+ifeq ($(AB_OTA_UPDATER),true)
+	dd if=$< of=$@
+	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7936
+else
 	dd if=$< of=$@
 	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
+endif
+else
+	dd if=$< of=$@
+	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
+endif
 else
 ifeq ($(LAUNCH_VERSION),R)
 	dd if=$< of=$@

@@ -18,6 +18,15 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.amlogic.hardware.subtitleserver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISubtitleServer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="false">
         <name>vendor.amlogic.hardware.mesondisplay2</name>
         <version>1</version>
