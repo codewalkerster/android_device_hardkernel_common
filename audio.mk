@@ -14,7 +14,10 @@
 # limitations under the License.
 #
 #define ODM_DIR, which is amlogic in reference.
+ifeq ($(ODROID_BOARD), true)
 ODM_DIR := hardkernel
+endif # ODROID_BOARD
+
 ifeq ($(ODM_DIR),)
     ODM_DIR := amlogic
     AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
@@ -133,6 +136,11 @@ else ifeq ($(TARGET_DTS_VERSION), dtshd)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtshd_
 endif
 
+ifeq ($(ODROID_BOARD), true)
+    AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := false
+    AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := aosp
+else
+
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
     AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := true
 else
@@ -144,6 +152,7 @@ ifeq ($(BOARD_COMPILE_ATV),false)
 else
     AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
 endif
+endif # ODROID_BOARD
 
 ifeq ($(PRODUCT_TYPE),)
     AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := tv

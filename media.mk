@@ -11,19 +11,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_COMPILE_CTS),true)
   BOARD_WIDEVINE_OEMCRYPTO_LEVEL ?= 1
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),)
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 endif
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_COMPILE_CTS),true)
 ifeq ($(filter U,$(LAUNCH_VERSION)),)
 BOARD_PLAYREADY_LEVEL ?= 1
 endif
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL), 1)
 TARGET_USE_OPTEEOS := true
@@ -31,9 +35,11 @@ TARGET_ENABLE_TA_SIGN := true
 TARGET_USE_HW_KEYMASTER := true
 endif
 
+ifneq ($(ODROID_BOARD), true)
 ifneq ($(BOARD_COMPILE_CTS), true)
 TARGET_USE_HW_KEYMASTER := false
 endif
+endif # not ODROID_BOARD
 
 #
 #media related config for amlogic &
@@ -139,6 +145,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmediahal_hardware_demux\
 
+ifneq ($(ODROID_BOARD), true)
 # tsplayer for bootvideo
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
@@ -148,8 +155,8 @@ PRODUCT_PACKAGES += \
     libmediahal_videodec.system \
     libmediahal_resman.system \
     libfaad_sys
-
 endif
+endif # not ODROID_BOARD
 
 #codec ext related.
 #
@@ -363,6 +370,7 @@ endif
 ifeq ($(BUILD_WITH_MIRACAST), true)
 PRODUCT_PACKAGES += \
     Miracast
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_COMPILE_CTS),true)
 PRODUCT_PACKAGES += \
     libstagefright_hdcp \
@@ -374,6 +382,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.miracast.hdcp2=true
 endif
+endif # not ODROID_BOARD
 endif
 
 #for Netflix MGKID
@@ -529,11 +538,13 @@ PRODUCT_COPY_FILES += \
 	device/hardkernel/common/initscripts/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 endif
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_COMPILE_CTS),true)
 ifeq ($(ANDROID_BUILD_TYPE), 64)
 PRODUCT_PACKAGES += libssl
 endif
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(BUILD_WITH_APPLE_AIRPLAY),true)
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_airplay.xml

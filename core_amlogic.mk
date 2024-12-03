@@ -1,3 +1,4 @@
+ifneq ($(ODROID_BOARD), true)
 #ATV version, need compile DRM related modules
 ifneq ($(BOARD_COMPILE_ATV),false)
   BOARD_COMPILE_CTS := true
@@ -11,15 +12,19 @@ PRODUCT_USE_PREBUILT_GTVS_GTV := yes
 DONT_DEXPREOPT_PREBUILTS := true
 endif
 endif
+endif # not ODROID_BOARD
 
 #in order to save logcat compile logpersist
 include vendor/amlogic/common/frameworks/services/logging/UserBuildLogging.mk
 
+ifneq ($(ODROID_BOARD), true)
 ifneq ($(wildcard vendor/google_gtvs),)
 ifneq ($(BOARD_COMPILE_ATV), false)
 include vendor/amlogic/common/gms/google/gms.mk
 endif
 endif
+endif # not ODROID_BOARD
+
 # Inherit from those products. Most specific first.
 # Get the TTS language packs
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
@@ -103,6 +108,7 @@ endif
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
+ifneq ($(ODROID_BOARD), true)
 ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     PlayAutoInstallStub
@@ -114,6 +120,7 @@ PRODUCT_PACKAGES += \
     LauncherCustomization
 endif
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 BOARD_ENABLE_A2DP_SINK := true
@@ -234,6 +241,25 @@ else
     WITH_LIBPLAYER_MODULE := false
 endif
 
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_PACKAGES += \
+    WifiOverlay \
+    AppInstaller \
+    RemoteIME \
+    NativeImagePlayer \
+    imageserver \
+    DLNA \
+    BluetoothRemote \
+    Gallery2 \
+    MusicFX \
+    Music \
+    webview \
+    Browser2 \
+    DeskClock \
+    FileBrowser \
+    Camera2 \
+
+else
 ifeq ($(BOARD_COMPILE_ATV), false)
 ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \
@@ -265,6 +291,7 @@ endif
 PRODUCT_PACKAGES += Camera2
 endif
 endif
+endif # ODROID_BOARD
 
 PRODUCT_PACKAGES += \
     Bluetooth \
@@ -289,6 +316,27 @@ PRODUCT_PACKAGES += \
     TetheringOverlay \
     libufdt
 
+ifeq ($(ODROID_BOARD), true)
+    # code block for AOSP
+    $(call inherit-product, device/google/atv/products/atv_mainline_system.mk)
+    # Mainline modules
+    PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+        system/apex/com.android.apex.cts.shim.apex \
+        system/apex/com.android.extservices.gms.apex \
+        system/apex/com.android.extservices.gms/% \
+        system/apex/com.android.permission.gms.apex \
+        system/apex/com.android.permission.gms/% \
+        system/apex/com.android.tethering.inprocess/% \
+        system/app/PlatformCaptivePortalLogin/PlatformCaptivePortalLogin.apk \
+        system/etc/permissions/GoogleExtServices_permissions.xml \
+        system/etc/permissions/GooglePermissionController_permissions.xml \
+        system/priv-app/InProcessNetworkStack/InProcessNetworkStack.apk \
+        system/priv-app/PlatformNetworkPermissionConfig/PlatformNetworkPermissionConfig.apk
+
+    # dexopt files are side-effects of already allowed files
+    PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += %.odex %.vdex %.art
+
+else
 ifneq ($(BOARD_COMPILE_ATV), false)
 	# code block for ATV
 	PRODUCT_IS_ATV_MAINLINE := true
@@ -322,6 +370,7 @@ ifeq ($(TARGET_LIVETV_BUILT_FROM_SOURCE), true)
     PRODUCT_PACKAGES += \
         LiveTv
 endif
+endif # ODROID_BOARD
 
 PRODUCT_PACKAGES += \
     droidlogic.software.core \
@@ -413,6 +462,7 @@ PRODUCT_PACKAGES += \
 
 endif
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_COMPILE_CTS),true)
 PRODUCT_PACKAGES += \
     libsecmem \
@@ -420,6 +470,7 @@ PRODUCT_PACKAGES += \
     secmem \
     2c1a33c0-44cc-11e5-bc3b-0002a5d5c51b
 endif
+endif # not ODROID_BOARD
 
 #Bluetooth idc config file
 PRODUCT_COPY_FILES += \
@@ -433,12 +484,12 @@ custom_keylayouts := $(wildcard device/hardkernel/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
 
+ifneq ($(ODROID_BOARD), true)
 # AOSP can use modified generic.kl
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_COPY_FILES += device/hardkernel/common/keyboards/Generic.kl.aosp:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
 endif
-
-
+endif # not ODROID_BOARD
 
 # mali
 PRODUCT_VENDOR_PROPERTIES += \
@@ -879,6 +930,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
+ifneq ($(ODROID_BOARD), true)
 # disable Katniss's behavior of muting/unmuting on standby/wakeup precisely because of timing issues
 ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_COPY_FILES += \
@@ -889,6 +941,7 @@ ifeq ($(TARGET_BUILD_NETFLIX), true)
 PRODUCT_COPY_FILES += \
 	device/hardkernel/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(BOARD_AVB_ENABLE), true)
 PRODUCT_COPY_FILES += \
@@ -1079,6 +1132,15 @@ PRODUCT_PACKAGES += \
     MtpService
 
 # Set supported Bluetooth profiles to enabled
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.profile.a2dp.sink.enabled=true \
+    bluetooth.profile.avrcp.controller.enabled=true \
+    bluetooth.profile.a2dp.source.enabled=true \
+    bluetooth.profile.avrcp.target.enabled=true \
+    bluetooth.profile.hfp.hf.enabled=true \
+    bluetooth.profile.hfp.ag.enabled=true
+else
 ifneq ($(BOARD_COMPILE_ATV),false)
 ifeq ($(BOARD_ENABLE_A2DP_SOURCE_SINK),true)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -1114,6 +1176,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.profile.hfp.ag.enabled=true
 endif
 endif
+endif # ODROID_BOARD
 
 ifeq ($(BOARD_ENABLE_LE_AUDIO),true)
 PRODUCT_PROPERTY_OVERRIDES += \

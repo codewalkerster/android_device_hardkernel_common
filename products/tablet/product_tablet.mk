@@ -101,10 +101,12 @@ PRODUCT_PACKAGES += \
     tcondump \
     lcdhelper
 
+ifneq ($(ODROID_BOARD), true)
 ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     OTAUpgrade
 endif
+endif # not ODROID_BOARD
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml \

@@ -164,6 +164,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.hdmi.cec.xml \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
+ifneq ($(ODROID_BOARD), true)
 #GPS donnot need in aosp
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_COPY_FILES += \
@@ -174,6 +175,7 @@ ifeq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.live_tv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.live_tv.xml
 endif
+endif # not ODROID_BOARD
 
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
@@ -275,11 +277,16 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #    endif
 #endif
 
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_COPY_FILES += \
+    device/hardkernel/common/products/mbox/display_config_aosp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/default.xml
+else
 #AOSP density config
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/products/mbox/display_config_aosp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/default.xml
 endif
+endif # ODROID_BOARD
 
 # for playback of audio offload
 PRODUCT_PROPERTY_OVERRIDES += \

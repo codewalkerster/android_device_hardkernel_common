@@ -29,6 +29,11 @@ else ifeq ($(TARGET_DTS_VERSION), dtshd)
         vendor/amlogic/common/prebuilt/libstagefrighthw/lib/libHwAudio_dtshd.so:lib/libHwAudio_dtshd.so
 endif
 
+ifeq ($(ODROID_BOARD), true)
+    AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := false
+    AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := aosp
+else
+
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
     AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := true
 else
@@ -40,12 +45,17 @@ ifeq ($(BOARD_COMPILE_ATV),false)
 else
     AUDIO_POLICY_BUILD_PARAM_ATV_VERSION := atv
 endif
+endif # ODROID_BOARD
 
 ifeq ($(PRODUCT_TYPE),)
     AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := tv
 $(warning "PRODUCT_TYPE is null, set default param: tv")
 else
     AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := $(PRODUCT_TYPE)
+endif
+
+ifeq ($(ODROID_BOARD), true)
+ODM_DIR := hardkernel
 endif
 
 ifeq ($(ODM_DIR),)
