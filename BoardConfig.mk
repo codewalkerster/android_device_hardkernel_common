@@ -311,7 +311,7 @@ BOARD_FORCE_UDISK_VISIBLE ?= true
 BOARD_DISABLE_SAFE_MODE ?= true
 
 #enable 3g dongle
-BOARD_HAVE_DONGLE ?= false
+BOARD_HAVE_DONGLE ?= true
 
 #for boot and shutdown animation ringing
 BOOT_SHUTDOWN_ANIMATION_RINGING ?= false
