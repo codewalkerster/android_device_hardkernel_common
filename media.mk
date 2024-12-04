@@ -531,6 +531,9 @@ PRODUCT_PACKAGES += libssl
 endif
 endif
 
+ifeq ($(BUILD_WITH_APPLE_AIRPLAY),true)
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_airplay.xml
+endif
 
 #for Airplay
 ifeq ($(BUILD_WITH_APPLE_AIRPLAY), true)

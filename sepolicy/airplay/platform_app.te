@@ -11,5 +11,7 @@ allow platform_app binder_device:chr_file { ioctl };
 allow platform_app self:tcp_socket { ioctl };
 allow platform_app self:udp_socket { ioctl };
 allow platform_app proc_net:file { read open getattr };
+allow platform_app { sysfs_cec }:file { read write open getattr  };
+allow platform_app sysfs_cec:dir { search  };
 allow mdnsd platform_app:unix_stream_socket { read write };
 allow mdnsd platform_app:fd { use };
