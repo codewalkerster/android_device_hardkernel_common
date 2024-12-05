@@ -27,6 +27,7 @@ LOCAL_POST_INSTALL_CMD += \
     ln -sf /vendor/etc/r_submix_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/r_submix_audio_policy_configuration.xml;  \
     ln -sf /vendor/etc/hearing_aid_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/hearing_aid_audio_policy_configuration.xml; \
     ln -sf /vendor/etc/msd_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/msd_audio_policy_configuration.xml; \
+    ln -sf /vendor/etc/stub_audio_policy_configuration.xml $(TARGET_OUT_ODM)/etc/stub_audio_policy_configuration.xml; \
     ln -sf /oem/etc/media_codecs_amlogic_dolby_vision.xml $(TARGET_OUT_VENDOR)/etc/media_codecs_amlogic_dolby_vision.xml; \
     ln -sf /oem/etc/media_codecs_amlogic_performance_dolby_vision.xml $(TARGET_OUT_VENDOR)/etc/media_codecs_amlogic_performance_dolby_vision.xml; \
     ln -sf /oem/etc/media_codecs_amlogic_audio_ac4.xml $(TARGET_OUT_VENDOR)/etc/media_codecs_amlogic_audio_ac4.xml; \
