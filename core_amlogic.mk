@@ -1265,3 +1265,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.gps.node=ttyACM
+
+PRODUCT_PACKAGES += \
+     usb_dongle \
+     usb_modeswitch
