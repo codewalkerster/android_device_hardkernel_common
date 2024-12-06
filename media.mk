@@ -99,6 +99,10 @@ else
     PRODUCT_PROPERTY_OVERRIDES += ro.vendor.media.support.ffmpeg.adec=false
 endif
 
+ifeq ($(BUILD_WITH_IMG_DEC),true)
+PRODUCT_PACKAGES += libcodec2_aml_soft_image_decoder
+endif
+
 #soft codec related.
 #
 ifeq ($(TARGET_WITH_SWCODEC_EXT), true)
