@@ -983,10 +983,14 @@ AB_OTA_PARTITIONS += \
     boot \
     dtbo
 
+ifeq ($(BUILD_WITH_AVB), true)
+AB_OTA_PARTITIONS += \
+    vbmeta
+endif
+
 AB_OTA_PARTITIONS += \
     system \
     vendor \
-    vbmeta \
     odm \
     product \
     bootloader

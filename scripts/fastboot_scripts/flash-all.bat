@@ -55,7 +55,9 @@ if %num% geq 35 (
 	fastboot -w
 	fastboot erase param
 	fastboot erase tee
+	if exist vbmeta.img (
 	fastboot flash vbmeta vbmeta.img
+	)
 	fastboot flash logo logo.img
 	if exist odm_ext.img (
 	fastboot flash odm_ext odm_ext.img
@@ -74,6 +76,9 @@ if %num% geq 35 (
 	if exist vendor_boot.img (
 	fastboot flash vendor_boot vendor_boot.img
 	)
+	if exist super.img (
+	fastboot flash super super.img
+	) else (
 	fastboot flash super super_empty_all.img
 	fastboot reboot-fastboot
 	ping -n 10 127.0.0.1 >nul
@@ -94,6 +99,7 @@ if %num% geq 35 (
 	fastboot flash vendor vendor.img
 	fastboot flash product product.img
 	fastboot reboot-bootloader
+	)
 	ping -n 5 127.0.0.1 >nul
 	fastboot flashing lock
 	fastboot reboot

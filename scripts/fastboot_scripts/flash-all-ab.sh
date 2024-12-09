@@ -106,7 +106,10 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	fastboot $sern erase tee
 	fastboot $sern erase frp
 
+	if [ -f vbmeta.img ]
+	then
 	flash_with_retry vbmeta vbmeta.img
+	fi
 	flash_with_retry logo logo.img
 	flash_with_retry odm_ext odm_ext.img
 	if [ -f oem.img ]
@@ -121,6 +124,10 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	flash_with_retry vbmeta_system vbmeta_system.img
 	flash_with_retry boot boot.img
 	flash_with_retry vendor_boot vendor_boot.img
+	if [ -f super.img ]
+	then
+	flash_with_retry super super.img
+	else
 	flash_with_retry super super_empty_all.img
 	fastboot $sern reboot-fastboot
 	sleep 10
@@ -144,6 +151,7 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	flash_with_retry product product.img
 	fastboot $sern reboot-bootloader
 	sleep 5
+	fi
 
 	fastboot $sern flash bootloader-boot0 bootloader.img
 	fastboot $sern flash bootloader-boot1 bootloader.img

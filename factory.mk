@@ -6,7 +6,9 @@ PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
 PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
 AML_PKG_ADD_USB_BIN := $(AML_UPGRADE_TOOL_DIR)/aml_pkg_add_usb_bin.app
+ifneq ($(ODROID_BOARD), true)
 AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
+endif # not ODROID_BOARD
 
 ifeq ($(TARGET_NO_RECOVERY),true)
 BUILT_IMAGES := boot.img
@@ -22,9 +24,15 @@ ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 BUILT_IMAGES += init_boot.img
 endif
 
+ifeq ($(BOARD_AVB_ENABLE), true)
 VB_CHECK_IMAGES := vbmeta.img
+endif
+
 VB_CHECK_IMAGES += boot.img dtbo.img
+
+ifneq ($(ODROID_BOARD), true)
 VB_CHECK_IMAGES += vendor.img system.img product.img
+endif # not ODROID_BOARD
 
 ifneq ($(TARGET_NO_RECOVERY),true)
 VB_CHECK_IMAGES += recovery.img
@@ -38,6 +46,7 @@ ifeq ($(BUILDING_INIT_BOOT_IMAGE),true)
 VB_CHECK_IMAGES += init_boot.img
 endif
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_USES_ODMIMAGE),true)
 VB_CHECK_IMAGES += odm.img
 endif
@@ -45,11 +54,13 @@ endif
 ifeq ($(BUILDING_SYSTEM_EXT_IMAGE),true)
 VB_CHECK_IMAGES += system_ext.img
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(BOARD_USES_VBMETA_SYSTEM),true)
 VB_CHECK_IMAGES += vbmeta_system.img
 endif
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_USES_SYSTEM_DLKMIMAGE),true)
 VB_CHECK_IMAGES += system_dlkm.img
 endif
@@ -61,6 +72,7 @@ endif
 ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 VB_CHECK_IMAGES += odm_dlkm.img
 endif
+endif # not ODROID_BOARD
 
 ifdef BOARD_PREBUILT_DTBOIMAGE
 BUILT_IMAGES += dtbo.img
@@ -118,7 +130,9 @@ endif
 
 AML_TARGET := $(PRODUCT_OUT)/obj/PACKAGING/target_files_intermediates/$(name_aml)-target_files-$(FILE_NAME)
 
+ifneq ($(ODROID_BOARD), true)
 AML_TARGET_ZIP := $(PRODUCT_OUT)/super_empty_all.img
+endif # not ODROID_BOARD
 
 ifeq ($(BUILD_WITH_AVB),true)
 ifneq ($(TARGET_GPT_PART),true)
@@ -147,8 +161,10 @@ BOARD_PACK_RADIOIMAGES += dt.img
 endif
 BOARD_PACK_RADIOIMAGES += bootloader.img
 
+ifneq ($(ODROID_BOARD), true)
 INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/super_empty_all.img
 BOARD_PACK_RADIOIMAGES += super_empty_all.img
+endif # not ODROID_BOARD
 
 ifeq ($(TARGET_GPT_PART),true)
 ifneq ($(AB_OTA_UPDATER),true)
@@ -496,7 +512,9 @@ endef #define update-aml_upgrade-conf
 TARGET_USB_BURNING_V2_DEPEND_MODULES := $(AML_TARGET).zip #copy xx.img to $(AML_TARGET)/IMAGES for diff upgrade
 
 INTERNAL_SUPERIMAGE_DIST_TARGET := $(PRODUCT_OUT)/obj/PACKAGING/super.img_intermediates/super.img
+ifneq ($(ODROID_BOARD), true)
 INSTALLED_SUPERIMAGE_EMPTY_TARGET := $(PRODUCT_OUT)/super_empty.img
+endif # not ODROID_BOARD
 
 ifeq ($(TARGET_USE_AML_EROFS_TOOL),true)
 AML_EROFS_TOOL := $(PRODUCT_OUT)/mkfs.erofs
@@ -529,6 +547,7 @@ else
 AML_EROFS_TOOL :=
 endif
 
+ifneq ($(ODROID_BOARD), true)
 $(PRODUCT_OUT)/system.img: $(AML_EROFS_TOOL)
 $(PRODUCT_OUT)/system_ext.img: $(AML_EROFS_TOOL)
 $(PRODUCT_OUT)/system_dlkm.img: $(AML_EROFS_TOOL)
@@ -537,6 +556,7 @@ $(PRODUCT_OUT)/vendor_dlkm.img: $(AML_EROFS_TOOL)
 $(PRODUCT_OUT)/product.img: $(AML_EROFS_TOOL)
 $(PRODUCT_OUT)/odm.img: $(AML_EROFS_TOOL)
 $(PRODUCT_OUT)/odm_dlkm.img: $(AML_EROFS_TOOL)
+endif # not ODROID_BOARD
 $(PRODUCT_OUT)/obj/PACKAGING/vendor_ramdisk_fragments_intermediates/recovery.cpio.lz4: $(AML_EROFS_TOOL)
 
 PREPARE_AML_FILES := $(PRODUCT_OUT)/upgrade/platform.conf
@@ -634,6 +654,7 @@ ifneq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 		ln -sf $(shell readlink -f $(AML_TARGET)/IMAGES/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file); \
 		)
 endif
+ifneq ($(ODROID_BOARD), true)
 	@echo "Package: $@"
 ifneq ($(word 2,$(BOOTLOADER_INPUT)),)
 	@echo $(AML_PKG_ADD_USB_BIN) --unpackDir $(PRODUCT_UPGRADE_OUT) --bootloader $(word 2,$(BOOTLOADER_INPUT)) --output $@
@@ -644,6 +665,7 @@ else
 	@echo $(AML_IMG_PKG_TOOL) -r $(PACKAGE_CONFIG_FILE)  $(PRODUCT_UPGRADE_OUT) $@
 	$(hide) $(AML_IMG_PKG_TOOL) -r $(PACKAGE_CONFIG_FILE)  $(PRODUCT_UPGRADE_OUT) $@
 endif# ifeq ($(PRODUCT_USE_PREBUILD_SECURE_BOOTLOADER),true)
+endif # not ODROID_BOARD
 	@echo " $@ installed"
 else
 #none
@@ -667,6 +689,7 @@ endif#ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
 FASTBOOT_IMAGES += android-info.txt
 
+ifneq ($(ODROID_BOARD), true)
 FASTBOOT_IMAGES += system.img
 FASTBOOT_IMAGES += vendor.img
 ifeq ($(BOARD_USES_PRODUCTIMAGE),true)
@@ -690,6 +713,7 @@ endif
 ifeq ($(BOARD_USES_ODM_DLKMIMAGE),true)
 FASTBOOT_IMAGES += odm_dlkm.img
 endif
+endif # ODROID_BOARD
 
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
 FASTBOOT_IMAGES += vendor_boot.img
@@ -722,6 +746,10 @@ endif
 ifeq ($(BOARD_USES_VBMETA_SYSTEM),true)
 FASTBOOT_IMAGES += vbmeta_system.img
 endif
+
+ifeq ($(ODROID_BOARD), true)
+FASTBOOT_IMAGES += super.img
+endif # ODROID_BOARD
 
 .PHONY:aml_fastboot_zip
 aml_fastboot_zip:$(INSTALLED_AML_FASTBOOT_ZIP)
@@ -760,23 +788,29 @@ ifeq ($(AB_OTA_UPDATER),true)
 	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all-nowipe.bat $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.bat
 	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all-nowipe.sh $(PRODUCT_OUT)/fastboot_auto/flash-all-nowipe.sh
 endif
+ifneq ($(ODROID_BOARD), true)
 	cp $(PRODUCT_OUT)/super_empty.img $(PRODUCT_OUT)/fastboot_auto/
 	$(hide) $(foreach file,$(VB_CHECK_IMAGES), \
 		cp -f $(AML_TARGET)/IMAGES/$(file) $(PRODUCT_OUT)/fastboot_auto/$(file); \
 		)
 	cp -f $(PRODUCT_OUT)/super_empty_all.img $(PRODUCT_OUT)/fastboot_auto/super_empty_all.img
+endif # not ODROID_BOARD
 	cd $(PRODUCT_OUT)/fastboot_auto; zip -1 -r ../$(TARGET_PRODUCT)-fastboot-flashall-$(FILE_NAME).zip *
 
 ifeq ($(TARGET_SUPPORT_USB_BURNING_V2),true)
 INSTALLED_AML_EMMC_BIN := $(PRODUCT_OUT)/aml_emmc_mirror.bin.gz
 AML_EMMC_BIN_GENERATOR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/aml_emmc_bin_maker.app
 PRODUCT_CFG_EMMC_LGC_TABLE := $(KERNEL_ROOTDIR)/$(KERNEL_DEVICETREE_DIR)/$(TARGET_PARTITION_DTSI)
+
+ifneq ($(ODROID_BOARD), true)
 AML_DTB_CRC_TOOL		:= $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/dtb_pc
 AML_IMG_PKG_TOOL		:= $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/aml_image_v2_packer
+endif # not ODROID_BOARD
 ifeq ($(PRODUCT_CFG_EMMC_CAP),)
 	PRODUCT_CFG_EMMC_CAP := bootloader/uboot-repo/bl33/v2015/include/emmc_partitions.h
 endif
 
+ifneq ($(ODROID_BOARD), true)
 $(INSTALLED_AML_EMMC_BIN): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(PRODUCT_CFG_EMMC_CAP) \
 		$(PRODUCT_CFG_EMMC_LGC_TABLE)  $(AML_EMMC_BIN_GENERATOR) | $(SIMG2IMG) $(MINIGZIP)
 	@echo "Packaging $(INSTALLED_AML_EMMC_BIN)"
@@ -788,11 +822,13 @@ $(INSTALLED_AML_EMMC_BIN): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(PRODUCT_CFG
 			--burnPkg $< --output $(basename $@)
 	$(MINIGZIP) $(basename $@)
 	@echo "installed $@"
+endif # not ODROID_BOARD
 
 .PHONY: aml_emmc_bin
 aml_emmc_bin :$(INSTALLED_AML_EMMC_BIN)
 endif # ifeq ($(TARGET_SUPPORT_USB_BURNING_V2),true)
 
+ifneq ($(ODROID_BOARD), true)
 $(AML_TARGET_ZIP): $(INSTALLED_SUPERIMAGE_EMPTY_TARGET)
 ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 	dd if=/dev/zero of=$(PRODUCT_OUT)/empty_1.bin bs=1 count=4096
@@ -800,6 +836,7 @@ ifeq ($(PRODUCT_USE_DYNAMIC_PARTITIONS), true)
 	dd if=$(PRODUCT_OUT)/super_empty.img bs=1 count=4096 skip=4096  of=$(PRODUCT_OUT)/empty_3.bin
 	cat $(PRODUCT_OUT)/empty_1.bin $(PRODUCT_OUT)/empty_2.bin $(PRODUCT_OUT)/empty_1.bin $(PRODUCT_OUT)/empty_3.bin > $(PRODUCT_OUT)/super_empty_all.img
 endif
+endif # not ODROID_BOARD
 
 ifneq ($(TARGET_BUILD_KERNEL_5_4), true)
 $(AML_TARGET).zip: $(AML_VENDOR_MODULES_LOAD)
@@ -829,6 +866,7 @@ endif
 .PHONY: aml_factory_zip
 aml_factory_zip: $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_MANIFEST_XML) $(INSTALLED_AML_FASTBOOT_ZIP)
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(build_ota_package),true)
 INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name_aml)-ota-$(FILE_NAME_TAG).zip
 $(INTERNAL_OTA_PACKAGE_TARGET): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(AML_TARGET_ZIP) $(INSTALLED_MANIFEST_XML) $(INSTALLED_AML_FASTBOOT_ZIP)
@@ -869,4 +907,4 @@ ota_amlogic: $(AMLOGIC_OTA_PACKAGE_TARGET)
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(INSTALLED_MANIFEST_XML) $(AML_TARGET_ZIP) $(INSTALLED_AML_FASTBOOT_ZIP) $(INTERNAL_OTA_PACKAGE_TARGET)
 
 endif #build_ota_package
-
+endif # not ODROID_BOARD

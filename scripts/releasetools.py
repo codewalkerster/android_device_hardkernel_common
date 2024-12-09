@@ -270,6 +270,14 @@ def FullOTA_InstallEnd(info):
   else:
     OPTIONS.ota_vbmeta_system = True
 
+  try:
+    vbmeta_img = info.input_zip.read("IMAGES/vbmeta.img")
+  except KeyError:
+    OPTIONS.ota_vbmeta = False
+    print("no vbmeta.img in target_files; skipping install")
+  else:
+    OPTIONS.ota_vbmeta = True
+
   if OPTIONS.ota_vbmeta_system:
     ZipOtherImage("vbmeta_system", OPTIONS.input_tmp, info.output_zip)
   if OPTIONS.ota_vendor_boot:
@@ -295,8 +303,10 @@ backup_data_cache(dtb, /cache/recovery/);""")
 
   info.script.AppendExtra("""endif;
 ui_print("update recovery.img...");
-package_extract_file("recovery.img", "/dev/block/by-name/recovery");
-ui_print("update vbmeta.img...");
+package_extract_file("recovery.img", "/dev/block/by-name/recovery");""")
+
+  if OPTIONS.ota_vbmeta:
+    info.script.AppendExtra("""ui_print("update vbmeta.img...");
 package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
 
   if OPTIONS.gpt_bin:
