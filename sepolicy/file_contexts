@@ -507,6 +507,7 @@
 /(vendor|system/vendor)/usr/idc(/.*)?                     u:object_r:vendor_configs_file:s0
 /vendor/usr/icu/icudt60l.dat                              u:object_r:vendor_configs_file:s0
 
+/vendor/bin/usb_dongle                                                   u:object_r:usb_dongle_exec:s0
 /vendor/bin/hw/android\.hardware\.health-service.droidlogic              u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.health@2\.1-service.droidlogic         u:object_r:hal_health_default_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate-service\.droidlogic          u:object_r:hal_dumpstate_default_exec:s0
