@@ -244,7 +244,6 @@ endif
 ifeq ($(ODROID_BOARD), true)
 PRODUCT_PACKAGES += \
     WifiOverlay \
-    AppInstaller \
     RemoteIME \
     NativeImagePlayer \
     imageserver \
