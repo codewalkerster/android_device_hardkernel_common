@@ -629,6 +629,11 @@ PRODUCT_PACKAGES += \
    dumpstate_display \
    drminfo
 
+# aml_comm_diag,ystem_iwpriv binderized
+PRODUCT_PACKAGES += \
+    aml_comm_diag \
+    system_iwpriv
+
 # Keymaster HAL
 ifeq ($(TARGET_USE_HW_KEYMASTER),true)
 PRODUCT_PACKAGES += \

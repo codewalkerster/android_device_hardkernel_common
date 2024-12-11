@@ -9,3 +9,4 @@ type hal_dumpstate_impl, domain;
 allow hal_dumpstate_default pstorefs:dir search;
 allow hal_dumpstate_impl pstorefs:dir search;
 allow hal_dumpstate_default dumpstate:fifo_file write;
+allow hal_dumpstate_default vendor_data_file:file { read open getattr };
