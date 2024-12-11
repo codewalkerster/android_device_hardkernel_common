@@ -384,12 +384,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     remote_provisioning.hostname=remoteprovisioning.googleapis.com
 
-ifeq ($(LAUNCH_VERSION),U)
-#setup2.0
-PRODUCT_PRODUCT_PROPERTIES += \
-    remote_provisioning.tee.rkp_only=true
-endif
-
 #amlogic HALs
 PRODUCT_PACKAGES += \
     libGLES_meson_mali \
