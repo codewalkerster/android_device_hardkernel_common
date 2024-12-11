@@ -23,9 +23,6 @@ PRODUCT_COPY_FILES += \
 ifeq ($(TARGET_BUILD_LIVETV), true)
     PRODUCT_COPY_FILES += \
        device/hardkernel/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
-else ifeq ($(SUPPORT_CBS), true)
-    PRODUCT_COPY_FILES += \
-       device/hardkernel/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 else
     PRODUCT_COPY_FILES += \
        device/hardkernel/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
@@ -89,16 +86,6 @@ else
 PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 endif
-#########################################################################
-#
-# tunerhal
-#
-#########################################################################
-ifeq ($(SUPPORT_TUNERHAL), true)
-PRODUCT_COPY_FILES += \
-    $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
-endif
-
 #########################################################################
 #
 # Soundbar

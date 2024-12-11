@@ -10,7 +10,6 @@ IMAGES/odm.map
 IMAGES/vendor.img
 IMAGES/vendor.map
 IMAGES/super_empty_all.img
-IMAGES/id_attestation.xml
 META/boot_filesystem_config.txt
 META/care_map.pb
 META/kernel_configs.txt

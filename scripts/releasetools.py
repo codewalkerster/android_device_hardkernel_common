@@ -164,15 +164,6 @@ def FullOTA_Assertions(info):
     OPTIONS.ota_partition_change = True
     common.ZipWriteStr(info.output_zip, "bootloader.img", bootloader_img)
   try:
-    attestation_file = info.input_zip.read("RADIO/id_attestation.xml")
-  except KeyError:
-    OPTIONS.ota_update_id_attestation = False
-    print("no id_attestation.xml in target_files; skipping install")
-  else:
-    OPTIONS.ota_update_id_attestation = True
-    common.ZipWriteStr(info.output_zip, "id_attestation.xml", attestation_file)
-
-  try:
     vendor_boot_img = info.input_zip.read("IMAGES/vendor_boot.img")
   except KeyError:
     OPTIONS.ota_vendor_boot = False
@@ -353,11 +344,6 @@ write_dtb_image(package_extract_file("dt.img"));""")
   info.script.FormatPartition("/param")
   info.script.AppendExtra('set_update_stage("0");')
   info.script.AppendExtra('endif;')
-
-  if OPTIONS.ota_update_id_attestation:
-    info.script.AppendExtra('if write_id_attestation(package_extract_file("id_attestation.xml")) == "0" then')
-    info.script.AppendExtra('ui_print("write id_attestation OK");')
-    info.script.AppendExtra('endif;')
 
   SetBootloaderEnv(info.script, "upgrade_step", "1")
   SetBootloaderEnv(info.script, "force_auto_update", "false")

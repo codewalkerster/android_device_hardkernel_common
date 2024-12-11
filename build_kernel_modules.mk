@@ -180,7 +180,6 @@ ifneq ($(TARGET_VENDOR_MEDIA_VVC_SUPPORT), true)
      VENDOR_KERNEL_MODULES := $(filter-out $(PREBUILT_KERNEL_PATH)/lib/modules/amvdec_h266.ko $(PREBUILT_KERNEL_PATH)/lib/modules/amvdec_h266_v4l.ko, $(VENDOR_KERNEL_MODULES))
 endif
 
--include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner_modules.mk
 include device/hardkernel/common/ldim/ldim_modules.mk
 include device/hardkernel/common/video_algorithm/dnlp/dnlp_modules.mk
 include device/hardkernel/common/video_algorithm/cuva/cuva_modules.mk

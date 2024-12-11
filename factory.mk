@@ -173,11 +173,6 @@ BOARD_PACK_RADIOIMAGES += gpt.bin
 endif
 endif
 
-ifeq ($(TARGET_UPDATE_IDATTESTATION),true)
-INSTALLED_RADIOIMAGE_TARGET += device/hardkernel/common/id_attestation.xml
-BOARD_PACK_RADIOIMAGES += id_attestation.xml
-endif
-
 BOARD_PACK_RADIOIMAGES += $(filter system.img vendor.img,$(BUILT_IMAGES))
 
 UPGRADE_FILES := \

@@ -653,11 +653,6 @@
 /vendor/bin/hw/android\.hardware\.gatekeeper-service\.amlogic         u:object_r:hal_gatekeeper_default_exec:s0
 /vendor/bin/hw/android\.hardware\.media\.c2@1\.2-service              u:object_r:mediacodec_exec:s0
 
-# for kernel panic core-dump
-/vendor/bin/fulldump.sh          u:object_r:fulldump_exec:s0
-/data/vendor/ramdump(/.*)?       u:object_r:fulldump_data_file:s0
-/sys/kernel/mdump/compmsg      u:object_r:fulldump_sysfs:s0
-
 # Irdeto hidlimw
 /vendor/lib(64)?/libNativeIMW\.so                                     u:object_r:vendor_app_file:s0
 /(vendor|system/vendor)/bin/hw/vendor\.irdeto\.hal\.hidlimw@1\.0-service u:object_r:hal_hidlimw_exec:s0

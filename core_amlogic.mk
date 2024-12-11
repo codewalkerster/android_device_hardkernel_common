@@ -49,16 +49,9 @@ endif
 PRODUCT_PACKAGES += \
     droidlogic-res
 
-ifeq ($(SUPPORT_CBS),true)
-include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner.mk
-endif
 # 1p device without vendor/amlogic/reference code
 # reference device with vendor/amlogic/reference code
 ifneq ($(wildcard vendor/amlogic/reference/tv),)
-## for reference device
-include vendor/amlogic/reference/prebuilt/kernel-modules/tuner/tuner.mk
-PRODUCT_PACKAGES += \
-    amazon_av_target_permissions
 #subtitle related
 include vendor/amlogic/reference/subtitle/Subtitle.mk
 
@@ -77,14 +70,6 @@ PRODUCT_PACKAGES += \
     droidlogic.jniasplayer \
     libjniasplayer-jni \
     droidlogic.jniasplayer.xml
-
-ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
-TARGET_BUILD_JCAS := true
-endif
-
-ifeq ($(TARGET_BUILD_JCAS),true)
-$(call inherit-product-if-exists, vendor/amlogic/common/prebuilt/libmediadrm/jcas/droidlogic-jcas.mk)
-endif
 
 KERNEL_AUTO_PATCH := $(shell ls common/common*/mk.sh)
 KERNEL_AUTO_PATCH_RESULT := $(foreach patch_shell, $(KERNEL_AUTO_PATCH), \
@@ -107,20 +92,6 @@ endif
 #   Android O.
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
-
-ifneq ($(ODROID_BOARD), true)
-ifneq ($(BOARD_COMPILE_ATV), false)
-PRODUCT_PACKAGES += \
-    PlayAutoInstallStub
-ifeq ($(PRODUCT_SUPPORT_4K_UI), true)
-PRODUCT_PACKAGES += \
-    LauncherCustomization4k
-else
-PRODUCT_PACKAGES += \
-    LauncherCustomization
-endif
-endif
-endif # not ODROID_BOARD
 
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
 BOARD_ENABLE_A2DP_SINK := true
@@ -168,14 +139,6 @@ endif
 ifneq ($(CONFIG_DEVICE_LOW_RAM),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density?=320
-endif
-
-ifeq ($(TARGET_BUILD_LIVETV),true)
-    USE_OEM_TV_APP := true
-else ifeq ($(SUPPORT_CBS),true)
-    BOARD_DISABLE_DVB_AUDIO := false
-else
-    BOARD_DISABLE_DVB_AUDIO := true
 endif
 
 ifneq ($(TARGET_BUILD_GMS), true)
@@ -768,11 +731,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal-service.droidlogic
 
 #afd
-ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
-PRODUCT_COPY_FILES += \
-    device/hardkernel/common/initscripts/afd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/afd.rc
-endif
-
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),5.15)
 PRODUCT_PACKAGES += \
     modules_load
@@ -916,31 +874,14 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     device/hardkernel/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
     device/hardkernel/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
-    device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
-    device/hardkernel/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc
+    device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/com.google.android.feature.SILENT_OTA.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.android.feature.SILENT_OTA.xml
-
-PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
-
-ifneq ($(ODROID_BOARD), true)
-# disable Katniss's behavior of muting/unmuting on standby/wakeup precisely because of timing issues
-ifneq ($(BOARD_COMPILE_ATV), false)
-PRODUCT_COPY_FILES += \
-    device/hardkernel/common/permissions/com.google.android.feature.katniss.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.feature.katniss.xml
-endif
-
-ifeq ($(TARGET_BUILD_NETFLIX), true)
-PRODUCT_COPY_FILES += \
-	device/hardkernel/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
-endif
-endif # not ODROID_BOARD
 
 ifeq ($(BOARD_AVB_ENABLE), true)
 PRODUCT_COPY_FILES += \

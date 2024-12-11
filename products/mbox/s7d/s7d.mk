@@ -218,16 +218,6 @@ endif
 
 #########################################################################
 #
-#  DVB
-#
-#########################################################################
-
-PRODUCT_COPY_FILES += \
-    device/hardkernel/common/initscripts/dvb_sc2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
-    device/hardkernel/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
-
-#########################################################################
-#
 #  SEI BT Remote Control
 #
 #########################################################################

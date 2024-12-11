@@ -1,4 +1,3 @@
-import /vendor/etc/init/hw/init.amlogic.fulldump.rc
 import /vendor/etc/init/hw/init.amlogic.usb.rc
 import /vendor/etc/init/hw/init.amlogic.board.rc
 import /vendor/etc/init/hw/init.amlogic.wifi.rc
@@ -6,7 +5,6 @@ import /vendor/etc/init/hw/init.amlogic.media.rc
 import /vendor/etc/init/hw/init.amlogic.wifi_buildin.rc
 import /vendor/etc/init/cppreopts_amlogic.rc
 import /vendor/etc/init/hw/init.amlogic.bluetooth.rc
-import /vendor/etc/init/hw/init.dtvstack.rc
 
 on early-init
     mount proc proc /proc remount hidepid=2,gid=3009
