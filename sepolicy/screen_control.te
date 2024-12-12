@@ -42,3 +42,11 @@ allow screen_control mnt_vendor_file:file create_file_perms;
 allow screen_control mnt_vendor_file:dir create_dir_perms;
 allow screen_control mnt_user_file:dir rw_dir_perms;
 allow screen_control mnt_user_file:file rw_file_perms;
+
+allow screen_control ge2d_device:chr_file {read write open ioctl};
+allow screen_control dmabuf_heap_device:chr_file write;
+allow screen_control system_server:binder call;
+allow screen_control platform_app:binder call;
+
+allow screen_control hal_graphics_composer_default:binder call;
+allow screen_control system_app:binder {call};
