@@ -679,6 +679,11 @@ TARGET_BUILD_WIDEVINE_USE_PREBUILT := true
 PRODUCT_PACKAGES += \
     move_widevine_data.sh
 endif
+ifeq ($(BOARD_COMPILE_ATV), false)
+PRODUCT_PACKAGES += \
+    wv_factory_extraction_tool
+PRODUCT_COPY_FILES += vendor/widevine/libwvdrmengine/aosp_extract.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/aosp_extract.sh
+endif
 endif
 
 # CEC HAL
