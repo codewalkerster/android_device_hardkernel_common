@@ -3,8 +3,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # config of surfaceflinger
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.max_graphics_width?=3840 \
-    ro.surface_flinger.max_graphics_height?=2160 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers?=3 \
     dalvik.vm.heapgrowthlimit=384m
 
