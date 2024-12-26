@@ -85,14 +85,21 @@ HAVE_WRITE_SHELL_FILE_ASDK := $(shell test -f $(AUTO_PATCH_SHELL_FILE_ASDK) && e
 #endif
 ########################################################################################
 
-ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
+    ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config_soundbar.json))
+        AML_JSON_CONFIG_FILE := aml_audio_config_soundbar.json
+        $(warning 'Soundbar enabled, copy aml_audio_config_soundbar')
+    else
+        AML_JSON_CONFIG_FILE := aml_audio_config.json
+        $(warning 'Soundbar enabled, copy aml_audio_config.json')
+    endif
+else
+    AML_JSON_CONFIG_FILE := aml_audio_config.json
+    $(warning 'Soundbar disabled, copy aml_audio_config.json')
 endif
 
+PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/$(AML_JSON_CONFIG_FILE):$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
 
-ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json))
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
-endif
 #configurable audio policy
 USE_XML_AUDIO_POLICY_CONF := 1
 ifeq ($(USE_XML_AUDIO_POLICY_CONF),1)
