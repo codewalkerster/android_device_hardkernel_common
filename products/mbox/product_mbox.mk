@@ -144,6 +144,11 @@ PRODUCT_PACKAGES += \
 endif
 
 #TvSettings
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_PACKAGES += \
+    TvSettingsTwoPanel \
+    OdroidSettingsResOverlay \
+else
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \
     TvSettingsTwoPanel \
@@ -154,6 +159,7 @@ PRODUCT_PACKAGES += \
     TvSettings \
     DroidTvSettings
 endif
+endif # ODROID_BOARD
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml \

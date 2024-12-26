@@ -220,6 +220,7 @@ PRODUCT_PACKAGES += \
     DeskClock \
     FileBrowser \
     Camera2 \
+    OdroidSettingsTwoPanel \
 
 else
 ifeq ($(BOARD_COMPILE_ATV), false)

@@ -130,6 +130,7 @@ PRODUCT_PACKAGES += \
     lcdhelper
 
 #TvSettings
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \
     TvSettingsTwoPanel \
@@ -140,6 +141,7 @@ PRODUCT_PACKAGES += \
     TvSettings \
     DroidTvSettings
 endif
+endif # not ODROID_BOARD
 
 ifneq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
