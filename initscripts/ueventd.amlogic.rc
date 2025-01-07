@@ -241,6 +241,13 @@
 /sys/devices/system/cpu/cpufreq/policy0        scaling_governor        0664      system      system
 /sys/devices/system/cpu/cpufreq/policy0        scaling_max_freq        0664      system      system
 
+#gpu
+/sys/class/devfreq/fd000000.valhall        max_freq        0666    system    system
+/sys/class/devfreq/fd000000.valhall        min_freq        0666    system    system
+/sys/class/devfreq/fd000000.valhall        cur_freq        0666    system    system
+/sys/class/devfreq/fd000000.valhall        available_frequencies        0666    system    system
+/sys/class/devfreq/fd000000.valhall        governor        0666    system    system
+/sys/class/devfreq/fd000000.valhall        available_governors        0666    system    system
 #led
 /sys/devices/platform/gpioleds/leds/yellow_led    trigger   0666  root root
 /sys/devices/platform/gpioleds/leds/sys_led       brightness   0666  root root
