@@ -13,6 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#define ODM_DIR, which is amlogic in reference.
+ifeq ($(ODM_DIR),)
+    ODM_DIR := amlogic
+    AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
+else
+    AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
+endif
+$(warning " setting ODM_DIR:$(ODM_DIR)")
+
 # Use parameter-framework
 ifeq ($(AUDIO_POLICY_CUSTOM_PFW_DIR_NAME),)
 PRODUCT_SOONG_NAMESPACES += \
@@ -86,7 +95,7 @@ HAVE_WRITE_SHELL_FILE_ASDK := $(shell test -f $(AUTO_PATCH_SHELL_FILE_ASDK) && e
 ########################################################################################
 
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
-    ifneq (,$(wildcard device/amlogic/$(PRODUCT_DIR)/files/aml_audio_config_soundbar.json))
+    ifneq (,$(wildcard device/$(ODM_DIR)/$(PRODUCT_DIR)/files/aml_audio_config_soundbar.json))
         AML_JSON_CONFIG_FILE := aml_audio_config_soundbar.json
         $(warning 'Soundbar enabled, copy aml_audio_config_soundbar')
     else
@@ -98,7 +107,7 @@ else
     $(warning 'Soundbar disabled, copy aml_audio_config.json')
 endif
 
-PRODUCT_COPY_FILES += device/amlogic/$(PRODUCT_DIR)/files/$(AML_JSON_CONFIG_FILE):$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
+PRODUCT_COPY_FILES += device/$(ODM_DIR)/$(PRODUCT_DIR)/files/$(AML_JSON_CONFIG_FILE):$(TARGET_COPY_OUT_VENDOR)/etc/aml_audio_config.json
 
 #configurable audio policy
 USE_XML_AUDIO_POLICY_CONF := 1
@@ -140,11 +149,6 @@ ifeq ($(PRODUCT_TYPE),)
 $(warning "PRODUCT_TYPE is null, set default param: tv")
 else
     AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE := $(PRODUCT_TYPE)
-endif
-ifeq ($(ODM_DIR),)
-    AUDIO_POLICY_BUILD_PARAM_ODM := amlogic
-else
-    AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
 endif
 
 $(shell rm -rf device/amlogic/common/audio/audio_policy_configuration_temp.xml)
