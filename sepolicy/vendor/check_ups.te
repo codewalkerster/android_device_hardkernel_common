@@ -1,0 +1,4 @@
+type check_ups, domain;
+type check_ups_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(check_ups)
