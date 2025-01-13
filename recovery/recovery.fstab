@@ -1,4 +1,5 @@
 #device    mountpoint    fstype    options    flags?    (fstab    version    2)
+/dev/block/by-name/fat          /fat        vfat    defaults    defaults
 /dev/block/by-name/bootloader   /bootloader emmc    defaults    defaults
 /dev/block/by-name/logo         /logo       emmc    defaults    defaults
 /dev/block/by-name/vbmeta       /vbmeta       emmc    defaults    defaults
