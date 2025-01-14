@@ -874,8 +874,10 @@ endif
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     device/hardkernel/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
+    device/hardkernel/common/initscripts/makebootini.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/makebootini.rc \
     device/hardkernel/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
     device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc
+
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml

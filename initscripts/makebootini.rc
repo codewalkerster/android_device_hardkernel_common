@@ -1,0 +1,9 @@
+on property:sys.boot_completed=1
+    start makebootini
+
+service makebootini /vendor/bin/makebootini
+    class core
+    user root
+    group root
+    disabled
+    oneshot
