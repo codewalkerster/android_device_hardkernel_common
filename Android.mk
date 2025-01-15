@@ -16,5 +16,8 @@
 # "Beast" to be removed later after s/Beast/beast/ gets done.
 
 ifneq ($(filter odroidc5 ,$(TARGET_DEVICE)),)
-include $(all-subdir-makefiles)
+LOCAL_PATH := $(call my-dir)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+#include $(all-subdir-makefiles)
 endif
