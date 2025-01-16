@@ -1,6 +1,6 @@
 
 	setenv ini_addr_r 0x40010000
-	setenv fdt_addr_r 0x0A100000
+	setenv fdt_addr_r 0x01000000
 	setenv dtbo_addr_r 0x40200000
 
 	load $$devtype $$devnum:1 $$ini_addr_r config.ini
