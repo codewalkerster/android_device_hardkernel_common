@@ -6,6 +6,7 @@ PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
 PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
 AML_PKG_ADD_USB_BIN := $(AML_UPGRADE_TOOL_DIR)/aml_pkg_add_usb_bin.app
+PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 ifneq ($(ODROID_BOARD), true)
 AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
 endif # not ODROID_BOARD
@@ -744,6 +745,7 @@ endif
 
 ifeq ($(ODROID_BOARD), true)
 FASTBOOT_IMAGES += super.img
+FASTBOOT_IMAGES += fat.img
 endif # ODROID_BOARD
 
 .PHONY:aml_fastboot_zip

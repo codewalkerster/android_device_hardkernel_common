@@ -106,6 +106,11 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	fastboot $sern erase tee
 	fastboot $sern erase frp
 
+	if [ -f fat.img ]
+	then
+	flash_with_retry fat fat.img
+	fi
+
 	if [ -f vbmeta.img ]
 	then
 	flash_with_retry vbmeta vbmeta.img
