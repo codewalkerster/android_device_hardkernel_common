@@ -186,9 +186,7 @@ endif
 endif
 
 ##################################################################################
-ifneq ($(wildcard vendor/amlogic/common/auto_patch/),)
 TARGET_WITH_MEDIA_EXT ?= true
-endif
 
 configurable_audio_mediacodecs_xmls := device/hardkernel/common/audio/media_codecs_xml/
 PRODUCT_COPY_FILES += \

@@ -45,9 +45,7 @@ endif # not ODROID_BOARD
 #media related config for amlogic &
 #some dynamic shared libraries
 #
-ifneq ($(wildcard vendor/amlogic/common/auto_patch/),)
 TARGET_WITH_MEDIA_EXT_LEVEL ?= 4
-endif
 
 #for amlogicplayer& liblayer related.
 #TARGET_WITH_AMLOGIC_EXTRATORS :=true
