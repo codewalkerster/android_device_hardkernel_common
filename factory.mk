@@ -746,6 +746,7 @@ endif
 ifeq ($(ODROID_BOARD), true)
 FASTBOOT_IMAGES += super.img
 FASTBOOT_IMAGES += fat.img
+FASTBOOT_IMAGES += oem.img
 endif # ODROID_BOARD
 
 .PHONY:aml_fastboot_zip
