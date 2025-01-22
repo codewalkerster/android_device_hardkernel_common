@@ -261,10 +261,11 @@ PRODUCT_PACKAGES += \
     PrintSpooler \
     SubTitle
 
-ifneq ($(TARGET_BUILD_GMS), true)
 PRODUCT_PACKAGES += \
     DroidOverlay \
     ExoPlayer
+
+ifneq ($(TARGET_BUILD_GMS), true)
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_PACKAGES += \
     ABUpdater
