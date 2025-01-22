@@ -1,6 +1,8 @@
 ifdef PRODUCT_BOOTSCRIPT_TEMPLATE
+ifdef PRODUCT_BOOTSCRIPT_DTB_TEMPLATE
+ifdef PRODUCT_BOOTSCRIPT_INI_TEMPLATE
 
-$(info build boot.cmd with $(PRODUCT_BOOTSCRIPT_TEMPLATE)...)
+$(info build boot.cmd with $(PRODUCT_BOOTSCRIPT_TEMPLATE), $(PRODUCT_BOOTSCRIPT_DTB_TEMPLATE) and $(PRODUCT_BOOTSCRIPT_INI_TEMPLATE)...)
 
 boot_part := 6
 recovery_part := 7
@@ -21,7 +23,8 @@ BOOT_SCRIPT_TOOL := device/hardkernel/common/boot_script/mkbootscript.sh
 $(rebuild_bootscript) : $(PRODUCT_BOOTSCRIPT_TEMPLATE) $(HARDKERNEL_BOOTSCRIP_TOOLS)
 	@echo "Building boot.cmd $@."
 	$(HARDKERNEL_BOOTSCRIP_TOOLS) --input $(PRODUCT_BOOTSCRIPT_TEMPLATE) \
-	--input_subscript $(PRODUCT_BOOTSCRIPT_INI_DTB_TEMPLATE) \
+	--input_dtb_subscript $(PRODUCT_BOOTSCRIPT_DTB_TEMPLATE) \
+	--input_ini_subscript $(PRODUCT_BOOTSCRIPT_INI_TEMPLATE) \
 	--variant $(TARGET_BUILD_VARIANT) \
 	--boot-part $(boot_part) \
 	--recovery-part $(recovery_part) \
@@ -49,4 +52,6 @@ $(INSTALLED_HK_VENDOR_BOOTSCR) : $(rebuild_bootscr)
 	$(call copy-file-to-new-target-with-cp)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_HK_BOOTSCRIPT) $(INSTALLED_HK_BOOTSCR) $(INSTALLED_HK_VENDOR_BOOTSCR)
-endif
+endif #PRODUCT_BOOTSCRIPT_DTB_TEMPLATE
+endif #PRODUCT_BOOTSCRIPT_INI_TEMPLATE
+endif #PRODUCT_BOOTSCRIPT_TEMPLATE

@@ -1,0 +1,3 @@
+
+	echo "  Load Device Tree"
+	load $$devtype $$devnum:1 $$fdt_addr_r amlogic/${_target_dtb}.dtb
