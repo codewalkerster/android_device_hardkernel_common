@@ -179,6 +179,15 @@ echo "cp bt drivers"
 cp drivers/bluetooth/btbcm.ko $TARGET_MODULE_PATH/btbcm.ko
 cp drivers/bluetooth/btrtl.ko $TARGET_MODULE_PATH/btrtl.ko
 cp drivers/bluetooth/btusb.ko $TARGET_MODULE_PATH/btusb.ko
+echo "cp mt76xx wifi driver"
+cp drivers/net/wireless/mediatek/mt76/mt76.ko $TARGET_MODULE_PATH/mt76.ko
+cp drivers/net/wireless/mediatek/mt76/mt76x2/mt76x2-common.ko $TARGET_MODULE_PATH/mt76x2-common.ko
+cp drivers/net/wireless/mediatek/mt76/mt76x2/mt76x2u.ko $TARGET_MODULE_PATH/mt76x2u.ko
+cp drivers/net/wireless/mediatek/mt76/mt76x02-usb.ko $TARGET_MODULE_PATH/mt76x02-usb.ko
+cp drivers/net/wireless/mediatek/mt76/mt76x0/mt76x0-common.ko $TARGET_MODULE_PATH/mt76x0-common.ko
+cp drivers/net/wireless/mediatek/mt76/mt76x0/mt76x0u.ko $TARGET_MODULE_PATH/mt76x0u.ko
+cp drivers/net/wireless/mediatek/mt76/mt76x02-lib.ko $TARGET_MODULE_PATH/mt76x02-lib.ko
+cp drivers/net/wireless/mediatek/mt76/mt76-usb.ko $TARGET_MODULE_PATH/mt76-usb.ko
 
 echo "compile rtl8812au wifi driver"
 make $ADDON_ARGS ARCH=$KERNEL_ARCH -C $PWD M=../hardware/wifi/realtek/drivers/rtl8812au clean
