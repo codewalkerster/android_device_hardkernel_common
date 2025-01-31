@@ -137,3 +137,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
 endif
 endif
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/../bluetooth/mt7610e.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/mediatek/mt7610e.bin \
+    $(LOCAL_PATH)/../bluetooth/mt7610u.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/mediatek/mt7610u.bin
