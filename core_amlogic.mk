@@ -203,7 +203,6 @@ endif
 ifeq ($(ODROID_BOARD), true)
 PRODUCT_PACKAGES += \
     WifiOverlay \
-    RemoteIME \
     NativeImagePlayer \
     imageserver \
     DLNA \
