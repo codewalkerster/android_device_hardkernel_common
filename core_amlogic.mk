@@ -141,12 +141,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density?=320
 endif
 
-ifneq ($(TARGET_BUILD_GMS), true)
-$(call inherit-product, device/google/atv/products/atv_base.mk)
-else
 # To enable access to /dev/dvb*
 BOARD_SEPOLICY_DIRS += device/google/atv/sepolicy/vendor
-endif
 
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioTv.mk)
 
@@ -282,20 +278,9 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(ODROID_BOARD), true)
     # code block for AOSP
-    $(call inherit-product, device/google/atv/products/atv_mainline_system.mk)
-    # Mainline modules
-    PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-        system/apex/com.android.apex.cts.shim.apex \
-        system/apex/com.android.extservices.gms.apex \
-        system/apex/com.android.extservices.gms/% \
-        system/apex/com.android.permission.gms.apex \
-        system/apex/com.android.permission.gms/% \
-        system/apex/com.android.tethering.inprocess/% \
-        system/app/PlatformCaptivePortalLogin/PlatformCaptivePortalLogin.apk \
-        system/etc/permissions/GoogleExtServices_permissions.xml \
-        system/etc/permissions/GooglePermissionController_permissions.xml \
-        system/priv-app/InProcessNetworkStack/InProcessNetworkStack.apk \
-        system/priv-app/PlatformNetworkPermissionConfig/PlatformNetworkPermissionConfig.apk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
     # dexopt files are side-effects of already allowed files
     PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += %.odex %.vdex %.art
