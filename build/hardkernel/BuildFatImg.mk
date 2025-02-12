@@ -6,8 +6,10 @@ intermediates := $(call intermediates-dir-for,FAKE,hardkernel_fat)
 
 source_dir := $(intermediates)/fat
 build_fat_img := $(intermediates)/fat.img
-build_boot_scr := $(PRODUCT_OUT)/boot.scr
-boot_logo_bmp := $(PRODUCT_OUT)/boot-logo.bmp.gz
+boot_scr := $(PRODUCT_OUT)/boot.scr
+selfinstall_boot_scr := $(PRODUCT_OUT)/selfinstall_boot.scr
+logo_bmp := $(PRODUCT_OUT)/boot-logo.bmp.gz
+gpt_bin := $(PRODUCT_OUT)/gpt.bin
 
 dtb_target_file := `echo $(PRODUCT_KERNEL_DTS) | sed s/"_android"//g`
 
@@ -16,17 +18,21 @@ target_partition_size := 19456
 MKFS_FAT= device/hardkernel/proprietary/bin/mkfs.fat
 AOSP_FAT16COPY := build/make/tools/fat16copy.py
 
-$(build_fat_img) : $(build_boot_scr) $(boot_logo_bmp) $(PRODUCT_DTB_TARGET)
+$(build_fat_img) : $(boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_bin)
 	@echo "Build dtb image file $@."
 	dd if=/dev/zero of=$(build_fat_img) bs=1024 count=$(target_partition_size)
 	$(MKFS_FAT) -F16 -n VFAT $(build_fat_img)
 	mkdir -p $(source_dir)/amlogic
+	cp $(boot_scr) $(source_dir)/origin.boot.scr
+	cp $(selfinstall_boot_scr) $(source_dir)/boot.scr
 	cp  $(PRODUCT_DTB_TARGET) $(source_dir)/amlogic/$(dtb_target_file).dtb
 	mkdir -p $(source_dir)/amlogic/overlays/$(PRODUCT_MODEL)
 	cp $(PRODUCT_DTBO_TARGET) $(source_dir)/amlogic/overlays/$(PRODUCT_MODEL)
 	$(AOSP_FAT16COPY) $(build_fat_img) \
-		$(build_boot_scr) \
-		$(boot_logo_bmp) \
+		$(source_dir)/boot.scr \
+		$(source_dir)/origin.boot.scr \
+		$(gpt_bin) \
+		$(logo_bmp) \
 		$(source_dir)/amlogic
 
 INSTALLED_HK_FAT_IMAGE := $(PRODUCT_OUT)/$(notdir $(build_fat_img))

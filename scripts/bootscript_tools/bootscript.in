@@ -20,6 +20,8 @@ setenv devnum 1
 
 echo "  active_slot in storeboot: $${active_slot}"
 
+bcb uboot-command
+
 if test $${reboot_mode} = factory_reset; then
     echo "  Go Recovery Mode"
     setenv recovery_mode true;
