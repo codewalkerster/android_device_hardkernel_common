@@ -116,13 +116,6 @@ ifeq ($(CONFIG_DEVICE_LOW_RAM_OTT_1G),true)
     DvbAudioService \
     com.droidlogic.dvbaudioservice.permissions.xml
 
-# Include drawables for all densities
-#PRODUCT_AAPT_CONFIG := mdpi
-#PRODUCT_AAPT_PREF_CONFIG := mdpi
-
-PRODUCT_AAPT_CONFIG ?= normal large xlarge hdpi tvdpi xhdpi xxhdpi$
-PRODUCT_AAPT_PREF_CONFIG ?= xhdpi$
-
 #screencontrol
 #PRODUCT_PACKAGES += \
     screencontrol \
