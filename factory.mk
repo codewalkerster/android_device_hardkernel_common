@@ -166,12 +166,6 @@ INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/super_empty_all.img
 BOARD_PACK_RADIOIMAGES += super_empty_all.img
 endif # not ODROID_BOARD
 
-ifeq ($(TARGET_GPT_PART),true)
-ifneq ($(AB_OTA_UPDATER),true)
-INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/gpt.bin
-BOARD_PACK_RADIOIMAGES += gpt.bin
-endif
-endif
 
 BOARD_PACK_RADIOIMAGES += $(filter system.img vendor.img,$(BUILT_IMAGES))
 
@@ -185,14 +179,6 @@ TOOL_ITEMS := usb_flow.aml keys.conf
 ifeq ($(TARGET_USE_USB_FLOW_AML),true)
 UPGRADE_FILES += $(TOOL_ITEMS)
 endif # ifeq ($(TARGET_USE_USB_FLOW_AML),true)
-
-ifeq ($(TARGET_GPT_PART),true)
-	TOOL_ITEMS += gpt.bin
-else
-ifeq ($(LAUNCH_VERSION),R)
-	TOOL_ITEMS += gpt.bin
-endif
-endif #ifeq ($(TARGET_GPT_PART),true)
 
 ifneq ($(TARGET_USE_SECURITY_MODE),true)
 UPGRADE_FILES += \
@@ -261,33 +247,6 @@ ifneq ($(TARGET_GPT_PART), true)
 INSTALLED_AML_DT := $(PRODUCT_OUT)/dt.img
 endif
 endif
-
-
-ifeq ($(TARGET_GPT_PART), true)
-INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
-AML_GPT_TOOL := out/host/linux-x86/bin/makegpt
-$(INSTALLED_AML_GPT): $(AML_GPT_TOOL) $(AML_GPT_PART)
-	@echo "generate $(INSTALLED_AML_GPT)"
-	$(hide) mkdir -p $(PRODUCT_UPGRADE_OUT)
-	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -v 2 --partitions $(AML_GPT_PART)
-	@echo "Installed $@"
-
-else
-ifeq ($(LAUNCH_VERSION),R)
-INSTALLED_AML_GPT := $(PRODUCT_OUT)/gpt.bin
-AML_GPT_TOOL := out/host/linux-x86/bin/makegpt
-$(INSTALLED_AML_GPT): $(AML_GPT_TOOL) $(AML_GPT_PART)
-	@echo "generate $(INSTALLED_AML_GPT)"
-	$(hide) mkdir -p $(PRODUCT_UPGRADE_OUT)
-	$(AML_GPT_TOOL) -o $(INSTALLED_AML_GPT) -v 2 --partitions $(AML_GPT_PART)
-	@echo "Installed $@"
-else
-INSTALLED_AML_GPT :=
-endif
-endif
-
-.PHONY: gptbin
-gptbin: $(INSTALLED_AML_GPT)
 
 BOARD_AUTO_COLLECT_MANIFEST := false
 ifneq ($(BOARD_AUTO_COLLECT_MANIFEST),false)
@@ -376,7 +335,7 @@ endif # ifeq ($(PRODUCT_BUILD_SECURE_BOOTLOADER_ONLY),true)
 endif#ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
 ifeq ($(PRODUCT_GOOGLEREF_SECURE_BOOT),true)
-$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALLED_AML_GPT)
+$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT))
 	mkdir -p $(PRODUCT_OUT)/upgrade/
 	cp $(BOOTLOADER_INPUT) $(PRODUCT_OUT)/bootloader.img
 	cp $(BOOTLOADER_INPUT) $(PRODUCT_OUT)/upgrade/bootloader.img.encrypt
@@ -391,9 +350,9 @@ $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALL
 else
 # package dt.img into bootloader.  b/228873222
 ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
-$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALLED_AML_GPT) $(INSTALLED_AML_DT)
+$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALLED_AML_DT)
 else
-$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT)) $(INSTALLED_AML_GPT)
+$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) : $(word 1,$(BOOTLOADER_INPUT))
 endif
 	# the max size of bootloader.img is 4M, we reserve 128k for gpt.bin
 	# so we put gpt.bin at offset 0x3DFE00
@@ -402,25 +361,9 @@ endif
 	# 0x3DFE00 ~ end  gpt.bin
 	# 512 * 7925 = 0x3DFE00
 ifeq ($(TARGET_GPT_PART),true)
-ifeq ($(UPTATE_Q_S_U),true)
-ifeq ($(AB_OTA_UPDATER),true)
 	dd if=$< of=$@
-	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7936
-else
-	dd if=$< of=$@
-	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
-endif
-else
-	dd if=$< of=$@
-	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
-endif
-else
-ifeq ($(LAUNCH_VERSION),R)
-	dd if=$< of=$@
-	dd if=$(PRODUCT_OUT)/gpt.bin of=$@ bs=512 seek=7935
 else
 	$(hide) cp $< $@
-endif
 # package dt.img into bootloader.  b/228873222
 ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
 	@echo "Package dt.img into bootloader.img"
@@ -559,16 +502,6 @@ ifneq ($(BOARD_USES_VBMETA_SYSTEM),true)
 	echo "delete vbmeta_system.img in $(PACKAGE_CONFIG_FILE)"
 	sed -i "/vbmeta_system.img/d" $(PACKAGE_CONFIG_FILE)
 endif
-ifneq ($(TARGET_GPT_PART),true)
-ifeq ($(LAUNCH_VERSION),R)
-	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
-else
-	echo "don't need to burn bootloader_a in null gpt"
-	sed -i "/bootloader_a/d" $(PACKAGE_CONFIG_FILE)
-endif
-else
-	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
-endif
 	$(security_dm_verity_conf)
 	$(update-aml_upgrade-conf)
 	$(hide) $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
@@ -597,17 +530,7 @@ endif
 		echo "ln -sf $(shell readlink -f $(PRODUCT_OUT)/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file)"; \
 		ln -sf $(shell readlink -f $(PRODUCT_OUT)/$(file)) $(PRODUCT_UPGRADE_OUT)/$(file); \
 		)
-ifneq ($(TARGET_GPT_PART),true)
-ifeq ($(LAUNCH_VERSION),R)
-	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
-	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
-else
 	ln -sf $(shell readlink -f $(PRODUCT_OUT)/dt.img) $(PRODUCT_UPGRADE_OUT)/dt.img;
-endif
-else
-	cp $(INSTALLED_BOARDDTB_TARGET) $(PRODUCT_UPGRADE_OUT)/dt.img;
-	cp $(PRODUCT_OUT)/gpt.bin $(PRODUCT_UPGRADE_OUT)/
-endif
 # package dt.img into bootloader.  b/228873222
 ifeq ($(PACKAGE_DT_INTO_BOOTLOADER), true)
 	cp $(BOOTLOADER_INPUT) $(PRODUCT_UPGRADE_OUT)/bootloader.img
@@ -724,29 +647,16 @@ endif # ODROID_BOARD
 aml_fastboot_zip:$(INSTALLED_AML_FASTBOOT_ZIP)
 $(INSTALLED_AML_FASTBOOT_ZIP): $(addprefix $(PRODUCT_OUT)/,$(FASTBOOT_IMAGES)) \
 	$(BUILT_ODMIMAGE_TARGET) $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET)\
-	$(INSTALLED_AML_GPT)\
 	$(AML_TARGET_ZIP) $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET)
 	echo "install $@"
 	rm -rf $(PRODUCT_OUT)/fastboot_auto
 	mkdir -p $(PRODUCT_OUT)/fastboot_auto
 	cd $(PRODUCT_OUT); cp $(FASTBOOT_IMAGES) fastboot_auto/
-ifeq ($(TARGET_GPT_PART),true)
-	cp $(INSTALLED_AML_GPT) $(PRODUCT_OUT)/fastboot_auto/
-else
-ifeq ($(LAUNCH_VERSION),R)
-	cp $(INSTALLED_AML_GPT) $(PRODUCT_OUT)/fastboot_auto/
-endif
-endif
 #ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 #	cp $(PRODUCT_OUT)/bootloader.img.encrypt $(PRODUCT_OUT)/fastboot_auto/
 #	cp $(PRODUCT_OUT)/dt.img.encrypt $(PRODUCT_OUT)/fastboot_auto/
 #else
 	cp $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) $(PRODUCT_OUT)/fastboot_auto/bootloader.img
-ifneq ($(TARGET_GPT_PART),true)
-ifneq ($(LAUNCH_VERSION),R)
-	cp $(PRODUCT_OUT)/dt.img $(PRODUCT_OUT)/fastboot_auto/
-endif
-endif
 #endif
 	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
 	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/

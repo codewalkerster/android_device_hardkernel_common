@@ -9,7 +9,7 @@ build_fat_img := $(intermediates)/fat.img
 boot_scr := $(PRODUCT_OUT)/boot.scr
 selfinstall_boot_scr := $(PRODUCT_OUT)/selfinstall_boot.scr
 logo_bmp := $(PRODUCT_OUT)/boot-logo.bmp.gz
-gpt_bin := $(PRODUCT_OUT)/gpt.bin
+gpt_img := $(PRODUCT_OUT)/gpt.img
 
 dtb_target_file := `echo $(PRODUCT_KERNEL_DTS) | sed s/"_android"//g`
 
@@ -18,7 +18,7 @@ target_partition_size := 19456
 MKFS_FAT= device/hardkernel/proprietary/bin/mkfs.fat
 AOSP_FAT16COPY := build/make/tools/fat16copy.py
 
-$(build_fat_img) : $(boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_bin)
+$(build_fat_img) : $(boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_img)
 	@echo "Build dtb image file $@."
 	dd if=/dev/zero of=$(build_fat_img) bs=1024 count=$(target_partition_size)
 	$(MKFS_FAT) -F16 -n VFAT $(build_fat_img)
@@ -31,7 +31,7 @@ $(build_fat_img) : $(boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_bin)
 	$(AOSP_FAT16COPY) $(build_fat_img) \
 		$(source_dir)/boot.scr \
 		$(source_dir)/origin.boot.scr \
-		$(gpt_bin) \
+		$(gpt_img) \
 		$(logo_bmp) \
 		$(source_dir)/amlogic
 

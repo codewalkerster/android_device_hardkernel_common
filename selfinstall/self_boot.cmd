@@ -26,9 +26,9 @@ mmc write $buffer_addr 1 0x1999
 
 echo "  Install GPT"
 mmc dev 1
-load mmc 1:1 $buffer_addr gpt.bin
+load mmc 1:1 $buffer_addr gpt.img
 mmc write $buffer_addr 0 0x43
-fatrm mmc 1:1 gpt.bin
+fatrm mmc 1:1 gpt.img
 
 echo "  Change boot.scr"
 load mmc 1:1 $buffer_addr origin.boot.scr
