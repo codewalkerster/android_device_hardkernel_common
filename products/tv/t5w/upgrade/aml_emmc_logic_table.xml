@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="GB2312" ?>
 <!--//Copy the length from /partitions of your dts-->
 <Partition_Info>
-<Part PartitionName="logo"          FileSystem="raw"    Length="0x800000"/>
 <Part PartitionName="recovery"      FileSystem="raw"    Length="0x1800000"/>
 <Part PartitionName="misc"          FileSystem="raw"    Length="0x800000"/>
 <Part PartitionName="dtbo"          FileSystem="raw"    Length="0x800000"/>

@@ -123,7 +123,7 @@ allow system_control param_tv_file:file { create open read write setattr getattr
 allow system_control sysfs_digital_codec:file { read write };
 #allow system_control system_file:file execute_no_trans;
 
-allow system_control { env_device cri_block_device logo_device sda_block_device }:blk_file { getattr read open write };
+allow system_control { env_device cri_block_device sda_block_device }:blk_file { getattr read open write };
 allow system_control self:capability sys_nice;
 
 allow system_control { system_app platform_app }:binder { call };

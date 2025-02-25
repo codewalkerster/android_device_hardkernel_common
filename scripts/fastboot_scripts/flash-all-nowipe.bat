@@ -52,7 +52,6 @@ if %num% geq 35 (
 	ping -n 5 127.0.0.1 >nul
 	fastboot flash dtbo dtbo.img
 	fastboot flash vbmeta vbmeta.img
-	fastboot flash logo logo.img
 	if exist odm_ext.img (
 	fastboot flash odm_ext odm_ext.img
 	)

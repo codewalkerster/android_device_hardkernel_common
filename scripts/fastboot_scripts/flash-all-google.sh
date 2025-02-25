@@ -78,7 +78,6 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	sleep 5
 	fastboot $sern flashing unlock
 
-	flash_with_retry logo logo.img
 	flash_with_retry odm_ext odm_ext.img
 	flash_with_retry oem oem.img
 

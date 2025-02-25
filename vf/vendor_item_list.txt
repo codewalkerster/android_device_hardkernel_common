@@ -4,7 +4,6 @@ IMAGES/boot.img
 IMAGES/bootloader.img
 IMAGES/dt.img
 IMAGES/dtbo.img
-IMAGES/logo.img
 IMAGES/odm.img
 IMAGES/odm.map
 IMAGES/vendor.img

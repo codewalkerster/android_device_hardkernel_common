@@ -1,7 +1,6 @@
 include device/hardkernel/common/odm_ext.mk
 TARGET_USE_USB_FLOW_AML ?= true
 
-IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
 PRODUCT_COMMON_DIR := device/hardkernel/common/products/$(PRODUCT_TYPE)
 AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
@@ -235,32 +234,6 @@ ifeq ($(wildcard $(PACKAGE_CONFIG_FILE)),)
 	PACKAGE_CONFIG_FILE := device/hardkernel/common/upgrade/$(notdir $(PACKAGE_CONFIG_FILE))
 endif ## ifeq ($(wildcard $(TARGET_DEVICE_DIR)/upgrade/$(PACKAGE_CONFIG_FILE)))
 UPGRADE_FILES += $(PACKAGE_CONFIG_FILE)
-
-ifneq ($(TARGET_AMLOGIC_RES_PACKAGE),)
-INSTALLED_AML_LOGO := $(PRODUCT_OUT)/logo.img
-$(INSTALLED_AML_LOGO): $(wildcard $(TARGET_AMLOGIC_RES_PACKAGE)/*) | $(IMGPACK) $(MINIGZIP)
-	@echo "generate $(INSTALLED_AML_LOGO)"
-	$(hide) mkdir -p $(PRODUCT_OUT)/logo
-	$(hide) rm -rf $(PRODUCT_OUT)/logo/*
-	@cp -rf $(TARGET_AMLOGIC_RES_PACKAGE)/* $(PRODUCT_OUT)/logo
-	$(foreach bmpf, $(filter %.bmp,$^), \
-		if [ -n "$(shell find $(bmpf) -type f -size +256k)" ]; then \
-			echo "logo pic $(bmpf) >256k gziped"; \
-			$(MINIGZIP) -c $(bmpf) > $(PRODUCT_OUT)/logo/$(notdir $(bmpf)); \
-		else cp $(bmpf) $(PRODUCT_OUT)/logo; \
-		fi;)
-	$(hide) $(IMGPACK) -r $(PRODUCT_OUT)/logo $@
-	@echo "Installed $@"
-# Adds to <product name>-img-<build number>.zip so can be flashed.  b/110831381
-INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/logo.img
-BOARD_PACK_RADIOIMAGES += logo.img
-BUILT_IMAGES += logo.img
-else
-INSTALLED_AML_LOGO :=
-endif
-
-.PHONY: logoimg
-logoimg: $(INSTALLED_AML_LOGO)
 
 INSTALLED_AML_OEM_IMAGE := $(PRODUCT_OUT)/oem_avb.img
 
@@ -563,7 +536,6 @@ $(PREPARE_AML_FILES): \
 	$(INSTALLED_BOARDDTB_TARGET) \
 	$(UPGRADE_FILES) \
 	$(INSTALLED_AML_USER_IMAGES) \
-	$(INSTALLED_AML_LOGO) \
 	$(INSTALLED_MANIFEST_XML) \
 	$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) \
 	$(INTERNAL_SUPERIMAGE_DIST_TARGET) \
@@ -610,7 +582,6 @@ $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET): \
 	$(INSTALLED_BOARDDTB_TARGET) \
 	$(UPGRADE_FILES) \
 	$(INSTALLED_AML_USER_IMAGES) \
-	$(INSTALLED_AML_LOGO) \
 	$(INSTALLED_MANIFEST_XML) \
 	$(INSTALLED_AMLOGIC_BOOTLOADER_TARGET) \
 	$(INTERNAL_SUPERIMAGE_DIST_TARGET) \
@@ -777,7 +748,6 @@ ifneq ($(LAUNCH_VERSION),R)
 endif
 endif
 #endif
-	cp $(PRODUCT_OUT)/logo.img $(PRODUCT_OUT)/fastboot_auto/
 	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
 	cp device/hardkernel/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)

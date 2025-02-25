@@ -814,7 +814,6 @@ usage() {
     "                     bootimage\n" \
     "                     vendorimage\n" \
     "                     vendorbootimage\n" \
-    "                     logoimage\n" \
     "                     odmimage\n" \
     "                     odmextimage\n" \
     "                     systemimage\n" \
@@ -1086,8 +1085,6 @@ compile_sub_system() {
         compile_kernel
         make bootimage -j8
         make vendorbootimage -j8
-    elif [ $1 == "logoimage" ]; then
-        make logoimg -j8
     elif [ $1 == "odmimage" ]; then
         make odmimage -j8
     elif [ $1 == "odmextimage" ]; then

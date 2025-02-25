@@ -117,7 +117,6 @@ if [[ "$fastboot_version" -ge 35 ]]; then
 	then
 	flash_with_retry vbmeta_system vbmeta_system.img
 	fi
-	flash_with_retry logo logo.img
 	if [ -f odm_ext.img ]
 	then
 	flash_with_retry odm_ext odm_ext.img

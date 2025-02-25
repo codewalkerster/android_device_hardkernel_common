@@ -58,7 +58,6 @@ if %num% geq 35 (
 	if exist vbmeta.img (
 	fastboot flash vbmeta vbmeta.img
 	)
-	fastboot flash logo logo.img
 	if exist odm_ext.img (
 	fastboot flash odm_ext odm_ext.img
 	)

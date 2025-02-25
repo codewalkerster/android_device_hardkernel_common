@@ -7,7 +7,6 @@ type frontend_device, dev_type;
 type cec_device, dev_type;
 
 type unify_device, dev_type;
-type logo_device, dev_type;
 
 type picture_device, dev_type;
 type hdcptx_device, dev_type;

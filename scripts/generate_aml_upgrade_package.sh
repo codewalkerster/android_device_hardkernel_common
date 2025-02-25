@@ -80,7 +80,6 @@ cp "$DEVICE_DIR"/aml_sdc_burn.ini \
 cp "$IMAGES_DIR"/boot.img \
     "$IMAGES_DIR"/bootloader.img \
     "$IMAGES_DIR"/dt.img \
-    "$IMAGES_DIR"/logo.img \
     "$IMAGES_DIR"/odm.img \
     "$IMAGES_DIR"/product.img \
     "$IMAGES_DIR"/recovery.img \

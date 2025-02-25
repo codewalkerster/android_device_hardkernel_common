@@ -105,7 +105,7 @@ def HasTargetImage(target_files_zip, image_path):
 def ZipOtherImage(which, tmpdir, output):
   """Returns an image object from IMAGES.
 
-  'which' partition eg "logo", "dtb". A prebuilt image and file
+  'which' partition eg "dtb". A prebuilt image and file
   map must already exist in tmpdir.
   """
 
@@ -240,7 +240,6 @@ def FullOTA_InstallEnd(info):
 
   AddCustomerImage(info, OPTIONS.input_tmp)
 
-  ZipOtherImage("logo", OPTIONS.input_tmp, info.output_zip)
   if OPTIONS.gpt_bin:
     print("gpt_mode;")
   else:
@@ -274,9 +273,7 @@ def FullOTA_InstallEnd(info):
   if OPTIONS.ota_vendor_boot:
     ZipOtherImage("vendor_boot", OPTIONS.input_tmp, info.output_zip)
 
-  info.script.AppendExtra("""ui_print("update logo.img...");
-package_extract_file("logo.img", "/dev/block/by-name/logo");
-ui_print("update dtbo.img...");
+  info.script.AppendExtra("""ui_print("update dtbo.img...");
 package_extract_file("dtbo.img", "/dev/block/by-name/dtbo");
 ui_print("update odm_ext.img...");
 package_extract_file("odm_ext.img", "/dev/block/by-name/odm_ext");
@@ -407,7 +404,6 @@ def IncrementalOTA_ImageCheck(info, name):
 
 def IncrementalOTA_InstallEnd(info):
   print("amlogic extensions:IncrementalOTA_InstallEnd")
-  IncrementalOTA_ImageCheck(info, "logo");
   IncrementalOTA_ImageCheck(info, "odm_ext");
   IncrementalOTA_ImageCheck(info, "dt");
   IncrementalOTA_ImageCheck(info, "recovery");
