@@ -17,39 +17,72 @@ setenv overlays_resize 16384
 
 setenv devtype mmc
 setenv devnum 1
+setenv active_slot _a
+setenv slot-suffixes 0
+setenv boot_part boot_a
 
 echo "  active_slot in storeboot: $${active_slot}"
 
-bcb uboot-command
+setenv boot_mode non
 
-if test $${reboot_mode} = factory_reset; then
-    echo "  Go Recovery Mode"
-    setenv recovery_mode true;
+# read boot state from bcb.
+if bcb load $$devnum misc; then
+	# valid BCB found
+	if bcb test command = bootonce-bootloader; then
+		# Bootloader boot
+		setenv boot_mode bootloader
+		bcb clear command; bcb store;
+	elif bcb test command = boot-recovery; then
+		# Recovery boot
+		setenv boot_mode recovery
+	else
+		# Normal boot
+		echo "  Normal boot"
+	fi
+fi
+
+# read boot state from reboot_mode.
+if test $${boot_mode} = non; then
+	get_rebootmode
+
+	if test $${reboot_mode} = factory_reset; then
+		setenv boot_mode recovery
+	elif test $${reboot_mode} = fastboot; then
+		setenv boot_mode bootloader
+	else
+		# Normal boot
+		echo "  reboot_mode - $${reboot_mode}"
+	fi
+fi
+
+if test $${boot_mode} = recovery; then
+	echo "  Go Recovery Mode"
+	setenv recovery_mode true;
 ${_load_dtb}
-    if test $${vendor_boot_mode} = true; then
-        setenv loadaddr $${loadaddr_kernel};
-        setenv bootargs $${bootargs} $${fs_type} aml_dt=$${aml_dt};
-        setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
-        if imgread kernel $${boot_part} $${loadaddr}; then bootm $${loadaddr}; fi;
-    fi;
-else
-    if test $${reboot_mode} = fastboot; then
-        fastboot 0
-    fi;
+	if test $${vendor_boot_mode} = true; then
+		setenv loadaddr $${loadaddr_kernel};
+		setenv bootargs $${bootargs} $${fs_type} aml_dt=$${aml_dt};
+		setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
+		if imgread kernel $${boot_part} $${loadaddr}; then bootm $${loadaddr}; fi;
+	fi;
+elif test $${boot_mode} = bootloader; then
+	echo "  Go bootloader fastboot Mode"
+	fastboot 0
 fi;
+
 ${_load_dtb}
 ${_load_ini}
 setenv bootconfig $${bootconfig} androidboot.force_normal_boot=1;
 
 if test $${active_slot} != normal;
-    then setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
+	then setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
 fi;
 
 setenv bootconfig $${bootconfig} androidboot.rollback=$${rollback_flag};
 setenv loadaddr $${loadaddr_kernel};
 
 if imgread kernel $${boot_part} $${loadaddr};
-    then bootm $${loadaddr};
+	then bootm $${loadaddr};
 fi;
 
 # read dtb from boot_part
