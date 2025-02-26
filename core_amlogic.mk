@@ -216,6 +216,7 @@ PRODUCT_PACKAGES += \
     FileBrowser \
     Camera2 \
     OdroidSettingsTwoPanel \
+    Updater \
 
 else
 ifeq ($(BOARD_COMPILE_ATV), false)
