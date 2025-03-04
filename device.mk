@@ -1055,4 +1055,5 @@ PRODUCT_PACKAGES += \
     gps.$(TARGET_BOOTLOADER_BOARD_NAME)
 
 PRODUCT_PACKAGES += \
-    KIOSK_Demo
+    KIOSK_Demo \
+    WifiOverlay
