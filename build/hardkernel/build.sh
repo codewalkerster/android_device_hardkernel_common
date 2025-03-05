@@ -27,6 +27,7 @@ KERNEL_DTS=""
 BUILD_VERSION=""
 BUILD_JOBS=16
 BUILD_SELF=false
+BUILD_AB=`get_build_var AB_OTA_UPDATER`
 
 # check pass argument
 while getopts "UKABSpov:d:V:J:" arg
@@ -120,7 +121,11 @@ export STUB_PATCH_PATH=$STUB_PATH/PATCHES
 if [ "$BUILD_UBOOT" = true ] ; then
 	echo "start build uboot"
 	pushd u-boot
-	./mk $UBOOT_DEFCONFIG --vab --fastboot-write  && cd -
+	if [ "$BUILD_AB" = true ] ; then
+		./mk $UBOOT_DEFCONFIG --vab --fastboot-write  && cd -
+	else
+		./mk $UBOOT_DEFCONFIG --fastboot-write  && cd -
+	fi
 
 	popd
 
