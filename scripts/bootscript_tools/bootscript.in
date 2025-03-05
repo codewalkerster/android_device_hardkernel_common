@@ -17,9 +17,10 @@ setenv overlays_resize 16384
 
 setenv devtype mmc
 setenv devnum 1
-setenv active_slot _a
-setenv slot-suffixes 0
-setenv boot_part boot_a
+
+setenv active_slot ${_active_slot}
+setenv slot-suffixes ${_slot_suffix}
+setenv boot_part ${_boot_part}
 
 echo "  active_slot in storeboot: $${active_slot}"
 

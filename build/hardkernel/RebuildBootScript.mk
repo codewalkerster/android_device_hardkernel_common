@@ -4,7 +4,6 @@ ifdef PRODUCT_BOOTSCRIPT_INI_TEMPLATE
 
 $(info build boot.cmd with $(PRODUCT_BOOTSCRIPT_TEMPLATE), $(PRODUCT_BOOTSCRIPT_DTB_TEMPLATE) and $(PRODUCT_BOOTSCRIPT_INI_TEMPLATE)...)
 
-boot_part := 6
 recovery_part := 7
 wifi_country := US
 mtd := "sfc_nor:0x20000@0xe0000(env),0x200000@0x100000(uboot),0x100000@0x300000(splash),0xc00000@0x400000(firmware)"
@@ -12,6 +11,16 @@ target_board := $(PRODUCT_MODEL)
 target_dtb := `echo $(PRODUCT_KERNEL_DTS) | sed s/"_android"//g`
 emmc_boot_device := $(PRODUCT_BOOT_DEVICE)
 sd_boot_device := $(PRODUCT_SDMMC_DEVICE)
+
+ifeq ($(AB_OTA_UPDATER), true)
+active_slot := _a
+slot_suffix = 0
+boot_part := boot_a
+else
+active_slot := normal
+slot_suffix = -1
+boot_part := boot
+endif
 
 intermediates := $(call intermediates-dir-for,FAKE,hardkernel_bootscript)
 rebuild_bootscript := $(intermediates)/boot.cmd
@@ -34,7 +43,9 @@ $(rebuild_bootscript) : $(PRODUCT_BOOTSCRIPT_TEMPLATE) $(HARDKERNEL_BOOTSCRIP_TO
 	--target-board $(target_board) \
 	--output $(rebuild_bootscript) \
 	--emmc-boot-device $(emmc_boot_device) \
-	--sd-boot-device $(sd_boot_device)
+	--sd-boot-device $(sd_boot_device) \
+	--active-slot $(active_slot) \
+	--slot-suffix $(slot_suffix)
 
 $(rebuild_bootscr) : $(rebuild_bootscript)
 	$(BOOT_SCRIPT_TOOL) $^ $(rebuild_bootscr)
