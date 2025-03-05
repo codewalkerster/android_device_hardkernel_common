@@ -55,8 +55,6 @@ $(INSTALLED_ODM_EXTIMAGE_TARGET) : $(INTERNAL_ODM_EXTIMAGE_FILES) $(INTERNAL_USE
 		$(BUILD_IMAGE) \
 		$(PRODUCT_OUT)/$(TARGET_COPY_OUT_ODM_EXT) $(odm_extimage_intermediates)/odm_ext_image_info.txt $@ $(TARGET_OUT)
 
-.PHONY: odm_ext_image
-odm_ext_image : $(INSTALLED_ODM_EXTIMAGE_TARGET)
-$(call dist-for-goals, odm_ext_image, $(INSTALLED_ODM_EXTIMAGE_TARGET))
+ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_ODM_EXTIMAGE_TARGET)
 
 endif
