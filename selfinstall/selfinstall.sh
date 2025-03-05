@@ -14,27 +14,29 @@ PRODUCT_OUT=`get_build_var PRODUCT_OUT`
 UBOOT_BUILD_PATH=u-boot/build
 UBOOT_IMG=u-boot.bin.signed
 
+COMMON_KERNEL_BUILD_PATH=common/common14-5.15/out/android/`get_build_var TARGET_PRODUCT`/
+
 MISC_PATH=device/hardkernel/common/selfinstall
 
 dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=1
 
 dd if=$PRODUCT_OUT/fat.img of=$TARGET_IMAGE bs=512 seek=8192
-dd if=$PRODUCT_OUT/vendor_boot.img of=$TARGET_IMAGE bs=512 seek=309248
-dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=442368
-dd if=$MISC_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=520192
-dd if=$PRODUCT_OUT/dtbo.img of=$TARGET_IMAGE bs=512 seek=526336
-dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=585728
-dd if=$PRODUCT_OUT/oem.img of=$TARGET_IMAGE bs=512 seek=620544
-dd if=$PRODUCT_OUT/boot.img of=$TARGET_IMAGE bs=512 seek=688128
-dd if=$PRODUCT_OUT/init_boot.img of=$TARGET_IMAGE bs=512 seek=821248
-dd if=$PRODUCT_OUT/super.img of=$TARGET_IMAGE bs=512 seek=972800
+dd if=$PRODUCT_OUT/vendor_boot.img of=$TARGET_IMAGE bs=512 seek=260096
+dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=327680
+dd if=$MISC_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=405504
+dd if=$COMMON_KERNEL_BUILD_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=411648
+dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=471040
+dd if=$PRODUCT_OUT/oem.img of=$TARGET_IMAGE bs=512 seek=505856
+dd if=$PRODUCT_OUT/boot.img of=$TARGET_IMAGE bs=512 seek=573440
+dd if=$PRODUCT_OUT/init_boot.img of=$TARGET_IMAGE bs=512 seek=706560
+dd if=$PRODUCT_OUT/super.img of=$TARGET_IMAGE bs=512 seek=858112
 
 echo -e \
-	"n\np\n1\n" \
+	"n\np\n2\n" \
 	"8192\n47103\n" \
 	"t\n4\n" \
-	"n\np\n2\n" \
-	"442368\n450559\n" \
+	"n\np\n3\n" \
+	"327680\n335871\n" \
 	"t\n2\n83\n" \
 	"w\n" \
 	|fdisk $TARGET_IMAGE >/dev/null #2>&1
