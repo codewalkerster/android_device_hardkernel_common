@@ -93,8 +93,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.config.low_ram=true
 
 # crypto volume
+ifneq ($(ODROID_BOARD), true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
+endif
 
 # default enable sdr to hdr
 PRODUCT_PROPERTY_OVERRIDES += \

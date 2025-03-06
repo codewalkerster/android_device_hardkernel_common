@@ -471,10 +471,12 @@ endif
 #######################################################################
 ifneq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
 ifneq ($(TARGET_OLD_DEVICE), true)
+ifneq ($(ODROID_BOARD), true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.dm_default_key.options_format.version=2 \
     ro.crypto.volume.options=::v2
+endif
 endif
 endif
 
