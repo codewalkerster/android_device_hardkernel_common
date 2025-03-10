@@ -172,14 +172,14 @@ def FullOTA_Assertions(info):
     OPTIONS.ota_vendor_boot = True
 
   try:
-    gpt_bin = info.input_zip.read("IMAGES/gpt.bin")
+    gpt_img = info.input_zip.read("IMAGES/gpt.img")
   except KeyError:
-    OPTIONS.gpt_bin = False
-    print("no gpt.bin in target_files;")
+    OPTIONS.gpt_img = False
+    print("no gpt.img in target_files;")
   else:
-    OPTIONS.gpt_bin = True
+    OPTIONS.gpt_img = True
 
-  if OPTIONS.gpt_bin:
+  if OPTIONS.gpt_img:
     print("gpt_mode;")
     info.script.AppendExtra('if ota_part_check() == "1" then')
     info.script.AppendExtra('ui_print("ota_part_check() == 1");')
@@ -240,7 +240,7 @@ def FullOTA_InstallEnd(info):
 
   AddCustomerImage(info, OPTIONS.input_tmp)
 
-  if OPTIONS.gpt_bin:
+  if OPTIONS.gpt_img:
     print("gpt_mode;")
   else:
     ZipOtherImage("dt", OPTIONS.input_tmp, info.output_zip)
@@ -280,7 +280,7 @@ package_extract_file("odm_ext.img", "/dev/block/by-name/odm_ext");
 if recovery_backup_exist() == "0" then
 backup_data_cache(recovery, /cache/recovery/);""")
 
-  if OPTIONS.gpt_bin:
+  if OPTIONS.gpt_img:
     print("gpt_mode;")
   else:
     info.script.AppendExtra("""if recovery_backup_exist() == "0" then
@@ -297,7 +297,7 @@ package_extract_file("recovery.img", "/dev/block/by-name/recovery");""")
     info.script.AppendExtra("""ui_print("update vbmeta.img...");
 package_extract_file("vbmeta.img", "/dev/block/by-name/vbmeta");""")
 
-  if OPTIONS.gpt_bin:
+  if OPTIONS.gpt_img:
     print("gpt_mode;")
   else:
     info.script.AppendExtra("""ui_print("update dtb.img...");
@@ -329,7 +329,7 @@ write_dtb_image(package_extract_file("dt.img"));""")
 
   if OPTIONS.ota_partition_change:
     info.script.AppendExtra('ui_print("update bootloader.img...");')
-    if OPTIONS.gpt_bin:
+    if OPTIONS.gpt_img:
       info.script.AppendExtra('package_extract_file("bootloader.img", "/dev/block/by-name/bootloader_up");')
       SetBootloaderEnv(info.script, "write_boot", "1")
       SetBootloaderEnv(info.script, "upgrade_step", "2")

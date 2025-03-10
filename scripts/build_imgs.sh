@@ -158,10 +158,10 @@ function build() {
 	fi
 
 	rm -rf $CUR_DIR/normal_target/RADIO/bootloader.img
-	if [ -f $ANDROID_OUTPUT_PATH/gpt.bin ]; then
+	if [ -f $ANDROID_OUTPUT_PATH/gpt.img ]; then
 		echo "patch gbt to bootloader"
 		dd if=$DEVICE_DIR/bootloader.img of=$CUR_DIR/normal_target/RADIO/bootloader.img
-		dd if=$ANDROID_OUTPUT_PATH/gpt.bin of=$CUR_DIR/normal_target/RADIO/bootloader.img bs=512 seek=7935
+		dd if=$ANDROID_OUTPUT_PATH/gpt.img of=$CUR_DIR/normal_target/RADIO/bootloader.img bs=512 seek=7935
 	else
 		echo "cp $DEVICE_DIR/bootloader.img $CUR_DIR/normal_target/RADIO/bootloader.img"
 		cp $DEVICE_DIR/bootloader.img $CUR_DIR/normal_target/RADIO/bootloader.img
