@@ -215,7 +215,7 @@ PRODUCT_PACKAGES += \
     DeskClock \
     FileBrowser \
     Camera2 \
-    OdroidSettingsTwoPanel \
+    OdroidSettings \
     Updater \
 
 else
