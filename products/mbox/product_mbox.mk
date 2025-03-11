@@ -136,10 +136,8 @@ PRODUCT_PACKAGES += \
     screencatch
 endif
 
-#TvSettings
 ifeq ($(ODROID_BOARD), true)
 PRODUCT_PACKAGES += \
-    TvSettingsTwoPanel \
     OdroidSettingsResOverlay \
 else
 ifeq ($(ATV_LAUNCHER),amati)
