@@ -4,6 +4,8 @@ echo "Start boot.scr booting."
 
 run storeargs;
 
+setenv bootargs $${bootargs} console=ttyS0,$${baudrate}
+
 echo "  Init default values"
 
 test -n "$$lcd_density" || setenv lcd_density 240
@@ -56,36 +58,29 @@ if test $${boot_mode} = non; then
 	fi
 fi
 
-if test $${boot_mode} = recovery; then
-	echo "  Go Recovery Mode"
-	setenv recovery_mode true;
-${_load_dtb}
-	if test $${vendor_boot_mode} = true; then
-		setenv loadaddr $${loadaddr_kernel};
-		setenv bootargs $${bootargs} $${fs_type} aml_dt=$${aml_dt};
-		if test $${active_slot} != normal;
-			then setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
-		fi;
-		if imgread kernel $${boot_part} $${loadaddr}; then bootm $${loadaddr}; fi;
-	fi;
-elif test $${boot_mode} = bootloader; then
+if test $${boot_mode} = bootloader; then
 	echo "  Go bootloader fastboot Mode"
 	fastboot 0
 fi;
 
 ${_load_dtb}
+if test $${boot_mode} = recovery; then
+	echo "  Go Recovery Mode"
+	setenv recovery_mode true;
+	setenv bootargs $${bootargs} $${fs_type} aml_dt=$${aml_dt};
+else
+	echo "  Go Normal Boot Mode"
 ${_load_ini}
-setenv bootconfig $${bootconfig} androidboot.force_normal_boot=1;
-
-if test $${active_slot} != normal;
-	then setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
+	setenv bootconfig $${bootconfig} androidboot.force_normal_boot=1;
+	setenv bootconfig $${bootconfig} androidboot.rollback=$${rollback_flag};
 fi;
 
-setenv bootconfig $${bootconfig} androidboot.rollback=$${rollback_flag};
-setenv loadaddr $${loadaddr_kernel};
+if test $${active_slot} != normal; then
+	setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
+fi;
 
-if imgread kernel $${boot_part} $${loadaddr};
-	then bootm $${loadaddr};
+if imgread kernel $${boot_part} $${loadaddr}; then
+	bootm $${loadaddr};
 fi;
 
 # read dtb from boot_part
