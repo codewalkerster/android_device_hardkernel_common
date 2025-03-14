@@ -5,6 +5,7 @@ echo "Start boot.scr booting."
 run storeargs;
 
 setenv bootargs $${bootargs} console=ttyS0,$${baudrate}
+setenv bootargs $${bootargs} vendor.serialno=$${serial#}
 
 echo "  Init default values"
 
