@@ -130,6 +130,8 @@ if [ "$BUILD_UBOOT" = true ] ; then
 
 	popd
 
+	cp u-boot/build/u-boot.bin.signed device/hardkernel/odroidc5/bootloader.img
+
 	if [ $? -eq 0 ]; then
 		echo "Build uboot ok!"
 	else
