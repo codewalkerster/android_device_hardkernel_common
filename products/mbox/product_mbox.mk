@@ -138,7 +138,7 @@ endif
 
 ifeq ($(ODROID_BOARD), true)
 PRODUCT_PACKAGES += \
-    OdroidSettingsResOverlay \
+    OdroidSettingsResOverlay
 else
 ifeq ($(ATV_LAUNCHER),amati)
 PRODUCT_PACKAGES += \
