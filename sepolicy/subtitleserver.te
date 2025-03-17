@@ -16,7 +16,6 @@ get_prop(subtitleserver, vendor_platform_prop)
 get_prop(subtitleserver, vendor_media_prop);
 
 allow subtitleserver subtitle_device:chr_file rw_file_perms;
-allow subtitleserver dvb_device:chr_file rw_file_perms;
 allow subtitleserver codec_device:chr_file r_file_perms;
 allow subtitleserver sysfs_video:file rw_file_perms;
 allow subtitleserver sysfs_video:dir search;

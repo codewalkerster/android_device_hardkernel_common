@@ -15,7 +15,7 @@ allow tvserver hwservicemanager_prop:file { open read getattr map };
 allow tvserver { hal_tv_input_default system_app }:binder { call transfer };
 
 
-allow tvserver { video_device vendor_video_device dvb_video_device amvideo_device mediactl_video_device }:chr_file  { read write open ioctl getattr };
+allow tvserver { video_device vendor_video_device amvideo_device mediactl_video_device }:chr_file  { read write open ioctl getattr };
 allow tvserver { hdmirx0_device avin_device }:chr_file  { read write open ioctl getattr };
 
 allow tvserver audio_device:dir { search };
@@ -68,7 +68,6 @@ allow tvserver sysfs:file { read write open };
 allow tvserver oemfs:dir search;
 
 #add for search channel
-allow tvserver dvb_device:chr_file { open read write ioctl };
 allow tvserver frontend_device:chr_file { open read write ioctl };
 allow tvserver priv_app:binder { call };
 allow tvserver codec_device:chr_file { read write open ioctl };

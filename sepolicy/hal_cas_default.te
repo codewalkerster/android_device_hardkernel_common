@@ -12,7 +12,6 @@ allow hal_cas_default mediaserver:binder{ transfer call };
 
 get_prop(hal_cas_default, vendor_media_prop)
 allow hal_cas_default aml_dsm_device:chr_file rw_file_perms;
-allow hal_cas_default dvb_device:chr_file rw_file_perms;
 allow hal_cas_default sysfs_cec:dir { search };
 allow hal_cas_default sysfs_cec:file { getattr open read write };
 allow hal_cas_default sysfs_amhdmitx:dir { search };

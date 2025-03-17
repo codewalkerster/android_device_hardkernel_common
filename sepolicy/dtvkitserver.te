@@ -22,7 +22,6 @@ allow dtvkitserver hal_hidlimw_file:file create_file_perms;
 allow dtvkitserver hal_hidlimw_file:chr_file{ ioctl };
 allow dtvkitserver vndbinder_device:chr_file { read write open ioctl };
 allow dtvkitserver vndservicemanager:binder { call transfer };
-allow dtvkitserver dvb_device:chr_file { open read write ioctl getattr};
 allow dtvkitserver frontend_device:chr_file { open read write ioctl getattr};
 allow dtvkitserver vendor_shell_exec:file execute_no_trans;
 allow dtvkitserver sysfs:file { write open read  getattr map};

@@ -22,7 +22,6 @@ allow bootanim system_server:binder { call transfer };
 allow bootanim systemcontrol_hwservice:hwservice_manager { find };
 allow bootanim system_control:binder { call transfer };
 allow bootanim ptsserver_device:chr_file { open read write ioctl };
-allow bootanim dvb_device:chr_file { open read write ioctl };
 allow bootanim codec_device:chr_file { open read write ioctl };
 allow bootanim sysfs_stb:dir { search };
 allow bootanim sysfs_stb:file { open read write };

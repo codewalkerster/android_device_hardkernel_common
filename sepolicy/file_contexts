@@ -164,8 +164,6 @@
 /dev/defendkey      			u:object_r:defendkey_device:s0
 /dev/display        			u:object_r:display_device:s0
 /dev/dtb            			u:object_r:dtb_device:s0
-/dev/dvb0.*         			u:object_r:dvb_device:s0
-/dev/smc0                   u:object_r:dvb_device:s0
 
 #usb ci device
 /dev/cimodule_command0                   u:object_r:usbci_device:s0

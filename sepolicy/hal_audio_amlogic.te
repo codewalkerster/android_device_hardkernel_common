@@ -51,7 +51,6 @@ allow hal_audio_amlogic sysfs:dir { open read };
 allow hal_audio_amlogic vendor_data_file:dir { add_name remove_name write };
 allow hal_audio_amlogic vendor_data_file:lnk_file { read };
 allow hal_audio_amlogic vendor_data_file:file { create read open setattr unlink};
-allow hal_audio_amlogic dvb_device:chr_file { open read write ioctl };
 allow hal_audio_amlogic frontend_device:chr_file { open read write ioctl };
 allow hal_audio_amlogic codec_device:chr_file { read write open ioctl };
 #allow hal_audio_amlogic hidraw_audio_device:chr_file { create read write open ioctl};

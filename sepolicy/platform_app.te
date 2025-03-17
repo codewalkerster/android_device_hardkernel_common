@@ -17,7 +17,6 @@ allow platform_app ota_package_file:dir { search create_dir_perms };
 allow platform_app ota_package_file:file { create_file_perms};
 allow platform_app tvserver_hwservice:hwservice_manager { find };
 allow platform_app tvserver:binder { call transfer };
-allow platform_app dvb_device:chr_file { open read write ioctl getattr};
 
 allow platform_app subtitleserver_hwservice:hwservice_manager { find };
 allow platform_app subtitleserver:binder { call transfer };

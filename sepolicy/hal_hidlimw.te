@@ -19,7 +19,6 @@ allow hal_hidlimw vendor_tv_prop:file { read getattr open };
 allow hal_hidlimw { vendor_video_device codec_device }:file { read write open };
 allow hal_hidlimw { sysfs_stb sysfs_video }:dir { search };
 allow hal_hidlimw {
-    dvb_device
     uio_device
     video_device
     vendor_video_device
@@ -33,7 +32,6 @@ allow hal_hidlimw {
     aml_dsm_device
 }:chr_file { read write open ioctl getattr };
 allowxperm hal_hidlimw {
-    dvb_device
     uio_device
     video_device
     vendor_video_device

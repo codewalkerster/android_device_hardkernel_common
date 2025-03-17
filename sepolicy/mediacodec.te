@@ -17,7 +17,6 @@ allow mediacodec video_device:chr_file rw_file_perms;
 allow mediacodec vendor_video_device:chr_file rw_file_perms;
 allow mediacodec codec_device:chr_file rw_file_perms;
 allow mediacodec mediasync_device:chr_file rw_file_perms;
-allow mediacodec dvb_device:chr_file { read write open ioctl };
 
 allow mediacodec sysfs_video:file rw_file_perms;
 allow mediacodec sysfs_video:dir r_dir_perms;
