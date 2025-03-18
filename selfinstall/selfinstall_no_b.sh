@@ -22,21 +22,21 @@ dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=1
 
 dd if=$PRODUCT_OUT/fat.img of=$TARGET_IMAGE bs=512 seek=8192
 dd if=$PRODUCT_OUT/vendor_boot.img of=$TARGET_IMAGE bs=512 seek=260096
-dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=395264
-dd if=$MISC_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=483328
-dd if=$COMMON_KERNEL_BUILD_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=489472
-dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=555008
-dd if=$PRODUCT_OUT/oem.img of=$TARGET_IMAGE bs=512 seek=624640
-dd if=$PRODUCT_OUT/boot.img of=$TARGET_IMAGE bs=512 seek=759808
-dd if=$PRODUCT_OUT/init_boot.img of=$TARGET_IMAGE bs=512 seek=1026048
-dd if=$PRODUCT_OUT/super.img of=$TARGET_IMAGE bs=512 seek=1196032
+dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=327680
+dd if=$MISC_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=405504
+dd if=$COMMON_KERNEL_BUILD_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=411648
+dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=471040
+dd if=$PRODUCT_OUT/oem.img of=$TARGET_IMAGE bs=512 seek=505856
+dd if=$PRODUCT_OUT/boot.img of=$TARGET_IMAGE bs=512 seek=573440
+dd if=$PRODUCT_OUT/init_boot.img of=$TARGET_IMAGE bs=512 seek=706560
+dd if=$PRODUCT_OUT/super.img of=$TARGET_IMAGE bs=512 seek=858112
 
 echo -e \
 	"n\np\n2\n" \
 	"8192\n47103\n" \
 	"t\n4\n" \
 	"n\np\n3\n" \
-	"395264\n403455\n" \
+	"327680\n335871\n" \
 	"t\n2\n83\n" \
 	"w\n" \
 	|fdisk $TARGET_IMAGE >/dev/null #2>&1

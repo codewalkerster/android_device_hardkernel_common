@@ -28,6 +28,7 @@ BUILD_VERSION=""
 BUILD_JOBS=16
 BUILD_SELF=false
 BUILD_AB=`get_build_var AB_OTA_UPDATER`
+BUILD_NO_B=`get_build_var REMOVE_B_PARTITIONS`
 
 # check pass argument
 while getopts "UKABSpov:d:V:J:" arg
@@ -251,5 +252,9 @@ fi
 
 if [ "$BUILD_SELF" = true ] ; then
 	echo "Start make self install image"
-	$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH
+	if [ "$BUILD_NO_B" = true ] ; then
+		$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall_no_b.sh $IMAGE_PATH
+	else
+		$PROJECT_TOP/device/hardkernel/common/selfinstall/selfinstall.sh $IMAGE_PATH
+	fi
 fi
