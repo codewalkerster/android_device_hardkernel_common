@@ -11,6 +11,14 @@ setenv target_media 1
 setenv fat_index 2
 setenv bootloader_index 3
 
+setenv fat_partitions 1 2 3
+
+for idx in $fat_partitions; do
+	if fatinfo mmc $target_media:$idx; then
+		setenv fat_index $idx;
+	fi;
+done;
+
 mmc dev $target_media
 
 echo "  Copy bootloader to boot0/1"
