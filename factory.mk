@@ -1,4 +1,4 @@
-include device/hardkernel/common/odm_ext.mk
+include device/hardkernel/common/build/amlogic/odm_ext.mk
 TARGET_USE_USB_FLOW_AML ?= true
 
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
