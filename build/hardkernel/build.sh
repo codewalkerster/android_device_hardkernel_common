@@ -180,7 +180,7 @@ if [ "$BUILD_ANDROID" = true ] ; then
 				echo "Build android failed!"
 				exit 1
 			fi
-			./mkimage_ab.sh ota
+			make -j$BUILD_JOBS otapackage
 			# check the result of make
 			if [ $? -eq 0 ]; then
 				echo "Build android ok!"
@@ -207,7 +207,7 @@ if [ "$BUILD_ANDROID" = true ] ; then
 				echo "Build android failed!"
 				exit 1
 			fi
-			./mkimage.sh ota
+			make -j$BUILD_JOBS otapackage
 			# check the result of make
 			if [ $? -eq 0 ]; then
 				echo "Build android ok!"
