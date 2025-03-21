@@ -21,9 +21,6 @@ setenv overlays_resize 16384
 setenv devtype mmc
 setenv devnum 1
 
-setenv active_slot ${_active_slot}
-setenv slot-suffixes ${_slot_suffix}
-setenv boot_part ${_boot_part}
 
 setenv fat_partitions 1 2 3
 
@@ -32,8 +29,6 @@ for idx in $$fat_partitions; do
 		setenv fat_index $$idx;
 	fi;
 done;
-
-echo "  active_slot in storeboot: $${active_slot}"
 
 setenv boot_mode non
 
@@ -84,14 +79,49 @@ ${_load_ini}
 	setenv bootconfig $${bootconfig} androidboot.rollback=$${rollback_flag};
 fi;
 
-if test $${active_slot} != normal; then
-	setenv bootconfig $${bootconfig} androidboot.slot_suffix=$${active_slot};
-fi;
+if test ${_active_slot} = normal; then
+	echo "  Try normal boot"
+	setenv active_slot normal
+	setenv slot-suffixes -1
+	setenv boot_part boot
 
-if imgread kernel $${boot_part} $${loadaddr}; then
-	bootm $${loadaddr};
-fi;
+	if imgread kernel $${boot_part} $${loadaddr}; then
+		bootm $${loadaddr};
+	fi;
+	
+	# read dtb from boot_part
+	imgread dtb $${boot_part} $${dtb_mem_addr}
+	bootm $${loadaddr}
+fi
 
+setenv bootconfig_a $${bootconfig} androidboot.slot_suffix=_a
+setenv bootconfig_b $${bootconfig} androidboot.slot_suffix=_b
+
+setenv tries 1 2 3
+for try in $$tries; do
+	ab_select active_slot $$devtype $$devnum#misc
+	echo "  Try $${active_slot} slot boot"
+
+	if test $${active_slot} = a; then;
+		setenv active_slot _a
+		setenv slot-suffixes 0
+		setenv boot_part boot_a
+	setenv bootconfig $${bootconfig_a}
+	fi;
+	if test $${active_slot} = b; then;
+		setenv active_slot _b
+		setenv slot-suffixes 1
+		setenv boot_part boot_b
+	setenv bootconfig $${bootconfig_b}
+	fi;
+
+	#setenv bootconfig $${bootconfig_a}
+	
+	if imgread kernel $${boot_part} $${loadaddr}; then
+		bootm $${loadaddr};
+	fi;
+done
+	
 # read dtb from boot_part
 imgread dtb $${boot_part} $${dtb_mem_addr}
 bootm $${loadaddr}

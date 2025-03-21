@@ -14,12 +14,8 @@ sd_boot_device := $(PRODUCT_SDMMC_DEVICE)
 
 ifeq ($(AB_OTA_UPDATER), true)
 active_slot := _a
-slot_suffix = 0
-boot_part := boot_a
 else
 active_slot := normal
-slot_suffix = -1
-boot_part := boot
 endif
 
 intermediates := $(call intermediates-dir-for,FAKE,hardkernel_bootscript)
@@ -35,7 +31,6 @@ $(rebuild_bootscript) : $(PRODUCT_BOOTSCRIPT_TEMPLATE) $(HARDKERNEL_BOOTSCRIP_TO
 	--input_dtb_subscript $(PRODUCT_BOOTSCRIPT_DTB_TEMPLATE) \
 	--input_ini_subscript $(PRODUCT_BOOTSCRIPT_INI_TEMPLATE) \
 	--variant $(TARGET_BUILD_VARIANT) \
-	--boot-part $(boot_part) \
 	--recovery-part $(recovery_part) \
 	--wifi-country $(wifi_country) \
 	--mtd $(mtd) \
@@ -44,8 +39,7 @@ $(rebuild_bootscript) : $(PRODUCT_BOOTSCRIPT_TEMPLATE) $(HARDKERNEL_BOOTSCRIP_TO
 	--output $(rebuild_bootscript) \
 	--emmc-boot-device $(emmc_boot_device) \
 	--sd-boot-device $(sd_boot_device) \
-	--active-slot $(active_slot) \
-	--slot-suffix $(slot_suffix)
+	--active-slot $(active_slot)
 
 $(rebuild_bootscr) : $(rebuild_bootscript)
 	$(BOOT_SCRIPT_TOOL) $^ $(rebuild_bootscr)
