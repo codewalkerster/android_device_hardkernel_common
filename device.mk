@@ -10,3 +10,9 @@ PRODUCT_PACKAGES += \
     libwiringPi \
     libwiringPiDev \
     gpio
+
+PRODUCT_PACKAGES += \
+    Things \
+    odroidThings \
+    com.google.android.things.xml \
+    vendor.hardkernel.hardware.odroidthings@1.0-service

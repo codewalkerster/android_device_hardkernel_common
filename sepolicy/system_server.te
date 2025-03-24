@@ -73,3 +73,7 @@ allow system_server hal_tv_hdmi_earc_default:process { signal };
 allow system_server hal_tv_tuner_default:process { signal };
 allow system_server hal_dumpstate_default:process { signal };
 allow system_server subtitleserver:process { signal };
+
+#odroid things
+allow system_server odroid_thing:file write;
+allow system_server odroid_thing:binder call;

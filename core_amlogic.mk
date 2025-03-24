@@ -1189,6 +1189,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_errormonitor.xml
 endif
 
+ifeq ($(ODROID_BOARD), true)
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/hardkernel/frameworks/vendor.hardkernel.hardware.odroidthings@1.0-service.xml
+endif # ODROID_BOARD
+
 #################bluetooth 15.4 thread so ####################
 PRODUCT_PACKAGES += \
     thread_ncp_aml \
