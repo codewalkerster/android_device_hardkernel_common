@@ -269,3 +269,6 @@
 /sys/class/audiodsp                 dts_dec_control       0664         media       system
 
 parallel_restorecon enabled
+
+#odroid things
+/dev/gpiomem   0666    media    media
