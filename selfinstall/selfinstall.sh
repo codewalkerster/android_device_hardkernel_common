@@ -26,7 +26,9 @@ dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=395264
 dd if=$MISC_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=483328
 dd if=$COMMON_KERNEL_BUILD_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=489472
 dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=555008
+dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=589824
 dd if=$PRODUCT_OUT/oem.img of=$TARGET_IMAGE bs=512 seek=624640
+dd if=$PRODUCT_OUT/oem.img of=$TARGET_IMAGE bs=512 seek=692224
 dd if=$PRODUCT_OUT/boot.img of=$TARGET_IMAGE bs=512 seek=759808
 dd if=$PRODUCT_OUT/init_boot.img of=$TARGET_IMAGE bs=512 seek=1026048
 dd if=$PRODUCT_OUT/super.img of=$TARGET_IMAGE bs=512 seek=1196032
