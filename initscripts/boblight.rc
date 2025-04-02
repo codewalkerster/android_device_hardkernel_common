@@ -1,0 +1,9 @@
+on property:sys.boot_completed=1
+    start boblight
+
+service boblight /vendor/bin/boblight
+    class core
+    user root
+    group root
+    disabled
+    oneshot
