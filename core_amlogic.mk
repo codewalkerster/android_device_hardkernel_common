@@ -1218,3 +1218,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
      usb_dongle \
      usb_modeswitch
+
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_PACKAGES += \
+    AndroidTerm \
+    KIOSK_Demo \
+    Iceraven
+endif # ODROID_BOARD
