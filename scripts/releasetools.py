@@ -248,6 +248,8 @@ def FullOTA_InstallEnd(info):
   ZipOtherImage("vbmeta", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("init_boot", OPTIONS.input_tmp, info.output_zip)
   ZipOtherImage("odm_ext", OPTIONS.input_tmp, info.output_zip)
+  ZipOtherImage("oem", OPTIONS.input_tmp, info.output_zip)
+  ZipOtherImage("fat", OPTIONS.input_tmp, info.output_zip)
 
   if not OPTIONS.two_step:
     ZipOtherImage("recovery", OPTIONS.input_tmp, info.output_zip)
@@ -277,6 +279,10 @@ def FullOTA_InstallEnd(info):
 package_extract_file("dtbo.img", "/dev/block/by-name/dtbo");
 ui_print("update odm_ext.img...");
 package_extract_file("odm_ext.img", "/dev/block/by-name/odm_ext");
+ui_print("update oem.img...");
+package_extract_file("oem.img", "/dev/block/by-name/oem");
+ui_print("update fat.img...");
+package_extract_file("fat.img", "/dev/block/by-name/fat");
 if recovery_backup_exist() == "0" then
 backup_data_cache(recovery, /cache/recovery/);""")
 
@@ -405,6 +411,8 @@ def IncrementalOTA_ImageCheck(info, name):
 def IncrementalOTA_InstallEnd(info):
   print("amlogic extensions:IncrementalOTA_InstallEnd")
   IncrementalOTA_ImageCheck(info, "odm_ext");
+  IncrementalOTA_ImageCheck(info, "oem");
+  IncrementalOTA_ImageCheck(info, "fat");
   IncrementalOTA_ImageCheck(info, "dt");
   IncrementalOTA_ImageCheck(info, "recovery");
   IncrementalOTA_ImageCheck(info, "vbmeta");

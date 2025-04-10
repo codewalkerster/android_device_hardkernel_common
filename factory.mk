@@ -108,8 +108,13 @@ endif
 
 ifeq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 BUILT_IMAGES += oem.img
+INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/oem.img
 VB_CHECK_IMAGES += oem.img
 endif
+
+BUILT_IMAGES += fat.img
+INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/fat.img
+VB_CHECK_IMAGES += fat.img
 
 ifeq ($(BOARD_USES_VBMETA_SYSTEM),true)
 BUILT_IMAGES += vbmeta_system.img

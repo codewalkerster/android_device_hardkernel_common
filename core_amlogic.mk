@@ -962,6 +962,9 @@ AB_OTA_PARTITIONS += \
     init_boot
 endif
 
+AB_OTA_PARTITIONS += \
+    fat
+
 TARGET_BOOTLOADER_CONTROL_BLOCK := true
 
 ifeq ($(TARGET_BUILD_KERNEL_VERSION),4.9)
