@@ -75,6 +75,7 @@ if test $${boot_mode} = recovery; then
 else
 	echo "  Go Normal Boot Mode"
 ${_load_ini}
+	setenv bootargs $${bootargs} $${user_def_args}
 	setenv bootconfig $${bootconfig} androidboot.force_normal_boot=1;
 	setenv bootconfig $${bootconfig} androidboot.rollback=$${rollback_flag};
 fi;
