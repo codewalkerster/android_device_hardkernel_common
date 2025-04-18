@@ -10,19 +10,17 @@ HOST_OUT=`get_build_var HOST_OUT_EXECUTABLES`
 SGDISK_HOST=$HOST_OUT/sgdisk
 
 PRODUCT_OUT=`get_build_var PRODUCT_OUT`
-
-UBOOT_BUILD_PATH=u-boot/build
-UBOOT_IMG=u-boot.bin.signed
+UBOOT_IMG=`get_build_var PRODUCT_UBOOT_TARGET`
 
 COMMON_KERNEL_BUILD_PATH=common/common14-5.15/out/android/`get_build_var TARGET_PRODUCT`/
 
 MISC_PATH=device/hardkernel/common/selfinstall
 
-dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=1
+dd if=$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=1
 
-dd if=$PRODUCT_OUT/fat.img of=$TARGET_IMAGE bs=512 seek=8192
+dd if=$PRODUCT_OUT/selfinstall_fat.img of=$TARGET_IMAGE bs=512 seek=8192
 dd if=$PRODUCT_OUT/vendor_boot.img of=$TARGET_IMAGE bs=512 seek=260096
-dd if=$UBOOT_BUILD_PATH/$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=395264
+dd if=$UBOOT_IMG of=$TARGET_IMAGE bs=512 seek=395264
 dd if=$MISC_PATH/misc.img of=$TARGET_IMAGE bs=512 seek=483328
 dd if=$COMMON_KERNEL_BUILD_PATH/dtbo.img of=$TARGET_IMAGE bs=512 seek=489472
 dd if=$PRODUCT_OUT/odm_ext.img of=$TARGET_IMAGE bs=512 seek=555008
