@@ -8,7 +8,6 @@ source_dir := $(intermediates)/selfinstall_fat
 build_fat_img := $(intermediates)/selfinstall_fat.img
 boot_scr := $(PRODUCT_OUT)/boot.scr
 selfinstall_boot_scr := $(PRODUCT_OUT)/selfinstall_boot.scr
-update_boot_scr := $(PRODUCT_OUT)/update_boot.scr
 logo_bmp := $(PRODUCT_OUT)/boot-logo.bmp.gz
 gpt_img := $(PRODUCT_OUT)/gpt.img
 
@@ -25,7 +24,6 @@ $(build_fat_img) : $(boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_img)
 	$(MKFS_FAT) -F16 -n VFAT $(build_fat_img)
 	mkdir -p $(source_dir)/scripts
 	cp $(selfinstall_boot_scr) $(source_dir)/scripts/selfinstall_boot.scr
-	cp $(update_boot_scr) $(source_dir)/scripts/update_boot.scr
 	cp $(boot_scr) $(source_dir)/scripts/boot.scr
 	cp $(selfinstall_boot_scr) $(source_dir)/boot.scr
 	mkdir -p $(source_dir)/amlogic
