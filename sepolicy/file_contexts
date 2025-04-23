@@ -460,9 +460,6 @@
 #/vendor/bin/bootplayer       u:object_r:bootvideo_exec:s0
 #/vendor/bin/dv_config        u:object_r:dv_config_exec:s0
 
-/vendor/bin/hw/aml_comm_diag    u:object_r:wifi_fw_log_exec:s0
-/vendor/bin/hw/iwpriv            u:object_r:wifi_fw_log_exec:s0
-
 # Kernel modules related
 /vendor/bin/modules_load       u:object_r:modules_load_exec:s0
 #/system/bin/mke2fs       --   u:object_r:fsck_exec:s0
