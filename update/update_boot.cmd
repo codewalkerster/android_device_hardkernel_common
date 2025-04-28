@@ -7,7 +7,7 @@ echo "  Init default values"
 setenv buffer_addr 0x20000000
 setenv boot_size 0x2000
 
-setenv target_media 1
+setenv target_media 0
 setenv fat_index 2
 
 setenv fat_partitions 1 2 3
