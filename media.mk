@@ -35,11 +35,13 @@ TARGET_ENABLE_TA_SIGN := true
 TARGET_USE_HW_KEYMASTER := true
 endif
 
-ifneq ($(ODROID_BOARD), true)
+ifeq ($(ODROID_BOARD), true)
+TARGET_USE_HW_KEYMASTER := true
+else # ODROID_BOARD
 ifneq ($(BOARD_COMPILE_CTS), true)
 TARGET_USE_HW_KEYMASTER := false
 endif
-endif # not ODROID_BOARD
+endif
 
 #
 #media related config for amlogic &
