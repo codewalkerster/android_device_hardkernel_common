@@ -648,7 +648,12 @@ PRODUCT_PACKAGES += \
 endif
 
 #RKP HAL
-ifeq ($(TARGET_OLD_DEVICE), true)
+ifeq ($(LAUNCH_VERSION),Q)
+    TARGET_OLD_DEVICE ?= true
+    NO_RKP_HAL ?= true
+else ifeq ($(LAUNCH_VERSION),R)
+    NO_RKP_HAL ?= true
+else ifeq ($(LAUNCH_VERSION),S)
     NO_RKP_HAL ?= true
 endif
 
