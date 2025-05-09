@@ -25,50 +25,50 @@ ifeq ($(strip $(FRC_FW_MODULE)),true)
                 device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
         endif
     else
-		ifeq ($(TARGET_BUILD_KERNEL_USING_14_5.15),true)
-			ifneq ($(KERNEL_A32_SUPPORT),true)
-				ifeq ($(TARGET_PRODUCT), T5M)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), calla)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), T3)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), smith)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), t982_ar301)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), t982_ar301_arm64)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), T3X)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				else ifeq ($(TARGET_PRODUCT), anemone)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				endif
-			endif
-		else
-			ifneq ($(KERNEL_A32_SUPPORT),true)
-				ifeq ($(TARGET_PRODUCT), T5M)
-					PRODUCT_COPY_FILES += \
-						device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
-						device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
-				endif
-			endif
-		endif
+        ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
+            ifneq ($(KERNEL_A32_SUPPORT),true)
+                ifneq ($(filter calla_gtv calla calla_wv4_gtv calla_wv4, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15_upgrade/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                else ifneq ($(filter smith t982_ar301 t982_ar301_arm64 t982_ar301_arm64_gms, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15_upgrade/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                else ifneq ($(filter anemone anemone_multidisplay anemone_gtv, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15_upgrade/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                endif
+	    else
+                ifneq ($(filter calla_gtv calla_wv4_gtv calla calla_wv4, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15_upgrade/32/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                endif
+            endif
+        else
+            ifneq ($(KERNEL_A32_SUPPORT),true)
+                ifneq ($(filter calla_gtv calla calla_wv4_gtv calla_wv4, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                else ifneq ($(filter smith t982_ar301 t982_ar301_arm64 t982_ar301_arm64_gms, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                else ifneq ($(filter anemone anemone_multidisplay anemone_gtv, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15/64/frc_fw_t3x.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                endif
+            else
+                ifneq ($(filter calla_gtv calla_wv4_gtv calla calla_wv4, $(TARGET_PRODUCT)),)
+                    PRODUCT_COPY_FILES += \
+                        device/hardkernel/common/video_algorithm/frc/14_5.15/32/frc_fw_t5m.ko:$(PRODUCT_OUT)/obj/lib_vendor/frc_fw.ko \
+                        device/hardkernel/common/initscripts/frc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/frc.rc
+                endif
+            endif
+        endif
     endif
 endif

@@ -36,7 +36,15 @@ ifeq ($(strip $(LDIM_FW_MODULE)),true)
         endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
-
+	    ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
+                PRODUCT_COPY_FILES += \
+                    device/hardkernel/common/ldim/A32_5_15_upgrade/ldim_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/ldim_fw.ko \
+                    device/hardkernel/common/initscripts/ldim.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ldim.rc
+            else
+            PRODUCT_COPY_FILES += \
+                device/hardkernel/common/ldim/A32_5_15/ldim_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/ldim_fw.ko \
+                device/hardkernel/common/initscripts/ldim.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ldim.rc
+	    endif
         else
             PRODUCT_COPY_FILES += \
                 device/hardkernel/common/ldim/A64_5_15/ldim_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/ldim_fw.ko \

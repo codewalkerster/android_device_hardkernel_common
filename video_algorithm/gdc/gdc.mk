@@ -23,9 +23,15 @@ ifeq ($(strip $(GDC_FW_MODULE)),true)
 
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
-            PRODUCT_COPY_FILES += \
-                device/hardkernel/common/video_algorithm/gdc/32/gdc_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/gdc_fw.ko \
-                device/hardkernel/common/initscripts/gdc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/gdc.rc
+            ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
+                PRODUCT_COPY_FILES += \
+                    device/hardkernel/common/video_algorithm/gdc/32_upgrade/gdc_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/gdc_fw.ko \
+                    device/hardkernel/common/initscripts/gdc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/gdc.rc
+            else
+	    	PRODUCT_COPY_FILES += \				  
+                    device/hardkernel/common/video_algorithm/gdc/32/gdc_fw.ko:$(PRODUCT_OUT)/obj/lib_vendor/gdc_fw.ko \
+                    device/hardkernel/common/initscripts/gdc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/gdc.rc
+	    endif
         else
             ifneq ($(filter P Q R S,$(LAUNCH_VERSION)),)
                 PRODUCT_COPY_FILES += \
