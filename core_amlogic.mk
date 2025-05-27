@@ -1221,7 +1221,8 @@ PRODUCT_PACKAGES += \
     gps.amlogic
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.gps.node=ttyACM
+    persist.vendor.gps.node=ttyACM \
+    persist.bt.service.down=true
 
 PRODUCT_PACKAGES += \
      usb_dongle \
