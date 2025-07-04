@@ -1,0 +1,51 @@
+# Define the SELinux type for the dhp_daemon process
+type dhp_daemon, domain;
+type dhp_daemon_exec, exec_type, vendor_file_type, file_type;
+type aml_dhp_dev, dev_type;
+
+# Allow dhp_daemon to run as a service
+init_daemon_domain(dhp_daemon)
+
+# Allow dhp_daemon to read system properties
+get_prop(dhp_daemon, vendor_default_prop);
+get_prop(dhp_daemon, vendor_persist_prop);
+
+# Allow dhp_daemon to execute its binary
+allow dhp_daemon self:process execmem;
+
+# Allow dhp_daemon rw aml_dhp_dev device file
+allow dhp_daemon aml_dhp_dev:chr_file { read write open ioctl getattr };
+
+# Allow dhp_daemon to access its executable file
+allow dhp_daemon dhp_daemon_exec:file { entrypoint read execute open getattr };
+
+# Allow dhp_daemon to access storage directories and files
+allow dhp_daemon storage_file:dir rw_dir_perms;
+allow dhp_daemon storage_file:file rw_file_perms;
+
+# Allow dhp_daemon to access sdcardfs (SD card filesystem) directories and files
+allow dhp_daemon sdcardfs:dir rw_dir_perms;
+allow dhp_daemon sdcardfs:file create_file_perms;
+
+# Allow dhp_daemon to access system files and directories
+allow dhp_daemon system_file:dir r_dir_perms;
+
+# Allow dhp_daemon to create files and directories in /mnt/vendor
+allow dhp_daemon mnt_vendor_file:file create_file_perms;
+allow dhp_daemon mnt_vendor_file:dir create_dir_perms;
+
+# Allow dhp_daemon to access and modify files and directories in /mnt/user
+allow dhp_daemon mnt_user_file:dir rw_dir_perms;
+allow dhp_daemon mnt_user_file:file rw_file_perms;
+
+# Allow dhp_daemon to execute vendor-provided executables without domain transition
+allow dhp_daemon vendor_shell_exec:file execute_no_trans;
+allow dhp_daemon vendor_toolbox_exec:file execute_no_trans;
+allow dhp_daemon vendor_file:file execute_no_trans;
+
+# Allow dhp_daemon to read from tmpfs directories (temporary filesystem)
+allow dhp_daemon tmpfs:dir read;
+
+# Allow dhp_daemon to interact with sysfs (system filesystem)
+allow dhp_daemon sysfs:file { open read write };
+

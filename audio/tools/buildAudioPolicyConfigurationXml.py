@@ -1,7 +1,7 @@
 import sys, shutil, os, sys
 import logging
 import argparse
-
+import time
 import xml.etree.ElementTree as ET
 
 AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = ''
@@ -221,7 +221,8 @@ def genXmlFile(outputFilePath, odm, chipDeviceType, audioBuildType, version):
     # insert the license text
     audioPolicyCommonBaseXmlRoot.insert(0, license)
     # insert the build type info
-    buildInfo = ET.Comment(' device:' + chipDeviceType + ', buildType:' + audioBuildType + ', soundbar:' + AUDIO_POLICY_BUILD_PARAM_SOUNDBAR + ' ')
+    buildInfo = ET.Comment(' device:' + chipDeviceType + ' buildType:' + audioBuildType + ' soundbar:' + AUDIO_POLICY_BUILD_PARAM_SOUNDBAR +
+                           ' version:' + version + " time:" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + ' ')
     audioPolicyCommonBaseXmlRoot.insert(0, buildInfo)
 
     # attachedDevices
@@ -314,10 +315,6 @@ def parseArgs():
     argparser.add_argument('--chipDeviceType',
                            help="chip device directory name (ohm, calla, oppen...). Mandatory.",
                            required=True)
-    argparser.add_argument('--audioBuildType',
-                           help="audio build type (ms12, ddp, dtshd...). Mandatory.",
-                           metavar="audioBuildType",
-                           required=True)
     argparser.add_argument('--soundbarProduct',
                            help="Soundbar Product type. Mandatory.",
                            metavar="soundbarProduct",
@@ -341,25 +338,22 @@ def main():
         ANDROID_CODE_ROOT_PATH = os.path.dirname(ANDROID_CODE_ROOT_PATH)
     if len(sys.argv) != 1:
         args = parseArgs()
-        logging.warning('[buildAudioPolicyConfigurationXml:W] odm:' + args.odmDirName + ' device:' + args.chipDeviceType
-                    + ', audioBuildType:' + args.audioBuildType + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion + ', product:' + args.productType)
+        logging.info('[buildAudioPolicyConfigurationXml:W] odm:' + args.odmDirName + ' device:' + args.chipDeviceType
+                    + ', soundbar:' + args.soundbarProduct + ', version:' + args.atvVersion + ', product:' + args.productType)
         AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = args.productType
         AUDIO_POLICY_BUILD_PARAM_SOUNDBAR = args.soundbarProduct
         outDirPath = ANDROID_CODE_ROOT_PATH + "/out/aml/audio"
         logging.info('[buildAudioPolicyConfigurationXml:W] outDirPath: ' + outDirPath)
-        outputFilePath = outDirPath + '/audio_policy_configuration.xml'
-        genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, args.audioBuildType, args.atvVersion)
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
                 buildTypeName = dolby + dts
-                fileName = buildTypeName
-                if fileName == '':
-                    fileName = '_default'
-                outputFilePath = outDirPath + '/audio_policy_configuration' + fileName + '.xml'
+                outputFilePath = outDirPath + '/audio_policy_configuration' + buildTypeName + '.xml'
                 genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, buildTypeName, args.atvVersion)
+        # non-ms12, non-dts for backup
+        genXmlFile(outDirPath + '/audio_policy_configuration_default.xml', args.odmDirName, args.chipDeviceType, '', args.atvVersion)
     else:
         # cmd: python3 buildAudioPolicyConfigurationXml.py
-        logging.warning('[buildAudioPolicyConfigurationXml:W] debug mode')
+        logging.warning('[buildAudioPolicyConfigurationXml:W] debug mode, output dir:device/amlogic/common/audio/tools/output_files_test/')
         ottName = 'ohm_wv4'
         tvName = 'calla'
 

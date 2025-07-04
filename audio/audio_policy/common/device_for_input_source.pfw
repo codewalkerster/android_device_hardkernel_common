@@ -274,9 +274,7 @@ supDomain: DeviceForInputSource
 
 		conf: Sco
 			AvailableInputDevices Includes BluetoothScoHeadset
-			ANY
-				TelephonyMode Is InCall
-				TelephonyMode Is InCommunication
+			ForceUseForCommunication Is ForceBtSco
 
 			component: /Policy/policy/input_sources
 				component: default/applicable_input_device/mask/
@@ -597,10 +595,10 @@ supDomain: DeviceForInputSource
 				echo_reference = 0
 				stub = 0
 
-	domain: VoiceRecognitionAndUnprocessedAndHotword
+	domain: VoiceRecognitionAndUnprocessed
 		conf: ScoHeadset
-			ForceUseForRecord Is ForceBtSco
 			AvailableInputDevices Includes BluetoothScoHeadset
+			ForceUseForCommunication Is ForceBtSco
 
 			component: /Policy/policy/input_sources
 				component: voice_recognition/applicable_input_device/mask
@@ -612,14 +610,6 @@ supDomain: DeviceForInputSource
 					builtin_mic = 0
 					stub = 0
 				component: unprocessed/applicable_input_device/mask
-					bluetooth_sco_headset = 1
-					wired_headset = 0
-					usb_device = 0
-					usb_headset = 0
-					bluetooth_ble = 0
-					builtin_mic = 0
-					stub = 0
-				component: hotword/applicable_input_device/mask
 					bluetooth_sco_headset = 1
 					wired_headset = 0
 					usb_device = 0
@@ -648,14 +638,6 @@ supDomain: DeviceForInputSource
 					bluetooth_ble = 0
 					builtin_mic = 0
 					stub = 0
-				component: hotword/applicable_input_device/mask
-					bluetooth_sco_headset = 0
-					wired_headset = 1
-					usb_device = 0
-					usb_headset = 0
-					bluetooth_ble = 0
-					builtin_mic = 0
-					stub = 0
 
 		conf: UsbHeadset
 			AvailableInputDevices Includes UsbHeadset
@@ -670,14 +652,6 @@ supDomain: DeviceForInputSource
 					builtin_mic = 0
 					stub = 0
 				component: unprocessed/applicable_input_device/mask
-					bluetooth_sco_headset = 0
-					wired_headset = 0
-					usb_device = 0
-					usb_headset = 1
-					bluetooth_ble = 0
-					builtin_mic = 0
-					stub = 0
-				component: hotword/applicable_input_device/mask
 					bluetooth_sco_headset = 0
 					wired_headset = 0
 					usb_device = 0
@@ -706,14 +680,6 @@ supDomain: DeviceForInputSource
 					bluetooth_ble = 0
 					builtin_mic = 0
 					stub = 0
-				component: hotword/applicable_input_device/mask
-					bluetooth_sco_headset = 0
-					wired_headset = 0
-					usb_device = 1
-					usb_headset = 0
-					bluetooth_ble = 0
-					builtin_mic = 0
-					stub = 0
 
 		conf: BluetoothBle
 			AvailableInputDevices Includes BluetoothBle
@@ -728,14 +694,6 @@ supDomain: DeviceForInputSource
 					builtin_mic = 0
 					stub = 0
 				component: unprocessed/applicable_input_device/mask
-					bluetooth_sco_headset = 0
-					wired_headset = 0
-					usb_device = 0
-					usb_headset = 0
-					bluetooth_ble = 1
-					builtin_mic = 0
-					stub = 0
-				component: hotword/applicable_input_device/mask
 					bluetooth_sco_headset = 0
 					wired_headset = 0
 					usb_device = 0
@@ -764,14 +722,6 @@ supDomain: DeviceForInputSource
 					bluetooth_ble = 0
 					builtin_mic = 1
 					stub = 0
-				component: hotword/applicable_input_device/mask
-					bluetooth_sco_headset = 0
-					wired_headset = 0
-					usb_device = 0
-					usb_headset = 0
-					bluetooth_ble = 0
-					builtin_mic = 1
-					stub = 0
 
 		conf: Stub
 			AvailableInputDevices Includes Default
@@ -786,14 +736,6 @@ supDomain: DeviceForInputSource
 					builtin_mic = 0
 					stub = 1
 				component: unprocessed/applicable_input_device/mask
-					bluetooth_sco_headset = 0
-					wired_headset = 0
-					usb_device = 0
-					usb_headset = 0
-					bluetooth_ble = 0
-					builtin_mic = 0
-					stub = 1
-				component: hotword/applicable_input_device/mask
 					bluetooth_sco_headset = 0
 					wired_headset = 0
 					usb_device = 0
@@ -819,6 +761,88 @@ supDomain: DeviceForInputSource
 					bluetooth_ble = 0
 					builtin_mic = 0
 					stub = 0
+
+	domain: Hotword
+		conf: ScoHeadset
+			AvailableInputDevices Includes BluetoothScoHeadset
+			ForceUseForCommunication Is ForceBtSco
+
+			component: /Policy/policy/input_sources
+				component: hotword/applicable_input_device/mask
+					bluetooth_sco_headset = 1
+					wired_headset = 0
+					usb_device = 0
+					usb_headset = 0
+					bluetooth_ble = 0
+					builtin_mic = 0
+					stub = 0
+
+		conf: WiredHeadset
+			AvailableInputDevices Includes WiredHeadset
+
+			component: /Policy/policy/input_sources
+				component: hotword/applicable_input_device/mask
+					bluetooth_sco_headset = 0
+					wired_headset = 1
+					usb_device = 0
+					usb_headset = 0
+					bluetooth_ble = 0
+					builtin_mic = 0
+					stub = 0
+
+		conf: UsbHeadset
+			AvailableInputDevices Includes UsbHeadset
+
+			component: /Policy/policy/input_sources
+				component: hotword/applicable_input_device/mask
+					bluetooth_sco_headset = 0
+					wired_headset = 0
+					usb_device = 0
+					usb_headset = 1
+					bluetooth_ble = 0
+					builtin_mic = 0
+					stub = 0
+
+		conf: UsbDevice
+			AvailableInputDevices Includes UsbDevice
+
+			component: /Policy/policy/input_sources
+				component: hotword/applicable_input_device/mask
+					bluetooth_sco_headset = 0
+					wired_headset = 0
+					usb_device = 1
+					usb_headset = 0
+					bluetooth_ble = 0
+					builtin_mic = 0
+					stub = 0
+
+		conf: BuiltinMic
+			AvailableInputDevices Includes BuiltinMic
+
+			component: /Policy/policy/input_sources
+				component: hotword/applicable_input_device/mask
+					bluetooth_sco_headset = 0
+					wired_headset = 0
+					usb_device = 0
+					usb_headset = 0
+					bluetooth_ble = 0
+					builtin_mic = 1
+					stub = 0
+
+		conf: Stub
+			AvailableInputDevices Includes Default
+
+			component: /Policy/policy/input_sources
+				component: hotword/applicable_input_device/mask
+					bluetooth_sco_headset = 0
+					wired_headset = 0
+					usb_device = 0
+					usb_headset = 0
+					bluetooth_ble = 0
+					builtin_mic = 0
+					stub = 1
+		conf: Default
+			component: /Policy/policy/input_sources
 				component: hotword/applicable_input_device/mask
 					bluetooth_sco_headset = 0
 					wired_headset = 0

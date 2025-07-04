@@ -646,6 +646,11 @@
 /vendor/bin/hw/android\.hardware\.gatekeeper-service\.amlogic         u:object_r:hal_gatekeeper_default_exec:s0
 /vendor/bin/hw/android\.hardware\.media\.c2@1\.2-service              u:object_r:mediacodec_exec:s0
 
+# for kernel panic core-dump
+/vendor/bin/fulldump.sh          u:object_r:fulldump_exec:s0
+/data/vendor/ramdump(/.*)?       u:object_r:fulldump_data_file:s0
+/sys/kernel/mdump/compmsg      u:object_r:fulldump_sysfs:s0
+
 # Irdeto hidlimw
 /vendor/lib(64)?/libNativeIMW\.so                                     u:object_r:vendor_app_file:s0
 /(vendor|system/vendor)/bin/hw/vendor\.irdeto\.hal\.hidlimw@1\.0-service u:object_r:hal_hidlimw_exec:s0
@@ -698,6 +703,11 @@
 /vendor/lib(64)?/liberrormonitor_jni\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.errormonitor@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/liberrormonitorclient\.so        u:object_r:vendor_app_file:s0
+
+# dhp_daemon service
+/vendor/bin/dhp_daemon                  u:object_r:dhp_daemon_exec:s0
+/vendor/lib/libavbc_soft_decoder\.so    u:object_r:vendor_file:s0
+/dev/aml_dhp_dev                        u:object_r:aml_dhp_dev:s0
 
 /system/bin/ethtool                              u:object_r:ethtool_exec:s0
 

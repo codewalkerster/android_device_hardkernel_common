@@ -58,6 +58,11 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 
+########################################################################
+# the wifi chip doesn't support mdns offload wake up
+# ########################################################################
+TARGET_BUILD_MDNS := false
+
 #########################################################################
 #
 # PQ

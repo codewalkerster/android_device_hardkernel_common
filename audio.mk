@@ -116,24 +116,24 @@ PRODUCT_COPY_FILES += device/$(ODM_DIR)/$(PRODUCT_DIR)/files/$(AML_JSON_CONFIG_F
 #configurable audio policy
 USE_XML_AUDIO_POLICY_CONF := 1
 ifeq ($(USE_XML_AUDIO_POLICY_CONF),1)
-AUDIO_FEATURE_TYPE := _
+AUDIO_FEATURE_TYPE :=
 #for ms12 v2 case, it should use default one in /vendor/etc
 ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
     # without oem, is should use ms12 policy xml in /vendor/etc/
     ifeq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), false)
-        AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
+        AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ms12
     endif
 else ifeq ($(TARGET_DOLBY_VERSION), ms12_v1)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12v1_
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ms12v1
 else ifeq ($(TARGET_DOLBY_VERSION), ddp_only)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ddp_
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_ddp
 endif
 
 TARGET_DTS_VERSION ?= non_dts
 ifeq ($(TARGET_DTS_VERSION), dtsx)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtsx_
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtsx
 else ifeq ($(TARGET_DTS_VERSION), dtshd)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtshd_
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtshd
 endif
 
 ifeq ($(ODROID_BOARD), true)
@@ -162,27 +162,28 @@ else
 endif
 
 $(shell rm -rf device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
-ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
 $(shell mkdir -p $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR))
 # auto generate audio_policy_configuration.xml
 $(shell python device/hardkernel/common/audio/tools/buildAudioPolicyConfigurationXml.py \
     --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
     --chipDeviceType $(PRODUCT_DIR) \
-    --audioBuildType $(AUDIO_FEATURE_TYPE) \
     --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
     --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \
     --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,audio_policy_configuration_*,$(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR),$(TARGET_COPY_OUT_VENDOR)/etc)
-$(shell cp $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)/audio_policy_configuration.xml device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
+
+ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
+AUDIO_POLICY_XML_PATH := $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)
+$(warning "dynamic audioBuildType:$(AUDIO_FEATURE_TYPE), odm:$(AUDIO_POLICY_BUILD_PARAM_ODM), device:$(PRODUCT_DIR), \
+    product:$(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE), soundbar:$(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR), version:$(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION)")
 else
-ifeq (,$(wildcard device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml))
-    $(error "the static audio_policy_configuration.xml file not found in the device directory")
+AUDIO_POLICY_XML_PATH := device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/
+$(warning "static audioBuildType:$(AUDIO_FEATURE_TYPE)")
 endif
-$(shell cp device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
-endif
+$(shell cp $(AUDIO_POLICY_XML_PATH)/audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml device/hardkernel/common/audio/audio_policy_configuration_temp.xml)
 endif
 
 ##################################################################################
@@ -301,4 +302,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.audio.ms12.dynamic_sleep=true
 
-
+#support mulit audio decoder
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.multiaudio.decoder.support=1

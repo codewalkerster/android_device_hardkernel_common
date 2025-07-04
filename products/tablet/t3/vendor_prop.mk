@@ -178,9 +178,6 @@ endif
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=fdf00000.dwc2_a
-#audio dual spdif setting
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true

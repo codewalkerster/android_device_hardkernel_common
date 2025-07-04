@@ -201,9 +201,6 @@ endif
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=ff400000.dwc2_a
-#audio dual spdif setting
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
 
 #tv path use video_tunnel
 PRODUCT_PROPERTY_OVERRIDES += \

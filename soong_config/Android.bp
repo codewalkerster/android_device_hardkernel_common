@@ -97,6 +97,7 @@ soong_config_string_variable {
         "S905X5",
 	"S905X5L",
 	"S905D5",
+	"S905C5",
         "S905X5M",
         "S905Y4",
         "S905Y5",

@@ -163,9 +163,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.c2.vdec.h264_mmu_height=1080
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
-
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.av1=true

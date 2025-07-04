@@ -151,9 +151,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.4k_fps_max=125
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.is.dualspdif=true
-
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.av1=true

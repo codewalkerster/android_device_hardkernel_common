@@ -163,9 +163,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.c2.vdec.amdv_use_540p=true
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
-
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.av1=true

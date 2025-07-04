@@ -187,3 +187,6 @@ service pppoe_wrapper /system/bin/pppoe_wrapper
     disabled
     oneshot
     seclabel u:r:pppoe_wrapper:s0
+
+on property:sys.boot_completed=1 && property:ro.boot.enableconsole=1
+    start console

@@ -185,9 +185,6 @@ endif
 #usb controller
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.usb.controller=fe3b0000.crgudc2
-#audio dual spdif setting
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.locale=en-US

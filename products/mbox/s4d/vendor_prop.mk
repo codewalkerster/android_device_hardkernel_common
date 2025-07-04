@@ -161,9 +161,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.mediahal.videodec.media.c2_secure_prealloc=true
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.platform.is.dualspdif=true
-
 #support hardware av1 decoder
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.av1=true

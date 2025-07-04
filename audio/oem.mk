@@ -1,6 +1,6 @@
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 
-AUDIO_FEATURE_TYPE := _
+AUDIO_FEATURE_TYPE :=
 ifeq ($(TARGET_DOLBY_VERSION), ms12_v2)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)ms12_
     CUSTOM_IMAGE_COPY_FILES += \
@@ -20,11 +20,11 @@ endif
 
 TARGET_DTS_VERSION ?= non_dts
 ifeq ($(TARGET_DTS_VERSION), dtsx)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtsx_
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtsx
     CUSTOM_IMAGE_COPY_FILES += \
         vendor/amlogic/common/prebuilt/libstagefrighthw/lib/libHwAudio_dtsx.so:lib/libHwAudio_dtsx.so
 else ifeq ($(TARGET_DTS_VERSION), dtshd)
-    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)dtshd_
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtshd
     CUSTOM_IMAGE_COPY_FILES += \
         vendor/amlogic/common/prebuilt/libstagefrighthw/lib/libHwAudio_dtshd.so:lib/libHwAudio_dtshd.so
 endif
@@ -64,25 +64,15 @@ else
     AUDIO_POLICY_BUILD_PARAM_ODM := $(ODM_DIR)
 endif
 
-ifneq ($(AUDIO_FEATURE_TYPE),_)
-# prioritize use the xml in the device directory
+ifneq ($(AUDIO_FEATURE_TYPE),)
 ifeq ($(GEN_AUDIO_POLICY_DURING_BUILD_TIME),true)
+$(warning "dynamic audioBuildType:$(AUDIO_FEATURE_TYPE)")
 AML_AUDIO_POLICY_CONFIGURATION_XML_DIR := out/aml/audio/
-$(shell mkdir -p AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)
-# auto generate audio_policy_configuration.xml
-    $(shell python device/hardkernel/common/audio/tools/buildAudioPolicyConfigurationXml.py \
-        --odmDirName $(AUDIO_POLICY_BUILD_PARAM_ODM) \
-        --chipDeviceType $(PRODUCT_DIR) \
-        --audioBuildType $(AUDIO_FEATURE_TYPE) \
-        --soundbarProduct $(AUDIO_POLICY_BUILD_PARAM_SOUNDBAR) \
-        --atvVersion $(AUDIO_POLICY_BUILD_PARAM_ATV_VERSION) \
-        --productType $(AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE))
-    CUSTOM_IMAGE_COPY_FILES += $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)audio_policy_configuration.xml:etc/audio_policy_configuration.xml
+AUDIO_POLICY_XML_PATH := $(AML_AUDIO_POLICY_CONFIGURATION_XML_DIR)
 else
-ifeq (,$(wildcard device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml))
-    $(error "the static audio_policy_configuration.xml file not found in the device directory")
+$(warning "static audioBuildType:$(AUDIO_FEATURE_TYPE)")
+AUDIO_POLICY_XML_PATH := device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/
 endif
-CUSTOM_IMAGE_COPY_FILES += device/$(AUDIO_POLICY_BUILD_PARAM_ODM)/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:etc/audio_policy_configuration.xml
-endif
-endif
+CUSTOM_IMAGE_COPY_FILES += $(AUDIO_POLICY_XML_PATH)audio_policy_configuration$(AUDIO_FEATURE_TYPE).xml:etc/audio_policy_configuration.xml
+endif # AUDIO_FEATURE_TYPE
 endif # USE_XML_AUDIO_POLICY_CONF

@@ -50,6 +50,13 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
 #    $(CHIP_DIR)/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
 
+
+########################################################################
+# the wifi chip doesn't support mdns offload wake up
+# ########################################################################
+TARGET_BUILD_MDNS := false
+
+
 # tv config file
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR), true)
 TVCONFIG_FILES := \

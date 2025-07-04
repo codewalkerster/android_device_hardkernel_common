@@ -87,10 +87,16 @@ volume index from 0 to 100.
         <name>music</name>
         <indexMin>0</indexMin>
         <indexMax>100</indexMax>
-        <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="MM"/>
-        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="MM"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="MM"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="MM"/>
+        <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="CUSTOM_VOLUME_CURVE"/>
+        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER">
+            <point>0,-5800</point>
+            <point>20,-3500</point>
+            <point>60,-2500</point>
+            <point>80,-1800</point>
+            <point>100,-1000</point>
+        </volume>
+        <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="CUSTOM_VOLUME_CURVE"/>
+        <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="CUSTOM_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID"  ref="DEFAULT_HEARING_AID_VOLUME_CURVE"/>
     </volumeGroup>
 
@@ -199,10 +205,10 @@ volume index from 0 to 100.
         <name>accessibility</name>
         <indexMin>0</indexMin>
         <indexMax>100</indexMax>
-        <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="FULL_SCALE_VOLUME_CURVE"/>
+        <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="DEFAULT_NON_MUTABLE_VOLUME_CURVE"/>
+        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="DEFAULT_NON_MUTABLE_SPEAKER_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="DEFAULT_NON_MUTABLE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="FULL_SCALE_VOLUME_CURVE"/>
+        <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="DEFAULT_NON_MUTABLE_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID" ref="DEFAULT_NON_MUTABLE_HEARING_AID_VOLUME_CURVE"/>
     </volumeGroup>
     <volumeGroup>
@@ -210,7 +216,13 @@ volume index from 0 to 100.
         <indexMin>0</indexMin>
         <indexMax>100</indexMax>
         <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="DEFAULT_DEVICE_CATEGORY_SPEAKER_VOLUME_CURVE"/>
+        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER">
+            <point>0,-5800</point>
+            <point>20,-3500</point>
+            <point>60,-2500</point>
+            <point>80,-1800</point>
+            <point>100,-1000</point>
+        </volume>
         <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID"  ref="DEFAULT_HEARING_AID_VOLUME_CURVE"/>

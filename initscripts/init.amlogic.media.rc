@@ -70,6 +70,7 @@ on early-boot
     insmod /vendor/lib/modules/amvdec_av1_v4l.ko
     insmod /vendor/lib/modules/amvdec_av1_t5d_v4l.ko
     insmod /vendor/lib/modules/video_framerate_adapter.ko
+    insmod /vendor/lib/modules/aml_dhp.ko
 
     chmod 666 /sys/class/amstream/vcodec_feature
     chown media system /sys/class/amstream/vcodec_feature

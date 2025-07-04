@@ -87,6 +87,7 @@ key  476   TV
 key  467  TV_TELETEXT
 key  468  PERIOD
 key  469  MEDIA_SKIP_BACKWARD
+key  478  FEATURED_APP_1     WAKE
 ###########################
 
 

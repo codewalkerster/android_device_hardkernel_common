@@ -66,7 +66,7 @@ on early-boot
     insmod /vendor/lib/modules/video_framerate_adapter.ko
     insmod /vendor/lib/modules/amvdec_avs3.ko
     insmod /vendor/lib/modules/amvdec_avs3_v4l.ko
-
+    insmod /vendor/lib/modules/aml_dhp.ko
 
 
 on property:vendor.media.c2.vdec.game_low_latency=1

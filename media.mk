@@ -363,6 +363,15 @@ PRODUCT_COPY_FILES += \
 endif
 
 #########################################################################
+#                       The Date Handler Proxy
+#########################################################################
+ifeq ($(TARGET_BUILD_DHP_DAEMON),true)
+    PRODUCT_PACKAGES += dhp_daemon \
+                        libavbc_soft_decoder \
+                        init_dhp_daemon_rc
+endif
+
+#########################################################################
 #
 #                                Miracast Application
 ##########################################################################
@@ -498,7 +507,8 @@ endif
 
 ifeq ($(BUILD_WITH_ES_PLAYER),true)
 PRODUCT_PACKAGES += esplayer \
-    vdec_debug
+    vdec_debug \
+    v4lplayer
 endif
 
 ifeq ($(BUILD_WITH_DEC_INFO_TEST),true)

@@ -29,7 +29,7 @@ endif # not ODROID_BOARD
 # Get the TTS language packs
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product-if-exists, vendor/amlogic/restricted_libs/hdcp_tx22.mk)
+
 
 # Get IRDETO middleware framework.
 ifeq ($(TARGET_BUILD_IRDETO), true)
@@ -870,7 +870,8 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/initscripts/boblight.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/boblight.rc \
     device/hardkernel/common/initscripts/makebootini.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/makebootini.rc \
     device/hardkernel/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
-    device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc
+    device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
+    device/hardkernel/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc
 
 
 PRODUCT_COPY_FILES += \

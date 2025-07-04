@@ -62,10 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #DTS-HD prop end
 # Enable player buildin
 
-#audio dual spdif setting
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.platform.is.dualspdif=true
-
 #platform support dolby vision
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.support.dolbyvision=true \
