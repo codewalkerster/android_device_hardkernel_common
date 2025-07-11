@@ -12,3 +12,8 @@
 
 		ini $$overlay $$ini_addr_r
 	done
+
+#video-timing
+	test -n $${video-timing} && setenv bootargs $${bootargs} aml_drm.modeline=$${video-timing}
+#displaymode
+	test -n $${displaymode} && setenv bootargs $${bootargs} aml_drm.displaymode=$${displaymode}
