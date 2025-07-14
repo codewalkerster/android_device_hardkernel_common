@@ -5,11 +5,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml
 
+# U-Boot Env Tools
+PRODUCT_PACKAGES += \
+    libubootenv \
+    fw_printenv \
+    fw_setenv
+
 #wiringPi
 PRODUCT_PACKAGES += \
     libwiringPi \
     libwiringPiDev \
     gpio
+
+PRODUCT_COPY_FILES += \
+    device/hardkernel/$(TARGET_PRODUCT)/fw_env/fw_env.config:system/etc/fw_env.config
 
 PRODUCT_PACKAGES += \
     Things \
