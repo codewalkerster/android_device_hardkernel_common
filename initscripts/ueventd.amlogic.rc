@@ -273,3 +273,6 @@ parallel_restorecon enabled
 #odroid things
 /dev/gpiomem   0666    media    media
 /dev/spidev0.0    0666    system    system
+
+#vu7 backlight
+/sys/class/backlight/lt8619c-backlight        brightness   0666    system    system
