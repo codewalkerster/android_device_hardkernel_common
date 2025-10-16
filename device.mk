@@ -1066,3 +1066,5 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bt.service.down=true
+
+$(call inherit-product, device/hardkernel/proprietary/proprietary.mk)
