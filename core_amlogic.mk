@@ -1219,11 +1219,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl.legacy \
     android.hardware.gnss@1.0-service.legacy \
-    gps.amlogic
+    gps.default
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.gps.node=ttyACM \
-    persist.bt.service.down=true
+    persist.bt.service.down=true \
+    ro.kernel.android.gps.speed=9600
 
 PRODUCT_PACKAGES += \
      usb_dongle \
