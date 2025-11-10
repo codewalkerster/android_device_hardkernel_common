@@ -13,6 +13,13 @@
 		ini $$overlay $$ini_addr_r
 	done
 
+#force_hpd
+if test $${force_hpd} = true; then
+	setenv bootargs $${bootargs} aml_media.force_hpd=1
+else
+	setenv bootargs $${bootargs} aml_media.force_hpd=0
+fi
+
 #displaymode_option
 	test -n $${displaymode_option} && test -n $${displaymode} && setenv displaymode $${displaymode}:$${displaymode_option}
 #video-timing
