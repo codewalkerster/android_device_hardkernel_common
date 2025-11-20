@@ -1088,8 +1088,8 @@ PRODUCT_PACKAGES += \
 # Set supported Bluetooth profiles to enabled
 ifeq ($(ODROID_BOARD), true)
 PRODUCT_PROPERTY_OVERRIDES += \
-    bluetooth.profile.a2dp.sink.enabled=true \
-    bluetooth.profile.avrcp.controller.enabled=true \
+    bluetooth.profile.a2dp.sink.enabled=false \
+    bluetooth.profile.avrcp.controller.enabled=false \
     bluetooth.profile.a2dp.source.enabled=true \
     bluetooth.profile.avrcp.target.enabled=true \
     bluetooth.profile.hfp.hf.enabled=true \
