@@ -86,6 +86,11 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 endif
 
+########################################################################
+# the wifi chip support mdns offload wake up
+########################################################################
+TARGET_BUILD_MDNS ?= true
+
 #########################################################################
 #
 # tunerhal

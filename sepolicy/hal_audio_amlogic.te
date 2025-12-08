@@ -12,7 +12,7 @@ hal_client_domain(hal_audio_amlogic, hal_allocator)
 # allow audioserver to call hal_audio dump with its own fd to retrieve status
 allow hal_audio_amlogic audioserver:fifo_file write;
 
-allow hal_audio_amlogic sysfs_audio_cap:file { read open };
+allow hal_audio_amlogic sysfs_amhdmitx:file { read open };
 allow hal_audio_amlogic sysfs_digital_codec:file { write read open };
 allow hal_audio_amlogic sysfs_amhdmitx:dir search;
 allow hal_audio_amlogic kernel:system { module_request };
@@ -62,3 +62,4 @@ allow hal_audio_amlogic sysfs_astream:dir { search };
 allow hal_audio_amlogic sysfs_audio:file { read write open };
 #allow hal_audio_amlogic bluetooth:unix_stream_socket connectto;
 allow hal_audio_amlogic self:netlink_kobject_uevent_socket { create bind setopt read };
+allow hal_audio_amlogic adla_device:chr_file {open read write getattr ioctl };

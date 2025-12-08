@@ -9,7 +9,322 @@ genfscon proc    /bluetooth/sleep/btwrite u:object_r:proc_bluetooth_writable:s0
 genfscon proc    /sys/vm/min_free_kbytes u:object_r:proc_vm_writable:s0
 genfscon sysfs /class/astream u:object_r:sysfs_astream:s0
 genfscon sysfs /devices/virtual/astream/astream-dev u:object_r:sysfs_astream:s0
+
+#genfscon sysfs /devices/platform/soc/ff800000.aocec/wakeup3 u:object_r:sysfs_wakeup:s0
 genfscon proc    /kcore u:object_r:proc_iomem:s0
 #genfscon proc    /kallsyms u:object_r:proc_iomem:s0
 
+genfscon sysfs /class/aml_btusb/aml_btusb/aml_rclist             u:object_r:sysfs_aml_btusb:s0
+genfscon sysfs /devices/virtual/aml_btusb/aml_btusb/aml_rclist   u:object_r:sysfs_aml_btusb:s0
+genfscon sysfs /class/stpbt/stpbt/aml_rclist                     u:object_r:sysfs_aml_stpbt:s0
+genfscon sysfs /devices/virtual/stpbt/stpbt/aml_rclist           u:object_r:sysfs_aml_stpbt:s0
 genfscon proc    /cpu_chipid        u:object_r:proc_cpuinfo:s0
+
+
+#/sys/module/amvdec_h264mvc/parameters/stat                                                                    u:object_r:sysfs_module:s0
+#/sys/module/amvdec_h264/parameters/stat                                                                       u:object_r:sysfs_module:s0
+#/sys/module/amvdec_avs/parameters/stat                                                                        u:object_r:sysfs_module:s0
+genfscon sysfs /module/amvdec_avs                                                                              u:object_r:sysfs_module:s0
+genfscon sysfs /module/amvdec_h264                                                                             u:object_r:sysfs_module:s0
+genfscon sysfs /module/amvdec_h264mvc                                                                          u:object_r:sysfs_module:s0
+
+#/sys/devices/platform/bt-dev/rfkill/rfkill0/state                                                             u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/platform/bt-dev/rfkill/rfkill0/type                                                              u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/platform/aml_bt/rfkill/rfkill0/state                                                             u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/platform/aml_bt/rfkill/rfkill0/type                                                              u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/bt-dev.*/rfkill/rfkill0/state                                                                    u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/bt-dev.*/rfkill/rfkill0/type                                                                     u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/platform/soc/soc*aml_bt/rfkill/rfkill0/state                                                     u:object_r:sysfs_bluetooth_writable:s0
+#/sys/devices/platform/soc/soc*aml_bt/rfkill/rfkill0/type                                                      u:object_r:sysfs_bluetooth_writable:s0
+genfscon sysfs /devices/platform/aml_bt/rfkill                                                                 u:object_r:sysfs_bluetooth_writable:s0
+
+#/sys/module/rdma_mgr/parameters(/.*)?                                                                         u:object_r:sysfs_display:s0
+genfscon sysfs /module/rdma_mgr                                                                                u:object_r:sysfs_display:s0
+
+#/sys/kernel/debug/aml_clkmsr/clkmsr                                                                           u:object_r:aml_debugfs:s0
+#/sys/kernel/debug/aml_reg/dump                                                                                u:object_r:aml_debugfs:s0
+#/sys/kernel/debug/aml_reg/paddr                                                                               u:object_r:aml_debugfs:s0
+genfscon debugfs /aml_reg                                                                                      u:object_r:aml_debugfs:s0
+genfscon debugfs /aml_clkmsr                                                                                   u:object_r:aml_debugfs:s0
+
+#/sys/class/dmc_monitor(/.*)?                                                                                  u:object_r:sysfs_dmc:s0
+genfscon sysfs /class/dmc_monitor                                                                              u:object_r:sysfs_dmc:s0
+
+#/sys/class/ppmgr(/.*)?                                                                                        u:object_r:sysfs_display:s0
+genfscon sysfs /class/ppmgr                                                                                    u:object_r:sysfs_display:s0
+
+#/sys/class/lcd/debug                                                                                          u:object_r:sysfs_display:s0
+genfscon sysfs /class/lcd/debug                                                                                u:object_r:sysfs_display:s0
+
+#/sys/class/aml_lcd/lcd0/unmute_count                                                                          u:object_r:sysfs_display:s0
+genfscon sysfs /class/aml_lcd/lcd0/unmute_count                                                                u:object_r:sysfs_display:s0
+
+#/sys/devices/platform/backlight/aml_bl/bl0(/.*)?                                                              u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/backlight/aml_bl/bl0                                                          u:object_r:sysfs_display:s0
+
+#/sys/class/ionvideo(/.*)?                                                                                     u:object_r:sysfs_video:s0
+genfscon sysfs /class/ionvideo                                                                                 u:object_r:sysfs_video:s0
+
+#/sys/devices/platform/vdin0/vdin/vdin0/attr                                                                   u:object_r:sysfs_display:s0
+#/sys/devices/platform/vdin1/vdin/vdin1/attr                                                                   u:object_r:sysfs_display:s0
+#/sys/devices/platform/vdin0/vdin/vdin0/vf_log                                                                 u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/vdin0/vdin/vdin0                                                              u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/vdin1/vdin/vdin1                                                              u:object_r:sysfs_display:s0
+
+#/sys/class/tvafe/tvafe0/reg                                                                                   u:object_r:sysfs_cec:s0
+genfscon sysfs /class/tvafe/tvafe0/reg                                                                         u:object_r:sysfs_cec:s0
+
+#/sys/class/vdec/core                                                                                          u:object_r:sysfs_video:s0
+genfscon sysfs /class/vdec/core                                                                                u:object_r:sysfs_video:s0
+
+#/sys/class/video/disable_video                                                                                u:object_r:sysfs_video:s0
+#/sys/class/video/disable_videopip                                                                             u:object_r:sysfs_video:s0
+#/sys/class/video/axis                                                                                         u:object_r:sysfs_video:s0
+#/sys/class/video/axis_pip                                                                                     u:object_r:sysfs_video:s0
+#/sys/class/video(/.*)?                                                                                        u:object_r:sysfs_video:s0
+
+#/sys/class/video/hdmin_delay_duration                                                                         u:object_r:sysfs_avsync:s0
+#/sys/class/video/vframe_walk_delay                                                                            u:object_r:sysfs_avsync:s0
+#/sys/class/video/hdmin_delay_max_ms                                                                           u:object_r:sysfs_avsync:s0
+#/sys/class/video/hdmin_delay_start                                                                            u:object_r:sysfs_avsync:s0
+
+#/sys/class/video/video_scaler_path_sel                                                                        u:object_r:sysfs_video:s0
+#/sys/class/video/video_layer1_state                                                                           u:object_r:sysfs_display:s0
+genfscon sysfs /class/video                                                                                    u:object_r:sysfs_video:s0
+
+#/sys/class/vfm/map                                                                                            u:object_r:sysfs_video:s0
+genfscon sysfs /class/vfm                                                                                      u:object_r:sysfs_video:s0
+
+#/sys/class/audiodsp/digital_raw                                                                               u:object_r:sysfs_audio:s0
+#/sys/class/audiodsp/codec_fatal_err                                                                           u:object_r:sysfs_audio:s0
+genfscon sysfs /class/audiodsp/digital_raw                                                                     u:object_r:sysfs_audio:s0
+genfscon sysfs /class/audiodsp/codec_fatal_err                                                                 u:object_r:sysfs_audio:s0
+
+#/sys/class/amaudio/debug                                                                                      u:object_r:sysfs_audio:s0
+#/sys/class/amaudio/codec_report_info                                                                          u:object_r:sysfs_audio:s0
+genfscon sysfs /class/amaudio                                                                                  u:object_r:sysfs_audio:s0
+
+#----> Replace sysfs_xbmc with sysfs_video
+#/sys/class/tsync/firstapts                                                                                    u:object_r:sysfs_xbmc:s0
+#/sys/class/tsync/firstvpts                                                                                    u:object_r:sysfs_xbmc:s0
+#/sys/class/tsync/pts_audio                                                                                    u:object_r:sysfs_xbmc:s0
+#/sys/class/tsync/pts_video                                                                                    u:object_r:sysfs_xbmc:s0
+#/sys/class/tsync/event                                                                                        u:object_r:sysfs_xbmc:s0
+#/sys/class/tsync/pts_pcrscr                                                                                   u:object_r:sysfs_xbmc:s0
+genfscon sysfs /class/tsync                                                                                    u:object_r:sysfs_xbmc:s0
+
+#/sys/class/tsync/enable                                                                                       u:object_r:sysfs_video:s0
+genfscon sysfs /class/tsync/enable                                                                             u:object_r:sysfs_video:s0
+
+#/sys/devices/platform/multi-di/deinterlace/di0(/.*)?                                                          u:object_r:sysfs_di:s0
+genfscon sysfs /devices/platform/multi-di/deinterlace/di0                                                      u:object_r:sysfs_di:s0
+
+#/sys/class/audiodsp/digital_codec       		                                                               u:object_r:sysfs_digital_codec:s0
+#/sys/class/audiodsp/audio_samesource    		                                                               u:object_r:sysfs_audio_samesource:s0
+genfscon sysfs /class/audiodsp/digital_codec                                                                   u:object_r:sysfs_digital_codec:s0
+genfscon sysfs /class/audiodsp/audio_samesource                                                                u:object_r:sysfs_audio_samesource:s0
+
+#/sys/devices/virtual/amhdmitx/amhdmitx0/aud_cap                                                               u:object_r:sysfs_audio_cap:s0
+#/sys/devices/virtual/amhdmitx/amhdmitx0/aud_output_chs                                                        u:object_r:sysfs_aud_output_chs:s0
+genfscon sysfs /devices/virtual/amhdmitx/amhdmitx0/aud_cap                                                     u:object_r:sysfs_amhdmitx:s0
+genfscon sysfs /devices/virtual/amhdmitx/amhdmitx0/aud_output_chs                                              u:object_r:sysfs_aud_output_chs:s0
+
+#----> not exist
+#/sys/devices/platform/meson-fb/graphics/fb0/osd_afbcd                                                         u:object_r:sysfs_fb0_afbcd:s0
+#/sys/devices/platform/fb/graphics/fb0/osd_afbcd                                                               u:object_r:sysfs_fb0_afbcd:s0
+
+#/sys/class/mpgpu(/.*)?                                                                                        u:object_r:sysfs_mpgpu:s0
+#/sys/class/mpgpu/mpgpucmd                                                                                     u:object_r:sysfs_mpgpu:s0
+#/sys/class/mpgpu/scale_mode                                                                                   u:object_r:sysfs_mpgpu:s0
+genfscon sysfs /class/mpgpu                                                                                    u:object_r:sysfs_mpgpu:s0
+
+#for kernel 4.9
+#/sys/power/early_suspend_trigger                                                                              u:object_r:sysfs_power:s0
+#for kernel 5.4
+#/sys/class/meson_pm/early_suspend_trigger                                                                     u:object_r:sysfs_power:s0
+genfscon sysfs /class/meson_pm/early_suspend_trigger                                                           u:object_r:sysfs_power:s0
+
+#/sys/module/firmware_class/parameters/path                                                                    u:object_r:sysfs_video:s0
+genfscon sysfs /module/firmware_class/parameters/path                                                          u:object_r:sysfs_video:s0
+
+#/sys/module/rdma/parameters/enable                                                                            u:object_r:sysfs_rdma:s0
+genfscon sysfs /module/rdma/parameters/enable                                                                  u:object_r:sysfs_rdma:s0
+
+#/sys/module/di/parameters(/.*)?                                                                               u:object_r:sysfs_di:s0
+genfscon sysfs /module/di/parameters                                                                           u:object_r:sysfs_di:s0
+
+#/sys/module/dim/parameters(/.*)?                                                                              u:object_r:sysfs_di:s0
+genfscon sysfs /module/dim/parameters                                                                          u:object_r:sysfs_di:s0
+
+#/sys/module/decoder_common/parameters/max_di_instance                                                         u:object_r:sysfs_video:s0
+#/sys/module/decoder_common/parameters/v4lvideo_add_di                                                         u:object_r:sysfs_video:s0
+genfscon sysfs /module/decoder_common/parameters/max_di_instance                                               u:object_r:sysfs_video:s0
+genfscon sysfs /module/decoder_common/parameters/v4lvideo_add_di                                               u:object_r:sysfs_video:s0
+
+#/sys/module/am_vecm/parameters(/.*)?                                                                          u:object_r:sysfs_am_vecm:s0
+genfscon sysfs /module/am_vecm/parameters                                                                      u:object_r:sysfs_am_vecm:s0
+
+#/sys/module/amvideo/parameters(/.*)?                                                                          u:object_r:sysfs_video:s0
+genfscon sysfs /module/amvideo/parameters                                                                      u:object_r:sysfs_video:s0
+
+#/sys/module/tvin_afe/parameters/force_nostd                                                                   u:object_r:sysfs_video:s0
+genfscon sysfs /module/tvin_afe/parameters/force_nostd                                                         u:object_r:sysfs_video:s0
+
+#/sys/module/tvin_hdmirx/parameters(/.*)?                                                                      u:object_r:sysfs_cec:s0
+genfscon sysfs /module/tvin_hdmirx/parameters                                                                  u:object_r:sysfs_cec:s0
+
+#/sys/module/dhd/parameters/firmware_path                                                                      u:object_r:sysfs_wifi:s0
+genfscon sysfs /module/dhd/parameters/firmware_path                                                            u:object_r:sysfs_wifi:s0
+
+#/sys/module/bcmdhd/parameters/firmware_path                                                                   u:object_r:sysfs_wifi:s0
+genfscon sysfs /module/bcmdhd/parameters/firmware_path                                                         u:object_r:sysfs_wifi:s0
+
+#/sys/module/amlogic_dvb_ci/parameters/cammcu_usleep                                                           u:object_r:sysfs_dvbci:s0
+genfscon sysfs /module/amlogic_dvb_ci/parameters/cammcu_usleep                                                 u:object_r:sysfs_dvbci:s0
+
+#/sys/devices/virtual/net(/.*)?                                                                                u:object_r:sysfs_net:s0
+
+#/sys/class/cec/port_seq                                                                                       u:object_r:sysfs_cec:s0
+genfscon sysfs /class/cec/port_seq                                                                             u:object_r:sysfs_cec:s0
+
+#/sys/class/display(/.*)                                                                                       u:object_r:sysfs_display:s0
+genfscon sysfs /class/display                                                                                  u:object_r:sysfs_display:s0
+
+#/sys/devices/meson-fb/graphics/fb[0-3](/.*)                                                                   u:object_r:sysfs_display:s0
+#/sys/devices/platform/meson-fb/graphics/fb[0-3](/.*)                                                          u:object_r:sysfs_display:s0
+#/sys/devices/platform/fb/graphics/fb[0-3](/.*)                                                                u:object_r:sysfs_display:s0
+
+#/sys/class/lcd/enable                                                                                         u:object_r:sysfs_lcd:s0
+
+#/sys/module/amdolby_vision/parameters(/.*)?                                                                   u:object_r:sysfs_video:s0
+genfscon sysfs /module/amdolby_vision/parameters                                                               u:object_r:sysfs_video:s0
+
+#/sys/devices/platform/gpioleds/leds(/.*)?                                                                     u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/gpioleds/leds                                                                 u:object_r:sysfs_display:s0
+
+#/sys/class/unifykeys(/.*)?                                                                                    u:object_r:sysfs_unifykey:s0
+genfscon sysfs /class/unifykeys                                                                                u:object_r:sysfs_unifykey:s0
+
+#/sys/devices/virtual/irblaster/irblaster0(/.*)?                                                               u:object_r:sysfs_ir:s0
+genfscon sysfs /devices/virtual/irblaster/irblaster0                                                           u:object_r:sysfs_ir:s0
+
+#/sys/class/aml_store/store_device                                                                             u:object_r:sysfs_store:s0
+genfscon sysfs /class/aml_store/store_device                                                                   u:object_r:sysfs_store:s0
+
+#/sys/class/defendkey/decrypt_dtb                                                                              u:object_r:sysfs_defendkey:s0
+genfscon sysfs /class/defendkey/decrypt_dtb                                                                    u:object_r:sysfs_defendkey:s0
+
+#/sys/class/aml_store/bl_off_bytes                                                                             u:object_r:sysfs_store:s0
+genfscon sysfs /class/aml_store/bl_off_bytes                                                                   u:object_r:sysfs_store:s0
+
+#----> duplicate entry for genfs entry (sysfs, /class/android_usb)
+#/sys/class/android_usb(/.*)?                                                                                  u:object_r:sysfs_usb:s0
+#genfscon sysfs /class/android_usb                                                                             u:object_r:sysfs_usb:s0
+#/sys/class/dual_role_usb(/.*)?                                                                                u:object_r:sysfs_usb:s0
+#genfscon sysfs /class/dual_role_usb                                                                           u:object_r:sysfs_usb:s0
+
+#/sys/power/boot_type                                                                                          u:object_r:sysfs_boottype:s0
+genfscon sysfs /power/boot_type                                                                                u:object_r:sysfs_boottype:s0
+
+#/sys/devices/virtual/thermal/thermal_zone(.*)(/.*)?                                                           u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/thermal_zone0                                                          u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/thermal_zone1                                                          u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/thermal_zone2                                                          u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/thermal_zone3                                                          u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/thermal_zone4                                                          u:object_r:sysfs_thermal:s0
+
+#/sys/devices/virtual/thermal/thermal_zone0/mode                                                               u:object_r:sysfs_display:s0
+genfscon sysfs /devices/virtual/thermal/thermal_zone0/mode                                                     u:object_r:sysfs_display:s0
+
+#/sys/devices/virtual/thermal/cooling_device(.*)(/.*)?                                                         u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/cooling_device0                                                        u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/cooling_device1                                                        u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/cooling_device2                                                        u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/cooling_device3                                                        u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/thermal/cooling_device4                                                        u:object_r:sysfs_thermal:s0
+
+#/sys/module/amvdec_h265/parameters/double_write_mode                                                          u:object_r:sysfs_amvdec:s0
+genfscon sysfs /module/amvdec_h265/parameters/double_write_mode                                                u:object_r:sysfs_amvdec:s0
+
+#/sys/class/drm/card0/state                                                                                    u:object_r:sysfs_drm:s0
+#/sys/class/drm/card0/reg_dump                                                                                 u:object_r:sysfs_drm:s0
+genfscon sysfs /class/drm/card0/state                                                                          u:object_r:sysfs_drm:s0
+genfscon sysfs /class/drm/card0/reg_dump                                                                       u:object_r:sysfs_drm:s0
+
+#/sys/devices/virtual/remote0/amremote0(/.*)?                                                                  u:object_r:sysfs_remote:s0
+genfscon sysfs /devices/virtual/remote0/amremote0                                                              u:object_r:sysfs_remote:s0
+
+#/sys/devices/virtual/remote/amremote(/.*)?                                                                    u:object_r:sysfs_remote:s0
+genfscon sysfs /devices/virtual/remote/amremote                                                                u:object_r:sysfs_remote:s0
+
+#/sys/class/remote0/amremote0/wakeup_key_event                                                                 u:object_r:sysfs_remote:s0
+genfscon sysfs /class/remote0/amremote0/wakeup_key_event                                                       u:object_r:sysfs_remote:s0
+
+#/sys/devices/platform/aml_bt/wakeup/wakeup[0-9](/.*)?                                                         u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/aml_bt/wakeup                                                                 u:object_r:sysfs_wakeup:s0
+
+#/sys/class/stb(/.*)?                                                                                          u:object_r:sysfs_stb:s0
+genfscon sysfs /class/stb                                                                                      u:object_r:sysfs_stb:s0
+
+#/sys/class/aml_ci_bus_test(/.*)?                                                                              u:object_r:sysfs_stb:s0
+genfscon sysfs /class/aml_ci_bus_test                                                                          u:object_r:sysfs_stb:s0
+
+#/sys/class/dmx/dmx_source                                                                                     u:object_r:sysfs_stb:s0
+genfscon sysfs /class/dmx/dmx_source                                                                           u:object_r:sysfs_stb:s0
+
+#/sys/class/meson_pm/suspend_reason                                                                            u:object_r:sysfs_pm:s0
+genfscon sysfs /class/meson_pm/suspend_reason                                                                  u:object_r:sysfs_pm:s0
+
+#/sys/devices/platform/aml_pm/suspend_reason                                                                   u:object_r:sysfs_pm:s0
+genfscon sysfs /devices/platform/aml_pm/suspend_reason                                                         u:object_r:sysfs_pm:s0
+
+#/sys/class/display2/mode                                                                                      u:object_r:sysfs_display:s0
+genfscon sysfs /class/display2/mode                                                                            u:object_r:sysfs_display:s0
+
+#/sys/class/display/mode                                                                                       u:object_r:sysfs_display:s0
+genfscon sysfs /class/display/mode                                                                             u:object_r:sysfs_display:s0
+
+#/sys/class/videotunnel/instance                                                                               u:object_r:sysfs_display:s0
+#/sys/class/videotunnel/state                                                                                  u:object_r:sysfs_display:s0
+genfscon sysfs /class/videotunnel                                                                              u:object_r:sysfs_display:s0
+
+#/sys/class/graphics(/.*)?                                                                                     u:object_r:sysfs_display:s0
+#/sys/devices/platform/meson-fb/graphics(/.*)?                                                                 u:object_r:sysfs_display:s0
+#/sys/devices/platform/fb/graphics(/.*)?                                                                       u:object_r:sysfs_display:s0
+
+#/sys/devices/platform/vout/extcon/setmode/cable.0/state                                                       u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/vout/extcon/setmode/cable.0/state                                             u:object_r:sysfs_display:s0
+
+#/sys/devices/platform/vout/extcon/setmode/state                                                               u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/vout/extcon/setmode/state                                                     u:object_r:sysfs_display:s0
+
+#/sys/devices/system/clocksource/clocksource0/current_clocksource                                              u:object_r:sysfs_clock:s0
+genfscon sysfs /devices/system/clocksource/clocksource0/current_clocksource                                    u:object_r:sysfs_clock:s0
+
+#/sys/devices/platform/rtc/rtc/rtc0/hctosys                                                                    u:object_r:sysfs_rtc:s0
+genfscon sysfs /devices/platform/rtc/rtc/rtc0/hctosys                                                          u:object_r:sysfs_rtc:s0
+
+#/sys/devices/platform/dummy-battery/power_supply/Battery(/.*)                                                 u:object_r:sysfs_power:s0
+genfscon sysfs /devices/platform/dummy-battery/power_supply/Battery                                            u:object_r:sysfs_power:s0
+
+#/sys/devices/platform/dummy-charger/power_supply/usb(/.*)                                                     u:object_r:sysfs_power:s0
+genfscon sysfs /devices/platform/dummy-charger/power_supply/usb                                                u:object_r:sysfs_power:s0
+
+#/sys/class/amvecm(/.*)?                                                                                       u:object_r:sysfs_video:s0
+genfscon sysfs /class/amvecm                                                                                   u:object_r:sysfs_video:s0
+
+#----> ERROR 'duplicate entry for genfs entry
+#/sys/bus/iio/devices                                                                                          u:object_r:sysfs_iio:s0
+genfscon sysfs /bus/iio/devices                                                                                u:object_r:sysfs_iio:s0
+
+#/sys/kernel/mdump/compmsg                                                                                     u:object_r:fulldump_sysfs:s0
+genfscon sysfs /kernel/mdump/compmsg                                                                           u:object_r:fulldump_sysfs:s0
+
+#/sys/class/tee_info(/.*)?                                                                                     u:object_r:sysfs_tee:s0
+genfscon sysfs /class/tee_info                                                                                 u:object_r:sysfs_tee:s0
+
+#/sys/class/smc_sc2-class/ctrl_5v3v                                                                            u:object_r:sysfs_stb:s0
+#/sys/class/smc_sc2-class/pins_mode                                                                            u:object_r:sysfs_stb:s0
+genfscon sysfs /class/smc_sc2-class/ctrl_5v3v                                                                  u:object_r:sysfs_stb:s0
+genfscon sysfs /class/smc_sc2-class/pins_mode                                                                  u:object_r:sysfs_stb:s0
+genfscon sysfs  /class/adla   u:object_r:sysfs_neuralnetworks:s0

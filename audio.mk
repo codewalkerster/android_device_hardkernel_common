@@ -51,7 +51,8 @@ PRODUCT_PACKAGES += \
     acoustics.default \
     audio_firmware \
     droidaudio \
-    droidaudio_tester \
+    droidaudio_sys_tester \
+    droidaudio_vnd_tester \
     libdroidaudioclient \
     vendor.amlogic.hardware.droidaudio \
     libdroidaudiospdif \
@@ -71,6 +72,8 @@ PRODUCT_PACKAGES += \
     param_set \
     AudioEffectTool \
     libAmlAudioOutPort \
+
+PRODUCT_COPY_FILES += device/hardkernel/common/audio/audio_config/droidaudio.ini:$(TARGET_COPY_OUT_VENDOR)/etc/audio_config/droidaudio.ini
 
 #########################################################################################
 ###                          Dolby MS12 ASDK control
@@ -134,6 +137,11 @@ ifeq ($(TARGET_DTS_VERSION), dtsx)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtsx
 else ifeq ($(TARGET_DTS_VERSION), dtshd)
     AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_dtshd
+endif
+
+TARGET_MPEGH_VERSION ?= non_mpegh
+ifeq ($(TARGET_MPEGH_VERSION), mpegh)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_mpegh
 endif
 
 ifeq ($(ODROID_BOARD), true)

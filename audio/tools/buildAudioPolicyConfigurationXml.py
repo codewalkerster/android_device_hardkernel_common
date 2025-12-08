@@ -346,9 +346,10 @@ def main():
         logging.info('[buildAudioPolicyConfigurationXml:W] outDirPath: ' + outDirPath)
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
-                buildTypeName = dolby + dts
-                outputFilePath = outDirPath + '/audio_policy_configuration' + buildTypeName + '.xml'
-                genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, buildTypeName, args.atvVersion)
+                for mpegh in ['_mpegh', '']:
+                    buildTypeName = dolby + dts + mpegh
+                    outputFilePath = outDirPath + '/audio_policy_configuration' + buildTypeName + '.xml'
+                    genXmlFile(outputFilePath, args.odmDirName, args.chipDeviceType, buildTypeName, args.atvVersion)
         # non-ms12, non-dts for backup
         genXmlFile(outDirPath + '/audio_policy_configuration_default.xml', args.odmDirName, args.chipDeviceType, '', args.atvVersion)
     else:
@@ -359,16 +360,17 @@ def main():
 
         for dolby in ['_ms12', '_ms12v1', '_ddp', '']:
             for dts in ['_dtshd', '_dtsx', '']:
-                outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + ottName + dolby + dts + '.xml'
-                AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'mbox'
-                AUDIO_POLICY_BUILD_PARAM_SOUNDBAR = 'false'
-                logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
-                genXmlFile(outputFilePath, 'amlogic', ottName, dolby + dts, 'aosp')
-                outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + tvName + dolby + dts + '.xml'
-                AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'tv'
-                AUDIO_POLICY_BUILD_PARAM_SOUNDBAR = 'false'
-                logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
-                genXmlFile(outputFilePath, 'amlogic', tvName, dolby + dts, 'atv')
+                for mpegh in ['_mpegh', '']:
+                    outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + ottName + dolby + dts + mpegh + '.xml'
+                    AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'mbox'
+                    AUDIO_POLICY_BUILD_PARAM_SOUNDBAR = 'false'
+                    logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
+                    genXmlFile(outputFilePath, 'amlogic', ottName, dolby + dts + mpegh, 'aosp')
+                    outputFilePath = AUDIO_POLICY_TOOLS_PATH + 'output_files_test/' + tvName + dolby + dts + mpegh + '.xml'
+                    AUDIO_POLICY_BUILD_PARAM_PRODUCT_TYPE = 'tv'
+                    AUDIO_POLICY_BUILD_PARAM_SOUNDBAR = 'false'
+                    logging.info('[buildAudioPolicyConfigurationXml:I] ----------------------generate file:' + outputFilePath)
+                    genXmlFile(outputFilePath, 'amlogic', tvName, dolby + dts + mpegh, 'atv')
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -221,3 +221,22 @@ ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
 DTVKIT_HW_CONFIG_SOC := t5m
 $(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
 endif
+
+#########################################################################
+#
+#                                    AI
+#
+#########################################################################
+COMPILED_MODEL_FILE := $(wildcard device/amlogic/common/products/tv/t5m/files/nn/amlogic_gpu*.bin)
+PRODUCT_COPY_FILES += \
+    $(foreach file,$(COMPILED_MODEL_FILE),$(file):$(TARGET_COPY_OUT_VENDOR)/bin/nn/$(notdir $(file))) \
+    device/hardkernel/common/products/tv/t5m/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
+    device/hardkernel/common/products/tv/t5m/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt
+
+#########################################################################
+#
+#  SELinux policy
+#
+#########################################################################
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    device/hardkernel/common/products/tv/t5m/sepolicy

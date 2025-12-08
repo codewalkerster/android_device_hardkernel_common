@@ -98,6 +98,12 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/tunerhal/frontendinfos.json:$(TARGET_COPY_OUT_VENDOR)/etc/tuner_hal/frontendinfos.json
 endif
 
+########################################################################
+# the wifi chip support mdns offload wake up
+########################################################################
+TARGET_BUILD_MDNS ?= true
+
+
 #########################################################################
 #
 # Soundbar

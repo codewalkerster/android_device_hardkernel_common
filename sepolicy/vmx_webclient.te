@@ -9,7 +9,7 @@ allow vmx_webclient vmx_webclient_service:service_manager  { add };
 
 allow vmx_webclient tmpfs:dir { create open add_name write read };
 allow vmx_webclient drm_device:chr_file { read open write ioctl };
-allow vmx_webclient mediadrm_vendor_data_file:dir { read open getattr search write add_name create };
+allow vmx_webclient mediadrm_vendor_data_file:dir { read open getattr search write add_name create remove_name };
 allow vmx_webclient mediadrm_vendor_data_file:file { read open write getattr create unlink rename append };
 allow vmx_webclient vendor_data_file:dir { read open getattr search write add_name create };
 allow vmx_webclient vendor_data_file:file { read open write getattr create unlink rename append };
@@ -27,3 +27,4 @@ allow vmx_webclient mediaserver:fd  { use };
 
 allow vmx_webclient self:process { ptrace };
 allow vmx_webclient hal_drm_verimatrix:binder { call };
+allow vmx_webclient video_device:chr_file { open read write ioctl };

@@ -82,8 +82,3 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
     device/hardkernel/common/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json
 
-########################################################################
-# the wifi chip doesn't support mdns offload wake up
-# ########################################################################
-TARGET_BUILD_MDNS := false
-

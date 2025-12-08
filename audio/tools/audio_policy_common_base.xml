@@ -61,6 +61,9 @@
                    <profile name="multi pcm" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="32000 44100 48000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                   <profile name="float pcm" format="AUDIO_FORMAT_PCM_FLOAT"
+                             samplingRates="32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2 AUDIO_CHANNEL_OUT_7POINT1"/>
                     <profile name="aac latm raw" format="AUDIO_FORMAT_AAC_HE_V1"
                              samplingRates="48000"
                              channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO"/>

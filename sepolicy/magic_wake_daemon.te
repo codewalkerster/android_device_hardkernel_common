@@ -1,0 +1,23 @@
+# magic_wake_daemon policy
+type magic_wake_daemon, domain;
+type magic_wake_daemon_exec, exec_type, vendor_file_type, file_type;
+
+
+init_daemon_domain(magic_wake_daemon)
+type_transition init magic_wake_daemon_exec:process magic_wake_daemon;
+allow init magic_wake_daemon:process { transition };
+allow magic_wake_daemon magic_wake_daemon_exec:file { entrypoint read execute };
+
+
+allow magic_wake_daemon self:capability { net_raw net_bind_service net_admin };
+allow magic_wake_daemon proc_net:file { read open getattr };
+allow magic_wake_daemon port:udp_socket name_bind;
+allow magic_wake_daemon node:udp_socket node_bind;
+allow magic_wake_daemon self:netlink_route_socket { create nlmsg_readpriv write read nlmsg_read };
+allow magic_wake_daemon self:udp_socket { create ioctl getopt connect read write setopt bind node_bind };
+
+set_prop(magic_wake_daemon, vendor_platform_prop)
+get_prop(magic_wake_daemon, vendor_platform_prop)
+
+allow magic_wake_daemon sysfs_net:dir { search };
+allow magic_wake_daemon sysfs_net:file { read open getattr };

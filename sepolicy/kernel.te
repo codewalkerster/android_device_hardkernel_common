@@ -13,3 +13,4 @@ allow kernel vendor_file:file { getattr read open };
 allow kernel hdcp_tx22_exec:file relabelto;
 allow kernel vendor_file:dir { search read open };
 allow kernel modules_load:key search;
+allow kernel kernel:system module_request;

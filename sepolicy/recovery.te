@@ -29,7 +29,6 @@ allow recovery sysfs_display:file rw_file_perms;
 allow recovery sysfs_display:dir { r_dir_perms search };
 allow recovery sysfs_am_vecm:dir search;
 allow recovery sysfs_am_vecm:file { open read write };
-allow recovery sysfs_audio_cap:file r_file_perms;
 allow recovery sysfs_cec:file rw_file_perms;
 
 #--------------------------------------------------------------------#
@@ -62,7 +61,6 @@ allow shell rootfs:file { entrypoint execute getattr open read };
 
 allow recovery vendor_bcmdl_prop:file { getattr open };
 allow recovery vendor_media_prop:file { getattr open };
-allow recovery sysfs_audio_cap:file { open read write };
 allow recovery sysfs_video:file { open read write };
 allow recovery vendor_tv_prop:file { getattr open };
 allow recovery wifi_prop:file { getattr open };

@@ -245,3 +245,11 @@ DTVKIT_HW_CONFIG_SOC := s4d-fccpip
 endif
 $(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
 endif
+
+#########################################################################
+#
+#  SELinux policy
+#
+#########################################################################
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    device/hardkernel/common/products/mbox/s4d/sepolicy

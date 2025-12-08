@@ -344,6 +344,9 @@ PRODUCT_PACKAGES += \
     mkfs.exfat \
     mount.exfat \
     fsck.exfat \
+    ntfs-3g \
+    ntfsfix \
+    mkntfs \
     libxml2 \
     meson_display_client
 
@@ -352,8 +355,10 @@ ifeq ($(CONFIG_CAMERA_FEATURE), back)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml
 else
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
+    ifneq ($(PRODUCT_SUPPORTS_CAMERA),false)
+    PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
+    endif
 endif
 
 #in order to build usb power service
@@ -376,9 +381,13 @@ PRODUCT_COPY_FILES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
+    frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml
+
+ifneq ($(USE_ODM_RKP), true)
+PRODUCT_COPY_FILES += \
     hardware/amlogic/keymaster/keymint/rkp_extract.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rkp_extract.rc \
     hardware/amlogic/keymaster/keymint/rkp_extract.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/rkp_extract.sh
+endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
     remote_provisioning.hostname=remoteprovisioning.googleapis.com
@@ -402,11 +411,13 @@ PRODUCT_PACKAGES += \
 ifneq ($(TARGET_BUILD_OEM_WITH_LICENSE_FILES), true)
 PRODUCT_PACKAGES += \
     libHwAudio_dcvdec \
-    libHwAudio_dtshd
+    libHwAudio_dtshd \
+    libcdkMpeghDecoder
 else
 PRODUCT_PACKAGES += \
     libHwAudio_dcvdec \
     libHwAudio_dtshd \
+    libcdkMpeghDecoder \
     oem_license_build
 
 endif
@@ -426,7 +437,8 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
     device/hardkernel/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
     device/hardkernel/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
-    device/hardkernel/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
+    device/hardkernel/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc \
+    device/hardkernel/common/keyboards/Vendor_0957_Product_004c.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0957_Product_004c.idc
 
 ### custom keylayouts
 custom_keylayouts := $(wildcard device/hardkernel/common/keyboards/*.kl)
@@ -519,7 +531,8 @@ PRODUCT_PACKAGES += \
 	tee_hdcp_ta \
 	tee_ciplus_ta \
 	tee_attest \
-	tee_attest_ta
+	tee_attest_ta \
+	tee_adla_ta
 
 $(warning "TDK Version is $(PLATFORM_TDK_VERSION)")
 ifeq ($(PLATFORM_TDK_VERSION), 38)
@@ -690,7 +703,7 @@ endif
 ifeq ($(BOARD_COMPILE_ATV), false)
 PRODUCT_PACKAGES += \
     wv_factory_extraction_tool
-PRODUCT_COPY_FILES += vendor/widevine/libwvdrmengine/aosp_extract.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/aosp_extract.sh
+#PRODUCT_COPY_FILES += vendor/widevine/libwvdrmengine/aosp_extract.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/aosp_extract.sh
 endif
 endif
 
@@ -867,12 +880,19 @@ endif
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     device/hardkernel/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
+    device/hardkernel/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
+    device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
+    device/hardkernel/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc \
     device/hardkernel/common/initscripts/boblight.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/boblight.rc \
     device/hardkernel/common/initscripts/makebootini.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/makebootini.rc \
     device/hardkernel/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
     device/hardkernel/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc \
     device/hardkernel/common/initscripts/fulldump.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.fulldump.rc
 
+ifneq ($(SUPPORT_FASTPAIR), false)
+PRODUCT_COPY_FILES += \
+    device/hardkernel/common/permissions/com.google.android.feature.fastpair.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.android.feature.fastpair.xml
+endif
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
@@ -1079,7 +1099,8 @@ PRODUCT_PACKAGES += \
 
 ##tell katniss to release wakelock when dut goes to suspend
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/permissions/android.software.farfield.dsp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.farfield.dsp.xml
+    device/hardkernel/common/permissions/android.software.farfield.dsp.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.farfield.dsp.xml \
+    device/hardkernel/common/initscripts/ffm_dsp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ffm_dsp.rc
 endif
 #########################################################################
 PRODUCT_PACKAGES += \

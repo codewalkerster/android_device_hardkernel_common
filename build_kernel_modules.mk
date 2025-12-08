@@ -231,12 +231,12 @@ $(INSTALLED_KERNEL_TARGET): $(INSTALLED_BOARDDTB_TARGET) $(TARGET_PREBUILT_KERNE
 	cp $(TARGET_PREBUILT_KERNEL) $(INSTALLED_KERNEL_TARGET)
 endif
 
-$(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL) $(LOCAL_DTB) $(MINIGZIP) $(INSTALLED_FIRMWARE_TARGET) $(INSTALLED_OPTEE_TARGET) | $(ACP)
+$(INSTALLED_BOARDDTB_TARGET): $(AVBTOOL) $(LOCAL_DTB) $(HOST_OUT_EXECUTABLES)/bzip2$(HOST_EXECUTABLE_SUFFIX) $(MINIGZIP) $(INSTALLED_FIRMWARE_TARGET) $(INSTALLED_OPTEE_TARGET) | $(ACP)
 	@echo "dtb installed"
 	cp $(LOCAL_DTB) $@
 	if [ -n "$(shell find $@ -size +180k)" ]; then \
-		echo "gzip $@ as > 180k"; \
-		mv $@ $@.orig && $(MINIGZIP) -c $@.orig > $@; \
+		echo "zip $@ as > 180k"; \
+		mv $@ $@.orig && $(HOST_OUT_EXECUTABLES)/bzip2$(HOST_EXECUTABLE_SUFFIX) -c $@.orig > $@; \
 	fi;
 	$(hide) $(call aml-secureboot-sign-bin, $@)
 	@echo "Instaled $@"
@@ -255,8 +255,12 @@ $(INSTALLED_2NDBOOTLOADER_TARGET): $(LOCAL_DTB) $(BOARD_PREBUILT_DTBOIMAGE) | $(
 	$(transform-prebuilt-to-target)
 endif
 
-$(INSTALLED_DTBIMAGE_TARGET): $(LOCAL_DTB)
-	$(transform-prebuilt-to-target)
+$(INSTALLED_DTBIMAGE_TARGET): $(LOCAL_DTB) $(HOST_OUT_EXECUTABLES)/bzip2$(HOST_EXECUTABLE_SUFFIX) | $(ACP)
+	cp $(LOCAL_DTB) $@
+	if [ -n "$(shell find $@ -size +180k)" ]; then \
+		echo "zip $@ as > 180k"; \
+		mv $@ $@.orig && $(HOST_OUT_EXECUTABLES)/bzip2$(HOST_EXECUTABLE_SUFFIX) -c $@.orig > $@; \
+	fi;
 
 LOCAL_MODULES_LOAD := $(PREBUILT_KERNEL_PATH)/modules_load_list
 ifeq ($(BOARD_USES_VENDOR_DLKMIMAGE),true)

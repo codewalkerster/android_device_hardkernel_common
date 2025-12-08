@@ -114,11 +114,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(warning 'This platform supports EARC and uses soundbar audio config and tv config!')
 endif
 
-########################################################################
-# the wifi chip doesn't support mdns offload wake up
-# ########################################################################
-TARGET_BUILD_MDNS := false
-
 #########################################################################
 #
 # tunerhal

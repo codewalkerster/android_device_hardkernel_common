@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Copyright (C) 2025 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<audioPolicyConfiguration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <devicePorts>
+        <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
+        <devicePort tagName="Speaker" role="sink" type="AUDIO_DEVICE_OUT_SPEAKER">
+            <gains>
+                <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
+                      minValueMB="-100000"
+                      maxValueMB="0"
+                      defaultValueMB="-6000"
+                      stepValueMB="100"/>
+            </gains>
+        </devicePort>
+    </devicePorts>
+    <mixPorts>
+        <mixPort name="compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD" recommendedMuteDurationMs="500">
+            <profile name="mhm1 bll3 raw" format="AUDIO_FORMAT_MPEGH_BL_L3"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+            <profile name="mhm1 bll4 raw" format="AUDIO_FORMAT_MPEGH_BL_L4"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+            <profile name="mhm1 lcl3 raw" format="AUDIO_FORMAT_MPEGH_LC_L3"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+            <profile name="mhm1 lcl4 raw" format="AUDIO_FORMAT_MPEGH_LC_L4"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+        </mixPort>
+        <mixPort name="tunnel compress offload" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
+            <profile name="mhm1 bll3 raw" format="AUDIO_FORMAT_MPEGH_BL_L3"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+            <profile name="mhm1 bll4 raw" format="AUDIO_FORMAT_MPEGH_BL_L4"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+            <profile name="mhm1 lcl3 raw" format="AUDIO_FORMAT_MPEGH_LC_L3"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+            <profile name="mhm1 lcl4 raw" format="AUDIO_FORMAT_MPEGH_LC_L4"
+                     samplingRates="16000 22050 24000 32000 44100 48000 64000 88200 96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT2  AUDIO_CHANNEL_OUT_5POINT1POINT4" />
+        </mixPort>
+    </mixPorts>
+</audioPolicyConfiguration>

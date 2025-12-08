@@ -1,7 +1,7 @@
-type droidaudio, coredomain, domain;
+type droidaudio, domain;
 type droidaudio_exec, exec_type, file_type, system_file_type;
-
-typeattribute droidaudio mlstrustedsubject;
+type droidaudio_data_file, file_type, core_data_file_type, data_file_type;
+typeattribute droidaudio coredomain;
 
 init_daemon_domain(droidaudio)
 
@@ -9,9 +9,6 @@ allow droidaudio hwservicemanager:binder { call transfer };
 allow droidaudio { hidl_base_hwservice }:hwservice_manager { add };
 
 allow droidaudio tmpfs:dir { getattr search };
-allow droidaudio sysfs_video:file rw_file_perms;
-allow droidaudio { sysfs_video sysfs_cec sysfs_am_vecm }:dir { search };
-allow droidaudio fwmarkd_socket:sock_file { write };
 allow droidaudio droidaudio:capability { net_raw };
 allow droidaudio servicemanager:binder { call transfer };
 
@@ -28,6 +25,7 @@ allow droidaudio mediametrics:binder { call };
 allow droidaudio audioserver:fd { use };
 allow droidaudio audioserver:capability { dac_override };
 
+allow droidaudio audio_service:service_manager { find };
 
 add_service(droidaudio, droidaudio_service)
 allow droidaudio vendor_platform_prop:file { open read getattr map };
@@ -37,6 +35,8 @@ allow droidaudio dtvkitserver:binder { call };
 allow droidaudio platform_app:binder { call };
 allow droidaudio system_app:binder { call };
 allow droidaudio mediaserver:binder { call };
-allow droidaudio hal_hidlimw:binder { call };
 allow droidaudio dumpstate:fd { use };
-
+allow droidaudio system_control_service:service_manager { find };
+allow droidaudio droidaudio_data_file:file { create write read open getattr ioctl lock setattr unlink map };
+allow droidaudio droidaudio_data_file:dir { write add_name read open remove_name getattr search };
+allow droidaudio self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;

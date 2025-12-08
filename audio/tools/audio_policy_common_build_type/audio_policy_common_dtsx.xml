@@ -54,4 +54,10 @@
                      channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_5POINT1POINT4"/>
         </mixPort>
     </mixPorts>
+
+    <surroundSound>
+        <formats>
+            <format name="AUDIO_FORMAT_DTS_HD" />
+        </formats>
+    </surroundSound>
 </audioPolicyConfiguration>

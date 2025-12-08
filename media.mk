@@ -365,6 +365,8 @@ endif
 #########################################################################
 #                       The Date Handler Proxy
 #########################################################################
+TARGET_BUILD_DHP_DAEMON := true
+
 ifeq ($(TARGET_BUILD_DHP_DAEMON),true)
     PRODUCT_PACKAGES += dhp_daemon \
                         libavbc_soft_decoder \

@@ -1,0 +1,3 @@
+on boot
+    chmod 0664 /sys/class/meson_pm/suspend_mode
+    chown system audio /sys/class/meson_pm/suspend_mode

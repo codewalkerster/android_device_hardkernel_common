@@ -15,7 +15,8 @@ allow hal_dumpstate_default vendor_toolbox_exec:file rx_file_perms;
 allow hal_dumpstate_default graphics_device:dir search;
 allow hal_dumpstate_default tmpfs:dir read;
 
-allow hal_dumpstate_default sysfs_audio_cap:file r_file_perms;
+allow hal_dumpstate_default sysfs_audio:dir r_dir_perms;
+allow hal_dumpstate_default sysfs_audio:file r_file_perms;
 allow hal_dumpstate_default sysfs:file r_file_perms;
 
 allow hal_dumpstate_default system_data_file:dir search;
@@ -49,6 +50,8 @@ allow hal_dumpstate_default hal_tv_hdmi_connection_default:dir { getattr search 
 allow hal_dumpstate_default hal_usb_default:dir { getattr search };
 allow hal_dumpstate_default hal_light_default:dir { getattr search };
 allow hal_dumpstate_default hal_tv_hdmi_cec_default:file { open read getattr };
+allow hal_dumpstate_default sysfs_pm:file r_file_perms;
+
 
 # Access to vendor logging property
 set_prop(hal_dumpstate_default, vendor_logging_prop)

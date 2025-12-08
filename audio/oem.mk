@@ -28,6 +28,12 @@ else ifeq ($(TARGET_DTS_VERSION), dtshd)
     CUSTOM_IMAGE_COPY_FILES += \
         vendor/amlogic/common/prebuilt/libstagefrighthw/lib/libHwAudio_dtshd.so:lib/libHwAudio_dtshd.so
 endif
+TARGET_MPEGH_VERSION ?= non_mpegh
+ifeq ($(TARGET_MPEGH_VERSION), mpegh)
+    AUDIO_FEATURE_TYPE := $(AUDIO_FEATURE_TYPE)_mpegh
+    CUSTOM_IMAGE_COPY_FILES += \
+        vendor/amlogic/common/prebuilt/libstagefrighthw/lib/libcdkMpeghDecoder.so:lib/libcdkMpeghDecoder.so
+endif
 
 ifeq ($(ODROID_BOARD), true)
     AUDIO_POLICY_BUILD_PARAM_SOUNDBAR := false

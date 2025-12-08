@@ -25,6 +25,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 1
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseSpeaker
 				AvailableOutputDevices Includes Speaker
@@ -50,6 +53,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseWiredHeadphone
 				AvailableOutputDevices Includes WiredHeadphone
@@ -75,6 +81,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseWiredHeadset
 				AvailableOutputDevices Includes WiredHeadset
@@ -100,6 +109,93 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
+
+			conf: ForceUseBleBroadcast
+				AvailableOutputDevices Includes BleBroadcast
+				ForceUseForMedia Is ForceBtA2dp
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 1
+
+			conf: ForceUseBleHeadset
+				AvailableOutputDevices Includes BleHeadset
+				ForceUseForMedia Is ForceBtA2dp
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+					ble_headset = 1
+					ble_speaker = 0
+					ble_broadcast = 0
+
+			conf: ForceUseBleSpeaker
+				AvailableOutputDevices Includes BleSpeaker
+				ForceUseForMedia Is ForceBtA2dp
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 1
+					ble_broadcast = 0
 
 			conf: ForceUseBtA2dp
 				AvailableOutputDevices Includes BluetoothA2dp
@@ -125,6 +221,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseBtA2dpHeadphone
 				AvailableOutputDevices Includes BluetoothA2dpHeadphones
@@ -150,6 +249,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseBtA2dpSpeaker
 				AvailableOutputDevices Includes BluetoothA2dpSpeaker
@@ -175,6 +277,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseUsbHeadSet
 				AvailableOutputDevices Includes UsbHeadset
@@ -200,6 +305,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseUsbDevice
 				AvailableOutputDevices Includes UsbDevice
@@ -225,6 +333,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseUsbAccessory
 				AvailableOutputDevices Includes UsbAccessory
@@ -250,6 +361,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseSpdif
 				AvailableOutputDevices Includes Spdif
@@ -275,6 +389,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseHdmiEarc
 				AvailableOutputDevices Includes HdmiEarc
@@ -300,6 +417,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseHdmiArc
 				AvailableOutputDevices Includes HdmiArc
@@ -325,6 +445,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: ForceUseHdmiOut
 				AvailableOutputDevices Includes Hdmi
@@ -350,6 +473,91 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
+
+
+			conf: BleBroadcast
+				AvailableOutputDevices Includes BleBroadcast
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 1
+
+			conf: BleHeadset
+				AvailableOutputDevices Includes BleHeadset
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+					ble_headset = 1
+					ble_speaker = 0
+					ble_broadcast = 0
+
+			conf: BleSpeaker
+				AvailableOutputDevices Includes BleSpeaker
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					spdif = 0
+					hdmi = 0
+					hdmi_arc = 0
+					hdmi_earc = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					usb_headset = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					hearing_aid = 0
+					remote_submix = 0
+					line = 0
+					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 1
+					ble_broadcast = 0
 
 			conf: BluetoothA2dp
 				AvailableOutputDevices Includes BluetoothA2dp
@@ -374,6 +582,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: BluetoothA2dpHeadphone
 				AvailableOutputDevices Includes BluetoothA2dpHeadphones
@@ -398,6 +609,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: BluetoothA2dpSpeaker
 				AvailableOutputDevices Includes BluetoothA2dpSpeaker
@@ -422,6 +636,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: UsbAccessory
 				AvailableOutputDevices Includes UsbAccessory
@@ -446,6 +663,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: UsbHeadset
 				AvailableOutputDevices Includes UsbHeadset
@@ -470,6 +690,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: UsbDevice
 				AvailableOutputDevices Includes UsbDevice
@@ -494,6 +717,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: WiredHeadphone
 				AvailableOutputDevices Includes WiredHeadphone
@@ -518,6 +744,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: WiredHeadset
 				AvailableOutputDevices Includes WiredHeadset
@@ -542,6 +771,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: HdmiEarc
 				AvailableOutputDevices Includes HdmiEarc
@@ -566,6 +798,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: HdmiArc
 				AvailableOutputDevices Includes HdmiArc
@@ -590,6 +825,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: Hdmi
 				AvailableOutputDevices Includes Hdmi
@@ -614,6 +852,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: Line
 				AvailableOutputDevices Includes Line
@@ -638,6 +879,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 1
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: HearingAid
 				AvailableOutputDevices Includes HearingAid
@@ -662,6 +906,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: DgtlDockHeadset
 				AvailableOutputDevices Includes DgtlDockHeadset
@@ -686,6 +933,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: AnlgDockHeadset
 				AvailableOutputDevices Includes AnlgDockHeadset
@@ -711,6 +961,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 
 			conf: Speaker
@@ -736,6 +989,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: Spdif
 				AvailableOutputDevices Includes Spdif
@@ -760,6 +1016,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: AuxLine
 				AvailableOutputDevices Includes AuxLine
@@ -784,6 +1043,9 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 1
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0
 
 			conf: Default
 				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
@@ -806,3 +1068,6 @@ supDomain: DeviceForProductStrategy
 					remote_submix = 0
 					line = 0
 					aux_line = 0
+					ble_headset = 0
+					ble_speaker = 0
+					ble_broadcast = 0

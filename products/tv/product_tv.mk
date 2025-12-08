@@ -274,20 +274,7 @@ PRODUCT_PACKAGES += \
 #endif
 
 ifeq ($(PRODUCT_SUPPORT_TUNER_FRAMEWORK),true)
-#DEBUG FOR TUNER SDK JNI
-# jasplayer
-#add jasplayer library
-PRODUCT_PACKAGES += \
-    droidlogic.jasplayer \
-    droidlogic.jasplayer.xml \
-    droidlogic.jniasplayer \
-    droidlogic.jniasplayer.xml
-
-#add mediahalserver
-PRODUCT_PACKAGES += \
-    mediahalserver \
-    libamlmediahal-jni \
-    droidlogic.mediahal
+PRODUCT_SUPPORT_ASPLAYER := true
 
 # JDvrLib core packages
 PRODUCT_PACKAGES += \
@@ -310,3 +297,8 @@ HWC_UVM_DETTACH := true
 
 #TV project, enable hwc pre display calibrate
 HWC_ENABLE_PRE_DISPLAY_CALIBRATE := true
+
+ifeq ($(BUILD_WITH_IMG_DEC),true)
+PRODUCT_COPY_FILES += \
+    device/hardkernel/common/permissions/com.google.android.tv.photos_video_plane.JPEG.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.android.tv.photos_video_plane.JPEG.xml
+endif

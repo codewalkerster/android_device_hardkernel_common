@@ -8,7 +8,7 @@ type bootvideo_exec, exec_type, vendor_file_type, file_type;
 allow bootvideo  vendor_media_prop:file { read open getattr };
 allow bootvideo sysfs:file { read open getattr };
 allow bootvideo proc:file { read open getattr };
-allow bootvideo sysfs_audio_cap:file { read open getattr };
+allow bootvideo sysfs_amhdmitx:file { read open getattr };
 
 #Self
 allow bootvideo self:process execmem;

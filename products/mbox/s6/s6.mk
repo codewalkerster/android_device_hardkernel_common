@@ -242,6 +242,7 @@ PRODUCT_COPY_FILES += \
 #########################################################################
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/products/mbox/s6/files/nn/PQNet.nb:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.nb \
+    device/hardkernel/common/products/mbox/s6/files/nn/PQNet.tadla:$(TARGET_COPY_OUT_VENDOR)/bin/nn/PQNet.tadla \
     device/hardkernel/common/products/mbox/s6/files/nn/scenes_data.txt:$(TARGET_COPY_OUT_VENDOR)/etc/scenes_data.txt
 
 #########################################################################
@@ -256,3 +257,11 @@ DTVKIT_HW_CONFIG_SOC := s6-fccpip
 endif
 $(call inherit-product-if-exists, vendor/amlogic/reference/external/DTVKit/releaseDTVKit/config.mk)
 endif
+
+#########################################################################
+#
+#  SELinux policy
+#
+#########################################################################
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    device/hardkernel/common/products/mbox/s6/sepolicy

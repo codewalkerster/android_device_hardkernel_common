@@ -1,22 +1,21 @@
 #########################################
 # sepolicy rules for hal_audio_default
 #########################################
-allow hal_audio_default sysfs_audio_cap:file r_file_perms;
 allow hal_audio_default sysfs_digital_codec:file { write read open };
 allow hal_audio_default sysfs_amhdmitx:dir search;
 allow hal_audio_default kernel:system { module_request };
 allow hal_audio_default  vendor_media_prop:file { read open getattr map };
 allow hal_audio_default  vendor_media_prop:property_service { set };
 allow hal_audio_default shell_data_file:file { read write };
+allow hal_audio_default sysfs_xbmc:dir r_dir_perms;
 allow hal_audio_default sysfs_xbmc:file { read open write };
 allow hal_audio_default hidraw_device:chr_file { create read write open ioctl};
 allow hal_audio_default property_socket:sock_file { write };
 allow hal_audio_default init:unix_stream_socket { connectto };
-allow hal_audio_default sysfs_video:file { read open };
+allow hal_audio_default sysfs_video:file rw_file_perms;
 allow hal_audio_default sysfs_video:dir search;
 allow hal_audio_default vendor_video_device:chr_file rw_file_perms;
 allow hal_audio_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
-allow hal_audio_default sysfs_avsync:file rw_file_perms;
 allow hal_audio_default sysfs_cec:file { read open getattr};
 
 #--------------------------------------------------------------------#
@@ -41,6 +40,7 @@ allow hal_audio_default sysfs:dir { open read };
 allow hal_audio_default vendor_data_file:dir { add_name remove_name write };
 allow hal_audio_default vendor_data_file:lnk_file { read };
 allow hal_audio_default vendor_data_file:file { create read open setattr unlink};
+allow hal_audio_default dvb_device:chr_file { open read write ioctl };
 allow hal_audio_default sysfs_stb:dir { search};
 allow hal_audio_default frontend_device:chr_file { open read write ioctl };
 allow hal_audio_default codec_device:chr_file { read write open ioctl };
@@ -53,6 +53,7 @@ allow hal_audio_default sysfs_astream:file { open read };
 allow hal_audio_default mailbox_device:chr_file { ioctl open read write getattr map execute };
 allow hal_audio_default hifi4dsp_device:chr_file { ioctl open read write getattr map execute };
 allow hal_audio_default sysfs_astream:dir { search };
+allow hal_audio_default sysfs_audio:dir r_dir_perms;
 allow hal_audio_default sysfs_audio:file { read write open };
 allow hal_audio_default param_tv_file:dir { search read open getattr };
 allow hal_audio_default param_tv_file:file { read open getattr };
@@ -73,7 +74,7 @@ allow hal_audio_default ptsserver_device:chr_file rw_file_perms;
 allow hal_audio_default dmabuf_system_heap_device:chr_file r_file_perms;
 get_prop(hal_audio_default, vendor_media_prop)
 allow hal_audio_default video_device:chr_file rw_file_perms;
-
+allow hal_audio_default adla_device:chr_file {open read write getattr ioctl };
 allow hal_audio_default sysfs_amhdmitx:file r_file_perms;
 allow hal_audio_default oemfs:dir { search };
 r_dir_file(hal_audio_default, oemfs)

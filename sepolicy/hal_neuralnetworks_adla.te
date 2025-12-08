@@ -13,3 +13,6 @@ allow hal_neuralnetworks_adla nn_data_file:dir{ create write read add_name remov
 allow hal_neuralnetworks_adla nn_data_file:file { ioctl getattr read write open create lock setattr unlink append map};
 allow hal_neuralnetworks_adla nn_data_file:chr_file{ ioctl };
 allow hal_neuralnetworks_adla gpu_device:chr_file {open read write getattr ioctl map};
+
+# allow service to access sysfs dir
+allow hal_neuralnetworks_default sysfs_neuralnetworks:file rw_file_perms;

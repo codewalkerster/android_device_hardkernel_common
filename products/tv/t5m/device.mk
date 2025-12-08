@@ -72,11 +72,6 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/tv/tvconfig/panel/Amlogic_dv.cfg:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/amdv/Amlogic_dv.cfg \
     $(CHIP_DIR)/files/tv/tvconfig/panel/dv_config.bin:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/amdv/dv_config.bin
 
-########################################################################
-# the wifi chip doesn't support mdns offload wake up
-# ########################################################################
-TARGET_BUILD_MDNS := false
-
 
 # tv config file
 TVCONFIG_FILES := \

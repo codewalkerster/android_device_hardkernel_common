@@ -1,0 +1,16 @@
+type wifi_fw_log, domain;
+type wifi_fw_log_exec, exec_type,vendor_file_type, file_type;
+init_daemon_domain(wifi_fw_log)
+
+allow wifi_fw_log self:netlink_socket create_socket_perms_no_ioctl;
+allow wifi_fw_log self:udp_socket create_socket_perms;
+allowxperm wifi_fw_log self:udp_socket ioctl { SIOCIWFIRSTPRIV_01 };
+allow wifi_fw_log self:ipx_socket create_socket_perms_no_ioctl;
+allow wifi_fw_log self:ax25_socket create_socket_perms_no_ioctl;
+allow wifi_fw_log self:appletalk_socket create_socket_perms_no_ioctl;
+allow wifi_fw_log  proc_overcommit_memory:file r_file_perms;
+allow wifi_fw_log vendor_data_file:dir rw_dir_perms;
+allow wifi_fw_log vendor_data_file:file create_file_perms;
+allow wifi_fw_log sysfs:file { read open getattr };
+allow wifi_fw_log sysfs_net:dir { read open };
+

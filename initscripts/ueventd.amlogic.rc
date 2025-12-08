@@ -146,6 +146,11 @@
 
 /dev/aml_btusb            0666   bluetooth    bluetooth
 /dev/rtk_btusb            0660   bluetooth    bluetooth
+/dev/aml_bt_debug         0666   bluetooth    bluetooth
+#thread
+/dev/aml_thread           0666   bluetooth    bluetooth
+/dev/aml_zigbee           0666   bluetooth    bluetooth
+/dev/aml_coex             0666   bluetooth    bluetooth
 #mtkbt
 /dev/stpbt                0664   bluetooth    bluetooth
 /dev/rtkbt_dev            0660   bluetooth    bluetooth
@@ -174,7 +179,6 @@
 /dev/block/by-name/env    0660   system       system
 
 #low power hotword
-/sys/class/meson_pm        suspend_mode    0664        system        audio
 /dev/dsp_dev                               0660        system        audio
 /dev/hifi4dsp0                             0660        root          audio
 

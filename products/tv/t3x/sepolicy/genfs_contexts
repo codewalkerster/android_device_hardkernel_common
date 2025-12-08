@@ -1,0 +1,91 @@
+#/sys/devices/platform/[0-9a-z]*\.lcd/aml_lcd/lcd0(/.*)?                                                                                            u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/fe380000.lcd/aml_lcd/lcd0                                                                                          u:object_r:sysfs_display:s0
+
+#/sys/devices/virtual/amhdmitx/amhdmitx0(/.*)?                                                                                                      u:object_r:sysfs_amhdmitx:s0
+#/sys/devices/platform/0.amhdmitx(/.*)?                                                                                                             u:object_r:sysfs_amhdmitx:s0
+#/sys/devices/platform/ffd00000.amhdmitx(/.*)?                                                                                                      u:object_r:sysfs_amhdmitx:s0
+#/sys/devices/platform/ff000000.amhdmitx(/.*)?                                                                                                      u:object_r:sysfs_amhdmitx:s0
+#/sys/devices/platform/ff800000.amhdmitx(/.*)?                                                                                                      u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/sink_type                                                                                                            u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/edid_parsing                                                                                                         u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/hdcp_mode                                                                                                            u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/avmute                                                                                                               u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/disp_cap                                                                                                             u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/hdr_cap                                                                                                              u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/hdmitx_cur_status                                                                                                    u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/hdmirx_info                                                                                                          u:object_r:sysfs_amhdmitx:s0
+#/sys/class/amhdmitx/amhdmitx0/clkmsr                                                                                                               u:object_r:sysfs_amhdmitx:s0
+#/sys/devices/virtual/amhdmitx/amhdmitx0(/.*)                                                                                                       u:object_r:sysfs_cec:s0
+#/sys/devices/virtual/amhdmitx/amhdmitx0/edid_info                                                                                                  u:object_r:sysfs_cec:s0
+#/sys/devices/virtual/amhdmitx/amhdmitx0/hdmi_audio/state                                                                                           u:object_r:sysfs_hdmi:s0
+
+
+#/sys/devices/platform/0.hdmirx/hdmirx/hdmirx0(/.*)?                                                                                                 u:object_r:sysfs_cec:s0
+#/sys/devices/platform/ffd26000\.hdmirx/hdmirx/hdmirx0/key                                                                                           u:object_r:sysfs_unifykey:s0
+#/sys/class/hdmirx/hdmirx0/edid                                                                                                                      u:object_r:sysfs_cec:s0
+#/sys/devices/platform/ffd26000.hdmirx/hdmirx/hdmirx0/edid                                                                                           u:object_r:sysfs_cec:s0
+genfscon sysfs /devices/platform/0.hdmirx/hdmirx/hdmirx0                                                                                             u:object_r:sysfs_cec:s0
+
+#/sys/devices/platform/[0-9a-z]*\.rtc/rtc/rtc[0-9]/wakeup[0-9](/.*)?                                                                                 u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/[0-9a-z]*\.[0-9a-z]*/wakeup[0-9](/.*)?                                                                                        u:object_r:sysfs_wakeup:s0
+#/sys/devices/genpd.+hifi4dsp/wakeup(/.*)?                                                                                                           u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/[0-9a-z]*\.rtc/wakeup/wakeup[0-9](/.*)?                                                                                       u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/[0-9a-z]*\.ir/wakeup/wakeup[0-9](/.*)?                                                                                        u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/aml_bt/wakeup/wakeup[0-9](/.*)?                                                                                               u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/.*/wakeup/wakeup[0-9](/.*)?                                                                                                   u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/.*/wakeup(/.*)?                                                                                                               u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/soc/ff800000.bus/ff8000a8.rtc/rtc(/.*)?                                                                                       u:object_r:sysfs_rtc:s0
+#/sys/devices/platform/soc/[0-9a-z]*\.audiobus/[0-9a-z]*\.audiobus:vad/wakeup(/.*)?                                                                  u:object_r:sysfs_wakeup:s0
+#/sys/devices/platform/soc/[0-9a-z]*\.audiobus/[0-9a-z]*\.audiobus:vad/wakeup/wakeup[0-9](/.*)?                                                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/adc_keypad/wakeup                                                                                                   u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/fe084040.ir/wakeup                                                                                                  u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/fe340018.hifidsp0/wakeup                                                                                            u:object_r:sysfs_wakeup:s0
+
+#genfscon sysfs /devices/platform/fe300000.crg20/xhci-hcd-meson.0.auto/power/wakeup                                                                  u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe300000.crg20/xhci-hcd-meson.0.auto/usb1/power/wakeup                                                             u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe300000.crg20/xhci-hcd-meson.0.auto/usb1/1-1/power/wakeup                                                         u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe300000.crg20/xhci-hcd-meson.0.auto/usb1/1-1/1-1:1.2/wakeup                                                       u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe300000.crg20/xhci-hcd-meson.0.auto/usb1/1-1/1-1:1.2/power/wakeup                                                 u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe300000.crg20/xhci-hcd-meson.0.auto/usb2/power/wakeup                                                             u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe310000.crg21/xhci-hcd-meson.1.auto/power/wakeup                                                                  u:object_r:sysfs_wakeup:s0
+#genfscon sysfs /devices/platform/fe310000.crg21/xhci-hcd-meson.1.auto/usb4/power/wakeup                                                             u:object_r:sysfs_wakeup:s0
+
+#genfscon sysfs /devices/platform/soc/fe000000.apb4/fe07a000.serial/tty/ttyS0/power/wakeup                                                           u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/fe028000.aocec/wakeup3                                                                                              u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/aml_wifi/wakeup                                                                                                     u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/fe010288.rtc/wakeup                                                                                                 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/fe010288.rtc/rtc/rtc0/alarmtimer.2.auto/wakeup                                                                      u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/soc/fdc00000.ethernet/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+
+genfscon sysfs /devices/platform/soc/fe330000.audiobus/fe330000.audiobus:vad/wakeup                                                                  u:object_r:sysfs_wakeup:s0
+
+#/sys/devices/platform/[0-9a-z]*\.tvafe/tvafe/tvafe[0-9]/reg(/.*)?                                                                                   u:object_r:sysfs_cec:s0
+genfscon sysfs /devices/platform/fe072000.tvafe/tvafe/tvafe0/reg                                                                                     u:object_r:sysfs_cec:s0
+
+#for VTS case NetdSELinuxTest#CheckProperMTULabels
+#/sys/devices/platform/(soc/)?[0-9a-z]*\.crg.*/xhci-hcd(-meson)?.[0-9].auto/usb[0-9]/[0-9]-[0-9]/([0-9]-[0-9]:[0-9].[0-9]/)?net/ap[0-1](/.*)?        u:object_r:sysfs_net:s0
+#/sys/devices/platform/(soc/)?[0-9a-z]*\.crg.*/xhci-hcd(-meson)?.[0-9].auto/usb[0-9]/[0-9]-[0-9]/([0-9]-[0-9]:[0-9].[0-9]/)?net/p2p[0-1](/.*)?       u:object_r:sysfs_net:s0
+#/sys/devices/platform/(soc/)?[0-9a-z]*\.crg.*/xhci-hcd(-meson)?.[0-9].auto/usb[0-9]/[0-9]-[0-9]/([0-9]-[0-9]:[0-9].[0-9]/)?net/wlan[0-1](/.*)?      u:object_r:sysfs_net:s0
+
+#for kernel 5.15 VTS case NetdSELinuxTest#CheckProperMTULabels
+#/sys/devices/platform/soc/[0-9a-z]*\.pcie/pci000[0-9]:0[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/net/wlan[0-1](/.*)?          u:object_r:sysfs_net:s0
+#/sys/devices/platform/soc/[0-9a-z]*\.pcie/pci000[0-9]:0[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/net/p2p[0-1](/.*)?           u:object_r:sysfs_net:s0
+#/sys/devices/platform/soc/[0-9a-z]*\.pcie/pci000[0-9]:0[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/000[0-9]:0[0-9]:0[0-9].[0-9]/net/ap[0-1](/.*)?            u:object_r:sysfs_net:s0
+genfscon sysfs /devices/platform/soc/fe3d0000.crg/xhci-hcd-meson.0.auto/usb1/1-2/1-2:1.2/net/wlan0/mtu                                               u:object_r:sysfs_net:s0
+genfscon sysfs /devices/platform/soc/fe3d0000.crg/xhci-hcd-meson.0.auto/usb1/1-2/1-2:1.2/net/ap0/mtu                                                 u:object_r:sysfs_net:s0
+genfscon sysfs /devices/platform/soc/fdc00000.ethernet/net/eth0/mtu                                                                                  u:object_r:sysfs_net:s0
+
+#----> not exist
+#/sys/devices/platform/soc/ff800000.bus/ff809000.adc/iio:device0(/.*)?                                                                               u:object_r:sysfs_iio:s0
+
+#----> No need to add genfscon
+# for android.security.cts.SELinuxHostTest#testNoBugreportDenials
+#/sys/devices/platform(/.*)?\.emmc/mmc_host/emmc/emmc:0001/block/mmcblk0(/.*)?                                                                       u:object_r:sysfs_devices_block:s0
+#/sys/devices/platform/soc(/.*)?\.mmc/mmc_host/mmc[0-1]/mmc[0-1]:0001/block/mmcblk[0-1](/.*)?                                                        u:object_r:sysfs_devices_block:s0
+genfscon sysfs /devices/platform/soc/fe08c000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0                                                              u:object_r:sysfs_devices_block:s0

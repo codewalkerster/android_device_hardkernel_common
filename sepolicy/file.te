@@ -34,14 +34,13 @@ type sysfs_mpgpu, fs_type, sysfs_type;
 
 #adla
 type nn_data_file, file_type, data_file_type;
+type sysfs_neuralnetworks, fs_type, sysfs_type;
 
 type sysfs_fb0_afbcd, fs_type, sysfs_type;
 type sysfs_digital_codec, fs_type, sysfs_type;
 type sysfs_audio_samesource, fs_type, sysfs_type;
-type sysfs_audio_cap, fs_type, sysfs_type;
 type sysfs_aud_output_chs, fs_type, sysfs_type;
 type sysfs_audio, fs_type, sysfs_type;
-type sysfs_avsync, fs_type, sysfs_type;
 type sysfs_video, fs_type, sysfs_type;
 
 type ppp_system_file, exec_type, file_type;
@@ -112,3 +111,4 @@ type mediadrm_vendor_data_file, file_type, data_file_type;
 type sysfs_tee, fs_type, sysfs_type;
 
 type sysfs_aml_btusb, fs_type, sysfs_type;
+type sysfs_aml_stpbt, fs_type, sysfs_type;

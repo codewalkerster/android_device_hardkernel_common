@@ -1,4 +1,5 @@
 allow dumpstate debugfs:dir r_file_perms;
+
 allow dumpstate incidentd:binder call;
 allow dumpstate param_tv_file:dir { getattr search };
 allow dumpstate tee_vendor_file:dir { getattr search };
@@ -39,3 +40,4 @@ allow dumpstate sysfs_display:file read;
 allow dumpstate sysfs_amhdmitx:file read;
 allow dumpstate hal_droid_mdns_default:binder { call };
 allow dumpstate droidaudio:binder { call };
+allow dumpstate rsv_log_file:dir { getattr };

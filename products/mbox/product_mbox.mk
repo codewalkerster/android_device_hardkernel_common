@@ -116,6 +116,10 @@ ifeq ($(CONFIG_DEVICE_LOW_RAM_OTT_1G),true)
     DvbAudioService \
     com.droidlogic.dvbaudioservice.permissions.xml
 
+# Include drawables for all densities
+PRODUCT_AAPT_CONFIG := mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
 #screencontrol
 #PRODUCT_PACKAGES += \
     screencontrol \
@@ -223,4 +227,13 @@ PRODUCT_COPY_FILES += \
 else
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/products/mbox/hdcp_tx22.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp_tx22.rc
+endif
+
+#enable energy mode through it's not mandatory
+TARGET_ENABLE_ENERGYMODE ?= true
+
+
+ifeq ($(BUILD_WITH_IMG_DEC),true)
+PRODUCT_COPY_FILES += \
+     device/hardkernel/common/permissions/com.google.android.tv.photos_video_plane.JPEG.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.android.tv.photos_video_plane.JPEG.xml
 endif

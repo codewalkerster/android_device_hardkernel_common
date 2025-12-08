@@ -61,10 +61,10 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     $(CHIP_DIR)/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
-########################################################################
-# the wifi chip doesn't support mdns offload wake up
-# ########################################################################
-TARGET_BUILD_MDNS := false
+#dv config file
+PRODUCT_COPY_FILES += \
+    $(CHIP_DIR)/files/tv/tvconfig/panel/Amlogic_dv.cfg:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/amdv/Amlogic_dv.cfg \
+    $(CHIP_DIR)/files/tv/tvconfig/panel/dv_config.bin:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/amdv/dv_config.bin
 
 
 # tv config file

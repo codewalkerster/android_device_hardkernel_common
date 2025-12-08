@@ -45,6 +45,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.control_privapp_permissions=enforce
 
+
+#CONFIG_INCREMENTAL_FS=y
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.incremental.enable=yes
+
 # for AAudio support
 PRODUCT_PROPERTY_OVERRIDES += \
     aaudio.mmap_exclusive_policy=2 \
@@ -78,7 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
 
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.lowmem_min_oom_score=1001
 
 #add dualspdif

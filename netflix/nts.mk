@@ -12,7 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.nrdp.validation=$(TARGET_BUILD_NINJA_VALIDATION)
 else
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.nrdp.validation=ninja_11
+    ro.vendor.nrdp.validation=ninja_10
 endif
 
 PRODUCT_PACKAGES += \
