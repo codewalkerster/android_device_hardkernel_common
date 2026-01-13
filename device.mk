@@ -1071,4 +1071,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bt.service.down=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    factory.long_press_power_off=0
+
 $(call inherit-product, device/hardkernel/proprietary/proprietary.mk)
