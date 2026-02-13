@@ -14,7 +14,7 @@
 	done
 
 # boot args
-	test -n $${disable_vu7} && setenv bootargs $${bootargs} disable_vu7=$${disable_vu7}
+	test -n $${disable_vu7} && setenv bootargs $${bootargs} dwav_usb_mt.disable_vu7=$${disable_vu7}
 	test -n $${touch_flip_x} && setenv bootargs $${bootargs} touch_flip_x=$${touch_flip_x}
 	test -n $${touch_flip_y} && setenv bootargs $${bootargs} touch_flip_y=$${touch_flip_y}
 	test -n $${test_mt_vid} && setenv bootargs $${bootargs} test_mt_vid=$${test_mt_vid}
