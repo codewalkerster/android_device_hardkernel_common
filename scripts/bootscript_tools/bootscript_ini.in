@@ -20,6 +20,7 @@
 	test -n $${test_mt_vid} && setenv bootargs $${bootargs} test_mt_vid=$${test_mt_vid}
 	test -n $${test_mt_pid} && setenv bootargs $${bootargs} test_mt_pid=$${test_mt_pid}
 	test -n $${prevent_sleep} && setenv bootargs $${bootargs} prevent_sleep=$${prevent_sleep}
+	test -n $${mouse2touch} && setenv bootargs $${bootargs} mouse2touch=$${mouse2touch}
 	test -n $${voutmode} && setenv bootargs $${bootargs} aml_media.voutmode=$${voutmode}
 	test -n $${disablehpd} && setenv bootargs $${bootargs} aml_media.disablehpd=$${disablehpd}
 	if test $${force_hpd} = true; then
