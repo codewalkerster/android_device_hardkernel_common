@@ -1247,6 +1247,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bt.service.down=true \
     ro.kernel.android.gps.speed=9600
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.radio.noril=false
+
 PRODUCT_PACKAGES += \
      usb_dongle \
      usb_modeswitch
