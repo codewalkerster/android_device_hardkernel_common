@@ -18,7 +18,7 @@ target_partition_size := 19456
 MKFS_FAT= device/hardkernel/proprietary/bin/mkfs.fat
 AOSP_FAT16COPY := build/make/tools/fat16copy.py
 
-$(build_fat_img) : $(boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_img)
+$(build_fat_img) : $(boot_scr) $(selfinstall_boot_scr) $(logo_bmp) $(PRODUCT_DTB_TARGET) $(gpt_img)
 	@echo "Build fat image file $@."
 	dd if=/dev/zero of=$(build_fat_img) bs=1024 count=$(target_partition_size)
 	$(MKFS_FAT) -F16 -n VFAT $(build_fat_img)
